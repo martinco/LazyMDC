@@ -1,0 +1,173 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Waypoints</h1>
+</div>
+
+<form id="waypoints-form" data-nav-target="#comms" class="needs-validation" novalidate>
+
+  <div class="form-row">
+    <div class="col">
+      <div class="form-group">
+        <label for="callsign">Walk Time</label>
+        <input type="time" class="form-control" name="walk-time" id="waypoints-walk-time" value="18:00" required>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="callsign">Transition Altitude</label>
+        <div class="input-group mb-2 ">
+          <input type="number" name="transition-alt" id="waypoints-transition-alt" class="form-control" value="7000">
+          <div class="input-group-append">
+            <div class="input-group-text align-middle">FT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="callsign">Transition Level</label>
+        <div class="input-group mb-2 ">
+          <div class="input-group-prepend">
+            <div class="input-group-text align-middle">FL</div>
+          </div>
+          <input type="number" name="transition-level" id="waypoints-transition-level" class="form-control" value="85">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- workaround for coordinate dialog which assumes tables -->
+  <div class="form-group">
+    <label class="heading">Bullseye</label>
+    <table class="table table-striped" id="waypoints-bullseye-table">
+      <colgroup>
+        <col />
+        <col style="width:140px" />
+        <col style="width:140px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th>NAME</th>
+          <th>LAT</th>
+          <th>LON</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        <tr>
+          <td class="input-container"><input class="input-full" name='bullseye-name' id='waypoints-bullseye-name'></td>
+          <td class="coord" onClick="coordinate_input(this, 1);" id='waypoints-bullseye-lat'></td>
+          <td class="coord" onClick="coordinate_input(this, 1);" id='waypoints-bullseye-lon'></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-group">
+    <label class="heading">Mission Plan</label>
+    <table class="table table-striped" id="waypoints-table">
+      <colgroup>
+        <col style="width:30px" />
+        <col />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:70px" />
+        <col style="width:140px" />
+        <col style="width:140px" />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:20px;" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>WAYPOINT</th>
+          <th>ALT</th>
+          <th>GS</th>
+          <th>TOT</th>
+          <th>ACT</th>
+          <th>LAT</th>
+          <th>LON</th>
+          <th>DIST</th>
+          <th colspan=2>TBRG</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='waypoints-add-waypoint' type="button">
+      <i data-feather="map-pin"></i>
+    </button>
+  </div>
+
+  <div class="form-group" id="waypoints-poi" style="display:none">
+    <label class="heading">Points of Interest</label>
+    <table class="table table-striped" id="waypoints-poi-table">
+      <colgroup>
+        <col />
+        <col style="width:140px" />
+        <col style="width:140px" />
+        <col style="width:20px;" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th>WAYPOINT</th>
+          <th>LAT</th>
+          <th colspan=2>LON</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='waypoints-add-poi' type="button">
+      <i data-feather="map-pin"></i>
+    </button>
+  </div>
+
+  <div class="form-group" id="waypoints-sequence" style="display:none">
+    <label class="heading">Waypoint Sequence</label>
+    <table class="table table-striped" id="waypoints-sequence-table">
+      <colgroup>
+        <col style="width:30px" />
+        <col />
+        <col style="width:240px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center">ID</th>
+          <th>SEQUENCE</th>
+          <th>NOTES</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="text-center">1</td>
+          <td class="input-container"><input type="text" class="text-center input-full"></td>
+          <td class="input-container"><input type="text" class="input-full"></td>
+        </tr>
+        <tr>
+          <td class="text-center">2</td>
+          <td class="input-container"><input type="text" class="text-center input-full"></td>
+          <td class="input-container"><input type="text" class="input-full"></td>
+        </tr>
+        <tr>
+          <td class="text-center">3</td>
+          <td class="input-container"><input type="text" class="text-center input-full"></td>
+          <td class="input-container"><input type="text" class="input-full"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit">Next...</button>
+  </div>
+
+</div>

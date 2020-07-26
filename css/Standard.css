@@ -1,0 +1,38 @@
+.kneeboard {
+  font-color: #000000;
+  color: #000000;
+  background: #fefefe;
+}
+
+b {
+  color: #000000;
+}
+
+/* coordinates, tcn, and frequences should be bold */
+.kneeboard .coord,
+.kneeboard .tcn, .kneeboard .tcn input,
+.kneeboard .freq, .kneeboard .freq input,
+.kneeboard .tcn, .kneeboard .tcn input {
+  color: #000000;
+}
+
+.kneeboard tr {
+  background: #fefefe;
+}
+
+.kneeboard tr .inline-title {
+  background: #ffffff;
+  color:#000000;
+}
+
+.kneeboard tr .block-title {
+  background: #fff;
+  color: #000;
+}
+
+.kneeboard tr:nth-child(odd) textarea,
+.kneeboard tr:nth-child(odd) input,
+.kneeboard tr:nth-child(odd)
+{
+  background: #d9d9d9;
+}

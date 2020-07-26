@@ -1,0 +1,194 @@
+body {
+  font-size: .875rem;
+  height: 100%;
+  overflow-y: scroll;
+}
+html {
+  height: 100%;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+
+
+/*
+ *  * Sidebar
+ *   */
+
+  .sidebar {
+    position: fixed;
+    padding-top: .5rem;
+    width: 200px;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #999;
+  }
+
+  .sidebar .nav-link.active {
+    color: #007bff;
+  }
+
+  .sidebar .nav-link.disabled {
+    color: #cccccc;
+  }
+
+  .sidebar .nav-link:hover .feather,
+  .sidebar .nav-link.active .feather {
+    color: inherit;
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+
+  /*
+   *  * Navbar
+   *   */
+
+  .navbar-brand {
+    width: 210px;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  }
+
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+  }
+
+  .form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  }
+
+  /*
+   *  * Utilities
+   *   */
+
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+
+/*
+ *
+ * FIXED WIDTH SIDEBAR 
+ *
+ */
+
+.col-fixed { position:relative; min-height:1px; float:left; width:100%; width: 210px; }
+.col-fluid { position:relative; min-height:1px; padding-top:12px; float:left; width: 590px; left:210px }
+
+.form-group > label,
+label.heading {
+  font-weight: 600;
+  margin-top: 5px;
+  color: #555555;
+}
+
+.form-group {
+  overflow: auto;
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table {
+  font-size: 12px;
+}
+
+.table tr {
+  height: 26px;
+}
+
+.table .thead-light th {
+  border: 1px solid #777777;
+}
+
+.table td, .table th {
+  border: 1px solid #777;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+input {
+  text-align: inherit;
+  font-weight: inherit;
+}
+
+#threats-table input,
+#comms-table input,
+#waypoints-poi-table input,
+#waypoints-table input,
+#waypoints-table select,
+input.input-full,
+select.input-full {
+  border:0;
+  background: none;
+  width:100%;
+  margin: 0;
+  padding: 5px;
+  height: 26px;
+}
+
+td.coord,
+#waypoints-table td.coord,
+#waypoints-poi-table td.coord {
+  font-weight: bold;
+}
+
+td.input-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide number spinner */
+
+/* Chrome, Safari, Edge, Opera */
+input.nospin::-webkit-outer-spin-button,
+input.nospin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input.nospin[type=number] {
+  -moz-appearance: textfield;
+}
+
+body .overhang,
+body .overhang-overlay {
+  width: 198px;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: 0;
+}

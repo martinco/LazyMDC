@@ -1,0 +1,432 @@
+{
+  "Caucasus": {
+    "Gudauta": {
+      "icao": "UG23",
+      "lon": 40.564175768401,
+      "runways": {
+        "33": null,
+        "15": null
+      },
+      "lat": 43.124233340197,
+      "alt": 69
+    },
+    "Novorossiysk": {
+      "icao": "URKN",
+      "runways": {
+        "04": null,
+        "22": null
+      }
+    },
+    "Batumi": {
+      "icao": "UGSB",
+      "lon": 41.60927548351,
+      "runways": {
+        "12": 110.3,
+        "30": null
+      },
+      "lat": 41.603279859649,
+      "alt": 33
+    },
+    "Nalchik": {
+      "icao": "URMN",
+      "lon": 43.624886288019,
+      "runways": {
+        "05": null,
+        "23": 110.5
+      },
+      "lat": 43.50998473506,
+      "alt": 1411
+    },
+    "Tbilisi-Lochini": {
+      "icao": "UGTB",
+      "lon": 44.946876591924,
+      "runways": {
+        "12R": 110.3,
+        "30L": 108.9
+      },
+      "lat": 41.674719358734,
+      "alt": 1574
+    },
+    "Vaziani": {
+      "icao": "UG27",
+      "lon": 45.01909093846,
+      "runways": {
+        "13": 108.75,
+        "31": 108.75
+      },
+      "tcn": "22X",
+      "lat": 41.637735936262,
+      "alt": 1524
+    },
+    "Kobuleti": {
+      "icao": "UG5X",
+      "lon": 41.876483823101,
+      "runways": {
+        "25": null,
+        "07": 111.5
+      },
+      "tcn": "67X",
+      "lat": 41.932105353453,
+      "alt": 59
+    },
+    "Krasnodar-Center": {
+      "icao": "URKL",
+      "runways": {
+        "08": null,
+        "26": null
+      }
+    },
+    "Sochi-Adler": {
+      "icao": "URSS",
+      "lon": 39.924231880466,
+      "runways": {
+        "02": null,
+        "06": 111.1,
+        "20": null,
+        "24": null
+      },
+      "lat": 43.439378434051,
+      "alt": 98
+    },
+    "Mineralnye Vody": {
+      "icao": "URMM",
+      "lon": 43.100679733081,
+      "runways": {
+        "11": 111.7,
+        "29": 109.3
+      },
+      "lat": 44.218646823807,
+      "alt": 1050
+    },
+    "Anapa-Vityazevo": {
+      "icao": "URKA",
+      "runways": {
+        "04": null,
+        "22": null
+      }
+    },
+    "Krymsk": {
+      "icao": "URKW",
+      "runways": {
+        "03": null,
+        "21": null
+      }
+    },
+    "Soganlug": {
+      "icao": "UG24",
+      "lon": 44.947183065317,
+      "runways": {
+        "13": null,
+        "31": null
+      },
+      "lat": 41.641163266787,
+      "alt": 1474
+    },
+    "Senaki-Kolkhi": {
+      "icao": "UGKS",
+      "lon": 42.061021312856,
+      "runways": {
+        "27": null,
+        "09": 108.9
+      },
+      "tcn": "31X",
+      "lat": 42.238728081573,
+      "alt": 43
+    },
+    "Mozdok": {
+      "icao": "XRMF",
+      "lon": 44.620327262102,
+      "runways": {
+        "08": null,
+        "26": null
+      },
+      "lat": 43.791303250938,
+      "alt": 507
+    },
+    "Krasnodar-Pashkovsky": {
+      "icao": "URKK",
+      "lon": 39.203066906325,
+      "runways": {
+        "04": {
+          "R": null,
+          "L": null
+        },
+        "22": {
+          "R": null,
+          "L": null
+        }
+      },
+      "lat": 45.046099641543,
+      "alt": 112
+    },
+    "Maykop-Khanskaya": {
+      "icao": "URKH",
+      "lon": 40.021427482236,
+      "runways": {
+        "04": null,
+        "22": null
+      },
+      "lat": 44.671440257355,
+      "alt": 591
+    },
+    "Kutaisi": {
+      "runways": {
+        "25": null,
+        "07": 109.75
+      },
+      "icao": "UGKO",
+      "tcn": "44X"
+    },
+    "Gelendzhik": {
+      "icao": "URKG",
+      "lon": 38.004146350528,
+      "runways": {
+        "04": null,
+        "22": null
+      },
+      "lat": 44.567674586004,
+      "alt": 72
+    },
+    "Beslan": {
+      "icao": "URMO",
+      "lon": 44.588922553543,
+      "runways": {
+        "27": null,
+        "09": 110.5
+      },
+      "lat": 43.208500987381,
+      "alt": 1719
+    },
+    "Sukhumi-Babushara": {
+      "icao": "UGSS",
+      "lon": 41.142447588488,
+      "runways": {
+        "11": null,
+        "29": null
+      },
+      "lat": 42.852741071635,
+      "alt": 44
+    }
+  },
+  "PersianGulf": {
+    "Havadarya": {
+      "icao": "OIKP",
+      "lat": 27.159927526116,
+      "alt": 51,
+      "lon": 56.183089447173
+    },
+    "Al-Bateen": {
+      "icao": "OMAD",
+      "lat": 24.434059322946,
+      "alt": 12,
+      "lon": 54.450706215697
+    },
+    "Al Minhad": {
+      "tcn": "99X",
+      "icao": "OMDM",
+      "lon": 55.383678016973,
+      "runways": {
+        "27": 110.75,
+        "09": 110.75
+      },
+      "lat": 25.026805920475,
+      "alt": 191
+    },
+    "Kerman": {
+      "tcn": "97X",
+      "icao": "OIKK",
+      "lon": 56.958269051762,
+      "runways": {
+        "16": null,
+        "34": null
+      },
+      "lat": 30.257695568151,
+      "alt": 5746
+    },
+    "Khasab": {
+      "tcn": "84X",
+      "icao": "OOKB",
+      "lon": 56.24317158197,
+      "runways": {
+        "19": 110.3,
+        "01": null
+      },
+      "lat": 26.179806360704,
+      "alt": 48
+    },
+    "Fujairah": {
+      "icao": "OMFJ",
+      "lon": 56.340423943738,
+      "runways": {
+        "11": null,
+        "29": 111.1
+      },
+      "lat": 25.105735807567,
+      "alt": 61
+    },
+    "Dubai": {
+      "icao": "OMDB",
+      "lat": 25.248265300858,
+      "alt": 16,
+      "lon": 55.379295777402
+    },
+    "Tunb Kochak": {
+      "icao": "OITK",
+      "lat": 26.243605485601,
+      "alt": 15,
+      "lon": 55.149352101732
+    },
+    "Sas Al Nakheel": {
+      "icao": "OMNK",
+      "lat": 24.448211500963,
+      "alt": 10,
+      "lon": 54.514696366062
+    },
+    "Shiraz": {
+      "icao": "OISS",
+      "lat": 29.533103964275,
+      "alt": 4879,
+      "lon": 52.609894223947
+    },
+    "Tunb Island AFB": {
+      "icao": "OIGI",
+      "lat": 26.251538702312,
+      "alt": 43,
+      "lon": 55.311280020098
+    },
+    "Abu Dhabi": {
+      "icao": "OMAA",
+      "lat": 24.464722760717,
+      "alt": 92,
+      "lon": 54.639226001065
+    },
+    "Kish": {
+      "tcn": "112X",
+      "icao": "OIBK",
+      "lon": 53.964909162786,
+      "runways": {
+        "27": {
+          "R": null,
+          "L": null
+        },
+        "09": {
+          "R": null,
+          "L": null
+        }
+      },
+      "lat": 26.529651099908,
+      "alt": 115
+    },
+    "Abu Musa Island": {
+      "icao": "OIBA",
+      "lat": 25.875041761239,
+      "alt": 16,
+      "lon": 55.021382072783
+    },
+    "Lar": {
+      "icao": "OISL",
+      "lat": 27.674804842122,
+      "alt": 2636,
+      "lon": 54.368317250382
+    },
+    "Bandar Lengeh": {
+      "icao": "OIBL",
+      "lat": 26.530817420578,
+      "alt": 81,
+      "lon": 54.813116140778
+    },
+    "Al Maktoum": {
+      "icao": "OMDW",
+      "lat": 24.888624487709,
+      "alt": 123,
+      "lon": 55.174919966811
+    },
+    "Ras Al Khaimah": {
+      "icao": "OMRK",
+      "lat": 25.60171784119,
+      "alt": 71,
+      "lon": 55.942030210076
+    },
+    "Liwa": {
+      "icao": "OMSM",
+      "lat": 23.660697450016,
+      "alt": 400,
+      "lon": 53.812497591899
+    },
+    "Sharjah": {
+      "icao": "OMSJ",
+      "lat": 25.322796067752,
+      "alt": 98,
+      "lon": 55.531388153673
+    },
+    "Al Ain": {
+      "icao": "OMAL",
+      "lon": 55.611735832913,
+      "runways": {
+        "19": null,
+        "01": null
+      },
+      "lat": 24.276767283196,
+      "alt": 814
+    },
+    "Al Dhafra": {
+      "tcn": "96X",
+      "icao": "OMAM",
+      "lon": 54.534202504328,
+      "runways": {
+        "13": {
+          "R": null,
+          "L": null
+        },
+        "31": {
+          "R": null,
+          "L": null
+        }
+      },
+      "lat": 24.25792911231,
+      "alt": 52
+    },
+    "Sirri Island": {
+      "icao": "OIBS",
+      "lat": 25.903343862392,
+      "alt": 18,
+      "lon": 54.548214653399
+    },
+    "Qeshm Island": {
+      "icao": "OIKQ",
+      "lat": 26.76633161238,
+      "alt": 26,
+      "lon": 55.918070160223
+    },
+    "Bandar Abbas": {
+      "icao": "OIKB",
+      "lat": 27.203638553985,
+      "alt": 18,
+      "lon": 56.3703560378
+    },
+    "Lavan Island": {
+      "icao": "OIBV",
+      "lat": 26.815354172873,
+      "alt": 75,
+      "lon": 53.3416042246
+    },
+    "Sir Abu Nuayr": {
+      "icao": "OMSN",
+      "lat": 25.216154518016,
+      "alt": 22,
+      "lon": 54.23693990531
+    },
+    "Bandar-e-Jask airfield": {
+      "icao": "OIZJ",
+      "lat": 25.650484470488,
+      "alt": 26,
+      "lon": 57.792125537415
+    },
+    "Jiroft": {
+      "icao": "OIKJ",
+      "lat": 28.731593220974,
+      "alt": 2664,
+      "lon": 57.664118826397
+    }
+  }
+}

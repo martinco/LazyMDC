@@ -1,0 +1,242 @@
+<div class="modal fade" id="coordinate-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Coordinate Input</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="col-3"> 
+            <label class="heading">Decimal Degrees (DD)</label>
+
+            <div class="input-group pb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text p-0 align-middle text-middle" style="width: 45px; display: grid">LAT</div>
+              </div>
+              <input id="coordinate-dd-lat" type="number" step="any" class="form-control nospin">
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text p-0 align-middle text-center" style="width: 45px; display: grid">LON</div>
+              </div>
+              <input id="coordinate-dd-lon" type="number" step="any" class="form-control nospin">
+            </div>
+          </div>
+
+          <div class="col" style="max-width:10px"></div> 
+
+
+          <div class="col-4"> 
+            <label class="heading">Degrees Decimal Minutes (DDM)</label>
+            <div class="container">
+              <div class="row pb-2">
+                <div class="col-4 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-ddm-lat-deg" min=0 max=90 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">&deg;</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pl-1 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-ddm-lat-min" min=0 max=60 type="number" step="any" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">"</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-0 pl-1 m-0" style="max-width: 45px">
+                  <div class="input-group p-0">
+                    <select id="coordinate-ddm-lat-axis" class="form-control p-0">
+                      <option>N</option>
+                      <option>S</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-ddm-lon-deg" min=0 max=180 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">&deg;</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pl-1 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-ddm-lon-min" min=0 max=60 type="number" step="any" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">"</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-0 pl-1 m-0" style="max-width: 45px">
+                  <div class="input-group p-0">
+                    <select id="coordinate-ddm-lon-axis" class="form-control p-0" data-width="fit">
+                      <option>E</option>
+                      <option>W</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" style="max-width:10px"> 
+          </div> 
+          <div class="col"> 
+            <label class="heading">Degrees Minutes Seconds (DMS)</label>
+            <div class="container">
+              <div class="row pb-2">
+                <div class="col-3 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lat-deg" min=0 max=90 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">&deg;</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lat-min" min=0 max=60 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">'</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pl-1 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lat-sec" min=0 max=60 type="number" step="any" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">"</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-0 pl-1 m-0" style="max-width: 45px">
+                  <div class="input-group p-0">
+                    <select id="coordinate-dms-lat-axis" class="form-control p-0">
+                      <option>N</option>
+                      <option>S</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lon-deg" min=0 max=180 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">&deg;</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3 p-0 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lon-min" min=0 max=60 type="number" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div id="parr-ils" class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">'</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pl-1 pr-1">
+                  <div class="input-group p-0">
+                    <input id="coordinate-dms-lon-sec" min=0 max=60 type="number" step="any" class="form-control nospin">
+                    <div class="input-group-append">
+                      <div id="parr-ils" class="input-group-text p-0 align-middle text-middle" style="width: 20px; display: grid">"</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-0 pl-1 m-0" style="max-width: 45px">
+                  <div class="input-group p-0">
+                    <select id="coordinate-dms-lon-axis" class="form-control p-0">
+                      <option>E</option>
+                      <option>W</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row border-bottom" style="margin-left:-1rem"> 
+          <h5 class="msodal-title" style="margin-left:1rem">Utilities</h5>
+        </div>
+
+        <div class="form-row" style="padding-top:1rem">
+          <div class="col-3"> 
+            <label class="heading">Update with Offset</label>
+
+            <div class="input-group pb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text p-0 align-middle text-middle" style="width: 45px; display: grid">BRG</div>
+              </div>
+              <input id="coordinate-offset-brg" min=0 max=360 type="number" step="any" class="form-control">
+            </div>
+            <div class="input-group pb-2 p-0">
+              <div class="input-group-prepend">
+                <div class="input-group-text p-0 align-middle text-center" style="width: 45px; display: grid">RNG</div>
+              </div>
+              <input id="coordinate-offset-rng" type="number" step="any" class="form-control">
+            </div>
+
+          </div>
+          <div class="col" style="max-width:10px"></div> 
+          <div class="col-4"> 
+            <label class="heading">Set from String</label>
+            <div class="input-group pb-2">
+              <input id="coordinate-string" type="string" class="form-control" placeholder="N 25 06.333 E 056 20.417">
+            </div>
+            <div class="invalid-feedback" id=coordinate-string-feedback></div>
+          </div>
+          <div class="col" style="max-width:10px"></div> 
+          <div class="col"> 
+            <label class="heading">Override Coordinate Format</label>
+              <div class="btn-group btn-group-toggle d-flex pb-2" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="coordinate-override-fmt" id="coordinate-override-dms" value="dms" autocomplete="off" checked>DMS
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="coordinate-override-fmt" id="coordinate-override-ddm" value="ddm" autocomplete="off">DDM
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="coordinate-override-fmt" id="coordinate-override-dd" value="dd" autocomplete="off">DD
+                </label>
+              </div>
+              <div class="input-group pb-2 p-0">
+                <div class="input-group-prepend">
+                  <div class="input-group-text p-0 align-middle text-center" style="width: 45px; display: grid">DP</div>
+                </div>
+                <input id="coordinate-override-decimals" type="number" min=0 max=6 class="form-control">
+              </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-3"> 
+            <button type="button" class="btn btn-primary" id="coordinate-offset-submit" style="float:right">Update</button>
+          </div>
+          <div class="col" style="max-width:10px"></div> 
+          <div class="col-4"> 
+            <button type="button" class="btn btn-primary" id="coordinate-string-submit" style="float:right">Load</button>
+          </div>
+          <div class="col" style="max-width:10px"></div> 
+          <div class="col"> 
+            <button type="button" class="btn btn-primary ml-2" id="coordinate-override-submit" style="float:right">Set</button>
+            <button type="button" class="btn btn-secondary" id="coordinate-override-unset" style="float:right; display: hidden">Unset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="coordinate-dialog-submit">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

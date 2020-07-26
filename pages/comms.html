@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 norder-bottom">
+  <h1 class="h2">Mission Communication</h1>
+</div>
+
+<form id="comms-form" data-nav-target="#threats" class="needs-validation" novalidate>
+
+  <div class="form-group">
+    <label class="heading">RAMROD</label>
+    <input id="comms-ramrod" pattern='^[A-Z]{10}$' class="form-control" onkeyup="this.value = this.value.length > 10 ? this.value.substr(0,10).toUpperCase() : this.value.toUpperCase();" style="letter-spacing:30px;" value="COMPLEXITY">
+  </div>
+
+  <div class="form-group">
+    <label class="heading">Agencies</label>
+    <table class="table table-striped" id="comms-table">
+      <colgroup>
+        <col style="width:205px" />
+        <col style="width:45px" />
+        <col style="width:65px" />
+        <col style="width:50px" />
+        <col style="width:65px" />
+        <col style="width:50px" />
+        <col />
+        <col style="width:20px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center">AGENCY</th>
+          <th class="text-center">TCN</th>
+          <th class="text-center">PRI</th>
+          <th class="text-center">PRI #</th>
+          <th class="text-center">SEC</th>
+          <th class="text-center">SEC #</th>
+          <th class="text-center" colspan=2>NOTES</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='comms-add' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit">Next...</button>
+  </div>
+
+</div>

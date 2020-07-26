@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Mission</h1>
+</div>
+
+<form id="mission-form" data-nav-target="#flight" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="mission-id">Mission ID</label>
+    <input type="text" class="form-control" name="mission-id" id="mission-id" pattern="^[A-Za-z0-9]+$" required>
+    <div class="invalid-feedback">
+      Please enter an alpha-numeric ID without spaces, this is used for file names etc.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="mission-callsign">Callsign</label>
+    <input type="text" class="form-control" name="mission-callsign" id="mission-callsign" required>
+  </div>
+
+  <div class="form-row">
+    <div class="col">
+      <div class="form-group">
+        <label for="mission-pri-freq">Primary Frequency</label>
+        <input type="text" class="form-control freq-autocomplete" name="mission-pri-freq" id="mission-pri-freq" pattern="^[0-9]+\.[0-9]{3}$" required>
+        <div class="invalid-feedback"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="mission-sec-freq">Secondary Frequency</label>
+        <input type="text" class="form-control freq-autocomplete" name="mission-sec-freq" id="mission-sec-freq" pattern="^[0-9]+\.[0-9]{3}$">
+        <div class="invalid-feedback">
+          Please enter a valid frequency
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="mission-desc">Mission Description</label>
+    <input type="text" class="form-control" name="mission-desc" id="mission-desc">
+  </div>
+
+  <div class="text-right">
+    <button class="btn btn-primary" type="submit">Next...</button>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+certifi==2019.11.28
+chardet==3.0.4
+idna==2.8
+imgkit==1.0.2
+Jinja2==2.10.3
+Markdown==3.1.1
+MarkupSafe==1.1.1
+Pillow==6.2.1
+requests==2.22.0
+urllib3==1.25.7

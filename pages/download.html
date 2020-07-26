@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Download</h1>
+</div>
+
+<form id="download-form" data-nav-target="#mission" class="needs-validation" novalidate>
+
+  <div class="form-group">
+    <label for="download-template">Output Template</label>
+    <select id="download-template" class="form-control">
+      <option selected>Standard</option>
+    </select>
+  </div>
+
+  <label style="font-weight: 600; margin-top: 5px; color: #555555;">Download Format</label>
+
+  <div>
+    <button type="button" class="btn btn-default p-0 mr-3" aria-label="Left Align">
+      <span class="fiv-cla fiv-icon-lnk" style="width:70px; height: 100px" aria-hidden="true" onClick='download("lnk")'></span>
+    </button>
+    <button type="button" class="btn btn-default p-0 mr-3" aria-label="Left Align">
+      <span class="fiv-cla fiv-icon-pdf" style="width:70px; height: 100px" aria-hidden="true" onClick='download("pdf")'></span>
+    </button>
+    <button type="button" class="btn btn-default p-0 mr-3" aria-label="Left Align">
+      <span class="fiv-cla fiv-icon-png" style="width:70px; height: 100px" aria-hidden="true" onClick='download("png")'></span>
+    </button>
+    <button type="button" class="btn btn-default p-0 mr-3" aria-label="Left Align">
+      <span class="fiv-cla fiv-icon-json" style="width:70px; height: 100px" aria-hidden="true" onClick='download("json")'></span>
+    </button>
+    <button type="button" class="btn btn-default p-0 mr-3" aria-label="Left Align">
+      <span class="fiv-cla fiv-icon-html" style="width:70px; height: 100px" aria-hidden="true" onClick='download("html")'></span>
+    </button>
+  </div>
+
+</form>
+

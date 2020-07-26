@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Flight</h1>
+</div>
+<form id="flight-form" data-nav-target="#package" class="needs-validation" validate>
+  <div class="form-group">
+    <label for="flight-airframe">Airframe</label>
+    <select name="flight-airframe" id="flight-airframe" class="form-control" required>
+      <option value="" selected disabled hidden>Select Airframe...</option>
+      <option>A-10C</option>
+      <option>F-14B</option>
+      <option>F-16C</option>
+      <option value="FA-18C">F/A-18C</option>
+    </select>
+  </div>
+
+  <div id="flight-members-container" style="display: none">
+
+    <div class="form-row">
+      <div class="col"> 
+        <div class="form-group p-0 mb-0">
+          <label>Coordinate Format</label>
+        </div>
+        <div class="form-inline mb-3">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="radio" name="flight-coord" id="flight-coord-dms" value="dms" autocomplete="off" checked>DMS
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-ddm" value="ddm" autocomplete="off">DDM
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
+            </label>
+          </div>
+          <div class="p-2">to</div>
+          <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
+          <div class="p-2">decimal places</div>
+        </div>
+      </div>
+      <div class="col"> 
+        <div class="form-group">
+          <label class="heading">Example</label>
+          <div type="text" class="form-control" data-raw="37.56383" id="flight-coord-example" style="background-color: #e9ecef"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Members</label>
+    </div>
+
+    <table class="table table-striped" id="flight-members-table">
+      <colgroup>
+      </colgroup>
+      <thead class="thead-light">
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='flight-add-member' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+
+    <div class="alert alert-danger mt-2" id="flight-alert-members-missing" role="alert" style="display: none">
+      You must have at least one flight member, please assign a flight lead.
+    </div>
+
+    <div style="text-align: right">
+      <button class="btn btn-primary" type="submit">Next...</button>
+    </div>
+  </div>
+</form>

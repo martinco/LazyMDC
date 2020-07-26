@@ -1,0 +1,19 @@
+<Files download>
+  SetHandler cgi-script 
+</Files>
+
+
+Options +ExecCGI
+
+RewriteEngine on
+
+# SET BASE to match our root; everything except a possible last element DC ID
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+RewriteRule ^(.*)$ - [E=BASE:%1]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule ^([0-9a-zA-Z]{8})/(.*) %{ENV:BASE}$2 [L]
+RewriteRule ^([0-9a-zA-Z]{8})$ %{ENV:BASE}/index.php
+

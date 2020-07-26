@@ -1,0 +1,109 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Data Sources</h1>
+</div>
+
+<form id="data-form" data-nav-target="#mission" class="needs-validation" novalidate>
+  <label style="font-weight: 600; margin-top: 5px; color: #555555;">Data Imports</label>
+
+  <div class="form-group">
+    <div class="custom-file">
+      <div id='data-file-input-container'>
+        <input type="file" class="custom-file-input" id="data-file-input" accept=".cf,.json" onChange="data_load_file(this);">
+      </div>
+      <label class="custom-file-label" for="validatedCustomFile">Combat Flite / Saved JSON</label>
+    </div>
+    <small class="form-text text-muted">
+      These are not uploaded or stored and are processed by your browser
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="data-mission">Mission Data</label>
+    <select name="mission" id="data-mission" class="form-control">
+      <option>None</option>
+    </select>
+    <small class="form-text text-muted">
+      This is used to populate aircraft presets, frequency auto-completes, agency auto-completes and navaids for waypoint auto-completes
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="data-theatre">Theatre</label>
+    <select name="theatre" id="data-theatre" class="form-control">
+      <option>Caucasus</option>
+      <option selected value="PersianGulf">Persian Gulf</option>
+    </select>
+    <small class="form-text text-muted">
+      This is used to help populate airfields to supplement navaids from the Mission Data
+    </small>
+  </div>
+
+  <br>
+
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit">Next...</button>
+  </div>
+</form>
+
+<!-- ROUTE DIALOG (CF) -->
+<div class="modal fade" id="data-route-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Route Select</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+        The data from combat flite will help populate various fields to save you time, including:
+        <ul>
+          <li>Walk Time</li>
+          <li>Coalition's Bullseye</li>
+        </ul>
+
+        If you select your mission route, you'll also get
+
+        <br>
+        <br>
+
+        <ul>
+          <li>Aircraft Type</li>
+          <li>Mission Waypoints</li>
+          <li>Flight Stores</li>
+        </ul>
+
+        </p>
+
+        <form>
+          <div class="form-group">
+            <label for="data-route-dialog-waypoints">Mission Route</label>
+            <select id="data-route-dialog-waypoints" class="form-control">
+              <option value="" selected>None</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="data-route-dialog-poi-container" style="display:none">
+            <label for="data-route-dialog-poi">Points of Interest</label>
+            <select id="data-route-dialog-poi" class="form-control">
+              <option value="" selected>None</option>
+            </select>
+            <small class="form-text text-muted">
+              Additional waypoints of interest
+            </small>
+          </div>
+
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='data-route-dialog-submit'>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

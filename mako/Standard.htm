@@ -1,0 +1,984 @@
+<%
+# Header 20
+# Table Head 19
+# Table Row 21
+# Section Spacing 10
+
+import math
+
+table_head = 20
+table_row_height = 21.5
+
+def ntos(n):
+  # Get number of DPs
+  try:
+    dp = len(str(n).split('.')[1])
+  except:
+    dp = 0
+  return '{:,.{prec}f}'.format(float(n), prec=dp)
+
+def get(lst, idx, default=None):
+  try:
+    return lst[idx]
+  except (IndexError, KeyError):
+    return default
+
+def ll(info, lat=True):
+
+  if not info:
+    return ""
+
+  prefix = 'lat' if lat else 'lon'
+
+  try:
+    pos = float(info[prefix])
+  except Exception as e:
+    return info 
+
+  if lat:
+      axis = "N" if pos > 0 else "S"
+      pad = 2
+  else:
+      axis = "E" if pos > 0 else "W"
+      pad = 3
+
+  # Get Coordinate Format
+  coord = info.get(f"{prefix}_fmt", data['flight']['flight-coord'])
+  decimals = int(info.get(f"{prefix}_dmp", data['flight']["flight-coord-decimals"]))
+
+  dec_width = 2 + decimals
+  if (decimals):
+      dec_width += 1
+
+  if coord == 'dd':
+    return "{0:.{prec}f}".format(pos, prec=decimals)
+
+  work = abs(pos)
+  deg = math.floor(work)
+
+  work -= deg
+  work *= 60
+
+  if coord == "ddm":
+    return "{} {:0{dpad}d}&deg; {:0{swidth}.{precision}f}'".format(
+        axis,
+        deg,
+        work,
+        dpad=pad,
+        swidth=dec_width,
+        precision=decimals,
+    )
+
+  min = math.floor(work)
+  work -= min
+  work *= 60
+
+  sec = round(work, decimals)
+
+  if sec == 60:
+    sec = 0
+    min += 1
+
+  if min == 60:
+    min = 0
+    deg += 1
+
+  return "{} {:0{dpad}d}&deg;{:02d}'{:0{swidth}.{precision}f}\"".format(
+      axis,
+      deg,
+      min,
+      sec,
+      swidth=dec_width,
+      dpad=pad,
+      precision=decimals,
+  )
+
+def alt_formatter(alt):
+  alt = int(alt)
+  if alt > int(data['waypoint']['transition-alt']):
+    return 'FL%s' % int(alt/100)
+  return str(int(alt))
+
+def lat_formatter(info):
+  return ll(info, True)
+
+def lon_formatter(info):
+  return ll(info, False)
+
+data = context['data']
+package = data['package']['package-member'] != 'package-false'
+ac = data['flight']['flight-airframe']
+
+y_remain = 1180 - 20
+
+# Flight Members is variable columns...which sucks to map between, so we have:
+# [Title, Col Width, Style]
+
+flight_cols = [
+  ["#", 30, "algnc"],
+  ["PILOT", 240, "lpad5"],
+]
+
+if ac == "F-14B":
+  flight_cols[1][1] /= 2;
+  flight_cols.append(
+    ['RIO', 120, "lpad5"])
+
+if ac in ["F-14B", "FA-18C"]:
+  flight_cols.append(['BORT', 40, "algnc"])
+
+if ac == "A-10C":
+  flight_cols.extend([
+    ['GID', 40, "algnc"],
+    ['OID', 40, "algnc"]])
+
+flight_cols.extend([
+  ['TCN', 40, "algnc"],
+  ['LSR', 40, "algnc"],
+  ['SQUAWK', 50, "algnc"],
+  ['NOTES', 0, "lpad5"]])
+
+%><!DOCTYPE html>
+<head>
+  <title>${data['mission']['mission-id']}</title>
+  <link rel="stylesheet" type="text/css" href="css/fonts.css">
+  <link rel="stylesheet" type="text/css" href="css/Standard-base.css">
+  <link rel="stylesheet" type="text/css" href="css/${theme}.css">
+  % if output.startswith("pdf"):
+  <link rel="stylesheet" type="text/css" href="css/Standard-pdf.css">
+  % endif
+  % if output.startswith("html"):
+  <link rel="stylesheet" type="text/css" href="css/Standard-html.css">
+  % endif
+</head>
+<body>
+
+  % if output in ['png', 'pngr', 'raw']:
+  <div class="kneeboard kneeboard-fixed">
+  % else:
+  <div class="kneeboard">
+  % endif
+
+    ## ##########################################################################
+    ## HEADING TABLE
+    ## ##########################################################################
+    <table class="kb-width" style="table-layout: fixed">
+
+      <colgroup>
+        <col style="width: 115px" />
+        <col style="width: 70px" />
+        <col style="width: 70px" />
+        % if package:
+        <col style="width: 60px" />
+        % endif
+        <col />
+        <col style="width: 60px" />
+      </colgroup>
+
+      <tbody>
+
+        <tr>
+          <th>CALLSIGN</th>
+          <th>PRI</th>
+          <th>SEC</th>
+
+          % if package:
+          <th>PACKAGE</th>
+          % endif
+          <th>MISSION</th>
+          <th>ID</th>
+        </tr>
+        
+        <tr>
+          <td class="algnc">${data['mission']['mission-callsign']}</td>
+          <td class="freq">${data['mission']['mission-pri-freq']}</td>
+          <td class="freq">${data['mission']['mission-sec-freq']}</td>
+          % if package:
+          <td class="algnc">${data['package']['package-name']}</td>
+          % endif
+          <td class="lpad5">${data["mission"]['mission-desc']}</td>
+          <td class="algnc">${data["mission"]['mission-id']}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% y_remain -= table_head + table_row_height %>
+
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+
+    ## ##########################################################################
+    ## FLIGHT TABLE
+    ## ##########################################################################
+    <table class="kb-width" style="table-layout: fixed">
+
+      <colgroup>
+        <col class="rb2" style="width: 15px;" />
+        % for col in flight_cols:
+        <col ${ 'style="width: %spx"' % col[1] if col[1] else '' } />
+        % endfor
+      </colgroup>
+
+      <tbody>
+
+        <tr>
+          <th></th>
+          % for col in flight_cols:
+          <th>${ col[0] }</th>
+          % endfor
+        </tr>
+
+        % for n in range(4):
+        <tr>
+          % if n == 0:
+          <th rowspan=4 class="block-title"><div style="width: 15px"><div class="arotate90">FLIGHT</div></div></th>
+          % endif
+
+          <% elem = get(data['flight']['members'], n) %>
+          % for col in flight_cols:
+          <td ${ 'class="%s"' % col[2] if (col[2] != "") else "" }>${elem[col[0].lower() if col[0] != "#" else "id"] if elem else "&nbsp;" }</td>
+          % endfor 
+
+        </tr>
+        % endfor
+      </tbody>
+    </table>
+
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+    <% y_remain -= table_head + table_row_height*4 %>
+
+    ## ##########################################################################
+    ## DEP / ARR
+    ## ##########################################################################
+
+    <table class="kb-width" style="table-layout: fixed">
+
+      <colgroup>
+        <col class="rb2" class="rb2" style="width: 15px" />
+        <col style="width: 30px" />
+        <col style="width: 120px" />
+        <col style="width: 50px" />
+        <col style="width: 60px" />
+        <col style="width: 60px" />
+        <col style="width: 45px" />
+        <col style="width: 60px" />
+        <col style="width: 60px" />
+        <col style="width: 100px" />
+        <col />
+      </colgroup>
+
+      <tbody>
+
+        <tr class="nodrag header">
+          <th></th>
+          <th></th>
+          <th>AIRBASE</th>
+          <th>ICAO</th>
+          <th>TCN</th>
+          <th>PAR</th>
+          <th>ELEV</th>
+          <th>ILS</th>
+          <th>RWY</th>
+          <th>DEP/ARR</th>
+          <th>NOTES</th>
+        </tr>
+        
+        % for a in ['dep', 'arr', 'alt']:
+        <%
+          elem = data['deparr'][a]
+          if get(elem, 'usedep', False):
+            tmp = dict(data['deparr']['dep'])
+            tmp.update(elem)
+            elem = tmp
+        %>
+        <tr>
+          % if loop.index == 0:
+          <th rowspan=3 class="block-title"><div style="width: 15px"><div class="arotate90">DEP/ARR</div></div></th>
+          % endif
+          <td class="algnc">${a.upper()}</td>
+          <td class="lpad5">${get(elem, 'location')}</td>
+          <td class="algnc">${get(elem, 'icao')}</td>
+          <td class="freq">${get(elem, 'tcn')}</td>
+          <td class="freq">${get(elem, 'par', '')}</td>
+          <td class="algnr rpad5">${get(elem, 'alt', 0)}</td>
+
+          <%
+            ils = get(elem, 'ils', '')
+            ils = "" if ils == '----' else ils
+          %>
+          <td class="freq">${ils}</td>
+          <td class="algnc">${get(elem, 'runway', '-')}</td>
+          <td class="lpad5">${get(elem, 'vfr', '-')}</td>
+          <td class="lpad5">${get(elem, 'notes', '')}</td>
+        </tr>
+        % endfor
+      </tbody>
+    </table>
+    <% y_remain -= table_head + table_row_height*3 %>
+
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+    ## ##########################################################################
+    ## DEP / ARR ATC
+    ## ##########################################################################
+    <%
+      # Prepare our ATC output here, available agencies would be: # atis, gnd,
+      # twr, ctrl - there are normally a max of 4 per thing so its split into
+      # 1 column per AF, but if usedep then we dont need to incl
+
+      cols = []
+
+      # Prioritise based on 
+      for col, deparr in enumerate(['dep', 'arr', 'alt']):
+        dt = []
+
+        if get(data['deparr'][deparr], 'usedep', False):
+          continue
+
+        for agency in ['atis', 'gnd', 'twr', 'ctrl']:
+          try:
+            loc = data['deparr'][deparr]['location']
+            freq = data['deparr'][deparr][agency]
+            pst = data['deparr'][deparr][agency + "-pst"]
+          except:
+            continue
+
+          if freq == "":
+            continue
+
+          dt.append([loc + " " + agency.upper(), freq, pst])
+        
+        if len(dt):
+          cols.append(dt)
+
+      rows = max([len(x) for x in cols])
+      y_remain -= rows*table_row_height + table_head
+
+    %>
+
+    <table class="kb-width" style="table-layout: fixed">
+      <colgroup>
+        <col class="rb2" style="width:15px;" />
+        <col style="width:62px" />
+        <col style="width:45px" />
+        <col class="rb2" />
+        <col style="width:62px" />
+        <col style="width:45px" />
+        <col class="rb2" />
+        <col style="width:62px" />
+        <col style="width:45px" />
+        <col class="" />
+      </colgroup>
+
+      <tbody>
+        <tr>
+          <th></th>
+          <th>FREQ</th>
+          <th>#</th>
+          <th>AGENCY</th>
+          <th>FREQ</th>
+          <th>#</th>
+          <th>AGENCY</th>
+          <th>FREQ</th>
+          <th>#</th>
+          <th>AGENCY</th>
+        </tr>
+
+        % for x in range(rows):
+        <tr>
+            % if loop.index == 0:
+            <th rowspan=${rows}  class="block-title"><div style="width: 15px"><div class="arotate90">ATC INFO</div></div></th>
+            % endif
+
+            % for col in range(3):
+              <% elem = get(get(cols, col, []), x, []) %>
+              <td class="freq">${get(elem, 1, '')}</td>
+              <td class="algnc">${get(elem, 2, '')}</td>
+              <td>${get(elem, 0, '&nbsp;')}</td>
+            % endfor
+        </tr>
+        % endfor
+
+      </tbody>
+    </table>
+
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+    ## ##########################################################################
+    ## LOADOUT
+    ## ##########################################################################
+
+    <table class="kb-width" style="table-layout: fixed">
+      <colgroup>
+        <col class="rb2" style="width: 15px;" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
+        <col style="width:35px" />
+        <col />
+        <col style="width:60px" />
+      </colgroup>
+
+      <tbody>
+        <tr>
+          <th></th>
+          <th>FLARE</th>
+          <th>CHAFF</th>
+          <th>JOKER</th>
+          <th>BINGO</th>
+          <th class="algnc" colspan=3>WEIGHTS</th>
+          <th>STN</th>
+          <th>WEAPON</th>
+          <th>WEIGHT</th>
+        </tr>
+
+        <%
+          count = len(data['loadout']['pylons'])
+          y_remain -= table_head + count * table_row_height
+        %>
+
+        % for elem in data['loadout']['pylons']:
+        <tr style="border:0">
+          % if loop.index == 0:
+            <th rowspan=${count} class="block-title"><div style="width: 15px"><div class="arotate90">PAYLOAD / CMS</div></div></th>
+
+            <td class="algnc">${data['loadout']['flare']}</td>
+            <td class="algnc">${data['loadout']['chaff']}</td>
+            <td class="algnc">${data['loadout']['joker']}</td>
+            <td class="algnc">${data['loadout']['bingo']}</td>
+            <th class="algnc">EMPTY</td>
+            <td class="algnr rpad5" colspan=2>44,040</td>
+          % elif loop.index == 1:
+            <td rowspan=${count-1} colspan=4 class="algnc"><img alt="${ac}" width=240 src="http://anyanka.hatchlane.com/mc/kneeboard/img/${ac}-${'dark' if theme == "StandardDark" else "light"}.png"></td>
+            <th class="algnc">STORES</th>
+            <td class="algnr rpad5" colspan=2>${data['loadout']['weights']['stores']|ntos}</td>
+          % elif loop.index == 2:
+            <th class="algnc">FUEL</th>
+            <td class="algnc">${data['loadout']['fuel']}%</td>
+            <td class="algnr rpad5">${data['loadout']['fuel_lbs']|ntos}</td>
+          % elif loop.index == 3:
+            <th class="algnc">GUN</th>
+            <td class="algnc">${data['loadout']['gun']}%</td>
+            <td class="algnr rpad5">${data['loadout']['gun_lbs']|ntos}</td>
+          % elif loop.index == 4:
+            <th class="algnc">TOTAL</th>
+            <td class="algnr rpad5" colspan=2>68,914</td>
+          ## % elif loop.index == count-3:
+          % elif loop.index == 5:
+            <th class="algnc"></th>
+            % if 'mtow_cvn' in data['loadout']['weights']:
+            <th class="algnc">CVN</th>
+            <th class="algnc">FIELD</th>
+            % else:
+            <th colspan=2 class="algnc">FIELD</th>
+            % endif
+          ## % elif loop.index == count-2:
+          % elif loop.index == 6:
+            <th class="algnc">MAX T/O</th>
+            % if 'mtow_cvn' in data['loadout']['weights']:
+            <td class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
+            <td class="algnr rpad5">${data['loadout']['weights']['mtow_cvn']|ntos}</td>
+            % else:
+            <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
+            % endif
+          % elif loop.index == 7:
+          ## % elif loop.index == count-1:
+            <th class="algnc">MAX LDG</th>
+            % if 'mtow_cvn' in data['loadout']['weights']:
+            <td class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
+            <td class="algnr rpad5">${data['loadout']['weights']['mlw_cvn']|ntos}</td>
+            % else:
+            <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
+            % endif
+          % elif loop.index == 8:
+            <td colspan=3 rowspan=${count-8} class=""></td>
+          % endif
+
+          <td class="algnc">${elem['pyl']}</td>
+          <td>${elem['store']}</td>
+          <td class="algnr rpad5">${elem['weight']|ntos}</td>
+        </tr>
+        % endfor
+
+      </tbody>
+    </table>
+    
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+    ## ##########################################################################
+    ## BULLS / RAMROD
+    ## ##########################################################################
+
+    <div style="overflow: auto">
+      <div style="float: left; width: 49%;">
+        <table style="width: 100%; table-layout: fixed">
+          <colgroup>
+            <col  />
+            <col style="width:125px"/>
+            <col style="width:125px"/>
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <th colspan=3>BULLSEYE</th>
+            </tr>
+
+            <tr>
+              <td class="lpad5">${data['waypoint']['bullseye']['name']}</td>
+              <td class="freq">${data['waypoint']['bullseye']|lat_formatter,n}</td>
+              <td class="freq">${data['waypoint']['bullseye']|lon_formatter,n}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="float: left; width: 2%">&nbsp;</div>
+
+      <div style="float: left; width: 49%;">
+        <table style="width:100%; table-layout: fixed">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <th colspan=10>RAMROD</th>
+            </tr>
+
+            <tr>
+              % for elem in data['comms']['ramrod']:
+              <td class="freq">${elem}</td>
+              % endfor
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <% y_remain -= 10 %>
+    <div class="break"></div>
+
+    ## ##########################################################################
+    ## WAYPOINTS
+    ## ##########################################################################
+
+    <%
+    poi = get(data['waypoint'], 'poi', [])
+    %>
+
+    <% y_remain -= table_head %>
+    <table class="kb-width" style="table-layout: fixed">
+      <colgroup>
+        <col class="rb2" style="width: 15px;" />
+        <col style="width:30px" />
+        <col />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:45px" />
+        <col style="width:127px" />
+        <col style="width:127px" />
+        <col style="width:50px" />
+        <col style="width:50px" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>ALT</th>
+          <th>GS</th>
+          <th>TOT</th>
+          <th>ACT</th>
+          <th>LAT</th>
+          <th>LON</th>
+          <th>DIST</th>
+          <th>TBRG</th>
+        </tr>
+
+        <%
+        if ac == "F-14B":
+          poi_count = len(poi) # max(len(poi), 4)
+          # -20 -10 for break belwo this table, 10 for page spacing below
+          wp_rows = math.floor((y_remain - 20 - (table_head + table_row_height * poi_count)) / table_row_height)
+        elif ac == "F-16C":
+          wp_rows = math.floor((y_remain - 20 - (table_head + 4 * table_row_height)) / table_row_height)
+        else:
+          wp_rows = math.floor((y_remain - 20) / table_row_height)
+
+        %>
+
+        % for n in range(wp_rows):
+        <tr>
+          % if loop.index == 0:
+          <th rowspan=${wp_rows} class="block-title"><div style="width: 15px"><div class="arotate90">WAYPOINTS</div></div></th>
+          % endif
+
+          <% elem = get(data['waypoint']['waypoints'], n, {}) %>
+          % if elem.get('lat', '') == '' or elem.get('lon') == '':
+          <td>&nbsp;</td><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+          % else:
+          <td class="algnc">${get(elem, 'typ')}</td>
+          <td class="lpad5">${get(elem, 'name')}</td>
+          <td class="algnr">${get(elem, 'alt', '')|alt_formatter}</td>
+          <td class="algnc">${get(elem, 'gs', '')}</td>
+          <td class="algnc">${get(elem, 'tot', '')}</td>
+          <td class="algnc">${elem['act'] if elem['act'] != '00:00' else ''}</td>
+          <td class="freq">${elem|lat_formatter,n}</td>
+          <td class="freq">${elem|lon_formatter,n}</td>
+          <td class="algnr rpad5">${get(elem, 'dist', '')}</td>
+          <td class="algnr rpad5">${get(elem, 'tbrg', '')}</td>
+          % endif
+        </tr>
+        % endfor
+      </tbody>
+    </table>
+
+    ## ##########################################################################
+    ## POI
+    ## ##########################################################################
+
+    % if len(poi):
+    <% y_remain -= table_head %>
+    <div class="break"></div>
+
+    <table class="kb-width" style="table-layout: fixed">
+      <colgroup>
+        <col class="rb2" style="width: 15px;" />
+        <col />
+        <col style="width:110px" />
+        <col style="width:110px" />
+      </colgroup>
+
+      <tbody>
+        <tr>
+          <th></th>
+          <th>NAME</th>
+          <th>LAT</th>
+          <th>LON</th>
+        </tr>
+
+        % for elem in poi:
+        <tr>
+          
+          % if loop.index == 0:
+          <th rowspan=${len(poi)} class="block-title"><div style="width: 15px"><div class="arotate90">POI</div></div></th>
+          % endif 
+
+          % if elem:
+          <td class="lpad5">${elem['name']}</td>
+          <td class="freq">${elem|lat_formatter,n}</td>
+          <td class="freq">${elem|lon_formatter,n}</td>
+          % else:
+          <td>&nbsp;</td>
+          <td></td>
+          <td></td>
+          % endif
+
+        </tr>
+        % endfor
+
+      </tbody>
+    </table>
+    % endif
+
+  </div>
+
+  ## ##########################################################################
+  ## PAGE 2
+  ## ##########################################################################
+
+  <div class="new-page"></div>
+   
+  % if output in ['png', 'pngr', 'raw']:
+  <div class="kneeboard kneeboard-fixed">
+  % else:
+  <div class="kneeboard">
+  % endif
+
+  <% y_remain = 1180 - 20 %>
+
+  ## ##########################################################################
+  ## HEADING TABLE
+  ## ##########################################################################
+
+  <% y_remain -= table_head + table_row_height %>
+  <table class="kb-width" style="table-layout: fixed">
+
+    <colgroup>
+      <col style="width: 115px" />
+      <col style="width: 70px" />
+      <col style="width: 70px" />
+      % if package:
+      <col style="width: 60px" />
+      % endif
+      <col />
+      <col style="width: 60px" />
+    </colgroup>
+
+    <tbody>
+
+      <tr>
+        <th>CALLSIGN</th>
+        <th>PRI</th>
+        <th>SEC</th>
+
+        % if package:
+        <th>PACKAGE</th>
+        % endif
+        <th>MISSION</th>
+        <th>ID</th>
+      </tr>
+      
+      <tr>
+        <td class="algnc">${data['mission']['mission-callsign']}</td>
+        <td class="freq">${data['mission']['mission-pri-freq']}</td>
+        <td class="freq">${data['mission']['mission-sec-freq']}</td>
+        % if package:
+        <td class="algnc">${data['package']['package-name']}</td>
+        % endif
+        <td class="lpad5">${data["mission"]['mission-desc']}</td>
+        <td class="algnc">${data["mission"]['mission-id']}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <% y_remain -= 10 %>
+  <div class="break"></div>
+
+  ## ##########################################################################
+  ## PACKAGE
+  ## ##########################################################################
+
+  % if package:
+
+  <% y_remain -= table_head %>
+  <table class="kb-width" style="table-layout: fixed">
+
+    <colgroup>
+      <col class="rb2" style="width: 15px;" />
+      <col style="width:100px" />
+      <col style="width:140px" />
+      <col style="width:80px" />
+      <col style="width:45px" />
+      <col style="width:45px" />
+      <col style="" />
+    </colgroup>
+
+    <tbody>
+
+      <tbody>
+        <tr class="nodrag header">
+          <th></th>
+          <th>CALLSIGN</th>
+          <th>AIRCRAFT</th>
+          <th>FREQ</th>
+          <th>TCN</th>
+          <th>IDM</th>
+          <th>MISSION</th>
+        </tr>
+
+
+        % for elem in data['package']['members']:
+        <% y_remain -= table_row_height %>
+        <tr>
+            % if loop.index == 0:
+            <th rowspan=5 class="block-title"><div style="width: 15px"><div class="arotate90">PKG</div></div></th>
+            % endif
+
+            <td class="">${elem['callsign']}</td>
+            <td class="">${elem['aircraft']}</td>
+            <td class="freq">${elem['freq']}</td>
+            <td class="freq">${elem['tcn']}</td>
+            <td class="lpad5">${elem['idm']}</td>
+            <td class="">${elem['mission']}</td>
+        </tr>
+        % endfor
+      </tr>
+    </tbody>
+  </table>
+
+  <% y_remain -= 10 %>
+  <div class="break"></div>
+
+  % endif
+
+
+
+
+  ## ##########################################################################
+  ## COMMS
+  ## ##########################################################################
+
+  <% comms_count = len(data['comms']['agencies']) %>
+
+  % if comms_count:
+  <% y_remain -= table_head %>
+  <table class="kb-width" style="table-layout: fixed">
+
+    <colgroup>
+      <col class="rb2" style="width: 15px;" />
+      <col style="width:205px" />
+      <col style="width:45px" />
+      <col style="width:65px" />
+      <col style="width:50px" />
+      <col style="width:65px" />
+      <col style="width:50px" />
+      <col />
+    </colgroup>
+
+    <tbody>
+
+
+      <tbody>
+        <tr class="nodrag header">
+          <th></th>
+          <th>AGENCY</th>
+          <th>TCN</th>
+          <th>PRI</th>
+          <th>PRI #</th>
+          <th>SEC</th>
+          <th>SEC #</th>
+          <th>NOTES</th>
+        </tr>
+
+        % for elem in data['comms']['agencies']:
+        <% y_remain -= table_row_height %>
+        <tr>
+          % if loop.index == 0:
+          <th rowspan=${comms_count} class="block-title"><div style="width: 15px"><div class="arotate90">COMMS</div></div></th>
+          % endif
+
+          <td class="">${elem['agency']}</td>
+          <td class="freq">${elem['tcn']}</td>
+          <td class="freq">${elem['pri']}</td>
+          <td class="algnc">${elem['pri_pst']}</td>
+          <td class="freq">${elem['sec']}</td>
+          <td class="algnc">${elem['sec_pst']}</td>
+          <td class="">${elem['notes']}</td>
+        </tr>
+        % endfor
+      </tr>
+    </tbody>
+  </table>
+
+  <% y_remain -= 10 %>
+  <div class="break"></div>
+  % endif
+
+  % if len(data['threats']['threats']):
+
+  <% threats_count = max(len(data['threats']['threats']), 4) %>
+
+  <% y_remain -= table_head %>
+  <table class="kb-width" style="table-layout: fixed">
+
+    <colgroup>
+      <col class="rb2" style="width: 15px" />
+      <col style="width:150px" />
+      <col style="width:45px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col />
+    </colgroup>
+
+    <tbody>
+        <tr class="nodrag header">
+          <th></th>
+          <th>THREAT</th>
+          <th>RWR</th>
+          <th>TYPE</th>
+          <th>CMS</th>
+          <th colspan=2>RNG (nm)</th>
+          <th colspan=2>ALT (ft)</th>
+          <th>NOTES</th>
+        </tr>
+
+        % for n in range(threats_count):
+        
+        <% elem = get(data['threats']['threats'], n, None) %>
+        <% y_remain -= table_row_height %>
+
+        <tr>
+          % if loop.index == 0:
+          <th rowspan=${threats_count} class="block-title"><div style="width: 15px"><div class="arotate90">THREATS</div></div></th>
+          % endif
+
+          % if elem:
+          <td class="lpad5">${elem['threat']}</td>
+          <td class="lpad5">${elem['rwr']}</td>
+          <td class="lpad5">${elem['type']}</td>
+          <td class="lpad5">${elem['cms']}</td>
+          <td class="lpad5">${elem['rmin']}</td>
+          <td class="lpad5">${elem['rmax']}</td>
+          <td class="lpad5">${elem['amin']}</td>
+          <td class="lpad5">${elem['amax']}</td>
+          <td class="lpad5">${elem['notes']}</td>
+          % else:
+          <td>&nbsp;</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          % endif
+
+        </tr>
+        % endfor
+      </tr>
+    </tbody>
+  </table>
+
+  <% y_remain -= 10 %>
+  <div class="break"></div>
+  % endif
+
+  <table class="kb-width" style="table-layout: fixed">
+
+    <colgroup>
+      <col />
+    </colgroup>
+
+    <thead>
+        <tr class="nodrag header">
+          <th>NOTES</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+      <tr style="display:hidden"></tr>
+      <tr style="height: ${y_remain-20}px; vertical-align:top">
+        <td>
+          ${data['notes']['html']}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

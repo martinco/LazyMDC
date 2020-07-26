@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Package</h1>
+</div>
+<form id="package-form" data-nav-target="#loadout" class="needs-validation" validate>
+
+  <div class="form-group">
+    <label>Are you flying as part of a package ?</label>
+    <br>
+    <div style="width:10px; float:left">&nbsp;</div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" id="package-true" name="package-member" value="package-true" class="custom-control-input">
+      <label class="custom-control-label" for="package-true">Yes</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" id="package-false" name="package-member" value="package-false" class="custom-control-input" checked>
+      <label class="custom-control-label" for="package-false">No</label>
+    </div>
+  </div>
+
+  <div id="package-members-container" style="display:none">
+    <div class="form-group">
+      <label for="package-name">Package Name</label>
+      <input type="text" class="form-control" name="package-name" id="package-name">
+    </div>
+    <div class="form-group">
+      <label>Package Members</label>
+      <table class="table table-striped" id="package-members-table">
+        <colgroup>
+          <col style="width:100px" />
+          <col style="width:100px" />
+          <col style="width:80px" />
+          <col style="width:45px" />
+          <col style="width:45px" />
+          <col style="" />
+          <col style="width: 21px;" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th>CALLSIGN</th>
+            <th>AIRCRAFT</th>
+            <th>FREQ</th>
+            <th>TCN</th>
+            <th>IDM</th>
+            <th colspan="2">MISSION</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" id='package-add-member' type="button">
+        <i data-feather="user-plus"></i>
+      </button>
+    </div>
+  </div>
+
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit">Next...</button>
+  </div>
+
+</form>
