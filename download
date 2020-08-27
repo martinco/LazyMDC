@@ -154,7 +154,7 @@ def get_html(kb, output, data, theme="Standard"):
           theme=theme,
       )
     except:
-      return exceptions.text_error_template().render()
+      return exceptions.html_error_template().render()
 
 
 
@@ -300,5 +300,4 @@ if __name__ == "__main__":
     else:
         print("Content-Type: text/html\n")
         print(html)
-        print (os.getcwd())
     cr2 = im1.crop((0,1200,800,2400))

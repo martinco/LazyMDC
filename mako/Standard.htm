@@ -30,6 +30,9 @@ def ll(info, lat=True):
 
   prefix = 'lat' if lat else 'lon'
 
+  if prefix not in info:
+    return "&nbsp;"
+
   try:
     pos = float(info[prefix])
   except Exception as e:
