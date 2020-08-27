@@ -56,7 +56,7 @@ function comms_add(opts) {
       <td class="text-center"></td>
       <td class="input-container border-right-0"><input value="${data['notes']}"></td>
       <td class="input-container text-center border-left-0">
-        <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
           <i data-feather="delete"></i>
         </button>
       </td>

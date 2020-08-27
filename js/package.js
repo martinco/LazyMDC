@@ -21,7 +21,7 @@ function package_add(vals) {
       <td class="input-container text-center"><input class="input-full text-center" value="${values.idm}"></td>
       <td class="input-container" style="border-right: 0px"><input class="input-full" value="${values.mission}"></td>
       <td class="input-container text-center" style="border-left: 0px">
-        <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
           <i data-feather="delete"></i>
         </button>
       </td>

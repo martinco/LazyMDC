@@ -152,7 +152,7 @@ function waypoint_add(wp_info) {
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
           <td class="input-container text-center border-left-0">
-            <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='$(this).closest("tr").remove();'>
               <i data-feather="delete"></i>
             </button>
           </td>
@@ -200,7 +200,7 @@ function waypoint_add_poi(poi_data) {
     }
   
     row += `<td class="input-container text-center border-left-0">
-          <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+          <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='$(this).closest("tr").remove();'>
             <i data-feather="delete"></i>
           </button>
         </td>

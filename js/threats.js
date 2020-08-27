@@ -41,17 +41,17 @@ function threats_add(opts) {
 
 
   $("#threats-table > tbody").append(`<tr>
-      <td class="input-container"><input value="${data['threat']}"></td>
+      <td class="input-container"><input value="${data['threat']}" required></td>
       <td class="input-container text-center"><input value="${data['rwr']}"></td>
       <td class="input-container text-center"><input value="${data['type']}"></td>
       <td class="input-container text-center"><input value="${data['cms']}"></td>
-      <td class="input-container text-center"><input type="number" class="nospin" value="${data['rmin']}"></td>
-      <td class="input-container text-center"><input type="number" class="nospin" value="${data['rmax']}"></td>
-      <td class="input-container text-center"><input type="number" class="nospin" value="${data['amin']}"></td>
-      <td class="input-container text-center"><input type="number" class="nospin" value="${data['amax']}"></td>
+      <td class="input-container text-center"><input type="number" step="any" class="nospin" value="${data['rmin']}"></td>
+      <td class="input-container text-center"><input type="number" step="any" class="nospin" value="${data['rmax']}"></td>
+      <td class="input-container text-center"><input type="number" step="any" class="nospin" value="${data['amin']}"></td>
+      <td class="input-container text-center"><input type="number" step="any" class="nospin" value="${data['amax']}"></td>
       <td class="input-container border-right-0"><input value="${data['notes']}"></td>
       <td class="input-container text-center border-left-0">
-        <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+        <button class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();' type="button">
           <i data-feather="delete"></i>
         </button>
       </td>
