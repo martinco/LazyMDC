@@ -55,6 +55,12 @@ function data_process_cf(xml) {
     var task = route_xml.querySelector('Task').textContent;
     var side = route_xml.querySelector('Side').textContent;
     var aircraft = route_xml.querySelector('Aircraft > Type').textContent;
+
+    // Handle name changes between CF + DCS
+    if (aircraft == "F-16C bl.52d") {
+      aircraft = "F-16C"
+    }
+
     var units = route_xml.querySelector('Units').textContent;
 
     var route_title = `[${task}] ${name} ${units}x${aircraft}`
