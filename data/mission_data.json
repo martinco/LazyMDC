@@ -298,7 +298,7 @@
         "par": 121.3,
         "twr": 121.2
       },
-      "CVN-73 George Washington": {
+      "CVN-73 G.W.": {
         "agency": "CVN-73",
         "ctrl": 309.9,
         "icao": "",
@@ -3882,10 +3882,11 @@
         "gnd": 118.2,
         "twr": 118.4
       },
-      "CVN-73 George Washington": {
+      "CVN-73 G.W.": {
         "agency": "CVN-73",
         "ctrl": 309.9,
         "icao": "",
+        "alt": 52,
         "lat": 25.56111111,
         "lon": 55.08333333,
         "par": 309.5,
