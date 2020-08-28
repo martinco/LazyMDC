@@ -262,14 +262,12 @@ flight_cols.extend([
       <colgroup>
         <col class="rb2" class="rb2" style="width: 15px" />
         <col style="width: 30px" />
-        <col style="width: 120px" />
+        <col style="width: 180px" />
         <col style="width: 50px" />
         <col style="width: 60px" />
         <col style="width: 60px" />
         <col style="width: 45px" />
         <col style="width: 60px" />
-        <col style="width: 60px" />
-        <col style="width: 100px" />
         <col />
       </colgroup>
 
@@ -284,8 +282,6 @@ flight_cols.extend([
           <th>PAR</th>
           <th>ELEV</th>
           <th>ILS</th>
-          <th>RWY</th>
-          <th>DEP/ARR</th>
           <th>NOTES</th>
         </tr>
         
@@ -313,8 +309,6 @@ flight_cols.extend([
             ils = "" if ils == '----' else ils
           %>
           <td class="freq">${ils}</td>
-          <td class="algnc">${get(elem, 'runway', '-')}</td>
-          <td class="lpad5">${get(elem, 'vfr', '-')}</td>
           <td class="lpad5">${get(elem, 'notes', '')}</td>
         </tr>
         % endfor

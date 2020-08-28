@@ -31,25 +31,6 @@
 
   <div class="form-row">
     <div class="col"> 
-      <label class="heading">Runway</label>
-      <div class="input-group mb-2 ">
-        <select name="dep-runway" id="deparr-dep-runway" class="form-control deparr-runway">
-          <option selected>Per ATC</option>
-        </select>
-      </div>
-    </div>
-    <div class="col"> 
-      <div class="form-group">
-        <label class="heading">VFR Departure</label>
-        <select name="dep-vfr" id="deparr-dep-vfr" class="form-control deparr-arr" disabled>
-          <option selected>Per ATC</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="col"> 
       <div class="form-group">
         <label class="heading">TCN</label>
         <input type="text" class="form-control tcn-validator" name="dep-tcn" id="deparr-dep-tcn">
@@ -120,7 +101,7 @@
     <div class="col"> 
       <div class="form-group">
         <label class="heading">FLAPS</label>
-        <select id="deparr-runway" class="form-control">
+        <select id="deparr-flaps" class="form-control">
           <option>None</option>
           <option>Half</option>
           <option>Full</option>
@@ -155,31 +136,6 @@
     </div>
   </div>
 
-  <div id="deparr-arr-min">
-    <div class="form-row">
-      <div class="col"> 
-        <label class="heading">Runway</label>
-        <label class="heading" style="width:60px; float:right">ILS</label>
-        <div class="input-group mb-2 ">
-          <select name="arr-min-runway" id="deparr-arr-min-runway" class="form-control deparr-runway">
-            <option selected>Per ATC</option>
-          </select>
-          <div class="input-group-append">
-            <input name="arr-min-ils" id="deparr-arr-min-ils" class="input-group-text p-0 align-middle" style="width:65px; display: grid;" disabled value="----">
-          </div>
-        </div>
-      </div>
-      <div class="col"> 
-        <div class="form-group">
-          <label class="heading">VFR Arrival</label>
-          <select name="arr-min-vfr" id="deparr-arr-min-vfr" class="form-control" disabled>
-            <option selected>Per ATC</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div id="deparr-arr-full" style="display: none">
     <div class="form-row">
       <div class="col">
@@ -199,29 +155,6 @@
           <div class="input-group-append">
             <div class="input-group-text p-0 align-middle" style="width:35px; display: grid">ft</div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col"> 
-        <label class="heading">Runway</label>
-        <label class="heading" style="width:60px; float:right">ILS</label>
-        <div class="input-group mb-2 ">
-          <select name="arr-runway" id="deparr-arr-runway" class="form-control deparr-runway">
-            <option selected>Per ATC</option>
-          </select>
-          <div class="input-group-append">
-            <input name="arr-ils" id="deparr-arr-ils" class="input-group-text p-0 align-middle" style="width:65px; display: grid;" disabled value="----">
-          </div>
-        </div>
-      </div>
-      <div class="col"> 
-        <div class="form-group">
-          <label class="heading">VFR Arrival</label>
-          <select name="arr-vfr" id="deparr-arr-vfr" class="form-control" disabled>
-            <option selected>Per ATC</option>
-          </select>
         </div>
       </div>
     </div>
@@ -285,31 +218,6 @@
     </div>
   </div>
 
-  <div id="deparr-alt-min">
-    <div class="form-row">
-      <div class="col"> 
-        <label class="heading">Runway</label>
-        <label class="heading" style="width:60px; float:right">ILS</label>
-        <div class="input-group mb-2 ">
-          <select name="alt-min-runway" id="deparr-alt-min-runway" class="form-control deparr-runway">
-            <option selected>Per ATC</option>
-          </select>
-          <div class="input-group-append">
-            <input name="alt-min-ils" id="deparr-alt-min-ils" class="input-group-text p-0 align-middle" style="width:65px; display: grid;" disabled value="----">
-          </div>
-        </div>
-      </div>
-      <div class="col"> 
-        <div class="form-group">
-          <label class="heading">VFR Arrival</label>
-          <select name="alt-min-vfr" id="deparr-alt-min-vfr" class="form-control" disabled>
-            <option selected>Per ATC</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div id="deparr-alt-full" style="display:none">
     <div class="form-row">
       <div class="col">
@@ -329,29 +237,6 @@
           <div class="input-group-append">
             <div class="input-group-text p-0 align-middle" style="width:35px; display: grid">ft</div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col"> 
-        <label class="heading">Runway</label>
-        <label class="heading" style="width:60px; float:right">ILS</label>
-        <div class="input-group mb-2 ">
-          <select name="alt-runway" id="deparr-alt-runway" class="form-control deparr-runway">
-            <option selected>Per ATC</option>
-          </select>
-          <div class="input-group-append">
-            <input name="alt-ils" id="deparr-alt-ils" class="input-group-text p-0 align-middle" style="width:65px; display: grid;" disabled value="----">
-          </div>
-        </div>
-      </div>
-      <div class="col"> 
-        <div class="form-group">
-          <label class="heading">VFR Arrival</label>
-          <select name="alt-vfr" id="deparr-alt-vfr" class="form-control" disabled>
-            <option selected>Per ATC</option>
-          </select>
         </div>
       </div>
     </div>
