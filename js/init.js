@@ -48,6 +48,10 @@ $.when(
     threats = data;
   }),
 
+  $.getJSON("data/callsigns.json").done(function(data) {
+    callsigns = data;
+  }),
+
 ).then(function() {
 
   var tinymce_init_count = $('textarea.mce').length;

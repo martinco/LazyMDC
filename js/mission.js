@@ -10,6 +10,21 @@ $(document).on('flight-airframe-changed', function(e) {
 
 });
 
+$('#mission-callsign').autocomplete({
+    source: function(request, response) {
+      var mission = $('#data-mission').val();
+      var lookup = callsigns;
+
+      if (mission_data[mission] && mission_data[mission]['callsigns']) {
+        lookup = mission_data[mission]['callsigns'];
+      }
+
+      response(match_item_in_arr(lookup, request.term))
+
+    },
+    minLength: 1,
+});
+
 function mission_export() {
   return get_form_data($("#mission-form"))
 }

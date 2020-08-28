@@ -46,6 +46,19 @@ function freq_autocomplete(input) {
 
 }
 
+function match_item_in_arr(arr, find) {
+  var i, l, matches = [];
+
+  for (i = 0, l=arr.length; i < l; i++) {
+    if (arr[i].toLowerCase().indexOf(find.toLowerCase()) !== -1) {
+      matches.push({'value': arr[i]});
+    }
+  }
+
+  return matches;
+
+}
+
 function match_labels_in_arr(arr, find, mapper) {
   var i, l, matches = [];
 
