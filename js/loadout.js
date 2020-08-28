@@ -26,7 +26,7 @@ loadout_airframe_defaults = {
     "mtow_field": 72000,
     "mtow_cvn": 76000,
     "mlw_field": 60000,
-    "mlw_cvn": 44000,
+    "mlw_cvn": 54000,
     "comments": '* If loading LAU-138, you have an additional 40 chaff',
   },
   "A-10C": {
