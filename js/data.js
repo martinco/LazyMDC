@@ -56,9 +56,16 @@ function data_process_cf(xml) {
     var side = route_xml.querySelector('Side').textContent;
     var aircraft = route_xml.querySelector('Aircraft > Type').textContent;
 
-    // Handle name changes between CF + DCS
-    if (aircraft == "F-16C bl.52d") {
+    // Exclude non supported AC to avoid pain in loadouts not working etc.
+    if (!['F-14B', 'F-16C_50', 'A-10C', 'FA-18C_hornet'].includes(aircraft)) {
+      continue
+    }
+
+    // Map aircraft names accoridngly to kneeboard names
+    if (aircraft.startsWith("F-16C")) {
       aircraft = "F-16C"
+    } else if (aircraft.startsWith("FA-18C")) {
+      aircraft = "FA-18C"
     }
 
     var units = route_xml.querySelector('Units').textContent;

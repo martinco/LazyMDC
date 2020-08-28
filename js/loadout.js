@@ -132,26 +132,45 @@ function get_loadout_from_xml(route) {
     return {}
   }
 
-  // Return List of stores, pylon name => load
-  var stores_obj = new Object();
-
-  // Get our type mapping of int pylons -> name
+  // Get our type mapping of int pylons -> name, as combat flite uses 11 for 5R
+  // etc. which is as per DCS, but not really what the user sees
+  
   var type_map = stores_map[route.aircraft] || {};
   var stores = route.xml.querySelector('FlightMembers > FlightMember > Aircraft > Stores').childNodes;
 
-  // Get all the stores / pylons, these are unordered, 1 indexed
+  // Get all the stores / pylons, these are unordered, and additionally the
+  // names may not match what's in DCS, but the CLSID will
+  
+  var stores_obj = {};
   for(var i = 0, j=stores.length; i < j; i++) {
 
     if (stores[i].tagName !== 'Store') { continue; }
 
     var pylon = parseInt(stores[i].getElementsByTagName("Pylon")[0].textContent)
     var load = stores[i].getElementsByTagName("StoreName")[0].textContent
+    var clsid = stores[i].getElementsByTagName("CLSID")[0].textContent
 
     var pylon_name = type_map[pylon] || pylon.toFixed();
-    stores_obj[pylon_name] = { 'store': load }
+    stores_obj[pylon_name] = { 'pylon': pylon_name, 'store': load, 'clsid': clsid }
   }
 
-  return stores_obj;
+  // Convert to an ordered list as per the loadout defaults (we want this to be
+  // ordered to match the order of the aircraft image / MDC)
+  
+
+  var output = []
+
+  var pylons = loadout_airframe_defaults[route.aircraft]['pylons']
+  for (var data of pylons) {
+    var store = stores_obj[data[0]];
+    if (store) {
+      output.push(store)
+    } else {
+      output.push({"pylon": data[0], "store": "" })
+    }
+  }
+
+  return output;
 }
 
 function loadout_update_weight() {
@@ -191,6 +210,7 @@ function loadout_update_weight() {
 }
 
 function get_pylon_options(type, id, val = "") {
+
   id = id + 1;
   if (!pylon_data[type]) { return [] }
   if (!pylon_data[type][id]) { return [] }
@@ -201,10 +221,24 @@ function get_pylon_options(type, id, val = "") {
   for (var [name, info] of Object.entries(pylon_data[type][id])) {
     var weight = Math.round(info['weight']*2.20462)
 
-    if (name == val) {
-      selected_weight = weight
+    // val might be a dict from CF, so if it's a dict, so if dict, check store
+    // and clsid else just check name
+
+    var selected = false;
+    if (typeof(val) == "object") {
+      if (name == val['store']) {
+        selected_weight = weight;
+        selected = true;
+      } else if (info['clsid'] == val['clsid']) {
+        selected_weight = weight;
+        selected = true;
+      }
+    } else if (name == val) {
+      selected_weight = weight;
+      selected = true;
     }
-    output += `<option${name == val ? ' selected' : ''} data-pyl-weight="${weight}">${name}</option>\n`
+
+    output += `<option${selected ? ' selected' : ''} data-pyl-weight="${weight}">${name}</option>\n`
   }
 
   return [output, selected_weight]
@@ -219,7 +253,6 @@ function loadout_set(opts) {
   var type = $('#flight-airframe').val();
   if (!type) {
     return;
-    return;
   }
 
   // Copy our default and merge our opts
@@ -229,10 +262,11 @@ function loadout_set(opts) {
 
   jQuery.extend(true, values, opts)
 
-  // Merge pylon arrays
+  // values.pylons is an ordered dict of ["pylon", "loadout"]
+  // whilst pylons_opts should be, assume it's incomplete
   for (var id in values.pylons) {
     if (id in pylon_opts) {
-      values.pylons[id][1] = pylon_opts[id]['store']
+      values.pylons[id][1] = pylon_opts[id]
     }
   }
 
