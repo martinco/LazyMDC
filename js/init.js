@@ -43,16 +43,16 @@ $.when(
     mission_data = data;
   }),
 
-  $.getJSON("data/pylons.json").done(function(data) {
-    pylon_data = data;
-  }),
-
   $.getJSON("data/threats.json").done(function(data) {
     threats = data;
   }),
 
   $.getJSON("data/callsigns.json").done(function(data) {
     callsigns = data;
+  }),
+
+  $.getJSON("data/airframes.json").done(function(data) {
+    airframes = data;
   }),
 
 ).then(function() {

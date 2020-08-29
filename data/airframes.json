@@ -1,0 +1,3995 @@
+{
+  "F-14B": {
+    "pylons": [
+      ["1a", ""],
+      ["1b", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5", ""],
+      ["6", ""],
+      ["7", ""],
+      ["8b", ""],
+      ["8a", ""]
+    ],
+    "empty_lbs": 44040,
+    "chaff": 0,
+    "flare": 60,
+    "fuel": 100,
+    "fuel_lbs": 16200,
+    "gun": 100,
+    "gun_lbs": 520,
+    "joker": 5000,
+    "bingo": 4000,
+    "cvn": true,
+    "mtow_field": 72000,
+    "mtow_cvn": 76000,
+    "mlw_field": 60000,
+    "mlw_cvn": 54000,
+    "comments": "* If loading LAU-138, you have an additional 40 chaff",
+    "loadout": {
+      "1": {
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        },
+        "LAU-138 AIM-9L": {
+          "weight": 85.5,
+          "clsid": "{LAU-138 wtip - AIM-9L}"
+        },
+        "LAU-138 AIM-9M": {
+          "weight": 86.64,
+          "clsid": "{LAU-138 wtip - AIM-9M}"
+        },
+        "Smokewinder - blue": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}"
+        },
+        "Smokewinder - green": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}"
+        },
+        "Smokewinder - orange": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}"
+        },
+        "Smokewinder - red": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}"
+        },
+        "Smokewinder - white": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}"
+        },
+        "Smokewinder - yellow": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}"
+        }
+      },
+      "2": {
+        "AIM-54A-Mk47": {
+          "weight": 489.36,
+          "clsid": "{SHOULDER AIM_54A_Mk47 L}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 517.06,
+          "clsid": "{SHOULDER AIM_54A_Mk60 L}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 510.96,
+          "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+        },
+        "AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7M}"
+        },
+        "LAU-7 AIM-9L": {
+          "weight": 100.5,
+          "clsid": "{LAU-7 - AIM-9L}"
+        },
+        "LAU-7 AIM-9M": {
+          "weight": 101.64,
+          "clsid": "{LAU-7 - AIM-9M}"
+        },
+        "Mk-83": {
+          "weight": 632.38,
+          "clsid": "{PHXBRU3242_MK83 LS}"
+        },
+        "2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 1065.38,
+          "clsid": "{PHXBRU3242_2*LAU10 LS}"
+        },
+        "2 MK-20": {
+          "weight": 629.38,
+          "clsid": "{PHXBRU3242_2*MK20 LS}"
+        },
+        "2 Mk-81": {
+          "weight": 421.38,
+          "clsid": "{PHXBRU3242_2*MK81 LS}"
+        },
+        "2 Mk-82AIR": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82AIR LS}"
+        },
+        "2 Mk-82 SnakeEye": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82SE LS}"
+        },
+        "2 Mk-82": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82 LS}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{PHXBRU3242_BDU33}"
+        }
+      },
+      "3": {
+        "Fuel tank 300 gal": {
+          "weight": 958.4,
+          "clsid": "{F14-300gal}"
+        },
+        "Fuel tank 300 gal (empty)": {
+          "weight": 70,
+          "clsid": "{F14-300gal-empty}"
+        }
+      },
+      "4": {
+        "ADM_141A": {
+          "weight": 365.38,
+          "clsid": "{BRU3242_ADM141}"
+        },
+        "AIM-54A-Mk47": {
+          "weight": 444,
+          "clsid": "{AIM_54A_Mk47}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 471.7,
+          "clsid": "{AIM_54A_Mk60}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 465.6,
+          "clsid": "{AIM_54C_Mk47}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7M}"
+        },
+        "GBU-10": {
+          "weight": 997.38,
+          "clsid": "{BRU-32 GBU-10}"
+        },
+        "GBU-12": {
+          "weight": 332.38,
+          "clsid": "{BRU-32 GBU-12}"
+        },
+        "GBU-16": {
+          "weight": 621.38,
+          "clsid": "{BRU-32 GBU-16}"
+        },
+        "GBU-24": {
+          "weight": 1107.38,
+          "clsid": "{BRU-32 GBU-24}"
+        },
+        "MAK79 2 MK-20": {
+          "weight": 464,
+          "clsid": "{MAK79_MK20 2L}"
+        },
+        "MAK79 3 Mk-83": {
+          "weight": 1371,
+          "clsid": "{MAK79_MK83 3L}"
+        },
+        "MAK79 4 BDU-33": {
+          "weight": 84,
+          "clsid": "{MAK79_BDU33 4}"
+        },
+        "MAK79 4 Mk-81": {
+          "weight": 512,
+          "clsid": "{MAK79_MK81 4}"
+        },
+        "MAK79 4 Mk-82": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82 4}"
+        },
+        "MAK79 4 Mk-82AIR": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82AIR 4}"
+        },
+        "MAK79 4 Mk-82 SnakeEye": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82SE 4}"
+        },
+        "Mk-20": {
+          "weight": 279.38,
+          "clsid": "{BRU-32 MK-20}"
+        },
+        "Mk-82AIR": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82AIR}"
+        },
+        "Mk-82": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82SE}"
+        },
+        "Mk-83": {
+          "weight": 504.38,
+          "clsid": "{BRU-32 MK-83}"
+        },
+        "Mk-84": {
+          "weight": 951.38,
+          "clsid": "{BRU-32 MK-84}"
+        },
+        "2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 1065.38,
+          "clsid": "{BRU3242_2*LAU10 R}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{BRU3242_3*BDU33}"
+        }
+      },
+      "5": {
+        "ADM_141A": {
+          "weight": 365.38,
+          "clsid": "{BRU3242_ADM141}"
+        },
+        "AIM-54A-Mk47": {
+          "weight": 444,
+          "clsid": "{AIM_54A_Mk47}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 471.7,
+          "clsid": "{AIM_54A_Mk60}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 465.6,
+          "clsid": "{AIM_54C_Mk47}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7M}"
+        },
+        "GBU-12": {
+          "weight": 332.38,
+          "clsid": "{BRU-32 GBU-12}"
+        },
+        "GBU-16": {
+          "weight": 621.38,
+          "clsid": "{BRU-32 GBU-16}"
+        },
+        "MAK79 3 BDU-33": {
+          "weight": 63,
+          "clsid": "{MAK79_BDU33 3L}"
+        },
+        "MAK79 3 Mk-81": {
+          "weight": 384,
+          "clsid": "{MAK79_MK81 3L}"
+        },
+        "MAK79 3 Mk-82": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82 3L}"
+        },
+        "MAK79 3 Mk-82AIR": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82AIR 3L}"
+        },
+        "MAK79 3 Mk-82 SnakeEye": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82SE 3L}"
+        },
+        "MAK79 MK-20": {
+          "weight": 232,
+          "clsid": "{MAK79_MK20 1L}"
+        },
+        "MAK79 Mk-83": {
+          "weight": 457,
+          "clsid": "{MAK79_MK83 1L}"
+        },
+        "Mk-20": {
+          "weight": 279.38,
+          "clsid": "{BRU-32 MK-20}"
+        },
+        "Mk-82AIR": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82AIR}"
+        },
+        "Mk-82": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82SE}"
+        },
+        "Mk-83": {
+          "weight": 504.38,
+          "clsid": "{BRU-32 MK-83}"
+        },
+        "Mk-84": {
+          "weight": 951.38,
+          "clsid": "{BRU-32 MK-84}"
+        },
+        "2 SUU-25 * 8 LUU-2": {
+          "weight": 445.38,
+          "clsid": "{BRU3242_2*SUU25 R}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{BRU3242_3*BDU33}"
+        }
+      },
+      "6": {
+        "ADM_141A": {
+          "weight": 365.38,
+          "clsid": "{BRU3242_ADM141}"
+        },
+        "AIM-54A-Mk47": {
+          "weight": 444,
+          "clsid": "{AIM_54A_Mk47}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 471.7,
+          "clsid": "{AIM_54A_Mk60}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 465.6,
+          "clsid": "{AIM_54C_Mk47}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7M}"
+        },
+        "GBU-12": {
+          "weight": 332.38,
+          "clsid": "{BRU-32 GBU-12}"
+        },
+        "GBU-16": {
+          "weight": 621.38,
+          "clsid": "{BRU-32 GBU-16}"
+        },
+        "GBU-24": {
+          "weight": 1107.38,
+          "clsid": "{BRU-32 GBU-24}"
+        },
+        "MAK79 3 BDU-33": {
+          "weight": 63,
+          "clsid": "{MAK79_BDU33 3R}"
+        },
+        "MAK79 3 Mk-81": {
+          "weight": 384,
+          "clsid": "{MAK79_MK81 3R}"
+        },
+        "MAK79 3 Mk-82AIR": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82AIR 3R}"
+        },
+        "MAK79 3 Mk-82": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82 3R}"
+        },
+        "MAK79 3 Mk-82 SnakeEye": {
+          "weight": 753,
+          "clsid": "{MAK79_MK82SE 3R}"
+        },
+        "MAK79 MK-20": {
+          "weight": 232,
+          "clsid": "{MAK79_MK20 1R}"
+        },
+        "MAK79 Mk-83": {
+          "weight": 457,
+          "clsid": "{MAK79_MK83 1R}"
+        },
+        "Mk-20": {
+          "weight": 279.38,
+          "clsid": "{BRU-32 MK-20}"
+        },
+        "Mk-82AIR": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82AIR}"
+        },
+        "Mk-82": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82SE}"
+        },
+        "Mk-83": {
+          "weight": 504.38,
+          "clsid": "{BRU-32 MK-83}"
+        },
+        "Mk-84": {
+          "weight": 951.38,
+          "clsid": "{BRU-32 MK-84}"
+        },
+        "SUU-25 * 8 LUU-2": {
+          "weight": 315.38,
+          "clsid": "{BRU3242_SUU25}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{BRU3242_3*BDU33}"
+        }
+      },
+      "7": {
+        "ADM_141A": {
+          "weight": 365.38,
+          "clsid": "{BRU3242_ADM141}"
+        },
+        "AIM-54A-Mk47": {
+          "weight": 444,
+          "clsid": "{AIM_54A_Mk47}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 471.7,
+          "clsid": "{AIM_54A_Mk60}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 465.6,
+          "clsid": "{AIM_54C_Mk47}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{BELLY AIM-7M}"
+        },
+        "GBU-10": {
+          "weight": 997.38,
+          "clsid": "{BRU-32 GBU-10}"
+        },
+        "GBU-12": {
+          "weight": 332.38,
+          "clsid": "{BRU-32 GBU-12}"
+        },
+        "GBU-16": {
+          "weight": 621.38,
+          "clsid": "{BRU-32 GBU-16}"
+        },
+        "LAU-10 - 4 ZUNI MK 71": {
+          "weight": 625.38,
+          "clsid": "{BRU3242_LAU10}"
+        },
+        "MAK79 2 MK-20": {
+          "weight": 464,
+          "clsid": "{MAK79_MK20 2R}"
+        },
+        "MAK79 3 Mk-83": {
+          "weight": 1371,
+          "clsid": "{MAK79_MK83 3R}"
+        },
+        "MAK79 4 BDU-33": {
+          "weight": 84,
+          "clsid": "{MAK79_BDU33 4}"
+        },
+        "MAK79 4 Mk-81": {
+          "weight": 512,
+          "clsid": "{MAK79_MK81 4}"
+        },
+        "MAK79 4 Mk-82": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82 4}"
+        },
+        "MAK79 4 Mk-82AIR": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82AIR 4}"
+        },
+        "MAK79 4 Mk-82 SnakeEye": {
+          "weight": 1004,
+          "clsid": "{MAK79_MK82SE 4}"
+        },
+        "Mk-20": {
+          "weight": 279.38,
+          "clsid": "{BRU-32 MK-20}"
+        },
+        "Mk-82AIR": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82AIR}"
+        },
+        "Mk-82": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 298.38,
+          "clsid": "{BRU-32 MK-82SE}"
+        },
+        "Mk-83": {
+          "weight": 504.38,
+          "clsid": "{BRU-32 MK-83}"
+        },
+        "Mk-84": {
+          "weight": 951.38,
+          "clsid": "{BRU-32 MK-84}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{BRU3242_3*BDU33}"
+        }
+      },
+      "8": {
+        "Fuel tank 300 gal": {
+          "weight": 958.4,
+          "clsid": "{F14-300gal}"
+        },
+        "Fuel tank 300 gal (empty)": {
+          "weight": 70,
+          "clsid": "{F14-300gal-empty}"
+        }
+      },
+      "9": {
+        "AIM-54A-Mk47": {
+          "weight": 489.36,
+          "clsid": "{SHOULDER AIM_54A_Mk47 R}"
+        },
+        "AIM-54A-Mk60": {
+          "weight": 517.06,
+          "clsid": "{SHOULDER AIM_54A_Mk60 R}"
+        },
+        "AIM-54C-Mk47": {
+          "weight": 510.96,
+          "clsid": "{SHOULDER AIM_54C_Mk47 R}"
+        },
+        "AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7F}"
+        },
+        "AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7MH}"
+        },
+        "AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{SHOULDER AIM-7M}"
+        },
+        "LANTIRN Targeting Pod": {
+          "weight": 342,
+          "clsid": "{F14-LANTIRN-TP}"
+        },
+        "LAU-7 AIM-9L": {
+          "weight": 100.5,
+          "clsid": "{LAU-7 - AIM-9L}"
+        },
+        "LAU-7 AIM-9M": {
+          "weight": 101.64,
+          "clsid": "{LAU-7 - AIM-9M}"
+        },
+        "Mk-83": {
+          "weight": 632.38,
+          "clsid": "{PHXBRU3242_MK83 RS}"
+        },
+        "2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 1065.38,
+          "clsid": "{PHXBRU3242_2*LAU10 RS}"
+        },
+        "2 MK-20": {
+          "weight": 629.38,
+          "clsid": "{PHXBRU3242_2*MK20 RS}"
+        },
+        "2 Mk-81": {
+          "weight": 421.38,
+          "clsid": "{PHXBRU3242_2*MK81 RS}"
+        },
+        "2 Mk-82AIR": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82AIR RS}"
+        },
+        "2 Mk-82 SnakeEye": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82SE RS}"
+        },
+        "2 Mk-82": {
+          "weight": 667.38,
+          "clsid": "{PHXBRU3242_2*MK82 RS}"
+        },
+        "3 BDU-33": {
+          "weight": 218.38,
+          "clsid": "{PHXBRU3242_BDU33}"
+        }
+      },
+      "10": {
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        },
+        "LAU-138 AIM-9L": {
+          "weight": 85.5,
+          "clsid": "{LAU-138 wtip - AIM-9L}"
+        },
+        "LAU-138 AIM-9M": {
+          "weight": 86.64,
+          "clsid": "{LAU-138 wtip - AIM-9M}"
+        },
+        "Smokewinder - blue": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}"
+        },
+        "Smokewinder - green": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}"
+        },
+        "Smokewinder - orange": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}"
+        },
+        "Smokewinder - red": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}"
+        },
+        "Smokewinder - white": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}"
+        },
+        "Smokewinder - yellow": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}"
+        }
+      }
+    }
+  },
+  "A-10C": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5", ""],
+      ["6", ""],
+      ["7", ""],
+      ["8", ""],
+      ["9", ""],
+      ["10", ""],
+      ["11", ""]
+    ],
+    "empty_lbs": 24967,
+    "chaff": 240,
+    "flare": 120,
+    "fuel": 100,
+    "fuel_lbs": 11087,
+    "gun": 100,
+    "gun_lbs": 1775,
+    "joker": 3000,
+    "bingo": 2000,
+    "comments": "",
+    "cvn": false,
+    "mtow_field": 46000,
+    "mlw_field": 46000,
+    "loadout": {
+      "1": {
+        "ALQ-131": {
+          "weight": 305,
+          "clsid": "{6D21ECEA-F85B-4E8D-9D51-31DC9B8AA4EF}"
+        },
+        "ALQ-184": {
+          "weight": 215,
+          "clsid": "ALQ_184"
+        },
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-105": {
+          "weight": 18,
+          "clsid": "LAU-105"
+        },
+        "LAU-105 AIM-9L Sidewinder IR AAM": {
+          "weight": 115.5,
+          "clsid": "LAU-105_1*AIM-9L_L"
+        },
+        "LAU-105 AIM-9M Sidewinder IR AAM": {
+          "weight": 116.64,
+          "clsid": "LAU-105_1*AIM-9M_L"
+        },
+        "LAU-105 CAP-9M": {
+          "weight": 115.5,
+          "clsid": "LAU-105_1*CATM-9M_L"
+        },
+        "LAU-105 - 2 AIM-9L Sidewinder IR AAM": {
+          "weight": 201,
+          "clsid": "LAU-105_2*AIM-9L"
+        },
+        "LAU-105 - 2 CAP-9M": {
+          "weight": 201,
+          "clsid": "LAU-105_2*CATM-9M"
+        },
+        "LAU-105 AN/ASQ-T50 TCTS Pod": {
+          "weight": 92.6,
+          "clsid": "LAU-105_AIS_ASQ_T50_L"
+        },
+        "LAU-105 - 2 AIM-9M Sidewinder IR AAM": {
+          "weight": 203.28,
+          "clsid": "{DB434044-F5D0-4F1F-9BA9-B73027E18DD3}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Smokewinder - blue": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}"
+        },
+        "Smokewinder - green": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}"
+        },
+        "Smokewinder - orange": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}"
+        },
+        "Smokewinder - red": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}"
+        },
+        "Smokewinder - white": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}"
+        },
+        "Smokewinder - yellow": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}"
+        }
+      },
+      "2": {
+        "AN/AAQ-28 LITENING": {
+          "weight": 300,
+          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}"
+        },
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "SUU-25 * 8 LUU-2": {
+          "weight": 130,
+          "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
+        }
+      },
+      "3": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "3 GBU-12": {
+          "weight": 876,
+          "clsid": "BRU-42_3*GBU-12"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-117,AGM-65D": {
+          "weight": 277,
+          "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}"
+        },
+        "LAU-117,AGM-65G": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65G"
+        },
+        "LAU-117,AGM-65H": {
+          "weight": 267,
+          "clsid": "LAU_117_AGM_65H"
+        },
+        "LAU-117,AGM-65K": {
+          "weight": 419,
+          "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}"
+        },
+        "LAU-117,CATM-65K": {
+          "weight": 419,
+          "clsid": "LAU_117_CATM_65K"
+        },
+        "LAU-117,TGM-65D": {
+          "weight": 277,
+          "clsid": "LAU_117_TGM_65D"
+        },
+        "LAU-117,TGM-65G": {
+          "weight": 360,
+          "clsid": "LAU_117_TGM_65G"
+        },
+        "LAU-117,TGM-65H": {
+          "weight": 267,
+          "clsid": "LAU_117_TGM_65H"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-131*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M151"
+        },
+        "LAU-131*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 361.48,
+          "clsid": "LAU_131x3_HYDRA_70_M156"
+        },
+        "LAU-131*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 374.5,
+          "clsid": "LAU_131x3_HYDRA_70_M257"
+        },
+        "LAU-131*3 - 7 2.75' rockets M274 (Practice Smoke)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M274"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK1"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 324.31,
+          "clsid": "LAU_131x3_HYDRA_70_MK5"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK61"
+        },
+        "LAU-131*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B"
+        },
+        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 394.39,
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 398.17,
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 411.19,
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 394.39,
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 361,
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}"
+        },
+        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 394.39,
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "LAU-88,AGM-65D*2": {
+          "weight": 647,
+          "clsid": "{E6A6262A-CA08-4B3D-B030-E1A993B98452}"
+        },
+        "LAU-88,AGM-65D*3": {
+          "weight": 865,
+          "clsid": "{DAC53A2F-79CA-42FF-A77A-F5649B601308}"
+        },
+        "LAU-88,AGM-65D*1": {
+          "weight": 429,
+          "clsid": "LAU_88_AGM_65D_ONE"
+        },
+        "LAU-88,AGM-65H*1": {
+          "weight": 419,
+          "clsid": "LAU_88_AGM_65H"
+        },
+        "LAU-88,AGM-65H*2": {
+          "weight": 627,
+          "clsid": "LAU_88_AGM_65H_2_L"
+        },
+        "LAU-88,AGM-65H*3": {
+          "weight": 835,
+          "clsid": "LAU_88_AGM_65H_3"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "SUU-25 * 8 LUU-2": {
+          "weight": 130,
+          "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        },
+        "3 SUU-25 * 8 LUU-2": {
+          "weight": 490,
+          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}"
+        }
+      },
+      "4": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "3 GBU-12": {
+          "weight": 876,
+          "clsid": "BRU-42_3*GBU-12"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "Fuel tank FT600": {
+          "weight": 1925,
+          "clsid": "Fuel_Tank_FT600"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-131*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M151"
+        },
+        "LAU-131*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 361.48,
+          "clsid": "LAU_131x3_HYDRA_70_M156"
+        },
+        "LAU-131*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 374.5,
+          "clsid": "LAU_131x3_HYDRA_70_M257"
+        },
+        "LAU-131*3 - 7 2.75' rockets M274 (Practice Smoke)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M274"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK1"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 324.31,
+          "clsid": "LAU_131x3_HYDRA_70_MK5"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK61"
+        },
+        "LAU-131*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B"
+        },
+        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 394.39,
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 398.17,
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 411.19,
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 394.39,
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 361,
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}"
+        },
+        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 394.39,
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        }
+      },
+      "5": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        }
+      },
+      "6": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "Fuel tank FT600": {
+          "weight": 1925,
+          "clsid": "Fuel_Tank_FT600"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "7": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        }
+      },
+      "8": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "3 GBU-12": {
+          "weight": 876,
+          "clsid": "BRU-42_3*GBU-12"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "Fuel tank FT600": {
+          "weight": 1925,
+          "clsid": "Fuel_Tank_FT600"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-131*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M151"
+        },
+        "LAU-131*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 361.48,
+          "clsid": "LAU_131x3_HYDRA_70_M156"
+        },
+        "LAU-131*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 374.5,
+          "clsid": "LAU_131x3_HYDRA_70_M257"
+        },
+        "LAU-131*3 - 7 2.75' rockets M274 (Practice Smoke)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M274"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK1"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 324.31,
+          "clsid": "LAU_131x3_HYDRA_70_MK5"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK61"
+        },
+        "LAU-131*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B"
+        },
+        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 394.39,
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 398.17,
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 411.19,
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 394.39,
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 361,
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}"
+        },
+        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 394.39,
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        }
+      },
+      "9": {
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "3 BDU-33": {
+          "weight": 98,
+          "clsid": "BRU-42_3*BDU-33"
+        },
+        "3 GBU-12": {
+          "weight": 876,
+          "clsid": "BRU-42_3*GBU-12"
+        },
+        "BRU-42LS": {
+          "weight": 65,
+          "clsid": "BRU-42_LS"
+        },
+        "CBU-103": {
+          "weight": 430,
+          "clsid": "{CBU_103}"
+        },
+        "CBU-105": {
+          "weight": 417,
+          "clsid": "{CBU_105}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-117,AGM-65D": {
+          "weight": 277,
+          "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}"
+        },
+        "LAU-117,AGM-65G": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65G"
+        },
+        "LAU-117,AGM-65H": {
+          "weight": 267,
+          "clsid": "LAU_117_AGM_65H"
+        },
+        "LAU-117,AGM-65K": {
+          "weight": 419,
+          "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}"
+        },
+        "LAU-117,CATM-65K": {
+          "weight": 419,
+          "clsid": "LAU_117_CATM_65K"
+        },
+        "LAU-117,TGM-65D": {
+          "weight": 277,
+          "clsid": "LAU_117_TGM_65D"
+        },
+        "LAU-117,TGM-65G": {
+          "weight": 360,
+          "clsid": "LAU_117_TGM_65G"
+        },
+        "LAU-117,TGM-65H": {
+          "weight": 267,
+          "clsid": "LAU_117_TGM_65H"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-131*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M151"
+        },
+        "LAU-131*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 361.48,
+          "clsid": "LAU_131x3_HYDRA_70_M156"
+        },
+        "LAU-131*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 374.5,
+          "clsid": "LAU_131x3_HYDRA_70_M257"
+        },
+        "LAU-131*3 - 7 2.75' rockets M274 (Practice Smoke)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_M274"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK1"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 324.31,
+          "clsid": "LAU_131x3_HYDRA_70_MK5"
+        },
+        "LAU-131*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 330.61,
+          "clsid": "LAU_131x3_HYDRA_70_MK61"
+        },
+        "LAU-131*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 357.7,
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B"
+        },
+        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
+          "weight": 394.39,
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
+          "weight": 398.17,
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 411.19,
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}"
+        },
+        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 394.39,
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 361,
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}"
+        },
+        "LAU-68*3 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 367.3,
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}"
+        },
+        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 394.39,
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "LAU-88,AGM-65D*2": {
+          "weight": 647,
+          "clsid": "{E6A6262A-CA08-4B3D-B030-E1A993B98453}"
+        },
+        "LAU-88,AGM-65D*3": {
+          "weight": 865,
+          "clsid": "{DAC53A2F-79CA-42FF-A77A-F5649B601308}"
+        },
+        "LAU-88,AGM-65D*1": {
+          "weight": 429,
+          "clsid": "LAU_88_AGM_65D_ONE"
+        },
+        "LAU-88,AGM-65H*1": {
+          "weight": 419,
+          "clsid": "LAU_88_AGM_65H"
+        },
+        "LAU-88,AGM-65H*2": {
+          "weight": 627,
+          "clsid": "LAU_88_AGM_65H_2_R"
+        },
+        "LAU-88,AGM-65H*3": {
+          "weight": 835,
+          "clsid": "LAU_88_AGM_65H_3"
+        },
+        "MXU-648 Travel Pod": {
+          "weight": 300,
+          "clsid": "MXU-648-TP"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "SUU-25 * 8 LUU-2": {
+          "weight": 130,
+          "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
+        },
+        "3 Mk-82": {
+          "weight": 783,
+          "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}"
+        },
+        "3 Mk-82AIR": {
+          "weight": 783,
+          "clsid": "{BRU-42_3*Mk-82AIR}"
+        },
+        "3 SUU-25 * 8 LUU-2": {
+          "weight": 490,
+          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}"
+        }
+      },
+      "10": {
+        "AN/AAQ-28 LITENING": {
+          "weight": 300,
+          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}"
+        },
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-131 - 7 2.75' rockets M151 (HE)": {
+          "weight": 102.3,
+          "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}"
+        },
+        "LAU-131 - 7 2.75' rockets M156 (WP)": {
+          "weight": 103.56,
+          "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}"
+        },
+        "LAU-131 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 107.9,
+          "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}"
+        },
+        "LAU-131 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 102.3,
+          "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}"
+        },
+        "LAU-131 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 91.17,
+          "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}"
+        },
+        "LAU-131 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}"
+        },
+        "LAU-131 - 7 2.75' rockets Mk1 (Practice)": {
+          "weight": 93.27,
+          "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}"
+        },
+        "LAU-131 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 102.3,
+          "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}"
+        },
+        "LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 114.53,
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}"
+        },
+        "LAU-68 - 7 2.75' rockets M156(WP)": {
+          "weight": 115.79,
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}"
+        },
+        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+          "weight": 120.13,
+          "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}"
+        },
+        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+          "weight": 114.53,
+          "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}"
+        },
+        "LAU-68 - 7 2.75' rockets MK1 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}"
+        },
+        "LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 103.4,
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}"
+        },
+        "LAU-68 - 7 2.75' rockets MK61 (Practice)": {
+          "weight": 105.5,
+          "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}"
+        },
+        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+          "weight": 114.53,
+          "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "SUU-25 * 8 LUU-2": {
+          "weight": 130,
+          "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}"
+        }
+      },
+      "11": {
+        "ALQ-131": {
+          "weight": 305,
+          "clsid": "{6D21ECEA-F85B-4E8D-9D51-31DC9B8AA4EF}"
+        },
+        "ALQ-184": {
+          "weight": 215,
+          "clsid": "ALQ_184"
+        },
+        "BDU-50HD": {
+          "weight": 232,
+          "clsid": "{BDU-50HD}"
+        },
+        "BDU-50LD": {
+          "weight": 232,
+          "clsid": "{BDU-50LD}"
+        },
+        "BDU-50LGB": {
+          "weight": 280,
+          "clsid": "{BDU-50LGB}"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-105": {
+          "weight": 18,
+          "clsid": "LAU-105"
+        },
+        "LAU-105 AIM-9L Sidewinder IR AAM": {
+          "weight": 115.5,
+          "clsid": "LAU-105_1*AIM-9L_R"
+        },
+        "LAU-105 AIM-9M Sidewinder IR AAM": {
+          "weight": 116.64,
+          "clsid": "LAU-105_1*AIM-9M_R"
+        },
+        "LAU-105 CAP-9M": {
+          "weight": 115.5,
+          "clsid": "LAU-105_1*CATM-9M_R"
+        },
+        "LAU-105 - 2 AIM-9L Sidewinder IR AAM": {
+          "weight": 201,
+          "clsid": "LAU-105_2*AIM-9L"
+        },
+        "LAU-105 - 2 CAP-9M": {
+          "weight": 201,
+          "clsid": "LAU-105_2*CATM-9M"
+        },
+        "LAU-105 AN/ASQ-T50 TCTS Pod": {
+          "weight": 92.6,
+          "clsid": "LAU-105_AIS_ASQ_T50_R"
+        },
+        "LAU-105 - 2 AIM-9M Sidewinder IR AAM": {
+          "weight": 203.28,
+          "clsid": "{DB434044-F5D0-4F1F-9BA9-B73027E18DD3}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Smokewinder - blue": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}"
+        },
+        "Smokewinder - green": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}"
+        },
+        "Smokewinder - orange": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}"
+        },
+        "Smokewinder - red": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}"
+        },
+        "Smokewinder - white": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}"
+        },
+        "Smokewinder - yellow": {
+          "weight": 200,
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}"
+        }
+      }
+    }
+  },
+  "FA-18C": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5", ""],
+      ["6", ""],
+      ["7", ""],
+      ["8", ""],
+      ["9", ""],
+      ["SMK", ""]
+    ],
+    "empty_lbs": 25642,
+    "chaff": 60,
+    "flare": 30,
+    "fuel": 100,
+    "fuel_lbs": 10803,
+    "gun": 100,
+    "gun_lbs": 331,
+    "joker": 4500,
+    "bingo": 3000,
+    "comments": "",
+    "cvn": true,
+    "mtow_field": 51900,
+    "mtow_cvn": 51900,
+    "mlw_field": 39000,
+    "mlw_cvn": 34000,
+    "loadout": {
+      "1": {
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      },
+      "2": {
+        "AGM-154A": {
+          "weight": 485,
+          "clsid": "{AGM-154A}"
+        },
+        "AGM-154C": {
+          "weight": 484,
+          "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+        },
+        "AGM-62": {
+          "weight": 1061,
+          "clsid": "{C40A1E3A-DD05-40D9-85A4-217729E37FAE}"
+        },
+        "AGM-84D": {
+          "weight": 540,
+          "clsid": "{AGM_84D}"
+        },
+        "AGM-84E": {
+          "weight": 628,
+          "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}"
+        },
+        "AGM-88C": {
+          "weight": 361,
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+        },
+        "AWW-13 DATALINK POD": {
+          "weight": 200,
+          "clsid": "{AWW-13}"
+        },
+        "BRU-33 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 519,
+          "clsid": "{BRU33_LAU10}"
+        },
+        "BRU-33 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 369.59,
+          "clsid": "{BRU33_LAU61}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 193.53,
+          "clsid": "{BRU33_LAU68}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 182.2,
+          "clsid": "{BRU33_LAU68_MK5}"
+        },
+        "BRU-33 - 2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 959,
+          "clsid": "{BRU33_2*LAU10}"
+        },
+        "BRU-33 - 2 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 660.18,
+          "clsid": "{BRU33_2*LAU61}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 308.06,
+          "clsid": "{BRU33_2*LAU68}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 285.4,
+          "clsid": "{BRU33_2*LAU68_MK5}"
+        },
+        "BRU-33 - 2 x CBU-99": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_CBU-99}"
+        },
+        "BRU-33 - 2 x GBU-12": {
+          "weight": 629,
+          "clsid": "{BRU33_2X_GBU-12}"
+        },
+        "BRU-33 - 2 x Mk-20 Rockeye": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_ROCKEYE}"
+        },
+        "BRU-33 - 2 x Mk-82": {
+          "weight": 561,
+          "clsid": "{BRU33_2X_MK-82}"
+        },
+        "BRU-33 - 2 x Mk-82Y": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82Y}"
+        },
+        "BRU-33 - 2 x Mk-82 SnakeEye": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82_Snakeye}"
+        },
+        "BRU-33 - 2 x Mk-83": {
+          "weight": 973,
+          "clsid": "{BRU33_2X_MK-83}"
+        },
+        "BRU-41A - 6 x BDU-33": {
+          "weight": 195.713,
+          "clsid": "{BRU41_6X_BDU-33}"
+        },
+        "BRU-55 - 2 x AGM-154A": {
+          "weight": 1020,
+          "clsid": "{BRU55_2*AGM-154A}"
+        },
+        "BRU-55 - 2 x AGM-154C": {
+          "weight": 1018,
+          "clsid": "{BRU55_2*AGM-154C}"
+        },
+        "BRU-55 - 2 x GBU-38": {
+          "weight": 561,
+          "clsid": "{BRU55_2*GBU-38}"
+        },
+        "CBU-99": {
+          "weight": 222,
+          "clsid": "{CBU_99}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-16": {
+          "weight": 564,
+          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-115C AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7F}"
+        },
+        "LAU-115C AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7H}"
+        },
+        "LAU-115 - 2 AIM-120B": {
+          "weight": 460.6,
+          "clsid": "LAU-115_2*LAU-127_AIM-120B"
+        },
+        "LAU-115 - 2 AIM-120C": {
+          "weight": 468,
+          "clsid": "LAU-115_2*LAU-127_AIM-120C"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9L Sidewinder IR AAM": {
+          "weight": 316,
+          "clsid": "LAU-115_2*LAU-127_AIM-9L"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9M Sidewinder IR AAM": {
+          "weight": 318.28,
+          "clsid": "LAU-115_2*LAU-127_AIM-9M"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9X Sidewinder IR AAM": {
+          "weight": 313.92,
+          "clsid": "LAU-115_2*LAU-127_AIM-9X"
+        },
+        "LAU-115 - 2 LAU-127 CAP-9M": {
+          "weight": 316,
+          "clsid": "LAU-115_2*LAU-127_CATM-9M"
+        },
+        "LAU-115C LAU-127 AIM-9L Sidewinder IR AAM": {
+          "weight": 185.2,
+          "clsid": "LAU-115_LAU-127_AIM-9L"
+        },
+        "LAU-115C LAU-127 AIM-9M Sidewinder IR AAM": {
+          "weight": 186.34,
+          "clsid": "LAU-115_LAU-127_AIM-9M"
+        },
+        "LAU-115C LAU-127 AIM-9X Sidewinder IR AAM": {
+          "weight": 184.16,
+          "clsid": "LAU-115_LAU-127_AIM-9X"
+        },
+        "LAU-115C LAU-127 CAP-9M": {
+          "weight": 185.2,
+          "clsid": "LAU-115_LAU-127_CATM-9M"
+        },
+        "LAU-115 - AIM-120B": {
+          "weight": 212.2,
+          "clsid": "{LAU-115 - AIM-120B}"
+        },
+        "LAU-115 - AIM-120C": {
+          "weight": 215.9,
+          "clsid": "{LAU-115 - AIM-120C}"
+        },
+        "LAU-115 - AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7M}"
+        },
+        "LAU-117,AGM-65E": {
+          "weight": 345,
+          "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+        },
+        "LAU-117,AGM-65F": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65F"
+        },
+        "Mk-20": {
+          "weight": 222,
+          "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82Y": {
+          "weight": 232,
+          "clsid": "{Mk_82Y}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-83": {
+          "weight": 447,
+          "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "3": {
+        "AGM-154A": {
+          "weight": 485,
+          "clsid": "{AGM-154A}"
+        },
+        "AGM-154C": {
+          "weight": 484,
+          "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+        },
+        "AGM-84D": {
+          "weight": 540,
+          "clsid": "{AGM_84D}"
+        },
+        "AGM-84E": {
+          "weight": 628,
+          "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}"
+        },
+        "AGM-88C": {
+          "weight": 361,
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+        },
+        "AWW-13 DATALINK POD": {
+          "weight": 200,
+          "clsid": "{AWW-13}"
+        },
+        "BRU-33 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 519,
+          "clsid": "{BRU33_LAU10}"
+        },
+        "BRU-33 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 369.59,
+          "clsid": "{BRU33_LAU61}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 193.53,
+          "clsid": "{BRU33_LAU68}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 182.2,
+          "clsid": "{BRU33_LAU68_MK5}"
+        },
+        "BRU-33 - 2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 959,
+          "clsid": "{BRU33_2*LAU10}"
+        },
+        "BRU-33 - 2 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 660.18,
+          "clsid": "{BRU33_2*LAU61}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 308.06,
+          "clsid": "{BRU33_2*LAU68}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 285.4,
+          "clsid": "{BRU33_2*LAU68_MK5}"
+        },
+        "BRU-33 - 2 x CBU-99": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_CBU-99}"
+        },
+        "BRU-33 - 2 x GBU-12": {
+          "weight": 629,
+          "clsid": "{BRU33_2X_GBU-12}"
+        },
+        "BRU-33 - 2 x Mk-20 Rockeye": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_ROCKEYE}"
+        },
+        "BRU-33 - 2 x Mk-82": {
+          "weight": 561,
+          "clsid": "{BRU33_2X_MK-82}"
+        },
+        "BRU-33 - 2 x Mk-82Y": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82Y}"
+        },
+        "BRU-33 - 2 x Mk-82 SnakeEye": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82_Snakeye}"
+        },
+        "BRU-33 - 2 x Mk-83": {
+          "weight": 973,
+          "clsid": "{BRU33_2X_MK-83}"
+        },
+        "BRU-41A - 6 x BDU-33": {
+          "weight": 195.713,
+          "clsid": "{BRU41_6X_BDU-33}"
+        },
+        "BRU-55 - 2 x AGM-154A": {
+          "weight": 1020,
+          "clsid": "{BRU55_2*AGM-154A}"
+        },
+        "BRU-55 - 2 x AGM-154C": {
+          "weight": 1018,
+          "clsid": "{BRU55_2*AGM-154C}"
+        },
+        "BRU-55 - 2 x GBU-38": {
+          "weight": 561,
+          "clsid": "{BRU55_2*GBU-38}"
+        },
+        "CBU-99": {
+          "weight": 222,
+          "clsid": "{CBU_99}"
+        },
+        "FPU-8A Fuel Tank 330 gallons": {
+          "weight": 1150,
+          "clsid": "{FPU_8A_FUEL_TANK}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-16": {
+          "weight": 564,
+          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-115C AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7F}"
+        },
+        "LAU-115C AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7H}"
+        },
+        "LAU-115 - 2 AIM-120B": {
+          "weight": 460.6,
+          "clsid": "LAU-115_2*LAU-127_AIM-120B"
+        },
+        "LAU-115 - 2 AIM-120C": {
+          "weight": 468,
+          "clsid": "LAU-115_2*LAU-127_AIM-120C"
+        },
+        "LAU-115 - AIM-120B": {
+          "weight": 212.2,
+          "clsid": "{LAU-115 - AIM-120B}"
+        },
+        "LAU-115 - AIM-120C": {
+          "weight": 215.9,
+          "clsid": "{LAU-115 - AIM-120C}"
+        },
+        "LAU-115 - AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7M}"
+        },
+        "LAU-117,AGM-65E": {
+          "weight": 345,
+          "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+        },
+        "LAU-117,AGM-65F": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65F"
+        },
+        "Mk-20": {
+          "weight": 222,
+          "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82Y": {
+          "weight": 232,
+          "clsid": "{Mk_82Y}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-83": {
+          "weight": 447,
+          "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "4": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{AIM-7F}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{AIM-7H}"
+        },
+        "AN/AAQ-28 LITENING": {
+          "weight": 300,
+          "clsid": "{AAQ-28_LEFT}"
+        }
+      },
+      "5": {
+        "AN/AAQ-28 LITENING": {
+          "weight": 300,
+          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}"
+        },
+        "AWW-13 DATALINK POD": {
+          "weight": 200,
+          "clsid": "{AWW-13}"
+        },
+        "BRU-33 - 2 x CBU-99": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_CBU-99}"
+        },
+        "BRU-33 - 2 x Mk-20 Rockeye": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_ROCKEYE}"
+        },
+        "BRU-33 - 2 x Mk-82": {
+          "weight": 561,
+          "clsid": "{BRU33_2X_MK-82}"
+        },
+        "BRU-33 - 2 x Mk-82Y": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82Y}"
+        },
+        "BRU-33 - 2 x Mk-82 SnakeEye": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82_Snakeye}"
+        },
+        "CBU-99": {
+          "weight": 222,
+          "clsid": "{CBU_99}"
+        },
+        "FPU-8A Fuel Tank 330 gallons": {
+          "weight": 1150,
+          "clsid": "{FPU_8A_FUEL_TANK}"
+        },
+        "Mk-20": {
+          "weight": 222,
+          "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82Y": {
+          "weight": 232,
+          "clsid": "{Mk_82Y}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-83": {
+          "weight": 447,
+          "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "6": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-7F": {
+          "weight": 230,
+          "clsid": "{AIM-7F}"
+        },
+        "AIM-7M": {
+          "weight": 230,
+          "clsid": "{8D399DDA-FF81-4F14-904D-099B34FE7918}"
+        },
+        "AIM-7MH": {
+          "weight": 230,
+          "clsid": "{AIM-7H}"
+        }
+      },
+      "7": {
+        "AGM-154A": {
+          "weight": 485,
+          "clsid": "{AGM-154A}"
+        },
+        "AGM-154C": {
+          "weight": 484,
+          "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+        },
+        "AGM-84D": {
+          "weight": 540,
+          "clsid": "{AGM_84D}"
+        },
+        "AGM-84E": {
+          "weight": 628,
+          "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}"
+        },
+        "AGM-88C": {
+          "weight": 361,
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+        },
+        "AWW-13 DATALINK POD": {
+          "weight": 200,
+          "clsid": "{AWW-13}"
+        },
+        "BRU-33 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 519,
+          "clsid": "{BRU33_LAU10}"
+        },
+        "BRU-33 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 369.59,
+          "clsid": "{BRU33_LAU61}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 193.53,
+          "clsid": "{BRU33_LAU68}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 182.2,
+          "clsid": "{BRU33_LAU68_MK5}"
+        },
+        "BRU-33 - 2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 959,
+          "clsid": "{BRU33_2*LAU10}"
+        },
+        "BRU-33 - 2 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 660.18,
+          "clsid": "{BRU33_2*LAU61}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 308.06,
+          "clsid": "{BRU33_2*LAU68}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 285.4,
+          "clsid": "{BRU33_2*LAU68_MK5}"
+        },
+        "BRU-33 - 2 x CBU-99": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_CBU-99}"
+        },
+        "BRU-33 - 2 x GBU-12": {
+          "weight": 629,
+          "clsid": "{BRU33_2X_GBU-12}"
+        },
+        "BRU-33 - 2 x Mk-20 Rockeye": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_ROCKEYE}"
+        },
+        "BRU-33 - 2 x Mk-82": {
+          "weight": 561,
+          "clsid": "{BRU33_2X_MK-82}"
+        },
+        "BRU-33 - 2 x Mk-82Y": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82Y}"
+        },
+        "BRU-33 - 2 x Mk-82 SnakeEye": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82_Snakeye}"
+        },
+        "BRU-33 - 2 x Mk-83": {
+          "weight": 973,
+          "clsid": "{BRU33_2X_MK-83}"
+        },
+        "BRU-41A - 6 x BDU-33": {
+          "weight": 195.713,
+          "clsid": "{BRU41_6X_BDU-33}"
+        },
+        "BRU-55 - 2 x AGM-154A": {
+          "weight": 1020,
+          "clsid": "{BRU55_2*AGM-154A}"
+        },
+        "BRU-55 - 2 x AGM-154C": {
+          "weight": 1018,
+          "clsid": "{BRU55_2*AGM-154C}"
+        },
+        "BRU-55 - 2 x GBU-38": {
+          "weight": 561,
+          "clsid": "{BRU55_2*GBU-38}"
+        },
+        "CBU-99": {
+          "weight": 222,
+          "clsid": "{CBU_99}"
+        },
+        "FPU-8A Fuel Tank 330 gallons": {
+          "weight": 1150,
+          "clsid": "{FPU_8A_FUEL_TANK}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-16": {
+          "weight": 564,
+          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-115C AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7F}"
+        },
+        "LAU-115C AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7H}"
+        },
+        "LAU-115 - 2 AIM-120B": {
+          "weight": 460.6,
+          "clsid": "LAU-115_2*LAU-127_AIM-120B"
+        },
+        "LAU-115 - 2 AIM-120C": {
+          "weight": 468,
+          "clsid": "LAU-115_2*LAU-127_AIM-120C"
+        },
+        "LAU-115 - AIM-120B": {
+          "weight": 212.2,
+          "clsid": "{LAU-115 - AIM-120B}"
+        },
+        "LAU-115 - AIM-120C": {
+          "weight": 215.9,
+          "clsid": "{LAU-115 - AIM-120C}"
+        },
+        "LAU-115 - AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7M}"
+        },
+        "LAU-117,AGM-65E": {
+          "weight": 345,
+          "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+        },
+        "LAU-117,AGM-65F": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65F"
+        },
+        "Mk-20": {
+          "weight": 222,
+          "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82Y": {
+          "weight": 232,
+          "clsid": "{Mk_82Y}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-83": {
+          "weight": 447,
+          "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "8": {
+        "AGM-154A": {
+          "weight": 485,
+          "clsid": "{AGM-154A}"
+        },
+        "AGM-154C": {
+          "weight": 484,
+          "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+        },
+        "AGM-62": {
+          "weight": 1061,
+          "clsid": "{C40A1E3A-DD05-40D9-85A4-217729E37FAE}"
+        },
+        "AGM-84D": {
+          "weight": 540,
+          "clsid": "{AGM_84D}"
+        },
+        "AGM-84E": {
+          "weight": 628,
+          "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}"
+        },
+        "AGM-88C": {
+          "weight": 361,
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+        },
+        "AWW-13 DATALINK POD": {
+          "weight": 200,
+          "clsid": "{AWW-13}"
+        },
+        "BRU-33 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 519,
+          "clsid": "{BRU33_LAU10}"
+        },
+        "BRU-33 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 369.59,
+          "clsid": "{BRU33_LAU61}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 193.53,
+          "clsid": "{BRU33_LAU68}"
+        },
+        "BRU-33 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 182.2,
+          "clsid": "{BRU33_LAU68_MK5}"
+        },
+        "BRU-33 - 2 LAU-10 - 4 ZUNI MK 71": {
+          "weight": 959,
+          "clsid": "{BRU33_2*LAU10}"
+        },
+        "BRU-33 - 2 LAU-61 - 19 2.75' rockets M151 (HE)": {
+          "weight": 660.18,
+          "clsid": "{BRU33_2*LAU61}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets M151 (HE)": {
+          "weight": 308.06,
+          "clsid": "{BRU33_2*LAU68}"
+        },
+        "BRU-33 - 2 LAU-68 - 7 2.75' rockets MK5 (HE)": {
+          "weight": 285.4,
+          "clsid": "{BRU33_2*LAU68_MK5}"
+        },
+        "BRU-33 - 2 x CBU-99": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_CBU-99}"
+        },
+        "BRU-33 - 2 x GBU-12": {
+          "weight": 629,
+          "clsid": "{BRU33_2X_GBU-12}"
+        },
+        "BRU-33 - 2 x Mk-20 Rockeye": {
+          "weight": 523,
+          "clsid": "{BRU33_2X_ROCKEYE}"
+        },
+        "BRU-33 - 2 x Mk-82": {
+          "weight": 561,
+          "clsid": "{BRU33_2X_MK-82}"
+        },
+        "BRU-33 - 2 x Mk-82Y": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82Y}"
+        },
+        "BRU-33 - 2 x Mk-82 SnakeEye": {
+          "weight": 543,
+          "clsid": "{BRU33_2X_MK-82_Snakeye}"
+        },
+        "BRU-33 - 2 x Mk-83": {
+          "weight": 973,
+          "clsid": "{BRU33_2X_MK-83}"
+        },
+        "BRU-41A - 6 x BDU-33": {
+          "weight": 195.713,
+          "clsid": "{BRU41_6X_BDU-33}"
+        },
+        "BRU-55 - 2 x AGM-154A": {
+          "weight": 1020,
+          "clsid": "{BRU55_2*AGM-154A}"
+        },
+        "BRU-55 - 2 x AGM-154C": {
+          "weight": 1018,
+          "clsid": "{BRU55_2*AGM-154C}"
+        },
+        "BRU-55 - 2 x GBU-38": {
+          "weight": 561,
+          "clsid": "{BRU55_2*GBU-38}"
+        },
+        "CBU-99": {
+          "weight": 222,
+          "clsid": "{CBU_99}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "GBU-16": {
+          "weight": 564,
+          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}"
+        },
+        "GBU-31": {
+          "weight": 894,
+          "clsid": "{GBU-31}"
+        },
+        "GBU-31(V)3/B": {
+          "weight": 981,
+          "clsid": "{GBU-31V3B}"
+        },
+        "GBU-38": {
+          "weight": 241,
+          "clsid": "{GBU-38}"
+        },
+        "LAU-115C AIM-7F": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7F}"
+        },
+        "LAU-115C AIM-7MH": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7H}"
+        },
+        "LAU-115 - 2 AIM-120B": {
+          "weight": 460.6,
+          "clsid": "LAU-115_2*LAU-127_AIM-120B"
+        },
+        "LAU-115 - 2 AIM-120C": {
+          "weight": 468,
+          "clsid": "LAU-115_2*LAU-127_AIM-120C"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9L Sidewinder IR AAM": {
+          "weight": 316,
+          "clsid": "LAU-115_2*LAU-127_AIM-9L"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9M Sidewinder IR AAM": {
+          "weight": 318.28,
+          "clsid": "LAU-115_2*LAU-127_AIM-9M"
+        },
+        "LAU-115 - 2 LAU-127 AIM-9X Sidewinder IR AAM": {
+          "weight": 313.92,
+          "clsid": "LAU-115_2*LAU-127_AIM-9X"
+        },
+        "LAU-115 - 2 LAU-127 CAP-9M": {
+          "weight": 316,
+          "clsid": "LAU-115_2*LAU-127_CATM-9M"
+        },
+        "LAU-115C LAU-127 AIM-9L Sidewinder IR AAM": {
+          "weight": 185.2,
+          "clsid": "LAU-115_LAU-127_AIM-9L"
+        },
+        "LAU-115C LAU-127 AIM-9M Sidewinder IR AAM": {
+          "weight": 186.34,
+          "clsid": "LAU-115_LAU-127_AIM-9M"
+        },
+        "LAU-115C LAU-127 AIM-9X Sidewinder IR AAM": {
+          "weight": 184.16,
+          "clsid": "LAU-115_LAU-127_AIM-9X"
+        },
+        "LAU-115C LAU-127 CAP-9M": {
+          "weight": 185.2,
+          "clsid": "LAU-115_LAU-127_CATM-9M"
+        },
+        "LAU-115 - AIM-120B": {
+          "weight": 212.2,
+          "clsid": "{LAU-115 - AIM-120B}"
+        },
+        "LAU-115 - AIM-120C": {
+          "weight": 215.9,
+          "clsid": "{LAU-115 - AIM-120C}"
+        },
+        "LAU-115 - AIM-7M": {
+          "weight": 284.4,
+          "clsid": "{LAU-115 - AIM-7M}"
+        },
+        "LAU-117,AGM-65E": {
+          "weight": 345,
+          "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+        },
+        "LAU-117,AGM-65F": {
+          "weight": 360,
+          "clsid": "LAU_117_AGM_65F"
+        },
+        "Mk-20": {
+          "weight": 222,
+          "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82Y": {
+          "weight": 232,
+          "clsid": "{Mk_82Y}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-83": {
+          "weight": 447,
+          "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        }
+      },
+      "9": {
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      },
+      "10": {
+        "Smoke Generator - blue": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-BLUE}"
+        },
+        "Smoke Generator - green": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-GREEN}"
+        },
+        "Smoke Generator - orange": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-ORANGE}"
+        },
+        "Smoke Generator - red": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-RED}"
+        },
+        "Smoke Generator - white": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-WHITE}"
+        },
+        "Smoke Generator - yellow": {
+          "weight": 0,
+          "clsid": "{INV-SMOKE-YELLOW}"
+        }
+      }
+    }
+  },
+  "F-16C": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5L", ""],
+      ["5", ""],
+      ["5R", ""],
+      ["6", ""],
+      ["7", ""],
+      ["8", ""],
+      ["9", ""]
+    ],
+    "empty_lbs": 21466,
+    "chaff": 60,
+    "flare": 60,
+    "fuel": 100,
+    "fuel_lbs": 7163,
+    "joker": 3000,
+    "bingo": 2000,
+    "gun": 100,
+    "gun_lbs": 294,
+    "comments": "",
+    "cvn": false,
+    "mtow_field": 42300,
+    "mlw_field": 42300,
+    "loadout": {
+      "1": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      },
+      "2": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      },
+      "3": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-3 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "LAU3_HE151"
+        },
+        "LAU-3 - 19 2.75' rockets MK5 HEAT": {
+          "weight": 234,
+          "clsid": "LAU3_HE5"
+        },
+        "LAU-3 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP156"
+        },
+        "LAU-3 - 19 2.75' rockets WTU-1/B WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP1B"
+        },
+        "LAU-3 - 19 2.75' rockets MK61 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP61"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "TER-9A - 2 x CBU-87": {
+          "weight": 913,
+          "clsid": "{TER_9A_2L*CBU-87}"
+        },
+        "TER-9A - 2 x CBU-97": {
+          "weight": 887,
+          "clsid": "{TER_9A_2L*CBU-97}"
+        },
+        "TER-9A - 2 x GBU-12": {
+          "weight": 603,
+          "clsid": "{TER_9A_2L*GBU-12}"
+        },
+        "TER-9A - 2 x Mk-82": {
+          "weight": 535,
+          "clsid": "{TER_9A_2L*MK-82}"
+        },
+        "TER-9A - 2 x Mk-82AIR": {
+          "weight": 517,
+          "clsid": "{TER_9A_2L*MK-82AIR}"
+        },
+        "TER-9A - 2 x Mk-82 SnakeEye": {
+          "weight": 517,
+          "clsid": "{TER_9A_2L*MK-82_Snakeye}"
+        },
+        "TER-9A - 3 x BDU-33": {
+          "weight": 86.9,
+          "clsid": "{TER_9A_3*BDU-33}"
+        },
+        "TER-9A - 3 x Mk-82": {
+          "weight": 776,
+          "clsid": "{TER_9A_3*MK-82}"
+        },
+        "TER-9A - 3 x Mk-82AIR": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82AIR}"
+        },
+        "TER-9A - 3 x Mk-82 SnakeEye": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82_Snakeye}"
+        }
+      },
+      "4": {
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "Fuel tank 370 gal": {
+          "weight": 1338.1101068,
+          "clsid": "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-3 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "LAU3_HE151"
+        },
+        "LAU-3 - 19 2.75' rockets MK5 HEAT": {
+          "weight": 234,
+          "clsid": "LAU3_HE5"
+        },
+        "LAU-3 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP156"
+        },
+        "LAU-3 - 19 2.75' rockets WTU-1/B WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP1B"
+        },
+        "LAU-3 - 19 2.75' rockets MK61 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP61"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "TER-9A - 2 x CBU-87": {
+          "weight": 913,
+          "clsid": "{TER_9A_2L*CBU-87}"
+        },
+        "TER-9A - 2 x CBU-97": {
+          "weight": 887,
+          "clsid": "{TER_9A_2L*CBU-97}"
+        },
+        "TER-9A - 2 x Mk-82": {
+          "weight": 535,
+          "clsid": "{TER_9A_2L*MK-82}"
+        },
+        "TER-9A - 2 x Mk-82AIR": {
+          "weight": 517,
+          "clsid": "{TER_9A_2L*MK-82AIR}"
+        },
+        "TER-9A - 2 x Mk-82 SnakeEye": {
+          "weight": 517,
+          "clsid": "{TER_9A_2L*MK-82_Snakeye}"
+        },
+        "TER-9A - 3 x BDU-33": {
+          "weight": 86.9,
+          "clsid": "{TER_9A_3*BDU-33}"
+        },
+        "TER-9A - 3 x CBU-87": {
+          "weight": 1343,
+          "clsid": "{TER_9A_3*CBU-87}"
+        },
+        "TER-9A - 3 x CBU-97": {
+          "weight": 1304,
+          "clsid": "{TER_9A_3*CBU-97}"
+        },
+        "TER-9A - 3 x Mk-82": {
+          "weight": 776,
+          "clsid": "{TER_9A_3*MK-82}"
+        },
+        "TER-9A - 3 x Mk-82AIR": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82AIR}"
+        },
+        "TER-9A - 3 x Mk-82 SnakeEye": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82_Snakeye}"
+        }
+      },
+      "5": {},
+      "6": {
+        "Fuel tank 300 gal": {
+          "weight": 1083.5076415,
+          "clsid": "{8A0BE8AE-58D4-4572-9263-3144C0D06364}"
+        }
+      },
+      "7": {
+        "AN/AAQ-28 LITENING": {
+          "weight": 300,
+          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}"
+        }
+      },
+      "8": {
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "Fuel tank 370 gal": {
+          "weight": 1338.1101068,
+          "clsid": "{F376DBEE-4CAE-41BA-ADD9-B2910AC95DEC}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-3 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "LAU3_HE151"
+        },
+        "LAU-3 - 19 2.75' rockets MK5 HEAT": {
+          "weight": 234,
+          "clsid": "LAU3_HE5"
+        },
+        "LAU-3 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP156"
+        },
+        "LAU-3 - 19 2.75' rockets WTU-1/B WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP1B"
+        },
+        "LAU-3 - 19 2.75' rockets MK61 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP61"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "TER-9A - 2 x CBU-87": {
+          "weight": 913,
+          "clsid": "{TER_9A_2R*CBU-87}"
+        },
+        "TER-9A - 2 x CBU-97": {
+          "weight": 887,
+          "clsid": "{TER_9A_2R*CBU-97}"
+        },
+        "TER-9A - 2 x Mk-82AIR": {
+          "weight": 517,
+          "clsid": "{TER_9A_2R*MK-82AIR}"
+        },
+        "TER-9A - 2 x Mk-82": {
+          "weight": 535,
+          "clsid": "{TER_9A_2R*MK-82}"
+        },
+        "TER-9A - 2 x Mk-82 SnakeEye": {
+          "weight": 517,
+          "clsid": "{TER_9A_2R*MK-82_Snakeye}"
+        },
+        "TER-9A - 3 x BDU-33": {
+          "weight": 86.9,
+          "clsid": "{TER_9A_3*BDU-33}"
+        },
+        "TER-9A - 3 x CBU-87": {
+          "weight": 1343,
+          "clsid": "{TER_9A_3*CBU-87}"
+        },
+        "TER-9A - 3 x CBU-97": {
+          "weight": 1304,
+          "clsid": "{TER_9A_3*CBU-97}"
+        },
+        "TER-9A - 3 x Mk-82": {
+          "weight": 776,
+          "clsid": "{TER_9A_3*MK-82}"
+        },
+        "TER-9A - 3 x Mk-82AIR": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82AIR}"
+        },
+        "TER-9A - 3 x Mk-82 SnakeEye": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82_Snakeye}"
+        }
+      },
+      "9": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        },
+        "CBU-87": {
+          "weight": 430,
+          "clsid": "{CBU-87}"
+        },
+        "CBU-97": {
+          "weight": 417,
+          "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}"
+        },
+        "GBU-10": {
+          "weight": 1162,
+          "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+        },
+        "GBU-12": {
+          "weight": 275,
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+        },
+        "LAU-3 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "LAU3_HE151"
+        },
+        "LAU-3 - 19 2.75' rockets MK5 HEAT": {
+          "weight": 234,
+          "clsid": "LAU3_HE5"
+        },
+        "LAU-3 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP156"
+        },
+        "LAU-3 - 19 2.75' rockets WTU-1/B WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP1B"
+        },
+        "LAU-3 - 19 2.75' rockets MK61 WP": {
+          "weight": 234,
+          "clsid": "LAU3_WP61"
+        },
+        "Mk-82": {
+          "weight": 241,
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}"
+        },
+        "Mk-82AIR": {
+          "weight": 232,
+          "clsid": "{Mk82AIR}"
+        },
+        "Mk-82 SnakeEye": {
+          "weight": 232,
+          "clsid": "{Mk82SNAKEYE}"
+        },
+        "Mk-84": {
+          "weight": 894,
+          "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+        },
+        "TER-9A - 2 x CBU-87": {
+          "weight": 913,
+          "clsid": "{TER_9A_2R*CBU-87}"
+        },
+        "TER-9A - 2 x CBU-97": {
+          "weight": 887,
+          "clsid": "{TER_9A_2R*CBU-97}"
+        },
+        "TER-9A - 2 x GBU-12": {
+          "weight": 603,
+          "clsid": "{TER_9A_2R*GBU-12}"
+        },
+        "TER-9A - 2 x Mk-82AIR": {
+          "weight": 517,
+          "clsid": "{TER_9A_2R*MK-82AIR}"
+        },
+        "TER-9A - 2 x Mk-82": {
+          "weight": 535,
+          "clsid": "{TER_9A_2R*MK-82}"
+        },
+        "TER-9A - 2 x Mk-82 SnakeEye": {
+          "weight": 517,
+          "clsid": "{TER_9A_2R*MK-82_Snakeye}"
+        },
+        "TER-9A - 3 x BDU-33": {
+          "weight": 86.9,
+          "clsid": "{TER_9A_3*BDU-33}"
+        },
+        "TER-9A - 3 x Mk-82": {
+          "weight": 776,
+          "clsid": "{TER_9A_3*MK-82}"
+        },
+        "TER-9A - 3 x Mk-82AIR": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82AIR}"
+        },
+        "TER-9A - 3 x Mk-82 SnakeEye": {
+          "weight": 749,
+          "clsid": "{TER_9A_3*MK-82_Snakeye}"
+        }
+      },
+      "10": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      },
+      "11": {
+        "AIM-120B": {
+          "weight": 157.8,
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}"
+        },
+        "AIM-120C": {
+          "weight": 161.5,
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "weight": 85.5,
+          "clsid": "{AIM-9L}"
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "weight": 86.64,
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "weight": 84.46,
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "weight": 62.6,
+          "clsid": "{AIS_ASQ_T50}"
+        },
+        "CAP-9M": {
+          "weight": 85.5,
+          "clsid": "CATM-9M"
+        }
+      }
+    }
+  }
+}

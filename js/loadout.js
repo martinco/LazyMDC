@@ -1,122 +1,5 @@
 
-loadout_airframe_defaults = {
-  "F-14B": {
-    "pylons": [
-      ["1a", ""],
-      ["1b", ""],
-      ["2", ""],
-      ["3", ""],
-      ["4", ""],
-      ["5", ""],
-      ["6", ""],
-      ["7", ""],
-      ["8b", ""],
-      ["8a", ""]
-    ],
-    "empty_lbs": 44040,
-    "chaff": 0,
-    "flare": 60,
-    "fuel": 100,
-    "fuel_lbs": 16200,
-    "gun": 100,
-    "gun_lbs": 520,
-    "joker": 5000,
-    "bingo": 4000,
-    "cvn": true,
-    "mtow_field": 72000,
-    "mtow_cvn": 76000,
-    "mlw_field": 60000,
-    "mlw_cvn": 54000,
-    "comments": '* If loading LAU-138, you have an additional 40 chaff',
-  },
-  "A-10C": {
-    "pylons": [
-      ["1", ""],
-      ["2", ""],
-      ["3", ""],
-      ["4", ""],
-      ["5", ""],
-      ["6", ""],
-      ["7", ""],
-      ["8", ""],
-      ["9", ""],
-      ["10", ""],
-      ["11", ""]
-    ],
-    "empty_lbs": 24967,
-    "chaff": 240,
-    "flare": 120,
-    "fuel": 100,
-    "fuel_lbs": 11087,
-    "gun": 100,
-    "gun_lbs": 1775,
-    "joker": 3000,
-    "bingo": 2000,
-    "comments": "",
-    "cvn": false,
-    "mtow_field": 72000,
-    "mlw_field": 60000,
-  },
-  "FA-18C": {
-    "pylons": [
-      ["1", ""],
-      ["2", ""],
-      ["3", ""],
-      ["4", ""],
-      ["5", ""],
-      ["6", ""],
-      ["7", ""],
-      ["8", ""],
-      ["9", ""],
-      ["SMK", ""]
-    ],
-    "empty_lbs": 25642,
-    "chaff": 60,
-    "flare": 30,
-    "fuel": 100,
-    "fuel_lbs": 10803,
-    "gun": 100,
-    "gun_lbs": 331,
-    "joker": 4500,
-    "bingo": 3000,
-    "comments": "",
-    "cvn": true,
-    "mtow_field": 72000,
-    "mtow_cvn": 76000,
-    "mlw_field": 60000,
-    "mlw_cvn": 44000,
-  },
-  "F-16C": {
-    "pylons": [
-      ["1", ""],
-      ["2", ""],
-      ["3", ""],
-      ["4", ""],
-      ["5L", ""],
-      ["5", ""],
-      ["5R", ""],
-      ["6", ""],
-      ["7", ""],
-      ["8", ""],
-      ["9", ""],
-    ],
-    "empty_lbs": 19899+1567, // 1567 is under weapons, but unable to be removed so we count it on empty
-    "chaff": 60,
-    "flare": 60,
-    "fuel": 100,
-    "fuel_lbs": 7163,
-    "joker": 3000,
-    "bingo": 2000,
-    "gun": 100,
-    "gun_lbs": 294,
-    "comments": "",
-    "cvn": false,
-    "mtow_field": 72000,
-    "mlw_field": 60000,
-  },
-}
 // Process new Combat Flite
-
 $(document).on('flight-airframe-changed', function(e) {
 
   loadout_set({
@@ -160,7 +43,7 @@ function get_loadout_from_xml(route) {
 
   var output = []
 
-  var pylons = loadout_airframe_defaults[route.aircraft]['pylons']
+  var pylons = airframes[route.aircraft]['pylons']
   for (var data of pylons) {
     var store = stores_obj[data[0]];
     if (store) {
@@ -180,12 +63,12 @@ function loadout_update_weight() {
       return;
     }
 
-    var empty_weight = loadout_airframe_defaults[type]['empty_lbs'];
+    var empty_weight = airframes[type]['empty_lbs'];
     var total = empty_weight;
     var stores = 0;
 
-    var gun_lbs = Math.round($("#loadout-gun").val()/100 * loadout_airframe_defaults[type]['gun_lbs']);
-    var fuel_lbs = Math.round($("#loadout-fuel").val()/100 * loadout_airframe_defaults[type]['fuel_lbs']);
+    var gun_lbs = Math.round($("#loadout-gun").val()/100 * airframes[type]['gun_lbs']);
+    var fuel_lbs = Math.round($("#loadout-fuel").val()/100 * airframes[type]['fuel_lbs']);
   
     $('#loadout-fuel_lbs').val(fuel_lbs);
     $('#loadout-gun_lbs').val(gun_lbs);
@@ -195,8 +78,8 @@ function loadout_update_weight() {
 
     $(".pylon-select").each(function(idx, pyl) {
       var w = Math.round($(pyl).find("option:selected").data('pyl-weight') || 0);
-      total += w
-      stores += w
+      total += w*2.20462
+      stores += w*2.20462
     })
 
     total = Math.round(total)
@@ -205,21 +88,21 @@ function loadout_update_weight() {
     return {
       'total': total,
       'stores': Math.round(stores),
-      'owe': empty_weight,
+      'oew': empty_weight,
     }
 }
 
 function get_pylon_options(type, id, val = "") {
 
   id = id + 1;
-  if (!pylon_data[type]) { return [] }
-  if (!pylon_data[type][id]) { return [] }
+
+  var pylon_data = airframes[$('#flight-airframe').val()]['loadout'];
   output = "";
 
   var selected_weight = 0
 
-  for (var [name, info] of Object.entries(pylon_data[type][id])) {
-    var weight = Math.round(info['weight']*2.20462)
+  for (var [name, info] of Object.entries(pylon_data[id])) {
+    var weight = info['weight']
 
     // val might be a dict from CF, so if it's a dict, so if dict, check store
     // and clsid else just check name
@@ -241,7 +124,7 @@ function get_pylon_options(type, id, val = "") {
     output += `<option${selected ? ' selected' : ''} data-pyl-weight="${weight}">${name}</option>\n`
   }
 
-  return [output, selected_weight]
+  return [output, Math.round(selected_weight*2.20462)]
 }
 
 function loadout_set(opts) {
@@ -256,7 +139,7 @@ function loadout_set(opts) {
   }
 
   // Copy our default and merge our opts
-  var values = jQuery.extend(true, {}, loadout_airframe_defaults[type])
+  var values = jQuery.extend(true, {}, airframes[type])
   var pylon_opts = opts.pylons || {}
   delete(opts.pylons)
 
@@ -378,12 +261,12 @@ function loadout_export() {
     ret['pylons'].push({
       'pyl': select.getAttribute('data-pyl-name'),
       'store': select.options[select.selectedIndex].textContent,
-      'weight': parseInt(select.options[select.selectedIndex].getAttribute('data-pyl-weight')),
+      'weight': Math.round(select.options[select.selectedIndex].getAttribute('data-pyl-weight')*2.20462),
     })
   });
 
   
-  var type_data = loadout_airframe_defaults[$('#flight-airframe').val()];
+  var type_data = airframes[$('#flight-airframe').val()];
 
   if (!type_data) { 
     return {}
