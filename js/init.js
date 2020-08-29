@@ -1,4 +1,7 @@
-
+// This is ugly and i don't like it - but when we load an MDC on save, we click
+// through the submission to see where to land, given right now this includes
+// saving, we want to avoid it, so we disable it, click, enable it...eugh
+disable_save = false
 
 $.when(
 
@@ -146,6 +149,7 @@ $.when(
             }
 
             if (form.checkValidity() === true) {
+
               // Enable Next target
               var target = $(this).data('nav-target');
 
@@ -153,8 +157,19 @@ $.when(
               nav.removeClass('disabled');
               nav.tab('show');
 
-              // Set hash
-              window.location.hash = target
+              // If we aren't saving, we also don't want to spin through hashes
+              // as it looks ugly
+              if (!disable_save) {
+
+                window.location.hash = target
+                document_update_title()
+
+                // Automatically save when we move to next target, due to the 
+                // save only working if we got past mission, this works out
+                // quite nicely
+                save(null, false, true, false)
+              }
+
             }
             form.classList.add('was-validated');
           }, false);
@@ -197,13 +212,19 @@ $.when(
               var submit = $('#' + href + '-form button[type=submit]')
               if (submit) {
                 // if the page didn't change, we stop
+                disable_save = true
                 $(submit).click();
+                disable_save = false
 
                 var new_page = $('ul#side-nav a.nav-link.active').attr('href').substr(1);
 
                 if (new_page != page) {
                   page = new_page;
                 } else {
+
+                  // And if we are here, we're as far as we can go, so set the
+                  // hash accordingly
+                  window.location.hash = new_page 
                   return false
                 }
               }
@@ -232,4 +253,10 @@ $.when(
       $("#loader-container").fadeOut("fast");
     }
   });
+
+  // Initialize popstate for navigation
+  window.onpopstate = function() {
+    $("#side-nav a[href$=\"" + document.location.hash + "\"]").tab('show');
+    document_update_title()
+  }
 });

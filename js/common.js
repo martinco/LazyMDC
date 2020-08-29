@@ -134,13 +134,29 @@ function get_data() {
   return ret
 }
 
+function document_update_title() {
+
+  var mission_id = $('#mission-id').val();
+  var title = "DCBv2:"
+
+  if (mission_id) {
+    title += " " + mission_id
+  }
+
+  if (window.location.hash) {
+    title += " " + window.location.hash.substr(1)
+  }
+
+  document.title = title;
+}
+
 function save(data = null, new_id = false, update_id=true, notify = false, cb = null, cb_args = []) {
 
   // As a simple sanity check we ensure we have mission ID as bare minimum to save
   if (!$('#mission-id').val()) {
     return
   }
-  
+
   if (!data) {
     data = get_data()
   }
@@ -152,12 +168,14 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
 
   // Save our current_page if valid
   // If we have a window ref select that tab
-  if (window.location.hash) { 
+  if (window.location.hash) {
     var tab = $("#side-nav a[href$=\"" + window.location.hash + "\"]");
     if (tab) {
       data['current_page'] = window.location.hash;
     }
   }
+
+  document_update_title()
 
   // construct an HTTP request
   $.post(
@@ -174,7 +192,8 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
           });
         }
         if (update_id) {
-          window.history.pushState(data, data, kneeboard_root + "/" + data);
+          // Update without page reload
+          window.history.replaceState(data, '', kneeboard_root + "/" + data + window.location.hash );
         }
         if (cb) {
           cb_args.unshift(data)
