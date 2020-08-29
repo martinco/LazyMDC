@@ -336,6 +336,11 @@
         "twr": 119.6
       }
     },
+    "bullseye": {
+      "label": "BULLS MARY",
+      "lat": 25.28105,
+      "lon": 55.8826666666667
+    },
     "navdata": {
       "transition-alt": 8000, 
       "transition-level": 85
@@ -3925,6 +3930,11 @@
         "atis": 119.7,
         "twr": 119.6
       }
+    },
+    "bullseye": {
+      "label": "BULLS MARY",
+      "lat": 25.28105,
+      "lon": 55.8826666666667
     },
     "navdata": {
       "transition-alt": 8000, 

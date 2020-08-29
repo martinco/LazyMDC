@@ -448,3 +448,7 @@ function waypoint_load(data) {
 }
 
 waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);
+
+// Some things might be set as data raw (e.g. bulls), make sure they're correct
+// here
+waypoint_update_display();

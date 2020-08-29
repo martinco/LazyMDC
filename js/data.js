@@ -13,11 +13,11 @@ function generate_mission_airfields() {
   var mission = $('#data-mission').val();
 
   if (!mission_data.hasOwnProperty(mission) || !mission_data[mission].hasOwnProperty('airfields')) {
-    mission_airfields = airfields[theatre];
+    mission_airfields = theatres[theatre]['airfields'];
     return;
   }
 
-  mission_airfields = jQuery.extend(true, {}, airfields[theatre])
+  mission_airfields = jQuery.extend(true, {}, theatres[theatre]['airfields'])
 
   for (const [key, value] of Object.entries(mission_data[mission]['airfields'])) {
     if (mission_airfields.hasOwnProperty(key)) {
@@ -164,9 +164,11 @@ $("#data-mission").change(function(e) {
 
   if (mission_data.hasOwnProperty(mission)) {
 
-    // If the mission contains a theatre, update it
+    // If the mission contains a theatre, update it, and disable theatre
     if (mission_data[mission].theatre) {
-      $('#data-theatre').val(mission_data[mission].theatre).change()
+      var input_theatre = $('#data-theatre');
+      input_theatre.val(mission_data[mission].theatre).change();
+      input_theatre.attr('disabled', 'disabled');
     }
     
     // If the mission contains transition / FL info, update set those
@@ -178,11 +180,32 @@ $("#data-mission").change(function(e) {
         $("#waypoints-transition-level").val(mission_data[mission]['navdata']['transition-level'])
       }
     }
+
+    // Update to the default bullseye for the mission
+    // var bulls = mission_data[mission].bullseye ? mission_data[mission].bullseye :
+  } else {
+    $('#data-theatre').removeAttr('disabled');
   }
+
 });
+
+function data_update_default_bulls() {
+  // Try Mission, then theatre
+  var mission = $('#data-mission').val()
+  var theatre = $('#data-theatre').val()
+
+  var bulls = mission_data[mission] && mission_data[mission]['bullseye'] ?
+              mission_data[mission]['bullseye'] : theatres[theatre]['bullseye'];
+
+  $('#waypoints-bullseye-name').val(bulls['label']);
+  $('#waypoints-bullseye-lat')[0].setAttribute('data-raw', bulls['lat']);
+  $('#waypoints-bullseye-lon')[0].setAttribute('data-raw', bulls['lon']);
+
+}
 
 $('#data-theatre').change(function(e) {
   generate_mission_airfields()
+  data_update_default_bulls();
 });
 
 $("#data-route-dialog-waypoints").change(function(e) {
@@ -229,7 +252,11 @@ $("#data-route-dialog-submit").click(function(e, data) {
 ******************************************************************************/
 
 function data_export() {
-    return $('#data-form').serializeObject()
+    var form = $("#data-form")
+    var disabled = form.find(':input:disabled').removeAttr('disabled')
+    var data = form.serializeObject()
+    disabled.attr('disabled', 'disabled');
+    return data
 }
 
 function data_load(data) {
@@ -245,15 +272,25 @@ function data_load(data) {
 
 zip.workerScriptsPath = 'js/zip-js/';
 
-// opulate the Mission Data
+// opulate the Mission Data / Theatres
 (function() {
 
+  var input = $('#data-theatre');
+  for (var x in theatres) {
+    var def = theatres[x].default === true
+    var option = new Option(theatres[x].display_name, x, def, def)
+    input.append(option)
+  }
+
   var input = $('#data-mission')
-  for (x in mission_data) {
+  for (var x in mission_data) {
     var def = mission_data[x].default === true
     var option = new Option(x, x, def, def)
     input.append(option)
   }
+
+  // Issue changed on mission to ensure the theatre / etc. gets updated
+  $('#data-mission').change()
 
 }())
 

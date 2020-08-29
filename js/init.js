@@ -32,8 +32,8 @@ $.when(
     stores_map = data;
   }),
 
-  $.getJSON("data/airfields.json").done(function(data) {
-    airfields = data;
+  $.getJSON("data/theatres.json").done(function(data) {
+    theatres = data;
   }),
 
   $.getJSON("data/mission_data.json").done(function(data) {
