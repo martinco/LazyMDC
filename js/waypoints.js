@@ -122,15 +122,21 @@ function waypoint_add(wp_info) {
 
   if (!last_row) {
     data['act'] = "00:20"
+    data['typ'] = "1"
   } else {
     data['alt'] = current_last_data[2]
     data['gs'] = current_last_data[3]
+  
+    // If typ is a number, increment it
+    if (!isNaN(parseInt(current_last_data[0]))) {
+      data['typ'] = parseInt(current_last_data[0]) + 1;
+    }
   }
   
   jQuery.extend(true, data, wp_info)
   
   var row = `<tr>
-          <td class="input-container"><input value="${data['typ']}"></td>
+          <td class="input-container"><input class="text-center" value="${data['typ']}"></td>
           <td class="input-container"><input value="${data['name']}"></td>
           <td class="input-container text-right"><input value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
