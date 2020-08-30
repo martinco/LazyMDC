@@ -1,5 +1,5 @@
 .kneeboard {
-  font-color: #efefef;
+  font-color: #cfcfcf;
   color: #efefef;
   background: #101010;
 }
@@ -12,12 +12,16 @@ b {
   color: #efefef;
 }
 
+.bg-blank {
+  background: #101010;
+}
+
 /* coordinates, tcn, and frequences should be bold */
 .kneeboard .coord,
 .kneeboard .tcn, .kneeboard .tcn input,
 .kneeboard .freq, .kneeboard .freq input,
 .kneeboard .tcn, .kneeboard .tcn input {
-  color: #f0f0f0;
+  color: #f5f5f5;
 }
 
 .kneeboard tr {
@@ -26,12 +30,12 @@ b {
 
 .kneeboard tr .inline-title {
   background: #262626;
-  color:#ffffff;
+  color:#efefef;
 }
 
 .kneeboard tr .block-title {
-  background: #000;
-  color: #fff;
+  background: #262626;
+  color: #f5f5f5;
 }
 
 .kneeboard tr:nth-child(odd) textarea,

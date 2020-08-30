@@ -8,6 +8,10 @@ b {
   color: #000000;
 }
 
+.bg-blank {
+  background: #fefefe;
+}
+
 /* coordinates, tcn, and frequences should be bold */
 .kneeboard .coord,
 .kneeboard .tcn, .kneeboard .tcn input,
@@ -36,3 +40,4 @@ b {
 {
   background: #d9d9d9;
 }
+

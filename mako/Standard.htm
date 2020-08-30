@@ -6,11 +6,13 @@
 
 import math
 
-table_head = 20
-table_row_height = 21.5
+table_head = 21
+table_row_height = 19
 
 def ntos(n):
   # Get number of DPs
+  if not n:
+    return ''
   try:
     dp = len(str(n).split('.')[1])
   except:
@@ -112,7 +114,7 @@ data = context['data']
 package = data['package']['package-member'] != 'package-false'
 ac = data['flight']['flight-airframe']
 
-y_remain = 1180 - 20
+y_remain = 1200
 
 # Flight Members is variable columns...which sucks to map between, so we have:
 # [Title, Col Width, Style]
@@ -147,12 +149,6 @@ flight_cols.extend([
   <link rel="stylesheet" type="text/css" href="css/fonts.css">
   <link rel="stylesheet" type="text/css" href="css/Standard-base.css">
   <link rel="stylesheet" type="text/css" href="css/${theme}.css">
-  % if output.startswith("pdf"):
-  <link rel="stylesheet" type="text/css" href="css/Standard-pdf.css">
-  % endif
-  % if output.startswith("html"):
-  <link rel="stylesheet" type="text/css" href="css/Standard-html.css">
-  % endif
 </head>
 <body>
 
@@ -165,17 +161,19 @@ flight_cols.extend([
     ## ##########################################################################
     ## HEADING TABLE
     ## ##########################################################################
+    <% y_remain = 1200 - 40 %>
+    <% y_remain -= table_head + table_row_height %>
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col style="width: 115px" />
-        <col style="width: 70px" />
-        <col style="width: 70px" />
+        <col style="width: 115pt" />
+        <col style="width: 70pt" />
+        <col style="width: 70pt" />
         % if package:
-        <col style="width: 60px" />
+        <col style="width: 60pt" />
         % endif
         <col />
-        <col style="width: 60px" />
+        <col style="width: 60pt" />
       </colgroup>
 
       <tbody>
@@ -205,21 +203,20 @@ flight_cols.extend([
       </tbody>
     </table>
 
-    <% y_remain -= table_head + table_row_height %>
 
     <% y_remain -= 10 %>
     <div class="break"></div>
 
-
     ## ##########################################################################
     ## FLIGHT TABLE
     ## ##########################################################################
+    <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col class="rb2" style="width: 15px;" />
+        <col class="rb2" style="width: 15pt;" />
         % for col in flight_cols:
-        <col ${ 'style="width: %spx"' % col[1] if col[1] else '' } />
+        <col ${ 'style="width: %spt"' % col[1] if col[1] else '' } />
         % endfor
       </colgroup>
 
@@ -233,9 +230,10 @@ flight_cols.extend([
         </tr>
 
         % for n in range(4):
+        <% y_remain -= table_row_height %>
         <tr>
           % if n == 0:
-          <th rowspan=4 class="block-title"><div style="width: 15px"><div class="arotate90">FLIGHT</div></div></th>
+          <th rowspan=4 class="block-title"><div style="width: 15pt"><div class="arotate90">FLIGHT</div></div></th>
           % endif
 
           <% elem = get(data['flight']['members'], n) %>
@@ -251,24 +249,34 @@ flight_cols.extend([
     <% y_remain -= 10 %>
     <div class="break"></div>
 
-    <% y_remain -= table_head + table_row_height*4 %>
 
     ## ##########################################################################
     ## DEP / ARR
     ## ##########################################################################
 
+    <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col class="rb2" class="rb2" style="width: 15px" />
-        <col style="width: 30px" />
-        <col style="width: 180px" />
-        <col style="width: 50px" />
-        <col style="width: 60px" />
-        <col style="width: 60px" />
-        <col style="width: 45px" />
-        <col style="width: 60px" />
+        <col class="rb2" class="rb2" style="width: 15pt" />
+        <col style="width: 30pt" />
         <col />
+        <col style="width:40pt" />
+        <col style="width:40pt" />
+
+        <col style="width:50pt" />
+        <col class="rb2" style="width:45pt" />
+
+        <col style="width:50pt" />
+        <col class="rb2" style="width:45pt" />
+
+        <col style="width:50pt" />
+        <col class="rb2" style="width:45pt" />
+
+        <col style="width:50pt" />
+        <col class="rb2" style="width:45pt" />
+
+        <col style="width:55pt" />
       </colgroup>
 
       <tbody>
@@ -276,130 +284,48 @@ flight_cols.extend([
         <tr class="nodrag header">
           <th></th>
           <th></th>
-          <th>AIRBASE</th>
+          <th>LOCATION</th>
           <th>ICAO</th>
           <th>TCN</th>
+          <th colspan=2>ATIS</th>
+          <th colspan=2>GND</th>
+          <th colspan=2>TWR</th>
+          <th colspan=2>CTRL</th>
           <th>PAR</th>
-          <th>ELEV</th>
-          <th>ILS</th>
-          <th>NOTES</th>
         </tr>
         
         % for a in ['dep', 'arr', 'alt']:
         <%
+          y_remain -= table_row_height
           elem = data['deparr'][a]
           if get(elem, 'usedep', False):
-            tmp = dict(data['deparr']['dep'])
-            tmp.update(elem)
-            elem = tmp
+            elem = data['deparr']['dep']
         %>
         <tr>
           % if loop.index == 0:
-          <th rowspan=3 class="block-title"><div style="width: 15px"><div class="arotate90">DEP/ARR</div></div></th>
+          <th rowspan=3 class="block-title"><div style="width: 15pt"><div class="arotate90">DEP/ARR</div></div></th>
           % endif
           <td class="algnc">${a.upper()}</td>
           <td class="lpad5">${get(elem, 'location')}</td>
           <td class="algnc">${get(elem, 'icao')}</td>
           <td class="freq">${get(elem, 'tcn')}</td>
+
+          <td class="freq rb0">${get(elem, 'atis')}</td>
+          <td class="algnc lb0">${get(elem, 'atis-pst')}</td>
+
+          <td class="freq rb0">${get(elem, 'gnd')}</td>
+          <td class="algnc lb0">${get(elem, 'gnd-pst')}</td>
+
+          <td class="freq rb0">${get(elem, 'twr')}</td>
+          <td class="algnc lb0">${get(elem, 'twr-pst')}</td>
+
+          <td class="freq rb0">${get(elem, 'ctrl')}</td>
+          <td class="algnc lb0">${get(elem, 'ctrl-pst')}</td>
+
           <td class="freq">${get(elem, 'par', '')}</td>
-          <td class="algnr rpad5">${get(elem, 'alt', 0)}</td>
 
-          <%
-            ils = get(elem, 'ils', '')
-            ils = "" if ils == '----' else ils
-          %>
-          <td class="freq">${ils}</td>
-          <td class="lpad5">${get(elem, 'notes', '')}</td>
         </tr>
         % endfor
-      </tbody>
-    </table>
-    <% y_remain -= table_head + table_row_height*3 %>
-
-    <% y_remain -= 10 %>
-    <div class="break"></div>
-
-    ## ##########################################################################
-    ## DEP / ARR ATC
-    ## ##########################################################################
-    <%
-      # Prepare our ATC output here, available agencies would be: # atis, gnd,
-      # twr, ctrl - there are normally a max of 4 per thing so its split into
-      # 1 column per AF, but if usedep then we dont need to incl
-
-      cols = []
-
-      # Prioritise based on 
-      for col, deparr in enumerate(['dep', 'arr', 'alt']):
-        dt = []
-
-        if get(data['deparr'][deparr], 'usedep', False):
-          continue
-
-        for agency in ['atis', 'gnd', 'twr', 'ctrl']:
-          try:
-            loc = data['deparr'][deparr]['location']
-            freq = data['deparr'][deparr][agency]
-            pst = data['deparr'][deparr][agency + "-pst"]
-          except:
-            continue
-
-          if freq == "":
-            continue
-
-          dt.append([loc + " " + agency.upper(), freq, pst])
-        
-        if len(dt):
-          cols.append(dt)
-
-      rows = max([len(x) for x in cols])
-      y_remain -= rows*table_row_height + table_head
-
-    %>
-
-    <table class="kb-width" style="table-layout: fixed">
-      <colgroup>
-        <col class="rb2" style="width:15px;" />
-        <col style="width:62px" />
-        <col style="width:45px" />
-        <col class="rb2" />
-        <col style="width:62px" />
-        <col style="width:45px" />
-        <col class="rb2" />
-        <col style="width:62px" />
-        <col style="width:45px" />
-        <col class="" />
-      </colgroup>
-
-      <tbody>
-        <tr>
-          <th></th>
-          <th>FREQ</th>
-          <th>#</th>
-          <th>AGENCY</th>
-          <th>FREQ</th>
-          <th>#</th>
-          <th>AGENCY</th>
-          <th>FREQ</th>
-          <th>#</th>
-          <th>AGENCY</th>
-        </tr>
-
-        % for x in range(rows):
-        <tr>
-            % if loop.index == 0:
-            <th rowspan=${rows}  class="block-title"><div style="width: 15px"><div class="arotate90">ATC INFO</div></div></th>
-            % endif
-
-            % for col in range(3):
-              <% elem = get(get(cols, col, []), x, []) %>
-              <td class="freq">${get(elem, 1, '')}</td>
-              <td class="algnc">${get(elem, 2, '')}</td>
-              <td>${get(elem, 0, '&nbsp;')}</td>
-            % endfor
-        </tr>
-        % endfor
-
       </tbody>
     </table>
 
@@ -410,99 +336,114 @@ flight_cols.extend([
     ## LOADOUT
     ## ##########################################################################
 
-    <table class="kb-width" style="table-layout: fixed">
+    <% y_remain -= table_head %>
+    <table class="kb-width" style="table-layout: fixed; border:0px">
       <colgroup>
-        <col class="rb2" style="width: 15px;" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:35px" />
+        <col class="rb2" style="width: 15pt;" />
+        <col style="width:40pt" />
         <col />
-        <col style="width:60px" />
+        <col style="width:60pt" />
+        <col style="width:60pt" />
+        <col style="width:60pt" />
+        <col style="width:60pt" />
+        <col style="width:60pt" />
+        <col style="width:60pt" />
       </colgroup>
 
       <tbody>
         <tr>
           <th></th>
-          <th>FLARE</th>
-          <th>CHAFF</th>
-          <th>JOKER</th>
-          <th>BINGO</th>
-          <th class="algnc" colspan=3>WEIGHTS</th>
-          <th>STN</th>
-          <th>WEAPON</th>
-          <th>WEIGHT</th>
+          <th colspan=3>PYLONS</th>
+          <th colspan=2>OTHER</th>
+          <th colspan=3>WEIGHT</th>
         </tr>
 
         <%
-          count = len(data['loadout']['pylons'])
-          y_remain -= table_head + count * table_row_height
+          count = max(9, len(data['loadout']['pylons']))
         %>
 
-        % for elem in data['loadout']['pylons']:
+        % for elem in range(count):
+        <%
+        y_remain -= table_row_height
+        elem = get(data['loadout']['pylons'], elem, {})
+        %>
         <tr style="border:0">
-          % if loop.index == 0:
-            <th rowspan=${count} class="block-title"><div style="width: 15px"><div class="arotate90">PAYLOAD / CMS</div></div></th>
 
-            <td class="algnc">${data['loadout']['flare']}</td>
-            <td class="algnc">${data['loadout']['chaff']}</td>
-            <td class="algnc">${data['loadout']['joker']}</td>
-            <td class="algnc">${data['loadout']['bingo']}</td>
-            <th class="algnc">EMPTY</td>
-            <td class="algnr rpad5" colspan=2>44,040</td>
+          % if loop.index == 0:
+            <th rowspan="${count}" class="block-title"><div style="width: 15pt"><div class="arotate90">PAYLOAD / CMS</div></div></th>
+          % endif
+
+          <%
+            pyl_store = get(elem, 'store', '') 
+            pyl_weight = get(elem, 'weight', 0)
+            if not pyl_store:
+              pyl_weight = ''
+          %>
+          <td class="algnc">${get(elem, 'pyl', '')}</td>
+          <td class="lpad5" style="overflow:hidden; white-space: nowrap">${pyl_store}</td>
+          <td class="algnr rpad5 rb2">${pyl_weight|ntos}</td>
+
+          % if loop.index == 0:
+            <td class="algnc">GUN</td>
+            <td class="algnc rb2"><b>${data['loadout']['gun']}%</b></td>
+            <td class="lpad5">EMPTY</td>
+            <td class="algnr rpad5" colspan=2>${data['loadout']['weights']['oew']|ntos}</td>
           % elif loop.index == 1:
-            <td rowspan=${count-1} colspan=4 class="algnc"><img alt="${ac}" width=240 src="http://anyanka.hatchlane.com/mc/kneeboard/img/${ac}-${'dark' if theme == "StandardDark" else "light"}.png"></td>
-            <th class="algnc">STORES</th>
-            <td class="algnr rpad5" colspan=2>${data['loadout']['weights']['stores']|ntos}</td>
+            <td class="algnc">FUEL</td>
+            <td class="algnc rb2"><b>${data['loadout']['fuel']}%</b></td>
+            <td class="lpad5">STORES</td>
+            <td class="algnr rpad5" colspan=2>${(data['loadout']['weights']['stores'] + int(data['loadout']['gun_lbs']))|ntos}</td>
           % elif loop.index == 2:
-            <th class="algnc">FUEL</th>
-            <td class="algnc">${data['loadout']['fuel']}%</td>
-            <td class="algnr rpad5">${data['loadout']['fuel_lbs']|ntos}</td>
+            <td class="algnc">CHAFF</td>
+            <td class="algnc rb2">${data['loadout']['chaff']|ntos}</td>
+            <td class="lpad5">FUEL</td>
+            <td class="algnr rpad5" colspan="2">${data['loadout']['fuel_lbs']|ntos}</td>
           % elif loop.index == 3:
-            <th class="algnc">GUN</th>
-            <td class="algnc">${data['loadout']['gun']}%</td>
-            <td class="algnr rpad5">${data['loadout']['gun_lbs']|ntos}</td>
+            <td class="algnc">FLARE</td>
+            <td class="algnc rb2">${data['loadout']['flare']|ntos}</td>
+            <td class="lpad5"><b>TOTAL</b></td>
+            <td class="algnr rpad5" colspan=2><b>${data['loadout']['weights']['total']|ntos}</b></td>
           % elif loop.index == 4:
-            <th class="algnc">TOTAL</th>
-            <td class="algnr rpad5" colspan=2>68,914</td>
-          ## % elif loop.index == count-3:
+            <td class="algnc">JOKER</td>
+            <td class="algnc rb2">${data['loadout']['joker']|ntos}</td>
+            <td class="bg-blank" colspan=3 rowspan=1 style="border:0;"></td>
           % elif loop.index == 5:
-            <th class="algnc"></th>
+            <td class="algnc">BINGO</td>
+            <td class="algnc rb2">${data['loadout']['bingo']|ntos}</td>
+            <td class="bg-blank" colspan=3 rowspan=1 style="border:0;"></td>
+          % elif loop.index == 6:
+            <td class="bg-blank" style="border:0" colspan=2 rowspan=${count-9} class="lb2"></td>
+            <td class="bg-blank" style="border:0" colspan=3 rowspan=${count-9} class="lb2"></td>
+          % elif loop.index == count-3:
+          ## % elif loop.index == 7:
+            <td class="bg-blank" style="border:0" colspan=2 rowspan=3 class="lb2"></td>
+            <th class="algnc lb2"></th>
             % if 'mtow_cvn' in data['loadout']['weights']:
             <th class="algnc">FIELD</th>
             <th class="algnc">CVN</th>
             % else:
             <th colspan=2 class="algnc">FIELD</th>
             % endif
-          ## % elif loop.index == count-2:
-          % elif loop.index == 6:
-            <th class="algnc">MAX T/O</th>
+          % elif loop.index == count-2:
+          ## % elif loop.index == 8:
+            <th class="algnc lb2">MAX T/O</th>
             % if 'mtow_cvn' in data['loadout']['weights']:
             <td class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
             <td class="algnr rpad5">${data['loadout']['weights']['mtow_cvn']|ntos}</td>
             % else:
             <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
             % endif
-          % elif loop.index == 7:
-          ## % elif loop.index == count-1:
-            <th class="algnc">MAX LDG</th>
+          ## % elif loop.index == 9:
+          % elif loop.index == count-1:
+            <th class="algnc lb2">MAX LDG</th>
             % if 'mtow_cvn' in data['loadout']['weights']:
             <td class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
             <td class="algnr rpad5">${data['loadout']['weights']['mlw_cvn']|ntos}</td>
             % else:
             <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
             % endif
-          % elif loop.index == 8:
-            <td colspan=3 rowspan=${count-8} class=""></td>
           % endif
 
-          <td class="algnc">${elem['pyl']}</td>
-          <td>${elem['store']}</td>
-          <td class="algnr rpad5">${elem['weight']|ntos}</td>
         </tr>
         % endfor
 
@@ -516,13 +457,14 @@ flight_cols.extend([
     ## BULLS / RAMROD
     ## ##########################################################################
 
+    <% y_remain -= table_head + table_row_height  %>
     <div style="overflow: auto">
       <div style="float: left; width: 49%;">
         <table style="width: 100%; table-layout: fixed">
           <colgroup>
             <col  />
-            <col style="width:125px"/>
-            <col style="width:125px"/>
+            <col style="width:125pt"/>
+            <col style="width:125pt"/>
           </colgroup>
 
           <tbody>
@@ -585,17 +527,17 @@ flight_cols.extend([
     <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed">
       <colgroup>
-        <col class="rb2" style="width: 15px;" />
-        <col style="width:30px" />
+        <col class="rb2" style="width: 15pt;" />
+        <col style="width:30pt" />
         <col />
-        <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:127px" />
-        <col style="width:127px" />
-        <col style="width:50px" />
-        <col style="width:50px" />
+        <col style="width:45pt" />
+        <col style="width:45pt" />
+        <col style="width:45pt" />
+        <col style="width:45pt" />
+        <col style="width:127pt" />
+        <col style="width:127pt" />
+        <col style="width:50pt" />
+        <col style="width:50pt" />
       </colgroup>
       <tbody>
         <tr>
@@ -613,21 +555,23 @@ flight_cols.extend([
         </tr>
 
         <%
+        # We increase y_remain 10 to eat into the 20 footer, just so it looks
+        # nicer without a big gap
         if ac == "F-14B":
           poi_count = len(poi) # max(len(poi), 4)
           # -20 -10 for break belwo this table, 10 for page spacing below
-          wp_rows = math.floor((y_remain - 20 - (table_head + table_row_height * poi_count)) / table_row_height)
+          wp_rows = math.floor((y_remain+10 - (table_head + table_row_height * poi_count)) / table_row_height)
         elif ac == "F-16C":
-          wp_rows = math.floor((y_remain - 20 - (table_head + 4 * table_row_height)) / table_row_height)
+          wp_rows = math.floor((y_remain+10 - (table_head + 4 * table_row_height)) / table_row_height)
         else:
-          wp_rows = math.floor((y_remain - 20) / table_row_height)
+          wp_rows = math.floor((y_remain+10) / table_row_height)
 
         %>
 
         % for n in range(wp_rows):
         <tr>
           % if loop.index == 0:
-          <th rowspan=${wp_rows} class="block-title"><div style="width: 15px"><div class="arotate90">WAYPOINTS</div></div></th>
+          <th rowspan=${wp_rows} class="block-title"><div style="width: 15pt"><div class="arotate90">WAYPOINTS</div></div></th>
           % endif
 
           <% elem = get(data['waypoint']['waypoints'], n, {}) %>
@@ -651,6 +595,56 @@ flight_cols.extend([
     </table>
 
     ## ##########################################################################
+    ## SEQUENCE
+    ## ##########################################################################
+    % if ac == "F-16C":
+    <%
+      sequence = get(data['waypoint'], 'sequence', [])
+      y_remain -= table_head
+    %>
+    <div class="break"></div>
+
+    <table class="kb-width" style="table-layout: fixed">
+      <colgroup>
+        <col class="rb2" style="width: 15pt;" />
+        <col style="width:20pt" />
+        <col />
+        <col style="width:300pt" />
+      </colgroup>
+
+      <tbody>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>SEQUENCE</th>
+          <th>NOTES</th>
+        </tr>
+
+        % for elem in sequence:
+        <tr>
+          
+          % if loop.index == 0:
+          <th rowspan=${len(sequence)} class="block-title"><div style="width: 15pt"><div class="arotate90">SEQ</div></div></th>
+          % endif 
+
+          % if elem:
+          <td class="algnc">${elem['id']}</td>
+          <td class="algnc">${elem['seq']}</td>
+          <td class="lpad5">${elem['notes']}</td>
+          % else:
+          <td>&nbsp;</td>
+          <td></td>
+          <td></td>
+          % endif
+
+        </tr>
+        % endfor
+
+      </tbody>
+    </table>
+    % endif
+
+    ## ##########################################################################
     ## POI
     ## ##########################################################################
 
@@ -660,10 +654,10 @@ flight_cols.extend([
 
     <table class="kb-width" style="table-layout: fixed">
       <colgroup>
-        <col class="rb2" style="width: 15px;" />
+        <col class="rb2" style="width: 15pt;" />
         <col />
-        <col style="width:110px" />
-        <col style="width:110px" />
+        <col style="width:110pt" />
+        <col style="width:110pt" />
       </colgroup>
 
       <tbody>
@@ -678,7 +672,7 @@ flight_cols.extend([
         <tr>
           
           % if loop.index == 0:
-          <th rowspan=${len(poi)} class="block-title"><div style="width: 15px"><div class="arotate90">POI</div></div></th>
+          <th rowspan=${len(poi)} class="block-title"><div style="width: 15pt"><div class="arotate90">POI</div></div></th>
           % endif 
 
           % if elem:
@@ -712,7 +706,7 @@ flight_cols.extend([
   <div class="kneeboard">
   % endif
 
-  <% y_remain = 1180 - 20 %>
+  <% y_remain = 1200 - 20 - 20 %>
 
   ## ##########################################################################
   ## HEADING TABLE
@@ -722,14 +716,14 @@ flight_cols.extend([
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col style="width: 115px" />
-      <col style="width: 70px" />
-      <col style="width: 70px" />
+      <col style="width: 115pt" />
+      <col style="width: 70pt" />
+      <col style="width: 70pt" />
       % if package:
-      <col style="width: 60px" />
+      <col style="width: 60pt" />
       % endif
       <col />
-      <col style="width: 60px" />
+      <col style="width: 60pt" />
     </colgroup>
 
     <tbody>
@@ -773,12 +767,12 @@ flight_cols.extend([
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15px;" />
-      <col style="width:100px" />
-      <col style="width:140px" />
-      <col style="width:80px" />
-      <col style="width:45px" />
-      <col style="width:45px" />
+      <col class="rb2" style="width: 15pt;" />
+      <col style="width:100pt" />
+      <col style="width:140pt" />
+      <col style="width:80pt" />
+      <col style="width:45pt" />
+      <col style="width:45pt" />
       <col style="" />
     </colgroup>
 
@@ -800,7 +794,7 @@ flight_cols.extend([
         <% y_remain -= table_row_height %>
         <tr>
             % if loop.index == 0:
-            <th rowspan=5 class="block-title"><div style="width: 15px"><div class="arotate90">PKG</div></div></th>
+            <th rowspan=5 class="block-title"><div style="width: 15pt"><div class="arotate90">PKG</div></div></th>
             % endif
 
             <td class="">${elem['callsign']}</td>
@@ -834,13 +828,13 @@ flight_cols.extend([
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15px;" />
-      <col style="width:205px" />
-      <col style="width:45px" />
-      <col style="width:65px" />
-      <col style="width:50px" />
-      <col style="width:65px" />
-      <col style="width:50px" />
+      <col class="rb2" style="width: 15pt;" />
+      <col style="width:205pt" />
+      <col style="width:45pt" />
+      <col style="width:65pt" />
+      <col style="width:50pt" />
+      <col style="width:65pt" />
+      <col style="width:50pt" />
       <col />
     </colgroup>
 
@@ -863,7 +857,7 @@ flight_cols.extend([
         <% y_remain -= table_row_height %>
         <tr>
           % if loop.index == 0:
-          <th rowspan=${comms_count} class="block-title"><div style="width: 15px"><div class="arotate90">COMMS</div></div></th>
+          <th rowspan=${comms_count} class="block-title"><div style="width: 15pt"><div class="arotate90">COMMS</div></div></th>
           % endif
 
           <td class="">${elem['agency']}</td>
@@ -891,15 +885,15 @@ flight_cols.extend([
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15px" />
-      <col style="width:150px" />
-      <col style="width:45px" />
-      <col style="width:60px" />
-      <col style="width:60px" />
-      <col style="width:60px" />
-      <col style="width:60px" />
-      <col style="width:60px" />
-      <col style="width:60px" />
+      <col class="rb2" style="width: 15pt" />
+      <col style="width:150pt" />
+      <col style="width:45pt" />
+      <col style="width:60pt" />
+      <col style="width:60pt" />
+      <col style="width:60pt" />
+      <col style="width:60pt" />
+      <col style="width:60pt" />
+      <col style="width:60pt" />
       <col />
     </colgroup>
 
@@ -922,7 +916,7 @@ flight_cols.extend([
 
         <tr>
           % if loop.index == 0:
-          <th rowspan=${threats_count} class="block-title"><div style="width: 15px"><div class="arotate90">THREATS</div></div></th>
+          <th rowspan=${threats_count} class="block-title"><div style="width: 15pt"><div class="arotate90">THREATS</div></div></th>
           % endif
 
           % if elem:
@@ -957,6 +951,7 @@ flight_cols.extend([
   <div class="break"></div>
   % endif
 
+  <% y_remain -= table_head %>
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
@@ -970,8 +965,8 @@ flight_cols.extend([
     </thead>
     
     <tbody>
-      <tr style="display:hidden"></tr>
-      <tr style="height: ${y_remain-20}px; vertical-align:top">
+      <tr style="display:none"></tr>
+      <tr style="height: ${y_remain}pt; vertical-align:top">
         <td>
           ${data['notes']['html']}
         </td>

@@ -4,50 +4,51 @@
 //}
 
 body {
+  width: 760pt;
   font-family: "Roboto Mono CourierPrime Numbers";
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-size: 10pt;
+  margin-top: 0pt;
+  margin-left: 20pt;
+  margin-right: 20pt;
 }
 
 .instruction {
-  padding-top: 5px;
+  padding-top: 5pt;
 }
 
 .kneeboard {
   font-color: #efefef;
   color: #efefef;
-  font-size: 13px;
+  font-size: 10pt;
   font-family: "Roboto Mono CourierPrime Numbers";
   background: #101010;
   width: 100%;
   height: 100%;
-  padding-top: 20px;
+  padding-top: 20pt;
 }
 
 .kneeboard-fixed {
-  width: 760px;
-  height: 1180px;
+  width: 760pt;
+  height: 1180pt;
 }
 
 .kneeboard input,
 .kneeboard textarea {
-  border: 0px solid #000000;
+  border: 0pt solid #000000;
   border-collapse: collapse;
   border-spacing: 0;
   background: #ffffff;
-  height: 15px;
-  line-height: 14px;
-  margin: 0px;
-  padding: 0px;
+  height: 15pt;
+  line-height: 14pt;
+  margin: 0pt;
+  padding: 0pt;
   z-index: 1;
   max-width: 100%;
   width: 100%;
   font-family: 'Roboto Mono CourierPrime Numbers';
-  font-size: 13px;
+  font-size: 13pt;
 }
 
 b {
@@ -66,7 +67,7 @@ b {
 
 .kneeboard .freqs, .kneeboard .freqs input {
   text-align: center;
-  font-size: 10px;
+  font-size: 10pt;
 }
 
 /* Additional Helpers */
@@ -75,8 +76,8 @@ b {
 
 .vt { vertical-align: top; }
 
-.lpad5 { padding-left: 5px; }
-.rpad5 { padding-right: 5px; }
+.lpad5 { padding-left: 5pt; }
+.rpad5 { padding-right: 5pt; }
 
 .algnr, .algnr > * { text-align: right; }
 .algnc, .algnc > * { text-align: center; }
@@ -85,7 +86,7 @@ b {
 .section,
 .section input
 {
-  font-size: 11px;
+  font-size: 11pt;
   text-align: center;
   background: #ffffff;
 }
@@ -96,25 +97,26 @@ b {
 }
 
 #instructions td {
-  border-bottom: 1px solid #ccc;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border-bottom: 1pt solid #ccc;
+  padding-top: 5pt;
+  padding-bottom: 5pt;
 }
 
 /* All table rows should be colored nicely */
 
 .kneeboard table {
   border-collapse: collapse;
-  border: 0px solid #000000;
-  border-top: 1px solid #777777;
+  border: 0pt solid #000000;
+  border-top: 1pt solid #777777;
 }
 
 .kneeboard td {
-  border: 1px solid #777777;
+  border: 1pt solid #777777;
 }
 
 .kneeboard tr {
   background: #262626;
+  height: 19pt;
 }
 
 .kneeboard tr .inline-title {
@@ -129,15 +131,15 @@ b {
 
 .arotate90 {
   font-weight: bold;
-  font-size: 10px;
+  font-size: 10pt;
   line-height: 1;
   vertical-align: bottom;
   text-align: center;
-  transform: rotate(-90deg) translateY(-45px);
-  -moz-transform: rotate(-90.0deg) translateY(-45px);
-  -o-transform: rotate(-90.0deg) translateY(-45px);
-  -webkit-transform: rotate(-90.0deg) translateY(-45px);
-  width: 100px;
+  transform: rotate(-90deg) translateY(-45pt);
+  -moz-transform: rotate(-90.0deg) translateY(-45pt);
+  -o-transform: rotate(-90.0deg) translateY(-45pt);
+  -webkit-transform: rotate(-90.0deg) translateY(-45pt);
+  width: 100pt;
 }
 
 .kneeboard th,
@@ -146,8 +148,8 @@ b {
   font-weight: normal;
   background: #777777;
   color: #fff;
-  font-size: 12px;
-  border: 1px solid #777777;
+  font-size: 12pt;
+  border: 1pt solid #777777;
 }
 
 
@@ -168,22 +170,22 @@ b {
 /* ICONS */
 
 .plus-button {
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  width: 14px;
-  height: 14px;
+  border: 0pt;
+  padding: 0pt;
+  margin: 0pt;
+  width: 14pt;
+  height: 14pt;
   background-image: url(plus.svg);
   background-size: cover;
   background-color: #101010;
 }
 
 .minus-button {
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  width: 14px;
-  height: 14px;
+  border: 0pt;
+  padding: 0pt;
+  margin: 0pt;
+  width: 14pt;
+  height: 14pt;
   background-image: url(minus.svg);
   background-size: cover;
   background-color: #101010;
@@ -196,13 +198,13 @@ input[type=file] {
 }
 
 input[type=file]::-webkit-file-upload-button {
-  margin: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0pt;
+  padding-left: 10pt;
+  padding-right: 10pt;
   width: 100%;
-  border: solid 1px #AACFE4;
-  height: 26px;
-  border-radius: 8px;
+  border: solid 1pt #AACFE4;
+  height: 26pt;
+  border-radius: 8pt;
 }
 
 /* Hide spinners on text fields */
@@ -217,18 +219,31 @@ input.nospinner::-webkit-inner-spin-button{
 
 /* AUTO COMPLETE */
 .ui-autocomplete {
-  width: 200px;
-  max-height: 200px;
+  width: 200pt;
+  max-height: 200pt;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .rb2 {
-  border-right: 2px solid #777;
+  border-right: 2pt solid #777;
+}
+
+.kneeboard td.rb0 {
+  border-right: 0pt;
+}
+.kneeboard td.lb0 {
+  border-left: 0pt;
+}
+.kneeboard .lb2 {
+  border-left: 2pt solid #777;
+}
+.kneeboard .rb2 {
+  border-right: 2pt solid #777;
 }
 
 .break{
-  height: 10px;
+  height: 10pt;
 }
 
 .rotate90 {
@@ -252,9 +267,9 @@ input.nospinner::-webkit-inner-spin-button{
 
 .p2 {
   position: absolute;
-  top: 1200px;
-  //width: 800px;
-  left: 0px;
-  margin-left: 20px;
-  margin-right: 0px;
+  top: 1200pt;
+  //width: 800pt;
+  left: 0pt;
+  margin-left: 20pt;
+  margin-right: 0pt;
 }
