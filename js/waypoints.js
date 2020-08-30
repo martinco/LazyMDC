@@ -451,6 +451,16 @@ function waypoint_load(data) {
     });
   }
 
+  if (data['sequence']) {
+    $("#waypoints-sequence-table > tbody > tr").each(function(idx, tr) {
+      var elem = data['sequence'][idx];
+      if (elem) {
+        tr.cells[1].firstChild.value = elem['seq'];
+        tr.cells[2].firstChild.value = elem['notes'];
+      }
+    });
+  }
+
 }
 
 waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);

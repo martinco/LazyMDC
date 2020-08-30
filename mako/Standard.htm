@@ -556,13 +556,12 @@ flight_cols.extend([
 
         <%
         # We increase y_remain 10 to eat into the 20 footer, just so it looks
-        # nicer without a big gap
+        # nicer without a big gap, excl. F-14 (POI) and F-16 (SEQ) elements
         if ac == "F-14B":
           poi_count = len(poi) # max(len(poi), 4)
-          # -20 -10 for break belwo this table, 10 for page spacing below
-          wp_rows = math.floor((y_remain+10 - (table_head + table_row_height * poi_count)) / table_row_height)
+          wp_rows = math.floor((y_remain - (table_head + table_row_height * poi_count)) / table_row_height)
         elif ac == "F-16C":
-          wp_rows = math.floor((y_remain+10 - (table_head + 4 * table_row_height)) / table_row_height)
+          wp_rows = math.floor((y_remain - (table_head + 3 * table_row_height)) / table_row_height)
         else:
           wp_rows = math.floor((y_remain+10) / table_row_height)
 
@@ -609,7 +608,7 @@ flight_cols.extend([
         <col class="rb2" style="width: 15pt;" />
         <col style="width:20pt" />
         <col />
-        <col style="width:300pt" />
+        <col />
       </colgroup>
 
       <tbody>
