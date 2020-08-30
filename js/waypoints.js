@@ -180,7 +180,7 @@ function waypoint_add(wp_info) {
 }
 
 function waypoint_add_poi(poi_data) {
-    
+
   var data = {
     'name': '',
     'lat': '',
@@ -384,7 +384,7 @@ function waypoint_export() {
         ret['waypoints'].push(d)
     })
     
-    if ($("#waypoints-poi").is(':visible')) {
+    if ($("#waypoints-poi").css('display') != "none") {
         ret["poi"] = []
         $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
             var d = get_row_data(tr, ['name', 'lat', 'lon'])
@@ -403,7 +403,7 @@ function waypoint_export() {
         })
     }
    
-    if ($("#waypoints-sequence").is(':visible')) {
+    if ($("#waypoints-sequence").css('display') != "none") {
         ret["sequence"] = []
         $('#waypoints-sequence-table > tbody > tr').each(function(idx, tr) {
             ret['sequence'].push(get_row_data(tr, ['id', 'seq', 'notes']))
@@ -464,7 +464,3 @@ function waypoint_load(data) {
 }
 
 waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);
-
-// Some things might be set as data raw (e.g. bulls), make sure they're correct
-// here
-waypoint_update_display();
