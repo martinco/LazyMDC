@@ -119,6 +119,10 @@ b {
   height: 19pt;
 }
 
+.kneeboard tr.header {
+  height: 18pt;
+}
+
 .kneeboard tr .inline-title {
   background: #262626;
   color:#ffffff;
@@ -131,7 +135,7 @@ b {
 
 .arotate90 {
   font-weight: bold;
-  font-size: 10pt;
+  font-size: 11pt;
   line-height: 1;
   vertical-align: bottom;
   text-align: center;
@@ -148,7 +152,7 @@ b {
   font-weight: normal;
   background: #777777;
   color: #fff;
-  font-size: 12pt;
+  font-size: 10pt;
   border: 1pt solid #777777;
 }
 

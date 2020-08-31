@@ -149,25 +149,29 @@ def try_format_number(x):
 def get_html(kb, output, data, theme="Standard"):
 
     template = Template(filename='mako/%s.htm' % theme)
+    attributes = {}
 
     try:
-        return template.render(
+        html = template.render(
             kb=kb,
             output=output,
             data=data,
             theme=theme,
+            attributes=attributes,
         )
+
+        return (html, attributes)
     except:
-        return exceptions.html_error_template().render()
+        return [exceptions.html_error_template().render(), {}]
 
 
-def get_pdf(kb, html, theme):
+def get_pdf(kb, html_data, theme):
 
     with tempfile.NamedTemporaryFile(
             dir='tmp', suffix='.html', mode='w') as my_temp:
 
         my_name = my_temp.name
-        my_temp.write(html)
+        my_temp.write(html_data[0])
         my_temp.flush()
 
         data = io.BytesIO(pdfkit.from_file(
@@ -188,7 +192,7 @@ def get_pdf(kb, html, theme):
     return data
 
 
-def get_image(kb, html, theme):
+def get_image(kb, html_data, theme):
 
     # Work around the css files so we can just use the template instead of
     # having to duplicate what we want in here
@@ -197,7 +201,7 @@ def get_image(kb, html, theme):
             dir='tmp', suffix='.html', mode='w') as my_temp:
 
         my_name = my_temp.name
-        my_temp.write(html)
+        my_temp.write(html_data[0])
         my_temp.flush()
 
         # We zoom by 0.75 to convert from 800pt -> 800px
@@ -208,7 +212,7 @@ def get_image(kb, html, theme):
                 "format": "png",
                 "quality": 100,
                 "width": 800,
-                "height": 1200*2,
+                "height": 1200*html_data[1]['pages'],
                 "zoom": 0.75,
                 "disable-smart-width": "",
             }))
@@ -218,27 +222,21 @@ def get_image(kb, html, theme):
     return im1
 
 
-def get_image_zip(kb, html, theme):
+def get_image_zip(kb, html_data, theme):
 
     # Start our Zip File
     zipfd = io.BytesIO()
     zipf = ZipFile(zipfd, 'w')
 
-    im1 = get_image(kb, html, theme)
+    im1 = get_image(kb, html_data, theme)
 
-    # Crop page 1 and page 2
-    cr1 = im1.crop((0, 0, PNG_WIDTH, PNG_HEIGHT))
-    cr2 = im1.crop((0, PNG_HEIGHT, PNG_WIDTH, PNG_HEIGHT*2))
-
-    f = io.BytesIO()
-    cr1.save(f, "PNG")
-    f.seek(0)
-    zipf.writestr('0000-%s-001.png' % kb, f.read())
-
-    f = io.BytesIO()
-    cr2.save(f, "PNG")
-    f.seek(0)
-    zipf.writestr('0000-%s-002.png' % kb, f.read())
+    # Crop out pages
+    for x in range(html_data[1]['pages']):
+      cr = im1.crop((0, PNG_HEIGHT * x, PNG_WIDTH, PNG_HEIGHT * (x+1)))
+      f = io.BytesIO()
+      cr.save(f, "PNG")
+      f.seek(0)
+      zipf.writestr('0000-%s-%03d.png' % (kb, x+1), f.read())
 
     zipf.close()
     zipfd.seek(0)
@@ -280,27 +278,20 @@ if __name__ == "__main__":
 
     mission_id = data['mission']['mission-id']
 
-    html = get_html(kb, output, data, theme)
+    html_data = get_html(kb, output, data, theme)
 
     if output == "pdf":
         print("Content-Type: application/pdf\n")
         sys.stdout.flush()
-        image_bytes = get_pdf(mission_id, html, theme)
+        image_bytes = get_pdf(mission_id, html_data, theme)
         sys.stdout.buffer.write(image_bytes.read())
     elif output == "pdff":
         print("Content-Type: application/pdf\n")
         sys.stdout.flush()
-        image_bytes = get_pdf(mission_id, html, theme)
+        image_bytes = get_pdf(mission_id, html_data, theme)
         sys.stdout.buffer.write(image_bytes.read())
-    elif output == "png":
-        print ("Content-Disposition: attachment; "
-               "filename=\"MDC-%s.zip\"" % mission_id)
-        print ("Content-Type: application/zip\n")
-        sys.stdout.flush()
-        zip_bytes = get_image_zip(mission_id, html, theme)
-        sys.stdout.buffer.write(zip_bytes.read())
-    elif output == "pngr":
-        im1 = get_image(mission_id, html, theme)
+    elif output == "pngr" or (output == "png" and html_data[1]['pages'] == 1):
+        im1 = get_image(mission_id, html_data, theme)
         cr2 = im1.crop((0, 0, PNG_WIDTH, PNG_HEIGHT))
         f = io.BytesIO()
         cr2.save(f, "PNG")
@@ -308,6 +299,13 @@ if __name__ == "__main__":
         print("Content-Type: image/png\n")
         sys.stdout.flush()
         sys.stdout.buffer.write(f.read())
+    elif output == "png":
+        print ("Content-Disposition: attachment; "
+               "filename=\"MDC-%s.zip\"" % mission_id)
+        print ("Content-Type: application/zip\n")
+        sys.stdout.flush()
+        zip_bytes = get_image_zip(mission_id, html_data, theme)
+        sys.stdout.buffer.write(zip_bytes.read())
     else:
         print("Content-Type: text/html\n")
-        print(html)
+        print(html_data[0])
