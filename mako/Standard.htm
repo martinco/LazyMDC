@@ -179,6 +179,7 @@ if threats_count:
   total_y += (table_head + threats_count * table_row_height + 10)
 
 SINGLE_PAGE = total_y < (1200 - 40 - 100)
+UNIT = "px" if output in ["png", "html"] else "pt"
 
 context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
@@ -188,6 +189,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
   <link rel="stylesheet" type="text/css" href="css/fonts.css">
   <link rel="stylesheet" type="text/css" href="css/Standard-base.css">
   <link rel="stylesheet" type="text/css" href="css/${theme}.css">
+  % if UNIT == "px":
+  <link rel="stylesheet" type="text/css" href="css/Standard-base-px.css">
+  % endif
 </head>
 <body>
 
@@ -205,14 +209,14 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col style="width: 115pt" />
-        <col style="width: 70pt" />
-        <col style="width: 70pt" />
+        <col style="width: 115${UNIT}" />
+        <col style="width: 70${UNIT}" />
+        <col style="width: 70${UNIT}" />
         % if package:
-        <col style="width: 60pt" />
+        <col style="width: 60${UNIT}" />
         % endif
         <col />
-        <col style="width: 60pt" />
+        <col style="width: 60${UNIT}" />
       </colgroup>
 
       <tbody>
@@ -253,9 +257,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
+        <col class="rb2" style="width: 15${UNIT};" />
         % for col in flight_cols:
-        <col ${ 'style="width: %spt"' % col[1] if col[1] else '' } />
+        <col ${ 'style="width: %s%s"' % (col[1] if col[1] else '', UNIT)} } />
         % endfor
       </colgroup>
 
@@ -272,7 +276,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <% y_remain -= table_row_height %>
         <tr>
           % if n == 0:
-          <th rowspan=4 class="block-title"><div style="width: 15pt"><div class="arotate90">${"FL" if flight_count < 3 else "FLIGHT"}</div></div></th>
+          <th rowspan=4 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"FL" if flight_count < 3 else "FLIGHT"}</div></div></th>
           % endif
 
           <% elem = get(data['flight']['members'], n) %>
@@ -298,12 +302,12 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
-        <col style="width:100pt" />
-        <col style="width:140pt" />
-        <col style="width:80pt" />
-        <col style="width:45pt" />
-        <col style="width:45pt" />
+        <col class="rb2" style="width: 15${UNIT};" />
+        <col style="width:100${UNIT}" />
+        <col style="width:140${UNIT}" />
+        <col style="width:80${UNIT}" />
+        <col style="width:45${UNIT}" />
+        <col style="width:45${UNIT}" />
         <col style="" />
       </colgroup>
 
@@ -325,7 +329,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           <% y_remain -= table_row_height %>
           <tr>
               % if loop.index == 0:
-              <th rowspan=5 class="block-title"><div style="width: 15pt"><div class="arotate90">${"PK" if package_count < 3 else "PACKAGE"}</div></div></th>
+              <th rowspan=5 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"PK" if package_count < 3 else "PACKAGE"}</div></div></th>
               % endif
 
               <td class="lpad5">${elem['callsign']}</td>
@@ -353,25 +357,25 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <table class="kb-width" style="table-layout: fixed">
 
       <colgroup>
-        <col class="rb2" class="rb2" style="width: 15pt" />
-        <col style="width: 30pt" />
+        <col class="rb2" class="rb2" style="width: 15${UNIT}" />
+        <col style="width: 30${UNIT}" />
         <col />
-        <col style="width:40pt" />
-        <col style="width:40pt" />
+        <col style="width:40${UNIT}" />
+        <col style="width:40${UNIT}" />
 
-        <col style="width:50pt" />
-        <col class="rb2" style="width:45pt" />
+        <col style="width:50${UNIT}" />
+        <col class="rb2" style="width:45${UNIT}" />
 
-        <col style="width:50pt" />
-        <col class="rb2" style="width:45pt" />
+        <col style="width:50${UNIT}" />
+        <col class="rb2" style="width:45${UNIT}" />
 
-        <col style="width:50pt" />
-        <col class="rb2" style="width:45pt" />
+        <col style="width:50${UNIT}" />
+        <col class="rb2" style="width:45${UNIT}" />
 
-        <col style="width:50pt" />
-        <col class="rb2" style="width:45pt" />
+        <col style="width:50${UNIT}" />
+        <col class="rb2" style="width:45${UNIT}" />
 
-        <col style="width:55pt" />
+        <col style="width:55${UNIT}" />
       </colgroup>
 
       <tbody>
@@ -398,7 +402,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         %>
         <tr>
           % if loop.index == 0:
-          <th rowspan=3 class="block-title"><div style="width: 15pt"><div class="arotate90">DEP/ARR</div></div></th>
+          <th rowspan=3 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">DEP/ARR</div></div></th>
           % endif
           <td class="algnc">${a.upper()}</td>
           <td class="lpad5">${get(elem, 'location')}</td>
@@ -434,15 +438,15 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed; border:0px">
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
-        <col style="width:40pt" />
+        <col class="rb2" style="width: 15${UNIT};" />
+        <col style="width:40${UNIT}" />
         <col />
-        <col style="width:60pt" />
-        <col style="width:60pt" />
-        <col style="width:60pt" />
-        <col style="width:60pt" />
-        <col style="width:60pt" />
-        <col style="width:60pt" />
+        <col style="width:60${UNIT}" />
+        <col style="width:60${UNIT}" />
+        <col style="width:60${UNIT}" />
+        <col style="width:60${UNIT}" />
+        <col style="width:60${UNIT}" />
+        <col style="width:60${UNIT}" />
       </colgroup>
 
       <tbody>
@@ -461,7 +465,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <tr style="border:0">
 
           % if loop.index == 0:
-            <th rowspan="${pylons_count}" class="block-title"><div style="width: 15pt"><div class="arotate90">PAYLOAD / CMS</div></div></th>
+            <th rowspan="${pylons_count}" class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">PAYLOAD / CMS</div></div></th>
           % endif
 
           <%
@@ -554,8 +558,8 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <table style="width: 100%; table-layout: fixed">
           <colgroup>
             <col  />
-            <col style="width:125pt"/>
-            <col style="width:125pt"/>
+            <col style="width:125${UNIT}"/>
+            <col style="width:125${UNIT}"/>
           </colgroup>
 
           <tbody>
@@ -614,17 +618,17 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed">
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
-        <col style="width:30pt" />
+        <col class="rb2" style="width: 15${UNIT};" />
+        <col style="width:30${UNIT}" />
         <col />
-        <col style="width:45pt" />
-        <col style="width:45pt" />
-        <col style="width:45pt" />
-        <col style="width:45pt" />
-        <col style="width:127pt" />
-        <col style="width:127pt" />
-        <col style="width:50pt" />
-        <col style="width:50pt" />
+        <col style="width:45${UNIT}" />
+        <col style="width:45${UNIT}" />
+        <col style="width:45${UNIT}" />
+        <col style="width:45${UNIT}" />
+        <col style="width:127${UNIT}" />
+        <col style="width:127${UNIT}" />
+        <col style="width:50${UNIT}" />
+        <col style="width:50${UNIT}" />
       </colgroup>
       <tbody>
         <tr class="header">
@@ -666,7 +670,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <% y_remain -= table_row_height %>
         <tr>
           % if loop.index == 0:
-          <th rowspan=${wp_rows} class="block-title"><div style="width: 15pt"><div class="arotate90">WAYPOINTS</div></div></th>
+          <th rowspan=${wp_rows} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"WAYPTS" if wp_rows < 5 else "WAYPOINTS"}</div></div></th>
           % endif
 
           <% elem = get(data['waypoint']['waypoints'], n, {}) %>
@@ -700,14 +704,14 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     <% y_remain -= table_head %>
     <table class="kb-width" style="table-layout: fixed">
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
-        <col style="width:20pt" />
+        <col class="rb2" style="width: 15${UNIT};" />
+        <col style="width:20${UNIT}" />
         <col />
         <col />
       </colgroup>
 
       <tbody>
-        <tr>
+        <tr class="header">
           <th></th>
           <th>ID</th>
           <th>SEQUENCE</th>
@@ -723,7 +727,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <tr>
           
           % if loop.index == 0:
-          <th rowspan=${sequence_count} class="block-title"><div style="width: 15pt"><div class="arotate90">SEQ</div></div></th>
+          <th rowspan=${sequence_count} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">SEQ</div></div></th>
           % endif 
 
           % if elem:
@@ -754,10 +758,10 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
     <table class="kb-width" style="table-layout: fixed">
       <colgroup>
-        <col class="rb2" style="width: 15pt;" />
+        <col class="rb2" style="width: 15${UNIT};" />
         <col />
-        <col style="width:110pt" />
-        <col style="width:110pt" />
+        <col style="width:110${UNIT}" />
+        <col style="width:110${UNIT}" />
       </colgroup>
 
       <tbody>
@@ -773,7 +777,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <tr>
           
           % if loop.index == 0:
-          <th rowspan=${len(poi)} class="block-title"><div style="width: 15pt"><div class="arotate90">POI</div></div></th>
+          <th rowspan=${len(poi)} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">POI</div></div></th>
           % endif 
 
           % if elem:
@@ -819,14 +823,14 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col style="width: 115pt" />
-      <col style="width: 70pt" />
-      <col style="width: 70pt" />
+      <col style="width: 115${UNIT}" />
+      <col style="width: 70${UNIT}" />
+      <col style="width: 70${UNIT}" />
       % if package:
-      <col style="width: 60pt" />
+      <col style="width: 60${UNIT}" />
       % endif
       <col />
-      <col style="width: 60pt" />
+      <col style="width: 60${UNIT}" />
     </colgroup>
 
     <tbody>
@@ -869,12 +873,12 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15pt;" />
-      <col style="width:100pt" />
-      <col style="width:140pt" />
-      <col style="width:80pt" />
-      <col style="width:45pt" />
-      <col style="width:45pt" />
+      <col class="rb2" style="width: 15${UNIT};" />
+      <col style="width:100${UNIT}" />
+      <col style="width:140${UNIT}" />
+      <col style="width:80${UNIT}" />
+      <col style="width:45${UNIT}" />
+      <col style="width:45${UNIT}" />
       <col style="" />
     </colgroup>
 
@@ -896,7 +900,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <% y_remain -= table_row_height %>
         <tr>
             % if loop.index == 0:
-            <th rowspan=5 class="block-title"><div style="width: 15pt"><div class="arotate90">PKG</div></div></th>
+            <th rowspan=5 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">PKG</div></div></th>
             % endif
 
             <td class="">${elem['callsign']}</td>
@@ -928,13 +932,13 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15pt;" />
-      <col style="width:205pt" />
-      <col style="width:45pt" />
-      <col style="width:65pt" />
-      <col style="width:50pt" />
-      <col style="width:65pt" />
-      <col style="width:50pt" />
+      <col class="rb2" style="width: 15${UNIT};" />
+      <col style="width:205${UNIT}" />
+      <col style="width:45${UNIT}" />
+      <col style="width:65${UNIT}" />
+      <col style="width:50${UNIT}" />
+      <col style="width:65${UNIT}" />
+      <col style="width:50${UNIT}" />
       <col />
     </colgroup>
 
@@ -957,7 +961,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         <% y_remain -= table_row_height %>
         <tr>
           % if loop.index == 0:
-          <th rowspan=${comms_count} class="block-title"><div style="width: 15pt"><div class="arotate90">${"CM" if comms_count < 2 else "COMMS"}</div></div></th>
+          <th rowspan=${comms_count} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"CM" if comms_count < 2 else "COMMS"}</div></div></th>
           % endif
 
           <td class="">${elem['agency']}</td>
@@ -993,15 +997,15 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
   <table class="kb-width" style="table-layout: fixed">
 
     <colgroup>
-      <col class="rb2" style="width: 15pt" />
-      <col style="width:150pt" />
-      <col style="width:45pt" />
-      <col style="width:60pt" />
-      <col style="width:60pt" />
-      <col style="width:60pt" />
-      <col style="width:60pt" />
-      <col style="width:60pt" />
-      <col style="width:60pt" />
+      <col class="rb2" style="width: 15${UNIT}" />
+      <col style="width:150${UNIT}" />
+      <col style="width:45${UNIT}" />
+      <col style="width:60${UNIT}" />
+      <col style="width:60${UNIT}" />
+      <col style="width:60${UNIT}" />
+      <col style="width:60${UNIT}" />
+      <col style="width:60${UNIT}" />
+      <col style="width:60${UNIT}" />
       <col />
     </colgroup>
 
@@ -1024,7 +1028,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
         <tr>
           % if loop.index == 0:
-          <th rowspan=${threats_count} class="block-title"><div style="width: 15pt"><div class="arotate90">${"TH" if threats_count < 2 else "THREATS"}</div></div></th>
+          <th rowspan=${threats_count} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"TH" if threats_count < 2 else "THREATS"}</div></div></th>
           % endif
 
           % if elem:
@@ -1078,7 +1082,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
     
     <tbody>
       <tr style="display:none"></tr>
-      <tr style="height: ${y_remain}pt; vertical-align:top">
+      <tr style="height: ${y_remain}${UNIT}; vertical-align:top">
         <td>
           ${data['notes']['html']}
         </td>

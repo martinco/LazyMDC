@@ -106,7 +106,7 @@ b {
 
 .kneeboard table {
   border-collapse: collapse;
-  border: 0pt solid #000000;
+  border: 0;
   border-top: 1pt solid #777777;
 }
 
@@ -174,9 +174,9 @@ b {
 /* ICONS */
 
 .plus-button {
-  border: 0pt;
-  padding: 0pt;
-  margin: 0pt;
+  border: 0;
+  padding: 0;
+  margin: 0;
   width: 14pt;
   height: 14pt;
   background-image: url(plus.svg);
@@ -185,9 +185,9 @@ b {
 }
 
 .minus-button {
-  border: 0pt;
-  padding: 0pt;
-  margin: 0pt;
+  border: 0;
+  padding: 0;
+  margin: 0;
   width: 14pt;
   height: 14pt;
   background-image: url(minus.svg);
@@ -202,7 +202,7 @@ input[type=file] {
 }
 
 input[type=file]::-webkit-file-upload-button {
-  margin: 0pt;
+  margin: 0;
   padding-left: 10pt;
   padding-right: 10pt;
   width: 100%;
@@ -234,10 +234,10 @@ input.nospinner::-webkit-inner-spin-button{
 }
 
 .kneeboard td.rb0 {
-  border-right: 0pt;
+  border-right: 0;
 }
 .kneeboard td.lb0 {
-  border-left: 0pt;
+  border-left: 0;
 }
 .kneeboard .lb2 {
   border-left: 2pt solid #777;
@@ -272,8 +272,7 @@ input.nospinner::-webkit-inner-spin-button{
 .p2 {
   position: absolute;
   top: 1200pt;
-  //width: 800pt;
-  left: 0pt;
+  left: 0;
   margin-left: 20pt;
-  margin-right: 0pt;
+  margin-right: 0;
 }

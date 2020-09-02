@@ -204,7 +204,6 @@ def get_image(kb, html_data, theme):
         my_temp.write(html_data[0])
         my_temp.flush()
 
-        # We zoom by 0.75 to convert from 800pt -> 800px
         full_page = io.BytesIO(imgkit.from_file(
             my_name, None,
             options={
@@ -213,7 +212,6 @@ def get_image(kb, html_data, theme):
                 "quality": 100,
                 "width": 800,
                 "height": 1200*html_data[1]['pages'],
-                "zoom": 0.75,
                 "disable-smart-width": "",
             }))
 
