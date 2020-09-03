@@ -113,7 +113,7 @@ function lookup_preset(value) {
 }
 
 function get_key() {
-  var mdc_key = window.location.pathname.replace(kneeboard_root + '/', '')
+  var mdc_key = window.location.pathname.replace(kneeboard_root, '')
   if (/^[0-9a-zA-Z]{8}$/.test(mdc_key)) {
     return mdc_key
   }
@@ -193,7 +193,7 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
         }
         if (update_id) {
           // Update without page reload
-          window.history.replaceState(data, '', kneeboard_root + "/" + data + window.location.hash );
+          window.history.replaceState(data, '', kneeboard_root + data + window.location.hash );
         }
         if (cb) {
           cb_args.unshift(data)

@@ -45,7 +45,13 @@
       }
     </style>
     <script>
-      kneeboard_root='<?php echo dirname($_SERVER['SCRIPT_NAME']) ?>'
+      <?php
+        $kneeboard_root=dirname($_SERVER['SCRIPT_NAME']);
+        if (substr($kneeboard_root, -1) != '/') {
+          $kneeboard_root .= '/';
+        }
+        echo('kneeboard_root="' . $kneeboard_root . '"' . "\n");
+      ?>
     </script>
   </head>
   <body>
