@@ -1,46 +1,27 @@
-.kneeboard {
-  font-color: #cfcfcf;
-  color: #efefef;
-  background: #101010;
-}
 
 body {
   background: #101010;
+  color: #ffffff;
 }
 
-b {
-  color: #efefef;
+.text-bold {
+  color: #f5f5f5;
+}
+
+tr {
+  background: #262626;
+}
+
+tr:nth-child(odd) {
+  background: #363636;
+}
+
+tr .block-title {
+  background: #262626;
+  color: #e3e3e3;
+  letter-spacing: 2px;
 }
 
 .bg-blank {
   background: #101010;
-}
-
-/* coordinates, tcn, and frequences should be bold */
-.kneeboard .coord,
-.kneeboard .tcn, .kneeboard .tcn input,
-.kneeboard .freq, .kneeboard .freq input,
-.kneeboard .tcn, .kneeboard .tcn input {
-  color: #f5f5f5;
-}
-
-.kneeboard tr {
-  background: #262626;
-}
-
-.kneeboard tr .inline-title {
-  background: #262626;
-  color:#efefef;
-}
-
-.kneeboard tr .block-title {
-  background: #262626;
-  color: #f5f5f5;
-}
-
-.kneeboard tr:nth-child(odd) textarea,
-.kneeboard tr:nth-child(odd) input,
-.kneeboard tr:nth-child(odd)
-{
-  background: #363636;
 }

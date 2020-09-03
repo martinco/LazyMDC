@@ -1,136 +1,61 @@
-
-//p {
-  //font-family: "Roboto Mono CourierPrime Numbers";
-//}
-
 body {
   width: 760pt;
   font-family: "Roboto Mono CourierPrime Numbers";
   font-style: normal;
   font-weight: normal;
   font-size: 10pt;
-  margin-top: 0pt;
+  margin-top: 0;
+  padding-top: 0;
   margin-left: 20pt;
   margin-right: 20pt;
 }
 
-.instruction {
-  padding-top: 5pt;
-}
-
 .kneeboard {
-  font-color: #efefef;
-  color: #efefef;
-  font-size: 10pt;
-  font-family: "Roboto Mono CourierPrime Numbers";
-  background: #101010;
-  width: 100%;
-  height: 100%;
   padding-top: 20pt;
 }
 
-.kneeboard-fixed {
-  width: 760pt;
-  height: 1180pt;
-}
-
-.kneeboard input,
-.kneeboard textarea {
-  border: 0pt solid #000000;
-  border-collapse: collapse;
-  border-spacing: 0;
-  background: #ffffff;
-  height: 15pt;
-  line-height: 14pt;
-  margin: 0pt;
-  padding: 0pt;
-  z-index: 1;
-  max-width: 100%;
-  width: 100%;
-  font-family: 'Roboto Mono CourierPrime Numbers';
-  font-size: 13pt;
-}
-
-b {
-  color: #efefef;
-}
-
-/* coordinates, tcn, and frequences should be bold */
-.kneeboard .coord,
-.kneeboard .tcn, .kneeboard .tcn input,
-.kneeboard .freq, .kneeboard .freq input,
-.kneeboard .tcn, .kneeboard .tcn input {
-  font-weight: bold;
-  text-align: center;
-  color: #f0f0f0;
-}
-
-.kneeboard .freqs, .kneeboard .freqs input {
-  text-align: center;
-  font-size: 10pt;
-}
-
-/* Additional Helpers */
-
 .kb-width { width: 100%; }
 
-.vt { vertical-align: top; }
+/* PADDING */
 
-.lpad5 { padding-left: 5pt; }
-.rpad5 { padding-right: 5pt; }
+.lp5 { padding-left: 5pt; }
+.rp5 { padding-right: 5pt; }
 
-.algnr, .algnr > * { text-align: right; }
-.algnc, .algnc > * { text-align: center; }
+.lb2 { border-left: 2pt solid #777777; }
+.rb2 { border-right: 2pt solid #777777; }
 
-/* Section Headers */
-.section,
-.section input
-{
-  font-size: 11pt;
-  text-align: center;
-  background: #ffffff;
-}
+.rb0 { border-right: 0; }
+.lb0 { border-left: 0; }
 
+.break{ height: 10pt; }
 
-#instructions {
-  border-collapse: collapse;
-}
+.new-page { page-break-before: always; }
 
-#instructions td {
-  border-bottom: 1pt solid #ccc;
-  padding-top: 5pt;
-  padding-bottom: 5pt;
-}
+/* TEXT STYLES */
 
-/* All table rows should be colored nicely */
+.text-bold { font-weight: bold; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
 
-.kneeboard table {
+/* TABLE STYLES */
+
+table {
   border-collapse: collapse;
   border: 0;
   border-top: 1pt solid #777777;
 }
 
-.kneeboard td {
+td {
   border: 1pt solid #777777;
 }
 
-.kneeboard tr {
+tr {
   background: #262626;
   height: 19pt;
 }
 
-.kneeboard tr.header {
+tr.header {
   height: 18pt;
-}
-
-.kneeboard tr .inline-title {
-  background: #262626;
-  color:#ffffff;
-}
-
-.kneeboard tr .block-title {
-  background: #000;
-  color: #fff;
 }
 
 .arotate90 {
@@ -139,140 +64,31 @@ b {
   line-height: 1;
   vertical-align: bottom;
   text-align: center;
-  transform: rotate(-90deg) translateY(-45pt);
-  -moz-transform: rotate(-90.0deg) translateY(-45pt);
-  -o-transform: rotate(-90.0deg) translateY(-45pt);
-  -webkit-transform: rotate(-90.0deg) translateY(-45pt);
-  width: 100pt;
+  transform: rotate(-90deg) translateY(-69pt);
+  -moz-transform: rotate(-90.0deg) translateY(-69pt);
+  -o-transform: rotate(-90.0deg) translateY(-69pt);
+  -webkit-transform: rotate(-90.0deg) translateY(-69pt);
+  width: 150pt;
 }
 
-.kneeboard th,
-.kneeboard th textarea,
-.kneeboard th input {
+th {
   font-weight: normal;
   background: #777777;
-  color: #fff;
+  color: #ffffff;
   font-size: 10pt;
   border: 1pt solid #777777;
 }
 
 
-.kneeboard tr:nth-child(odd) textarea,
-.kneeboard tr:nth-child(odd) input,
-.kneeboard tr:nth-child(odd)
+tr:nth-child(odd)
 {
   background: #363636;
 }
 
-.kneeboard tr:nth-child(odd) th,
-.kneeboard tr:nth-child(odd) th input {
+tr:nth-child(odd) th {
   background: #777777;
 }
 
-
-
-/* ICONS */
-
-.plus-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  width: 14pt;
-  height: 14pt;
-  background-image: url(plus.svg);
-  background-size: cover;
-  background-color: #101010;
-}
-
-.minus-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  width: 14pt;
-  height: 14pt;
-  background-image: url(minus.svg);
-  background-size: cover;
-  background-color: #101010;
-}
-
-/* Hide "No File Chosen" */
-
-input[type=file] {
-  color: transparent;
-}
-
-input[type=file]::-webkit-file-upload-button {
-  margin: 0;
-  padding-left: 10pt;
-  padding-right: 10pt;
-  width: 100%;
-  border: solid 1pt #AACFE4;
-  height: 26pt;
-  border-radius: 8pt;
-}
-
-/* Hide spinners on text fields */
-input.nospinner[type='number'] {
-  -moz-appearance:textfield;
-}
-
-input.nospinner::-webkit-outer-spin-button,
-input.nospinner::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-}
-
-/* AUTO COMPLETE */
-.ui-autocomplete {
-  width: 200pt;
-  max-height: 200pt;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.rb2 {
-  border-right: 2pt solid #777;
-}
-
-.kneeboard td.rb0 {
-  border-right: 0;
-}
-.kneeboard td.lb0 {
-  border-left: 0;
-}
-.kneeboard .lb2 {
-  border-left: 2pt solid #777;
-}
-.kneeboard .rb2 {
-  border-right: 2pt solid #777;
-}
-
-.break{
-  height: 10pt;
-}
-
-.rotate90 {
-  /* FF3.5+ */
-  -moz-transform: rotate(-90.0deg);
-  /* Opera 10.5 */
-  -o-transform: rotate(-90.0deg);
-  /* Saf3.1+, Chrome */
-  -webkit-transform: rotate(-90.0deg);
-  /* IE6,IE7 */
-  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-  /* IE8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
-  /* Standard */
-  transform: rotate(-90.0deg);
-}
-
-.new-page {
-  page-break-before: always;
-}
-
-.p2 {
-  position: absolute;
-  top: 1200pt;
-  left: 0;
-  margin-left: 20pt;
-  margin-right: 0;
+.bg-blank {
+  background: #fefefe;
 }

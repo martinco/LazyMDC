@@ -120,28 +120,28 @@ y_remain = 1200
 # [Title, Col Width, Style]
 
 flight_cols = [
-  ["#", 30, "algnc"],
-  ["PILOT", 240, "lpad5"],
+  ["#", 30, "text-center"],
+  ["PILOT", 240, "lp5"],
 ]
 
 if ac == "F-14B":
   flight_cols[1][1] /= 2;
   flight_cols.append(
-    ['RIO', 120, "lpad5"])
+    ['RIO', 120, "lp5"])
 
 if ac in ["F-14B", "FA-18C"]:
-  flight_cols.append(['BORT', 40, "algnc"])
+  flight_cols.append(['BORT', 40, "text-center"])
 
 if ac == "A-10C":
   flight_cols.extend([
-    ['GID', 40, "algnc"],
-    ['OID', 40, "algnc"]])
+    ['GID', 40, "text-center"],
+    ['OID', 40, "text-center"]])
 
 flight_cols.extend([
-  ['TCN', 40, "algnc"],
-  ['LSR', 40, "algnc"],
-  ['SQUAWK', 50, "algnc"],
-  ['NOTES', 0, "lpad5"]])
+  ['TCN', 40, "text-center"],
+  ['LSR', 40, "text-center"],
+  ['SQUAWK', 50, "text-center"],
+  ['NOTES', 0, "lp5"]])
 
 flight_count = len(get(data['flight'], 'members', []))
 package_count = len(get(data['package'], 'members', []))
@@ -195,11 +195,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 </head>
 <body>
 
-  % if output in ['png', 'pngr', 'raw']:
-  <div class="kneeboard kneeboard-fixed">
-  % else:
   <div class="kneeboard">
-  % endif
 
     ## ##########################################################################
     ## HEADING TABLE
@@ -234,14 +230,14 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
         </tr>
         
         <tr>
-          <td class="algnc">${data['mission']['mission-callsign']}</td>
-          <td class="freq">${data['mission']['mission-pri-freq']}</td>
-          <td class="freq">${data['mission']['mission-sec-freq']}</td>
+          <td class="text-center">${data['mission']['mission-callsign']}</td>
+          <td class="text-center text-bold">${data['mission']['mission-pri-freq']}</td>
+          <td class="text-center text-bold">${data['mission']['mission-sec-freq']}</td>
           % if package:
-          <td class="algnc">${data['package']['package-name']}</td>
+          <td class="text-center">${data['package']['package-name']}</td>
           % endif
-          <td class="lpad5">${data["mission"]['mission-desc']}</td>
-          <td class="algnc">${data["mission"]['mission-id']}</td>
+          <td class="lp5">${data["mission"]['mission-desc']}</td>
+          <td class="text-center">${data["mission"]['mission-id']}</td>
         </tr>
       </tbody>
     </table>
@@ -332,12 +328,12 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
               <th rowspan=5 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"PK" if package_count < 3 else "PACKAGE"}</div></div></th>
               % endif
 
-              <td class="lpad5">${elem['callsign']}</td>
-              <td class="lpad5">${elem['aircraft']}</td>
-              <td class="freq">${elem['freq']}</td>
-              <td class="freq">${elem['tcn']}</td>
-              <td class="lpad5">${elem['idm']}</td>
-              <td class="lpad5">${elem['mission']}</td>
+              <td class="lp5">${elem['callsign']}</td>
+              <td class="lp5">${elem['aircraft']}</td>
+              <td class="text-center text-bold">${elem['text-center text-bold']}</td>
+              <td class="text-center text-bold">${elem['tcn']}</td>
+              <td class="lp5">${elem['idm']}</td>
+              <td class="lp5">${elem['mission']}</td>
           </tr>
           % endfor
         </tr>
@@ -404,24 +400,24 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % if loop.index == 0:
           <th rowspan=3 class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">DEP/ARR</div></div></th>
           % endif
-          <td class="algnc">${a.upper()}</td>
-          <td class="lpad5">${get(elem, 'location')}</td>
-          <td class="algnc">${get(elem, 'icao')}</td>
-          <td class="freq">${get(elem, 'tcn')}</td>
+          <td class="text-center">${a.upper()}</td>
+          <td class="lp5">${get(elem, 'location')}</td>
+          <td class="text-center">${get(elem, 'icao')}</td>
+          <td class="text-center text-bold">${get(elem, 'tcn')}</td>
 
-          <td class="freq rb0">${get(elem, 'atis')}</td>
-          <td class="algnc lb0">${get(elem, 'atis-pst')}</td>
+          <td class="text-center text-bold rb0">${get(elem, 'atis')}</td>
+          <td class="text-center lb0">${get(elem, 'atis-pst')}</td>
 
-          <td class="freq rb0">${get(elem, 'gnd')}</td>
-          <td class="algnc lb0">${get(elem, 'gnd-pst')}</td>
+          <td class="text-center text-bold rb0">${get(elem, 'gnd')}</td>
+          <td class="text-center lb0">${get(elem, 'gnd-pst')}</td>
 
-          <td class="freq rb0">${get(elem, 'twr')}</td>
-          <td class="algnc lb0">${get(elem, 'twr-pst')}</td>
+          <td class="text-center text-bold rb0">${get(elem, 'twr')}</td>
+          <td class="text-center lb0">${get(elem, 'twr-pst')}</td>
 
-          <td class="freq rb0">${get(elem, 'ctrl')}</td>
-          <td class="algnc lb0">${get(elem, 'ctrl-pst')}</td>
+          <td class="text-center text-bold rb0">${get(elem, 'ctrl')}</td>
+          <td class="text-center lb0">${get(elem, 'ctrl-pst')}</td>
 
-          <td class="freq">${get(elem, 'par', '')}</td>
+          <td class="text-center text-bold">${get(elem, 'par', '')}</td>
 
         </tr>
         % endfor
@@ -474,37 +470,37 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
             if not pyl_store:
               pyl_weight = ''
           %>
-          <td class="algnc">${get(elem, 'pyl', '')}</td>
-          <td class="lpad5" style="overflow:hidden; white-space: nowrap">${pyl_store}</td>
-          <td class="algnr rpad5 rb2">${pyl_weight|ntos}</td>
+          <td class="text-center">${get(elem, 'pyl', '')}</td>
+          <td class="lp5" style="overflow:hidden; white-space: nowrap">${pyl_store}</td>
+          <td class="text-right rp5 rb2">${pyl_weight|ntos}</td>
 
           % if loop.index == 0:
-            <td class="algnc">GUN</td>
-            <td class="algnc rb2"><b>${data['loadout']['gun']}%</b></td>
-            <td class="lpad5">EMPTY</td>
-            <td class="algnr rpad5" colspan=2>${data['loadout']['weights']['oew']|ntos}</td>
+            <td class="text-center">GUN</td>
+            <td class="text-center rb2 text-bold">${data['loadout']['gun']}%</td>
+            <td class="lp5">EMPTY</td>
+            <td class="text-right rp5" colspan=2>${data['loadout']['weights']['oew']|ntos}</td>
           % elif loop.index == 1:
-            <td class="algnc">FUEL</td>
-            <td class="algnc rb2"><b>${data['loadout']['fuel']}%</b></td>
-            <td class="lpad5">STORES</td>
-            <td class="algnr rpad5" colspan=2>${(data['loadout']['weights']['stores'] + int(data['loadout']['gun_lbs']))|ntos}</td>
+            <td class="text-center">FUEL</td>
+            <td class="text-center rb2 text-bold">${data['loadout']['fuel']}%</td>
+            <td class="lp5">STORES</td>
+            <td class="text-right rp5" colspan=2>${(data['loadout']['weights']['stores'] + int(data['loadout']['gun_lbs']))|ntos}</td>
           % elif loop.index == 2:
-            <td class="algnc">CHAFF</td>
-            <td class="algnc rb2">${data['loadout']['chaff']|ntos}</td>
-            <td class="lpad5">FUEL</td>
-            <td class="algnr rpad5" colspan="2">${data['loadout']['fuel_lbs']|ntos}</td>
+            <td class="text-center">CHAFF</td>
+            <td class="text-center rb2">${data['loadout']['chaff']|ntos}</td>
+            <td class="lp5">FUEL</td>
+            <td class="text-right rp5" colspan="2">${data['loadout']['fuel_lbs']|ntos}</td>
           % elif loop.index == 3:
-            <td class="algnc">FLARE</td>
-            <td class="algnc rb2">${data['loadout']['flare']|ntos}</td>
-            <td class="lpad5"><b>TOTAL</b></td>
-            <td class="algnr rpad5" colspan=2><b>${data['loadout']['weights']['total']|ntos}</b></td>
+            <td class="text-center">FLARE</td>
+            <td class="text-center rb2">${data['loadout']['flare']|ntos}</td>
+            <td class="lp5 text-bold">TOTAL</td>
+            <td class="text-right text-bold rp5" colspan=2>${data['loadout']['weights']['total']|ntos}</td>
           % elif loop.index == 4:
-            <td class="algnc">JOKER</td>
-            <td class="algnc rb2">${data['loadout']['joker']|ntos}</td>
+            <td class="text-center">JOKER</td>
+            <td class="text-center rb2">${data['loadout']['joker']|ntos}</td>
             <td class="bg-blank" colspan=3 rowspan=1 style="border:0;"></td>
           % elif loop.index == 5:
-            <td class="algnc">BINGO</td>
-            <td class="algnc rb2">${data['loadout']['bingo']|ntos}</td>
+            <td class="text-center">BINGO</td>
+            <td class="text-center rb2">${data['loadout']['bingo']|ntos}</td>
             <td class="bg-blank" colspan=3 rowspan=1 style="border:0;"></td>
           % elif loop.index == 6:
             <td class="bg-blank" style="border:0" colspan=2 rowspan=${pylons_count-9} class="lb2"></td>
@@ -512,30 +508,30 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % elif loop.index == pylons_count-3:
           ## % elif loop.index == 7:
             <td class="bg-blank" style="border:0" colspan=2 rowspan=3 class="lb2"></td>
-            <th class="algnc lb2"></th>
+            <th class="text-center lb2"></th>
             % if 'mtow_cvn' in data['loadout']['weights']:
-            <th class="algnc">FIELD</th>
-            <th class="algnc">CVN</th>
+            <th class="text-center">FIELD</th>
+            <th class="text-center">CVN</th>
             % else:
-            <th colspan=2 class="algnc">FIELD</th>
+            <th colspan=2 class="text-center">FIELD</th>
             % endif
           % elif loop.index == pylons_count-2:
           ## % elif loop.index == 8:
-            <th class="algnc lb2">MAX T/O</th>
+            <th class="text-center lb2">MAX T/O</th>
             % if 'mtow_cvn' in data['loadout']['weights']:
-            <td class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
-            <td class="algnr rpad5">${data['loadout']['weights']['mtow_cvn']|ntos}</td>
+            <td class="text-right rp5">${data['loadout']['weights']['mtow_field']|ntos}</td>
+            <td class="text-right rp5">${data['loadout']['weights']['mtow_cvn']|ntos}</td>
             % else:
-            <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mtow_field']|ntos}</td>
+            <td colspan=2 class="text-right rp5">${data['loadout']['weights']['mtow_field']|ntos}</td>
             % endif
           ## % elif loop.index == 9:
           % elif loop.index == pylons_count-1:
-            <th class="algnc lb2">MAX LDG</th>
+            <th class="text-center lb2">MAX LDG</th>
             % if 'mtow_cvn' in data['loadout']['weights']:
-            <td class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
-            <td class="algnr rpad5">${data['loadout']['weights']['mlw_cvn']|ntos}</td>
+            <td class="text-right rp5">${data['loadout']['weights']['mlw_field']|ntos}</td>
+            <td class="text-right rp5">${data['loadout']['weights']['mlw_cvn']|ntos}</td>
             % else:
-            <td colspan=2 class="algnr rpad5">${data['loadout']['weights']['mlw_field']|ntos}</td>
+            <td colspan=2 class="text-right rp5">${data['loadout']['weights']['mlw_field']|ntos}</td>
             % endif
           % endif
 
@@ -568,9 +564,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
             </tr>
 
             <tr>
-              <td class="lpad5">${data['waypoint']['bullseye']['name']}</td>
-              <td class="freq">${data['waypoint']['bullseye']|lat_formatter,n}</td>
-              <td class="freq">${data['waypoint']['bullseye']|lon_formatter,n}</td>
+              <td class="lp5">${data['waypoint']['bullseye']['name']}</td>
+              <td class="text-center text-bold">${data['waypoint']['bullseye']|lat_formatter,n}</td>
+              <td class="text-center text-bold">${data['waypoint']['bullseye']|lon_formatter,n}</td>
             </tr>
           </tbody>
         </table>
@@ -600,7 +596,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
             <tr>
               % for elem in data['comms']['ramrod']:
-              <td class="freq">${elem}</td>
+              <td class="text-center text-bold">${elem}</td>
               % endfor
             </tr>
           </tbody>
@@ -677,16 +673,16 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % if elem.get('lat', '') == '' or elem.get('lon') == '':
           <td>&nbsp;</td><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
           % else:
-          <td class="algnc">${get(elem, 'typ')}</td>
-          <td class="lpad5">${get(elem, 'name')}</td>
-          <td class="algnc">${get(elem, 'alt', '')|alt_formatter}</td>
-          <td class="algnc">${get(elem, 'gs', '')}</td>
-          <td class="algnc">${get(elem, 'tot', '')}</td>
-          <td class="algnc">${elem['act'] if elem['act'] != '00:00' else ''}</td>
-          <td class="freq">${elem|lat_formatter,n}</td>
-          <td class="freq">${elem|lon_formatter,n}</td>
-          <td class="algnr rpad5">${get(elem, 'dist', '')}</td>
-          <td class="algnr rpad5">${get(elem, 'tbrg', '')}</td>
+          <td class="text-center">${get(elem, 'typ')}</td>
+          <td class="lp5">${get(elem, 'name')}</td>
+          <td class="text-center">${get(elem, 'alt', '')|alt_formatter}</td>
+          <td class="text-center">${get(elem, 'gs', '')}</td>
+          <td class="text-center">${get(elem, 'tot', '')}</td>
+          <td class="text-center">${elem['act'] if elem['act'] != '00:00' else ''}</td>
+          <td class="text-center text-bold">${elem|lat_formatter,n}</td>
+          <td class="text-center text-bold">${elem|lon_formatter,n}</td>
+          <td class="text-right rp5">${get(elem, 'dist', '')}</td>
+          <td class="text-right rp5">${get(elem, 'tbrg', '')}</td>
           % endif
         </tr>
         % endfor
@@ -731,9 +727,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % endif 
 
           % if elem:
-          <td class="algnc">${elem['id']}</td>
-          <td class="algnc">${elem['seq']}</td>
-          <td class="lpad5">${elem['notes']}</td>
+          <td class="text-center">${elem['id']}</td>
+          <td class="text-center">${elem['seq']}</td>
+          <td class="lp5">${elem['notes']}</td>
           % else:
           <td>&nbsp;</td>
           <td></td>
@@ -781,9 +777,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % endif 
 
           % if elem:
-          <td class="lpad5">${elem['name']}</td>
-          <td class="freq">${elem|lat_formatter,n}</td>
-          <td class="freq">${elem|lon_formatter,n}</td>
+          <td class="lp5">${elem['name']}</td>
+          <td class="text-center text-bold">${elem|lat_formatter,n}</td>
+          <td class="text-center text-bold">${elem|lon_formatter,n}</td>
           % else:
           <td>&nbsp;</td>
           <td></td>
@@ -807,11 +803,7 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
   <div class="new-page"></div>
    
-  % if output in ['png', 'pngr', 'raw']:
-  <div class="kneeboard kneeboard-fixed">
-  % else:
   <div class="kneeboard">
-  % endif
 
   <% y_remain = 1200 - 20 - 20 %>
 
@@ -848,14 +840,14 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
       </tr>
       
       <tr>
-        <td class="algnc">${data['mission']['mission-callsign']}</td>
-        <td class="freq">${data['mission']['mission-pri-freq']}</td>
-        <td class="freq">${data['mission']['mission-sec-freq']}</td>
+        <td class="text-center">${data['mission']['mission-callsign']}</td>
+        <td class="text-center text-bold">${data['mission']['mission-pri-freq']}</td>
+        <td class="text-center text-bold">${data['mission']['mission-sec-freq']}</td>
         % if package:
-        <td class="algnc">${data['package']['package-name']}</td>
+        <td class="text-center">${data['package']['package-name']}</td>
         % endif
-        <td class="lpad5">${data["mission"]['mission-desc']}</td>
-        <td class="algnc">${data["mission"]['mission-id']}</td>
+        <td class="lp5">${data["mission"]['mission-desc']}</td>
+        <td class="text-center">${data["mission"]['mission-id']}</td>
       </tr>
     </tbody>
   </table>
@@ -905,9 +897,9 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
             <td class="">${elem['callsign']}</td>
             <td class="">${elem['aircraft']}</td>
-            <td class="freq">${elem['freq']}</td>
-            <td class="freq">${elem['tcn']}</td>
-            <td class="lpad5">${elem['idm']}</td>
+            <td class="text-center text-bold">${elem['freq']}</td>
+            <td class="text-center text-bold">${elem['tcn']}</td>
+            <td class="lp5">${elem['idm']}</td>
             <td class="">${elem['mission']}</td>
         </tr>
         % endfor
@@ -965,11 +957,11 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % endif
 
           <td class="">${elem['agency']}</td>
-          <td class="freq">${elem['tcn']}</td>
-          <td class="freq">${elem['pri']}</td>
-          <td class="algnc">${elem['pri_pst']}</td>
-          <td class="freq">${elem['sec']}</td>
-          <td class="algnc">${elem['sec_pst']}</td>
+          <td class="text-center text-bold">${elem['tcn']}</td>
+          <td class="text-center text-bold">${elem['pri']}</td>
+          <td class="text-center">${elem['pri_pst']}</td>
+          <td class="text-center text-bold">${elem['sec']}</td>
+          <td class="text-center">${elem['sec_pst']}</td>
           <td class="">${elem['notes']}</td>
         </tr>
         % endfor
@@ -1032,15 +1024,15 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           % endif
 
           % if elem:
-          <td class="lpad5">${elem['threat']}</td>
-          <td class="lpad5">${elem['rwr']}</td>
-          <td class="lpad5">${elem['type']}</td>
-          <td class="lpad5">${elem['cms']}</td>
-          <td class="lpad5">${elem['rmin']}</td>
-          <td class="lpad5">${elem['rmax']}</td>
-          <td class="lpad5">${elem['amin']}</td>
-          <td class="lpad5">${elem['amax']}</td>
-          <td class="lpad5">${elem['notes']}</td>
+          <td class="lp5">${elem['threat']}</td>
+          <td class="lp5">${elem['rwr']}</td>
+          <td class="lp5">${elem['type']}</td>
+          <td class="lp5">${elem['cms']}</td>
+          <td class="lp5">${elem['rmin']}</td>
+          <td class="lp5">${elem['rmax']}</td>
+          <td class="lp5">${elem['amin']}</td>
+          <td class="lp5">${elem['amax']}</td>
+          <td class="lp5">${elem['notes']}</td>
           % else:
           <td>&nbsp;</td>
           <td></td>
