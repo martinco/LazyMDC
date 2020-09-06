@@ -3,16 +3,16 @@
   <head>
     <title>Data Card Builder v2</title>
 
-    <link rel="preload" href="http://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"   crossorigin="anonymous">
 
-    <link rel="preload" href="http://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css"   crossorigin="anonymous">
 
-    <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="index.css">
 
-    <link rel="preload" href="http://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css">
 
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
 
     <style type="text/css">
       body {
