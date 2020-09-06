@@ -99,10 +99,14 @@ def ll(info, lat=True):
   )
 
 def alt_formatter(alt):
-  alt = int(alt)
+  try:
+    alt = int(alt)
+  except Exception:
+    return alt
+
   if alt > int(data['waypoint']['transition-alt']):
     return 'FL%s' % int(alt/100)
-  return str(int(alt))
+  return str(alt)
 
 def lat_formatter(info):
   return ll(info, True)
@@ -179,7 +183,7 @@ if threats_count:
   total_y += (table_head + threats_count * table_row_height + 10)
 
 SINGLE_PAGE = total_y < (1200 - 40 - 100)
-UNIT = "px" if output in ["png", "html"] else "pt"
+UNIT = "px" if output in ["png", "pngr", "html"] else "pt"
 
 context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 
