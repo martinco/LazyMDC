@@ -177,6 +177,7 @@ def get_pdf(kb, html_data, theme):
         data = io.BytesIO(pdfkit.from_file(
             my_name, None,
             options={
+                "enable-local-file-access": "",
                 "quiet": "",
                 "page-width": "800pt",
                 "page-height": "1200pt",
@@ -207,6 +208,7 @@ def get_image(kb, html_data, theme):
         full_page = io.BytesIO(imgkit.from_file(
             my_name, None,
             options={
+                "enable-local-file-access": "",
                 "quiet": "",
                 "format": "png",
                 "quality": 100,
