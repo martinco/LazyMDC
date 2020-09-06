@@ -150,9 +150,9 @@ function waypoint_add(wp_info) {
     }
     
     if (data['lon_fmt']) {
-        row += `<td class="coord" onClick="coordinate_input(this, 6);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
+        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord" onClick="coordinate_input(this, 6);" data-raw="${data['lon']}"></td>`
+        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6);" data-raw="${data['lon']}"></td>`
     }
     
     row += `<td class="text-right"></td>
@@ -202,7 +202,7 @@ function waypoint_add_poi(poi_data) {
     if (data['lon_fmt']) {
         row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);" data-raw="${data['lon']}"></td>`
+        row += `<td class="coord border-right-0 coord-lon" onClick="coordinate_input(this, 1);" data-raw="${data['lon']}"></td>`
     }
   
     row += `<td class="input-container text-center border-left-0">
