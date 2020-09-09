@@ -59,7 +59,7 @@ function download_stage2(key, format, template) {
   } else if (format == 'lnk') {
 
     var dlg = $('#download-dialog');
-    $('#download-dialog-lnk').val(window.location.origin + kneeboard_root + "/" + key);
+    $('#download-dialog-lnk').val(window.location.origin + kneeboard_root + key);
     dlg.modal({
       backdrop: 'static',
     });
