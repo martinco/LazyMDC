@@ -673,14 +673,20 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
           <th rowspan=${wp_rows} class="block-title"><div style="width: 15${UNIT}"><div class="arotate90">${"WAYPTS" if wp_rows < 5 else "WAYPOINTS"}</div></div></th>
           % endif
 
-          <% elem = get(data['waypoint']['waypoints'], n, {}) %>
+          <% 
+            elem = get(data['waypoint']['waypoints'], n, {})
+            gs = float(get(elem, 'gs', 0))
+            gs = int(math.ceil(gs / 5)) * 5
+            if not gs:
+              gs = ''
+          %>
           % if elem.get('lat', '') == '' or elem.get('lon') == '':
           <td>&nbsp;</td><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
           % else:
           <td class="text-center">${get(elem, 'typ')}</td>
           <td class="lp5">${get(elem, 'name')}</td>
           <td class="text-center">${get(elem, 'alt', '')|alt_formatter}</td>
-          <td class="text-center">${get(elem, 'gs', '')}</td>
+          <td class="text-center">${gs}</td>
           <td class="text-center">${get(elem, 'tot', '')}</td>
           <td class="text-center">${elem['act'] if elem['act'] != '00:00' else ''}</td>
           <td class="text-center text-bold">${elem|lat_formatter,n}</td>
