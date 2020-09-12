@@ -45,7 +45,7 @@
 
 <!-- ROUTE DIALOG (CF) -->
 <div class="modal fade" id="data-route-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="max-width:650px">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Route Select</h5>
@@ -67,9 +67,8 @@
         <br>
 
         <ul>
-          <li>Aircraft Type</li>
+          <li>Aircraft Type and Stores</li>
           <li>Mission Waypoints</li>
-          <li>Flight Stores</li>
         </ul>
 
         </p>
@@ -80,9 +79,6 @@
             <select id="data-route-dialog-waypoints" class="form-control">
               <option value="" selected>None</option>
             </select>
-            <small class="form-text text-muted">
-              If you do not see your route, ensure you have the correct version of the AC selected in CF
-            </small>
           </div>
 
           <div class="form-group" id="data-route-dialog-poi-container" style="display:none">

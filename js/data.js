@@ -55,22 +55,55 @@ function data_process_cf(xml) {
     var task = route_xml.querySelector('Task').textContent;
     var side = route_xml.querySelector('Side').textContent;
     var aircraft = route_xml.querySelector('Aircraft > Type').textContent;
+    var aircraft_source = aircraft;
 
-    // Exclude non supported AC to avoid pain in loadouts not working etc.
-    if (!['F-14B', 'F-16C_50', 'A-10C', 'FA-18C_hornet'].includes(aircraft)) {
-      continue
-    }
+    var load_loadout = true;
+    var route_append = "";
 
-    // Map aircraft names accoridngly to kneeboard names
-    if (aircraft.startsWith("F-16C")) {
+    // Choose if we import route only (set AC if possible)
+    
+    // F-16 Varianats: F-16A, F-16A MLU, F-16C bl.50, F-16C bl.52 F-16C_50
+    if (aircraft.startsWith("F-16")) {
+      if (aircraft != 'F-16C_50') {
+        route_append = " - route only - Select F-16C_50 in CF for loadout";
+        load_loadout = false;
+      }
       aircraft = "F-16C"
-    } else if (aircraft.startsWith("FA-18C")) {
+
+    // F-18C Variants: F/A-18C, FA-18C_hornet
+    } else if (aircraft == 'F/A-18C' || aircraft == 'FA-18C_hornet') {
+      if (aircraft != 'FA-18C_hornet') {
+        route_append = " - route only - Select FA-18C_hornet in CF for loadout";
+        load_loadout = false;
+      }
       aircraft = "FA-18C"
+
+    // F-14 Variants: F-14A, F-14B
+    } else if (aircraft.startsWith("F-14")) {
+      if (aircraft != 'F-14B') {
+        route_append = " - route only - select F-14B in CF for loadout";
+        load_loadout = false;
+      }
+      aircraft = "FA-14B"
+
+    // A-10 Variants: A-10A, A-10C
+    } else if (aircraft.startsWith("A-10")) {
+      if (aircraft != 'A-10C') {
+        route_append = " - route only - Select A-10C in CF for loadout";
+        load_loadout = false;
+      }
+      aircraft = "FA-14B"
+
+    // Anything else 
+    } else { 
+      route_append = " - unsupported airframe - route only";
+      load_loadout = false;
+      aircraft = null;
     }
 
     var units = route_xml.querySelector('Units').textContent;
 
-    var route_title = `[${task}] ${name} ${units}x${aircraft}`
+    var route_title = `[${task}] ${name} ${units}x${aircraft_source}`
 
     // Store so we can fire the event
     route_data[name] = {
@@ -82,7 +115,12 @@ function data_process_cf(xml) {
     }
 
     // Add options to route selector
-    select_wp.append(new Option(route_title, name));
+    var opt = new Option(route_title + route_append, name)
+    if (!load_loadout) {
+      opt.style.color = '#cc0000'
+    }
+
+    select_wp.append(opt);
     select_poi.append(new Option(route_title, name));
   };
 
@@ -238,9 +276,9 @@ $("#data-route-dialog-submit").click(function(e, data) {
   // Store the route on the flight-aircraft
   var mission_route = $('#data-route-dialog-waypoints').val()
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
-  $('#flight-airframe').data('route', mission_route_data);
+  $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
 
-  if (mission_route_data) {
+  if (mission_route_data && mission_route_data.aircraft) {
     $('#flight-airframe').val(mission_route_data.aircraft).change();
   }
 

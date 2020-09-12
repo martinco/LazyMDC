@@ -285,7 +285,7 @@ $(document).on('coordinates-changed', function() {
   waypoint_update();
 });
 
-$(document).on('flight-airframe-changed', function(e) {
+$('#flight-airframe').on('data-route-updated', function(e) {
 
   // If we have a route, we can use the data from CF
   var route = $('#flight-airframe').data('route');
