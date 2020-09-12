@@ -148,7 +148,7 @@ def try_format_number(x):
 
 def get_html(kb, output, data, theme="Standard"):
 
-    template = Template(filename='mako/%s.htm' % theme)
+    template = Template(filename='mako/%s/template.htm' % theme)
     attributes = {}
 
     try:

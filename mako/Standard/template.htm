@@ -190,11 +190,11 @@ context['attributes']['pages'] = 1 if SINGLE_PAGE else 2
 %><!DOCTYPE html>
 <head>
   <title>${data['mission']['mission-id']}</title>
-  <link rel="stylesheet" type="text/css" href="css/fonts.css">
-  <link rel="stylesheet" type="text/css" href="css/Standard-base.css">
-  <link rel="stylesheet" type="text/css" href="css/${theme}.css">
+  <link rel="stylesheet" type="text/css" href="mako/${theme}/fonts.css">
+  <link rel="stylesheet" type="text/css" href="mako/${theme}/base.css">
+  <link rel="stylesheet" type="text/css" href="mako/${theme}/${theme}.css">
   % if UNIT == "px":
-  <link rel="stylesheet" type="text/css" href="css/Standard-base-px.css">
+  <link rel="stylesheet" type="text/css" href="mako/${theme}/pixel-output.css">
   % endif
 </head>
 <body>

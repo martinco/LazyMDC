@@ -8,6 +8,7 @@ body {
   padding-top: 0;
   margin-left: 20pt;
   margin-right: 20pt;
+  word-wrap: break-word;
 }
 
 .kneeboard {
