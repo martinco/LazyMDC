@@ -4,9 +4,10 @@
 # RefPoints and the center of any AAR Orbits for the Theatre found
 #
 
-import sys
 import json
+import os
 import requests
+import sys
 import xml.etree.ElementTree as ET
 import zipfile
 
@@ -24,7 +25,9 @@ if __name__ == '__main__':
 
     source = sys.argv[1]
 
-    if source[0:7] == 'file://':
+    if os.path.isfile(source):
+        cf_bytes = open(source)
+    elif source[0:7] == 'file://':
         cf_bytes = open(source[7:])
     else:
         cf_req = requests.get(source)
@@ -37,6 +40,17 @@ if __name__ == '__main__':
             root = ET.parse(m).getroot()
 
     data = {
+        'agencies': [],
+        'airfields': {},
+        'bullseye': {
+            'label': root.find('./BlueBullseye/Name').text,
+            'lat': float(root.find('./BlueBullseye/Lat').text),
+            'lon': float(root.find('./BlueBullseye/Lon').text),
+        },
+        "navdata": {
+            "transition-alt": 8000,
+            "transition-level": 85,
+        },
         'theatre': root.find('Theater').text,
         'navpoints': [],
     }
@@ -83,5 +97,5 @@ if __name__ == '__main__':
     data['navpoints'] = sorted(data['navpoints'], key=lambda x: x['label'])
 
     # Work around https://bugs.python.org/issue16333
-    for line in json.dumps(data, indent=2).splitlines():
+    for line in json.dumps(data, indent=2, sort_keys=True).splitlines():
         print line.rstrip()

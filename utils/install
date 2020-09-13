@@ -28,6 +28,6 @@ deactivate
 
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp
-[[ ! -L /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp/mako ]] && ln -sn ../mako /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp/css
+[[ ! -L /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp/mako ]] && ln -sn ../mako /var/www/vhosts/mdc.hatchlane.com/httpdocs/tmp/mako
 
 rm -rf "$TEMPDIR"

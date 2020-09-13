@@ -65,7 +65,7 @@ for cid,cdata in pairs(mission['coalition']['blue']['country']) do
                   end
 
                   if maps[t][radio_id][k] ~= nil and maps[t][radio_id][k] ~= v then
-                    io.stderr:write("ALAAARM: ", g_n, u_n, t, radio_id, k, maps[t][radio_id][k], v, "\n")
+                    io.stderr:write("ALAAARM: ", g_n, " ", u_n, " ", t, " ", radio_id, " ", k, " ", maps[t][radio_id][k], " ", v, "\n")
                   end
 
                   vstr = v
