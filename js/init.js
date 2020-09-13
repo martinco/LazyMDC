@@ -185,13 +185,16 @@ $.when(
     // Set Ctlr+S Handler
     
     $(window).bind('keydown', function(event) {
-      if (event.ctrlKey || event.metaKey) {
-        switch (String.fromCharCode(event.which).toLowerCase()) {
-          case 's':
+      switch (event.keyCode) {
+        case 13: // enter
+          event.preventDefault();
+          break;
+        case 83: // s 
+          if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
             save(null, false, true, true)
-            break;
-        }
+          }
+          break;
       }
     });
     
