@@ -193,9 +193,14 @@ function coordinate_update_fields() {
 
 }
 
+function coordinate_focus_next(evt) {
+  var tgt = $(evt.target);
+  var inputs = $('#coordinate-dialog').find(':input');
+  inputs.eq( inputs.index(tgt) + 1 ).focus().select();
+}
 
+function coordinate_dd_update(evt) {
 
-function coordinate_dd_update() {
   // Update our table's data-raw, then refresh
   var lat_raw = parseFloat($("#coordinate-dd-lat").val())
   var lon_raw = parseFloat($("#coordinate-dd-lon").val())
@@ -204,10 +209,13 @@ function coordinate_dd_update() {
   dlg.data('lat', lat_raw.toFixed(12))
   dlg.data('lon', lon_raw.toFixed(12))
 
-  coordinate_update_fields()
+  coordinate_update_fields();
+
+  coordinate_focus_next(evt);
+
 }
 
-function coordinate_ddm_update() {
+function coordinate_ddm_update(evt) {
 
   var dlg = $('#coordinate-dialog')
 
@@ -225,9 +233,11 @@ function coordinate_ddm_update() {
   dlg.data('lon', lon_raw.toFixed(12))
 
   coordinate_update_fields()
+
+  coordinate_focus_next(evt);
 }
 
-function coordinate_dms_update() {
+function coordinate_dms_update(evt) {
 
   var dlg = $('#coordinate-dialog')
 
@@ -247,6 +257,8 @@ function coordinate_dms_update() {
   dlg.data('lon', lon_raw.toFixed(12))
 
   coordinate_update_fields()
+
+  coordinate_focus_next(evt);
 }
 
 
