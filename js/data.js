@@ -278,10 +278,28 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
   $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
 
-  if (mission_route_data && mission_route_data.aircraft) {
-    $('#flight-airframe').val(mission_route_data.aircraft).change();
+  // Update aiframe value
+  var side = "Blue"
+  if (mission_route_data) {
+    if (mission_route_data.aircraft) {
+      $('#flight-airframe').val(mission_route_data.aircraft).change();
+    }
+    side = mission_route_data.querySelector("Side").textContent;
   }
 
+  // Update bulls, if we have a route selected, use side's bulls, else default blue
+  var bulls = xml.querySelector(side + "Bullseye");
+
+  $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
+
+  var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
+  $('#waypoints-bullseye-lat').attr('data-raw', bulls_lat);
+
+  var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
+  $('#waypoints-bullseye-lon').attr('data-raw', bulls_lon);
+
+  // Update coordiantes
+  coordinate_update_fields();
 
 });
 
