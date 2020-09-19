@@ -69,7 +69,7 @@ $.when(
     force_br_newlines : true,
     force_p_newlines : false,
     forced_root_block : '',
-    height: "400",
+    height: '400',
     resize: false,
     init_instance_callback: function() {
       tinymce_init_count -= 1;

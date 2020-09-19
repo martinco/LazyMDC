@@ -84,7 +84,7 @@ function data_process_cf(xml) {
         route_append = " - route only - select F-14B in CF for loadout";
         load_loadout = false;
       }
-      aircraft = "FA-14B"
+      aircraft = "F-14B"
 
     // A-10 Variants: A-10A, A-10C
     } else if (aircraft.startsWith("A-10")) {
@@ -92,7 +92,7 @@ function data_process_cf(xml) {
         route_append = " - route only - Select A-10C in CF for loadout";
         load_loadout = false;
       }
-      aircraft = "FA-14B"
+      aircraft = "A-10C"
 
     // Anything else 
     } else { 

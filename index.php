@@ -179,6 +179,7 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/tinymce.min.js" integrity="sha512-c46AnRoKXNp7Sux2K56XDjljfI5Om/v1DvPt7iRaOEPU5X+KZt8cxzN3fFzemYC6WCZRhmpSlZvPA1pttfO9DQ==" crossorigin="anonymous"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/table/plugin.min.js" integrity="sha512-uWF3FdNoBLruuobSz5+lT9MoLy3tAVgU4HCUoTEH8E0E63u4H/Y5Se1zPRX00b7p9pnlD79TlkpH4aHakqU7Tw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/image/plugin.min.js" integrity="sha512-jL/iLWqJMXq++2K/l0gLiUc9fGJg4w17wN/X++PEb18kcN+CQ20iwvcLhIUhvobII9m1cJOkiueyEHgMv3QF6g==" crossorigin="anonymous"></script>
 
     <script src="http://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js" integrity="sha256-Ug34+8hEyLcZRNUefnDM6H4ijzC7Tdf8eWGuTxXIseU=" crossorigin="anonymous"></script>
 
