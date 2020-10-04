@@ -1,0 +1,47 @@
+body {
+  width: 760px;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* PADDING */
+
+.lp5 { padding-left: 5px; }
+.rp5 { padding-right: 5px; }
+.rp2 { padding-right: 2px; }
+
+.lb2 { border-left: 2px solid #000000; }
+.rb2 { border-right: 2px solid #000000; }
+
+.break{ height: 10px; }
+
+/* TEXT STYLES */
+
+.text-pst { font-size: 13px; }
+
+
+/* TABLE STYLES */
+table {
+  border-top: 1px solid #000000;
+}
+
+td {
+  border: 1px solid #000000;
+}
+
+tr {
+  height: 19px;
+}
+
+tr.header {
+  height: 18px;
+}
+
+th {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  border: 1px solid #000000;
+}

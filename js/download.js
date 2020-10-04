@@ -44,8 +44,7 @@ $("#download-button-copy").click(function(){
 
 function download(format) {
   var template = $('#download-template').val()
-  new_ref = !['lnk'].includes(format)
-  save(null, new_ref, false, false, download_stage2, [format, template]);
+  save(null, false, false, false, download_stage2, [format, template]);
 }
 
 function download_stage2(key, format, template) {
@@ -65,7 +64,7 @@ function download_stage2(key, format, template) {
     });
 
   } else {
-    window.location = "download?kb=" + key + "&output=" + format + "&template=" + template; 
+    window.location = "templates/" + template + "/template.htm?kb=" + key + "&output=" + format;
   }
 }
 

@@ -34,7 +34,7 @@ $("#flight-airframe").change(function(e) {
   $('#flight-members-container').show()
 
   // Trigger event for other pages
-  $(document).trigger('flight-airframe-changed');
+  $('#flight-airframe').trigger('flight-airframe-changed');
 
 });
 

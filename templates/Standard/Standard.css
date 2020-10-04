@@ -1,0 +1,29 @@
+
+body {
+  color: #000000;
+  background: #f4f4f4;
+}
+
+.text-bold {
+  color: #000000;
+}
+
+tr {
+  background: #f4f4f4;
+}
+
+tr:nth-child(odd) {
+  background: #d9d9d9;
+}
+
+tr .block-title {
+  color: #000000;
+}
+
+.bg-blank {
+  background: #f4f4f4;
+}
+
+th {
+  color: #000000;
+}

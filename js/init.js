@@ -62,15 +62,21 @@ $.when(
 
   // Initialize Editors
   tinymce.init({
-    selector:'textarea.mce',
+    selector: 'textarea.mce',
     plugins: [
       'table',
+      'pagebreak',
+      'autoresize',
     ],
-    force_br_newlines : true,
-    force_p_newlines : false,
-    forced_root_block : '',
-    height: '400',
-    resize: false,
+    toolbar: "undo redo pastetext | fontselect | fontsizeselect",
+    content_css: "tinymce.css",
+    fontsize_formats: "14px 16px 18px 20px 22px 24px 30px 40px",
+    branding: false,
+    forced_root_block: false,
+    resize: true,
+    min_height: 700,
+    remove_trailing_brs: true,
+    resize_img_proportional: true,
     init_instance_callback: function() {
       tinymce_init_count -= 1;
       if (tinymce_init_count == 0) { 
@@ -230,6 +236,13 @@ $.when(
                   window.location.hash = new_page 
                   return false
                 }
+              }
+            } else {
+              // If we are download, and have an output / pages, download
+              var output = getUrlParameter('output')
+              var pages = getUrlParameter('pages')
+              if (output && pages) {
+                window.location = 'download?kb='+mdc_key+'&pages='+pages+'&id=' + data['mission']['mission-id'] + "&output=" + output;
               }
             }
           });

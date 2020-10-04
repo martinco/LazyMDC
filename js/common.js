@@ -1,4 +1,6 @@
 
+var last_save_data = null
+
 // Pad "n" to given width with 'z'. In the case of a number: pad the
 // characteristic, and mantissa to desired precision 
 //   e.g: (54.24, 3, null, 4) => 054.2400
@@ -166,6 +168,24 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
     data['key'] = key;
   }
 
+  var save_data = JSON.stringify(data)
+
+  if (last_save_data && save_data == last_save_data) {
+    if (notify) {
+      $("#side-bar").overhang({
+          custom: true,
+          primary: "#444444",
+          accent: "#222222",
+          message: "Kneeboard Saved"
+      });
+    }
+    if (cb) {
+      cb_args.unshift(data)
+      cb(...cb_args);
+    }
+    return
+  }
+
   // Save our current_page if valid
   // If we have a window ref select that tab
   if (window.location.hash) {
@@ -180,9 +200,10 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
   // construct an HTTP request
   $.post(
     "save.php",
-    JSON.stringify(data),
+    save_data,
     function(data) {
       if (data) {
+        last_save_data = save_data;
         if (notify) {
           $("#side-bar").overhang({
               custom: true,
@@ -205,6 +226,21 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
     },
   );
 }
+
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+  sURLVariables = sPageURL.split('&'),
+  sParameterName,
+    i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+    sParameterName = sURLVariables[i].split('=');
+
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+    }
+  }
+};
 
 // Load from data provided by save()
 function load(data) {

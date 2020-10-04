@@ -1,0 +1,31 @@
+
+body {
+  color: #ffffff;
+  background: #404040;
+}
+
+.text-bold {
+  color: #ffffff;
+  font-weight: normal;
+}
+
+tr {
+  background: #404040;
+}
+
+tr:nth-child(odd) {
+  background: #606060;
+}
+
+tr .block-title {
+  color: #ffffff;
+}
+
+.bg-blank {
+  background: #404040;
+}
+
+th {
+  color: #99aacc;
+  background: #000000;
+}

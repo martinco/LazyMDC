@@ -1,311 +1,108 @@
 #!venv/bin/python
 
-import tempfile
+import sys
 import imgkit
-import pdfkit
 import io
 import json
-import math
 import os
+import pdfkit
 import re
-import sys
 import urllib
-
-from mako.template import Template
-from mako import exceptions
-
-from zipfile import ZipFile
 
 from PIL import Image
 
+from zipfile import ZipFile
 
 RE_KB = re.compile(r'^[0-9a-zA-Z-]+$')
+RE_INT = re.compile(r'^[0-9]+$')
 
 PNG_WIDTH = 800
 PNG_HEIGHT = 1200
 
+qs = urllib.parse.parse_qs(os.environ.get('QUERY_STRING', ""))
 
-def dd2ddm(pos, lat, precision=1):
+if (
+        "kb" not in qs or "pages" not in qs or "id" not in qs
+        or not RE_KB.match(qs['kb'][0])
+        or not RE_KB.match(qs['id'][0])
+        or not RE_INT.match(qs['pages'][0])):
 
-    if not pos:
-        return ""
-
-    if lat:
-        axis = "N" if pos > 0 else "S"
-        pad = 2
-    else:
-        axis = "E" if pos > 0 else "W"
-        pad = 3
-
-    elems = {}
-
-    elems['deg'] = int(math.floor(pos))
-
-    pos = (pos-elems['deg'])*60
-    elems['min'] = round(pos, precision)
-
-    if elems['min'] == 60:
-        elems['min'] = 0
-        elems['deg'] += 1
-
-    # If precision
-    min_width = 2 + precision
-    if (precision):
-        min_width += 1
-
-    return "{} {:0{dpad}d}&deg; {:0{swidth}.{precision}f}'".format(
-        axis,
-        elems['deg'],
-        elems['min'],
-        dpad=pad,
-        swidth=min_width,
-        precision=precision,
-    )
+    print("Content-Type: text/html")
+    print("Status: 400 Bad Request\n")
+    sys.exit(0)
 
 
-def dd2dms(pos, lat, precision=1):
+kb = qs['kb'][0]
+output = qs.get('output', ['png'])[0]
+mission = qs['id'][0]
+pages = int(qs['pages'][0])
 
-    if not pos:
-        return ""
+file_path = "mdcs_html/%s.html" % kb
 
-    if lat:
-        axis = "N" if pos > 0 else "S"
-        pad = 2
-    else:
-        axis = "E" if pos > 0 else "W"
-        pad = 3
+if not os.path.exists(file_path):
+    print("Content-Type: text/html")
+    print("Status: 400 Bad Request\n")
+    sys.exit(0)
 
-    elems = {}
+if output.startswith("png"):
 
-    elems['deg'] = int(math.floor(pos))
-
-    pos = (pos-elems['deg'])*60
-    elems['min'] = int(math.floor(pos))
-
-    pos = (pos-elems['min'])*60
-    elems['sec'] = round(pos, precision)
-
-    if elems['sec'] == 60:
-        elems['sec'] = 0
-        elems['min'] += 1
-
-    if elems['min'] == 60:
-        elems['min'] = 0
-        elems['deg'] += 1
-
-    # If precision
-    seconds_width = 2 + precision
-    if precision:
-        seconds_width += 1
-
-    # Handle the rendering of seconds here, so we can do precision -1
-    if precision < 0:
-        seconds = int(round(elems['sec']/10))
-    else:
-        seconds = "{:0{swidth}.{precision}f}\"".format(
-            elems['sec'],
-            swidth=seconds_width,
-            precision=precision,
-        )
-
-    return "{} {:0{dpad}d}&deg; {:02d}' {}".format(
-        axis,
-        elems['deg'],
-        elems['min'],
-        seconds,
-        dpad=pad,
-    )
-
-
-def get_lat_filter(dt, lldp):
-    if dt == 'llf-DD':
-        return lambda x: "{0:.{prec}f}".format(
-            float(x), prec=int(lldp)) if x else ""
-    if dt == 'llf-DDM':
-        return lambda x: dd2ddm(
-            float(x), True, int(lldp)) if x else ""
-    return lambda x: dd2dms(
-        float(x), True, int(lldp)) if x else ""
-
-
-def get_lon_filter(dt, lldp):
-    if dt == 'llf-DD':
-        return lambda x: "{0:.{prec}f}".format(
-            float(x), prec=int(lldp)) if x else ""
-    if dt == 'llf-DDM':
-        return lambda x: dd2ddm(
-            float(x), False, int(lldp)) if x else ""
-    return lambda x: dd2dms(
-        float(x), False, int(lldp)) if x else ""
-
-
-def try_format_number(x):
-    try:
-        return format(int(x), ',d')
-    except Exception:
-        return x
-
-
-def get_html(kb, output, data, theme="Standard"):
-
-    template = Template(filename='mako/%s/template.htm' % theme)
-    attributes = {}
-
-    try:
-        html = template.render(
-            kb=kb,
-            output=output,
-            data=data,
-            theme=theme,
-            attributes=attributes,
-        )
-
-        return (html, attributes)
-    except:
-        return [exceptions.html_error_template().render(), {}]
-
-
-def get_pdf(kb, html_data, theme):
-
-    with tempfile.NamedTemporaryFile(
-            dir='tmp', suffix='.html', mode='w') as my_temp:
-
-        my_name = my_temp.name
-        my_temp.write(html_data[0])
-        my_temp.flush()
-
-        data = io.BytesIO(pdfkit.from_file(
-            my_name, None,
-            options={
-                "enable-local-file-access": "",
-                "quiet": "",
-                "page-width": "800pt",
-                "page-height": "1200pt",
-                "disable-smart-shrinking": "",
-                "margin-left": "0px",
-                "margin-right": "0px",
-                "margin-top": "0px",
-                "margin-bottom": "0px",
-                "dpi": "96",
-                "title": "MDC %s" % kb,
-            }))
-
-    return data
-
-
-def get_image(kb, html_data, theme):
-
-    # Work around the css files so we can just use the template instead of
-    # having to duplicate what we want in here
-
-    with tempfile.NamedTemporaryFile(
-            dir='tmp', suffix='.html', mode='w') as my_temp:
-
-        my_name = my_temp.name
-        my_temp.write(html_data[0])
-        my_temp.flush()
-
-        full_page = io.BytesIO(imgkit.from_file(
-            my_name, None,
-            options={
-                "enable-local-file-access": "",
-                "quiet": "",
-                "format": "png",
-                "quality": 100,
-                "width": 800,
-                "height": 1200*html_data[1]['pages'],
-                "disable-smart-width": "",
-            }))
+    full_page = io.BytesIO(imgkit.from_file(
+        file_path, None,
+        options={
+            "enable-local-file-access": "",
+            "quiet": "",
+            "format": "png",
+            "quality": 100,
+            "width": PNG_WIDTH,
+            "height": PNG_HEIGHT*pages,
+            "disable-smart-width": "",
+        }))
 
     im1 = Image.open(full_page)
 
-    return im1
-
-
-def get_image_zip(kb, html_data, theme):
-
-    # Start our Zip File
-    zipfd = io.BytesIO()
-    zipf = ZipFile(zipfd, 'w')
-
-    im1 = get_image(kb, html_data, theme)
-
-    # Crop out pages
-    for x in range(html_data[1]['pages']):
-      cr = im1.crop((0, PNG_HEIGHT * x, PNG_WIDTH, PNG_HEIGHT * (x+1)))
-      f = io.BytesIO()
-      cr.save(f, "PNG")
-      f.seek(0)
-      zipf.writestr('0000-%s-%03d.png' % (kb, x+1), f.read())
-
-    zipf.close()
-    zipfd.seek(0)
-    return zipfd
-
-
-if __name__ == "__main__":
-
-    qs = urllib.parse.parse_qs(os.environ.get('QUERY_STRING', ""))
-
-    if "kb" not in qs or not qs['kb'][0] or not RE_KB.match(qs['kb'][0]):
-        print("Content-Type: text/html")
-        print("Status: 400 Bad Request\n")
-        sys.exit(0)
-
-    kb = qs['kb'][0]
-    output = qs.get('output', ['png'])[0]
-
-    file_path = "mdcs/%s.json" % kb
-
-    if not os.path.exists(file_path):
-        print("Content-Type: text/html")
-        print("Status: 400 Bad Request\n")
-        sys.exit(0)
-
-    try:
-        with open(file_path) as fh:
-            data = json.load(fh)
-    except Exception as e:
-        print("Content-Type: text/html")
-        print("Status: 400 Bad Request\n")
-        print(e)
-        sys.exit(0)
-
-    # A few helpers
-    theme = (qs['template'][0]
-             if 'template' in qs
-             else data['download'].get('template', 'Standard'))
-
-    mission_id = data['mission']['mission-id']
-
-    html_data = get_html(kb, output, data, theme)
-
-    if output == "pdf":
-        print("Content-Type: application/pdf\n")
-        sys.stdout.flush()
-        image_bytes = get_pdf(mission_id, html_data, theme)
-        sys.stdout.buffer.write(image_bytes.read())
-    elif output == "pdff":
-        print("Content-Type: application/pdf\n")
-        sys.stdout.flush()
-        image_bytes = get_pdf(mission_id, html_data, theme)
-        sys.stdout.buffer.write(image_bytes.read())
-    elif output == "pngr" or (output == "png" and html_data[1]['pages'] == 1):
-        im1 = get_image(mission_id, html_data, theme)
-        cr2 = im1.crop((0, 0, PNG_WIDTH, PNG_HEIGHT))
+    # Single Page ?
+    if pages == 1 or output == "png1":
         f = io.BytesIO()
-        cr2.save(f, "PNG")
+        im1.save(f, "PNG")
         f.seek(0)
+
         print("Content-Type: image/png\n")
         sys.stdout.flush()
         sys.stdout.buffer.write(f.read())
-    elif output == "png":
+        sys.exit(0)
+    else:
+        # Zip up each page
+        zipfd = io.BytesIO()
+        zipf = ZipFile(zipfd, 'w')
+
+        # Crop out pages
+        for x in range(pages):
+            cr = im1.crop((0, PNG_HEIGHT * x, PNG_WIDTH, PNG_HEIGHT * (x+1)))
+            f = io.BytesIO()
+            cr.save(f, "PNG")
+            f.seek(0)
+            zipf.writestr('0000-%s-%03d.png' % (mission, x+1), f.read())
+
+        zipf.close()
+        zipfd.seek(0)
+
         print ("Content-Disposition: attachment; "
-               "filename=\"MDC-%s.zip\"" % mission_id)
+               "filename=\"MDC-%s.zip\"" % mission)
         print ("Content-Type: application/zip\n")
         sys.stdout.flush()
-        zip_bytes = get_image_zip(mission_id, html_data, theme)
-        sys.stdout.buffer.write(zip_bytes.read())
-    else:
-        print("Content-Type: text/html\n")
-        print(html_data[0])
+        sys.stdout.buffer.write(zipfd.read())
+        sys.exit(0)
+
+#  page = 1
+#  im1 = Image.open(full_page)
+#  cr2 = im1.crop((0, PNG_HEIGHT*(page-1), PNG_WIDTH, PNG_HEIGHT*(page)))
+#
+#  f = io.BytesIO()
+#  cr2.save(f, "PNG")
+#  f.seek(0)
+#
+#
+#print("Content-Type: text/plain\n")
+#print(file_path)
+#print(output)
+#print(data['pages'])

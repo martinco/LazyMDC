@@ -121,7 +121,7 @@ function get_pylon_options(type, id, val = "") {
       selected = true;
     }
 
-    output += `<option${selected ? ' selected' : ''} data-pyl-weight="${weight}">${name}</option>\n`
+    output += `<option${selected ? ' selected' : ''} data-pyl-weight="${weight}" data-pyl-clsid="${info['clsid']}">${name}</option>\n`
   }
 
   return [output, Math.round(selected_weight*2.20462)]
@@ -258,10 +258,12 @@ function loadout_export() {
 
   // Load our pylons separately, as we want more data
   $("#loadout-table .pylon-select").each(function(idx, select) {
+    var itm = select.options[select.selectedIndex];
     ret['pylons'].push({
       'pyl': select.getAttribute('data-pyl-name'),
       'store': select.options[select.selectedIndex].textContent,
-      'weight': Math.round(select.options[select.selectedIndex].getAttribute('data-pyl-weight')*2.20462),
+      'weight': Math.round(itm.getAttribute('data-pyl-weight')*2.20462),
+      'clsid': itm.getAttribute('data-pyl-clsid'),
     })
   });
 

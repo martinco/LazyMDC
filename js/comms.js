@@ -108,3 +108,6 @@ function comms_load(data) {
     update_presets()
 }
 
+$('#comms-table > tbody').sortable({
+  items: 'tr',
+})

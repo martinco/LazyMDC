@@ -285,16 +285,20 @@ $(document).on('coordinates-changed', function() {
   waypoint_update();
 });
 
+$('#flight-airframe').on('flight-airframe-changed', function(e) {
+  var type = $('#flight-airframe').val()
+
+  // Hide / Show POI / Sequence
+  $('#waypoints-poi').toggle(type == 'F-14B')
+  $('#waypoints-sequence').toggle(type == 'F-16C')
+});
+
 $('#flight-airframe').on('data-route-updated', function(e) {
 
   // If we have a route, we can use the data from CF
   var route = $('#flight-airframe').data('route');
+
   var type = $('#flight-airframe').val()
-
-  $('#waypoints-poi').toggle(type == 'F-14B')
-  $('#waypoints-sequence').toggle(type == 'F-16C')
-
-  // Hide / Show POI / Sequence
 
   if (!route) {
     return

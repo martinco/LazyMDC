@@ -1,0 +1,82 @@
+body {
+  width: 760pt;
+  font-size: 16pt;
+  line-height: 20pt;
+  margin-left: 20pt;
+  margin-right: 20pt;
+  font-family: "arial-mt";
+  font-style: normal;
+  font-weight: normal;
+  margin-top: 0;
+  padding-top: 0;
+  word-wrap: break-word;
+}
+
+.kb-width { width: 100%; }
+
+/* PADDING */
+
+.lp5 { padding-left: 5pt; }
+.rp5 { padding-right: 5pt; }
+.rp2 { padding-right: 2pt; }
+
+.lb2 { border-left: 2pt solid #404040; }
+.rb2 { border-right: 2pt solid #404040; }
+
+.rb0 { border-right: 0; }
+.lb0 { border-left: 0; }
+
+.break{ height: 10pt; }
+
+/* TEXT STYLES */
+
+.text-bold { font-weight: bold; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-pst { font-size: 12pt; }
+
+.text-bottom {
+  line-height: normal;
+  vertical-align: bottom;
+}
+
+/* TABLE STYLES */
+
+table {
+  border-collapse: collapse;
+  border: 0;
+  border-top: 1pt solid #404040;
+}
+
+td {
+  border: 1pt solid #404040;
+}
+
+tr {
+  height: 19pt;
+}
+
+tr.header {
+  height: 18pt;
+}
+
+th {
+  font-weight: normal;
+  background: #a0a0a0;
+  color: #ffffff;
+  font-size: 12pt;
+  border: 1pt solid #404040;
+}
+
+
+.bg-blank {
+  // background: #fefefe;
+  background: transparent;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  word-wrap: nowrap;
+  white-space: nowrap;
+}
+.new-page { page-break-before: always; }
