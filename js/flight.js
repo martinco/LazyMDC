@@ -190,7 +190,7 @@ function flightmembers_add(values) {
 
     var value = "";
     if (title == "#") {
-      value_i = "id"
+      value_id = "id"
       value = 1;
     }
 
