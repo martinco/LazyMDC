@@ -440,8 +440,8 @@ var Loadout = function(data, unit) {
         if (data.loadout.weights.mtow_cvn) {
           html += `
             <th class="text-center">MAX T/O</th>
-            <td class="text-right rp5">${data['loadout']['weights']['mtow_field']|ntos}</td>
-            <td class="text-right rp5">${data['loadout']['weights']['mtow_cvn']|ntos}</td>`;
+            <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
+            <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_cvn'])}</td>`;
         } else {
           if (single_max) {
             html += `<th class="text-center">MAX</th>`;
