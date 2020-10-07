@@ -41,9 +41,8 @@ function ll(data, info, lat) {
   work -= deg
   work *= 60
 
-
   if (coord == "ddm") {
-    `${axis}${deg.toString().padStart(pad, 0)}&deg;${work.toFixed(decimals).padStart(dec_width, 0)}`
+    return `${axis}${deg.toString().padStart(pad, 0)}&deg;${work.toFixed(decimals).padStart(dec_width, 0)}`
   }
 
   var min = Math.floor(work)
