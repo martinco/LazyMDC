@@ -49,34 +49,36 @@ for cid,cdata in pairs(mission['coalition']['blue']['country']) do
                 maps[t] = {}
               end
 
-              for radio_id, radio_data in pairs(u_data['Radio']) do
+              if u_data['Radio'] ~= nil then
+                for radio_id, radio_data in pairs(u_data['Radio']) do
 
-                if maps[t][radio_id] == nil then
-                  maps[t][radio_id] = {}
-                end
-
-
-                for k, v in pairs(radio_data['channels']) do
-
-                  v = string.format("%.03f", v)
-
-                  if maps[t][radio_id][k] == nil then
-                    maps[t][radio_id][k] = v
+                  if maps[t][radio_id] == nil then
+                    maps[t][radio_id] = {}
                   end
 
-                  if maps[t][radio_id][k] ~= nil and maps[t][radio_id][k] ~= v then
-                    io.stderr:write("ALAAARM: ", g_n, " ", u_n, " ", t, " ", radio_id, " ", k, " ", maps[t][radio_id][k], " ", v, "\n")
-                  end
 
-                  vstr = v
-                  rstr = ""..radio_id
+                  for k, v in pairs(radio_data['channels']) do
 
-                  if output[t][vstr] == nil then
-                    output[t][vstr] = {}
-                  end
+                    v = string.format("%.03f", v)
 
-                  if output[t][vstr][rstr] == nil then
-                    output[t][vstr][rstr] = k
+                    if maps[t][radio_id][k] == nil then
+                      maps[t][radio_id][k] = v
+                    end
+
+                    if maps[t][radio_id][k] ~= nil and maps[t][radio_id][k] ~= v then
+                      io.stderr:write("ALAAARM: ", g_n, " ", u_n, " ", t, " ", radio_id, " ", k, " ", maps[t][radio_id][k], " ", v, "\n")
+                    end
+
+                    vstr = v
+                    rstr = ""..radio_id
+
+                    if output[t][vstr] == nil then
+                      output[t][vstr] = {}
+                    end
+
+                    if output[t][vstr][rstr] == nil then
+                      output[t][vstr][rstr] = k
+                    end
                   end
                 end
               end
