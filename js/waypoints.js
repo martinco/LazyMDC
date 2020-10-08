@@ -290,7 +290,7 @@ $('#flight-airframe').on('flight-airframe-changed', function(e) {
 
   // Hide / Show POI / Sequence
   $('#waypoints-poi').toggle(type == 'F-14B')
-  $('#waypoints-sequence').toggle(type == 'F-16C')
+  $('#waypoints-sequence').toggle(['F-16C', 'FA-18C'].includes(type))
 });
 
 $('#flight-airframe').on('data-route-updated', function(e) {
