@@ -34,7 +34,7 @@ for cid,cdata in pairs(mission['coalition']['blue']['country']) do
         g_n = gdata['name']
         for u_id, u_data in pairs(gdata['units']) do
           if u_data['skill'] == 'Client' then
-            if u_data['type'] ~= 'A-10C' then
+            if u_data['type'] ~= 'A-10C' and u_data['type'] ~= 'A-10C_2' then
 
               local t = u_data['type']
 
@@ -133,5 +133,8 @@ for ac, freqs in pairs(output) do
     end
   end
 end
+
+-- A-10C_2 uses same as A-10C
+output['A-10C_2'] = output['A-10C']
 
 print(json.encode({["presets"] = output}))
