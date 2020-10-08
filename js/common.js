@@ -168,8 +168,8 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
     data['key'] = key;
   }
 
+  // Short Circuit should nothing have changed
   var save_data = JSON.stringify(data)
-
   if (last_save_data && save_data == last_save_data) {
     if (notify) {
       $("#side-bar").overhang({
@@ -180,7 +180,7 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
       });
     }
     if (cb) {
-      cb_args.unshift(data)
+      cb_args.unshift(key)
       cb(...cb_args);
     }
     return
@@ -214,7 +214,11 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
         }
         if (update_id) {
           // Update without page reload
-          window.history.replaceState(data, '', kneeboard_root + data + window.location.hash );
+          var update = get_key() != data;
+          if (update) {
+            window.history.replaceState(data, '', kneeboard_root + data + window.location.hash );
+            $(document).trigger("key-updated");
+          }
         }
         if (cb) {
           cb_args.unshift(data)

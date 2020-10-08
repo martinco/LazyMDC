@@ -190,7 +190,7 @@
     <script src="http://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- Init -->
-    <script src="js/init.js?<?php time() ?>"></script>
+    <script src="js/init.js?<?php echo time() ?>"></script>
     <script src="js/autocomplete.js"></script>
   </body>
 

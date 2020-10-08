@@ -18,17 +18,17 @@ function download_load(data) {
 //                             })
 //                             });
 
-
-$("#download-button-copy").click(function(){ 
+function download_cpy(e) {
 
   // copy text to clipboard
-  var input = $('#download-dialog-lnk')[0]
+  var elem = e.currentTarget.id.replace('-button', '')
+  var input = $("#" + elem)[0];
   input.select();
   input.setSelectionRange(0, 99999);
 
   document.execCommand("copy");
 
-  $("#download-button-copy-text").animate({opacity:0}, 200, function(e) {
+  $("#"+elem+"-button-text").animate({opacity:0}, 200, function(e) {
     $(this).html("Copied!");
     $(this).animate({opacity:1}, 200, function(e) {
       setTimeout(() => {
@@ -39,8 +39,11 @@ $("#download-button-copy").click(function(){
       }, 2000);
     });
   });
-})
+};
 
+$("#download-dialog-lnk-button").click(download_cpy);
+$("#download-dialog-pdf-button").click(download_cpy);
+$("#download-dialog-png-button").click(download_cpy);
 
 function download(format) {
   var template = $('#download-template').val()
@@ -48,8 +51,10 @@ function download(format) {
 }
 
 function download_stage2(key, format, template) {
+  var mission_id = $("#mission-id").val()
+  var dl = "download?template=" + template + "&key=" + key + "&id=" + mission_id;
+
   if (format == 'json') {
-    var mission_id = $("#mission-id").val()
     var a = document.createElement("a");
     a.href = "mdcs/" + key + ".json";
     a.setAttribute("download", mission_id + ".json");
@@ -58,13 +63,19 @@ function download_stage2(key, format, template) {
   } else if (format == 'lnk') {
 
     var dlg = $('#download-dialog');
+
     $('#download-dialog-lnk').val(window.location.origin + kneeboard_root + key);
+    $('#download-dialog-png').val(window.location.origin + kneeboard_root + dl + "&output=png")
+    $('#download-dialog-pdf').val(window.location.origin + kneeboard_root + dl + "&output=pdf")
+
     dlg.modal({
       backdrop: 'static',
     });
 
+  } else if (format == 'html') {
+    window.location = "templates/" + template + "/template.htm?kb=" + key;
   } else {
-    window.location = "templates/" + template + "/template.htm?kb=" + key + "&output=" + format;
+    window.location = dl + "&output=" + format;
   }
 }
 

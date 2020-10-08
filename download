@@ -1,76 +1,145 @@
 #!venv/bin/python
 
-import sys
-import imgkit
+import asyncio
 import io
 import json
 import os
-import pdfkit
 import re
+import sys
 import urllib
 
+from pyppeteer import launch
 from PIL import Image
-
 from zipfile import ZipFile
 
-RE_KB = re.compile(r'^[0-9a-zA-Z-]+$')
-RE_INT = re.compile(r'^[0-9]+$')
+RE_ARGS = {
+    'id': re.compile(r'^[0-9a-zA-Z-]+$'),
+    'key': re.compile(r'^[0-9a-zA-Z-]+$'),
+    'template': re.compile(r'^[a-z]+$', re.IGNORECASE),
+    'output': re.compile(r'^(png|pdf)$'),
+}
 
 PNG_WIDTH = 800
 PNG_HEIGHT = 1200
 
-qs = urllib.parse.parse_qs(os.environ.get('QUERY_STRING', ""))
 
-if (
-        "kb" not in qs or "pages" not in qs or "id" not in qs
-        or not RE_KB.match(qs['kb'][0])
-        or not RE_KB.match(qs['id'][0])
-        or not RE_INT.match(qs['pages'][0])):
+async def get_image(url):
 
-    print("Content-Type: text/html")
-    print("Status: 400 Bad Request\n")
-    sys.exit(0)
+    browser = await launch({
+        'headless': True,
+        'executablePath': '/usr/share/chromium/588429/chrome',
+        'userDataDir': '/tmp/httpd/pyppeteer',
+    })
+
+    page = await browser.newPage()
+
+    await page.goto(url)
+    await page.waitForSelector("#page_count")
+
+    page_count = await page.evaluate('''
+    () => {
+        return parseInt(document.getElementById("page_count").textContent);
+    }
+    ''')
+
+    await page.setViewport({
+        'width': PNG_WIDTH,
+        'height': PNG_HEIGHT*page_count})
+
+    screenshot = await page.screenshot({'type': 'png'})
+    await browser.close()
+
+    return (page_count, screenshot)
 
 
-kb = qs['kb'][0]
-output = qs.get('output', ['png'])[0]
-mission = qs['id'][0]
-pages = int(qs['pages'][0])
+async def get_pdf(url):
+    browser = await launch({
+        'headless': True,
+        'executablePath': '/usr/share/chromium/588429/chrome',
+        'userDataDir': '/tmp/httpd/pyppeteer',
+    })
 
-file_path = "mdcs_html/%s.html" % kb
+    page = await browser.newPage()
 
-if not os.path.exists(file_path):
-    print("Content-Type: text/html")
-    print("Status: 400 Bad Request\n")
-    sys.exit(0)
+    await page.goto(url)
+    await page.waitForSelector("#page_count")
 
-if output.startswith("png"):
+    page_count = await page.evaluate('''
+    () => {
+        return parseInt(document.getElementById("page_count").textContent);
+    }
+    ''')
 
-    full_page = io.BytesIO(imgkit.from_file(
-        file_path, None,
-        options={
-            "enable-local-file-access": "",
-            "quiet": "",
-            "format": "png",
-            "quality": 100,
-            "width": PNG_WIDTH,
-            "height": PNG_HEIGHT*pages,
-            "disable-smart-width": "",
-        }))
+    await page.setViewport({
+        'width': 800,
+        'height': 1200*page_count
+    })
 
-    im1 = Image.open(full_page)
+    pdf = await page.pdf({
+        'width': '800px',
+        'height': '1200px',
+        'margin': {
+            'top': 0,
+            'bottom': 0,
+            'left': 0,
+            'right': 0
+        },
+        'printBackground': True,
+    })
 
-    # Single Page ?
-    if pages == 1 or output == "png1":
-        f = io.BytesIO()
-        im1.save(f, "PNG")
-        f.seek(0)
+    await browser.close()
 
-        print("Content-Type: image/png\n")
+    return pdf
+
+
+def main():
+
+    qs = urllib.parse.parse_qs(os.environ.get('QUERY_STRING', ""))
+
+    params = {}
+    for key, re in RE_ARGS.items():
+        if key not in qs or not re.match(qs[key][0]):
+            print("Content-Type: text/html")
+            print("Status: 400 Bad Request\n")
+            sys.exit(0)
+        else:
+            params[key] = qs[key][0]
+
+    url = (
+        '{scheme}://{host}/{root}'
+        '/templates/{template}/template.htm?kb={key}').format(
+        scheme=os.environ.get('REQUEST_SCHEME'),
+        host=os.environ.get('HTTP_HOST'),
+        root=os.path.dirname(os.environ.get('SCRIPT_NAME')),
+        template=params['template'],
+        key=params['key'])
+
+    if params['output'] == "pdf":
+        data = asyncio.get_event_loop().run_until_complete(get_pdf(url))
+
+        print ("Content-Disposition: attachment; "
+               "filename=\"MDC-%s.pdf\"" % params['id'])
+        print("Content-Type: application/pdf\n")
         sys.stdout.flush()
-        sys.stdout.buffer.write(f.read())
-        sys.exit(0)
-    else:
+        sys.stdout.buffer.write(data)
+        return
+
+    if params['output'].startswith("png"):
+
+        pages, data = asyncio.get_event_loop().run_until_complete(
+            get_image(url))
+
+        if pages == 1:
+            print ("Content-Disposition: attachment; "
+                   "filename=\"0000-%s-0001.png\"" % params['id'])
+            print("Content-Type: image/png\n")
+            sys.stdout.flush()
+            sys.stdout.buffer.write(data)
+            return
+
+        # Load into PIL
+        im1 = Image.open(io.BytesIO(data))
+
         # Zip up each page
         zipfd = io.BytesIO()
         zipf = ZipFile(zipfd, 'w')
@@ -81,28 +150,21 @@ if output.startswith("png"):
             f = io.BytesIO()
             cr.save(f, "PNG")
             f.seek(0)
-            zipf.writestr('0000-%s-%03d.png' % (mission, x+1), f.read())
+            zipf.writestr('0000-%s-%03d.png' % (params['id'], x+1), f.read())
 
         zipf.close()
         zipfd.seek(0)
 
         print ("Content-Disposition: attachment; "
-               "filename=\"MDC-%s.zip\"" % mission)
+               "filename=\"MDC-%s.zip\"" % params['id'])
         print ("Content-Type: application/zip\n")
         sys.stdout.flush()
         sys.stdout.buffer.write(zipfd.read())
-        sys.exit(0)
+        return
 
-#  page = 1
-#  im1 = Image.open(full_page)
-#  cr2 = im1.crop((0, PNG_HEIGHT*(page-1), PNG_WIDTH, PNG_HEIGHT*(page)))
-#
-#  f = io.BytesIO()
-#  cr2.save(f, "PNG")
-#  f.seek(0)
-#
-#
-#print("Content-Type: text/plain\n")
-#print(file_path)
-#print(output)
-#print(data['pages'])
+    print("Content-Type: text/plain\n")
+    print("UNKNOWN")
+
+
+if __name__ == "__main__":
+    main()

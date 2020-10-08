@@ -211,6 +211,9 @@ $.when(
         .done(function(data) {
           load(data)
 
+          // Request hash
+          var request_hash = window.location.hash
+
           // Try and click "Next..." through each of the pages to validate,
           // before moving to the selected page on save
           var page = $('ul#side-nav a.nav-link.active').attr('href').substr(1);
@@ -230,27 +233,17 @@ $.when(
                 if (new_page != page) {
                   page = new_page;
                 } else {
-
-                  // And if we are here, we're as far as we can go, so set the
-                  // hash accordingly
                   window.location.hash = new_page 
                   return false
                 }
-              }
-            } else {
-              // If we are download, and have an output / pages, download
-              var output = getUrlParameter('output')
-              var pages = getUrlParameter('pages')
-              if (output && pages) {
-                window.location = 'download?kb='+mdc_key+'&pages='+pages+'&id=' + data['mission']['mission-id'] + "&output=" + output;
               }
             }
           });
           
           // If we have a current_page, move to it
-          if (data['current_page']) {
-            window.location.hash = data['current_page'];
-            $("#side-nav a[href$=\"" + data['current_page'] + "\"]").tab('show');
+          if (request_hash) {
+            window.location.hash = request_hash
+            $("#side-nav a[href$=\"" + request_hash + "\"]").tab('show');
           }
 
         })

@@ -179,7 +179,7 @@ function Header(data, unit, page) {
 
     if (package) {
       html += `
-            <td class="text-center">${data['package']['package-name'].toUpperCase()}</td>`;
+            <td class="text-center overflow-hidden">${data['package']['package-name'].toUpperCase()}</td>`;
     }
 
     html += `
@@ -683,7 +683,7 @@ var Page = function(data, unit, id) {
 
   // Page DIV container fixed 1200px 
   // this.page = $(`<div id="page${this.id}" style="height:1200px; background:${"#"+((1<<24)*Math.random()|0).toString(16)}"></div>`);
-  this.page = $(`<div id="page${this.id}" style="height:1200${unit};"></div>`);
+  this.page = $(`<div id="page${this.id}" style="position: absolute; top: ${(id-1)*1200}px; height:100%; width: 760px"></div>`);
 
   // Content is the entire page (inc. header)
   this.content = $(`<div class="content"></div>`);
@@ -1152,7 +1152,8 @@ function Builder(data, unit) {
         x.header.set_page_count(pages.length);
       }
 
-      download(pages.length);
+      // This is very important: it is used by pyppeteer to start processing
+      $('body').append($(`<div style="display:none" id="page_count">${pages.length}</div>`));
       return;
     }
 
@@ -1343,41 +1344,3 @@ $(function() {
     });
   };
 });
-
-function download(pages) {
-
-  var mdc_key = getUrlParameter('kb')
-  var output = getUrlParameter('output');
-
-  if (mdc_key) {
-
-    var template = window.location.pathname.replace(/.*\/([^\/]+)\/.*/, '$1');
-
-    // Remove the JS Libs we no longer need
-    $('script.xx').remove()
-
-    if (output == "html") {
-      return
-    }
-
-    // Rewrite script src to ../templates/<TemplateName> as they get saved in subdir of root
-    $('link[rel="stylesheet"]').each(function(id, script) {
-      script.setAttribute('href', '../templates/' + template + '/' + script.getAttribute('href'));
-    });
-
-    var html = "<!DOCTYPE html>\n" + document.documentElement.innerHTML.replaceAll("°", "&deg;");
-
-    $.post(
-      "../../save_html.php?kb=" + mdc_key,
-      html,
-      function(retval) {
-        if (retval) {
-          // Move back to main download page with url
-          window.location = '../../' + retval + '?output=' + output + "&pages=" + pages + "#download"
-        } else {
-          alert("failed to save");
-        }
-      },
-    );
-  }
-};
