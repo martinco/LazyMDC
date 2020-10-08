@@ -16,7 +16,7 @@ rsync -aq --progress \
  "$TEMPDIR"/  /var/www/vhosts/mdc.hatchlane.com/httpdocs/
 
 if [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/venv ]]; then
-  python3 -m virtualenv /var/www/vhosts/mdc.hatchlane.com/httpdocs/venv
+  python3 -m venv /var/www/vhosts/mdc.hatchlane.com/httpdocs/venv
 fi
 
 set +u
