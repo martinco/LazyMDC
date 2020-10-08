@@ -25,10 +25,16 @@ function ll(data, info, lat) {
   }
 
   // Get Coordinate Format
-  var coord = info["${prefix}_fmt"] || data.flight['flight-coord'];
-  var decimals = parseInt(info["${prefix}_dmp"] || data.flight['flight-coord-decimals']);
+  
+  var dmp_override = info[`${prefix}_dmp`]
+  var fmt_override = info[`${prefix}_fmt`]
+
+  var coord = fmt_override === undefined ? data.flight['flight-coord'] : fmt_override;
+  var decimals = parseInt(dmp_override === undefined ? data.flight['flight-coord-decimals'] : dmp_override);
 
   var dec_width = 2 + decimals
+
+  // Add one for the decimal point
   if (decimals) dec_width += 1
 
   if (coord == 'dd') {
@@ -42,14 +48,21 @@ function ll(data, info, lat) {
   work *= 60
 
   if (coord == "ddm") {
-    return `${axis}${deg.toString().padStart(pad, 0)}&deg;${work.toFixed(decimals).padStart(dec_width, 0)}`
+
+    min = Math.round((work + Number.EPSILON) * (10**decimals)) / (10**decimals)
+    if (min == 60) {
+      min = 0
+      deg += 1
+    }
+
+    return `${axis}${deg.toString().padStart(pad, 0)}&deg;${min.toFixed(decimals).padStart(dec_width, 0)}`
   }
 
   var min = Math.floor(work)
   work -= min
   work *= 60
 
-  var sec = Math.round(work, decimals)
+  var sec = Math.round((work + Number.EPSILON) * (10**decimals)) / (10**decimals)
 
   if (sec == 60) {
     sec = 0
