@@ -24,7 +24,10 @@ set +u
 set -u
 
 pip install -r /var/www/vhosts/mdc.hatchlane.com/httpdocs/etc/requirements.txt
+
+set +u
 deactivate
+set -u
 
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs_html ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs_html
