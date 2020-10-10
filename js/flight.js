@@ -115,9 +115,16 @@ function flightmembers_items(ac) {
       ['OID', 50, "text-center", "number"])
   };
 
-  cols.push(
-    ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$'],
-    ['LSR', 50, "text-center", "number"])
+  if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
+    cols.push(
+      ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$'],
+    );
+  }
+
+  if (!["UH-1H", "Mi-8MT"].includes(ac)) {
+    cols.push(
+      ['LSR', 50, "text-center", "number"])
+  }
 
   cols.push(
     ['SQUAWK', 80, "text-center", "number"],

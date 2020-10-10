@@ -3991,5 +3991,606 @@
         }
       }
     }
+  },
+  "Ka-50": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""]
+    ],
+    "empty_lbs": 17703,
+    "flare": 128,
+    "fuel": 100,
+    "fuel_lbs": 3197,
+    "joker": 1000,
+    "bingo": 500,
+    "gun": 100,
+    "gun_lbs": 994,
+    "comments": "",
+    "cvn": false,
+    "mtow_field": 26235,
+    "mlw_field": 26235,
+    "loadout": {
+      "1": {
+        "APU-6 - 6 9A4172 Vikhr": {
+          "weight": 330,
+          "clsid": "{A6FD14D3-6D30-4C85-88A7-8D17BEE120E2}"
+        },
+        "B-13L - 5 S-13 OF": {
+          "weight": 510,
+          "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}"
+        },
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "Fuel tank Ka-50": {
+          "weight": 550,
+          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}"
+        },
+        "KMGU-2 - 96 AO-2.5RT": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74884}"
+        },
+        "KMGU-2 - 96 PTAB-2.5KO": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74881}"
+        },
+        "Kh-25ML": {
+          "weight": 360,
+          "clsid": "{6DADF342-D4BA-4D8A-B081-BA928C4AF86D}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      },
+      "2": {
+        "B-13L - 5 S-13 OF": {
+          "weight": 510,
+          "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}"
+        },
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "Fuel tank Ka-50": {
+          "weight": 550,
+          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}"
+        },
+        "KMGU-2 - 96 AO-2.5RT": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74884}"
+        },
+        "KMGU-2 - 96 PTAB-2.5KO": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74881}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      },
+      "3": {
+        "B-13L - 5 S-13 OF": {
+          "weight": 510,
+          "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}"
+        },
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "Fuel tank Ka-50": {
+          "weight": 550,
+          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}"
+        },
+        "KMGU-2 - 96 AO-2.5RT": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74884}"
+        },
+        "KMGU-2 - 96 PTAB-2.5KO": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74881}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      },
+      "4": {
+        "APU-6 - 6 9A4172 Vikhr": {
+          "weight": 330,
+          "clsid": "{A6FD14D3-6D30-4C85-88A7-8D17BEE120E2}"
+        },
+        "B-13L - 5 S-13 OF": {
+          "weight": 510,
+          "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}"
+        },
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "Fuel tank Ka-50": {
+          "weight": 550,
+          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}"
+        },
+        "KMGU-2 - 96 AO-2.5RT": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74884}"
+        },
+        "KMGU-2 - 96 PTAB-2.5KO": {
+          "weight": 520,
+          "clsid": "{96A7F676-F956-404A-AD04-F33FB2C74881}"
+        },
+        "Kh-25ML": {
+          "weight": 360,
+          "clsid": "{6DADF342-D4BA-4D8A-B081-BA928C4AF86D}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      }
+    }
+  },
+  "Mi-8MT": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5", ""],
+      ["6", ""],
+      ["KORD", ""],
+      ["PKT", ""]
+    ],
+    "empty_lbs": 19546,
+    "flare": 128,
+    "rope_length": 50,
+    "fuel": 100,
+    "fuel_lbs": 4253,
+    "joker": 1000,
+    "bingo": 500,
+    "comments": "",
+    "cvn": false,
+    "mtow_field": 28660,
+    "mlw_field": 28660,
+    "loadout": {
+      "1": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "GUV AP-30": {
+          "weight": 274,
+          "clsid": "GUV_VOG"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        }
+      },
+      "2": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "GUV AP-30": {
+          "weight": 274,
+          "clsid": "GUV_VOG"
+        },
+        "GUV YakB GSHP": {
+          "weight": 452,
+          "clsid": "GUV_YakB_GSHP"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      },
+      "3": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        }
+      },
+      "4": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        }
+      },
+      "5": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "FAB-500 M62": {
+          "weight": 506,
+          "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}"
+        },
+        "GUV AP-30": {
+          "weight": 274,
+          "clsid": "GUV_VOG"
+        },
+        "GUV YakB GSHP": {
+          "weight": 452,
+          "clsid": "GUV_YakB_GSHP"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        },
+        "UPK-23-250": {
+          "weight": 218,
+          "clsid": "{05544F1A-C39C-466b-BC37-5BD1D52E57BB}"
+        }
+      },
+      "6": {
+        "B-8V20A - 20 S-8TsM": {
+          "weight": 345,
+          "clsid": "B_8V20A_CM"
+        },
+        "B-8V20A - 20 S-8OFP2": {
+          "weight": 457,
+          "clsid": "B_8V20A_OFP2"
+        },
+        "B-8V20A - 20 S-8OM": {
+          "weight": 365,
+          "clsid": "B_8V20A_OM"
+        },
+        "B-8V20A - 20 S-8KOM": {
+          "weight": 349,
+          "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}"
+        },
+        "FAB-100": {
+          "weight": 100,
+          "clsid": "{FB3CE165-BF07-4979-887C-92B87F13276B}"
+        },
+        "FAB-250": {
+          "weight": 250,
+          "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}"
+        },
+        "GUV AP-30": {
+          "weight": 274,
+          "clsid": "GUV_VOG"
+        },
+        "SAB-100": {
+          "weight": 100,
+          "clsid": "{0511E528-EA28-4caf-A212-00D1408DF10A}"
+        }
+      },
+      "7": {
+        "KORD 12.7 Gun": {
+          "weight": 95,
+          "clsid": "KORD_12_7"
+        }
+      },
+      "8": {
+        "PKT 7.62 Gun": {
+          "weight": 90,
+          "clsid": "PKT_7_62"
+        }
+      }
+    }
+  },
+  "UH-1H": {
+    "pylons": [
+      ["1", ""],
+      ["2", ""],
+      ["3", ""],
+      ["4", ""],
+      ["5", ""],
+      ["6", ""]
+    ],
+    "empty_lbs": 6356,
+    "flare": 60,
+    "fuel": 100,
+    "fuel_lbs": 1391,
+    "joker": 500,
+    "bingo": 100,
+    "comments": "",
+    "cvn": false,
+    "mtow_field": 9502,
+    "mlw_field": 9502,
+    "loadout": {
+      "1": {
+        "M134 MiniGun Left": {
+          "weight": 146.4,
+          "clsid": "M134_L"
+        }
+      },
+      "2": {
+        "M261 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "M261_MK151"
+        },
+        "M261 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "M261_MK156"
+        },
+        "XM158 - 7 2.75' rockets M151 HE": {
+          "weight": 112,
+          "clsid": "XM158_M151"
+        },
+        "XM158 - 7 2.75' rockets M156 WP": {
+          "weight": 112,
+          "clsid": "XM158_M156"
+        },
+        "XM158 - 7 2.75' rockets M257 Parachute illumination": {
+          "weight": 112,
+          "clsid": "XM158_M257"
+        },
+        "XM158 - 7 2.75' rockets M274 Practice smoke": {
+          "weight": 112,
+          "clsid": "XM158_M274"
+        },
+        "XM158 - 7 2.75' rockets MK1 Practice": {
+          "weight": 112,
+          "clsid": "XM158_MK1"
+        },
+        "XM158 - 7 2.75' rockets MK5 HE": {
+          "weight": 112,
+          "clsid": "XM158_MK5"
+        }
+      },
+      "3": {
+        "M134 MiniGun Left Door": {
+          "weight": 270.4,
+          "clsid": "M134_SIDE_L"
+        },
+        "M60 Gun Left Door": {
+          "weight": 141.4,
+          "clsid": "M60_SIDE_L"
+        }
+      },
+      "4": {
+        "M134 MiniGun Right Door": {
+          "weight": 270.4,
+          "clsid": "M134_SIDE_R"
+        },
+        "M60 Gun Right Door": {
+          "weight": 141.4,
+          "clsid": "M60_SIDE_R"
+        }
+      },
+      "5": {
+        "M261 - 19 2.75' rockets MK151 HE": {
+          "weight": 234,
+          "clsid": "M261_MK151"
+        },
+        "M261 - 19 2.75' rockets MK156 WP": {
+          "weight": 234,
+          "clsid": "M261_MK156"
+        },
+        "XM158 - 7 2.75' rockets M151 HE": {
+          "weight": 112,
+          "clsid": "XM158_M151"
+        },
+        "XM158 - 7 2.75' rockets M156 WP": {
+          "weight": 112,
+          "clsid": "XM158_M156"
+        },
+        "XM158 - 7 2.75' rockets M257 Parachute illumination": {
+          "weight": 112,
+          "clsid": "XM158_M257"
+        },
+        "XM158 - 7 2.75' rockets M274 Practice smoke": {
+          "weight": 112,
+          "clsid": "XM158_M274"
+        },
+        "XM158 - 7 2.75' rockets MK1 Practice": {
+          "weight": 112,
+          "clsid": "XM158_MK1"
+        },
+        "XM158 - 7 2.75' rockets MK5 HE": {
+          "weight": 112,
+          "clsid": "XM158_MK5"
+        }
+      },
+      "6": {
+        "M134 MiniGun Right": {
+          "weight": 146.4,
+          "clsid": "M134_R"
+        }
+      }
+    }
   }
 }

@@ -17,13 +17,13 @@ function get_loadout_from_xml(route) {
 
   // Get our type mapping of int pylons -> name, as combat flite uses 11 for 5R
   // etc. which is as per DCS, but not really what the user sees
-  
+
   var type_map = stores_map[route.aircraft] || {};
   var stores = route.xml.querySelector('FlightMembers > FlightMember > Aircraft > Stores').childNodes;
 
   // Get all the stores / pylons, these are unordered, and additionally the
   // names may not match what's in DCS, but the CLSID will
-  
+
   var stores_obj = {};
   for(var i = 0, j=stores.length; i < j; i++) {
 
@@ -39,7 +39,7 @@ function get_loadout_from_xml(route) {
 
   // Convert to an ordered list as per the loadout defaults (we want this to be
   // ordered to match the order of the aircraft image / MDC)
-  
+
 
   var output = []
 
@@ -67,13 +67,15 @@ function loadout_update_weight() {
     var total = empty_weight;
     var stores = 0;
 
-    var gun_lbs = Math.round($("#loadout-gun").val()/100 * airframes[type]['gun_lbs']);
-    var fuel_lbs = Math.round($("#loadout-fuel").val()/100 * airframes[type]['fuel_lbs']);
-  
-    $('#loadout-fuel_lbs').val(fuel_lbs);
-    $('#loadout-gun_lbs').val(gun_lbs);
+    var gun_pct = $("#loadout-gun").val()
+    if (gun_pct) {
+      var gun_lbs = Math.round(gun_pct/100 * airframes[type]['gun_lbs']);
+      $('#loadout-gun_lbs').val(gun_lbs);
+      total += gun_lbs;
+    }
 
-    total += gun_lbs;
+    var fuel_lbs = Math.round($("#loadout-fuel").val()/100 * airframes[type]['fuel_lbs']);
+    $('#loadout-fuel_lbs').val(fuel_lbs);
     total += fuel_lbs;
 
     $(".pylon-select").each(function(idx, pyl) {
@@ -152,58 +154,61 @@ function loadout_set(opts) {
       values.pylons[id][1] = pylon_opts[id]
     }
   }
-
   pylons = values.pylons
 
-  // build body HTML
-  var pylon_index = 0
-  var pylon_count = pylons.length
+  // Content Build
+  var colgroup = `<col />`;
+  var header = `<tr class="header">`;
+  var body = `<tr>`;
 
-  // Get first two
-  var [pyl1_opts, pyl1_weight] = get_pylon_options(type, pylon_index, pylons[pylon_index][1])
-  var [pyl2_opts, pyl2_weight] = get_pylon_options(type, pylon_index+1, pylons[pylon_index+1][1])
+  header += `<th>FLARE</th>`;
+  body += `<td class="input-container"><input class="input-full" name="flare" value="${values.flare}"></td>`;
 
-  var body = `
-    <tr>
-      <td class="input-container"><input class="input-full" name="flare" value="${values.flare}"></td>
-      <td class="input-container"><input class="input-full" name="chaff" value="${values.chaff}"></td>
-      <td class="input-container">
-        <input class="input-full" name="gun" type=number min=0 max=100 id="loadout-gun" value="${values.gun}">
-        <input class="input-full" name="gun_lbs" hidden id="loadout-gun_lbs" value="${values.gun_lbs}">
-      </td>
+  if (values.chaff != undefined && values.chaff != "undefined") {
+    colgroup = `<col />`;
+    header += `<th>CHAFF</th>`;
+    body += `<td class="input-container"><input class="input-full" name="chaff" value="${values.chaff}"></td>`;
+  }
+
+  if (values.gun != undefined && values.gun != "undefined") {
+    colgroup += `<col />`;
+    header += `<th>GUN %</th>`;
+    body += `
+        <td class="input-container">
+          <input class="input-full" name="gun" type=number min=0 max=100 id="loadout-gun" value="${values.gun}">
+          <input class="input-full" name="gun_lbs" hidden id="loadout-gun_lbs" value="${values.gun_lbs}">
+        </td>`;
+  }
+
+  colgroup += `
+        <col />
+        <col />
+        <col />`;
+
+  header += `
+          <th>FUEL %</th>
+          <th>JOKER</th>
+          <th>BINGO</th>
+        </tr>`
+
+  body += `
       <td class="input-container">
         <input class="input-full" name="fuel" type=number min=0 max=100 id="loadout-fuel" value="${values.fuel}">
         <input class="input-full" name="fuel_lbs" hidden id="loadout-fuel_lbs" value="${values.fuel_lbs}">
       </td>
       <td class="input-container"><input class="input-full" name="joker" value="${values.joker}"></td>
-      <td class="input-container"><input class="input-full" name="bingo" value="${values.bingo}"></td>
-      <td class="text-center">${pylons[pylon_index][0]}</td>
-      <td class="input-container">
-        <select class="input-full pylon-select" data-pyl-name="${pylons[pylon_index][0]}">
-          <option data-pyl-weight="0"></option>${pyl1_opts}
-        </select>
-      </td>
-      <td style="text-align: right">${pyl1_weight}</td>
-    </tr>
-    <tr>
-      <td class="input-container" colspan=6 rowspan=${pylon_count}><img width=100% alt=img src="img/${type}-light.png" /></td>
-      <td class="text-center">${pylons[pylon_index+1][0]}</td>
-      <td class="input-container">
-        <select class="input-full pylon-select" data-pyl-name="${pylons[pylon_index+1][0]}">
-          <option data-pyl-weight="0"></option>${pyl2_opts}
-        </select>
-      </td>
-      <td style="text-align: right">${pyl2_weight}</td>
-    </tr>
-  `
+      <td class="input-container"><input class="input-full" name="bingo" value="${values.bingo}"></td>`;
 
-  pylon_index += 2;
+
+  var pyl_body = "";
+  var pylon_index = 0;
+  var pylon_count = pylons.length;
 
   while(pylon_index < pylon_count) {
-    
+
     var [pyl_opts, pyl_weight] = get_pylon_options(type, pylon_index, pylons[pylon_index][1])
 
-    body += `
+    pyl_body += `
         <tr>
           <td class="text-center">${pylons[pylon_index][0]}</td>
           <td class="input-container">
@@ -218,13 +223,18 @@ function loadout_set(opts) {
     pylon_index++;
   }
 
-  // Populate base weights
-  $("#loadout-empty-weight").val(values.empty_lbs)
+  // Update image
+  $("#loadout-image").attr('src', "img/" + type + ".png")
 
+  // Populate base weights
+  $("#loadout-table > colgroup").empty().append(colgroup)
+  $("#loadout-table > thead").empty().append(header)
   $("#loadout-table > tbody").empty().append(body)
 
-  $("#loadout-comments").html(values.comments)
+  // Pylon Table
+  $("#loadout-pyl-table > tbody").empty().append(pyl_body)
 
+  // Events
   $("#loadout-fuel").on('change', function(e) {
     loadout_update_weight()
   })
@@ -248,6 +258,8 @@ function loadout_set(opts) {
 
   });
 
+  $("#loadout-comments").html(values.comments)
+
   loadout_update_weight()
 
 }
@@ -257,7 +269,7 @@ function loadout_export() {
   ret['pylons'] = []
 
   // Load our pylons separately, as we want more data
-  $("#loadout-table .pylon-select").each(function(idx, select) {
+  $("#loadout-pyl-table .pylon-select").each(function(idx, select) {
     var itm = select.options[select.selectedIndex];
     ret['pylons'].push({
       'pyl': select.getAttribute('data-pyl-name'),
@@ -267,7 +279,7 @@ function loadout_export() {
     })
   });
 
-  
+
   var type_data = airframes[$('#flight-airframe').val()];
 
   if (!type_data) { 

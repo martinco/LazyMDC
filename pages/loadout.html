@@ -5,35 +5,39 @@
 
   <div id="flight-members-container" >
 
+    <!-- image --> 
+    <div style="width:100%; height: 200px; overflow: hidden; background: #849a9c; position: relative" class="text-center">
+      <img style="height:100%" alt=img id="loadout-image" src="img/unknown.png" />
+    </div>
+
     <table class="table table-striped" id="loadout-table">
       <colgroup>
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:35px" />
-        <col />
-        <col style="width:60px" />
       </colgroup>
       <thead class="thead-light">
-        <tr class="header">
-          <th>FLARE</th>
-          <th>CHAFF</th>
-          <th>GUN %</th>
-          <th>FUEL %</th>
-          <th>JOKER</th>
-          <th>BINGO</th>
-          <th>PYL</th>
-          <th>WEAPON</th>
-          <th>WEIGHT</th>
-        </tr>
       </thead>
       <tbody>
       </tbody>
+    </table>
+
+
+    <table class="table table-striped" id="loadout-pyl-table">
+      <colgroup>
+        <col style="width:60px">
+        <col />
+        <col style="width:60px">
+      </colgroup>
+
+      <thead class="thead-light">
+        <th>PYL</th>
+        <th>WEAPON</th>
+        <th>LBS</th>
+      </thead>
+
+      <tbody>
+      </tbody>
+
       <tfoot>
-        <td colspan=8 style="border:0px; text-align: right; font-weight: bold">Total:</td>
+        <td colspan=2 style="border:0px; text-align: right; font-weight: bold">Total:</td>
         <td id="loadout-table-weight" style="text-align: right">0</td>
       </tfoot>
     </table>

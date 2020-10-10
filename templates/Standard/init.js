@@ -211,7 +211,7 @@ function Flight(data, unit) {
     
     // Header, width, classes
     var cols = [
-      ["#", 30, "text-center"],
+      ["#", 40, "text-center"],
       ["PILOT", 0, "lp5"],
     ]
 
@@ -230,11 +230,21 @@ function Flight(data, unit) {
         ['OID', 60, "text-center"]])
     }
 
-    cols.push(...[
-      ['TCN', 60, "text-center"],
-      ['LSR', 60, "text-center"],
-      ['SQUAWK', 60, "text-center"],
-    ])
+    if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
+      cols.push(['TCN', 60, "text-center"]);
+    }
+
+    if (!["UH-1H", "Mi-8MT"].includes(ac)) {
+      cols.push(['LSR', 60, "text-center"]);
+    }
+
+    cols.push(['SQUAWK', 60, "text-center"]);
+
+    // We include notes on baby lines
+    if (["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
+      cols.push(['NOTES', 381, "text-center"]);
+    }
+
 
     return cols;
   })();
@@ -353,7 +363,7 @@ var Loadout = function(data, unit) {
     return $(`
       <table class="kb-width" style="table-layout: fixed; border:0px">
         <colgroup>
-          <col style="width:40${unit}" />
+          <col style="width:45${unit}" />
           <col />
           <col style="width:70${unit}" />
           <col style="width:80${unit}" />
@@ -426,8 +436,10 @@ var Loadout = function(data, unit) {
           <td class="text-center">${pyl_name}</td>
           <td class="lp5" style="overflow:hidden; white-space: nowrap">${store}</td>
           <td class="text-right rp5 rb2">${weight}</td>`;
+      } else if (n < other_col.length) {
+        html += `<td></td><td></td><td class="rb2"></td>`;
       } else {
-        html += `<td class="bg-blank" style="border:0" colspan=4></td>`;
+        html += `<td class="bg-blank rb2" style="border:0" colspan=3></td>`;
       }
 
       if (other_itm) {
