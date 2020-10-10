@@ -116,12 +116,22 @@ for ac, freqs in pairs(output) do
 
   if ac ~= 'A-10C' then
     for freq, sets in pairs(freqs) do
-      for k,v in ipairs{"1", "2"} do
-        if sets[v] == nil then
-          sets[v] = "M"
+      if ac == 'FA-18C' then
+        if sets["1"] ~= nil then
+          output[ac][freq] = "PRI-"..sets["1"]
+        elseif sets["2"] ~= nil then
+          output[ac][freq] = "SEC-"..sets["2"]
+        else
+          output[ac][freq] = "MAN"
         end
+      else
+        for k,v in ipairs{"1", "2"} do
+          if sets[v] == nil then
+            sets[v] = "M"
+          end
+        end
+        output[ac][freq] = sets["1"]..", "..sets["2"]
       end
-      output[ac][freq] = sets["1"]..", "..sets["2"]
     end
   else
     for freq, psts in pairs(freqs) do
