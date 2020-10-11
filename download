@@ -3,6 +3,7 @@
 import asyncio
 import io
 import json
+import math
 import os
 import re
 import sys
@@ -21,6 +22,83 @@ RE_ARGS = {
 
 PNG_WIDTH = 800
 PNG_HEIGHT = 1200
+ROOT = os.path.dirname(__file__)
+
+
+class CDU_DataLoader():
+    '''
+    Used by A10C to auto-enter waypoints
+
+    http://www.virtual-jabog32.de/forum/viewtopic.php?f=38&t=11569
+    '''
+
+    def __init__(self, waypoints):
+
+        self._waypoints = waypoints
+        self._wp_names = {}
+        self.content = ""
+        self.generate()
+
+    def generate(self):
+
+        for wp in self._waypoints:
+            # WP names are limited to 12 characters
+            name = wp['name'][0:12].strip()
+
+            # They also can't be identical, so if we encounter the same name
+            # add "space ID"
+            if name in self._wp_names:
+                self._wp_names[name] += 1
+                suffix = " " + str(self._wp_names[name])
+                remove = (len(suffix) + len(name)) - 12
+                if remove > 0:
+                    name = name[0:(12-remove)]
+                name += suffix
+            else:
+                self._wp_names[name] = 1
+
+            self.content += "{} {} EL{:05} {} {}\n".format(
+                self.fmt_ll(wp['lat']),
+                self.fmt_ll(wp['lon'], False),
+                int(wp['alt']),
+                'T' + wp['tot'].replace(':', '') + '00',
+                name)
+
+    def fmt_ll(self, wp, lat=True):
+        work = float(wp)
+
+        positive = work > 0
+        work = abs(work)
+
+        degs = math.floor(work)
+        work -= degs
+        work *= 60
+
+        mins = math.floor(work)
+        work -= mins
+        work *= 1000
+
+        secs = round(work)
+
+        if secs == 60:
+            mins += 1
+        if mins == 60:
+            degs += 1
+
+        if lat:
+            lat_str = 'N' if positive else 'S'
+        else:
+            lat_str = 'E' if positive else 'W'
+
+        if lat:
+            lat_str += '%02d' % degs
+        else:
+            lat_str += '%03d' % degs
+
+        lat_str += '%02d' % mins
+        lat_str += '%03d' % secs
+
+        return lat_str
 
 
 async def get_image(url):
@@ -71,13 +149,13 @@ async def get_pdf(url):
     ''')
 
     await page.setViewport({
-        'width': 800,
-        'height': 1200*page_count
+        'width': PNG_WIDTH,
+        'height': PNG_HEIGHT*page_count
     })
 
     pdf = await page.pdf({
-        'width': '800px',
-        'height': '1200px',
+        'width': '%spx' % PNG_WIDTH,
+        'height': '%spx' % PNG_HEIGHT,
         'margin': {
             'top': 0,
             'bottom': 0,
@@ -105,6 +183,23 @@ def main():
         else:
             params[key] = qs[key][0]
 
+    # Validate mdc exists
+    mdc_file = os.path.join(ROOT, 'mdcs', '%s.json' % params['key'])
+    if not os.path.isfile(mdc_file):
+        print("Content-Type: text/html")
+        print("Status: 400 Bad Request\n")
+        sys.exit(0)
+
+    with open(mdc_file) as fh:
+        mdc = json.load(fh)
+
+    # If we are A10, we provide the CDU file also
+    ac = mdc['flight']['flight-airframe']
+    cdu = None
+
+    if ac == 'A-10C':
+        cdu = CDU_DataLoader(mdc['waypoint']['waypoints']).content
+
     url = (
         '{scheme}://{host}/{root}'
         '/templates/{template}/template.htm?kb={key}').format(
@@ -115,42 +210,67 @@ def main():
         key=params['key'])
 
     if params['output'] == "pdf":
-        data = asyncio.get_event_loop().run_until_complete(get_pdf(url))
+        pdf = asyncio.get_event_loop().run_until_complete(get_pdf(url))
+
+        if cdu:
+            # Then we zip it up instead
+            zipfd = io.BytesIO()
+            zipf = ZipFile(zipfd, 'w')
+
+            zipf.writestr('%s.txt' % params['id'], cdu)
+            zipf.writestr('%s.pdf' % params['id'], pdf)
+
+            zipf.close()
+            zipfd.seek(0)
+
+            print ("Content-Disposition: attachment; "
+                   "filename=\"MDC-%s.zip\"" % params['id'])
+            print ("Content-Type: application/zip\n")
+            sys.stdout.flush()
+            sys.stdout.buffer.write(zipfd.read())
+            return
 
         print ("Content-Disposition: attachment; "
                "filename=\"MDC-%s.pdf\"" % params['id'])
         print("Content-Type: application/pdf\n")
         sys.stdout.flush()
-        sys.stdout.buffer.write(data)
+        sys.stdout.buffer.write(pdf)
         return
 
     if params['output'].startswith("png"):
 
-        pages, data = asyncio.get_event_loop().run_until_complete(
+        pages, png = asyncio.get_event_loop().run_until_complete(
             get_image(url))
 
-        if pages == 1:
+        if pages == 1 and not cdu:
             print ("Content-Disposition: attachment; "
                    "filename=\"0000-%s-0001.png\"" % params['id'])
             print("Content-Type: image/png\n")
             sys.stdout.flush()
-            sys.stdout.buffer.write(data)
+            sys.stdout.buffer.write(png)
             return
-
-        # Load into PIL
-        im1 = Image.open(io.BytesIO(data))
 
         # Zip up each page
         zipfd = io.BytesIO()
         zipf = ZipFile(zipfd, 'w')
 
+        if cdu:
+            zipf.writestr('%s.txt' % params['id'], cdu)
+
         # Crop out pages
-        for x in range(pages):
-            cr = im1.crop((0, PNG_HEIGHT * x, PNG_WIDTH, PNG_HEIGHT * (x+1)))
-            f = io.BytesIO()
-            cr.save(f, "PNG")
-            f.seek(0)
-            zipf.writestr('0000-%s-%03d.png' % (params['id'], x+1), f.read())
+        if pages == 1:
+            zipf.writestr('0000-%s-001.png' % params['id'], png)
+        else:
+            # Load complete image into PIL for Cropping
+            im1 = Image.open(io.BytesIO(png))
+
+            for x in range(pages):
+                cr = im1.crop((0, PNG_HEIGHT*x, PNG_WIDTH, PNG_HEIGHT*(x+1)))
+                f = io.BytesIO()
+                cr.save(f, "PNG")
+                f.seek(0)
+                zipf.writestr(
+                    '0000-%s-%03d.png' % (params['id'], x+1), f.read())
 
         zipf.close()
         zipfd.seek(0)
