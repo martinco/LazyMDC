@@ -144,6 +144,24 @@
             </li>
           </ul>
         </div>
+        <div style="top:auto; bottom: 0; position:absolute">
+          <ul class="nav flex-column show">
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo $kneeboard_root; ?>">
+                <span data-feather="repeat"></span>
+                Reset
+              </a>
+            </li>
+          </ul>
+          <ul class="nav flex-column show">
+            <li class="nav-item">
+              <a class="nav-link" href="http://github.com/MartinCo/LazyMDC/issues">
+                <span data-feather="github"></span>
+                Github Issue
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <!-- Main Page -->
@@ -161,6 +179,7 @@
         <div class="tab-pane" id="notes"></div>
         <div class="tab-pane" id="download"></div>
       </div>
+
     </div> <!-- /content -->
 
     <!-- modals -->
