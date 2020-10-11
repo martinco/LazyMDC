@@ -1250,10 +1250,16 @@ function Builder(data, unit) {
         }
       }
 
-      body.append(row)
+      body.append(row);
 
       if (!async) {
-        this.process_section_p2()
+        // Whilst it's not async, we still need to wait for the row to render
+        // before getting the height, otherwise we'll get row height and not
+        // any wrapped height
+        //
+        // To do this we just start process_section_p2 at the end of the current
+        // event queue
+        setTimeout(this.process_section_p2, 0);
       }
     } else {
       $(document).trigger('SectionComplete');
