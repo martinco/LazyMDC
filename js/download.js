@@ -47,10 +47,24 @@ $("#download-dialog-png-button").click(download_cpy);
 
 function download(format) {
   var template = $('#download-template').val()
-  save(null, false, false, false, download_stage2, [format, template]);
+
+  var save_params = {
+    update_id: false,
+    callback: download_stage2,
+    callback_args: [format, template],
+  }
+
+  // for links, we want to force save a snapshot
+  if (["lnk"].includes(format)) {
+    save_params["new_id"] = true
+    save_params["force"] = true
+  }
+  
+  save(save_params);
 }
 
 function download_stage2(key, format, template) {
+
   var mission_id = $("#mission-id").val()
   var dl = "download?template=" + template + "&key=" + key + "&id=" + mission_id;
 
@@ -64,7 +78,6 @@ function download_stage2(key, format, template) {
 
     var dlg = $('#download-dialog');
 
-    $('#download-dialog-lnk').val(window.location.origin + kneeboard_root + key);
     $('#download-dialog-png').val(window.location.origin + kneeboard_root + dl + "&output=png")
     $('#download-dialog-pdf').val(window.location.origin + kneeboard_root + dl + "&output=pdf")
 

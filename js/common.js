@@ -157,26 +157,43 @@ function document_update_title() {
   document.title = title;
 }
 
-function save(data = null, new_id = false, update_id=true, notify = false, cb = null, cb_args = []) {
+// function save(data = null, new_id = false, update_id=true, notify = false, cb = null, cb_args = []) {
+function save(override) {
+
+  var params = {
+    data: null,
+    new_id: false,
+    update_id: true,
+    notify: false,
+    force: false,
+    callback: null,
+    callback_args: [],
+  }
+
+  // Extend with user provided opts
+  jQuery.extend(true, params, override)
 
   // As a simple sanity check we ensure we have mission ID as bare minimum to save
   if (!$('#mission-id').val()) {
     return
   }
 
-  if (!data) {
+  var data = params.data;
+  if (!params.data) {
     data = get_data()
   }
 
   var key = get_key();
-  if(key && !new_id) {
+  if (params.new_id) {
+    delete data['key'];
+  } else if (key) {
     data['key'] = key;
   }
 
-  // Short Circuit should nothing have changed
+  // Short Circuit should nothing have changed and not forced
   var save_data = JSON.stringify(data)
-  if (last_save_data && save_data == last_save_data) {
-    if (notify) {
+  if (last_save_data && save_data == last_save_data && !params.force) {
+    if (params.notify) {
       $("#side-bar").overhang({
           custom: true,
           primary: "#444444",
@@ -184,9 +201,9 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
           message: "Kneeboard Saved"
       });
     }
-    if (cb) {
-      cb_args.unshift(key)
-      cb(...cb_args);
+    if (params.callback) {
+      params.callback_args.unshift(key)
+      params.callback(...params.callback_args);
     }
     return
   }
@@ -209,7 +226,7 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
     function(data) {
       if (data) {
         last_save_data = save_data;
-        if (notify) {
+        if (params.notify) {
           $("#side-bar").overhang({
               custom: true,
               primary: "#444444",
@@ -217,7 +234,7 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
               message: "Kneeboard Saved"
           });
         }
-        if (update_id) {
+        if (params.update_id) {
           // Update without page reload
           var update = get_key() != data;
           if (update) {
@@ -225,9 +242,9 @@ function save(data = null, new_id = false, update_id=true, notify = false, cb = 
             $(document).trigger("key-updated");
           }
         }
-        if (cb) {
-          cb_args.unshift(data)
-          cb(...cb_args);
+        if (params.callback) {
+          params.callback_args.unshift(data)
+          params.callback(...params.callback_args);
         }
       } else {
         alert("failed to save");

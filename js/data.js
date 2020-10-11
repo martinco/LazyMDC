@@ -161,7 +161,12 @@ function data_load_file(input) {
         load(data)
 
         // Save as a new page (in case of edits)
-        save(data, true, true)
+        save({
+          data: data,
+          new_id: true,
+          update_id: true,
+          force: true,
+        })
     }
     fr.readAsText(file);
 

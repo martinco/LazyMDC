@@ -173,7 +173,7 @@ $.when(
                 // Automatically save when we move to next target, due to the 
                 // save only working if we got past mission, this works out
                 // quite nicely
-                save(null, false, true, false)
+                save()
               }
 
             }
@@ -198,7 +198,7 @@ $.when(
         case 83: // s 
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-            save(null, false, true, true)
+            save({notify: true})
           }
           break;
       }
