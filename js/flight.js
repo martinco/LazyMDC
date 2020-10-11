@@ -31,7 +31,7 @@ $("#flight-airframe").change(function(e) {
   update_presets()
 
   // Show options
-  $('#flight-members-container').show()
+  $('#flight-members-container').toggle(type !== null) 
 
   // Trigger event for other pages
   $('#flight-airframe').trigger('flight-airframe-changed');
