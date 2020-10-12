@@ -55,12 +55,10 @@ function flight_update_default_coord_format() {
   var ac = $("#flight-airframe").val()
 
   var fmt = "ddm"
-  var dp = 2
+  var dp = 3
 
   if (ac == "F-14B") {
     dp = 1
-  } else if (ac == "F-16C") {
-    dp = 3
   }
 
   // Update Radio / DP
