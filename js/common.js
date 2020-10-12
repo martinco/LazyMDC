@@ -106,10 +106,10 @@ function lookup_preset(value) {
   var float_val = parseFloat(value).toFixed(3)
   var type = $("#flight-airframe").val();
   var mission = $('#data-mission').val();
-  var pst = mission_data[mission]['presets'][type][float_val]; 
+  var presets = mission_data[mission]['presets'][type];
 
-  if (pst) {
-    return pst
+  if (presets && presets[float_val]) {
+    return presets[float_val];
   }
 
   if (type == 'FA-18C') {
