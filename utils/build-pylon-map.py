@@ -9,7 +9,7 @@ PLANES = {
     'F-14B': None,
     'F-16C_50': 'F-16C',
     'FA-18C_hornet': 'FA-18C',
-    'A-10C': None,
+    'A-10C_2': 'A-10C',
 }
 
 HELOS = {
