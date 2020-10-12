@@ -31,10 +31,6 @@ $.when(
     pilots = data;
   }),
 
-  $.getJSON("data/stores-map.json").done(function(data) {
-    stores_map = data;
-  }),
-
   $.getJSON("data/theatres.json").done(function(data) {
     theatres = data;
   }),

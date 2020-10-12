@@ -49,7 +49,6 @@ function data_process_cf(xml) {
   for (var i = 0; i < routes.length; i++) {
 
     var route_xml = routes[i];
-    console.log(route_xml);
 
     var name = route_xml.querySelector('Name').textContent;
     var task = route_xml.querySelector('Task').textContent;
@@ -143,7 +142,6 @@ function data_load_file(input) {
 
   // input will either be js or cf
   var file = input.files[0];
-  console.log(file.name);
   var file_ext = file.name.split('.').pop();
 
   if (file_ext == 'json') {
@@ -289,7 +287,7 @@ $("#data-route-dialog-submit").click(function(e, data) {
     if (mission_route_data.aircraft) {
       $('#flight-airframe').val(mission_route_data.aircraft).change();
     }
-    side = mission_route_data.querySelector("Side").textContent;
+    side = mission_route_data.xml.querySelector("Side").textContent;
   }
 
   // Update bulls, if we have a route selected, use side's bulls, else default blue

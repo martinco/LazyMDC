@@ -2346,6 +2346,18 @@
         }
       }
     },
+    "loadout_map": {
+      "1": "1a",
+      "10": "8a",
+      "2": "1b",
+      "3": "2",
+      "4": "3",
+      "5": "4",
+      "6": "5",
+      "7": "6",
+      "8": "7",
+      "9": "8b"
+    },
     "mlw_cvn": 54000,
     "mlw_field": 60000,
     "mtow_cvn": 76000,
@@ -2436,64 +2448,10 @@
           "weight": 85.5
         }
       },
-      "10": {
-        "AIM-120B": {
-          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 157.8
-        },
-        "AIM-120C": {
-          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
-        },
-        "AIM-9L Sidewinder IR AAM": {
-          "clsid": "{AIM-9L}",
-          "weight": 85.5
-        },
-        "AIM-9M Sidewinder IR AAM": {
-          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-          "weight": 86.64
-        },
-        "AIM-9X Sidewinder IR AAM": {
-          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-          "weight": 84.46
-        },
-        "AN/ASQ-T50 TCTS Pod": {
-          "clsid": "{AIS_ASQ_T50}",
-          "weight": 62.6
-        },
-        "CAP-9M": {
-          "clsid": "CATM-9M",
-          "weight": 85.5
-        }
-      },
       "11": {
-        "AIM-120B": {
-          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 157.8
-        },
-        "AIM-120C": {
-          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
-        },
-        "AIM-9L Sidewinder IR AAM": {
-          "clsid": "{AIM-9L}",
-          "weight": 85.5
-        },
-        "AIM-9M Sidewinder IR AAM": {
-          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-          "weight": 86.64
-        },
-        "AIM-9X Sidewinder IR AAM": {
-          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
-          "weight": 84.46
-        },
-        "AN/ASQ-T50 TCTS Pod": {
-          "clsid": "{AIS_ASQ_T50}",
-          "weight": 62.6
-        },
-        "CAP-9M": {
-          "clsid": "CATM-9M",
-          "weight": 85.5
+        "AN/AAQ-28 LITENING": {
+          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
+          "weight": 300
         }
       },
       "2": {
@@ -2750,20 +2708,13 @@
           "weight": 749
         }
       },
-      "5": {},
-      "6": {
+      "5": {
         "Fuel tank 300 gal": {
           "clsid": "{8A0BE8AE-58D4-4572-9263-3144C0D06364}",
           "weight": 1083.5076415
         }
       },
-      "7": {
-        "AN/AAQ-28 LITENING": {
-          "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
-          "weight": 300
-        }
-      },
-      "8": {
+      "6": {
         "CBU-87": {
           "clsid": "{CBU-87}",
           "weight": 430
@@ -2865,7 +2816,7 @@
           "weight": 749
         }
       },
-      "9": {
+      "7": {
         "AIM-120B": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
           "weight": 157.8
@@ -2986,7 +2937,71 @@
           "clsid": "{TER_9A_3*MK-82AIR}",
           "weight": 749
         }
+      },
+      "8": {
+        "AIM-120B": {
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
+          "weight": 157.8
+        },
+        "AIM-120C": {
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+          "weight": 161.5
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "clsid": "{AIM-9L}",
+          "weight": 85.5
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+          "weight": 86.64
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+          "weight": 84.46
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "clsid": "{AIS_ASQ_T50}",
+          "weight": 62.6
+        },
+        "CAP-9M": {
+          "clsid": "CATM-9M",
+          "weight": 85.5
+        }
+      },
+      "9": {
+        "AIM-120B": {
+          "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
+          "weight": 157.8
+        },
+        "AIM-120C": {
+          "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
+          "weight": 161.5
+        },
+        "AIM-9L Sidewinder IR AAM": {
+          "clsid": "{AIM-9L}",
+          "weight": 85.5
+        },
+        "AIM-9M Sidewinder IR AAM": {
+          "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
+          "weight": 86.64
+        },
+        "AIM-9X Sidewinder IR AAM": {
+          "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}",
+          "weight": 84.46
+        },
+        "AN/ASQ-T50 TCTS Pod": {
+          "clsid": "{AIS_ASQ_T50}",
+          "weight": 62.6
+        },
+        "CAP-9M": {
+          "clsid": "CATM-9M",
+          "weight": 85.5
+        }
       }
+    },
+    "loadout_map": {
+      "10": "5L",
+      "11": "5R"
     },
     "mlw_field": 42300,
     "mtow_field": 42300,
@@ -4070,6 +4085,9 @@
           "weight": 85.5
         }
       }
+    },
+    "loadout_map": {
+      "10": "SMK"
     },
     "mlw_cvn": 34000,
     "mlw_field": 39000,

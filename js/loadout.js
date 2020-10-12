@@ -18,7 +18,7 @@ function get_loadout_from_xml(route) {
   // Get our type mapping of int pylons -> name, as combat flite uses 11 for 5R
   // etc. which is as per DCS, but not really what the user sees
 
-  var type_map = stores_map[route.aircraft] || {};
+  var type_map = airframes[route.aircraft]['loadout_map'] || {};
   var stores = route.xml.querySelector('FlightMembers > FlightMember > Aircraft > Stores').childNodes;
 
   // Get all the stores / pylons, these are unordered, and additionally the
@@ -94,16 +94,30 @@ function loadout_update_weight() {
     }
 }
 
-function get_pylon_options(type, id, val = "") {
+function get_pylon_options(type, name, val = "") {
 
-  id = id + 1;
+  // The loadout is straight from PyDCS so needs some massaging at times as the
+  // ordering might not be the same
 
-  var pylon_data = airframes[$('#flight-airframe').val()]['loadout'];
-  output = "";
+  var loadout_map = {}
+  Object.keys(airframes[type]['loadout_map'] || {}).map(function(key, idx) {
+    loadout_map[airframes[type]['loadout_map'][key]] = key
+  });
 
-  var selected_weight = 0
+  // So first we lookup if it's remapped, if not use the same as name
+  var pylon_game_id = loadout_map[name] || name;
 
-  for (var [name, info] of Object.entries(pylon_data[id])) {
+  // If we have data, enumerate the options
+  var pylon_data = airframes[type]['loadout'][pylon_game_id];
+
+  if (!pylon_data) {
+    return ["", 0];
+  }
+
+  var output = "";
+  var selected_weight = 0;
+
+  for (var [name, info] of Object.entries(pylon_data)) {
     var weight = info['weight']
 
     // val might be a dict from CF, so if it's a dict, so if dict, check store
@@ -206,7 +220,7 @@ function loadout_set(opts) {
 
   while(pylon_index < pylon_count) {
 
-    var [pyl_opts, pyl_weight] = get_pylon_options(type, pylon_index, pylons[pylon_index][1])
+    var [pyl_opts, pyl_weight] = get_pylon_options(type, pylons[pylon_index][0], pylons[pylon_index][1])
 
     pyl_body += `
         <tr>
