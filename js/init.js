@@ -223,7 +223,7 @@ $.when(
           // before moving to the selected page on save
           var page = $('a.nav-link.active').attr('href').substr(1);
 
-          $('a.nav-link').each(function(idx, itm) {
+          $('a.nav-link').not('.direct-link').each(function(idx, itm) {
             var href = $(itm).attr('href').substr(1);
             if (href != "download") {
               var submit = $('#' + href + '-form button[type=submit]')
@@ -270,7 +270,6 @@ $.when(
 
   // Initialize popstate for navigation
   window.onpopstate = function() {
-    console.log("popstate");
     $("a.nav-link[href$=\"" + document.location.hash + "\"]").tab('show');
     document_update_title()
   }
