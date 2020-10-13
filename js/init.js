@@ -6,7 +6,7 @@ disable_save = false
 $.when(
 
   // Page Data
-  $.get( "pages/welcome.html", function( data ) { $("#welcome").append(data); }),
+  $.get( "pages/about.html", function( data ) { $("#about").append(data); }),
   $.get( "pages/mission.html", function( data ) { $("#mission").append(data); }),
   $.get( "pages/data.html", function( data ) { $("#data").append(data); }),
   $.get( "pages/flight.html", function( data ) { $("#flight").append(data); }),
@@ -117,16 +117,25 @@ $.when(
         $('<div style="height:1.25rem; float: right;"></div>').insertAfter($(b).parent());
     });
 
-    // Cleanup Nav
-    $('#side-nav a').click(function (e) {
+    // Nav Handling
+    $('a.nav-link').not('.direct-link').click(function (e) {
       e.preventDefault();
       window.location.hash = $(this).attr('href');
       $(this).tab('show');
     });
 
+    // Nav Cleanup / Deactivation
+    $('a.nav-link').not('.direct-link').on('shown.bs.tab', function(e) {
+      var href = e.target.getAttribute('href');
+      $('a.nav-link:not([href="'+href+'"])').each(function(idx, itm) {
+        itm.classList.remove('active');
+      });
+    });
+
+
     // If we have a window ref select that tab
     if (window.location.hash) { 
-      $("#side-nav a[href$=\"" + window.location.hash + "\"]").tab('show');
+      $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
     }
 
     // Set forms autocomplete handlers
@@ -142,7 +151,7 @@ $.when(
             event.preventDefault();
 
             // If the page we're on has a custom validation then call that
-            var page = $('ul#side-nav a.nav-link.active').attr('href').substr(1);
+            var page = $('a.nav-link.active').attr('href').substr(1);
             if (window[page + "_validate"]) {
               if(!window[page+"_validate"]()) {
                 form.classList.add('was-validated');
@@ -155,7 +164,7 @@ $.when(
               // Enable Next target
               var target = $(this).data('nav-target');
 
-              var nav = $("#side-nav a[href$=\"" + target + "\"]")
+              var nav = $("a.nav-link[href$=\"" + target + "\"]")
               nav.removeClass('disabled');
               nav.tab('show');
 
@@ -212,9 +221,9 @@ $.when(
 
           // Try and click "Next..." through each of the pages to validate,
           // before moving to the selected page on save
-          var page = $('ul#side-nav a.nav-link.active').attr('href').substr(1);
+          var page = $('a.nav-link.active').attr('href').substr(1);
 
-          $('ul#side-nav a.nav-link').each(function(idx, itm) {
+          $('a.nav-link').each(function(idx, itm) {
             var href = $(itm).attr('href').substr(1);
             if (href != "download") {
               var submit = $('#' + href + '-form button[type=submit]')
@@ -224,7 +233,7 @@ $.when(
                 $(submit).click();
                 disable_save = false
 
-                var new_page = $('ul#side-nav a.nav-link.active').attr('href').substr(1);
+                var new_page = $('a.nav-link.active').attr('href').substr(1);
 
                 if (new_page != page) {
                   page = new_page;
@@ -239,7 +248,7 @@ $.when(
           // If we have a current_page, move to it
           if (request_hash) {
             window.location.hash = request_hash
-            $("#side-nav a[href$=\"" + request_hash + "\"]").tab('show');
+            $("a.nav-link[href$=\"" + request_hash + "\"]").tab('show');
           }
 
         })
@@ -261,7 +270,8 @@ $.when(
 
   // Initialize popstate for navigation
   window.onpopstate = function() {
-    $("#side-nav a[href$=\"" + document.location.hash + "\"]").tab('show');
+    console.log("popstate");
+    $("a.nav-link[href$=\"" + document.location.hash + "\"]").tab('show');
     document_update_title()
   }
 });

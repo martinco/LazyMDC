@@ -77,13 +77,7 @@
         <div class="" style="padding-top: 10px">
           <ul class="nav flex-column show" id="side-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="#welcome">
-                <span data-feather="home"></span>
-                Welcome<span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#data">
+              <a class="nav-link active" href="#data">
                 <span data-feather="upload"></span>
                 Data Sources
               </a>
@@ -150,20 +144,25 @@
             </li>
           </ul>
         </div>
-        <div style="top:auto; bottom: 0; position:absolute">
+
+        <div style="top:auto; bottom: 10px; position:fixed">
           <ul class="nav flex-column show">
             <li class="nav-item">
-            <a class="nav-link" href="<?php echo $kneeboard_root; ?>">
+              <a class="nav-link direct-link" href="<?php echo $kneeboard_root; ?>">
                 <span data-feather="repeat"></span>
                 Reset
               </a>
             </li>
-          </ul>
-          <ul class="nav flex-column show">
             <li class="nav-item">
-              <a class="nav-link" href="http://github.com/MartinCo/LazyMDC/issues">
+              <a class="nav-link" href="#about">
+                <span data-feather="at-sign"></span>
+                About<span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link direct-link" href="http://github.com/MartinCo/LazyMDC/issues">
                 <span data-feather="github"></span>
-                Github Issue
+                Github Issues
               </a>
             </li>
           </ul>
@@ -172,8 +171,8 @@
 
       <!-- Main Page -->
       <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
-        <div class="tab-pane active" id="welcome"></div>
-        <div class="tab-pane" id="data"></div>
+        <div class="tab-pane" id="about"></div>
+        <div class="tab-pane active" id="data"></div>
         <div class="tab-pane" id="mission"></div>
         <div class="tab-pane" id="flight"></div>
         <div class="tab-pane" id="package"></div>
