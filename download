@@ -42,8 +42,9 @@ class CDU_DataLoader():
     def generate(self):
 
         for wp in self._waypoints:
-            # WP names are limited to 12 characters
-            name = wp['name'][0:12].strip()
+            # We prefix the name with M to help ensure no collisions in game
+            # waypoints are limited to 12 characters, so we truncate
+            name = ("M " + wp['name'])[0:12].strip()
 
             # They also can't be identical, so if we encounter the same name
             # add "space ID"
@@ -52,12 +53,17 @@ class CDU_DataLoader():
                 suffix = " " + str(self._wp_names[name])
                 remove = (len(suffix) + len(name)) - 12
                 if remove > 0:
-                    name = name[0:(12-remove)]
+                    name = name[0:-remove]
                 name += suffix
             else:
                 self._wp_names[name] = 1
 
-            self.content += "{} {} EL{:05} {} {}\n".format(
+            # However, when we write them out, we pad them all to 12 so
+            # autocomplete doesn't autocomplete when subsequent points are
+            # prefixed
+            #
+            # E.g: Racetrack followed by Race
+            self.content += "{} {} EL{:05} {} {:12}\n".format(
                 self.fmt_ll(wp['lat']),
                 self.fmt_ll(wp['lon'], False),
                 int(wp['alt']),
