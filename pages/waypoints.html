@@ -104,32 +104,6 @@
     </button>
   </div>
 
-  <div class="form-group" id="waypoints-poi" style="display:none">
-    <label class="heading">Points of Interest</label>
-    <table class="table table-striped" id="waypoints-poi-table">
-      <colgroup>
-        <col />
-        <col style="width:140px" />
-        <col style="width:140px" />
-        <col style="width:20px;" />
-      </colgroup>
-
-      <thead class="thead-light">
-        <tr>
-          <th>WAYPOINT</th>
-          <th>LAT</th>
-          <th colspan=2>LON</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-
-    <button class="btn btn-primary" id='waypoints-add-poi' type="button">
-      <i data-feather="map-pin"></i>
-    </button>
-  </div>
-
   <div class="form-group" id="waypoints-sequence" style="display:none">
     <label class="heading">Waypoint Sequence</label>
     <table class="table table-striped" id="waypoints-sequence-table">
@@ -166,6 +140,33 @@
       </tbody>
     </table>
   </div>
+
+  <div class="form-group" id="waypoints-poi">
+    <label class="heading">Additional Points of Interest</label>
+    <table class="table table-striped" id="waypoints-poi-table">
+      <colgroup>
+        <col />
+        <col style="width:140px" />
+        <col style="width:140px" />
+        <col style="width:20px;" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th>WAYPOINT</th>
+          <th>LAT</th>
+          <th colspan=2>LON</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='waypoints-add-poi' type="button">
+      <i data-feather="map-pin"></i>
+    </button>
+  </div>
+
   <div style="text-align: right">
     <button class="btn btn-primary" type="submit">Next...</button>
   </div>

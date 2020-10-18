@@ -288,9 +288,26 @@ $(document).on('coordinates-changed', function() {
 $('#flight-airframe').on('flight-airframe-changed', function(e) {
   var type = $('#flight-airframe').val()
 
-  // Hide / Show POI / Sequence
-  $('#waypoints-poi').toggle(type == 'F-14B')
+  // Hide / Show Sequenc based on Airframe
   $('#waypoints-sequence').toggle(['F-16C', 'FA-18C'].includes(type))
+});
+
+$('#flight-airframe').on('data-poi-updated', function(e) {
+  var route = $('#flight-airframe').data('poi');
+  if (!route) {
+    return
+  }
+
+  $('#waypoints-poi-table > tbody').empty()
+  route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
+
+    waypoint_add_poi({
+        'name': wp.querySelector('Name').textContent,
+        'lat': wp.querySelector('Lat').textContent,
+        'lon': wp.querySelector('Lon').textContent,
+    })
+  });
+
 });
 
 $('#flight-airframe').on('data-route-updated', function(e) {
@@ -388,24 +405,22 @@ function waypoint_export() {
         ret['waypoints'].push(d)
     })
     
-    if ($("#waypoints-poi").css('display') != "none") {
-        ret["poi"] = []
-        $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
-            var d = get_row_data(tr, ['name', 'lat', 'lon'])
-                            
-            if (tr.cells[1].hasAttribute('data-fmt')) {
-                d['lat_fmt'] = tr.cells[1].getAttribute('data-fmt')
-                d['lat_dmp'] = tr.cells[1].getAttribute('data-dmp')
-            }
-            if (tr.cells[2].hasAttribute('data-fmt')) {
-                d['lon_fmt'] = tr.cells[2].getAttribute('data-fmt')
-                d['lon_dmp'] = tr.cells[2].getAttribute('data-dmp')
-            }
-            
-            ret['poi'].push(d)
-            
-        })
-    }
+    ret["poi"] = []
+    $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
+        var d = get_row_data(tr, ['name', 'lat', 'lon'])
+                        
+        if (tr.cells[1].hasAttribute('data-fmt')) {
+            d['lat_fmt'] = tr.cells[1].getAttribute('data-fmt')
+            d['lat_dmp'] = tr.cells[1].getAttribute('data-dmp')
+        }
+        if (tr.cells[2].hasAttribute('data-fmt')) {
+            d['lon_fmt'] = tr.cells[2].getAttribute('data-fmt')
+            d['lon_dmp'] = tr.cells[2].getAttribute('data-dmp')
+        }
+        
+        ret['poi'].push(d)
+        
+    })
    
     if ($("#waypoints-sequence").css('display') != "none") {
         ret["sequence"] = []

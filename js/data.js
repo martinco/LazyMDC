@@ -34,7 +34,6 @@ function data_process_cf(xml) {
   // Reset / Present the route dialog
   var select_wp = $("#data-route-dialog-waypoints");
   var select_poi = $("#data-route-dialog-poi");
-  $("#data-route-dialog-poi-container").hide();
 
   // Reset the form to wipe out any previous routes (first option = None)
   select_wp.children('option:not(:first)').remove();
@@ -249,22 +248,6 @@ $('#data-theatre').change(function(e) {
   data_update_default_bulls();
 });
 
-$("#data-route-dialog-waypoints").change(function(e) {
-
-  var value = $(e.target).val();
-  var poi_container = $("#data-route-dialog-poi-container");
-  var routes = $("#data-route-dialog").data('routes');
-  
-  var route = routes[value];
-
-  if(route.aircraft == 'F-14B') {
-    poi_container.show()
-  } else {
-    poi_container.hide()
-  }
-
-});
-
 $("#data-route-dialog-submit").click(function(e, data) {
 
   var dialog = $('#data-route-dialog');
@@ -280,6 +263,11 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var mission_route = $('#data-route-dialog-waypoints').val()
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
   $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
+
+  // Store the route for poi
+  var poi_route = $('#data-route-dialog-poi').val()
+  var poi_route_data = poi_route == 'None' ? null : dialog.data('routes')[poi_route];
+  $('#flight-airframe').data('poi', poi_route_data).trigger('data-poi-updated');
 
   // Update aiframe value
   var side = "Blue"

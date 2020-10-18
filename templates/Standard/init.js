@@ -620,7 +620,7 @@ var POI = function(data, unit) {
 
         <tbody>
           <tr>
-            <th>POI</th>
+            <th>Point of Interest</th>
             <th>LAT</th>
             <th>LON</th>
           </tr>
@@ -1111,8 +1111,8 @@ function Builder(data, unit) {
     'loadout',
     'ramrod',
     'waypoints',
-    'poi',
     'sequence',
+    'poi',
     'package',
     'deparr',
     'agencies',
