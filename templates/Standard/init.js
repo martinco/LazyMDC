@@ -677,14 +677,29 @@ var Sequence = function(data, unit) {
     }
 
     var content = [];
+    var non_empty = 0;
+
     for (var elem of data.waypoint.sequence) {
+      var seq = elem['seq'].replace(/^\s+|\s+$/g, ''); 
+      var notes = elem['notes'].replace(/^\s+|\s+$/g, '');
+
+      if (seq || notes) {
+        non_empty++;
+      }
+      
       content.push($(`
         <tr>
           <td class="text-center">${elem['id']}</td>
-          <td class="text-center">${elem['seq']}</td>
-          <td class="lp5">${elem['notes']}</td>
+          <td class="text-center">${seq}</td>
+          <td class="lp5">${notes}</td>
         </tr>`));
     }
+
+    // Hide content if empty
+    if (!non_empty) {
+      return [];
+    }
+
     return content
   })();
 }
