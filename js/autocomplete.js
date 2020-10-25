@@ -16,7 +16,7 @@ function freq_autocomplete(input) {
   // Attach validator
   $(input).on('change', function(e) {
     // Validate 
-    var msg = "Please enter a valid, numeric frequency"
+    var msg = "Please enter a valid frequency"
 
     var elem = $(this);
 
@@ -25,13 +25,19 @@ function freq_autocomplete(input) {
       return
     }
 
-    var float_val = parseFloat(elem.val()).toFixed(3)
+    var val = elem.val()
+    var float_val = parseFloat(val).toFixed(3)
 
     if (isNaN(float_val)) {
-      this.setCustomValidity(msg);
-      var inval = elem.parent().find('div.invalid-feedback')[0]
-      if (inval) {
-        inval.innerHTML = msg;
+      if (val.match(/^MIDS[- ][0-9]+$/i)) {
+        elem.val(val.toUpperCase().replace('-', ' '))
+        this.setCustomValidity('');
+      } else {
+        this.setCustomValidity(msg);
+        var inval = elem.parent().find('div.invalid-feedback')[0]
+        if (inval) {
+          inval.innerHTML = msg;
+        }
       }
     } else {
       this.setCustomValidity('');

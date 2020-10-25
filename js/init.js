@@ -25,6 +25,14 @@ $.when(
   // Data Sources
   $.getJSON("data/freqs.json").done(function(data) {
     freqs = data;
+
+    // Add our MIDS autocompletes
+    for (var x = 1; x < 127; x++) {
+      freqs.push({
+        'label': `MIDS ${x}`,
+        'value': `MIDS ${x}`,
+      })
+    }
   }),
 
   $.getJSON("data/pilots.json").done(function(data) {

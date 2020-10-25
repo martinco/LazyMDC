@@ -139,8 +139,8 @@ function Header(data, unit, page) {
 
         <colgroup>
           <col style="width: 115${unit}" />
-          <col style="width: 80${unit}" />
-          <col style="width: 80${unit}" />`
+          <col style="width: 90${unit}" />
+          <col style="width: 90${unit}" />`
 
     if (package) {
       html += `
@@ -962,16 +962,32 @@ function Agencies (data, unit) {
         continue
       }
 
-      elems.push($(`
+      var elem_html = `
         <tr>
           <td class="overflow-hidden">${elem['agency']}</td>
-          <td class="text-center text-bold">${elem['tcn']}</td>
+          <td class="text-center text-bold">${elem['tcn']}</td>`;
+
+      if (elem['pri'].startsWith('MIDS')) {
+        elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['pri']}</td>`;
+      } else {
+        elem_html += `
           <td class="text-center text-bold rb0">${elem['pri']}</td>
-          <td class="text-center lb0 text-pst text-bottom">${elem['pri_pst']}</td>
+          <td class="text-center lb0 text-pst text-bottom">${elem['pri_pst']}</td>`;
+      }
+
+      if (elem['sec'].startsWith('MIDS')) {
+        elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['sec']}</td>`;
+      } else {
+        elem_html += `
           <td class="text-center text-bold rb0">${elem['sec']}</td>
-          <td class="text-center lb0 text-pst text-bottom">${elem['sec_pst']}</td>
+          <td class="text-center lb0 text-pst text-bottom">${elem['sec_pst']}</td>`;
+      }
+
+      elem_html += `
           <td class="">${elem['notes']}</td>
-        </tr>`));
+        </tr>`;
+
+      elems.push($(elem_html));
     }
 
     return elems;
