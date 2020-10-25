@@ -336,8 +336,18 @@ function Package(data, unit) {
   }
 
   this.content = (function () {
+
+    if (data['package']['package-member'] == "package-false") {
+      return [];
+    }
+
     var elems = [];
     for (var member of data['package']['members']) {
+      var non_empty = Object.values(member).filter(function(x) { return x });
+      if (!non_empty.length) {
+        continue
+      }
+
       elems.push($(`
         <tr>
           <td class="lp5">${member['callsign']}</td>
