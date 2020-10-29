@@ -169,6 +169,7 @@ function save(override) {
     new_id: false,
     update_id: true,
     notify: false,
+    notify_message: "Kneeboard Saved",
     force: false,
     callback: null,
     callback_args: [],
@@ -202,7 +203,7 @@ function save(override) {
           custom: true,
           primary: "#444444",
           accent: "#222222",
-          message: "Kneeboard Saved"
+          message: params.notify_message,
       });
     }
     if (params.callback) {
@@ -235,7 +236,7 @@ function save(override) {
               custom: true,
               primary: "#444444",
               accent: "#222222",
-              message: "Kneeboard Saved"
+              message: params.notify_message,
           });
         }
         if (params.update_id) {
