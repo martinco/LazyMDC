@@ -81,7 +81,17 @@ $.when(
     min_height: 700,
     remove_trailing_brs: true,
     resize_img_proportional: true,
-    init_instance_callback: function() {
+    init_instance_callback: function(inst) {
+      $(inst.contentWindow).bind('keydown', function(event) {
+        switch (event.keyCode) {
+          case 83: // s 
+            if (event.ctrlKey || event.metaKey) {
+              event.preventDefault();
+              save({notify: true})
+            }
+            break;
+        }
+      });
       tinymce_init_count -= 1;
       if (tinymce_init_count == 0) { 
         tinymce_init_complete.resolve();
