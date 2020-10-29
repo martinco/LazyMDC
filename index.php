@@ -83,15 +83,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#mission">
-                <span data-feather="crosshair"></span>
-                Mission
+              <a class="nav-link" href="#flight">
+                <span data-feather="users"></span>
+                Flight
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#flight">
-                <span data-feather="users"></span>
-                Flight
+              <a class="nav-link disabled" href="#mission">
+                <span data-feather="crosshair"></span>
+                Mission
               </a>
             </li>
             <li class="nav-item">
@@ -173,8 +173,8 @@
       <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
         <div class="tab-pane" id="about"></div>
         <div class="tab-pane active" id="data"></div>
-        <div class="tab-pane" id="mission"></div>
         <div class="tab-pane" id="flight"></div>
+        <div class="tab-pane" id="mission"></div>
         <div class="tab-pane" id="package"></div>
         <div class="tab-pane" id="loadout"></div>
         <div class="tab-pane" id="deparr"></div>

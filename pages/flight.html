@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
   <h1 class="h2">Flight</h1>
 </div>
-<form id="flight-form" data-nav-target="#package" class="needs-validation" validate>
+<form id="flight-form" data-nav-target="#mission" class="needs-validation" validate>
   <div class="form-group">
     <label for="flight-airframe">Airframe</label>
     <select name="flight-airframe" id="flight-airframe" class="form-control" required>
@@ -64,10 +64,6 @@
     <button class="btn btn-primary" id='flight-add-member' type="button">
       <i data-feather="user-plus"></i>
     </button>
-
-    <div class="alert alert-danger mt-2" id="flight-alert-members-missing" role="alert" style="display: none">
-      You must have at least one flight member, please assign a flight lead.
-    </div>
 
     <div style="text-align: right">
       <button class="btn btn-primary" type="submit">Next...</button>

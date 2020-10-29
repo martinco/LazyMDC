@@ -79,13 +79,16 @@ function deparr_load(data) {
         setup_airfield(elem_id.substr(1), data[loc]['location'])
         elem.val(data[loc]['location'])
             
-        for (const [k, v] of Object.entries(data[loc])) {
+        for (var [k, v] of Object.entries(data[loc])) {
             if (k == 'location') {
                 continue
             }
             var elem_id = '#deparr-' + loc + "-" + k;
             var elem = $(elem_id);
             if (elem) {
+                if (k == "icao") {
+                  v = v || "----";
+                }
                 elem.val(v)
                 if (elem.nodeType == "SELECT") {
                     elem.change()

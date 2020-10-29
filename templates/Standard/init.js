@@ -899,6 +899,12 @@ function DepArr(data, unit) {
         elem = data.deparr.dep;
       }
 
+      // Empty ? skip it 
+      var nonempty = Object.values(elem).filter(function(x) { return x != "" && x != "----"});
+      if (!nonempty.length) {
+        return;
+      }
+
       elems.push($(`
           <tr>
             <td class="text-center">${x.toUpperCase()}</td>

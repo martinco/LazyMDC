@@ -48,6 +48,10 @@ $("#download-dialog-png-button").click(download_cpy);
 function download(format) {
   var template = $('#download-template').val()
 
+  // Silently save here, it's an unlikely scenario given it saves on the nav
+  // click and the next click, but it's a noop if not same as last save
+  save()
+
   var save_params = {
     update_id: false,
     callback: download_stage2,
@@ -65,7 +69,7 @@ function download(format) {
 
 function download_stage2(key, format, template) {
 
-  var mission_id = $("#mission-id").val()
+  var mission_id = $("#mission-id").val() || key;
   var dl = "download?template=" + template + "&key=" + key + "&id=" + mission_id;
 
   if (format == 'json') {

@@ -160,6 +160,10 @@ function document_update_title() {
 // function save(data = null, new_id = false, update_id=true, notify = false, cb = null, cb_args = []) {
 function save(override) {
 
+  if (disable_save) {
+    return
+  }
+
   var params = {
     data: null,
     new_id: false,
@@ -174,7 +178,7 @@ function save(override) {
   jQuery.extend(true, params, override)
 
   // As a simple sanity check we ensure we have mission ID as bare minimum to save
-  if (!$('#mission-id').val()) {
+  if (!$('#flight-airframe').val()) {
     return
   }
 
@@ -271,10 +275,17 @@ var getUrlParameter = function getUrlParameter(sParam) {
 // Load from data provided by save()
 function load(data) {
   if (!data) { return; }
-  ['data', 'mission', 'flight', 'package', 'loadout', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
+
+  // We don't want saves() to trigger: This could cause a save to occur prior
+  // to loading subsequent pages and result in data loss
+  disable_save = true;
+
+  ['data', 'flight', 'mission', 'package', 'loadout', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
     if (section in data) {
       window[section+"_load"](data[section])
     }
   });
+
+  disable_save = false;
 }
 

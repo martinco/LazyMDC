@@ -127,6 +127,11 @@ $.when(
 
     // Nav Handling
     $('a.nav-link').not('.direct-link').click(function (e) {
+
+      // Save as if the user hit next, just to avoid editing say notes, hitting
+      // next, and it not saving when selecting html
+      save()
+
       e.preventDefault();
       window.location.hash = $(this).attr('href');
       $(this).tab('show');
@@ -139,12 +144,6 @@ $.when(
         itm.classList.remove('active');
       });
     });
-
-
-    // If we have a window ref select that tab
-    if (window.location.hash) { 
-      $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
-    }
 
     // Set forms autocomplete handlers
     (function() {
@@ -172,8 +171,13 @@ $.when(
               // Enable Next target
               var target = $(this).data('nav-target');
 
+              // If we're flight, heading to mission, then we enable all others
+              // and allow a freefor all selection 
+              if (target == "#mission") {
+                $("a.nav-link.disabled").removeClass('disabled');
+              }
+
               var nav = $("a.nav-link[href$=\"" + target + "\"]")
-              nav.removeClass('disabled');
               nav.tab('show');
 
               // If we aren't saving, we also don't want to spin through hashes

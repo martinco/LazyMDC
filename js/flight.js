@@ -36,6 +36,9 @@ $("#flight-airframe").change(function(e) {
   // Trigger event for other pages
   $('#flight-airframe').trigger('flight-airframe-changed');
 
+  // Save and unlock all components if successful
+  save({'callback': function() { $("a.nav-link.disabled").removeClass('disabled'); }})
+
 });
 
 $("input[name=flight-coord]").change(flight_update_coord)
@@ -215,11 +218,6 @@ function flightmembers_add(values) {
       html += `pattern="${pattern}" `
     }
 
-    // If we have a row, make sure it's got a pilot
-    if (title == 'PILOT') {
-      html += "required "
-    }
-
     html += `></td>`;
   }
 
@@ -339,15 +337,3 @@ function flight_load(data) {
   });
 
 }
-
-function flight_validate() {
-  if ($("#flight-members-table > tbody > tr").length == 0) {
-    $('#flight-alert-members-missing').fadeIn();
-    return false;
-  }
-
-  $('#flight-alert-members-missing').fadeOut();
-  return true;
-}
-
-
