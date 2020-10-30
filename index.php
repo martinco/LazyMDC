@@ -65,7 +65,7 @@
       <div style="position: absolute; margin: 0 auto; top:0px; height:48px; width:1050px; border-bottom: 1px solid #bdbdbd; background: #444">
         <?php if ($kneeboard_root != '/') { ?>
         <div style="padding-left: 215px; color:#ff0000; padding-top: .75rem; font-size:1rem;">
-          Development Build, use <a style="color: #ff0000" href="http://mdc.hatchlane.com">http://mdc.hatchlane.com</a>
+          Development Build, use <a style="color: #ff0000" href="http://dcs-mdc.com">http://dcs-mdc.com</a>
         </div>
         <?php } ?>
       </div>

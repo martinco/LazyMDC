@@ -7,6 +7,10 @@ Options +ExecCGI
 
 RewriteEngine on
 
+# If we're mdc.hatchlane.com, redirect to dcs-mdc.com
+RewriteCond %{HTTP_HOST} ^mdc.hatchlane.com$
+RewriteRule (.*) http://dcs-mdc.com/$1 [L,R,NE]
+
 # SET BASE to match our root; everything except a possible last element DC ID
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
 RewriteRule ^(.*)$ - [E=BASE:%1]
