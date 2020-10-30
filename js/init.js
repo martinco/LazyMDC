@@ -68,9 +68,10 @@ $.when(
   tinymce.init({
     selector: 'textarea.mce',
     plugins: [
-      'table',
-      'pagebreak',
       'autoresize',
+      'image',
+      'pagebreak',
+      'table',
     ],
     toolbar: "undo redo pastetext | fontselect | fontsizeselect",
     content_css: "tinymce.css",
