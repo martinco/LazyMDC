@@ -238,8 +238,9 @@ $.when(
         .done(function(data) {
           load(data)
 
-          // Request hash
-          var request_hash = window.location.hash
+          // Store the original request hash
+          var request_hash = window.location.hash;
+          console.log(request_hash)
 
           // Try and click "Next..." through each of the pages to validate,
           // before moving to the selected page on save
@@ -267,9 +268,9 @@ $.when(
             }
           });
           
-          // If we have a current_page, move to it
+          // If we the request had a hash, go to that page
           if (request_hash) {
-            window.location.hash = request_hash
+            window.location.hash = request_hash;
             $("a.nav-link[href$=\"" + request_hash + "\"]").tab('show');
           }
 
@@ -284,6 +285,9 @@ $.when(
     } else {
       // Display main content
       $("#main-page").show()
+
+      // Show page if we have one 
+      $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
 
       // Fade out Loader
       $("#loader-container").fadeOut("fast");
