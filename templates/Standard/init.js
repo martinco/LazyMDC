@@ -720,7 +720,7 @@ var Page = function(data, unit, id) {
 
   // Page DIV container fixed 1200px 
   // this.page = $(`<div id="page${this.id}" style="height:1200px; background:${"#"+((1<<24)*Math.random()|0).toString(16)}"></div>`);
-  this.page = $(`<div id="page${this.id}" style="position: absolute; top: ${(id-1)*1200}px; height:100%; width: 760px"></div>`);
+  this.page = $(`<div id="page${this.id}" style="position: absolute; top: ${(id-1)*1200}px; height:100%; width: 780px"></div>`);
 
   // Content is the entire page (inc. header)
   this.content = $(`<div class="content"></div>`);
