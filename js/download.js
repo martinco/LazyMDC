@@ -58,8 +58,8 @@ function download(format) {
     callback_args: [format, template],
   }
 
-  // for links, we want to force save a snapshot
-  if (["lnk"].includes(format)) {
+  // lets be protective - force save a snapshot
+  if (["lnk", "png", "pdf"].includes(format)) {
     save_params["new_id"] = true
     save_params["force"] = true
   }
