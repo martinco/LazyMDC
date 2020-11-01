@@ -7,11 +7,12 @@ chmod 755 "$TEMPDIR"
 
 git archive HEAD | tar x -C "$TEMPDIR"
 
-rsync -aq --progress \
+rsync -rlDq \
   --delete \
   --exclude /venv \
   --exclude /install \
-  --exclude /mdcs \
+  --exclude '/mdcs/*.json' \
+  --include /mdcs/.htaccess \
   --exclude /docs \
  "$TEMPDIR"/  /var/www/vhosts/mdc.hatchlane.com/httpdocs/
 

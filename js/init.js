@@ -235,7 +235,8 @@ $.when(
     // If we are loading a saved MDC, try to load that 
     var mdc_key = get_key()
     if (mdc_key) {
-      $.getJSON('mdcs/' + mdc_key + '.json')
+      var dt = (new Date()).getTime();
+      $.getJSON('mdcs/' + mdc_key + '.json?' + dt)
         .done(function(data) {
           load(data)
 
