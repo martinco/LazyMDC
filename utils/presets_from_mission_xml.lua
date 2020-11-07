@@ -124,6 +124,13 @@ for ac, freqs in pairs(output) do
         else
           output[ac][freq] = "MAN"
         end
+      elseif ac == 'F-16C' then
+        -- F-16C has UHF (COMM1) and VHF (COMM2) so name accordingly
+        if sets["1"] ~= nil then
+          output[ac][freq] = "U-"..sets["1"]
+        elseif sets["2"] ~= nil then
+          output[ac][freq] = "V-"..sets["2"]
+        end
       else
         for k,v in ipairs{"1", "2"} do
           if sets[v] == nil then

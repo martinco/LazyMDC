@@ -103,17 +103,29 @@ function lookup_preset(value) {
     return ""
   }
 
-  var float_val = parseFloat(value).toFixed(3)
+  var float_val = parseFloat(value);
+  var float_str = float_val.toFixed(3)
   var type = $("#flight-airframe").val();
   var mission = $('#data-mission').val();
   var presets = mission_data[mission]['presets'][type];
 
-  if (presets && presets[float_val]) {
-    return presets[float_val];
+  if (presets && presets[float_str]) {
+    return presets[float_str];
   }
 
   if (type == 'FA-18C') {
     return "MAN"
+  } else if (type == 'F-16C') {
+    if (float_val >= 225 && float_val < 400) {
+      return "U-M";
+    }
+    if (float_val >= 30 && float_val < 88) {
+      return "V-M"; // VHF FM
+    }
+    if (float_val >= 108 && float_val < 152) {
+      return "V-M"; // VOR (108-118) / ATC AM (118-137) / Also upto 151.9
+    }
+    return "-";
   }
 
   return "M";
