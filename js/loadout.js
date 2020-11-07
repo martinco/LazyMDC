@@ -1,4 +1,6 @@
 
+loadout_validation = false
+
 // Process new Combat Flite
 $(document).on('flight-airframe-changed', function(e) {
 
@@ -265,7 +267,51 @@ function loadout_set(opts) {
     // Set current weight
     var option = $("option:selected", this);
     var weight = option.data('pyl-weight') || 0;
+    var select = option.closest('select')
     option.closest('tr').find('td:last').html(weight.toFixed() || "");
+
+    // Some airframes like the m2k have loadout restrictions so we do them
+    // here, we set loadout_validation to true to avoid a recursive loop on the
+    // changed() event we want to call to update the weight values etc.
+    
+    if (!loadout_validation) {
+      if (type == 'M-2000C') {
+
+        loadout_validation = true
+
+        var pylon_id = select.data('pyl-name');
+        var pylon_store = select.val();
+        var pylon_clsid = option.data('pyl-clsid')
+
+        // Paired Elements
+        var fuselage_pylons = [3, 4, 6, 7];
+        var paired_pylons = [1,2,8,9];
+
+        // Handle the 4 fuselage pylon rules
+        if (fuselage_pylons.includes(pylon_id)) {
+          for (var m of fuselage_pylons) {
+            if (m == pylon_id) { continue; }
+
+            // Normally, all 4 stores are the same, but if we select GBU, then
+            // only 3 and 7 stay selected, and we de-select the other two
+            var target_item = pylon_store;
+            if (pylon_clsid == '{DB769D48-67D7-42ED-A2BE-108D566C8B1E}' && [4,6].includes(m)) {
+              target_item = ""
+            }
+
+            $("select[data-pyl-name='"+m+"']").val(target_item).change();
+          }
+        } else if (paired_pylons.includes(pylon_id)) {
+          // We just make the reciprical pylon match
+          $("select[data-pyl-name='"+(Math.abs(pylon_id-10))+"']").val(pylon_store).change();
+        }
+
+        loadout_validation = false
+      }
+
+      // Return here so we don't run loadout_update_weight several times in a row
+      return
+    }
 
     // Add up all selected weights and update total
     loadout_update_weight()
@@ -309,6 +355,11 @@ function loadout_export() {
   if (type_data['cvn']) {
     ret['weights']['mtow_cvn'] = type_data['mtow_cvn'];
     ret['weights']['mlw_cvn'] = type_data['mlw_cvn'];
+  }
+
+  if (type_data['vtol']) {
+    ret['weights']['mtow_vtol'] = type_data['mtow_vtol'];
+    ret['weights']['mlw_vtol'] = type_data['mlw_vtol'];
   }
 
   return ret

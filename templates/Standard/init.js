@@ -467,6 +467,10 @@ var Loadout = function(data, unit) {
           html += `
             <th class="text-center">FIELD</th>
             <th class="text-center">CVN</th>`;
+        } else if (data.loadout.weights.mtow_vtol) {
+          html += `
+            <th class="text-center">ROLLING</th>
+            <th class="text-center">VTOL</th>`;
         } else {
           html += `<th colspan=2 class="text-center">FIELD</th>`;
         }
@@ -476,13 +480,14 @@ var Loadout = function(data, unit) {
             <th class="text-center">MAX T/O</th>
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_cvn'])}</td>`;
+        } else if (data.loadout.weights.mtow_vtol) {
+          html += `
+            <th class="text-center">${single_max ? 'MAX' : 'MAX T/O'}</th>
+            <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
+            <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_vtol'])}</td>`;
         } else {
-          if (single_max) {
-            html += `<th class="text-center">MAX</th>`;
-          } else {
-            html += `<th class="text-center">MAX T/O</th>`;
-          }
-          html += `<td colspan=2 class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>`;
+          html += `<th class="text-center">${single_max ? 'MAX' : 'MAX T/O'}</th>
+                    <td colspan=2 class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>`;
         }
       } else if (n == loop_count-mtow_rows+2) {
         html += `<th class="text-center">MAX LDG</th>`;
