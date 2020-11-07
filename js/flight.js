@@ -96,14 +96,28 @@ function flightmembers_items(ac) {
 
   var cols = [
     ["#", 30, "", "text", ""],
-    ["PILOT", 240, "", "text", "^.+$"],
+    ["PILOT", 0, "", "text", "^.+$"],
   ];
 
   if (ac == "F-14B") {
-    cols[1][1] /= 2;
     cols.push(
-      ['RIO', 120, "", "text"])
+      ['RIO', 0, "", "text"])
   };
+
+  // The following airframes have a choice between NVGs and HMD
+  if (['FA-18C', 'F-16C'].includes(ac)) {
+    cols.push(
+      ['HM DEVICE', 100, "text-center", "select", ["JHMCS", "NVGs"]],
+    )
+  } else if (ac == 'Ka-50') {
+    cols.push(
+      ['HM DEVICE', 100, "text-center", "select", ["HMS", "NVGs"]],
+    )
+  } else if (ac == 'AV8BNA') {
+    cols.push(
+      ['HM DEVICE', 100, "text-center", "select", ["NVGs", "Visor"]],
+    )
+  }
 
   if (["F-14B", "FA-18C"].includes(ac)) {
     cols.push(
@@ -129,7 +143,6 @@ function flightmembers_items(ac) {
 
   cols.push(
     ['SQUAWK', 80, "text-center", "number"],
-    ['NOTES', 0, "", "text"],
   );
 
   return cols;
@@ -207,18 +220,32 @@ function flightmembers_add(values) {
     // Remove right hand border for delete icon to be pretty
     var cls_append = col == last_col_id ? " border-right-0" : ""
 
-    // Hide spinner as it takes up valuable space
-    if (typ == "number") {
-      cls += " nospin"
+    if (typ == "select") {
+    
+      html += `<td class="input-container${cls_append}">
+                <select class="input-full ${cls}">`;
+
+      for (var itm of pattern) {
+        html += `<option${itm == value ? ' selected' : ''}>${itm}</option>`;
+      }
+      html += `</select></td>`;
+
+    } else {
+
+      // Hide spinner as it takes up valuable space
+      if (typ == "number") {
+        cls += " nospin"
+      }
+
+      html += `<td class="input-container${cls_append}"><input type="${typ}" class="input-full ${cls}" value="${value}" `
+
+      if (pattern) {
+        html += `pattern="${pattern}" `
+      }
+
+      html += `></td>`;
     }
 
-    html += `<td class="input-container${cls_append}"><input type="${typ}" class="input-full ${cls}" value="${value}" `
-
-    if (pattern) {
-      html += `pattern="${pattern}" `
-    }
-
-    html += `></td>`;
   }
 
   html += `

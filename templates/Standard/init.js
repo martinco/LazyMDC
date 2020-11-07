@@ -220,6 +220,10 @@ function Flight(data, unit) {
         ['RIO', 0, "lp5"])
     }
 
+    if (data['flight']['members'][0] && data['flight']['members'][0]['hm device']) {
+      cols.push(['HM DEVICE', 80, "text-center"]);
+    }
+
     if (["F-14B", "FA-18C"].includes(ac)) {
       cols.push(['BORT', 60, "text-center"])
     }
@@ -239,12 +243,6 @@ function Flight(data, unit) {
     }
 
     cols.push(['SQUAWK', 60, "text-center"]);
-
-    // We include notes on baby lines
-    if (["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
-      cols.push(['NOTES', 381, "text-center"]);
-    }
-
 
     return cols;
   })();
