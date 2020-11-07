@@ -2767,6 +2767,10 @@
         }
       },
       "4": {
+        "AGM-88C": {
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
+          "weight": 361
+        },
         "CBU-87": {
           "clsid": "{CBU-87}",
           "weight": 430
@@ -2883,6 +2887,10 @@
         }
       },
       "6": {
+        "AGM-88C": {
+          "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
+          "weight": 361
+        },
         "CBU-87": {
           "clsid": "{CBU-87}",
           "weight": 430
