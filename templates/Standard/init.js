@@ -787,7 +787,7 @@ function RAMROD(data, unit) {
   this.table = function() {
     html = `
       <div style="overflow: auto">
-        <div style="float: left; width: 509${unit}">
+        <div style="float: left; width: 529${unit}">
           <table style="width: 100%; table-layout: fixed">
             <colgroup>
               <col  />
