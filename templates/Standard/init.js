@@ -667,25 +667,52 @@ var Sequence = function(data, unit) {
   var data = data;
   var unit = unit;
 
-  this.force_newpage_after = false
+  this.force_newpage_after = false;
+
+  this.show_notes = false;
+
+  if  (data.waypoint.sequence)  {
+    for (var elem of data.waypoint.sequence) {
+      var seq = elem['seq'].replace(/^\s+|\s+$/g, ''); 
+      var notes = elem['notes'].replace(/^\s+|\s+$/g, '');
+
+      if (seq && notes) {
+        this.show_notes = true;
+        break;
+      }
+    }
+  }
 
   this.table = function () {
-    return $(`
-      <table class="kb-width" style="table-layout: fixed">
+
+    var html = `
+      <table class="kb-width">
         <colgroup>
           <col style="width:20${unit}" />
-          <col />
-          <col />
+          <col />`;
+
+    if (this.show_notes) {
+      html += `<col />`;
+    }
+
+    html += `
         </colgroup>
 
         <tbody>
           <tr>
             <th>ID</th>
-            <th>SEQ</th>
-            <th>NOTES</th>
+            <th>SEQ</th>`;
+
+    if (this.show_notes) {
+      html += `<th>NOTES</th>`;
+    }
+
+    html += `
           </tr>
         </tbody>
-      </table>`)
+      </table>`;
+
+    return $(html);
   };
 
   this.content = (function() {
@@ -703,13 +730,19 @@ var Sequence = function(data, unit) {
       if (seq || notes) {
         non_empty++;
       }
-      
-      content.push($(`
+
+      var html = `
         <tr>
           <td class="text-center">${elem['id']}</td>
-          <td class="text-center">${seq}</td>
-          <td class="lp5">${notes}</td>
-        </tr>`));
+          <td class="text-center">${seq}</td>`;
+
+      if (this.show_notes) {
+        html += `<td class="lp5" style="max-width:300px; min-width:150px">${notes}</td>`;
+      }
+
+      html += `</tr>`;
+      
+      content.push($(html));
     }
 
     // Hide content if empty
@@ -718,7 +751,7 @@ var Sequence = function(data, unit) {
     }
 
     return content
-  })();
+  }.bind(this))();
 }
 
 var Page = function(data, unit, id) {
