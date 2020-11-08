@@ -66,8 +66,12 @@ function waypoint_update() {
     // from last point to this
     if (last_point) {
 
-      // Get Distance / Azimuth
+      // If we have no ground speed, we're not going anywhere, so abort
+      if (isNaN(gs) || gs == 0) {
+        return
+      }
 
+      // Get Distance / Azimuth
       var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
       var distance = (r.s12/1852);
 
