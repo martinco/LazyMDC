@@ -6,6 +6,7 @@ $('#package-add-member').click(function() {
   package_add();
 });
 
+
 function package_add(vals) {
 
   var values = new Proxy(vals || {}, {
@@ -32,6 +33,7 @@ function package_add(vals) {
   var last = $("#package-members-table > tbody > tr:last");
 
   freq_autocomplete(last[0].cells[2].firstChild);
+  tcn_formatter(last[0].cells[3].firstChild);
 
   feather.replace()
 

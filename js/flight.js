@@ -132,7 +132,7 @@ function flightmembers_items(ac) {
 
   if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
     cols.push(
-      ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$'],
+      ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$', function(field) { tcn_formatter(field); } ],
     );
   }
 
@@ -160,7 +160,7 @@ function flightmembers_format() {
   var last = cols.length - 1;
 
   for (col in cols) {
-    var [title, width, cls, typ, pattern] = cols[col]
+    var [title, width, cls, typ, pattern, setup_fnc] = cols[col]
 
     if (width) {
       colgroup += `<col style="width: ${width}px" />`
@@ -204,7 +204,7 @@ function flightmembers_add(values) {
   var last_col_id = cols.length - 1;
 
   for (col in cols) {
-    var [title, width, cls, typ, pattern] = cols[col]
+    var [title, width, cls, typ, pattern, setup_fnc] = cols[col]
     var value_id = title.toLowerCase()
 
     elems[title] = col;
@@ -260,6 +260,14 @@ function flightmembers_add(values) {
   $("#flight-members-table > tbody").append(html);
 
   var new_last_row = $("#flight-members-table > tbody > tr:last");
+
+  // Handle Setup Functions
+  for (col in cols) {
+    var [title, width, cls, typ, pattern, setup_fnc] = cols[col]
+    if (setup_fnc) {
+      setup_fnc(new_last_row[0].cells[col].firstChild);
+    }
+  }
 
   if (first_row[0] != undefined) {
     var first_tcn = first_row[0].cells[elems['TCN']].firstChild.value.match(/^([0-9]+)(.*)/);

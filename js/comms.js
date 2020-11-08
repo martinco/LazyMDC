@@ -71,6 +71,7 @@ function comms_add(opts) {
 
   // Setup
   agency_autocomplete(last[0].cells[0].firstChild, [1,2,4])
+  tcn_formatter(last[0].cells[1].firstChild)
 
   feather.replace()
 

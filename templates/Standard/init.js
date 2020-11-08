@@ -235,7 +235,7 @@ function Flight(data, unit) {
     }
 
     if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
-      cols.push(['TCN', 60, "text-center"]);
+      cols.push(['TCN', 60, "text-right rp5"]);
     }
 
     if (!["UH-1H", "Mi-8MT"].includes(ac)) {
@@ -315,7 +315,7 @@ function Package(data, unit) {
           <col style="width:100${unit}" />
           <col style="width:140${unit}" />
           <col style="width:80${unit}" />
-          <col style="width:45${unit}" />
+          <col style="width:60${unit}" />
           <col style="width:45${unit}" />
           <col style="" />
         </colgroup>
@@ -351,7 +351,7 @@ function Package(data, unit) {
           <td class="lp5">${member['callsign']}</td>
           <td class="lp5">${member['aircraft']}</td>
           <td class="text-center text-bold">${member['freq']}</td>
-          <td class="text-center text-bold">${member['tcn']}</td>
+          <td class="text-right rp5 text-bold">${member['tcn']}</td>
           <td class="lp5">${member['idm']}</td>
           <td class="lp5">${member['mission']}</td>
         </tr>`))
@@ -861,7 +861,7 @@ function DepArr(data, unit) {
         <colgroup>
           <col style="width:37${unit}" />
           <col />
-          <col style="width:50${unit}" />
+          <col style="width:60${unit}" />
 
           <col style="width:75${unit}" />
           <col class="" style="width:49${unit}" />
@@ -912,7 +912,7 @@ function DepArr(data, unit) {
           <tr>
             <td class="text-center">${x.toUpperCase()}</td>
             <td class="lp5 overflow-hidden">${elem.location}</td>
-            <td class="text-center text-bold">${elem.tcn}</td>
+            <td class="text-right rp5 text-bold">${elem.tcn}</td>
 
             <td class="text-center text-bold rb0">${elem.atis}</td>
             <td class="text-center lb0 text-pst text-bottom">${elem['atis-pst']}</td>
@@ -974,7 +974,7 @@ function Agencies (data, unit) {
       var elem_html = `
         <tr>
           <td class="overflow-hidden">${elem['agency']}</td>
-          <td class="text-center text-bold">${elem['tcn']}</td>`;
+          <td class="text-right rp5 text-bold">${elem['tcn']}</td>`;
 
       if (elem['pri'].startsWith('MIDS')) {
         elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['pri']}</td>`;

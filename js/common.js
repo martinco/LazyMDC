@@ -131,6 +131,19 @@ function lookup_preset(value) {
   return "M";
 }
 
+
+function tcn_formatter(field) {
+  $(field).on('change', function(x) {
+    var tgt = x.target;
+
+    var tcn = tgt.value.match(/^([0-9]+)\s*(X|Y)$/i);
+    if (tcn) {
+      tgt.value = tcn[1] + ' ' + tcn[2].toUpperCase();
+    }
+  });
+}
+
+
 function get_key() {
   var mdc_key = window.location.pathname.replace(kneeboard_root, '')
   if (/^[0-9a-zA-Z]{8}$/.test(mdc_key)) {
