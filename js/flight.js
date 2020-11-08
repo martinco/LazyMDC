@@ -104,6 +104,14 @@ function flightmembers_items(ac) {
       ['RIO', 0, "", "text"])
   };
 
+  // F/A-18C additional flight / element comms 
+  if (ac == "FA-18C") {
+    cols.push(
+      ['MIDS A', 60, "text-center", "number"],
+      ['MIDS B', 60, "text-center", "number"])
+  };
+
+
   // The following airframes have a choice between NVGs and HMD
   if (['FA-18C', 'F-16C'].includes(ac)) {
     cols.push(
@@ -289,7 +297,7 @@ function flightmembers_add(values) {
     } catch(e) {}
   }
 
-  var persists = ['GID']
+  var persists = ['GID', 'MIDS A', 'MIDS B'];
   for (persist in persists) {
     if (arguments[elems[persists[persist]]]) {
       continue

@@ -224,6 +224,14 @@ function Flight(data, unit) {
         ['RIO', 0, "lp5"])
     }
 
+    if (data['flight']['members'][0] && data['flight']['members'][0]['mids a']) {
+      cols.push(['MIDS A', 60, "text-center"]);
+    }
+
+    if (data['flight']['members'][0] && data['flight']['members'][0]['mids b']) {
+      cols.push(['MIDS B', 60, "text-center"]);
+    }
+
     if (data['flight']['members'][0] && data['flight']['members'][0]['hm device']) {
       cols.push(['HM DEVICE', 80, "text-center"]);
     }
