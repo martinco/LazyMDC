@@ -96,6 +96,10 @@ function alt_formatter(data, alt) {
 }
 
 function gs_formatter(gs) {
+  var float_val = parseFloat(gs);
+  if (isNaN(float_val)) {
+    return "";
+  }
   return (Math.round(parseFloat(gs) / 5)*5).toFixed(0);
 }
 
