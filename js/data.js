@@ -84,10 +84,11 @@ function data_process_cf(xml) {
       }
       aircraft = "F-14B"
 
-    // A-10 Variants: A-10A, A-10C
+    // A-10 Variants: A-10A, A-10C, A-10C_2 (which is same as a10c for this
+    // generator)
     } else if (aircraft.startsWith("A-10")) {
-      if (aircraft != 'A-10C') {
-        route_append = " - Select A-10C in CF for loadout";
+      if (!aircraft.startsWith('A-10C')) {
+        route_append = " - Select A-10C or A-10C_2 in CF for loadout";
         load_loadout = false;
       }
       aircraft = "A-10C"
