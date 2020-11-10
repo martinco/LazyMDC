@@ -63,7 +63,7 @@ function data_process_cf(xml) {
     // F-16 Varianats: F-16A, F-16A MLU, F-16C bl.50, F-16C bl.52 F-16C_50
     if (aircraft.startsWith("F-16")) {
       if (aircraft != 'F-16C_50') {
-        route_append = " - route only - Select F-16C_50 in CF for loadout";
+        route_append = " - Select F-16C_50 in CF for loadout";
         load_loadout = false;
       }
       aircraft = "F-16C"
@@ -71,7 +71,7 @@ function data_process_cf(xml) {
     // F-18C Variants: F/A-18C, FA-18C_hornet
     } else if (aircraft == 'F/A-18C' || aircraft == 'FA-18C_hornet') {
       if (aircraft != 'FA-18C_hornet') {
-        route_append = " - route only - Select FA-18C_hornet in CF for loadout";
+        route_append = " - Select FA-18C_hornet in CF for loadout";
         load_loadout = false;
       }
       aircraft = "FA-18C"
@@ -79,7 +79,7 @@ function data_process_cf(xml) {
     // F-14 Variants: F-14A, F-14B
     } else if (aircraft.startsWith("F-14")) {
       if (aircraft != 'F-14B') {
-        route_append = " - route only - select F-14B in CF for loadout";
+        route_append = " - select F-14B in CF for loadout";
         load_loadout = false;
       }
       aircraft = "F-14B"
@@ -87,7 +87,7 @@ function data_process_cf(xml) {
     // A-10 Variants: A-10A, A-10C
     } else if (aircraft.startsWith("A-10")) {
       if (aircraft != 'A-10C') {
-        route_append = " - route only - Select A-10C in CF for loadout";
+        route_append = " - Select A-10C in CF for loadout";
         load_loadout = false;
       }
       aircraft = "A-10C"
@@ -105,10 +105,11 @@ function data_process_cf(xml) {
 
     // Store so we can fire the event
     route_data[name] = {
-      side: side,
       aircraft: aircraft,
+      side: side,
       task: task,
       units: units,
+      use_loadout: load_loadout,
       xml: route_xml
     }
 
@@ -262,6 +263,12 @@ $("#data-route-dialog-submit").click(function(e, data) {
   // Store the route on the flight-aircraft
   var mission_route = $('#data-route-dialog-waypoints').val()
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
+
+  // If we have unchecked the use-loadout checkbox, update our mission route data and submit
+  if (!$("#data-route-dialog-use-loadout").is(':checked')) {
+    mission_route_data.use_loadout = false;
+  }
+
   $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
 
   // Store the route for poi

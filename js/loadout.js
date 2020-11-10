@@ -1,12 +1,19 @@
 
-loadout_validation = false
+loadout_validation = false;
+loadout_type = undefined;
 
 // Process new Combat Flite
 $(document).on('flight-airframe-changed', function(e) {
 
-  loadout_set({
-    'pylons': get_loadout_from_xml($('#flight-airframe').data('route')),
-  });
+  var route_data = $('#flight-airframe').data('route');
+
+  if (route_data && route_data.use_loadout) {
+    loadout_set({
+      'pylons': get_loadout_from_xml(route_data),
+    })
+  } else {
+    loadout_set();
+  }
 
 });
 
@@ -147,14 +154,23 @@ function get_pylon_options(type, name, val = "") {
 
 function loadout_set(opts) {
 
-  // we don't want to modify opts, so clone it
-  opts = opts || {}
-  opts = jQuery.extend(true, {}, opts)
-
   var type = $('#flight-airframe').val();
   if (!type) {
     return;
   }
+
+  var type_changed = type !== loadout_type;
+  loadout_type = type;
+
+  // If we are maintaining the same type of aircraft, we try and preserve the
+  // loadout by default, this is useful if for instance we select a new route
+  // and uncheck select loadout from route
+  
+  opts = opts || {
+    'pylons': type_changed ? [] : loadout_get_pylons(),
+  }
+
+  opts = jQuery.extend(true, {}, opts)
 
   // Copy our default and merge our opts
   var values = jQuery.extend(true, {}, airframes[type])
@@ -324,14 +340,13 @@ function loadout_set(opts) {
 
 }
 
-function loadout_export() {
-  var ret = get_form_data($("#loadout-form"));
-  ret['pylons'] = []
+function loadout_get_pylons() {
+  var pylons = [];
 
   // Load our pylons separately, as we want more data
   $("#loadout-pyl-table .pylon-select").each(function(idx, select) {
     var itm = select.options[select.selectedIndex];
-    ret['pylons'].push({
+    pylons.push({
       'pyl': select.getAttribute('data-pyl-name'),
       'store': select.options[select.selectedIndex].textContent,
       'weight': Math.round(itm.getAttribute('data-pyl-weight')*2.20462),
@@ -339,6 +354,13 @@ function loadout_export() {
     })
   });
 
+  return pylons;
+
+}
+
+function loadout_export() {
+  var ret = get_form_data($("#loadout-form"));
+  ret['pylons'] = loadout_get_pylons();
 
   var type_data = airframes[$('#flight-airframe').val()];
 

@@ -242,7 +242,6 @@ $.when(
 
           // Store the original request hash
           var request_hash = window.location.hash;
-          console.log(request_hash)
 
           // Try and click "Next..." through each of the pages to validate,
           // before moving to the selected page on save

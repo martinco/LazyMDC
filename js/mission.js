@@ -4,8 +4,6 @@ $(document).on('flight-airframe-changed', function(e) {
   var route = $('#flight-airframe').data('route');
   if (!route) { return }
 
-  console.log(route)
-
   $('#mission-id').val(route.xml.querySelector('MSNnumber').textContent)
 
 });

@@ -57,6 +57,7 @@
         <p>
         The data from combat flite will help populate various fields to save you time, including:
         <ul>
+          <li>Mission ID</li>
           <li>Walk Time</li>
           <li>Coalition's Bullseye</li>
         </ul>
@@ -79,6 +80,11 @@
             <select id="data-route-dialog-waypoints" class="form-control">
               <option value="" selected>None</option>
             </select>
+
+            <div class="form-check">
+                <input class="form-check-input" id="data-route-dialog-use-loadout" type="checkbox" checked>
+                <label class="form-check-label" for="data-route-dialog-use-loadout">Use Loadout from route</label>
+            </div>
           </div>
 
           <div class="form-group" id="data-route-dialog-poi-container">
