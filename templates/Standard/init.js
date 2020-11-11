@@ -224,15 +224,15 @@ function Flight(data, unit) {
         ['RIO', 0, "lp5"])
     }
 
-    if (data['flight']['members'][0] && data['flight']['members'][0]['mids a']) {
+    if (data['flight']['members'][0] && data['flight']['members'][0]['mids a'] !== undefined) {
       cols.push(['MIDS A', 60, "text-center"]);
     }
 
-    if (data['flight']['members'][0] && data['flight']['members'][0]['mids b']) {
+    if (data['flight']['members'][0] && data['flight']['members'][0]['mids b'] !== undefined) {
       cols.push(['MIDS B', 60, "text-center"]);
     }
 
-    if (data['flight']['members'][0] && data['flight']['members'][0]['hm device']) {
+    if (data['flight']['members'][0] && data['flight']['members'][0]['hm device'] !== undefined) {
       cols.push(['HM DEVICE', 80, "text-center"]);
     }
 
