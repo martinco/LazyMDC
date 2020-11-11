@@ -47,6 +47,11 @@ class CDU_DataLoader():
             lat = self.fmt_ll(wp['lat'])
             lon = self.fmt_ll(wp['lon'], False)
 
+            try:
+                alt = int(wp['alt'])
+            except ValueError:
+                alt = 0
+
             if not lat or not lon:
                 continue
 
@@ -74,7 +79,7 @@ class CDU_DataLoader():
             self.content += "{} {} EL{:05} {} {:12}\n".format(
                 lat,
                 lon,
-                int(wp['alt']),
+                alt,
                 'T' + wp['tot'].replace(':', '') + '00',
                 name)
 
