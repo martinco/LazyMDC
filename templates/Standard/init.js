@@ -632,6 +632,7 @@ var POI = function(data, unit) {
   var data = data;
   var unit = unit;
 
+  this.breakable = true;
   this.force_newpage_after = false
 
   this.table = function () {
@@ -669,6 +670,13 @@ var POI = function(data, unit) {
     }
     return content
   })();
+
+  this.on_break = function() {
+    // Normally we force a page break after poi to ensure waypoints expand, but
+    // if we've broken, we don't want to do this to avoid the possibility of an
+    // empty page at the end
+    this.force_newpage_after = false
+  }
 }
 
 var Sequence = function(data, unit) {
