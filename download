@@ -42,6 +42,14 @@ class CDU_DataLoader():
     def generate(self):
 
         for wp in self._waypoints:
+
+            # Skip waypoints that have empty floats
+            lat = self.fmt_ll(wp['lat'])
+            lon = self.fmt_ll(wp['lon'], False)
+
+            if not lat or not lon:
+                continue
+
             # We prefix the name with M to help ensure no collisions in game
             # waypoints are limited to 12 characters, so we truncate
             name = ("M " + wp['name'])[0:12].strip()
@@ -64,14 +72,18 @@ class CDU_DataLoader():
             #
             # E.g: Racetrack followed by Race
             self.content += "{} {} EL{:05} {} {:12}\n".format(
-                self.fmt_ll(wp['lat']),
-                self.fmt_ll(wp['lon'], False),
+                lat,
+                lon,
                 int(wp['alt']),
                 'T' + wp['tot'].replace(':', '') + '00',
                 name)
 
     def fmt_ll(self, wp, lat=True):
-        work = float(wp)
+
+        try:
+            work = float(wp)
+        except ValueError:
+            return None
 
         positive = work > 0
         work = abs(work)
