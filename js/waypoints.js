@@ -110,7 +110,7 @@ function waypoint_update() {
 
 
 function waypoint_add(wp_info) {
-
+ 
   var data = {
       'typ': 'WP',
       'name': '',
@@ -119,6 +119,17 @@ function waypoint_add(wp_info) {
       'lat': '',
       'lon': '',
       'act': '',
+  }
+
+  // Try and get airframe defulat GS / ALT if set
+  var type = $('#flight-airframe').val()
+  if (type && airframes[type]) {
+    if (airframes[type]['cruise_gs']) {
+      data['gs'] = airframes[type]['cruise_gs']
+    }
+    if (airframes[type]['cruise_alt']) {
+      data['alt'] = airframes[type]['cruise_alt']
+    }
   }
   
   var last_row = $("#waypoints-table > tbody > tr:last")[0]
