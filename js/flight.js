@@ -14,14 +14,14 @@ $("#flight-airframe").change(function(e) {
   // Add one for convienience
   flightmembers_add();
 
-  // If the AC != AC in the route, blat route\
+  // If the AC != AC in the route, blat route, this avoids trying to re-apply
+  // loadouts from CF to another airframe on airframe change
+  
   var target = $(e.target)
   var type = target.val()
   var route = target.data('route');
-  if (route) {
-    if (type != route.aircraft) {
-      target.data('route', null);
-    }
+  if (route && route.xml_format == "cf" && type != route.aircraft) {
+    target.data('route', null);
   }
 
   // Update default coordinate format

@@ -315,3 +315,20 @@ function load(data) {
   disable_save = false;
 }
 
+
+function xml_createNSResolver(document) {
+  var ns = {};
+  if (document.documentElement) {
+    var attrs = document.documentElement.attributes;
+    for (var i = 0; i < attrs.length; ++i) {
+      if (attrs[i].name.indexOf("xmlns:") == 0) {
+        ns[attrs[i].name.substring(6)] = attrs[i].value;
+      }
+    }
+  }
+  var nsResolver = function nsResolver(prefix) {
+    return ns[prefix] || null;
+  };
+  nsResolver.lookupNamespaceURI = nsResolver;
+  return nsResolver;
+}

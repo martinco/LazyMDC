@@ -8,9 +8,9 @@
   <div class="form-group">
     <div class="custom-file">
       <div id='data-file-input-container'>
-        <input type="file" class="custom-file-input" id="data-file-input" accept=".cf,.json" onChange="data_load_file(this);">
+        <input type="file" class="custom-file-input" id="data-file-input" accept=".cf,.json,.kmz,.kml" onChange="data_load_file(this);">
       </div>
-      <label class="custom-file-label" for="validatedCustomFile">Combat Flite / Saved JSON</label>
+      <label class="custom-file-label" for="validatedCustomFile">Combat Flite / Google Earth / Saved JSON</label>
     </div>
     <small class="form-text text-muted">
       These are not uploaded or stored and are processed by your browser
@@ -53,26 +53,45 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body pb-0" id='data-route-dialog-ge'>
         <p>
-        The data from combat flite will help populate various fields to save you time, including:
-        <ul>
-          <li>Mission ID</li>
-          <li>Walk Time</li>
-          <li>Coalition's Bullseye</li>
-        </ul>
-
-        If you select your mission route, you'll also get
-
+        The data from Google Earth only supports the importing of waypoint
+        information
         <br>
         <br>
-
-        <ul>
-          <li>Aircraft Type and Stores</li>
-          <li>Mission Waypoints</li>
-        </ul>
-
+        You will need to manually set any speeds / alts as required as we don't
+        know the airframe yet (next page) to pick suitable defaults when using
+        Google Earth data
+        <br>
+        <br>
+        If you see far too many items in the route, select the route(s) in GE
+        and right click "Save Place As"
         </p>
+      </div>
+      <div class="modal-body pb-0" id='data-route-dialog-cf'>
+        <p>
+          The data from combat flite will help populate various fields to save
+          you time, including:
+
+          <ul>
+            <li>Mission ID</li>
+            <li>Walk Time</li>
+            <li>Coalition's Bullseye</li>
+          </ul>
+
+          If you select your mission route, you'll also get
+
+          <br>
+          <br>
+
+          <ul>
+            <li>Aircraft Type and Stores</li>
+            <li>Mission Waypoints</li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="modal-body">
 
         <form>
           <div class="form-group">
@@ -81,7 +100,7 @@
               <option value="" selected>None</option>
             </select>
 
-            <div class="form-check">
+            <div class="form-check" id='data-route-dialog-use-loadout-div'>
                 <input class="form-check-input" id="data-route-dialog-use-loadout" type="checkbox" checked>
                 <label class="form-check-label" for="data-route-dialog-use-loadout">Use Loadout from route</label>
             </div>

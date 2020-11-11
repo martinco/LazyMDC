@@ -110,7 +110,7 @@ function waypoint_update() {
 
 
 function waypoint_add(wp_info) {
-    
+
   var data = {
       'typ': 'WP',
       'name': '',
@@ -303,14 +303,33 @@ $('#flight-airframe').on('data-poi-updated', function(e) {
   }
 
   $('#waypoints-poi-table > tbody').empty()
-  route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
 
-    waypoint_add_poi({
-        'name': wp.querySelector('Name').textContent,
-        'lat': wp.querySelector('Lat').textContent,
-        'lon': wp.querySelector('Lon').textContent,
-    })
-  });
+  if (route.xml_format == "cf") {
+    route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
+      waypoint_add_poi({
+          'name': wp.querySelector('Name').textContent,
+          'lat': wp.querySelector('Lat').textContent,
+          'lon': wp.querySelector('Lon').textContent,
+      })
+    });
+  } else if (route.xml_format == "ge") {
+    var coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
+    var x = 1;
+    for (var coord of coords) {
+      coord = coord.trim();
+      if (!coord) {
+        continue;
+      }
+
+      var [lon,lat,alt] = coord.split(",");
+      waypoint_add_poi({
+          'name': "POI " + x,
+          'lat': lat,
+          'lon': lon,
+      });
+      x++;
+    }
+  }
 
 });
 
@@ -326,33 +345,59 @@ $('#flight-airframe').on('data-route-updated', function(e) {
   }
  
   $('#waypoints-table > tbody').empty()
-  route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
 
-    var waypoint_type = (function(waypoint_type) {
-      if (waypoint_type.startsWith('Take off')) {
-        return 'DEP'
+  if (route.xml_format == "cf") {
+    route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
+
+      var waypoint_type = (function(waypoint_type) {
+        if (waypoint_type.startsWith('Take off')) {
+          return 'DEP'
+        }
+        switch(waypoint_type) {
+          case 'Landing':
+            return 'ARR';
+          case 'Steerpoint':
+            return 'WP';
+          case 'Target':
+            return 'ST';
+        }
+        return waypoint_type
+      })(wp.querySelector('Type').textContent);
+        
+      waypoint_add({
+          'typ': waypoint_type,
+          'name': wp.querySelector('Name').textContent,
+          'gs': wp.querySelector('GS').textContent,
+          'alt': wp.querySelector('Altitude').textContent,
+          'lat': wp.querySelector('Lat').textContent,
+          'lon': wp.querySelector('Lon').textContent,
+          'act': wp.querySelector('Activity').textContent.split(':').splice(0,2).join(':'),
+      })
+    });
+  } else if (route.xml_format == "ge") {
+    var coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
+    var x = 1;
+    for (var coord of coords) {
+      coord = coord.trim();
+
+      if (!coord) {
+        continue;
       }
-      switch(waypoint_type) {
-        case 'Landing':
-          return 'ARR';
-        case 'Steerpoint':
-          return 'WP';
-        case 'Target':
-          return 'ST';
-      }
-      return waypoint_type
-    })(wp.querySelector('Type').textContent);
-      
-    waypoint_add({
-        'typ': waypoint_type,
-        'name': wp.querySelector('Name').textContent,
-        'gs': wp.querySelector('GS').textContent,
-        'alt': wp.querySelector('Altitude').textContent,
-        'lat': wp.querySelector('Lat').textContent,
-        'lon': wp.querySelector('Lon').textContent,
-        'act': wp.querySelector('Activity').textContent.split(':').splice(0,2).join(':'),
-    })
-  });
+
+      // update alt to nearest 10
+      var [lon,lat,alt] = coord.split(",");
+      alt = Math.round(alt * 0.328084) * 10;
+
+      waypoint_add({
+        'typ': x,
+        'name': "Waypoint " + x,
+        'lat': lat,
+        'lon': lon,
+        'alt': alt,
+      });
+      x++;
+    }
+  }
 });
 
 $("#waypoints-walk-time").change(function() {
