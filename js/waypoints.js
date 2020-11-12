@@ -52,65 +52,64 @@ function waypoint_update() {
 
   $('#waypoints-table > tbody > tr').each(function(idx, row) {
 
-    // If lat or lon are empty; we can't do any calculations for distance /
-    // time / tot so we just bail
-    var lat = row.cells[6].getAttribute('data-raw');
-    var lon = row.cells[7].getAttribute('data-raw');
-    if (lat == "" || lon == "") {
-      row.cells[4].innerHTML = "";
-      return
-    }
-
-    lat = parseFloat(lat)
-    lon = parseFloat(lon)
-
     // If we have a GS specified, use it; otherwise continue to use previous
     // gs. This allows someone to declutter and only specify when GS changes
     gs = row.cells[3].children[0].value ? parseInt(row.cells[3].children[0].value) : gs;
 
-    // If we have a last point, calculate distance + bearing from last point to
-    // this
-    if (last_point) {
+    // If lat or lon are empty; we can't do any calculations for distance /
+    // time / tot so we just bail
+    var lat = row.cells[6].getAttribute('data-raw');
+    var lon = row.cells[7].getAttribute('data-raw');
 
-      // Get Distance / Azimuth
-      var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
-      var distance = (r.s12/1852);
+    lat = parseFloat(lat)
+    lon = parseFloat(lon)
 
-      var azi = r.azi1;
-      if (azi < 0) {
-        azi += 360;
-      }
+    if (!isNaN(lat) && !isNaN(lon)) {
+      // If we have a last point, calculate distance + bearing from last point to
+      // this
+      if (last_point) {
 
-      // If we encounter a 0 ground speed, we're not going anywhere, so tot
-      // becomes invalid from here-on out
-      var duration_sec = 0
-      if (!isNaN(gs) && gs != 0) {
-        duration_sec = (distance / gs)*3600;
+        // Get Distance / Azimuth
+        var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
+        var distance = (r.s12/1852);
+
+        var azi = r.azi1;
+        if (azi < 0) {
+          azi += 360;
+        }
+
+        // If we encounter a 0 ground speed, we're not going anywhere, so tot
+        // becomes invalid from here-on out
+        var duration_sec = 0
+        if (!isNaN(gs) && gs != 0) {
+          duration_sec = (distance / gs)*3600;
+        } else {
+          tot_valid = false;
+        }
+
+        tot += duration_sec
+
+        row.cells[8].innerHTML = distance.toFixed(1);
+        row.cells[9].innerHTML = azi.toFixed(0);
+
       } else {
-        tot_valid = false;
+        row.cells[8].innerHTML = "";
+        row.cells[9].innerHTML = "";
       }
 
-      tot += duration_sec
+      // Set TOT
+      row.cells[4].innerHTML = tot_valid ? get_time_from_seconds(tot) : '';
 
-      row.cells[8].innerHTML = distance.toFixed(1);
-      row.cells[9].innerHTML = azi.toFixed(0);
-
-    } else {
-      row.cells[8].innerHTML = "";
-      row.cells[9].innerHTML = "";
+      // Update last point
+      last_point = {
+        lat: lat,
+        lon: lon,
+      }
     }
-
-    // Set TOT
-    row.cells[4].innerHTML = tot_valid ? get_time_from_seconds(tot) : '';
 
     // Add activity time to tot
     tot += get_seconds_from_time(row.cells[5].children[0].value);
 
-    last_point = {
-      lat: lat,
-      lon: lon,
-      gs: parseInt(row.cells[3].children[0].value),
-    }
   });
 
 }
@@ -121,42 +120,71 @@ function waypoint_add(wp_info) {
   var data = {
       'typ': 'WP',
       'name': '',
-      'gs':  350,
-      'alt': 15000,
+      'gs':  '',
+      'alt': '',
       'lat': '',
       'lon': '',
       'act': '',
   }
-
-  // Try and get airframe defulat GS / ALT if set
-  var type = $('#flight-airframe').val()
-  if (type && airframes[type]) {
-    if (airframes[type]['cruise_gs']) {
-      data['gs'] = airframes[type]['cruise_gs']
-    }
-    if (airframes[type]['cruise_alt']) {
-      data['alt'] = airframes[type]['cruise_alt']
-    }
-  }
   
+  var waypoints_table = $("#waypoints-table");
   var last_row = $("#waypoints-table > tbody > tr:last")[0]
   var current_last_data = get_row_data(last_row);
 
   if (!last_row) {
+
+    // If we are adding the first row, set an appropriate speed / altitude
+    // unless they're already defined (e.g. CF) otherwise, we'll use the
+    // previous row's data
+
+    var type = $('#flight-airframe').val()
+    if (type && airframes[type]) {
+      if (airframes[type]['cruise_gs'] && !data['gs']) {
+        data['gs'] = airframes[type]['cruise_gs'].toString()
+      }
+      if (airframes[type]['cruise_alt'] && !data['alt']) {
+        data['alt'] = airframes[type]['cruise_alt'].toString()
+      }
+    }
+
     data['act'] = "00:20"
     data['typ'] = "1"
   } else {
-    data['alt'] = current_last_data[2]
-    data['gs'] = current_last_data[3]
-  
+
     // If typ is a number, increment it
     if (!isNaN(parseInt(current_last_data[0]))) {
       data['typ'] = parseInt(current_last_data[0]) + 1;
     }
   }
-  
+
+  // Update with requested waypoint info
   jQuery.extend(true, data, wp_info)
+
+  // Conform Ground Speed to nearest 5
+  var gs = parseFloat(data['gs']);
+  if (!isNaN(gs)) {
+    data['gs'] = (Math.round(gs / 5)*5).toFixed();
+  }
+
+  // Make ALT integer
+  var alt = parseFloat(data['alt']);
+  if (!isNaN(alt)) {
+    data['alt'] = Math.round(alt);
+  }
+
+  // Finally run the declutter checks for alt / gs of previous row against this
+  // one and blank them if they match
   
+  var declutter = waypoints_table.data('declutter') || {};
+  for (var x of ['gs', 'alt']) {
+    if (declutter[x] == data[x]) {
+      data[x] = '';
+    } else if (data[x]) {
+      declutter[x] = data[x];
+    }
+  }
+  waypoints_table.data('declutter', declutter);
+
   var row = `<tr>
           <td class="input-container"><input class="text-center" value="${data['typ']}"></td>
           <td class="input-container"><input value="${data['name']}"></td>
@@ -362,9 +390,11 @@ $('#flight-airframe').on('data-route-updated', function(e) {
     return
   }
  
-  $('#waypoints-table > tbody').empty()
+  $("#waypoints-table > tbody").empty()
+  $("#waypoints-table").data('declutter', null);
 
   if (route.xml_format == "cf") {
+
     route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
 
       var waypoint_type = (function(waypoint_type) {
@@ -381,7 +411,8 @@ $('#flight-airframe').on('data-route-updated', function(e) {
         }
         return waypoint_type
       })(wp.querySelector('Type').textContent);
-        
+
+      // Round GS to nearest 5 on load
       waypoint_add({
           'typ': waypoint_type,
           'name': wp.querySelector('Name').textContent,
@@ -411,7 +442,6 @@ $('#flight-airframe').on('data-route-updated', function(e) {
         'name': "Waypoint " + x,
         'lat': lat,
         'lon': lon,
-        'alt': alt,
       });
       x++;
     }
@@ -525,7 +555,9 @@ function waypoint_load(data) {
     be_lon.attr('data-dmp', data['bullseye']['lon_dmp'])
   }
 
-  $("#waypoints-table > tbody").empty() 
+  $("#waypoints-table > tbody").empty();
+  $("#waypoints-table").data('declutter', null);
+
   data['waypoints'].forEach(function(data) {
     waypoint_add(data)
   });

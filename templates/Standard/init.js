@@ -583,13 +583,20 @@ var Waypoints = function(data, unit) {
 
   this.content = (function() {
     var content = [];
+    var last = null;
     for (var wp of data.waypoint.waypoints) {
 
       // EMPTY rows if no lat or lon
       var lat = ll(data, wp, true);
       var lon = ll(data, wp, false);
 
-      if (wp.name || (lat && lon)) {
+      // Declutter here too
+      if (last) {
+        if (last.gs == wp.gs) { wp.gs = ""; }
+        if (last.alt == wp.alt) { wp.alt = ""; }
+      }
+
+      if (wp.name || wp.act != '00:00' || (lat && lon)) {
         content.push($(`
           <tr>
             <td class="text-center">${wp.typ}</td>
@@ -604,6 +611,8 @@ var Waypoints = function(data, unit) {
       } else {
         content.push($(`<tr><td class="text-center">${wp.typ}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`));
       }
+
+      last = wp;
     }
 
     return content
