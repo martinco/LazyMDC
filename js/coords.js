@@ -331,7 +331,7 @@ function coordinate_from_string(str) {
   
 
   // CF:      N 25 06.333 E 056 20.417
-  var cf_arr = /^\s*([NS])\s*([0-9]{1,2})\s+((?:[0-5]?[0-9])(?:\.[0-9]+)?)\s*,?\s*([EW])\s([0-9]{1,3})\s+((?:[0-5]?[0-9])(?:\.[0-9]+)?)\s*$/.exec(str)
+  var cf_arr = /^\s*([NS])\s*([0-9]{1,2})\s+((?:[0-5]?[0-9])(?:\.[0-9]+)?)\s*,?\s*([EW])\s*([0-9]{1,3})\s+((?:[0-5]?[0-9])(?:\.[0-9]+)?)\s*$/.exec(str)
   if (cf_arr) {
     var lat = (parseInt(cf_arr[2]) + parseFloat(cf_arr[3])/60) * (cf_arr[1] == 'N' ? 1 : -1);
     var lon = (parseInt(cf_arr[5]) + parseFloat(cf_arr[6])/60) * (cf_arr[4] == 'E' ? 1 : -1);
@@ -344,13 +344,44 @@ function coordinate_from_string(str) {
   // Google:  23.24124, 112.42424
   // Additionally:  23.24124S, 112.42424W
   // Additionally:  23, 112W
-  var fseg_arr = /^\s*(?:Lat:\s*)?(-?[0-9]{1,2}(?:\.[0-9]*)?)([NS])?\s*,\s*(?:Long:\s*)?(-?[0-9]{1,3}(?:\.[0-9]*)?)([EW])?\s*$/.exec(str)
+  var fseg_arr = /^\s*(?:Lat:\s*)?(-?[0-9]{1,2}(?:\.[0-9]*)?)\s*([NS])?\s*(?:,|\s)\s*(?:Long:\s*)?(-?[0-9]{1,3}(?:\.[0-9]*)?)\s*([EW])?\s*$/.exec(str)
   if (fseg_arr) {
     var lat = parseFloat(fseg_arr[1])
     var lon = parseFloat(fseg_arr[3])
     if (fseg_arr[2]) { lat *= (fseg_arr[2] == 'N' ? 1 : -1); }
     if (fseg_arr[4]) { lon *= (fseg_arr[4] == 'E' ? 1 : -1); }
     coordinate_update(lat, lon)
+    return
+  }
+
+  // DMS
+  var dms_arr = /^\s*([NS])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)(?:"|\s)\s*([NS])?\s*([EW])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)"?\s*([EW])?\s*$/.exec(str);
+  if (dms_arr) {
+    var lat = parseInt(dms_arr[2]) + parseInt(dms_arr[3])/60 + parseFloat(dms_arr[4])/3600;
+    if (dms_arr[1] && dms_arr[1] == 'S') { lat *= -1; }
+    else if (dms_arr[5] && dms_arr[5] == 'S') { lat *= -1; }
+
+    var lon = parseInt(dms_arr[7]) + parseInt(dms_arr[8])/60 + parseFloat(dms_arr[9])/3600;
+    if (dms_arr[6] && dms_arr[6] == 'W') { lon *= -1; }
+    else if (dms_arr[10] && dms_arr[10] == 'W') { lon *= -1; }
+
+    coordinate_update(lat, lon)
+    return
+  }
+
+  // DDM
+  var ddm_arr = /^\s*([NS])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+(?:\.[0-9]+)?)(?:'|\s)\s*([NS])?\s*([EW])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+(?:\.[0-9]+)?)'?\s*([EW])?\s*$/.exec(str);
+  if (ddm_arr) {
+    var lat = parseInt(ddm_arr[2]) + parseFloat(ddm_arr[3])/60;
+    if (ddm_arr[1] && ddm_arr[1] == 'S') { lat *= -1; }
+    else if (ddm_arr[4] && ddm_arr[4] == 'S') { lat *= -1; }
+
+    var lon = parseInt(ddm_arr[6]) + parseFloat(ddm_arr[7])/60;
+    if (ddm_arr[5] && ddm_arr[5] == 'W') { lon *= -1; }
+    else if (ddm_arr[8] && ddm_arr[8] == 'W') { lon *= -1; }
+
+    coordinate_update(lat, lon)
+    return
   }
 
   // Invalid
@@ -402,4 +433,9 @@ $('#coordinate-override-unset').click(function() {
   var dlg = $('#coordinate-dialog')
   dlg.data('fmt_override', false)
   $("#coordinate-override-unset").hide()
+});
+
+
+$('#coordinates-string-tooltip').tooltip({
+  template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner tooltip-coords"></div></div>'
 });

@@ -192,3 +192,9 @@ body .overhang-overlay {
   top: auto;
   bottom: 0;
 }
+
+.tooltip-inner.tooltip-coords {
+  width: 270px;
+  max-width: 270px;
+  text-align: left;
+}
