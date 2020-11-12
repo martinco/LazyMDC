@@ -1390,7 +1390,7 @@ function Builder(data, unit) {
       // we need to wait for the image to load to get correct
       // proportions for resize
       
-      var max_width = 756;
+      var max_width = 776;
       var max_height = 1080;
 
       var row_width = row.width();
