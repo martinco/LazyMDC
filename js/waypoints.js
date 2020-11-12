@@ -47,11 +47,13 @@ function waypoint_update() {
   // seconds
   var tot = get_seconds_from_time($("#waypoints-walk-time").val());
   var last_point = null;
+  var tot_valid = true;
+  var gs = 0;
 
   $('#waypoints-table > tbody > tr').each(function(idx, row) {
 
-    var gs = parseInt(row.cells[3].children[0].value);
-
+    // If lat or lon are empty; we can't do any calculations for distance /
+    // time / tot so we just bail
     var lat = row.cells[6].getAttribute('data-raw');
     var lon = row.cells[7].getAttribute('data-raw');
     if (lat == "" || lon == "") {
@@ -62,14 +64,13 @@ function waypoint_update() {
     lat = parseFloat(lat)
     lon = parseFloat(lon)
 
-    // If we have a last point, calculate distance + bearing
-    // from last point to this
-    if (last_point) {
+    // If we have a GS specified, use it; otherwise continue to use previous
+    // gs. This allows someone to declutter and only specify when GS changes
+    gs = row.cells[3].children[0].value ? parseInt(row.cells[3].children[0].value) : gs;
 
-      // If we have no ground speed, we're not going anywhere, so abort
-      if (isNaN(gs) || gs == 0) {
-        return
-      }
+    // If we have a last point, calculate distance + bearing from last point to
+    // this
+    if (last_point) {
 
       // Get Distance / Azimuth
       var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
@@ -80,8 +81,14 @@ function waypoint_update() {
         azi += 360;
       }
 
-      // TOT addition
-      var duration_sec = (distance / gs)*3600;
+      // If we encounter a 0 ground speed, we're not going anywhere, so tot
+      // becomes invalid from here-on out
+      var duration_sec = 0
+      if (!isNaN(gs) && gs != 0) {
+        duration_sec = (distance / gs)*3600;
+      } else {
+        tot_valid = false;
+      }
 
       tot += duration_sec
 
@@ -94,7 +101,7 @@ function waypoint_update() {
     }
 
     // Set TOT
-    row.cells[4].innerHTML = get_time_from_seconds(tot);
+    row.cells[4].innerHTML = tot_valid ? get_time_from_seconds(tot) : '';
 
     // Add activity time to tot
     tot += get_seconds_from_time(row.cells[5].children[0].value);

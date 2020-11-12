@@ -83,6 +83,11 @@ function ll(data, info, lat) {
 }
 
 function alt_formatter(data, alt) {
+
+  if (!alt) {
+    return ''
+  }
+
   var alt_i = parseInt(alt)
   var trans = parseInt(data.waypoint['transition-alt']);
 
@@ -584,7 +589,7 @@ var Waypoints = function(data, unit) {
       var lat = ll(data, wp, true);
       var lon = ll(data, wp, false);
 
-      if (lat && lon) {
+      if (wp.name || (lat && lon)) {
         content.push($(`
           <tr>
             <td class="text-center">${wp.typ}</td>
