@@ -41,6 +41,9 @@ class CDU_DataLoader():
 
     def generate(self):
 
+        # Hold alt as our default unless specified elsewhere
+        alt = 0
+
         for wp in self._waypoints:
 
             # Skip waypoints that have empty floats
@@ -50,7 +53,8 @@ class CDU_DataLoader():
             try:
                 alt = int(wp['alt'])
             except ValueError:
-                alt = 0
+                # We can pass now to hit the updated alt
+                pass
 
             if not lat or not lon:
                 continue

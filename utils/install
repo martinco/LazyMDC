@@ -7,6 +7,8 @@ chmod 755 "$TEMPDIR"
 
 git archive HEAD | tar x -C "$TEMPDIR"
 
+git rev-parse HEAD > $TEMPDIR/commit
+
 rsync -rlDq \
   --delete \
   --exclude /venv \
