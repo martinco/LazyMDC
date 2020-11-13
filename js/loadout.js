@@ -1,5 +1,5 @@
 
-loadout_validation = false;
+loadout_validation = true;
 loadout_type = undefined;
 
 // Process new Combat Flite
@@ -282,18 +282,18 @@ function loadout_set(opts) {
 
     // Set current weight
     var option = $("option:selected", this);
-    var weight = option.data('pyl-weight') || 0;
+    var weight = Math.round((option.data('pyl-weight') || 0)*2.20462);
     var select = option.closest('select')
     option.closest('tr').find('td:last').html(weight.toFixed() || "");
 
     // Some airframes like the m2k have loadout restrictions so we do them
-    // here, we set loadout_validation to true to avoid a recursive loop on the
-    // changed() event we want to call to update the weight values etc.
+    // here, we set loadout_validation to false to avoid a recursive loop on
+    // the changed() event we want to call to update the weight values etc.
     
-    if (!loadout_validation) {
+    if (loadout_validation) {
       if (type == 'M-2000C') {
 
-        loadout_validation = true
+        loadout_validation = false;
 
         var pylon_id = select.data('pyl-name');
         var pylon_store = select.val();
@@ -322,16 +322,12 @@ function loadout_set(opts) {
           $("select[data-pyl-name='"+(Math.abs(pylon_id-10))+"']").val(pylon_store).change();
         }
 
-        loadout_validation = false
+        loadout_validation = true;
       }
 
-      // Return here so we don't run loadout_update_weight several times in a row
-      return
+      // Add up all selected weights and update total
+      loadout_update_weight()
     }
-
-    // Add up all selected weights and update total
-    loadout_update_weight()
-
   });
 
   $("#loadout-comments").html(values.comments)
