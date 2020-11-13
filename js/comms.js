@@ -4,11 +4,11 @@ function agency_autocomplete(input, fields) {
   $(input).autocomplete({
     source: function(request, response) {
       var mission = $('#data-mission').val();
-      //try {
+      try {
         response(match_labels_in_arr(mission_data[mission]['agencies'], request.term))
-      //} catch {
-        //response([])
-      //}
+      } catch {
+        response([])
+      }
     },
     minLength: 1,
     select: function( event, ui) {
