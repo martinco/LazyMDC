@@ -37,7 +37,7 @@ function data_process_kml(xml) {
 
   $('#data-route-dialog-cf').hide();
   $('#data-route-dialog-ge').show();
-  $('#data-route-dialog-use-loadout-div').hide();
+  $('#data-route-dialog-cf-only').hide();
 
   // Reset the form to wipe out any previous routes (first option = None)
   select_wp.children('option:not(:first)').remove();
@@ -97,7 +97,7 @@ function data_process_cf(xml) {
   
   $('#data-route-dialog-cf').show();
   $('#data-route-dialog-ge').hide();
-  $('#data-route-dialog-use-loadout-div').show();
+  $('#data-route-dialog-cf-only').show();
 
   // Reset the form to wipe out any previous routes (first option = None)
   select_wp.children('option:not(:first)').remove();
@@ -359,9 +359,17 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var mission_route = $('#data-route-dialog-waypoints').val()
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
 
-  // If we have unchecked the use-loadout checkbox, update our mission route data and submit
-  if (!$("#data-route-dialog-use-loadout").is(':checked')) {
-    mission_route_data.use_loadout = false;
+  if (mission_route_data) {
+    // If we have unchecked the use-loadout checkbox, update our mission route data and submit
+    if (!$("#data-route-dialog-use-loadout").is(':checked')) {
+      mission_route_data.use_loadout = false;
+    }
+
+    // Store we have waypoint style; store it
+    var wp_style = $("#data-route-dialog input[name=data-route-dialog-wp-style]:checked").val();
+    if (wp_style) {
+      mission_route_data.wp_style = wp_style;
+    }
   }
 
   // Update airframe value

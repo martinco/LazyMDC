@@ -95,18 +95,69 @@
         </p>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body pt-0">
 
         <form>
-          <div class="form-group">
+          <div class="form-group mb-0">
             <label for="data-route-dialog-waypoints">Mission Route</label>
             <select id="data-route-dialog-waypoints" class="form-control">
               <option value="" selected>None</option>
             </select>
+          </div>
 
-            <div class="form-check" id='data-route-dialog-use-loadout-div'>
-                <input class="form-check-input" id="data-route-dialog-use-loadout" type="checkbox" checked>
-                <label class="form-check-label" for="data-route-dialog-use-loadout">Use Loadout from route</label>
+          <div id='data-route-dialog-cf-only'>
+            <div class="form-group">
+              <div class="form-check">
+                  <input class="form-check-input" id="data-route-dialog-use-loadout" type="checkbox" checked>
+                  <label class="form-check-label" for="data-route-dialog-use-loadout">Use Loadout from route</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="data-route-dialog-waypoints-style">Waypoint ID Style</label>
+              <table class="table table-striped">
+                <colgroup>
+                  <col style="width:38px">
+                  <col style="width:38px">
+                  <col style="width:140px">
+                  <col>
+                </colgroup>
+
+                <thead class="thead-light">
+                  <tr>
+                    <th></th>
+                    <th class="text-center">#</th>
+                    <th>EXAMPLE</th>
+                    <th>DESCRIPTION</th>
+                  </tr>
+                </thead>
+                <tbody class="ui-sortable" style="">
+                  <tr onClick="$(this).find('td input:radio').prop('checked', true);">
+                    <td style="text-align:center; vertical-align: middle">
+                      <input style="margin-top: 5px;" type="radio" name="data-route-dialog-wp-style" value="index" checked>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td>My Waypoint</td>
+                    <td>Incrementing numeric indicies</td>
+                  </tr>
+                  <tr onClick="$(this).find('td input:radio').prop('checked', true);">
+                    <td style="text-align:center; vertical-align: middle">
+                      <input style="margin-top: 5px;" type="radio" name="data-route-dialog-wp-style" value="type">
+                    </td>
+                    <td class="text-center">ST</td>
+                    <td>My Waypoint</td>
+                    <td>Waypoint types</td>
+                  </tr>
+                  <tr onClick="$(this).find('td input:radio').prop('checked', true);">
+                    <td style="text-align:center; vertical-align: middle">
+                      <input style="margin-top: 5px;" type="radio" name="data-route-dialog-wp-style" value="index-type">
+                    </td>
+                    <td class="text-center">3</td>
+                    <td>ST: My Waypoint</td>
+                    <td>Numeric indicies with waypoint name prefixed by type</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 

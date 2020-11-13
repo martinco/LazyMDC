@@ -395,6 +395,9 @@ $('#flight-airframe').on('data-route-updated', function(e) {
 
   if (route.xml_format == "cf") {
 
+    var idx = 1;
+    var style = route.wp_style || "index";
+
     route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
 
       var waypoint_type = (function(waypoint_type) {
@@ -412,16 +415,30 @@ $('#flight-airframe').on('data-route-updated', function(e) {
         return waypoint_type
       })(wp.querySelector('Type').textContent);
 
-      // Round GS to nearest 5 on load
+      // Handle our selected waypoint type / name convention
+      var name = wp.querySelector('Name').textContent;
+      var type = idx.toFixed()
+
+      switch(style) {
+        case "index-type":
+          name = waypoint_type + ": " + name;
+          break;
+        case "type":
+          type = waypoint_type;
+          break
+      }
+
       waypoint_add({
-          'typ': waypoint_type,
-          'name': wp.querySelector('Name').textContent,
+          'typ': type,
+          'name': name,
           'gs': wp.querySelector('GS').textContent,
           'alt': wp.querySelector('Altitude').textContent,
           'lat': wp.querySelector('Lat').textContent,
           'lon': wp.querySelector('Lon').textContent,
           'act': wp.querySelector('Activity').textContent.split(':').splice(0,2).join(':'),
       })
+
+      idx++;
     });
   } else if (route.xml_format == "ge") {
     var coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
