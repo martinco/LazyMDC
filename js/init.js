@@ -238,7 +238,19 @@ $.when(
       var dt = (new Date()).getTime();
       $.getJSON('mdcs/' + mdc_key + '.json?' + dt)
         .done(function(data) {
-          load(data)
+
+          try {
+            load(data)
+          } catch {
+            $("a.nav-link:not(.direct-link)").addClass('disabled');
+            $("#error").show()
+             // disable nav links
+            $("#loader-container").fadeOut("fast");
+            return;
+          }
+
+          // If we got this far, then make data active
+          $("a.nav-link[href$=data]").tab('show');
 
           // Store the original request hash
           var request_hash = window.location.hash;
@@ -275,15 +287,21 @@ $.when(
             $("a.nav-link[href$=\"" + request_hash + "\"]").tab('show');
           }
 
-        })
-        .always(function() {
           // Display main content
           $("#main-page").show()
-
           // Fade out Loader
           $("#loader-container").fadeOut("fast");
         })
+        .fail(function() {
+          // Display error and fade out
+          $("a.nav-link:not(.direct-link)").addClass('disabled');
+          $("#error").show()
+          $("#loader-container").fadeOut("fast");
+        });
     } else {
+      // If we got this far, then make data active
+      $("a.nav-link[href$=data]").tab('show');
+
       // Display main content
       $("#main-page").show()
 

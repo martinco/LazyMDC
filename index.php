@@ -77,7 +77,7 @@
         <div class="" style="padding-top: 10px">
           <ul class="nav flex-column show" id="side-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="#data">
+              <a class="nav-link" href="#data">
                 <span data-feather="upload"></span>
                 Data Sources
               </a>
@@ -171,8 +171,30 @@
 
       <!-- Main Page -->
       <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
+        <div class="tab-pane" id="error">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Error</h1>
+          </div>
+          <div>
+            <p>
+            I'm sorry, it looks like an error has occured
+            </p>
+            <p>
+              Please feel free to get in touch by any of the following 
+              mechanisms and we'll sort this out as soon as possible
+              <ul>
+                <li>File an issue on <a href="http://github.com/MartinCo/LazyMDC/issues">GitHub</a>
+                <li>Get in touch via MartinCo#6402 on discord (132nd.MartinCo on <a href=https://discord.gg/vK2MS2P>132nd Discord</a> or on Hoggit, DCS and others)
+                <li>Get in touch via eMail: <a href="mailto:help@dcs-mdc.com">help@dcs-mdc.com</a>
+              </ul>
+            </p>
+            <p>
+            - MartinCo
+            </p>
+          </div>
+        </div>
         <div class="tab-pane" id="about"></div>
-        <div class="tab-pane active" id="data"></div>
+        <div class="tab-pane" id="data"></div>
         <div class="tab-pane" id="flight"></div>
         <div class="tab-pane" id="mission"></div>
         <div class="tab-pane" id="package"></div>
