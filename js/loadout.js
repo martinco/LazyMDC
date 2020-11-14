@@ -248,7 +248,7 @@ function loadout_set(opts) {
               <option data-pyl-weight="0"></option>${pyl_opts}
             </select>
           </td>
-          <td style="text-align: right">${pyl_weight}</td>
+          <td style="text-align: right">${pyl_weight || ""}</td>
         </tr>
     `
 
@@ -284,7 +284,7 @@ function loadout_set(opts) {
     var option = $("option:selected", this);
     var weight = Math.round((option.data('pyl-weight') || 0)*2.20462);
     var select = option.closest('select')
-    option.closest('tr').find('td:last').html(weight.toFixed() || "");
+    option.closest('tr').find('td:last').html(weight || "");
 
     // Some airframes like the m2k have loadout restrictions so we do them
     // here, we set loadout_validation to false to avoid a recursive loop on
