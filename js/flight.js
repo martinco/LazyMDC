@@ -277,7 +277,7 @@ function flightmembers_add(values) {
     }
   }
 
-  if (first_row[0] != undefined) {
+  if (first_row[0] != undefined && elems['TCN']) {
     var first_tcn = first_row[0].cells[elems['TCN']].firstChild.value.match(/^([0-9]+)(.*)/);
     if (first_tcn) {
       new_last_row[0].cells[elems['TCN']].firstChild.value = String(parseInt(first_tcn[1]) + 63) + first_tcn[2];
