@@ -5369,7 +5369,7 @@
     "fuel_lbs": 3197,
     "gun": 100,
     "gun_lbs": 994,
-    "joker": 1000,
+    "joker": 650,
     "loadout": {
       "1": {
         "APU-6 - 6 9A4172 Vikhr": {
@@ -5604,7 +5604,7 @@
     "flare": 128,
     "fuel": 100,
     "fuel_lbs": 4253,
-    "joker": 1000,
+    "joker": 650,
     "loadout": {
       "1": {
         "B-8V20A - 20 S-8KOM": {
@@ -6151,7 +6151,7 @@
     ]
   },
   "UH-1H": {
-    "bingo": 100,
+    "bingo": 150,
     "comments": "",
     "cruise_alt": 500,
     "cruise_gs": 90,
@@ -6160,7 +6160,7 @@
     "flare": 60,
     "fuel": 100,
     "fuel_lbs": 1391,
-    "joker": 500,
+    "joker": 300,
     "loadout": {
       "1": {
         "M134 MiniGun Left": {
