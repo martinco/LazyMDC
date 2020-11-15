@@ -45,6 +45,7 @@ function waypoint_update() {
   waypoint_update_display();
 
   // seconds
+  var unit = $("#waypoints-gs-units").val();
   var tot = get_seconds_from_time($("#waypoints-walk-time").val());
   var last_point = null;
   var tot_valid = true;
@@ -54,7 +55,14 @@ function waypoint_update() {
 
     // If we have a GS specified, use it; otherwise continue to use previous
     // gs. This allows someone to declutter and only specify when GS changes
-    gs = row.cells[3].children[0].value ? parseInt(row.cells[3].children[0].value) : gs;
+    if (row.cells[3].children[0].value) {
+      gs = parseInt(row.cells[3].children[0].value);
+
+      // If GS is in kmh convert to kts
+      if (unit == "kmh") {
+        gs /= 1.852;
+      }
+    }
 
     // If lat or lon are empty; we can't do any calculations for distance /
     // time / tot so we just bail
@@ -69,7 +77,7 @@ function waypoint_update() {
       // this
       if (last_point) {
 
-        // Get Distance / Azimuth
+        // Get Distance (nm) / Azimuth
         var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
         var distance = (r.s12/1852);
 
@@ -335,8 +343,19 @@ $(document).on('coordinates-changed', function() {
   waypoint_update();
 });
 
+$('#waypoints-gs-units').on('change', function() {
+  waypoint_update();
+});
+
 $('#flight-airframe').on('flight-airframe-changed', function(e) {
   var type = $('#flight-airframe').val()
+
+  // Set default speed format else default to kts
+  if (airframes[type] && airframes[type]['gs_units']) {
+    $('#waypoints-gs-units').val(airframes[type]['gs_units']);
+  } else {
+    $('#waypoints-gs-units').val("kts");
+  }
 
   // Hide / Show Sequenc based on Airframe
   $('#waypoints-sequence').toggle(['F-16C', 'FA-18C'].includes(type))
@@ -549,9 +568,10 @@ function waypoint_export() {
 
 function waypoint_load(data) {
 
-  $("#waypoints-walk-time").val(data['walk-time'])
-  $("#waypoints-transition-alt").val(data['transition-alt'])
-  $("#waypoints-transition-level").val(data['transition-level'])
+  $("#waypoints-walk-time").val(data['walk-time']);
+  $("#waypoints-transition-alt").val(data['transition-alt']);
+  $("#waypoints-transition-level").val(data['transition-level']);
+  $("#waypoints-gs-units").val(data['gs-units'] || "kts");
 
   // Bullseye 
   $("#waypoints-bullseye-name").val(data['bullseye']['name'])
