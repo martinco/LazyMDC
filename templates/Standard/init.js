@@ -100,12 +100,21 @@ function alt_formatter(data, alt) {
   return alt_i.toFixed()
 }
 
+function dist_formatter(dist) {
+  // Round to nearest whole number to avoid DP and save space
+  var float_val = parseFloat(dist);
+  if (isNaN(float_val)) {
+    return "";
+  }
+  return Math.round(float_val).toFixed();
+}
+
 function gs_formatter(gs) {
   var float_val = parseFloat(gs);
   if (isNaN(float_val)) {
     return "";
   }
-  return (Math.round(parseFloat(gs) / 5)*5).toFixed(0);
+  return (Math.round(float_val / 5)*5).toFixed(0);
 }
 
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -561,6 +570,7 @@ var Waypoints = function(data, unit) {
           <col />
           <col style="width:70${unit}" />
           <col style="width:38${unit}" />
+          <col style="width:38${unit}" />
           <col style="width:60${unit}" />
           <col style="width:60${unit}" />
         </colgroup>
@@ -572,6 +582,7 @@ var Waypoints = function(data, unit) {
             <th>NAME</th>
             <th>ALT</th>
             <th>GS</th>
+            <th>DST</th>
             <th>TOT</th>
             <th>ACT</th>
           </tr>
@@ -605,11 +616,12 @@ var Waypoints = function(data, unit) {
             <td class="lp5">${wp.name}</td>
             <td class="text-center">${alt_formatter(data, wp.alt | '')}</td>
             <td class="text-center">${gs_formatter(wp.gs)}</td>
+            <td class="text-right rp5">${dist_formatter(wp.dist)}</td>
             <td class="text-center">${wp.tot}</td>
             <td class="text-center">${wp.act == '00:00' ? '' : wp.act}</td>
           </tr>`));
       } else {
-        content.push($(`<tr><td class="text-center">${wp.typ}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`));
+        content.push($(`<tr><td class="text-center">${wp.typ}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`));
       }
 
       last = wp;
@@ -628,7 +640,7 @@ var Waypoints = function(data, unit) {
         }
         
         while (extension > 0) {
-          var row = $(`<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
+          var row = $(`<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
           body.append(row);
           extension -= row.height();
           if (extension < 0) {
