@@ -2091,10 +2091,6 @@
           "clsid": "{BRU-42_2*GBU-12_LEFT}",
           "weight": 610
         },
-        "2 GBU-16": {
-          "clsid": "{BRU-42_2*GBU-16_LEFT}",
-          "weight": 1050
-        },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_LEFT}",
           "weight": 610
@@ -2284,10 +2280,6 @@
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_RIGHT}",
           "weight": 610
-        },
-        "2 GBU-16": {
-          "clsid": "{BRU-42_2*GBU-16_RIGHT}",
-          "weight": 1050
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_RIGHT}",
@@ -4458,9 +4450,21 @@
           "clsid": "{GBU-31}",
           "weight": 934
         },
+        "GBU-31(V)2/B": {
+          "clsid": "{GBU_31_V_2B}",
+          "weight": 934
+        },
         "GBU-31(V)3/B": {
           "clsid": "{GBU-31V3B}",
           "weight": 981
+        },
+        "GBU-31(V)4/B": {
+          "clsid": "{GBU_31_V_4B}",
+          "weight": 970
+        },
+        "GBU-32(V)2/B": {
+          "clsid": "{GBU_32_V_2B}",
+          "weight": 467
         },
         "GBU-38": {
           "clsid": "{GBU-38}",
@@ -4684,9 +4688,21 @@
           "clsid": "{GBU-31}",
           "weight": 934
         },
+        "GBU-31(V)2/B": {
+          "clsid": "{GBU_31_V_2B}",
+          "weight": 934
+        },
         "GBU-31(V)3/B": {
           "clsid": "{GBU-31V3B}",
           "weight": 981
+        },
+        "GBU-31(V)4/B": {
+          "clsid": "{GBU_31_V_4B}",
+          "weight": 970
+        },
+        "GBU-32(V)2/B": {
+          "clsid": "{GBU_32_V_2B}",
+          "weight": 467
         },
         "GBU-38": {
           "clsid": "{GBU-38}",
@@ -4988,9 +5004,21 @@
           "clsid": "{GBU-31}",
           "weight": 934
         },
+        "GBU-31(V)2/B": {
+          "clsid": "{GBU_31_V_2B}",
+          "weight": 934
+        },
         "GBU-31(V)3/B": {
           "clsid": "{GBU-31V3B}",
           "weight": 981
+        },
+        "GBU-31(V)4/B": {
+          "clsid": "{GBU_31_V_4B}",
+          "weight": 970
+        },
+        "GBU-32(V)2/B": {
+          "clsid": "{GBU_32_V_2B}",
+          "weight": 467
         },
         "GBU-38": {
           "clsid": "{GBU-38}",
@@ -5182,9 +5210,21 @@
           "clsid": "{GBU-31}",
           "weight": 934
         },
+        "GBU-31(V)2/B": {
+          "clsid": "{GBU_31_V_2B}",
+          "weight": 934
+        },
         "GBU-31(V)3/B": {
           "clsid": "{GBU-31V3B}",
           "weight": 981
+        },
+        "GBU-31(V)4/B": {
+          "clsid": "{GBU_31_V_4B}",
+          "weight": 970
+        },
+        "GBU-32(V)2/B": {
+          "clsid": "{GBU_32_V_2B}",
+          "weight": 467
         },
         "GBU-38": {
           "clsid": "{GBU-38}",
