@@ -3,6 +3,9 @@
   <head>
     <title>Data Card Builder v2</title>
 
+    <meta name="description" content="Mission Data Card (MDC) generator for DCS with support for importing data from CombatFlite or Google Earth, editing navigation, loadouts / weights, images for notes and more. Generates PDF, or PNG for immediate kneeboard use including A-10C CDU DataLoader files where applicable">
+    <meta name="keywords" content="DCS, MDC, MissionDataCard, Mission Data Card, Data Card, Kneeboard, knee board, loadout, route, planning, combat flite, combatflite, google earth">
+
     <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"   crossorigin="anonymous">
 
