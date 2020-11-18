@@ -2743,10 +2743,9 @@
       "8": "7"
     },
     "mlw_field": 31085,
-    "mtow_field": 31085,
-    "vtol": true,
-    "mtow_vtol": 20755,
     "mlw_vtol": 20755,
+    "mtow_field": 31085,
+    "mtow_vtol": 20755,
     "pylons": [
       [
         "1",
@@ -2780,7 +2779,8 @@
         "7",
         ""
       ]
-    ]
+    ],
+    "vtol": true
   },
   "F-14B": {
     "bingo": 4000,
@@ -5361,12 +5361,12 @@
     "comments": "",
     "cruise_alt": 500,
     "cruise_gs": 130,
-    "gs_units": "kmh",
     "cvn": false,
     "empty_lbs": 17703,
     "flare": 128,
     "fuel": 100,
     "fuel_lbs": 3197,
+    "gs_units": "kmh",
     "gun": 100,
     "gun_lbs": 994,
     "joker": 650,
@@ -5593,17 +5593,290 @@
       ]
     ]
   },
+  "M-2000C": {
+    "bingo": 1500,
+    "chaff": 112,
+    "comments": "",
+    "cruise_alt": 15000,
+    "cruise_gs": 400,
+    "cvn": false,
+    "empty_lbs": 16755,
+    "flare": 16,
+    "fuel": 100,
+    "fuel_lbs": 6978,
+    "gun": 100,
+    "gun_lbs": 313,
+    "joker": 2000,
+    "loadout": {
+      "1": {
+        "Matra Magic II": {
+          "clsid": "{MMagicII}",
+          "weight": 85
+        },
+        "Matra Type 155 Rocket Pod": {
+          "clsid": "{Matra155RocketPod}",
+          "weight": 190
+        }
+      },
+      "10": {
+        "Eclair": {
+          "clsid": "{Eclair}",
+          "weight": 20
+        }
+      },
+      "2": {
+        "AUF2 BLG-66-AC x 2": {
+          "clsid": "{M2KC_RAFAUT_BLG66}",
+          "weight": 685
+        },
+        "AUF2 MK-82 Snakeyes x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 525
+        },
+        "AUF2 MK-82 x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 525
+        },
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "Matra Magic II": {
+          "clsid": "{MMagicII}",
+          "weight": 85
+        },
+        "Matra Super 530D": {
+          "clsid": "{Matra_S530D}",
+          "weight": 275
+        },
+        "Matra Type 155 Rocket Pod": {
+          "clsid": "{Matra155RocketPod}",
+          "weight": 190
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        },
+        "RPL 541 2000 liters Fuel Tank ": {
+          "clsid": "{M2KC_02_RPL541}",
+          "weight": 1837
+        },
+        "RPL 541 2000 liters Fuel Tank (Empty)": {
+          "clsid": "{M2KC_02_RPL541_EMPTY}",
+          "weight": 257
+        }
+      },
+      "3": {
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "GBU-12": {
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+          "weight": 275
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        }
+      },
+      "4": {
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        }
+      },
+      "5": {
+        "AUF2 GBU-12 x 2": {
+          "clsid": "{M2KC_RAFAUT_GBU12}",
+          "weight": 621
+        },
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "GBU-12": {
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+          "weight": 275
+        },
+        "GBU-16": {
+          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
+          "weight": 564
+        },
+        "GBU-24": {
+          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
+          "weight": 900
+        },
+        "RPL 522 1300 liters Fuel Tank": {
+          "clsid": "{M2KC_RPL_522}",
+          "weight": 1170
+        },
+        "RPL 522 1300 liters Fuel Tank (Empty)": {
+          "clsid": "{M2KC_RPL_522_EMPTY}",
+          "weight": 180
+        }
+      },
+      "6": {
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        }
+      },
+      "7": {
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "GBU-12": {
+          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
+          "weight": 275
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        }
+      },
+      "8": {
+        "AUF2 BLG-66-AC x 2": {
+          "clsid": "{M2KC_RAFAUT_BLG66}",
+          "weight": 685
+        },
+        "AUF2 MK-82 Snakeyes x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 525
+        },
+        "AUF2 MK-82 x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 525
+        },
+        "BLG-66-AC Belouga": {
+          "clsid": "{BLG66_BELOUGA_AC}",
+          "weight": 305
+        },
+        "Matra Magic II": {
+          "clsid": "{MMagicII}",
+          "weight": 85
+        },
+        "Matra Super 530D": {
+          "clsid": "{Matra_S530D}",
+          "weight": 275
+        },
+        "Matra Type 155 Rocket Pod": {
+          "clsid": "{Matra155RocketPod}",
+          "weight": 190
+        },
+        "Mk-82": {
+          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
+          "weight": 241
+        },
+        "Mk-82 SnakeEye": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 232
+        },
+        "RPL 541 2000 liters Fuel Tank ": {
+          "clsid": "{M2KC_08_RPL541}",
+          "weight": 1837
+        },
+        "RPL 541 2000 liters Fuel Tank (Empty)": {
+          "clsid": "{M2KC_08_RPL541_EMPTY}",
+          "weight": 257
+        }
+      },
+      "9": {
+        "Matra Magic II": {
+          "clsid": "{MMagicII}",
+          "weight": 85
+        },
+        "Matra Type 155 Rocket Pod": {
+          "clsid": "{Matra155RocketPod}",
+          "weight": 190
+        }
+      }
+    },
+    "mlw_field": 36400,
+    "mtow_field": 36400,
+    "pylons": [
+      [
+        "1",
+        ""
+      ],
+      [
+        "2",
+        ""
+      ],
+      [
+        "3",
+        ""
+      ],
+      [
+        "4",
+        ""
+      ],
+      [
+        "5",
+        ""
+      ],
+      [
+        "6",
+        ""
+      ],
+      [
+        "7",
+        ""
+      ],
+      [
+        "8",
+        ""
+      ],
+      [
+        "9",
+        ""
+      ],
+      [
+        "10",
+        ""
+      ]
+    ]
+  },
   "Mi-8MT": {
     "bingo": 500,
     "comments": "",
-    "cvn": false,
     "cruise_alt": 500,
     "cruise_gs": 160,
-    "gs_units": "kmh",
+    "cvn": false,
     "empty_lbs": 19546,
     "flare": 128,
     "fuel": 100,
     "fuel_lbs": 4253,
+    "gs_units": "kmh",
     "joker": 650,
     "loadout": {
       "1": {
@@ -5876,279 +6149,6 @@
       ]
     ],
     "rope_length": 50
-  },
-  "M-2000C": {
-    "bingo": 1500,
-    "chaff": 112,
-    "comments": "",
-    "cruise_alt": 15000,
-    "cruise_gs": 400,
-    "cvn": false,
-    "empty_lbs": 16755,
-    "flare": 16,
-    "fuel": 100,
-    "fuel_lbs": 6978,
-    "gun": 100,
-    "gun_lbs": 313,
-    "joker": 2000,
-    "loadout": {
-      "1": {
-        "Matra Magic II": {
-          "clsid": "{MMagicII}",
-          "weight": 85
-        },
-        "Matra Type 155 Rocket Pod": {
-          "clsid": "{Matra155RocketPod}",
-          "weight": 190
-        }
-      },
-      "2": {
-        "AUF2 BLG-66-AC x 2": {
-          "clsid": "{M2KC_RAFAUT_BLG66}",
-          "weight": 685
-        },
-        "AUF2 MK-82 Snakeyes x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 525
-        },
-        "AUF2 MK-82 x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 525
-        },
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "Matra Magic II": {
-          "clsid": "{MMagicII}",
-          "weight": 85
-        },
-        "Matra Super 530D": {
-          "clsid": "{Matra_S530D}",
-          "weight": 275
-        },
-        "Matra Type 155 Rocket Pod": {
-          "clsid": "{Matra155RocketPod}",
-          "weight": 190
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "RPL 541 2000 liters Fuel Tank ": {
-          "clsid": "{M2KC_02_RPL541}",
-          "weight": 1837
-        },
-        "RPL 541 2000 liters Fuel Tank (Empty)": {
-          "clsid": "{M2KC_02_RPL541_EMPTY}",
-          "weight": 257
-        }
-      },
-      "3": {
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "GBU-12": {
-          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        }
-      },
-      "4": {
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        }
-      },
-      "5": {
-        "AUF2 GBU-12 x 2": {
-          "clsid": "{M2KC_RAFAUT_GBU12}",
-          "weight": 621
-        },
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "GBU-12": {
-          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
-        },
-        "GBU-16": {
-          "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
-        },
-        "GBU-24": {
-          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
-          "weight": 900
-        },
-        "RPL 522 1300 liters Fuel Tank": {
-          "clsid": "{M2KC_RPL_522}",
-          "weight": 1170
-        },
-        "RPL 522 1300 liters Fuel Tank (Empty)": {
-          "clsid": "{M2KC_RPL_522_EMPTY}",
-          "weight": 180
-        }
-      },
-      "6": {
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        }
-      },
-      "7": {
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "GBU-12": {
-          "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        }
-      },
-      "8": {
-        "AUF2 BLG-66-AC x 2": {
-          "clsid": "{M2KC_RAFAUT_BLG66}",
-          "weight": 685
-        },
-        "AUF2 MK-82 Snakeyes x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 525
-        },
-        "AUF2 MK-82 x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 525
-        },
-        "BLG-66-AC Belouga": {
-          "clsid": "{BLG66_BELOUGA_AC}",
-          "weight": 305
-        },
-        "Matra Magic II": {
-          "clsid": "{MMagicII}",
-          "weight": 85
-        },
-        "Matra Super 530D": {
-          "clsid": "{Matra_S530D}",
-          "weight": 275
-        },
-        "Matra Type 155 Rocket Pod": {
-          "clsid": "{Matra155RocketPod}",
-          "weight": 190
-        },
-        "Mk-82": {
-          "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
-        },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "RPL 541 2000 liters Fuel Tank ": {
-          "clsid": "{M2KC_08_RPL541}",
-          "weight": 1837
-        },
-        "RPL 541 2000 liters Fuel Tank (Empty)": {
-          "clsid": "{M2KC_08_RPL541_EMPTY}",
-          "weight": 257
-        }
-      },
-      "9": {
-        "Matra Magic II": {
-          "clsid": "{MMagicII}",
-          "weight": 85
-        },
-        "Matra Type 155 Rocket Pod": {
-          "clsid": "{Matra155RocketPod}",
-          "weight": 190
-        }
-      },
-      "10": {
-        "Eclair": {
-          "clsid": "{Eclair}",
-          "weight": 20
-        }
-      }
-    },
-    "mlw_field": 36400,
-    "mtow_field": 36400,
-    "pylons": [
-      [
-        "1",
-        ""
-      ],
-      [
-        "2",
-        ""
-      ],
-      [
-        "3",
-        ""
-      ],
-      [
-        "4",
-        ""
-      ],
-      [
-        "5",
-        ""
-      ],
-      [
-        "6",
-        ""
-      ],
-      [
-        "7",
-        ""
-      ],
-      [
-        "8",
-        ""
-      ],
-      [
-        "9",
-        ""
-      ],
-      [
-        "10",
-        ""
-      ]
-    ]
   },
   "UH-1H": {
     "bingo": 150,
