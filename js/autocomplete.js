@@ -25,7 +25,9 @@ function freq_autocomplete(input) {
       return
     }
 
-    var val = elem.val()
+    // There was a request to allow commas for expedited entry, as it doesn't
+    // cause much pain to have we will facilitate that here
+    var val = elem.val().replace(',', '.');
     var float_val = parseFloat(val).toFixed(3)
 
     if (isNaN(float_val)) {
