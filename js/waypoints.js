@@ -10,6 +10,10 @@ function waypoint_autocomplete(input, lat_idx) {
       tr.cells[lat_idx].setAttribute('data-raw', ui.item.lat)
       tr.cells[lat_idx+1].setAttribute('data-raw', ui.item.lon)
 
+      if (ui.item.alt) {
+        tr.cells[2].firstChild.value = ui.item.alt;
+      }
+
       waypoint_update()
     }
   });
