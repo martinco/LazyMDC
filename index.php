@@ -6,16 +6,16 @@
     <meta name="description" content="Mission Data Card (MDC) generator for DCS with support for importing data from CombatFlite or Google Earth, editing navigation, loadouts / weights, images for notes and more. Generates PDF, or PNG for immediate kneeboard use including A-10C CDU DataLoader files where applicable">
     <meta name="keywords" content="DCS, MDC, MissionDataCard, Mission Data Card, Data Card, Kneeboard, knee board, loadout, route, planning, combat flite, combatflite, google earth">
 
-    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"   crossorigin="anonymous">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"   crossorigin="anonymous">
 
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css"   crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css"   crossorigin="anonymous">
 
     <link rel="stylesheet" href="index.css">
 
-    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
 
     <style type="text/css">
       body {
@@ -68,7 +68,7 @@
       <div style="position: absolute; margin: 0 auto; top:0px; height:48px; width:1050px; border-bottom: 1px solid #bdbdbd; background: #444">
         <?php if ($kneeboard_root != '/') { ?>
         <div style="padding-left: 215px; color:#ff0000; padding-top: .75rem; font-size:1rem;">
-          Development Build, use <a style="color: #ff0000" href="http://dcs-mdc.com">http://dcs-mdc.com</a>
+          Development Build, use <a style="color: #ff0000" href="https://dcs-mdc.com">https://dcs-mdc.com</a>
         </div>
         <?php } ?>
       </div>
@@ -163,7 +163,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link direct-link" href="http://github.com/MartinCo/LazyMDC/issues">
+              <a class="nav-link direct-link" href="//github.com/MartinCo/LazyMDC/issues">
                 <span data-feather="github"></span>
                 Github Issues
               </a>
@@ -186,7 +186,7 @@
               Please feel free to get in touch by any of the following 
               mechanisms and we'll sort this out as soon as possible
               <ul>
-                <li>File an issue on <a href="http://github.com/MartinCo/LazyMDC/issues">GitHub</a>
+                <li>File an issue on <a href="//github.com/MartinCo/LazyMDC/issues">GitHub</a>
                 <li>Get in touch via MartinCo#6402 on discord (132nd.MartinCo on <a href=https://discord.gg/vK2MS2P>132nd Discord</a> or on Hoggit, DCS and others)
                 <li>Get in touch via eMail: <a href="mailto:help@dcs-mdc.com">help@dcs-mdc.com</a>
               </ul>
@@ -217,26 +217,26 @@
     </div>
 
 
-    <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="http://cdn.jsdelivr.net/npm/geographiclib@1.50.0/geographiclib.min.js" integrity="sha256-P4IU60oavmLHtspWrVYYoXkXGeeuIerQZFj33Q0FeTw=" crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js" integrity="sha512-kvg/Lknti7OoAw0GqMBP8B+7cGHvp4M9O9V6nAYG91FZVDMW3Xkkq5qrdMhrXiawahqU7IZ5CNsY/wWy1PpGTQ==" crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.min.js" integrity="sha512-878jmOO2JNhN+hi1+jVWRBv1yNB7sVFanp2gA1bG++XFKNj4camtC1IyNi/VQEhM2tIbne9tpXD4xaPC4i4Wtg==" crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jQuery.serializeObject/2.0.3/jquery.serializeObject.min.js" integrity="sha512-DNziaT2gAUenXiDHdhNj6bfk1Ivv72gpxOeMT+kFKXB2xG/ZRtGhW2lDJI9a+ZNCOas/rp4XAnvnjtGeMHRNyg==" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/geographiclib@1.50.0/geographiclib.min.js" integrity="sha256-P4IU60oavmLHtspWrVYYoXkXGeeuIerQZFj33Q0FeTw=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js" integrity="sha512-kvg/Lknti7OoAw0GqMBP8B+7cGHvp4M9O9V6nAYG91FZVDMW3Xkkq5qrdMhrXiawahqU7IZ5CNsY/wWy1PpGTQ==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.min.js" integrity="sha512-878jmOO2JNhN+hi1+jVWRBv1yNB7sVFanp2gA1bG++XFKNj4camtC1IyNi/VQEhM2tIbne9tpXD4xaPC4i4Wtg==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery.serializeObject/2.0.3/jquery.serializeObject.min.js" integrity="sha512-DNziaT2gAUenXiDHdhNj6bfk1Ivv72gpxOeMT+kFKXB2xG/ZRtGhW2lDJI9a+ZNCOas/rp4XAnvnjtGeMHRNyg==" crossorigin="anonymous"></script>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/tinymce.min.js" integrity="sha512-c46AnRoKXNp7Sux2K56XDjljfI5Om/v1DvPt7iRaOEPU5X+KZt8cxzN3fFzemYC6WCZRhmpSlZvPA1pttfO9DQ==" crossorigin="anonymous"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/table/plugin.min.js" integrity="sha512-uWF3FdNoBLruuobSz5+lT9MoLy3tAVgU4HCUoTEH8E0E63u4H/Y5Se1zPRX00b7p9pnlD79TlkpH4aHakqU7Tw==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/image/plugin.min.js" integrity="sha512-jL/iLWqJMXq++2K/l0gLiUc9fGJg4w17wN/X++PEb18kcN+CQ20iwvcLhIUhvobII9m1cJOkiueyEHgMv3QF6g==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/pagebreak/plugin.min.js" integrity="sha512-+8DNV1EQCNTeC8wKjeAgzqqUoewZlHASoKkgX7yU+wC2qpRVdpZKTLeB/ds1RALiG8a1yDTsyvAxIKBvmnw5aQ==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/tinymce.min.js" integrity="sha512-c46AnRoKXNp7Sux2K56XDjljfI5Om/v1DvPt7iRaOEPU5X+KZt8cxzN3fFzemYC6WCZRhmpSlZvPA1pttfO9DQ==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/table/plugin.min.js" integrity="sha512-uWF3FdNoBLruuobSz5+lT9MoLy3tAVgU4HCUoTEH8E0E63u4H/Y5Se1zPRX00b7p9pnlD79TlkpH4aHakqU7Tw==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/image/plugin.min.js" integrity="sha512-jL/iLWqJMXq++2K/l0gLiUc9fGJg4w17wN/X++PEb18kcN+CQ20iwvcLhIUhvobII9m1cJOkiueyEHgMv3QF6g==" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/pagebreak/plugin.min.js" integrity="sha512-+8DNV1EQCNTeC8wKjeAgzqqUoewZlHASoKkgX7yU+wC2qpRVdpZKTLeB/ds1RALiG8a1yDTsyvAxIKBvmnw5aQ==" crossorigin="anonymous"></script>
 
-    <script src="http://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js" integrity="sha256-Ug34+8hEyLcZRNUefnDM6H4ijzC7Tdf8eWGuTxXIseU=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js" integrity="sha256-Ug34+8hEyLcZRNUefnDM6H4ijzC7Tdf8eWGuTxXIseU=" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/zip-js/zip.js"></script>
 
     <!-- Icons -->
-    <script src="http://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- Init -->
     <script src="js/init.js?<?php echo time() ?>"></script>
