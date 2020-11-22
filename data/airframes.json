@@ -6152,6 +6152,10 @@
         }
       }
     },
+    "loadout_map": {
+      "7": "KORD",
+      "8": "PKT"
+    },
     "mlw_field": 28660,
     "mtow_field": 28660,
     "pylons": [
