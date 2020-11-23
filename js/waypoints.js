@@ -160,7 +160,7 @@ function waypoint_add(wp_info) {
     }
 
     data['act'] = "00:20"
-    data['typ'] = "1"
+    data['typ'] = ["FA-18C"].includes(type) ? "0" : "1";
   } else {
 
     // If typ is a number, increment it
@@ -418,7 +418,9 @@ $('#flight-airframe').on('data-route-updated', function(e) {
 
   if (route.xml_format == "cf") {
 
-    var idx = 1;
+    // F-18 waypoints start at 0
+    var idx = ["FA-18C"].includes(type) ? 0 : 1;
+
     var style = route.wp_style || "index";
 
     route.xml.querySelectorAll('Waypoints > Waypoint').forEach(function(wp) {
