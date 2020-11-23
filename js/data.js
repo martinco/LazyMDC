@@ -360,6 +360,7 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
 
   if (mission_route_data) {
+
     // If we have unchecked the use-loadout checkbox, update our mission route data and submit
     if (!$("#data-route-dialog-use-loadout").is(':checked')) {
       mission_route_data.use_loadout = false;
@@ -370,9 +371,32 @@ $("#data-route-dialog-submit").click(function(e, data) {
     if (wp_style) {
       mission_route_data.wp_style = wp_style;
     }
+
+    // Handle CF specifics
+    if (mission_route_data.xml_format == "cf") {
+
+      // Data -> Theatre
+      var theater = xml.querySelector('Mission > Theater').textContent;
+      $('#data-theatre').val(theater);
+
+      // If we have an aircraft, set the selector
+      if (mission_route_data.aircraft) {
+        $('#flight-airframe').val(mission_route_data.aircraft).change();
+      }
+
+      // Update bulls, if we have a route selected, use side's bulls, else default blue
+      var bulls = xml.querySelector(mission_route_data.side + "Bullseye");
+      $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
+
+      var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
+      $('#waypoints-bullseye-lat').attr('data-raw', bulls_lat);
+
+      var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
+      $('#waypoints-bullseye-lon').attr('data-raw', bulls_lon);
+    }
   }
 
-  // Update airframe value
+  // Update airframe route - this will trigger downstream waypoints etc.
   $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
 
   // Store the route for poi
@@ -380,27 +404,6 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var poi_route_data = poi_route == 'None' ? null : dialog.data('routes')[poi_route];
   $('#flight-airframe').data('poi', poi_route_data).trigger('data-poi-updated');
 
-  // Handle that which is supported by CF
-  if (mission_route_data && mission_route_data.xml_format == "cf") {
-
-    // Data -> Theatre
-    var theater = xml.querySelector('Mission > Theater').textContent;
-    $('#data-theatre').val(theater);
-
-    if (mission_route_data.aircraft) {
-      $('#flight-airframe').val(mission_route_data.aircraft).change();
-    }
-
-    // Update bulls, if we have a route selected, use side's bulls, else default blue
-    var bulls = xml.querySelector(mission_route_data.side + "Bullseye");
-    $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
-
-    var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
-    $('#waypoints-bullseye-lat').attr('data-raw', bulls_lat);
-
-    var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
-    $('#waypoints-bullseye-lon').attr('data-raw', bulls_lon);
-  }
 
   // Update coordiantes
   coordinate_update_fields();
