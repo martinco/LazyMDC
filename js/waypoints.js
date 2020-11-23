@@ -25,15 +25,37 @@ function get_seconds_from_time(time) {
   if (time == "") {
     return 0
   }
-  var elems = time.split(":");
-  return (parseInt(elems[0])*3600 + parseInt(elems[1])*60)
+
+  // Regex is (H:)?M
+  var res = time.match(/^(?:([0-9]+):)?([0-9]+)?$/);
+  if (!res) {
+    return 0
+  }
+
+  var secs = 0;
+  if (res[1]) { secs += parseInt(res[1])*3600; }
+  if (res[2]) { secs += parseInt(res[2]*60); }
+  return secs;
 }
 
 // Helper to get the "HH:mm" string from number of seconds since 00:00 as the
 // format used in DCS mission start
-function get_time_from_seconds(seconds) {
-  hours   = Math.floor(seconds / 3600) % 24
-  minutes = Math.floor((seconds % 3600) / 60)
+function get_time_from_seconds(seconds, duration) {
+
+  duration = duration || false;
+
+  if (seconds == 0) {
+    return "";
+  }
+
+  hours = Math.floor(seconds / 3600);
+
+  // If we are formatting a time we just want clock hours
+  if (!duration)  {
+    hours %= 24;
+  }
+
+  minutes = Math.floor((seconds % 3600) / 60);
   return pad(hours, 2)+":"+pad(minutes,2);
 }
 
@@ -145,6 +167,10 @@ function waypoint_add(wp_info) {
 
   if (!last_row) {
 
+    // We also remove declutter to avoid GS / ALT being removed in the case
+    // someone adds a row, deletes all the rows, and adds a row
+    $("#waypoints-table").data('declutter', null);
+
     // If we are adding the first row, set an appropriate speed / altitude
     // unless they're already defined (e.g. CF) otherwise, we'll use the
     // previous row's data
@@ -172,6 +198,9 @@ function waypoint_add(wp_info) {
   // Update with requested waypoint info
   jQuery.extend(true, data, wp_info)
 
+  // Reformat ACT
+  data['act'] = get_time_from_seconds(get_seconds_from_time(data['act']), true);
+
   // Conform Ground Speed to nearest 5
   var gs = parseFloat(data['gs']);
   if (!isNaN(gs)) {
@@ -195,6 +224,12 @@ function waypoint_add(wp_info) {
       declutter[x] = data[x];
     }
   }
+
+  // Remove default emptyness
+  if (data['act'] == "00:00") {
+    data['act'] = "";
+  }
+
   waypoints_table.data('declutter', declutter);
 
   var row = `<tr>
@@ -203,7 +238,7 @@ function waypoint_add(wp_info) {
           <td class="input-container text-right"><input value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
           <td class="text-center"></td>
-          <td class="input-container" onChange="waypoint_update()"><input class="nospinner" type="time" value="${data['act']}"></td>`
+          <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="([0-9]+:)?(0-9)+"></td>`
     
     if (data['lat_fmt']) {
         row += `<td class="coord" onClick="coordinate_input(this, 6);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
@@ -231,6 +266,12 @@ function waypoint_add(wp_info) {
   last_row = $("#waypoints-table > tbody > tr:last");
 
   waypoint_autocomplete(last_row[0].cells[1].firstChild, 6);
+
+  $(last_row[0].cells[5].firstChild).on('change', function(evt) {
+    // Get seconds from time, and format accordingly
+    var tgt = evt.target;
+    tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
+  });
 
   // Replace feather
   feather.replace()
