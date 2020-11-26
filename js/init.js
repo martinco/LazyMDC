@@ -79,7 +79,6 @@ $.when(
     branding: false,
     forced_root_block: false,
     resize: true,
-    min_height: 700,
     remove_trailing_brs: true,
     resize_img_proportional: true,
     init_instance_callback: function(inst) {
@@ -93,6 +92,10 @@ $.when(
             break;
         }
       });
+
+      // Set min-height based on params
+      inst.settings.min_height = parseInt(inst.targetElm.getAttribute('data-min-height')) || 700;
+
       tinymce_init_count -= 1;
       if (tinymce_init_count == 0) { 
         tinymce_init_complete.resolve();

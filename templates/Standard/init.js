@@ -1262,7 +1262,7 @@ function Notes (data, unit) {
 
         <tbody>
           <tr class="header">
-            <th>NOTES</th>
+            <th>${data['title'] || "NOTES"}</th>
           </tr>
           <tr style="vertical-align: top">
             <!-- important do not create #text by adding space -->
@@ -1276,13 +1276,13 @@ function Notes (data, unit) {
 
   this.content = (function() {
 
-    if (!data.notes.html) {
+    if (!data || !data.html) {
       return [];
     }
 
     // Process the children
     var elems = [];
-    for (var child of $(`<div>${data['notes']['html']}</div>`).contents()) {
+    for (var child of $(`<div>${data['html']}</div>`).contents()) {
       // Handle Page Breaks
       if (child.nodeType == Node.COMMENT_NODE && child.data.trim() == "pagebreak") {
         elems.push(new PageBreak);
@@ -1322,6 +1322,7 @@ function Builder(data, unit) {
   var section_order = [
     'flight',
     'loadout',
+    'loadout-notes',
     'ramrod',
     'waypoints',
     'sequence',
@@ -1336,6 +1337,7 @@ function Builder(data, unit) {
   sections = {
     'flight': new Flight(data, unit),
     'loadout': new Loadout(data, unit),
+    'loadout-notes': new Notes(data.loadout.notes, unit),
     'ramrod': new RAMROD(data, unit),
     'waypoints': new Waypoints(data, unit),
     'poi': new POI(data, unit),
@@ -1344,7 +1346,7 @@ function Builder(data, unit) {
     'deparr': new DepArr(data, unit),
     'agencies': new Agencies(data, unit),
     'threats': new Threats(data, unit),
-    'notes': new Notes(data, unit),
+    'notes': new Notes(data.notes, unit),
   };
 
   var page = new Page(data, unit, 1);

@@ -360,8 +360,14 @@ function loadout_export() {
 
   var type_data = airframes[$('#flight-airframe').val()];
 
-  if (!type_data) { 
+  if (!type_data) {
     return {}
+  }
+
+  // Collect our notes
+  ret['notes'] = {
+    'html': tinyMCE.editors['loadout-mce'].getContent(),
+    'title': 'LOADOUT INFORMATION',
   }
 
   // Set weights
@@ -390,5 +396,10 @@ function loadout_load(data) {
   }
 
   // We store the pylon data in order, to the real name
-  loadout_set(data)
+  loadout_set(data);
+
+  // Load notes if we have them
+  if (data['notes'] && data['notes']['html']) {
+    tinyMCE.editors['loadout-mce'].setContent(data['notes']['html']);
+  }
 }
