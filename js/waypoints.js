@@ -238,7 +238,7 @@ function waypoint_add(wp_info) {
           <td class="input-container text-right"><input value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
           <td class="text-center"></td>
-          <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="([0-9]+:)?(0-9)+"></td>`
+          <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="^([0-9]+:)?[0-9]+$"></td>`
     
     if (data['lat_fmt']) {
         row += `<td class="coord" onClick="coordinate_input(this, 6);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
