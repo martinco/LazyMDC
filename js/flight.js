@@ -145,8 +145,18 @@ function flightmembers_items(ac) {
   }
 
   if (!["UH-1H", "Mi-8MT"].includes(ac)) {
+
+    // Whilst the M2k doesn't have a pod, we still include LSR as it can carry
+    // GPU-12s and as such it is still required for reference to set the code
+    // from the kneeboard
+    
     cols.push(
       ['LSR', 50, "text-center", "number"])
+
+    if (!["Ka-50", "F-14B", "M-2000C"].includes(ac)) {
+      cols.push(
+        ['LSS', 50, "text-center", "number"])
+    }
   }
 
   cols.push(
@@ -195,6 +205,44 @@ function flightmembers_format() {
   $("#flight-members-table > thead > tr > th:last").attr('colspan', 2);
 
 }
+
+function flightmembers_del(tr) {
+
+  // Get the column identifiers
+  var elems = {};
+
+  var cols = flightmembers_items($("#flight-airframe").val())
+  for (col in cols) {
+    var [title, width, cls, typ, pattern, setup_fnc] = cols[col]
+    elems[title] = col;
+  }
+
+  // When we delete a flight member, if it's the last row then we update the
+  // LSS - if we delete a mid row flight member, do we renumber the IDs /
+  // re-create all the LSS / LSR ?
+  
+  var rows = $("#flight-members-table > tbody > tr");
+  var row_id = rows.length - 1;
+
+  // We only care if more than 2 ship
+  if (rows.length > 2 && rows.length % 2 == 0) {
+    rows[row_id - 1].cells[elems['LSS']].firstChild.value = rows[row_id - 3].cells[elems['LSR']].firstChild.value;
+  }
+
+  // Allow the previous row to be deleted
+  if (row_id > 0) {
+    var cells = rows[row_id - 1].cells;
+    $(cells[cells.length-1]).html($(`
+      <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='flightmembers_del($(this).closest("tr"));'>
+        <i data-feather="delete"></i>
+      </button>`));
+
+    feather.replace()
+  }
+
+  tr.remove();
+}
+
 
 function flightmembers_add(values) {
 
@@ -258,7 +306,7 @@ function flightmembers_add(values) {
 
   html += `
       <td class="input-container text-center border-left-0">
-        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='flightmembers_del($(this).closest("tr"));'>
           <i data-feather="delete"></i>
         </button>
       </td>`;
@@ -267,7 +315,15 @@ function flightmembers_add(values) {
 
   $("#flight-members-table > tbody").append(html);
 
-  var new_last_row = $("#flight-members-table > tbody > tr:last");
+  var rows = $("#flight-members-table > tbody > tr");
+  var row_id = rows.length - 1;
+  var new_last_row = $(rows[row_id]);
+
+  // Remove last rows delete
+  if (last_row[0]) {
+    var cells = last_row[0].cells;
+    $(cells[cells.length-1]).empty();
+  }
 
   // Handle Setup Functions
   for (col in cols) {
@@ -277,40 +333,45 @@ function flightmembers_add(values) {
     }
   }
 
+  // Manage TCN
   if (first_row[0] != undefined && elems['TCN']) {
-    var first_tcn = first_row[0].cells[elems['TCN']].firstChild.value.match(/^([0-9]+)(.*)/);
-    if (first_tcn) {
-      new_last_row[0].cells[elems['TCN']].firstChild.value = String(parseInt(first_tcn[1]) + 63) + first_tcn[2];
+    if (!values['tcn']) {
+      var first_tcn = first_row[0].cells[elems['TCN']].firstChild.value.match(/^([0-9]+)(.*)/);
+      if (first_tcn) {
+        new_last_row[0].cells[elems['TCN']].firstChild.value = String(parseInt(first_tcn[1]) + 63) + first_tcn[2];
+      }
     }
   }
 
+  // Handle incrementing values
   var incrs = ['#', 'SQUAWK', 'LSR', 'OID']
-  for (incr in incrs) {
-    if (arguments[elems[incrs[incr]]]) {
+  for (var incr of incrs) {
+    if (values[incr.toLowerCase()]) {
       continue
     }
     try {
-      var last_val = last_row[0].cells[elems[incrs[incr]]].firstChild.value;
+      var last_val = last_row[0].cells[elems[incr]].firstChild.value;
       if (last_val) {
-        new_last_row[0].cells[elems[incrs[incr]]].firstChild.value = parseInt(last_val)+1 || ""
+        new_last_row[0].cells[elems[incr]].firstChild.value = parseInt(last_val)+1 || ""
       }
     } catch(e) {}
   }
 
+  // Persistent values
   var persists = ['GID', 'MIDS A', 'MIDS B'];
-  for (persist in persists) {
-    if (arguments[elems[persists[persist]]]) {
+  for (var persist of persists) {
+    if (values[persist.toLowerCase()]) {
       continue
     }
     try {
-      var last_val = last_row[0].cells[elems[persists[persist]]].firstChild.value;
+      var last_val = last_row[0].cells[elems[persist]].firstChild.value;
       if (last_val) {
-        new_last_row[0].cells[elems[persists[persist]]].firstChild.value = last_val;
+        new_last_row[0].cells[elems[persist]].firstChild.value = last_val;
       }
     } catch(e) {}
   }
 
-  if (!arguments[elems['SQUAWK']]) {
+  if (!values['squawk']) {
     try {
       var lsr = last_row[0].cells[elems['SQUAWK']].firstChild.value;
       if (lsr) {
@@ -319,6 +380,40 @@ function flightmembers_add(values) {
     } catch(e) {}
   }
 
+  // LSS fun:
+  //   - On adding 2nd, we set 1 to 2 LSR, 2 to 1 LSR
+  //   - On adding 3rd, we set 3 to 1 LSR
+  //   - On adding 4th, we set 3 to 4 LSR
+  //   - And continue creating 2 ship elements
+  //
+  // We ONLY do this if LSS is empty on the row we're adding else we might
+  // change data on reloading a saved MDC
+  //
+  if (elems['LSS'] && values['lss'] == undefined) {
+
+    // Ignore Flight lead
+    if (row_id > 0) {
+
+      // If were completing a 2 ship (element) then we also set the element
+      // lead LSS to LSR of wing, otherwise, we use the last element leads LSR
+      //
+      // This does lead to a 5 ship being element of 2 and then a 2nd element
+      // of 3, but the creator will just have to juggle the codes as they
+      // desire in such cases
+      
+      if (row_id % 2 == 1) {
+        rows[row_id].cells[elems['LSS']].firstChild.value = rows[row_id-1].cells[elems['LSR']].firstChild.value;
+
+        // As we're completing an element, we set the element lead to our value
+        rows[row_id-1].cells[elems['LSS']].firstChild.value = rows[row_id].cells[elems['LSR']].firstChild.value;
+      } else {
+        // We're adding an odd number and have to use row_id - 2
+        rows[row_id].cells[elems['LSS']].firstChild.value = rows[row_id-2].cells[elems['LSR']].firstChild.value;
+      }
+
+    }
+  }
+  
   // Lastly add autocomplete
   if (elems['BORT']) {
     pilot_autocomplete(new_last_row[0].cells[1].firstChild, [elems['BORT']]);

@@ -264,8 +264,12 @@ function Flight(data, unit) {
       cols.push(['TCN', 60, "text-right rp5"]);
     }
 
-    if (!["UH-1H", "Mi-8MT"].includes(ac)) {
+    if (data['flight']['members'][0] && data['flight']['members'][0]['lsr'] !== undefined) {
       cols.push(['LSR', 60, "text-center"]);
+    }
+
+    if (data['flight']['members'][0] && data['flight']['members'][0]['lss'] !== undefined) {
+      cols.push(['LSS', 60, "text-center"]);
     }
 
     cols.push(['SQUAWK', 60, "text-center"]);
