@@ -359,6 +359,9 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var mission_route = $('#data-route-dialog-waypoints').val()
   var mission_route_data = mission_route == 'None' ? null : dialog.data('routes')[mission_route];
 
+  // Store the route data
+  $('#flight-airframe').data('route', mission_route_data);
+
   if (mission_route_data) {
 
     // If we have unchecked the use-loadout checkbox, update our mission route data and submit
@@ -396,8 +399,8 @@ $("#data-route-dialog-submit").click(function(e, data) {
     }
   }
 
-  // Update airframe route - this will trigger downstream waypoints etc.
-  $('#flight-airframe').data('route', mission_route_data).trigger('data-route-updated');
+  // Trigger the route-updated
+  $('#flight-airframe').trigger('data-route-updated');
 
   // Store the route for poi
   var poi_route = $('#data-route-dialog-poi').val()
