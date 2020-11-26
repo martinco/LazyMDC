@@ -26,6 +26,8 @@ body {
 .rb0 { border-right: 0; }
 .lb0 { border-left: 0; }
 
+.pt3 { padding-top: 3pt; }
+
 .break{ height: 10pt; }
 
 /* TEXT STYLES */
@@ -34,6 +36,10 @@ body {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .text-pst { font-size: 12pt; }
+
+.align-top {
+  vertical-align: top;
+}
 
 .text-bottom {
   line-height: normal;

@@ -1023,8 +1023,8 @@ function Agencies (data, unit) {
       <table class="kb-width" style="table-layout: fixed">
 
         <colgroup>
-          <col style="width:211${unit}" />
-          <col style="width:45${unit}" />
+          <col style="width:265${unit}" />
+          <col style="width:48${unit}" />
           <col style="width:75${unit}" />
           <col style="width:49${unit}" />
           <col style="width:75${unit}" />
@@ -1054,15 +1054,15 @@ function Agencies (data, unit) {
 
       var elem_html = `
         <tr>
-          <td class="overflow-hidden">${elem['agency']}</td>
-          <td class="text-right rp5 text-bold">${elem['tcn']}</td>`;
+          <td class="overflow-hidden align-top">${elem['agency']}</td>
+          <td class="text-right rp5 align-top text-bold">${elem['tcn']}</td>`;
 
       if (elem['pri'].startsWith('MIDS')) {
-        elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['pri']}</td>`;
+        elem_html += `<td class="text-center align-top text-bold rb0" colspan=2>${elem['pri']}</td>`;
       } else {
         elem_html += `
-          <td class="text-center text-bold rb0">${elem['pri']}</td>
-          <td class="text-center lb0 text-pst text-bottom">${elem['pri_pst']}</td>`;
+          <td class="text-center text-bold rb0 align-top">${elem['pri']}</td>
+          <td class="text-center lb0 pt3 text-pst align-top">${elem['pri_pst']}</td>`;
       }
 
       if (elem['sec'].startsWith('MIDS')) {

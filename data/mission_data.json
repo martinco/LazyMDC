@@ -108,7 +108,7 @@
         "tcn": "37Y"
       },
       {
-        "label": "AWACS Check-in",
+        "label": "AWACS (DARKSTAR) Check-in",
         "pri": "237.000"
       },
       {
@@ -3758,7 +3758,7 @@
   "132nd - OPAR": {
     "agencies": [
       {
-        "label": "AWACS Check-in",
+        "label": "AWACS (DARKSTAR) Check-in",
         "pri": "231.500"
       },
       {
@@ -4309,7 +4309,7 @@
         "tcn": "20 X"
       },
       {
-        "label": "AWACS Check-In",
+        "label": "AWACS (DARKSTAR) Check-In",
         "pri": "231.500"
       },
       {
@@ -7604,7 +7604,7 @@
   "132nd - OPUF": {
     "agencies": [
       {
-        "label": "AWACS Check-in",
+        "label": "AWACS (DARKSTAR) Check-in",
         "pri": 231.5
       },
       {
