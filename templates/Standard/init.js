@@ -1041,16 +1041,16 @@ function DepArr(data, unit) {
           <col />
           <col style="width:60${unit}" />
 
-          <col style="width:75${unit}" />
+          <col style="width:76${unit}" />
           <col class="" style="width:49${unit}" />
 
-          <col style="width:75${unit}" />
+          <col style="width:77${unit}" />
           <col class="" style="width:49${unit}" />
 
-          <col style="width:75${unit}" />
+          <col style="width:77${unit}" />
           <col class="" style="width:49${unit}" />
 
-          <col style="width:75${unit}" />
+          <col style="width:76${unit}" />
           <col class="" style="width:49${unit}" />
 
         </colgroup>
@@ -1122,9 +1122,9 @@ function Agencies (data, unit) {
         <colgroup>
           <col style="width:265${unit}" />
           <col style="width:48${unit}" />
-          <col style="width:75${unit}" />
+          <col style="width:76${unit}" />
           <col style="width:49${unit}" />
-          <col style="width:75${unit}" />
+          <col style="width:76${unit}" />
           <col style="width:49${unit}" />
           <col />
         </colgroup>
