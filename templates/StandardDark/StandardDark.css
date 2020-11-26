@@ -13,7 +13,7 @@ tr {
   background: #404040;
 }
 
-tr:nth-child(odd) {
+table.std tr:nth-child(odd) {
   background: #606060;
 }
 

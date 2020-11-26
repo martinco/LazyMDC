@@ -153,7 +153,7 @@ function Header(data, unit, page) {
   this.dom = function() {
 
     var html = `
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col style="width: 115${unit}" />
@@ -295,7 +295,7 @@ function Flight(data, unit) {
     header += `</tr>`;
 
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
       ${colgroup}
       ${header}`);
 
@@ -339,7 +339,7 @@ function Package(data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col style="width:100${unit}" />
@@ -483,7 +483,7 @@ var Loadout = function(data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width" style="table-layout: fixed; border:0px">
+      <table class="kb-width std" style="table-layout: fixed; border:0px">
         <colgroup>
           <col style="width:45${unit}" />
           <col />
@@ -659,7 +659,7 @@ var Waypoints = function(data, unit) {
 
   this.table = function () {
     var table = $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
         <colgroup>
           <col style="width:37${unit}" />
           <col style="width:150${unit}" />
@@ -762,7 +762,7 @@ var POI = function(data, unit) {
 
   this.table = function () {
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
         <colgroup>
           <col />
           <col style="width:150${unit}" />
@@ -827,7 +827,7 @@ var Sequence = function(data, unit) {
   this.table = function () {
 
     var html = `
-      <table class="kb-width">
+      <table class="kb-width std">
         <colgroup>
           <col style="width:20${unit}" />
           <col />`;
@@ -1034,7 +1034,7 @@ function DepArr(data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col style="width:37${unit}" />
@@ -1117,7 +1117,7 @@ function Agencies (data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col style="width:265${unit}" />
@@ -1190,7 +1190,7 @@ function Threats (data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col />

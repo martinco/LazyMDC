@@ -12,7 +12,7 @@ tr {
   background: #f4f4f4;
 }
 
-tr:nth-child(odd) {
+table.std tr:nth-child(odd) {
   background: #d9d9d9;
 }
 
