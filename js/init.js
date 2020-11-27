@@ -3,6 +3,15 @@
 // saving, we want to avoid it, so we disable it, click, enable it...eugh
 disable_save = false
 
+function debug(msg) {
+  if (debug) {
+    var dt = (new Date()).getTime();
+    $('#debug').append(dt + " " + msg + "\n")
+  }
+}
+
+debug("init loaded");
+
 $.when(
 
   // Page Data
@@ -65,43 +74,51 @@ $.when(
   var tinymce_init_complete = $.Deferred();
 
   // Initialize Editors
-  tinymce.init({
-    selector: 'textarea.mce',
-    plugins: [
-      'autoresize',
-      'image',
-      'pagebreak',
-      'table',
-    ],
-    toolbar: "undo redo pastetext | fontselect | fontsizeselect",
-    content_css: "tinymce.css",
-    fontsize_formats: "14px 16px 18px 20px 22px 24px 30px 40px",
-    branding: false,
-    forced_root_block: false,
-    resize: true,
-    remove_trailing_brs: true,
-    resize_img_proportional: true,
-    init_instance_callback: function(inst) {
-      $(inst.contentWindow).bind('keydown', function(event) {
-        switch (event.keyCode) {
-          case 83: // s 
-            if (event.ctrlKey || event.metaKey) {
-              event.preventDefault();
-              save({notify: true})
-            }
-            break;
+  try {
+    tinymce.init({
+      selector: 'textarea.mce',
+      plugins: [
+        'autoresize',
+        'image',
+        'pagebreak',
+        'table',
+      ],
+      mobile: {
+        theme: 'mobile',
+      },
+      toolbar: "undo redo pastetext | fontselect | fontsizeselect",
+      content_css: "tinymce.css",
+      fontsize_formats: "14px 16px 18px 20px 22px 24px 30px 40px",
+      branding: false,
+      forced_root_block: false,
+      resize: true,
+      remove_trailing_brs: true,
+      resize_img_proportional: true,
+      init_instance_callback: function(inst) {
+        $(inst.contentWindow).bind('keydown', function(event) {
+          switch (event.keyCode) {
+            case 83: // s 
+              if (event.ctrlKey || event.metaKey) {
+                event.preventDefault();
+                save({notify: true})
+              }
+              break;
+          }
+        });
+
+        // Set min-height based on params
+        inst.settings.min_height = parseInt(inst.targetElm.getAttribute('data-min-height')) || 700;
+
+        tinymce_init_count -= 1;
+        if (tinymce_init_count == 0) { 
+          tinymce_init_complete.resolve();
         }
-      });
-
-      // Set min-height based on params
-      inst.settings.min_height = parseInt(inst.targetElm.getAttribute('data-min-height')) || 700;
-
-      tinymce_init_count -= 1;
-      if (tinymce_init_count == 0) { 
-        tinymce_init_complete.resolve();
-      }
-    },
-  });
+      },
+    });
+  } catch (e) {
+    debug(e);
+    tinymce_init_complete.resolve();
+  }
 
   var dt = (new Date()).getTime();
 
@@ -124,6 +141,7 @@ $.when(
 
   ).then(function() {
 
+    debug("JS Loaded");
 
     // Replace our icons
     feather.replace();

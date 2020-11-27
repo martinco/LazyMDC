@@ -47,18 +47,19 @@
         100% { transform: rotate(360deg); }
       }
     </style>
-    <script>
-      <?php
+    <script><?php
         $kneeboard_root=dirname($_SERVER['SCRIPT_NAME']);
         if (substr($kneeboard_root, -1) != '/') {
           $kneeboard_root .= '/';
         }
-        echo('kneeboard_root="' . $kneeboard_root . '"' . "\n");
+        echo("\n");
+        echo('kneeboard_root="' . $kneeboard_root . '"' . ";\n");
+        echo('debug=' . (isset($_GET['debug']) ? 'true' : 'false') . ";\n");
       ?>
     </script>
   </head>
   <body>
-    <div id="loader-container">
+    <div id="loader-container" style="<?php echo isset($_GET['debug']) ? 'display: none' : ''; ?>">
       <div id="loader">
         <img src="img/loader.svg" style="width:30px; height:30px"></img>
       </div>
@@ -174,6 +175,7 @@
 
       <!-- Main Page -->
       <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
+        <div style="<?php echo !isset($_GET['debug']) ? 'display: none' : ''; ?>"><pre id="debug"></pre></div>
         <div class="tab-pane" id="error">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Error</h1>
@@ -217,26 +219,27 @@
     </div>
 
 
-    <script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/geographiclib@1.50.0/geographiclib.min.js" integrity="sha256-P4IU60oavmLHtspWrVYYoXkXGeeuIerQZFj33Q0FeTw=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js" integrity="sha512-kvg/Lknti7OoAw0GqMBP8B+7cGHvp4M9O9V6nAYG91FZVDMW3Xkkq5qrdMhrXiawahqU7IZ5CNsY/wWy1PpGTQ==" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.min.js" integrity="sha512-878jmOO2JNhN+hi1+jVWRBv1yNB7sVFanp2gA1bG++XFKNj4camtC1IyNi/VQEhM2tIbne9tpXD4xaPC4i4Wtg==" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery.serializeObject/2.0.3/jquery.serializeObject.min.js" integrity="sha512-DNziaT2gAUenXiDHdhNj6bfk1Ivv72gpxOeMT+kFKXB2xG/ZRtGhW2lDJI9a+ZNCOas/rp4XAnvnjtGeMHRNyg==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/geographiclib@1.50.0/geographiclib.min.js" integrity="sha256-P4IU60oavmLHtspWrVYYoXkXGeeuIerQZFj33Q0FeTw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js" integrity="sha512-kvg/Lknti7OoAw0GqMBP8B+7cGHvp4M9O9V6nAYG91FZVDMW3Xkkq5qrdMhrXiawahqU7IZ5CNsY/wWy1PpGTQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.min.js" integrity="sha512-878jmOO2JNhN+hi1+jVWRBv1yNB7sVFanp2gA1bG++XFKNj4camtC1IyNi/VQEhM2tIbne9tpXD4xaPC4i4Wtg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.serializeObject/2.0.3/jquery.serializeObject.min.js" integrity="sha512-DNziaT2gAUenXiDHdhNj6bfk1Ivv72gpxOeMT+kFKXB2xG/ZRtGhW2lDJI9a+ZNCOas/rp4XAnvnjtGeMHRNyg==" crossorigin="anonymous"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/tinymce.min.js" integrity="sha512-c46AnRoKXNp7Sux2K56XDjljfI5Om/v1DvPt7iRaOEPU5X+KZt8cxzN3fFzemYC6WCZRhmpSlZvPA1pttfO9DQ==" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/table/plugin.min.js" integrity="sha512-uWF3FdNoBLruuobSz5+lT9MoLy3tAVgU4HCUoTEH8E0E63u4H/Y5Se1zPRX00b7p9pnlD79TlkpH4aHakqU7Tw==" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/image/plugin.min.js" integrity="sha512-jL/iLWqJMXq++2K/l0gLiUc9fGJg4w17wN/X++PEb18kcN+CQ20iwvcLhIUhvobII9m1cJOkiueyEHgMv3QF6g==" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/plugins/pagebreak/plugin.min.js" integrity="sha512-+8DNV1EQCNTeC8wKjeAgzqqUoewZlHASoKkgX7yU+wC2qpRVdpZKTLeB/ds1RALiG8a1yDTsyvAxIKBvmnw5aQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.1/tinymce.min.js" integrity="sha512-RAKGi5Lz3BrsIKXW8sSbTM2sgNbf5m3n7zApdXDTL1IH0OvG1Xe1q2yI2R2gTDqsd2PLuQIIiPnDJeOSLikJTA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.1/plugins/table/plugin.min.js" integrity="sha512-gh8VZki1bz2pnEpqlggbf1uhAM5Hx35xG29/l0li23HQogyutabbMO3BXZ3wnLEgtpw4RgUFCj1AzAqj1+8bFA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.1/plugins/image/plugin.min.js" integrity="sha512-f3ehjvBomLZvIXfVorgSoPMHzeaosLA2I4F4byiokqzqWNyvpZLwWWI4myoQ/CcVcpyNjslPhbVEIpw0rex9vA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.1/plugins/pagebreak/plugin.min.js" integrity="sha512-ts2h6EdRYK4iNPEgz5AH6uE0vdy9uDgTS8eNU1NSt1HlyHCo5/UbgJH/ZrpX51BB+MNiA18kRSpp9/ufM8m2cg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.1/themes/mobile/theme.min.js" integrity="sha512-xnXH5/nW1ksv/sJ9P49LGS0Pxn/VPBILlny3lGU35g1y19YUeBYzZVTcZbuIvetuPF4Eo6QXatXtenUw1DBTeA==" crossorigin="anonymous"></script>
 
-    <script src="//cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js" integrity="sha256-Ug34+8hEyLcZRNUefnDM6H4ijzC7Tdf8eWGuTxXIseU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js" integrity="sha256-Ug34+8hEyLcZRNUefnDM6H4ijzC7Tdf8eWGuTxXIseU=" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/zip-js/zip.js"></script>
 
     <!-- Icons -->
-    <script src="//cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- Init -->
     <script src="js/init.js?<?php echo time() ?>"></script>

@@ -366,7 +366,7 @@ function loadout_export() {
 
   // Collect our notes
   ret['notes'] = {
-    'html': tinyMCE.editors['loadout-mce'].getContent(),
+    'html': tinymce ? tinymce.editors['loadout-mce'].getContent() : '',
     'title': 'LOADOUT INFORMATION',
   }
 
@@ -399,7 +399,7 @@ function loadout_load(data) {
   loadout_set(data);
 
   // Load notes if we have them
-  if (data['notes'] && data['notes']['html']) {
-    tinyMCE.editors['loadout-mce'].setContent(data['notes']['html']);
+  if (data['notes'] && data['notes']['html'] && tinymce) {
+    tinymce.editors['loadout-mce'].setContent(data['notes']['html']);
   }
 }

@@ -47,7 +47,7 @@ function get_row_data(row, headings) {
 
       // If it's an MCE text area just grab the HTML content
       if (child.hasClass('mce')) {
-        return tinyMCE.editors[child.attr('id')].getContent()
+        return tinymce.editors[child.attr('id')].getContent()
       }
 
       dd = child[0].getAttribute('data-raw')
@@ -159,6 +159,7 @@ function get_data() {
   };
 
   ['data', 'mission', 'flight', 'package', 'loadout', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(data) {
+    debug("collecting: " + data);
     ret[data] = window[data+"_export"]()
   });
 
@@ -185,6 +186,7 @@ function document_update_title() {
 function save(override) {
 
   if (disable_save) {
+    debug("Saving Disabled");
     return
   }
 
@@ -204,12 +206,18 @@ function save(override) {
 
   // As a simple sanity check we ensure we have mission ID as bare minimum to save
   if (!$('#flight-airframe').val()) {
+    debug("No Airframe, aborting save");
     return
   }
 
   var data = params.data;
-  if (!params.data) {
-    data = get_data()
+  if (!data) {
+    try {
+      data = get_data()
+    } catch (e) {
+      debug(e);
+      return;
+    }
   }
 
   var key = get_key();
@@ -234,6 +242,8 @@ function save(override) {
       params.callback_args.unshift(key)
       params.callback(...params.callback_args);
     }
+
+    debug("save data matches, doing nothing");
     return
   }
 
@@ -267,7 +277,12 @@ function save(override) {
           // Update without page reload
           var update = get_key() != data;
           if (update) {
-            window.history.replaceState(data, '', kneeboard_root + data + window.location.hash );
+            var url = kneeboard_root + data;
+            if (debug) { url += '?debug=1'; }
+            url += window.location.hash;
+
+            debug("Updating state: " + url);
+            window.history.replaceState(data, '', url);
             $(document).trigger("key-updated");
           }
         }
