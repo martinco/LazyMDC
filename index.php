@@ -198,7 +198,43 @@
             </p>
           </div>
         </div>
-        <div class="tab-pane" id="about"></div>
+        <div class="tab-pane" id="about">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">About</h1>
+          </div>
+          <div>
+            <p>
+              Welcome to Data Card Builder v2.
+            </p>
+            <p>
+              This is a Mission Data Card (MDC) generator / builder for DCS 
+              with support for importing routes, loadouts and more from CombatFlite or
+              routes from Google Earth, editing navigation waypoints, assigning loadout 
+              (including weights) and custom images for notes secctions and more.
+            </p>
+            <p>
+              It generates multi-page PDF or per-page PNG files that are 
+              suitable for immediate kneeboard use within DCS and includes a
+              <a href='https://www.virtual-jabog32.de/forum/viewtopic.php?f=38&t=11569'>A-10C CDU DataLoader</a>
+              compatible file when the A-10C is selected
+            </p>
+            <p>
+              It was born out of a desire to make my own life easier building 
+              MDCs in a reasonable timeframe and I hope you find it of use!
+            </p>
+            <p>
+            If you have any trouble, feature requests or other items of interest, please feel free to
+              <ul>
+                <li>File an issue on <a href="http://github.com/MartinCo/LazyMDC/issues">GitHub</a>
+                <li>Get in touch via <a href='https://discordapp.com/users/219885915198324736'>MartinCo#6402</a> on discord (132nd.MartinCo on <a href=https://discord.gg/vK2MS2P>132nd Discord</a> or on Hoggit, DCS and others)
+                <li>Get in touch via eMail: <a href="mailto:help@dcs-mdc.com">help@dcs-mdc.com</a>
+              </ul>
+            </p>
+            <p>
+            - MartinCo
+            </p>
+          </div>
+        </div>
         <div class="tab-pane" id="data"></div>
         <div class="tab-pane" id="flight"></div>
         <div class="tab-pane" id="mission"></div>

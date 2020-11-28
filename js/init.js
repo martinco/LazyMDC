@@ -15,7 +15,6 @@ debug("init loaded");
 $.when(
 
   // Page Data
-  $.get( "pages/about.html", function( data ) { $("#about").append(data); }),
   $.get( "pages/mission.html", function( data ) { $("#mission").append(data); }),
   $.get( "pages/data.html", function( data ) { $("#data").append(data); }),
   $.get( "pages/flight.html", function( data ) { $("#flight").append(data); }),
