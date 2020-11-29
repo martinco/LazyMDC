@@ -54,7 +54,7 @@
         }
         echo("\n");
         echo('kneeboard_root="' . $kneeboard_root . '"' . ";\n");
-        echo('debug=' . (isset($_GET['debug']) ? 'true' : 'false') . ";\n");
+        echo('debug_level=' . (isset($_GET['debug']) ? 'true' : 'false') . ";\n");
       ?>
     </script>
   </head>

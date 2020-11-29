@@ -4,7 +4,7 @@
 disable_save = false
 
 function debug(msg) {
-  if (debug) {
+  if (debug_level) {
     var dt = (new Date()).getTime();
     $('#debug').append(dt + " " + msg + "\n")
   }

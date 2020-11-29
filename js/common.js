@@ -278,7 +278,7 @@ function save(override) {
           var update = get_key() != data;
           if (update) {
             var url = kneeboard_root + data;
-            if (debug) { url += '?debug=1'; }
+            if (debug_level) { url += '?debug=1'; }
             url += window.location.hash;
 
             debug("Updating state: " + url);
