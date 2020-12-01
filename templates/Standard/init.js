@@ -679,7 +679,7 @@ var Waypoints = function(data, unit) {
             <th>NAME</th>
             <th>ALT</th>
             <th>GS</th>
-            <th>DST</th>
+            <th>${data.waypoint['gs-units'] == "kmh" ? 'KM' : 'NM'}</th>
             <th>TOT</th>
             <th>ACT</th>
           </tr>

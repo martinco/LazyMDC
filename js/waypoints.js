@@ -84,9 +84,9 @@ function waypoint_update() {
     if (row.cells[3].children[0].value) {
       gs = parseInt(row.cells[3].children[0].value);
 
-      // If GS is in kmh convert to kts
-      if (unit == "kmh") {
-        gs /= 1.852;
+      // If GS is in kts convert to km/h
+      if (unit == "kts") {
+        gs *= 1.852;
       }
     }
 
@@ -105,7 +105,7 @@ function waypoint_update() {
 
         // Get Distance (nm) / Azimuth
         var r = geod.Inverse(last_point.lat, last_point.lon, lat, lon);
-        var distance = (r.s12/1852);
+        var distance = r.s12/1000;
 
         var azi = r.azi1;
         if (azi < 0) {
@@ -123,7 +123,7 @@ function waypoint_update() {
 
         tot += duration_sec
 
-        row.cells[8].innerHTML = distance.toFixed(1);
+        row.cells[8].innerHTML = unit == "kts" ? (distance/1.852).toFixed(1) : distance.toFixed(1);
         row.cells[9].innerHTML = azi.toFixed(0);
 
       } else {
@@ -389,6 +389,7 @@ $(document).on('coordinates-changed', function() {
 });
 
 $('#waypoints-gs-units').on('change', function() {
+  $('#waypoints-table-dist').html($('#waypoints-gs-units').val() == "kts" ? "NM" : "KM");
   waypoint_update();
 });
 
@@ -397,9 +398,9 @@ $('#flight-airframe').on('flight-airframe-changed', function(e) {
 
   // Set default speed format else default to kts
   if (airframes[type] && airframes[type]['gs_units']) {
-    $('#waypoints-gs-units').val(airframes[type]['gs_units']);
+    $('#waypoints-gs-units').val(airframes[type]['gs_units']).chnage();
   } else {
-    $('#waypoints-gs-units').val("kts");
+    $('#waypoints-gs-units').val("kts").change();
   }
 
   // Hide / Show Sequenc based on Airframe
@@ -618,7 +619,7 @@ function waypoint_load(data) {
   $("#waypoints-walk-time").val(data['walk-time']);
   $("#waypoints-transition-alt").val(data['transition-alt']);
   $("#waypoints-transition-level").val(data['transition-level']);
-  $("#waypoints-gs-units").val(data['gs-units'] || "kts");
+  $("#waypoints-gs-units").val(data['gs-units'] || "kts").change();
 
   // Bullseye 
   $("#waypoints-bullseye-name").val(data['bullseye']['name'])
