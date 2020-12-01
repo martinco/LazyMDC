@@ -341,6 +341,12 @@ function data_update_default_bulls() {
   $('#waypoints-bullseye-lat')[0].setAttribute('data-raw', bulls['lat']);
   $('#waypoints-bullseye-lon')[0].setAttribute('data-raw', bulls['lon']);
 
+  // Refresh Waypoint Display, this maybe absent on first load as waypoints.js
+  // loaded after data.js but that's ok
+  if(typeof(waypoint_update) === "function") {
+    waypoint_update();
+  }
+
 }
 
 $('#data-theatre').change(function(e) {
