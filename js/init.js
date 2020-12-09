@@ -14,22 +14,6 @@ debug("init loaded");
 
 $.when(
 
-  // Page Data
-  $.get( "pages/mission.html", function( data ) { $("#mission").append(data); }),
-  $.get( "pages/data.html", function( data ) { $("#data").append(data); }),
-  $.get( "pages/flight.html", function( data ) { $("#flight").append(data); }),
-  $.get( "pages/package.html", function( data ) { $("#package").append(data); }),
-  $.get( "pages/loadout.html", function( data ) { $("#loadout").append(data); }),
-  $.get( "pages/deparr.html", function( data ) { $("#deparr").append(data); }),
-  $.get( "pages/waypoints.html", function( data ) { $("#waypoints").append(data); }),
-  $.get( "pages/comms.html", function( data ) { $("#comms").append(data); }),
-  $.get( "pages/threats.html", function( data ) { $("#threats").append(data); }),
-  $.get( "pages/notes.html", function( data ) { $("#notes").append(data); }),
-  $.get( "pages/download.html", function( data ) { $("#download").append(data); }),
-
-  $.get( "modals/coords.html", function( data ) { $("#modal-container").append(data); }),
-  $.get( "modals/download.html", function( data ) { $("#modal-container").append(data); }),
-
   // Data Sources
   $.getJSON("data/freqs.json").done(function(data) {
     freqs = data;

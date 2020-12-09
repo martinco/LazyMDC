@@ -235,23 +235,29 @@
             </p>
           </div>
         </div>
-        <div class="tab-pane" id="data"></div>
-        <div class="tab-pane" id="flight"></div>
-        <div class="tab-pane" id="mission"></div>
-        <div class="tab-pane" id="package"></div>
-        <div class="tab-pane" id="loadout"></div>
-        <div class="tab-pane" id="deparr"></div>
-        <div class="tab-pane" id="waypoints"></div>
-        <div class="tab-pane" id="comms"></div>
-        <div class="tab-pane" id="threats"></div>
-        <div class="tab-pane" id="notes"></div>
-        <div class="tab-pane" id="download"></div>
+        <?php
+        readfile('pages/data.html');
+        readfile('pages/flight.html');
+        readfile('pages/mission.html');
+        readfile('pages/package.html');
+        readfile('pages/loadout.html');
+        readfile('pages/deparr.html');
+        readfile('pages/waypoints.html');
+        readfile('pages/comms.html');
+        readfile('pages/threats.html');
+        readfile('pages/notes.html');
+        readfile('pages/download.html');
+        ?>
       </div>
 
     </div> <!-- /content -->
 
     <!-- modals -->
     <div id="modal-container">
+      <?php
+      readfile('modals/coords.html');
+      readfile('modals/download.html');
+      ?>
     </div>
 
 
