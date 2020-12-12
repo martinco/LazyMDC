@@ -8,7 +8,7 @@ body {
   color: #000000;
 }
 
-tr {
+table.std tr {
   background: #f4f4f4;
 }
 
@@ -16,7 +16,7 @@ table.std tr:nth-child(odd) {
   background: #d9d9d9;
 }
 
-tr .block-title {
+table.std tr .block-title {
   color: #000000;
 }
 
@@ -24,6 +24,7 @@ tr .block-title {
   background: #f4f4f4;
 }
 
-th {
+table.std-header th,
+table.std th {
   color: #000000;
 }

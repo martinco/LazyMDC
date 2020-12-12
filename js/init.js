@@ -66,10 +66,17 @@ $.when(
         'pagebreak',
         'table',
       ],
+      table_toolbar: '',
+      table_use_colgroups: true,
       mobile: {
         theme: 'mobile',
       },
-      toolbar: "undo redo pastetext | fontselect | fontsizeselect",
+      table_default_attributes: {
+        border: 0,
+        cellpadding: 0,
+        cellspacing: 0,
+      },
+      //toolbar: "undo redo pastetext | fontselect | fontsizeselect",
       content_css: "tinymce.css",
       fontsize_formats: "14px 16px 18px 20px 22px 24px 30px 40px",
       branding: false,

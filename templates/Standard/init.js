@@ -969,7 +969,7 @@ function RAMROD(data, unit) {
     html = `
       <div style="overflow: auto">
         <div style="float: left; width: 529${unit}">
-          <table style="width: 100%; table-layout: fixed">
+          <table class="std" style="width: 100%; table-layout: fixed">
             <colgroup>
               <col  />
               <col style="width:150${unit}"/>
@@ -993,7 +993,7 @@ function RAMROD(data, unit) {
         <div style="float: left; width: 10${unit}">&nbsp;</div>
 
         <div style="float: left; width: 241${unit}">
-          <table style="width:100%; table-layout: fixed">
+          <table class="std" style="width:100%; table-layout: fixed">
             <colgroup>
               <col />
               <col />
@@ -1255,7 +1255,7 @@ function Notes (data, unit) {
 
   this.table = function() {
     var table = $(`
-      <table class="kb-width" style="table-layout: fixed; line-height: normal">
+      <table class="kb-width std-header" style="table-layout: fixed; line-height: normal">
         <colgroup>
           <col />
         </colgroup>
@@ -1266,7 +1266,7 @@ function Notes (data, unit) {
           </tr>
           <tr style="vertical-align: top">
             <!-- important do not create #text by adding space -->
-            <td class="body"></td>
+            <td class="body" style="position: relative; border:1px solid black"></td>
           </tr>
         </tbody>
       </table>`);
@@ -1289,7 +1289,78 @@ function Notes (data, unit) {
         continue
       }
 
-      elems.push($(child));
+      // If a child is a table, we just duplicate the table for each row, this
+      // helps provide a nicer continuity / page splitting behaviour
+
+      if (child.tagName == "TABLE") {
+
+        // We ignore height as we'll always be basing expansions on width
+        $(child).css('height', '');
+
+        var css_w = $(child).css('width').replace(/\s*%/, '');
+        if (css_w > 90) {
+          $(child).css('width', '100%');
+        }
+
+        // tinyMCE on deleting a col doesn't do well at resizing colgroups in
+        // that if one has 3 cols at 33%, delete 1 col, 2 remaining are 33% so
+        // we resize them all here based on the ratio
+        var cols = $(child).find('colgroup > col');
+        var ratio = Array.from(cols).reduce((x,y) => x + parseFloat($(y).css('width')), 0) / 100;
+
+        cols.each(function(idx, col) {
+          
+          var css_w = parseFloat($(col).css('width')) / ratio;
+          var evens = 100 / cols.length;
+
+          // If we're close enough to an even split, make it so
+          if (css_w > evens - 1 && css_w < evens + 1) {
+            css_w = evens.toFixed(3) ;
+          }
+
+          $(col).css('width', css_w + '%')
+        });
+
+        $(child).find('tbody > tr').each(function(idx, row) {
+          var nt = $(child.cloneNode(true));
+          var tb = nt.find('tbody');
+          if (!tb.length) {
+            tb = $("<tbody></tbody>");
+            nt.append(tb);
+          }
+          tb.empty().append(row);
+          console.log(nt[0]);
+          elems.push(nt);
+
+          // Handle TDs
+          var tds = $(row).find('> td');
+          var evens = 100 / tds.length;
+          tds.each(function(idx, td) {
+
+            // If we're close enough to 50% make it 50% to make things prettier
+            var css_w = $(td).css('width').replace(/\s*%/, '');
+            if (css_w > evens - 1 && css_w < evens + 1) {
+              $(td).css('width', evens.toFixed(2) + '%')
+            }
+            
+            // remove height from td
+            $(td).css("height", "")
+          })
+
+          // If someone has a huge tr height, reign it in to max-height
+          //if (p.height() > th) {
+          //  p.height(th) 
+          //}
+
+
+          // If we are 100% then force page break)
+          if (nt.css('height') == '100%')  {
+            nt.css('height', '');
+          }
+        });
+      } else {
+        elems.push($(child));
+      }
     }
     return elems;
 
@@ -1299,7 +1370,7 @@ function Notes (data, unit) {
     for (var table of tables) {
       if (table[0] == elem) {
         var content = table.find('.body');
-        content.css('height', (content.height() + extension) + "px");
+        content.css('height', (content.height() + extension) + "px").resize();
         return
       }
     }
@@ -1381,7 +1452,61 @@ function Builder(data, unit) {
     this.process_section()
   }
 
+  this.resize_images = function(row) {
+
+    var images = row.prop('tagName') == "IMG" ? $([row[0]]) : row.find('img');
+
+    for (var img of images) {
+
+      // Max width / height of a standalone image
+      var tw = 776;
+      var th = 1080;
+
+      // If we're a stadalone image (i.e. just form part of the body), then
+      // scale to fit on width, then downsize on height if required
+
+      var p = $(img).parent();
+
+      if (p.prop('tagName') == "TD" && !p.hasClass('body')) {
+
+        // Max height remains based on max notes height above
+        tw = p.width();
+
+        cn = Array.from(img.parentElement.childNodes);
+        previous = cn.slice(0, cn.indexOf(img));
+        if (previous.length > 1) {
+          var ndiv = $('<div></div>');
+          ndiv.append(previous);
+          $(img).before(ndiv);
+          th -= ndiv.height();
+        } else if (previous.length == 1 && previous[0].nodeType == Node.ELEMENT_NODE) {
+          th -= $(previous[0]).height();
+        }
+      }
+
+      pr = tw / th;
+      ir = img.naturalWidth / img.naturalHeight;
+
+      if (ir > pr) {
+        img.setAttribute("width", tw + "px");
+        img.removeAttribute("height");
+        $(img).css('padding-left', 0);
+      } else {
+
+        img.removeAttribute("width");
+        img.setAttribute("height", th + "px"); 
+
+        console.log(p[0], th);
+
+        // If we're vertically aligned, add pad the left to center it
+        $(img).css('padding-left', (tw - (th / img.naturalHeight) * img.naturalWidth) / 2);
+      }
+    }
+  }
+
   this.process_section = function() {
+    // This mybe called for the same thing in the event of a new page, but it
+    // shouldn't be triggered on BR or so as these need to get filtered
 
     var key = section_order[section_id];
     
@@ -1399,7 +1524,7 @@ function Builder(data, unit) {
       return;
     }
 
-    row = section.content[rowid];
+    var row = section.content[rowid];
     if (row === undefined) {
       
       if (section.content.length > 0 && section.force_newpage_after) {
@@ -1446,7 +1571,7 @@ function Builder(data, unit) {
       // If the existing content is just a line break, remove it before adding
       // this keeps it nice if the split happens on a <br><img> to remove the
       // <br>
-      
+
       var bc = body.contents()
       if (bc.length == 1 && bc[0].tagName == "BR") {
         bc[0].remove();
@@ -1455,6 +1580,13 @@ function Builder(data, unit) {
       // Forced Page Break, we do this here so the BR cleanup above will have
       // happened
       if (row instanceof PageBreak) {
+
+        // If there is no content after the page break, just complete
+        if (!section.content[rowid+1]) {
+          $(document).trigger('RowComplete');
+          return;
+        }
+
         if (body.contents().length != 0) {
           page = page.next();
           pages.push(page);
@@ -1466,21 +1598,80 @@ function Builder(data, unit) {
 
       var async = false;
 
-      // If we encounter images, if they are over size width wise, resize
-      if (row.prop('tagName') == "IMG") {
-        if (row[0].complete !== true) {
-          // Append a ready handler to continue
-          row.on('load', function(e) {
-            this.process_section_p2()
-          }.bind(this));
-          row.on('error', function(e) {
-            this.process_section_p2()
-          }.bind(this));
-          async = true;
+      // Add the row 
+      body.append(row);
+
+      // Force tables > 100 to be 100 wide
+      if (row.prop('tagName') == "TABLE") {
+
+        // Sometimes, we get tables that are 99.7% or similar due to tinyMCE
+        // resize events, so clearly if they're around 90% they really want to
+        // be 100%, we just make them so
+        
+        if (row[0].style.width != "100%" && parseFloat(row[0].style.width) > 90) {
+          row.css('width', '100%');
+
+          // If we adjust, we want to resize before handling the images, so we retrigger the same row again
+          $(document).trigger('RowRepeat');
+          return
         }
+
+        // If we are table and get resized, we need to update any images within
+        // us to be handled by the cell container
+        body.resize(function() {
+          this.resize_images(row);
+        }.bind(this));
+
       }
 
-      body.append(row);
+      // If we encounter images, they need some additional processing
+      var images = row.prop('tagName') == "IMG" ? $([row[0]]) : row.find('img');
+
+      if (images.length > 0) {
+        var imlen = images.length;
+
+        // Make a deferred which will handle the images once the've been loaded
+        // and trigger the continuation of the notes generator on completion
+        var defer = $.Deferred()
+          .done(function() {
+            this.resize_images(row);
+            this.process_section_p2();
+          }.bind(this))
+          .progress(function(img) {
+            imlen--;
+            if(imlen <= 0) {
+              defer.resolve()
+            }
+          })
+
+        for (var img of images) {
+
+          // This is important
+          //
+          // We leave the height as client provided, but not the width; this
+          // enables us get rough spacing of when to split and what sizes to
+          // put the images
+          //
+          // We compress width so that we don't mess up the fixed-width and
+          // then allow the width to govern the resize; most noticable with
+          // table content
+          //
+          // The height also helps avoid situations where they get downscaled
+          // to high heaven and made to try and fit on the first page
+          
+          img.setAttribute("width", "2px");
+
+          if (img.complete) {
+            defer.notify(img);
+          } else {
+            $(img)
+              .on('load',  function(e) { defer.notify(e.target); })
+              .on('error', function(e) { defer.notify(e.target); });
+          }
+        }
+
+        async = true;
+      }
 
       if (!async) {
         // Whilst it's not async, we still need to wait for the row to render
@@ -1498,31 +1689,12 @@ function Builder(data, unit) {
 
   this.process_section_p2 = function() {
 
-    if (row.prop('tagName') == "IMG") {
-
-      // we need to wait for the image to load to get correct
-      // proportions for resize
-      
-      var max_width = 776;
-      var max_height = 1080;
-
-      var row_width = row.width();
-      var row_height = row.height();
-
-      // Find smallest scale factor
-      var scale_factor = Math.min(max_width / row_width, max_height / row_height); 
-
-      row.css('width', Math.round(row_width * scale_factor));
-      row.css('height', Math.round(row_height * scale_factor));
-    }
-
     // If the added row doesn't fit:
     //   If it's the first row item on the page
     //   If it's splittable section: continue on next page with new header
     //   Otherwise: move section onto next page 
     
     if (!page.fits()) {
-
       page_elems = page.body.contents().length;
       body_elems = body.contents().length;
 
@@ -1530,6 +1702,15 @@ function Builder(data, unit) {
       // oversize, there's nothing we can do so continue with next
       // elem
       if (page_elems <= 2 && body_elems == 1 ) {
+        $(document).trigger('RowComplete');
+        return
+      }
+
+      // If the last elem on the page is a BR or page break then we should just
+      // skip it
+      var row = section.content[rowid];
+      if (row[0].tagName == "BR") {
+        row.remove();
         $(document).trigger('RowComplete');
         return
       }

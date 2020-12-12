@@ -25,23 +25,24 @@ body {
 
 
 /* TABLE STYLES */
-table {
+table.std {
   border-top: 1px solid #000000;
 }
 
-td {
+table.std td {
   border: 1px solid #000000;
 }
 
-tr {
+table.std tr {
   height: 19px;
 }
 
-tr.header {
+table.std tr.header {
   height: 18px;
 }
 
-th {
+table.std-header th,
+table.std th {
   font-weight: bold;
   font-size: 12px;
   line-height: 20px;

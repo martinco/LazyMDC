@@ -48,25 +48,27 @@ body {
 
 /* TABLE STYLES */
 
-table {
+table.std-header,
+table.std {
   border-collapse: collapse;
   border: 0;
   border-top: 1pt solid #404040;
 }
 
-td {
+table.std td {
   border: 1pt solid #404040;
 }
 
-tr {
+table.std tr {
   height: 19pt;
 }
 
-tr.header {
+table.std tr.header {
   height: 18pt;
 }
 
-th {
+table.std-header th,
+table.std th {
   font-weight: normal;
   background: #a0a0a0;
   color: #ffffff;
