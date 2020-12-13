@@ -142,6 +142,39 @@ function tcn_formatter(field) {
   });
 }
 
+function number_formatter(field, precision) {
+  precision = precision || 0;
+  field.addEventListener('keydown', function(e) {
+    // With numbers, we change the , to a . and only allow 
+    var key = e.keyCode ? e.keyCode : e.which;
+    if (!(
+        // unmodified 0-9
+        (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey))
+        // unmodified decimal point, comma or period where precision isn't 0
+        || ([110, 188, 190].indexOf(key) !== -1 && !(precision == 0))
+        // backspace, tab, enter, esc, left arrow, right arrow, del, f5
+        || ([8, 9, 13, 27, 37, 39, 46, 116].indexOf(key) !== -1)
+        // ctrl + a
+        || (key == 65 && e.ctrlKey)
+    )) {
+      e.preventDefault();
+    }
+  });
+
+  field.addEventListener('change', function(e) {
+    // Format correctly
+    var value = parseFloat(e.target.value.replace(',', '.'));
+    e.target.value = value.toFixed(precision);
+  });
+}
+
+// From: https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify
+function JSONStringifyOrder(obj) {
+  var allKeys = [];
+  JSON.stringify(obj, function(key, value) { allKeys.push(key); return value; })
+  allKeys.sort();
+  return JSON.stringify(obj, allKeys);
+}
 
 function get_key() {
   var mdc_key = window.location.pathname.replace(kneeboard_root, '')
@@ -158,7 +191,7 @@ function get_data() {
     'version': '2.0',
   };
 
-  ['data', 'mission', 'flight', 'package', 'loadout', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(data) {
+  ['data', 'mission', 'flight', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(data) {
     debug("collecting: " + data);
     ret[data] = window[data+"_export"]()
   });
@@ -320,8 +353,9 @@ function load(data) {
   // to loading subsequent pages and result in data loss
   disable_save = true;
 
-  ['data', 'flight', 'mission', 'package', 'loadout', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
+  ['data', 'flight', 'mission', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
     if (section in data) {
+      debug("Loading " + section);
       window[section+"_load"](data[section])
     }
   });

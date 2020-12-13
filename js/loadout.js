@@ -15,6 +15,9 @@ $(document).on('flight-airframe-changed', function(e) {
     loadout_set();
   }
 
+  // Show CMDs if we're F-16C
+  $('#loadout-f16-cmds').toggle($('#flight-airframe').val() == 'F-16C');
+
 });
 
 function get_loadout_from_xml(route) {
@@ -358,19 +361,13 @@ function loadout_export() {
   var ret = get_form_data($("#loadout-form"));
   ret['pylons'] = loadout_get_pylons();
 
-  var type_data = airframes[$('#flight-airframe').val()];
+  var type = $('#flight-airframe').val();
+  var type_data = airframes[type];
 
   if (!type_data) {
     return {}
   }
 
-  // Collect our notes
-  ret['notes'] = {
-    'html': tinymce ? tinymce.editors['loadout-mce'].getContent() : '',
-    'title': 'LOADOUT INFORMATION',
-  }
-
-  // Set weights
   ret['weights'] = loadout_update_weight()
 
   ret['weights']['mtow_field'] = type_data['mtow_field'];
@@ -397,9 +394,4 @@ function loadout_load(data) {
 
   // We store the pylon data in order, to the real name
   loadout_set(data);
-
-  // Load notes if we have them
-  if (data['notes'] && data['notes']['html'] && tinymce) {
-    tinymce.editors['loadout-mce'].setContent(data['notes']['html']);
-  }
 }

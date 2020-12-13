@@ -391,6 +391,215 @@ function Package(data, unit) {
 
 }
 
+function F16CMDS (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  this.nobreak = true;
+
+  this.table = function() {
+    
+    if (!data.profiles || !data.profiles.cmds) {
+      return $();
+    }
+
+    var modes = Object.keys(data.profiles.cmds);
+    var cols = modes.length;
+
+    var head = `
+      <table class="kb-width std std-col" style="table-layout: fixed">
+        <colgroup>
+          <col style="width:40${unit}">`;
+
+    for (var i=0; i < cols; i++) {
+      head += '<col /><col />';
+    }
+
+    head += `
+        </colgroup>
+        <thead class="header">
+          <tr>
+            <th rowspan=2></th>`;
+
+    for (const col in modes) {
+      var mode = modes[col];
+      var title = mode;
+      if (data.profiles.cmds[mode]['MODIFIED']) {
+        title = `**${title}**`;
+      }
+      head += `<th colspan=2 class="text-center text-bottom${col != cols-1 ? ' rb2' : ''}">${title}</th>`;
+    }
+
+    head += `
+          </tr>
+          <tr>
+            <td style="display:none"></td>
+    `;
+
+    for (const col in modes) {
+      var mode = modes[col];
+      ['CHAFF', 'FLARE'].forEach(function(cms) {
+        var title = cms;
+        if (data.profiles.cmds[mode][cms]['MODIFIED']) {
+          title = `**${cms}**`;
+        }
+
+        head += `
+          <td class="text-center header${cms == 'FLARE' && col != cols-1 ? ' rb2' : ''}">${title}</td>`;
+      });
+    }
+
+
+    head += `
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>`;
+
+    return $(head);
+  };
+
+  this.content = (function() {
+
+    var format = function(value, prefix) {
+      prefix = prefix || 2;
+
+      var dotIdx = value.indexOf('.');
+      if (dotIdx == -1) {
+        return value.padStart(prefix, " ");
+      }
+      
+      var elems = value.split('.');
+      return elems[0].padStart(prefix, " ") + "." + elems[1];
+    }
+
+
+    var elems = [];
+
+    if (!data.profiles || !data.profiles.cmds) {
+      return elems;
+    }
+
+    var modes = Object.keys(data.profiles.cmds);
+
+    // Fields we want are: BQ, BI, SQ, SI, BINGO
+    ['BQ', 'BI', 'SQ', 'SI'].forEach(function(param) {
+      var row = `
+        <tr>
+          <td class="text-center">${param}</td>`;
+          
+      for (var idx in modes) {
+        ['CHAFF', 'FLARE'].forEach(function(cms) {
+          var mode = modes[idx]
+          // The max is 3<DP>3, so we format appropriately
+          var cls = 'lp5';
+          if (cms == 'FLARE' && idx != modes.length -1) {
+            cls += ' rb2';
+          }
+          row += `<td class="${cls}">${format(data.profiles.cmds[mode][cms][param], param == 'SI' ? 3 : 2).replace(/  /g, "&nbsp;")}</td>`;
+        });
+      };
+      row += '</tr>';
+      elems.push($(row));
+    });
+
+    return elems;
+  })();
+
+}
+
+function F16Harm (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  this.nobreak = true;
+
+  this.table = function() {
+    
+    if (!data.profiles || !data.profiles.harm) {
+      return $();
+    }
+
+    var html = `
+      <table class="kb-width std" style="table-layout: fixed">
+        <colgroup>
+          <col width="38${unit}"/>
+          <col width="38${unit}"/>
+          <col />
+          <col width="38${unit}"/>
+          <col width="38${unit}"/>
+          <col />
+          <col width="38${unit}"/>
+          <col width="38${unit}"/>
+          <col />
+        </colgroup>
+        <thead class="thead-light">
+          <tr>
+    `;
+
+    for (var table = 0; table < 3; table++) {
+      var title = 'TABLE ' + (table+1);
+      if (data.profiles.harm[table].MODIFIED) {
+        title = `**${title}**`;
+      }
+      html += `<th colspan=3 class="text-center${table == 2 ? '' :' rb2'}">${title}</th>`;
+    }
+
+    html += `
+          </tr>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center rb2">Name</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center rb2">Name</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>`;
+    
+    return $(html);
+  };
+
+  this.content = (function() {
+
+    var elems = [];
+
+    if (!data.profiles || !data.profiles.harm) {
+      return elems;
+    }
+
+    var tables = Object.keys(data.profiles.harm);
+
+    for (var row = 0; row < 5; row++ ){
+
+      var html = `<tr>`;
+      for (var col = 0; col < 9; col++) {
+        var table = Math.floor(col / 3);
+        var attr = ['id', 'rwr', 'name'][col % 3];
+
+        var cls = (col + 1) % 3  == 0
+          ? (col != 8 ? 'lp5 rb2 text-harm' : 'lp5 text-harm')
+          : "text-center";
+
+
+        html += `<td class="${cls}">${data.profiles.harm[table]['values'][row][attr]}</td>`;
+      }
+      html += `</tr>`;
+      elems.push($(html));
+    }
+
+    return elems;
+  }.bind(this))();
+
+}
+
 var Loadout = function(data, unit) {
 
   var data = data;
@@ -1394,6 +1603,8 @@ function Builder(data, unit) {
     'flight',
     'loadout',
     'loadout-notes',
+    'f16cmds',
+    'f16harm',
     'ramrod',
     'waypoints',
     'sequence',
@@ -1405,10 +1616,20 @@ function Builder(data, unit) {
     'notes',
   ];
 
+  // Loadout notes moved from loadout to profiles, so allow both
+  var loadout_notes = null;
+  if (data.profiles && data.profiles.notes) {
+    loadout_notes = data.profiles.notes;
+  } else if (data.loadout && data.loadout.notes) {
+    loadout_notes = data.loadout.notes;
+  }
+
   sections = {
     'flight': new Flight(data, unit),
     'loadout': new Loadout(data, unit),
-    'loadout-notes': new Notes(data.loadout.notes, unit),
+    'f16cmds': new F16CMDS(data, unit),
+    'f16harm': new F16Harm(data, unit),
+    'loadout-notes': new Notes(loadout_notes, unit),
     'ramrod': new RAMROD(data, unit),
     'waypoints': new Waypoints(data, unit),
     'poi': new POI(data, unit),
@@ -1496,8 +1717,6 @@ function Builder(data, unit) {
         img.removeAttribute("width");
         img.setAttribute("height", th + "px"); 
 
-        console.log(p[0], th);
-
         // If we're vertically aligned, add pad the left to center it
         $(img).css('padding-left', (tw - (th / img.naturalHeight) * img.naturalWidth) / 2);
       }
@@ -1511,7 +1730,7 @@ function Builder(data, unit) {
     var key = section_order[section_id];
     
     section = sections[key];
-    if (section === undefined) { 
+    if (section === undefined) {
       // We are at the end, expand pages and download
 
       for (var x of pages) {
@@ -1526,7 +1745,6 @@ function Builder(data, unit) {
 
     var row = section.content[rowid];
     if (row === undefined) {
-      
       if (section.content.length > 0 && section.force_newpage_after) {
         page = page.next()
         pages.push(page);

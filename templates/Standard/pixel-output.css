@@ -12,8 +12,8 @@ body {
 .rp5 { padding-right: 5px; }
 .rp2 { padding-right: 2px; }
 
-.lb2 { border-left: 2px solid #000000; }
-.rb2 { border-right: 2px solid #000000; }
+.lb2 { border-left: 2px solid #000000 !important; }
+.rb2 { border-right: 2px solid #000000 !important; }
 
 .pt3 { padding-top: 3px; }
 
@@ -22,7 +22,7 @@ body {
 /* TEXT STYLES */
 
 .text-pst { font-size: 13px; }
-
+.text-harm { font-size: 12px; }
 
 /* TABLE STYLES */
 table.std {
@@ -42,9 +42,14 @@ table.std tr.header {
 }
 
 table.std-header th,
+table.std td.header,
 table.std th {
   font-weight: bold;
   font-size: 12px;
   line-height: 20px;
   border: 1px solid #000000;
+}
+
+table.std td.header {
+  border-bottom: 2px solid #000000;
 }

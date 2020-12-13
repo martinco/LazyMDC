@@ -53,6 +53,8 @@ $.when(
 
 ).then(function() {
 
+  debug("data loaded");
+
   var tinymce_init_count = $('textarea.mce').length;
   var tinymce_init_complete = $.Deferred();
 
@@ -121,6 +123,7 @@ $.when(
     $.get("js/data.js?" + dt),
     $.get("js/package.js?" + dt),
     $.get("js/loadout.js?" + dt),
+    $.get("js/profiles.js?" + dt),
     $.get("js/deparr.js?" + dt),
     $.get("js/waypoints.js?" + dt),
     $.get("js/comms.js?" + dt),

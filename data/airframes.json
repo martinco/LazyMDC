@@ -3500,6 +3500,78 @@
   "F-16C": {
     "bingo": 2000,
     "chaff": 60,
+    "cmds": {
+      "MAN 1": {
+        "CHAFF": {
+          "BI": "0.020",
+          "BQ": "1",
+          "SI": "1.00",
+          "SQ": "10"
+        },
+        "FLARE": {
+          "BI": "0.020",
+          "BQ": "1",
+          "SI": "1.00",
+          "SQ": "10"
+        }
+      },
+      "MAN 2": {
+        "CHAFF": {
+          "BI": "0.020",
+          "BQ": "1",
+          "SI": "0.50",
+          "SQ": "10"
+        },
+        "FLARE": {
+          "BI": "0.020",
+          "BQ": "1",
+          "SI": "0.50",
+          "SQ": "10"
+        }
+      },
+      "MAN 3": {
+        "CHAFF": {
+          "BI": "0.100",
+          "BQ": "2",
+          "SI": "1.00",
+          "SQ": "5"
+        },
+        "FLARE": {
+          "BI": "0.100",
+          "BQ": "2",
+          "SI": "1.00",
+          "SQ": "5"
+        }
+      },
+      "MAN 4": {
+        "CHAFF": {
+          "BI": "0.100",
+          "BQ": "2",
+          "SI": "0.50",
+          "SQ": "5"
+        },
+        "FLARE": {
+          "BI": "0.100",
+          "BQ": "2",
+          "SI": "0.50",
+          "SQ": "5"
+        }
+      },
+      "MAN 5": {
+        "CHAFF": {
+          "BI": "0.050",
+          "BQ": "2",
+          "SI": "0.75",
+          "SQ": "20"
+        },
+        "FLARE": {
+          "BI": "0.050",
+          "BQ": "2",
+          "SI": "0.75",
+          "SQ": "20"
+        }
+      }
+    },
     "comments": "",
     "cruise_alt": 15000,
     "cruise_gs": 400,
@@ -3510,6 +3582,323 @@
     "fuel_lbs": 7163,
     "gun": 100,
     "gun_lbs": 294,
+    "harm": {
+      "defaults": [
+        {
+          "values": [
+            {
+              "id": "110",
+              "name": "SA-10 S-300PS TR 30N6",
+              "rwr": "10"
+            },
+            {
+              "id": "104",
+              "name": "SA-10 S-300PS SR 64H6E",
+              "rwr": "BB"
+            },
+            {
+              "id": "103",
+              "name": "SA-10 S-300PS SR 5N66M",
+              "rwr": "CS"
+            },
+            {
+              "id": "115",
+              "name": "SA-11 Buk LN 9A310M1",
+              "rwr": "11"
+            },
+            {
+              "id": "107",
+              "name": "SA-11 Buk SR 9S18M1",
+              "rwr": "SD"
+            }
+          ]
+        },
+        {
+          "values": [
+            {
+              "id": "120",
+              "name": "SA-19 Tunguska 2S6",
+              "rwr": "19"
+            },
+            {
+              "id": "119",
+              "name": "SA-15 Tor 9A331",
+              "rwr": "15"
+            },
+            {
+              "id": "117",
+              "name": "SA-8 Osa 9A33",
+              "rwr": "8"
+            },
+            {
+              "id": "121",
+              "name": "AAA ZSU-23-4 Shilka",
+              "rwr": "A"
+            },
+            {
+              "id": "109",
+              "name": "CP 9S80M1 Sborka",
+              "rwr": "DE"
+            }
+          ]
+        },
+        {
+          "values": [
+            {
+              "id": "123",
+              "name": "SA-3 S-125 TR SNR",
+              "rwr": "3"
+            },
+            {
+              "id": "122",
+              "name": "SR P-19",
+              "rwr": "S"
+            },
+            {
+              "id": "108",
+              "name": "SA-6 Kub STR 1S91",
+              "rwr": "6"
+            },
+            {
+              "id": "126",
+              "name": "SA-2 TR SNR-75 Fan Song",
+              "rwr": "2"
+            },
+            {
+              "id": "118",
+              "name": "SA-13 Strela-10M3 9A35M3",
+              "rwr": "13"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "110",
+          "name": "SA-10 S-300PS TR 30N6",
+          "rwr": "10"
+        },
+        {
+          "id": "115",
+          "name": "SA-11 Buk LN 9A310M1",
+          "rwr": "11"
+        },
+        {
+          "id": "118",
+          "name": "SA-13 Strela-10M3 9A35M3",
+          "rwr": "13"
+        },
+        {
+          "id": "119",
+          "name": "SA-15 Tor 9A331",
+          "rwr": "15"
+        },
+        {
+          "id": "120",
+          "name": "SA-19 Tunguska 2S6",
+          "rwr": "19"
+        },
+        {
+          "id": "126",
+          "name": "SA-2 TR SNR-75 Fan Song",
+          "rwr": "2"
+        },
+        {
+          "id": "123",
+          "name": "SA-3 S-125 TR SNR",
+          "rwr": "3"
+        },
+        {
+          "id": "407",
+          "name": "LHA-1 Tarawa",
+          "rwr": "40"
+        },
+        {
+          "display": "OHP class frigate",
+          "id": "401",
+          "name": "Oliver Hazzard Perry class",
+          "rwr": "49"
+        },
+        {
+          "id": "108",
+          "name": "SA-6 Kub STR 1S91",
+          "rwr": "6"
+        },
+        {
+          "id": "117",
+          "name": "SA-8 Osa 9A33",
+          "rwr": "8"
+        },
+        {
+          "id": "121",
+          "name": "AAA ZSU-23-4 Shilka",
+          "rwr": "A"
+        },
+        {
+          "id": "207",
+          "name": "AAA Gepard",
+          "rwr": "A"
+        },
+        {
+          "id": "208",
+          "name": "AAA Vulcan M163",
+          "rwr": "A"
+        },
+        {
+          "id": "315",
+          "name": "Ticonderoga class",
+          "rwr": "AE"
+        },
+        {
+          "id": "104",
+          "name": "SA-10 S-300PS SR 64H6E",
+          "rwr": "BB"
+        },
+        {
+          "id": "103",
+          "name": "SA-10 S-300PS SR 5N66M",
+          "rwr": "CS"
+        },
+        {
+          "id": "109",
+          "name": "CP 9S80M1 Sborka",
+          "rwr": "DE"
+        },
+        {
+          "id": "203",
+          "name": "Hawk SR AN/MPQ-50",
+          "rwr": "HK"
+        },
+        {
+          "id": "204",
+          "name": "Hawk TR AN/MPQ-46",
+          "rwr": "HK"
+        },
+        {
+          "id": "206",
+          "name": "Hawk CWAR AN/MPQ-55",
+          "rwr": "HK"
+        },
+        {
+          "id": "313",
+          "name": "CGN 1144.2 Piotr Velikiy",
+          "rwr": "HN"
+        },
+        {
+          "id": "306",
+          "name": "FFL 1124.4 Grisha",
+          "rwr": "HP"
+        },
+        {
+          "id": "202",
+          "name": "Patriot STR AN/MPQ-53",
+          "rwr": "P"
+        },
+        {
+          "id": "312",
+          "name": "FSG 1241.1MP Molniya",
+          "rwr": "PS"
+        },
+        {
+          "id": "201",
+          "name": "Roland ADS",
+          "rwr": "RO"
+        },
+        {
+          "id": "205",
+          "name": "Roland SR",
+          "rwr": "RO"
+        },
+        {
+          "id": "124",
+          "name": "Rapier FSA Blindfire TR",
+          "rwr": "RP"
+        },
+        {
+          "id": "125",
+          "name": "Rapier FSA Launcher",
+          "rwr": "RT"
+        },
+        {
+          "id": "ID",
+          "name": "NAME",
+          "rwr": "RWR"
+        },
+        {
+          "id": "101",
+          "name": "EWR 1L13",
+          "rwr": "S"
+        },
+        {
+          "id": "102",
+          "name": "EWR 55G6",
+          "rwr": "S"
+        },
+        {
+          "id": "122",
+          "name": "SR P-19",
+          "rwr": "S"
+        },
+        {
+          "id": "107",
+          "name": "SA-11 Buk SR 9S18M1",
+          "rwr": "SD"
+        },
+        {
+          "id": "402",
+          "name": "CVN-70 Carl Vinson",
+          "rwr": "SS"
+        },
+        {
+          "display": "CVN-71 T. Roosevelt",
+          "id": "403",
+          "name": "CVN-71 Theodore Roosevelt",
+          "rwr": "SS"
+        },
+        {
+          "id": "404",
+          "name": "CVN-72 Abraham Lincoln",
+          "rwr": "SS"
+        },
+        {
+          "id": "405",
+          "name": "CVN-73 George Washington",
+          "rwr": "SS"
+        },
+        {
+          "id": "406",
+          "name": "CVN-74 John C. Stennis",
+          "rwr": "SS"
+        },
+        {
+          "display": "CV 1143.5 Adm. Kuznetsov",
+          "id": "301",
+          "name": "CV 1143.5 Admiral Kuznetsov",
+          "rwr": "SW"
+        },
+        {
+          "display": "CV 1143.5 Adm. Kuz 2017",
+          "id": "320",
+          "name": "CV 1143.5 Admiral Kuznetsov(2017)",
+          "rwr": "SW"
+        },
+        {
+          "id": "303",
+          "name": "CG 1164 Moskva",
+          "rwr": "T2"
+        },
+        {
+          "id": "309",
+          "name": "FF 1135M Rezky",
+          "rwr": "TP"
+        },
+        {
+          "id": "319",
+          "name": "FFG 11540 Neustrashimy",
+          "rwr": "TP"
+        }
+      ]
+    },
     "joker": 3000,
     "loadout": {
       "1": {

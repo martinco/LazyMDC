@@ -17,7 +17,7 @@ RE_ARGS = {
     'id': re.compile(r'^[0-9a-zA-Z-]+$'),
     'key': re.compile(r'^[0-9a-zA-Z-]+$'),
     'template': re.compile(r'^[a-z]+$', re.IGNORECASE),
-    'output': re.compile(r'^(png|pdf)$'),
+    'output': re.compile(r'^(png|pdf|html)$'),
 }
 
 PNG_WIDTH = 800
@@ -128,6 +128,30 @@ class CDU_DataLoader():
         return lat_str
 
 
+async def get_html(url):
+
+    browser = await launch({
+        'headless': True,
+        'executablePath': '/usr/share/chromium/588429/chrome',
+        'userDataDir': '/tmp/httpd/pyppeteer',
+    })
+
+    page = await browser.newPage()
+    page.on('console', lambda x: print("CONSOLE LOG:", x.text));
+    page.on('error', lambda x: print("ERROR:", x));
+    page.on('pageerror', lambda x: print("PAGE ERROR:", x));
+
+    print("LOAD: " + url);
+    await page.goto(url)
+    try:
+        await page.waitForSelector("#page_count", {"timeout": 2000})
+    except:
+        print ("Exception waiting for page_count")
+
+    content = await page.evaluate('() => document.documentElement.innerHTML')
+    await browser.close()
+    return content.encode('utf-8')
+
 async def get_image(url):
 
     browser = await launch({
@@ -235,6 +259,15 @@ def main():
         root=os.path.dirname(os.environ.get('SCRIPT_NAME')),
         template=params['template'],
         key=params['key'])
+
+    if params['output'] == "html":
+        print("Content-Type: text/plain\n")
+        content = asyncio.get_event_loop().run_until_complete(get_html(url))
+        print("-"*60)
+        print("-"*60)
+        sys.stdout.flush()
+        sys.stdout.buffer.write(content)
+        return
 
     if params['output'] == "pdf":
         pdf = asyncio.get_event_loop().run_until_complete(get_pdf(url))

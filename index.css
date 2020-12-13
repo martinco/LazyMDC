@@ -198,3 +198,7 @@ body .overhang-overlay {
   max-width: 270px;
   text-align: left;
 }
+
+.br-2 {
+  border-right: 2px solid black !important;
+}

@@ -23,8 +23,8 @@ body {
 .lb2 { border-left: 2pt solid #404040; }
 .rb2 { border-right: 2pt solid #404040; }
 
-.rb0 { border-right: 0; }
-.lb0 { border-left: 0; }
+.rb0 { border-right: 0 !important; }
+.lb0 { border-left: 0 !important; }
 
 .pt3 { padding-top: 3pt; }
 
@@ -36,6 +36,7 @@ body {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .text-pst { font-size: 12pt; }
+.text-harm { font-size: 12pt; }
 
 .align-top {
   vertical-align: top;
@@ -68,18 +69,27 @@ table.std tr.header {
 }
 
 table.std-header th,
+table.std td.header,
 table.std th {
   font-weight: normal;
-  background: #a0a0a0;
   color: #ffffff;
   font-size: 12pt;
   border: 1pt solid #404040;
 }
 
+table.std-header th,
+table.std th {
+  background: #a0a0a0;
+}
+
+table.std td.header {
+  border-bottom: 2pt solid #404040;
+}
+
 
 .bg-blank {
   // background: #fefefe;
-  background: transparent;
+  background: transparent !important;
 }
 
 .overflow-hidden {

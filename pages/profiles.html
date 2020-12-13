@@ -1,0 +1,212 @@
+<div class="tab-pane" id="profiles">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Profiles</h1>
+</div>
+<form id="profile-form" data-nav-target="#deparr" class="needs-validation" >
+
+  <div id="profiles-container" >
+
+    <div class="form-group">
+      <label for="data-mission">Additional Loadout Information (DSMS profiles etc)</label>
+      <textarea id="profiles-mce" class="mce" data-min-height=250></textarea>
+    </div>
+
+    <div id="profiles-f16">
+
+      <div class="form-group">
+        <label>Countermeasures</label>
+      </div>
+
+      <table class="table table-striped" id="profiles-f16-cmds-table">
+        <colgroup>
+          <col style="width:100px">
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th rowspan=2 class="text-center">PARAM</th>
+            <th colspan=2 class="text-center">MAN 1</th>
+            <th colspan=2 class="text-center">MAN 2</th>
+            <th colspan=2 class="text-center">MAN 3</th>
+            <th colspan=2 class="text-center">MAN 4</th>
+            <th colspan=2 class="text-center" data-raw="MAN 5">MAN 5 (Wall Dispense)</th>
+          </tr>
+          <tr>
+            <th class="text-center">CHAFF</th>
+            <th class="text-center">FLARE</th>
+            <th class="text-center">CHAFF</th>
+            <th class="text-center">FLARE</th>
+            <th class="text-center">CHAFF</th>
+            <th class="text-center">FLARE</th>
+            <th class="text-center">CHAFF</th>
+            <th class="text-center">FLARE</th>
+            <th class="text-center">CHAFF</th>
+            <th class="text-center">FLARE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td data-raw="BQ">Burst Quantity</td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+          <tr>
+            <td data-raw="BI">Burst Interval</td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+            <td class="input-container"><input type="text" class="input-full nospin"></td>
+          </tr>
+          <tr>
+            <td data-raw="SQ">Salvo Quantity</td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="10"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="10"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="10"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="10"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="20"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="20"></td>
+          </tr>
+          <tr>
+            <td data-raw="SI">Salvo Interval</td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="1.0"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="1.0"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="1.0"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="1.0"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.5"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.75"></td>
+            <td class="input-container"><input type="text" class="input-full nospin" value="0.75"></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <div class="form-group">
+        <label>HARM Tables</label>
+      </div>
+
+      <table class="table table-striped" id="profiles-f16-harm-table">
+        <colgroup>
+          <col width="40px"/>
+          <col width="40px"/>
+          <col />
+          <col width="40px"/>
+          <col width="40px"/>
+          <col />
+          <col width="40px"/>
+          <col width="40px"/>
+          <col />
+        </colgroup>
+        <thead class="thead-light">
+          <tr>
+            <th colspan=3 class="text-center br-2">TABLE 1</th>
+            <th colspan=3 class="text-center br-2">TABLE 2</th>
+            <th colspan=3 class="text-center">TABLE 3</th>
+          </tr>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center br-2">Name</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center br-2">Name</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">RWR</th>
+            <th class="text-center">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+          <tr>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+          <tr>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+          <tr>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+          <tr>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container br-2"><input type="text" class="input-full"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full text-center"></td>
+            <td class="input-container"><input type="text" class="input-full"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align: right">
+      <button class="btn btn-primary" type="submit">Next...</button>
+    </div>
+  </div>
+</form>
+</div>

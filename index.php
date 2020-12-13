@@ -111,6 +111,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link disabled" href="#profiles">
+                <span data-feather="briefcase"></span>
+                Profiles
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link disabled" href="#deparr">
                 <span data-feather="corner-up-right"></span>
                 Depart / Arrival
@@ -241,6 +247,7 @@
         readfile('pages/mission.html');
         readfile('pages/package.html');
         readfile('pages/loadout.html');
+        readfile('pages/profiles.html');
         readfile('pages/deparr.html');
         readfile('pages/waypoints.html');
         readfile('pages/comms.html');
