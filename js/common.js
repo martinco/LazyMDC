@@ -169,7 +169,7 @@ function get_data() {
 function document_update_title() {
 
   var mission_id = $('#mission-id').val();
-  var title = "DCBv2:"
+  var title = "MDCv2:"
 
   if (mission_id) {
     title += " " + mission_id
