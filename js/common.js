@@ -93,7 +93,10 @@ function get_form_data(form) {
 function update_presets() {
   $("input.freq-preset").each(function(idx, elem) {
     var elem = $(elem)
-    elem.closest('tr')[0].cells[elem.parent().index()+1].innerHTML = lookup_preset(elem.val())
+    var offset = elem.parent().index();
+    var row = elem.closest('tr')[0];
+    row.cells[offset+1].innerHTML = lookup_preset(elem.val())
+    row.cells[offset+2].innerHTML = lookup_freq_code(elem.val())
   });
 }
 
@@ -130,6 +133,15 @@ function lookup_preset(value) {
   return "M";
 }
 
+function lookup_freq_code(freq) {
+  if (!freq) { return null }
+
+  var float_val = parseFloat(freq);
+  var float_str = float_val.toFixed(3);
+  
+  return freq_codes[float_str];
+
+}
 
 function tcn_formatter(field) {
   $(field).on('change', function(x) {
@@ -353,6 +365,12 @@ function load(data) {
   // to loading subsequent pages and result in data loss
   disable_save = true;
 
+  // As we moved notes from loadout to profiles, make it so for loading older mdcs
+  if (data.loadout && data.loadout.notes) {
+    if (!data.profiles) { data['profiles'] = {}; }
+    data.profiles.notes = data.loadout.notes;
+  }
+
   ['data', 'flight', 'mission', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
     if (section in data) {
       debug("Loading " + section);
@@ -380,3 +398,11 @@ function xml_createNSResolver(document) {
   nsResolver.lookupNamespaceURI = nsResolver;
   return nsResolver;
 }
+
+// Changes for PST
+$(".freq-pst").each(function(index, input) {
+  $(input).on('change', function(evt) {
+    $("#" + evt.target.id + "-pst").val(lookup_preset($(evt.target).val()))
+    $("#" + evt.target.id + "-code").val(lookup_freq_code($(evt.target).val()))
+  });
+});

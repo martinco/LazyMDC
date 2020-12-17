@@ -40,15 +40,6 @@ $(".deparr-location").each(function(index, input) {
   deparr_location_autocomplete(input);
 });
 
-function deparr_pst(evt) {
-  $("#" + evt.target.id + "-pst").val(lookup_preset($(evt.target).val()))
-}
-
-// Changes for PST
-$(".deparr-pst").each(function(index, input) {
-  $(input).on('change', deparr_pst)
-});
-
 $(document).on('flight-airframe-changed', function(e) {
   $(".deparr-pst").each(function(index, input) {
     $(input).change()

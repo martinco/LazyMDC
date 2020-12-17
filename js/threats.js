@@ -94,6 +94,4 @@ function threats_load(data) {
     data['threats'].forEach(function(data) {
         threats_add(data)
     });
-    
-    update_presets()
 }

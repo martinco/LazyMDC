@@ -1379,8 +1379,20 @@ function Agencies (data, unit) {
           <td class="text-center lb0 text-pst text-bottom">${elem['sec_pst']}</td>`;
       }
 
+      var notes = elem['notes'];
+      if (!notes) {
+        if (elem['pri'] && elem['pri_code']) {
+          notes = elem['pri_code'] || "-";
+        } else if (elem['sec'] && elem['sec_code']) {
+          notes = "-";
+        }
+        if (elem['sec'] && elem['sec_code']) {
+          notes += "/" + (elem['sec_code'] || "-");
+        }
+      }
+
       elem_html += `
-          <td class="">${elem['notes']}</td>
+          <td class="">${notes}</td>
         </tr>`;
 
       elems.push($(elem_html));

@@ -18,6 +18,12 @@ $.when(
   $.getJSON("data/freqs.json").done(function(data) {
     freqs = data;
 
+    // build our mapping of freqs to codes
+    freq_codes = {};
+    for (const freq of data) {
+      freq_codes[freq.value] = freq.code;
+    }
+
     // Add our MIDS autocompletes
     for (var x = 1; x < 127; x++) {
       freqs.push({

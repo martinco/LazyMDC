@@ -52,8 +52,10 @@ function comms_add(opts) {
       <td class="input-container text-center"><input value="${data['tcn']}"></td>
       <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" value="${data['pri']}"></td>
       <td class="text-center"></td>
+      <td style="display:none"><input value=""></td>
       <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" value="${data['sec']}"></td>
       <td class="text-center"></td>
+      <td style="display:none"><input value=""></td>
       <td class="input-container border-right-0"><input value="${data['notes']}"></td>
       <td class="input-container text-center border-left-0">
         <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
@@ -70,7 +72,7 @@ function comms_add(opts) {
   })
 
   // Setup
-  agency_autocomplete(last[0].cells[0].firstChild, [1,2,4])
+  agency_autocomplete(last[0].cells[0].firstChild, [1,2,5])
   tcn_formatter(last[0].cells[1].firstChild)
 
   feather.replace()
@@ -90,7 +92,7 @@ function comms_export() {
     }
     
     $("#comms-table > tbody > tr").each(function(idx, tr) {
-        ret['agencies'].push(get_row_data(tr, ['agency', 'tcn', 'pri', 'pri_pst', 'sec', 'sec_pst', 'notes']))
+        ret['agencies'].push(get_row_data(tr, ['agency', 'tcn', 'pri', 'pri_pst', 'pri_code', 'sec', 'sec_pst', 'sec_code', 'notes']))
     })
     
     return ret
