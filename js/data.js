@@ -370,19 +370,17 @@ $("#data-route-dialog-submit").click(function(e, data) {
 
   if (mission_route_data) {
 
-    // If we have unchecked the use-loadout checkbox, update our mission route data and submit
-    if (!$("#data-route-dialog-use-loadout").is(':checked')) {
-      mission_route_data.use_loadout = false;
-    }
-
+    // If we have checked route-only, then we avoid doing a lot of things 
+    mission_route_data.route_only = $("#data-route-dialog-route-only").is(':checked');
+    
     // Store we have waypoint style; store it
     var wp_style = $("#data-route-dialog input[name=data-route-dialog-wp-style]:checked").val();
     if (wp_style) {
       mission_route_data.wp_style = wp_style;
     }
 
-    // Handle CF specifics
-    if (mission_route_data.xml_format == "cf") {
+    // Handle CF specifics if we're loading everything
+    if (!mission_route_data.route_only && mission_route_data.xml_format == "cf") {
 
       // Data -> Theatre
       var theater = xml.querySelector('Mission > Theater').textContent;
@@ -412,7 +410,6 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var poi_route = $('#data-route-dialog-poi').val()
   var poi_route_data = poi_route == 'None' ? null : dialog.data('routes')[poi_route];
   $('#flight-airframe').data('poi', poi_route_data).trigger('data-poi-updated');
-
 
   // Update coordiantes
   coordinate_update_fields();

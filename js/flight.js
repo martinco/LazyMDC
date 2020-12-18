@@ -6,32 +6,44 @@ $('#flight-add-member').click(function() {
   flightmembers_add();
 });
 
-$("#flight-airframe").change(function(e) {
+$("#flight-airframe").on('change', function(e) {
 
-  // Update table format
-  flightmembers_format();
+  var target = $(e.target);
 
-  // Add one for convienience
-  flightmembers_add();
+  // See if we're updating or staying the same
+  var old_type = $(e.target).data('previous');
+  var new_type = target.val();
+  $(e.target).data('previous', new_type);
 
-  // If the AC != AC in the route, blat route, this avoids trying to re-apply
-  // loadouts from CF to another airframe on airframe change
-  
-  var target = $(e.target)
-  var type = target.val()
-  var route = target.data('route');
-  if (route && route.xml_format == "cf" && type != route.aircraft) {
-    target.data('route', null);
+  if (new_type == old_type) {
+    return;
   }
 
-  // Update default coordinate format
-  flight_update_default_coord_format()
+  // Only update the table if we have a type etc.
+  if (new_type) {
 
-  // Update all preset-freqs
-  update_presets()
+    // Update table format
+    flightmembers_format();
+
+    // Add one for convienience
+    flightmembers_add();
+
+    // If we're moving to a different airframe and the route doesn't match,
+    // then clear the route data
+    var route = target.data('route');
+    if (route && route.xml_format == "cf" && route.aircraft != new_type) {
+      target.data('route', null);
+    }
+
+    // Update default coordinate format
+    flight_update_default_coord_format()
+
+    // Update all preset-freqs
+    update_presets()
+  }
 
   // Show options
-  $('#flight-members-container').toggle(type !== null) 
+  $('#flight-members-container').toggle(new_type !== null) 
 
   // Trigger event for other pages
   $('#flight-airframe').trigger('flight-airframe-changed');

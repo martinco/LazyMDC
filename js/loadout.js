@@ -2,21 +2,21 @@
 loadout_validation = true;
 loadout_type = undefined;
 
-// Process new Combat Flite
+// On new aircraft, always clear loadout
 $(document).on('flight-airframe-changed', function(e) {
+  loadout_set();
+});
+
+// This gets triggered anytime CF imports so it might have no route, but the
+// aircraft change would have happened from loadout_set
+$('#flight-airframe').on('data-route-updated', function(e) {
 
   var route_data = $('#flight-airframe').data('route');
-
-  if (route_data && route_data.use_loadout) {
+  if (route_data && !route_data.route_only && route_data.use_loadout) {
     loadout_set({
       'pylons': get_loadout_from_xml(route_data),
     })
-  } else {
-    loadout_set();
   }
-
-  // Show CMDs if we're F-16C
-  $('#loadout-f16-cmds').toggle($('#flight-airframe').val() == 'F-16C');
 
 });
 

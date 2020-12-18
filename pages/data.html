@@ -75,25 +75,23 @@
       </div>
       <div class="modal-body pb-0" id='data-route-dialog-cf'>
         <p>
-          The data from combat flite will help populate various fields to save
-          you time, including:
-
-          <ul>
-            <li>Mission ID</li>
-            <li>Walk Time</li>
-            <li>Coalition's Bullseye</li>
-          </ul>
-
-          If you select your mission route, you'll also get
-
-          <br>
-          <br>
-
-          <ul>
-            <li>Aircraft Type and Stores</li>
-            <li>Mission Waypoints</li>
-          </ul>
+          Selecting a mission route will load the following data:
         </p>
+
+        <ul>
+          <li>Flight: Airframe</li>
+          <li>Mission: ID</li>
+          <li>Loadout</li>
+          <li>Waypoints: Walk Time, Bullseye, Route, POI</li>
+        </ul>
+
+        <p>
+          Checking the route only checkbox will limit the update to only:
+        </p>
+
+        <ul>
+          <li>Waypoints: Route (and POI if selected)</li>
+        </ul>
       </div>
 
       <div class="modal-body pt-0">
@@ -109,8 +107,8 @@
           <div id='data-route-dialog-cf-only'>
             <div class="form-group">
               <div class="form-check">
-                  <input class="form-check-input" id="data-route-dialog-use-loadout" type="checkbox" checked>
-                  <label class="form-check-label" for="data-route-dialog-use-loadout">Use Loadout from route</label>
+                  <input class="form-check-input" id="data-route-dialog-route-only" type="checkbox">
+                  <label class="form-check-label" for="data-route-dialog-route-only">Load route only (This will not set theatre, airframe, loadout etc.)</label>
               </div>
             </div>
 

@@ -5,7 +5,7 @@ $(document).on('flight-airframe-changed', function(e) {
   if (!route) { return }
 
   // If we're CF and the current value is empty, update to CF
-  if (route.xml_format == "cf" && !$('#mission-id').val()) {
+  if (!route.route_only && route.xml_format == "cf" && !$('#mission-id').val()) {
     $('#mission-id').val(route.xml.querySelector('MSNnumber').textContent);
   }
 

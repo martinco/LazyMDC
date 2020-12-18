@@ -448,7 +448,6 @@ $('#flight-airframe').on('data-route-updated', function(e) {
 
   // If we have a route, we can use the data from CF
   var route = $('#flight-airframe').data('route');
-
   var type = $('#flight-airframe').val()
 
   if (!route) {
@@ -459,6 +458,13 @@ $('#flight-airframe').on('data-route-updated', function(e) {
   $("#waypoints-table").data('declutter', null);
 
   if (route.xml_format == "cf") {
+
+    // IF we're not route only, then set the walk time 
+    if (!route.route_only) {
+      // Mission Start
+      var start_time = parseInt(route.xml.ownerDocument.querySelector('Mission > Environment > Starttime').textContent);
+      $("#waypoints-walk-time").val(get_time_from_seconds(start_time)).change();
+    }
 
     // F-18 waypoints start at 0
     var idx = ["FA-18C"].includes(type) ? 0 : 1;
