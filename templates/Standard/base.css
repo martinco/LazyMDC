@@ -86,12 +86,6 @@ table.std td.header {
   border-bottom: 2pt solid #404040;
 }
 
-
-.bg-blank {
-  // background: #fefefe;
-  background: transparent !important;
-}
-
 .overflow-hidden {
   overflow: hidden;
   word-wrap: nowrap;
