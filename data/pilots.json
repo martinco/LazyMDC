@@ -1,193 +1,215 @@
 [
   {
     "label": "Dex"
-  }, 
-  {
-    "FA-18C": 313, 
-    "label": "Napfy"
-  }, 
-  {
-    "label": "KiloCharlie"
-  }, 
-  {
-    "FA-18C": 311, 
-    "label": "Teddy"
-  }, 
-  {
-    "FA-18C": 310, 
-    "label": "Photun"
-  }, 
-  {
-    "label": "Sylvan"
-  }, 
+  },
   {
     "label": "Bear"
-  }, 
+  },
+  {
+    "label": "KiloCharlie"
+  },
+  {
+    "label": "Frenchy"
+  },
+  {
+    "FA-18C": 311,
+    "label": "Teddy"
+  },
+  {
+    "FA-18C": 310,
+    "label": "Photun"
+  },
+  {
+    "label": "Sylvan"
+  },
+  {
+    "label": "Jester"
+  },
   {
     "label": "Metzger"
-  }, 
+  },
   {
-    "FA-18C": 308, 
+    "FA-18C": 308,
     "label": "Kimkiller"
-  }, 
+  },
   {
-    "label": "Miniskirt"
-  }, 
+    "label": "Stingray"
+  },
   {
-    "F-14B": 203, 
+    "F-14B": 203,
     "label": "DeMonteur"
-  }, 
+  },
   {
     "label": "Marky"
-  }, 
+  },
   {
     "label": "Hansolo"
-  }, 
+  },
   {
     "label": "Shady"
-  }, 
+  },
+  {
+    "label": "Waze"
+  },
   {
     "label": "Inigo"
-  }, 
+  },
   {
     "label": "etcher"
-  }, 
+  },
   {
     "label": "Magri"
-  }, 
+  },
   {
-    "label": "Biker"
-  }, 
+    "label": "Lion"
+  },
   {
-    "FA-18C": 307, 
+    "FA-18C": 307,
     "label": "Bolo"
-  }, 
-  {
-    "label": "LowBlow"
-  }, 
+  },
   {
     "label": "Viking"
-  }, 
+  },
   {
-    "F-14B": 208, 
+    "F-14B": 208,
     "label": "Exon"
-  }, 
+  },
+  {
+    "label": "Snakeice"
+  },
   {
     "label": "Trollef"
-  }, 
+  },
   {
-    "F-14B": 206, 
+    "label": "MartinCo"
+  },
+  {
+    "F-14B": 206,
     "label": "InFlames"
-  }, 
+  },
   {
     "label": "Keppler"
-  }, 
+  },
   {
     "label": "Seapiglet"
-  }, 
+  },
+  {
+    "label": "TB"
+  },
   {
     "label": "Junior"
-  }, 
+  },
   {
     "label": "Weasel"
-  }, 
+  },
   {
     "label": "Yassy"
-  }, 
+  },
   {
-    "FA-18C": 312, 
+    "FA-18C": 312,
     "label": "Gumidek"
-  }, 
+  },
   {
     "label": "Noctrach"
-  }, 
+  },
   {
     "label": "Looney"
-  }, 
+  },
   {
-    "label": "Neck"
-  }, 
+    "label": "Sly"
+  },
   {
-    "FA-18C": 303, 
+    "FA-18C": 303,
     "label": "Evo"
-  }, 
+  },
   {
     "label": "Professor"
-  }, 
+  },
   {
-    "FA-18C": 304, 
+    "FA-18C": 304,
     "label": "Thumper"
-  }, 
+  },
   {
-    "FA-18C": 301, 
+    "FA-18C": 301,
     "label": "Ashilta"
-  }, 
+  },
   {
     "label": "David"
-  }, 
+  },
   {
     "label": "Magnet"
-  }, 
+  },
   {
     "label": "Typhoon"
-  }, 
+  },
+  {
+    "label": "Seragon"
+  },
+  {
+    "label": "Mosquito"
+  },
   {
     "label": "Torun"
-  }, 
+  },
   {
     "label": "LongShot"
-  }, 
+  },
   {
-    "F-14B": 210, 
+    "F-14B": 210,
     "label": "Fritter"
-  }, 
+  },
   {
     "label": "Donkey"
-  }, 
+  },
   {
-    "F-14B": 207, 
+    "F-14B": 207,
     "label": "FurFace"
-  }, 
+  },
   {
     "label": "Erro"
-  }, 
+  },
   {
     "label": "Ducky"
-  }, 
+  },
   {
-    "label": "Agaton"
-  }, 
-  {
-    "label": "Slim"
-  }, 
-  {
-    "label": "Worg"
-  }, 
-  {
-    "FA-18C": 324, 
-    "label": "Lion"
-  }, 
-  {
-    "F-14B": 201, 
-    "label": "Entropy"
-  }, 
-  {
-    "label": "taipan"
-  }, 
-  {
-    "FA-18C": 305, 
-    "label": "Artur"
-  }, 
-  {
-    "label": "Airbag"
-  }, 
-  {
-    "label": "Sithis"
-  }, 
+    "label": "Sam"
+  },
   {
     "label": "Energy"
-  }, 
+  },
+  {
+    "label": "Worg"
+  },
+  {
+    "label": "Biker"
+  },
+  {
+    "F-14B": 201,
+    "label": "Entropy"
+  },
+  {
+    "label": "taipan"
+  },
+  {
+    "label": "Neck"
+  },
+  {
+    "FA-18C": 305,
+    "label": "Artur"
+  },
+  {
+    "label": "Airbag"
+  },
+  {
+    "label": "Sithis"
+  },
+  {
+    "label": "Agaton"
+  },
   {
     "label": "AssafB"
+  },
+  {
+    "label": "Badger"
   }
 ]
