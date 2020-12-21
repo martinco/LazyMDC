@@ -67,7 +67,7 @@
 
     <div id="main-page" style="width: 1050px; margin: 0 auto; min-height: 100%; display: flex">
       <div style="position: absolute; margin: 0 auto; top:0px; height:48px; width:1050px; border-bottom: 1px solid #bdbdbd; background: #444">
-        <?php if ($kneeboard_root != '/') { ?>
+        <?php if ($kneeboard_root != '/' || $_SERVER['HTTP_HOST'] == 'dev.dcs-mdc.com') { ?>
         <div style="padding-left: 215px; color:#ff0000; padding-top: .75rem; font-size:1rem;">
           Development Build, use <a style="color: #ff0000" href="https://dcs-mdc.com">https://dcs-mdc.com</a>
         </div>
