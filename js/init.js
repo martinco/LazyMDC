@@ -251,6 +251,11 @@ $.when(
           break;
       }
     });
+
+    // Hide all the active tabs for crawlers etc
+    if (!crawler) {
+      $('div.tab-pane:not([id="error"]').removeClass('active');
+    }
     
     // If we are loading a saved MDC, try to load that 
     var mdc_key = get_key()
@@ -319,14 +324,17 @@ $.when(
           $("#loader-container").fadeOut("fast");
         });
     } else {
-      // If we got this far, then make data active
-      $("a.nav-link[href$=data]").tab('show');
+
+      // If we're not a crawler, show data
+      if (!crawler) {
+        $("a.nav-link[href$=data]").tab('show');
+
+        // Show page if we have one 
+        $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
+      }
 
       // Display main content
       $("#main-page").show()
-
-      // Show page if we have one 
-      $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
 
       // Fade out Loader
       $("#loader-container").fadeOut("fast");

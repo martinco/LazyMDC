@@ -1,3 +1,15 @@
+<?php
+
+// Check if we're a bot or in debug,  default to the about page and hide the 
+// https://stackoverflow.com/questions/677419/how-to-detect-search-engine-bots-with-php
+function bot_detected() {
+  return (
+    isset($_SERVER['HTTP_USER_AGENT'])
+    && preg_match('/bot|crawl|slurp|spider|mediapartners/i', $_SERVER['HTTP_USER_AGENT'])
+  );
+}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -54,12 +66,13 @@
         }
         echo("\n");
         echo('kneeboard_root="' . $kneeboard_root . '"' . ";\n");
-        echo('debug_level=' . (isset($_GET['debug']) ? 'true' : 'false') . ";\n");
+        echo('debug_level=' . (bot_detected() || isset($_GET['debug']) ? 'true' : 'false') . ";\n");
+        echo('crawler=' . (bot_detected() ? 'true' : 'false') . ";\n");
       ?>
     </script>
   </head>
   <body>
-    <div id="loader-container" style="<?php echo isset($_GET['debug']) ? 'display: none' : ''; ?>">
+    <div id="loader-container" style="<?php echo bot_detected() || isset($_GET['debug']) ? 'display: none' : ''; ?>">
       <div id="loader">
         <img src="img/loader.svg" style="width:30px; height:30px"></img>
       </div>
@@ -204,7 +217,7 @@
             </p>
           </div>
         </div>
-        <div class="tab-pane" id="about">
+        <div class="tab-pane active" id="about">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">About</h1>
           </div>
