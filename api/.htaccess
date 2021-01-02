@@ -1,0 +1,18 @@
+
+DirectorySlash Off
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule .? %{REQUEST_URI}.php [L]
+
+
+# RewriteCond %{REQUEST_URI} !\.php$
+# RewriteCond %{REQUEST_URI} !/$
+
+php_flag display_startup_errors on
+php_flag display_errors on
+
+SetEnv DB_NAME "mdc_devel"
+SetEnv DB_USER "mdc_devel"
+SetEnv DB_PASS "mdc_devel"
