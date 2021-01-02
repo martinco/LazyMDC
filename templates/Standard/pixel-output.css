@@ -8,6 +8,9 @@ body {
 
 /* PADDING */
 
+.lp2 { padding-left: 2px; }
+.rp2 { padding-right: 2px; }
+
 .lp5 { padding-left: 5px; }
 .rp5 { padding-right: 5px; }
 .rp2 { padding-right: 2px; }
@@ -25,9 +28,6 @@ body {
 .text-harm { font-size: 12px; }
 
 /* TABLE STYLES */
-table.std {
-  border-top: 1px solid #000000;
-}
 
 table.std td {
   border: 1px solid #000000;

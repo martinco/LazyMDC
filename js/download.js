@@ -5,8 +5,11 @@ function download_export() {
   }
 }
 
-function download_load(data) {
-  $('#download-template').val(data['template'])
+function download_load(data, callback) {
+  if(data) {
+    $('#download-template').val(data['template']);
+  }
+  callback();
 }
 
 // Modal setup

@@ -1,0 +1,108 @@
+<div class="tab-pane" id="threats">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Threats</h1>
+  </div>
+  <div>
+    <div class="form-row">
+      <table class="table table-striped" id="threats-input-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col style="width:240px" />
+          <col style="width:60px" />
+          <col style="width:65px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col />
+          <col style="width:30px" />
+          <col style="width:20px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr class="head">
+            <th class="border-0" style="background:none" colspan=5></th>
+            <th class="text-center" colspan=2>RANGE (nm)</th>
+            <th class="text-center" colspan=2>ALT (ft)</th>
+            <th class="border-0" style="background:none" colspan=2></th>
+          </tr>
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0 sortable">THREAT</th>
+            <th class="text-center sortable">TYPE</th>
+            <th class="text-center sortable">RWR</th>
+            <th class="text-center sortable">CMS</th>
+            <th class="text-center sortable sortable-numeric">MIN</th>
+            <th class="text-center sortable sortable-numeric">MAX</th>
+            <th class="text-center sortable sortable-numeric">MIN</th>
+            <th class="text-center sortable sortable-numeric">MAX</th>
+            <th class="text-center">NOTES</th>
+            <th class="text-center border-right-0">ACT</th>
+            <th class="border-left-0"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" title="Add Threat" id='threats-add-button' type="button">
+        <i data-feather="plus"></i>
+      </button>
+      <button class="btn btn-primary ml-2" title="Update Threats" id='threats-update-button' type="button" >
+        <i data-feather="file-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="threats-save">Save</button>
+  </div>
+</div>
+
+<!-- ADD THEATRE MODAL -->
+<div class="modal fade" id="threats-update-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Threats</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="threats-update-form" target='#' method=post class="needs-validation" novalidate>
+        <div class="modal-body">
+          <div style="margin-bottom:10px">
+            <ul>
+              <li>Download <a href=scripts/threats.lua>threats.lua</a> and place anywhere you like (e.g: C:\DCS)</li>
+              <li>Edit threats.lua and set the export_path to an existing folder (e.g C:\DCS\output)</li>
+              <li>Edit 'DCS World\MissionEditor\modules\me_mission.lua' and add: base.dofile("C:\\DCS\\threats.lua")</li>
+              <li>Open up DCS and you should have a file in output called threats.json</li>
+            </ul>
+          </div>
+
+          <div class="form-row">
+            <label class="heading">Threats JSON</label>
+            <div class="custom-file">
+              <div id='data-file-input-container'>
+                <input type="file" name="threats" class="custom-file-input" id="threats-update-file-input" accept=".json" required>
+              </div>
+              <label class="custom-file-label" name="threats-label" for="threats-update-file-input">C:\DCS\output\threats.json</label>
+            </div>
+            <div class="invalid-feedback"></div>
+            <small class="form-text text-muted">
+              These are not uploaded or stored and are processed by your browser
+            </small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+

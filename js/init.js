@@ -10,47 +10,16 @@ function debug(msg) {
   }
 }
 
+squadron_data = {};
+mission_data = {};
+threats = null;
+
 debug("init loaded");
 
 $.when(
 
-  // Data Sources
-  $.getJSON("data/freqs.json").done(function(data) {
-    freqs = data;
-
-    // build our mapping of freqs to codes
-    freq_codes = {};
-    for (const freq of data) {
-      freq_codes[freq.value] = freq.code;
-    }
-
-    // Add our MIDS autocompletes
-    for (var x = 1; x < 127; x++) {
-      freqs.push({
-        'label': `MIDS ${x}`,
-        'value': `MIDS ${x}`,
-      })
-    }
-  }),
-
-  $.getJSON("data/pilots.json").done(function(data) {
-    pilots = data;
-  }),
-
-  $.getJSON("data/theatres.json").done(function(data) {
-    theatres = data;
-  }),
-
-  $.getJSON("data/mission_data.json").done(function(data) {
-    mission_data = data;
-  }),
-
-  $.getJSON("data/threats.json").done(function(data) {
+  api_get("threats").done(function(data) {
     threats = data;
-  }),
-
-  $.getJSON("data/callsigns.json").done(function(data) {
-    callsigns = data;
   }),
 
   $.getJSON("data/airframes.json").done(function(data) {
@@ -122,11 +91,11 @@ $.when(
 
   // Load page-dependent JS sequentially
   $.when(
-    $.get("js/common.js?" + dt),
     $.get("js/coords.js?" + dt),
     $.get("js/mission.js?" + dt),
     $.get("js/flight.js?" + dt),
     $.get("js/data.js?" + dt),
+    $.get("js/presets.js?" + dt),
     $.get("js/package.js?" + dt),
     $.get("js/loadout.js?" + dt),
     $.get("js/profiles.js?" + dt),
@@ -257,65 +226,59 @@ $.when(
       $('div.tab-pane:not([id="error"]').removeClass('active');
     }
     
-    // If we are loading a saved MDC, try to load that 
+    // If we are loading a saved MDC, try to load that, otherwise just do a
+    // null loader
+    
     var mdc_key = get_key()
     if (mdc_key) {
       var dt = (new Date()).getTime();
       $.getJSON('mdcs/' + mdc_key + '.json?' + dt)
         .done(function(data) {
 
-          try {
-            load(data)
-          } catch {
-            $("a.nav-link:not(.direct-link)").addClass('disabled');
-            $("#error").show()
-             // disable nav links
-            $("#loader-container").fadeOut("fast");
-            return;
-          }
+          load(data, function() {
+            // If we got this far, then make data active
+            $("a.nav-link[href$=data]").tab('show');
 
-          // If we got this far, then make data active
-          $("a.nav-link[href$=data]").tab('show');
+            // Store the original request hash
+            var request_hash = window.location.hash;
 
-          // Store the original request hash
-          var request_hash = window.location.hash;
+            // Try and click "Next..." through each of the pages to validate,
+            // before moving to the selected page on save
+            var page = $('a.nav-link.active').attr('href').substr(1);
 
-          // Try and click "Next..." through each of the pages to validate,
-          // before moving to the selected page on save
-          var page = $('a.nav-link.active').attr('href').substr(1);
+            $('a.nav-link').not('.direct-link').each(function(idx, itm) {
+              var href = $(itm).attr('href').substr(1);
+              if (href != "download") {
+                var submit = $('#' + href + '-form button[type=submit]')
+                if (submit) {
+                  // if the page didn't change, we stop
+                  disable_save = true
+                  $(submit).click();
+                  disable_save = false
 
-          $('a.nav-link').not('.direct-link').each(function(idx, itm) {
-            var href = $(itm).attr('href').substr(1);
-            if (href != "download") {
-              var submit = $('#' + href + '-form button[type=submit]')
-              if (submit) {
-                // if the page didn't change, we stop
-                disable_save = true
-                $(submit).click();
-                disable_save = false
+                  var new_page = $('a.nav-link.active').attr('href').substr(1);
 
-                var new_page = $('a.nav-link.active').attr('href').substr(1);
-
-                if (new_page != page) {
-                  page = new_page;
-                } else {
-                  window.location.hash = new_page 
-                  return false
+                  if (new_page != page) {
+                    page = new_page;
+                  } else {
+                    window.location.hash = new_page 
+                    return false
+                  }
                 }
               }
+            });
+            
+            // If we the request had a hash, go to that page
+            if (request_hash) {
+              window.location.hash = request_hash;
+              $("a.nav-link[href$=\"" + request_hash + "\"]").tab('show');
             }
-          });
-          
-          // If we the request had a hash, go to that page
-          if (request_hash) {
-            window.location.hash = request_hash;
-            $("a.nav-link[href$=\"" + request_hash + "\"]").tab('show');
-          }
 
-          // Display main content
-          $("#main-page").show()
-          // Fade out Loader
-          $("#loader-container").fadeOut("fast");
+            // Display main content
+            $("#main-page").show()
+            // Fade out Loader
+            $("#loader-container").fadeOut("fast");
+          });
         })
         .fail(function() {
           // Display error and fade out
@@ -333,11 +296,15 @@ $.when(
         $("a.nav-link[href$=\"" + window.location.hash + "\"]").tab('show');
       }
 
-      // Display main content
-      $("#main-page").show()
+      // run through the page loaders, and fade out to main page
+      load(null, function() {
+        // Display main content
+        $("#main-page").show()
 
-      // Fade out Loader
-      $("#loader-container").fadeOut("fast");
+        // Fade out Loader
+        $("#loader-container").fadeOut("fast");
+      });
+
     }
   });
 

@@ -2,6 +2,8 @@
   SetHandler cgi-script 
 </Files>
 
+  AddType application/octet-stream miz
+
 
 Options +ExecCGI
 

@@ -59,7 +59,7 @@ $("#flight-coord-decimals").change(flight_update_coord)
 function flight_update_coord() {
 
   // And our example
-  coordinate_display_format($('#flight-coord-example')[0])
+  coords.format_td($('#flight-coord-example')[0])
 
   // Broadcast event
   $(document).trigger('flight-coordinates-changed');
@@ -84,19 +84,16 @@ function flight_update_default_coord_format() {
 
 }
 
-
-
-
 function pilot_autocomplete(input, fields=null, rio=false) {
   $(input).autocomplete({
     source: function(request, response) {
-      response(match_labels_in_arr(pilots, request.term))
+      response(match_key_in_arr(squadron_data.members, "name", request.term, function(x) { x.value = x.name; return x; }))
     },
     minLength: 1,
     select: function( event, ui) {
-      var ac = $("#flight-airframe").val() 
+      var ac = $("#flight-airframe").val();
       if (!rio && fields) {
-        event.target.parentElement.parentElement.cells[fields[0]].children[0].value = ui.item[ac] || "";
+        event.target.parentElement.parentElement.cells[fields[0]].children[0].value = ui.item.borts && ui.item.borts[ac] ? ui.item.borts[ac] : "";
       }
     }
   });
@@ -442,20 +439,6 @@ function flightmembers_add(values) {
 
 }
 
-function pilot_autocomplete(input, fields=null, rio=0) {
-  $(input).autocomplete({
-    source: function(request, response) {
-      response(match_labels_in_arr(pilots, request.term))
-    },
-    minLength: 1,
-    select: function( event, ui) {
-      var ac = $("#flight-airframe").val() 
-      if (rio == 0 && fields) {
-        event.target.parentElement.parentElement.cells[fields[0]].children[0].value = ui.item[ac] || "";
-      }
-    }
-  });
-}
 
 
 function flight_export() {
@@ -475,7 +458,9 @@ function flight_export() {
   return ret
 }
 
-function flight_load(data) {
+function flight_load(data, callback) {
+
+  if (!data) { callback(); return; }
 
   $("#flight-airframe").val(data['flight-airframe']).change()
   $("#flight-coord").val(data['flight-coord'])
@@ -485,5 +470,7 @@ function flight_load(data) {
   data['members'].forEach(function(member) {
     flightmembers_add(member)
   });
+
+  callback();
 
 }

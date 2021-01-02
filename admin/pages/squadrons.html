@@ -1,0 +1,743 @@
+<div class="tab-pane" id="squadrons">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Squadrons</h1>
+  </div>
+  <div>
+
+    <table class="table table-striped" id="squadrons-table">
+      <colgroup>
+        <col>
+        <col width=60px>
+        <col width=60px>
+        <col width=150px>
+        <col width=60px>
+      </colgroup>
+      <thead class="thead-light">
+        <tr class="head">
+          <th class="border-right-0">Squadron</th>
+          <th class="text-center border-left-0 border-right-0">Default</th>
+          <th class="text-center border-left-0 border-right-0">Active</th>
+          <th class="text-center border-left-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='squadrons-add' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+  </div>
+</div>
+
+<!--    MEMBERS    -->
+<div class="tab-pane" id="squadrons-edit-members">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2" id="squadrons-edit-members-title">Members</h1>
+  </div>
+  <div class="pb-3">
+  This is used for auto completing flight members, and filling out default bort
+  numbers - You will always be able to enter Ad-Hoc users, so it's just for
+  convenience
+  </div>
+  <div>
+
+    <table class="table table-striped" data-toggle="table" id="squadrons-edit-members-table">
+      <colgroup>
+        <col style="width: 30px" />
+        <col />
+        <col style="width: 60px" />
+        <col style="width: 60px" />
+        <col style="width: 60px" />
+        <col style="width: 30px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr class="head">
+          <th class="border-0" style="background:none" colspan=2></th>
+          <th class="text-center" colspan=2>BORTS</th>
+          <th class="border-0" style="background:none" colspan=2></th>
+        </tr>
+        <tr class="head">
+          <th class="border-right-0"></th>
+          <th class="border-left-0 sortable">Callsign</th>
+          <th class="text-center sortable">F/A-18C</th>
+          <th class="text-center sortable">F-14B</th>
+          <th class="border-right-0 sortable">ACTIVE</th>
+          <th class="border-left-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='squadrons-add-member' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="squadrons-edit-members-save">Save</button>
+  </div>
+</div>
+
+<!--    FREQUENCIES    -->
+<div class="tab-pane" id="squadrons-edit-frequencies">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2" class="tab-title">Frequencies</h1>
+  </div>
+  <div class="pb-3">
+    This is used for auto completing frequencies based on names (e.g: BLUE 12
+    might be 246.250), It's not required, but some squadrons use named freqs.
+  </div>
+  <div>
+
+    <table class="table table-striped" data-toggle="table" id="squadrons-edit-frequencies-table">
+      <colgroup>
+        <col style="width: 30px" />
+        <col />
+        <col style="width: 80px" />
+        <col style="width: 30px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr class="head">
+          <th class="border-right-0"></th>
+          <th class="border-left-0 sortable">Frequency Code</th>
+          <th class="text-center border-right-0 sortable">Frequency</th>
+          <th class="border-left-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='squadrons-add-frequency' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="squadrons-edit-frequencies-save">Save</button>
+  </div>
+</div>
+
+<!--    CALLSIGNS    -->
+<div class="tab-pane" id="squadrons-edit-callsigns">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2" class="tab-title">Callsigns</h1>
+  </div>
+  <div>
+
+    <table class="table table-striped" data-toggle="table" id="squadrons-edit-callsigns-table">
+      <colgroup>
+        <col style="width: 30px" />
+        <col />
+        <col style="width: 30px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr class="head">
+          <th class="border-right-0"></th>
+          <th class="border-left-0 border-right-0 sortable">Callsign</th>
+          <th class="border-left-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='squadrons-add-callsign' type="button">
+      <i data-feather="user-plus"></i>
+    </button>
+  </div>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="squadrons-edit-callsigns-save">Save</button>
+  </div>
+</div>
+
+<!--    MISSIONS    -->
+<div class="tab-pane" id="squadrons-edit-missions">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2 tab-title">Missions</h1>
+  </div>
+  <table class="table table-striped" id="squadrons-edit-missions-table">
+    <colgroup>
+      <col>
+      <col width=60px>
+      <col width=60px>
+      <col width=150px>
+      <col width=60px>
+    </colgroup>
+    <tbody>
+      <thead class="thead-light">
+        <tr class="head">
+          <th class="border-right-0">Mission Name</th>
+          <th class="text-center border-left-0 border-right-0">Default</th>
+          <th class="text-center border-left-0 border-right-0">Active</th>
+          <th class="text-center border-left-0"></th>
+        </tr>
+      </thead>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" id='squadrons-edit-missions-add-button' type="button">
+    <i data-feather="file-plus"></i>
+  </button>
+</div>
+
+<!--    EDIT MISSION    -->
+<div class="tab-pane" id="squadrons-edit-missions-edit">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2 tab-title">Missions</h1>
+  </div>
+  <form id="squadrons-edit-missions-form" target='#' method=post class="needs-validation" novalidate>
+
+    <!-- hack naming to reuse coords for now -->
+    <div class="form-row">
+      <div class="col">
+        <div class="form-row">
+          <div class="form-group p-0 mb-0">
+            <label>Update from Miz/CF</label>
+          </div>
+        </div>
+        <div class="form-row pb-2" style="padding-right:20px">
+          Select your miz file to extract presets, navpoints, triggers (to navpoints / targets), or units<br><br>
+        </div>
+        <div class="form-row text-bottom">
+          <button class="btn btn-primary" type="button" id="squadrons-edit-mission-edit-update">Update Data</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-row">
+          <div class="form-group p-0 mb-0">
+            <label>Coordinate Format</label>
+          </div>
+        </div>
+        <div class="form-row pb-2" style="padding-right:20px">
+          This is just to help you visualise any coordinates on this page and has no bearing on the MDCs 
+          <br>
+          <br>
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="form-inline">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <input type="radio" name="squadrons-edit-mission-coord" value="dms" autocomplete="off" checked>DMS
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="squadrons-edit-mission-coord" value="ddm" autocomplete="off">DDM
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="squadrons-edit-mission-coord" value="dd" autocomplete="off">DD
+              </label>
+            </div>
+            <div class="p-2">to</div>
+            <input type="number" min="0" max="5" class="form-control" style="width: 80px" id="squadrons-edit-mission-coord-decimals" value="2">
+            <div class="p-2">decimal places
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mb-3">
+      <label class="heading">Display Name</label>
+      <input type="text" id="squadrons-edit-mission-edit-display-name" class="form-control">
+      <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Bullseyes</label>
+        <table class="table table-striped" id="squadrons-edit-mission-edit-bullseye-table">
+          <colgroup>
+            <col style="width:80px" />
+            <col />
+            <col style="width:140px" />
+            <col style="width:140px" />
+          </colgroup>
+
+          <thead class="thead-light">
+            <tr>
+              <th>SIDE</th>
+              <th>NAME</th>
+              <th>LAT</th>
+              <th>LON</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- workaround for bg color -->
+          <tr style="display:none"></tr>
+          <tr>
+            <td class="" data-base="blue">BLUE</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="" data-base="red">RED</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="" data-base="neutral">NEUTRAL</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">DCS Airfields</label>
+        <div>
+          Here you are able to override frequencies etc. for DCS Airfields with
+          regards to this mission, for adding custom airfields (CVN, FARPs
+          etc), please see the next section
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <table class="table table-striped" id="squadrons-edit-mission-edit-airfield-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0">AIRFIELD</th>
+            <th class="text-center">AI UHF</th>
+            <th class="text-center">AI VHF</th>
+            <th class="text-center">PAR</th>
+            <th class="text-center">ATIS</th>
+            <th class="text-center">GND</th>
+            <th class="text-center">TWR</th>
+            <th class="text-center">CTRL</th>
+            <th class="text-center">TCN</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Mission Airfields</label>
+        <div>
+          Any mission specific Carriers, Airfields or FARPs etc. suitable for DEP/ARR
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <table class="table table-striped" id="squadrons-edit-mission-edit-custom-airfield-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col />
+          <col style="width:100px" />
+          <col style="width:140px" />
+          <col style="width:140px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0">AIRFIELD</th>
+            <th class="">DCS TYPE</th>
+            <th>LAT</th>
+            <th>LON</th>
+            <th class="text-center">AI UHF</th>
+            <th class="text-center">AI VHF</th>
+            <th class="text-center">PAR</th>
+            <th class="text-center">ATIS</th>
+            <th class="text-center">GND</th>
+            <th class="text-center">TWR</th>
+            <th class="text-center">CTRL</th>
+            <th class="text-center">TCN</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+      <!--
+      <button class="btn btn-primary" id='squadrons-edit-mission-edit-custom-airfield-add' type="button">
+        <i data-feather="user-plus"></i>
+      </button>
+      -->
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Navpoints</label>
+        <div>
+          Navpoints are sourced from nav_points or triggers in the mission or
+          custom navpoints can be added
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <table class="table table-striped multi-select" id="squadrons-edit-mission-edit-navpoints-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col style="width:30px" />
+          <col style="width:60px" />
+          <col style="width:100px" />
+          <col />
+          <col style="width:140px" />
+          <col style="width:140px" />
+          <col style="width:60px" />
+          <col style="width:60px" />
+          <col style="width:20px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0">SEL</th>
+            <th>TYPE</th>
+            <th>COALITION</th>
+            <th>NAME</th>
+            <th>LAT</th>
+            <th>LON</th>
+            <th>ALT (ft)</th>
+            <th class="border-right-0">HIDE</th>
+            <th class="border-left-0"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" id='squadrons-add-custom-navpoint' type="button">
+        <i data-feather="user-plus"></i>
+      </button>
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Agencies</label>
+        <div>
+          Agencies are able to be restricted per side, if you go and put the
+          same agency name in twice for the same coalition selection, the
+          latest entry will override the previous 
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <table class="table table-striped multi-select" id="squadrons-edit-mission-edit-agencies-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col />
+          <col style="width:120px" />
+          <col style="width:120px" />
+          <col style="width:120px" />
+          <col style="width:120px" />
+          <col style="width:20px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0">AGENCY</th>
+            <th class="">SIDE</th>
+            <th>TCN</th>
+            <th>PRI</th>
+            <th class="border-right-0">SEC</th>
+            <th class="border-left-0"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" title="Add Agency" id='squadrons-edit-mission-edit-agencies-button' type="button">
+        <i data-feather="phone-outgoing"></i>
+      </button>
+      <button class="btn btn-primary ml-2" title="Bulk Add Agencies" id='squadrons-edit-mission-edit-agencies-bulk-button' type="button">
+        <i data-feather="phone-call"></i>
+      </button>
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Aircraft Presets</label>
+        <div>
+          These presets are pulled from the mission file, they are just for
+          reference and can be updated by updating from the miz file at the top
+          of the page
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col pr-0" style="max-width: 110px; position:relative; left: 1px; z-index: 20">
+        <ul class="nav nav-tabs" style="border-bottom: 0" id="squadrons-edit-missions-edit-presets-tab" role="tablist" aria-orientation="vertical">
+        </ul>
+      </div>
+      <div class="col">
+        <div class="form-row" style="height:calc(100% + 20px);">
+          <div class="tab-content" id="squadrons-edit-missions-edit-presets-tabContent" style="background: #fafafa; width:100%; height:100%; border:1px solid #e9ecef ">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height:30px"></div>
+
+    <div class="form-row" id="squadrons-edit-missions-edit-presets-warnings">
+      <div class="form-group">
+        <label class="heading" style="color: red; font-weight:bold">Aircraft Preset Warnings</label>
+        <div style="width:100%">
+          If there are any warnings when loading presets (inconsistencies
+          between aircraft) they will be reported in this section.
+          <br><br>
+          By default, the frequency selection that matches the most aircraft is
+          used as the comparitor
+        </div>
+      </div>
+      <div style="background: #fafafa; border:1px solid #e9ecef; width:100% ">
+        <pre id="squadrons-edit-missions-edit-presets-warnings-content">
+        </pre>
+      </div>
+    </div>
+    <div style="height:30px"></div>
+  </form>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="button" id="squadrons-edit-mission-edit-save">Save</button>
+  </div>
+
+</div>
+
+<!--    THEATRES    -->
+<div class="tab-pane" id="squadrons-edit-theatres">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2 tab-title">Theatres</h1>
+  </div>
+  <div class="pb-3">
+    As squadrons tend to have Theatre wide frequencies for airbase ATC services
+    which are shared across multiple missions - we allow you to set them here
+    rather than having to maintain them on each mission.
+  </div>
+  <div class="pb-3">
+    You will have the opportunity to override these again on a per-mission
+    basis should you require.
+  </div>
+  <table class="table table-striped" id="squadrons-edit-theatres-table">
+    <colgroup>
+      <col>
+      <col width=60px>
+    </colgroup>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<!--    EDIT THEATRES    -->
+<div class="tab-pane" id="squadrons-edit-theatres-edit">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2 tab-title">Theatres</h1>
+  </div>
+  <div class="pb-3">
+    This page allows you to set squadron-wide default airbase ATC information
+    which is used when populating the DEP/ARR section of the MDC as well as
+    agency auto completes
+  </div>
+  <div class="pb-3">
+    You cannot add airbases here - as these would be specific to missions (e.g
+    Carriers / FARPs). To add these, please edit the mission
+  </div>
+  <table class="table table-striped" id="squadrons-edit-theatre-edit-airfield-table">
+    <colgroup>
+      <col />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+      <col style="width:60px" />
+    </colgroup>
+
+    <thead class="thead-light">
+      <tr>
+        <th>AIRFIELD</th>
+        <th class="text-center">AI UHF</th>
+        <th class="text-center">AI VHF</th>
+        <th class="text-center">PAR</th>
+        <th class="text-center">ATIS</th>
+        <th class="text-center">GND</th>
+        <th class="text-center">TWR</th>
+        <th class="text-center">CTRL</th>
+        <th class="text-center">TCN</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- workaround for bg color -->
+    <tr style="display:none"></tr>
+    </tbody>
+  </table>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="squadrons-edit-theatres-save">Save</button>
+  </div>
+</div>
+
+<!-- ADD MISSION MODAL -->
+<div class="modal fade" id="squadrons-edit-mission-add-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new Mission</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom:10px">
+          <div id="squadrons-edit-mission-add-dialog-cfinfo">
+            <p>
+              <strong>Combat Flite</strong>
+            </p>
+            Combat Flite only imports navpoint information for the following:
+            <ul>
+              <li>Nav Points</li>
+              <li>Range borders</li>
+            </ul>
+            Of note: it will only create / update information that doesnt
+            already exist as a waypoint
+          </div>
+        </div>
+
+        <form target='#' method=post class="needs-validation" novalidate>
+          <div class="form-row display-name-container">
+            <label class="heading">Display Name</label>
+            <input type="text" name="display-name" id="squadrons-edit-mission-add-dialog-display-name" class="form-control">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="form-row">
+            <label class="heading">Mission File</label>
+            <div class="custom-file">
+              <div id='data-file-input-container'>
+                <input type="file" name="mission" class="custom-file-input" id="squadrons-edit-mission-add-file-input" accept=".miz,.cf">
+              </div>
+              <label class="custom-file-label" name="miz-label" for="squadrons-edit-mission-add-file-input" id="squadrons-edit-mission-add-file-input-label">miz / cf file</label>
+            </div>
+            <small class="form-text text-muted">
+              These are not uploaded or stored and are processed by your browser
+            </small>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="squadrons-edit-mission-add-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BULK ADD AGENCIES -->
+<div class="modal fade" id="squadrons-edit-mission-add-agencies-bulk-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Bulk add Agencies</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom:10px">
+          Simple way to add more agencies and save you time
+          <ul>
+            <li>1 Agency per line</li>
+            <li>comma separated list of: Agency, (all|blue|red), TCN, PRI, SEC</li>
+          </ul>
+        </div>
+
+        <form target='#' method=post class="needs-validation" novalidate>
+          <div class="form-row">
+            <label class="heading">Agency CSV</label>
+            <textarea id="squadrons-edit-missions-add-agencies-bulk-csv" class="form-control" style="min-height:300px; white-space: pre-wrap;" required></textarea>
+            <div class="invalid-feedback"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="squadrons-edit-mission-add-agencies-bulk-dialog-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE SQUADRON -->
+<div class="modal fade" id="squadrons-edit-add-squadron-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Squadron</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+
+          <div class="form-row display-name-container">
+            <label class="heading">Name</label>
+            <input type="text" name="name" class="form-control" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="form-row display-name-container">
+            <label class="heading">Web URL</label>
+            <input type="text" name="url" class="form-control">
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

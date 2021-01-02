@@ -33,6 +33,69 @@ function pad(n, width, z, precision) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
+function getDictInit(obj) {
+  if (obj === undefined) {
+    return;
+  }
+  for (var i = 1; i < arguments.length; i++) {
+    if (!obj.hasOwnProperty(arguments[i])) {
+      obj[arguments[i]] = {}
+    }
+    obj = obj[arguments[i]];
+  }
+  return obj;
+}
+
+
+function getDict(obj) {
+  if (obj === undefined) {
+    return {};
+  }
+  for (var i = 1; i < arguments.length; i++) {
+    if (!obj.hasOwnProperty(arguments[i])) {
+      return {};
+    }
+    obj = obj[arguments[i]];
+  }
+  return obj;
+}
+
+
+function get_elem_data(elem) {
+  // If we have children (e.g. input), use that value
+  if (elem.children.length) {
+
+    child = $(elem.children[0])
+
+    // If it's an MCE text area just grab the HTML content
+    if (child.hasClass('mce')) {
+      return tinymce.editors[child.attr('id')].getContent()
+    }
+
+    dd = child[0].getAttribute('data-raw')
+    if (dd) {
+      return dd
+    }
+
+    // Determine the value of the item
+    var val = child[0].value;
+    if (child.prop('type') == "checkbox") {
+      val = child.is(":checked") ? 1 : 0;
+    }
+
+    return val;
+  }
+
+  // If our TD holds raw-data, use that
+  dd = elem.getAttribute('data-raw')
+  if (dd) {
+    return dd
+  }
+
+  // Finally, just use what's in the cell
+  return elem.innerHTML
+}
+
 // Get a table row data, either as an array, or dict if provided headings
 function get_row_data(row, headings) {
   if (!row) {
@@ -40,31 +103,7 @@ function get_row_data(row, headings) {
   }
 
   var data = Array.prototype.map.call(row.querySelectorAll('td, th'), function(td) {
-    // If we have children (e.g. input), use that value
-    if (td.children.length) {
-
-      child = $(td.children[0])
-
-      // If it's an MCE text area just grab the HTML content
-      if (child.hasClass('mce')) {
-        return tinymce.editors[child.attr('id')].getContent()
-      }
-
-      dd = child[0].getAttribute('data-raw')
-      if (dd) {
-        return dd
-      }
-      return child[0].value
-    }
-
-    // If our TD holds raw-data, use that
-    dd = td.getAttribute('data-raw')
-    if (dd) {
-      return dd
-    }
-
-    // Finally, just use what's in the cell
-    return td.innerHTML
+    return get_elem_data(td)
   });
 
   if (!headings) {
@@ -90,31 +129,62 @@ function get_form_data(form) {
     }, {})
 }
 
+function freq_to_obj(value) {
+
+  var float_val = parseFloat(value);
+  if (isNaN(float_val)) { return null }
+
+  var float_str = float_val.toFixed(3)
+  var code = lookup_freq_code(float_str);
+  var pst = lookup_preset(float_str);
+
+  v = {
+    'value': float_str,
+  }
+  if (code) { v['code'] = code; }
+  if (pst) { v['pst'] = pst; }
+
+  return v
+}
+
 function update_presets() {
   $("input.freq-preset").each(function(idx, elem) {
     var elem = $(elem)
     var offset = elem.parent().index();
     var row = elem.closest('tr')[0];
     row.cells[offset+1].innerHTML = lookup_preset(elem.val())
-    row.cells[offset+2].innerHTML = lookup_freq_code(elem.val())
   });
 }
 
 function lookup_preset(value) {
 
-  if (value === "" || isNaN(value)) {
+  if (value === "" || isNaN(value) || !mission_data) {
     return ""
   }
 
   var float_val = parseFloat(value);
   var float_str = float_val.toFixed(3)
   var type = $("#flight-airframe").val();
-  var mission = $('#data-mission').val();
+  var side = $("#data-side").val();
 
-  if (mission_data[mission] && mission_data[mission]['presets'] && mission_data[mission]['presets'][type] && mission_data[mission]['presets'][type][float_str]) {
-    return mission_data[mission]['presets'][type][float_str];
+  // Presets are stored either in the mission_data => data => presets => lookup
+  // => airframe => side => freq, if it's not there, then if the AC does not
+  // have a preset on there in the mission, check for defaults
+  
+  var side_freqs = getDict(mission_data, 'data', 'presets', 'lookups', type, side);
+  if (side_freqs[float_str]) {
+    return side_freqs[float_str];
   }
 
+  // If we have no presets for this side in the data, then lookup DCS defaults
+  if (Object.keys(side_freqs).length == 0) {
+    var default_freqs = getDict(airframes, type, 'radios', 'lookups');
+    if (default_freqs[float_str]) {
+      return default_freqs[float_str];
+    }
+  }
+
+  // If that fails, it's manual 
   if (type == 'FA-18C') {
     return "MAN"
   } else if (type == 'F-16C') {
@@ -138,8 +208,9 @@ function lookup_freq_code(freq) {
 
   var float_val = parseFloat(freq);
   var float_str = float_val.toFixed(3);
-  
-  return freq_codes[float_str];
+
+  var lookups = getDict(squadron_data, 'freqs_lookup')
+  return lookups[float_str];
 
 }
 
@@ -203,7 +274,7 @@ function get_data() {
     'version': '2.0',
   };
 
-  ['data', 'mission', 'flight', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(data) {
+  ['data', 'mission', 'presets', 'flight', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(data) {
     debug("collecting: " + data);
     ret[data] = window[data+"_export"]()
   });
@@ -357,28 +428,40 @@ var getUrlParameter = function getUrlParameter(sParam) {
   }
 };
 
+
+// index of load loop
+load_loop = 0;
+
 // Load from data provided by save()
-function load(data) {
-  if (!data) { return; }
+function load(data, callback) {
 
   // We don't want saves() to trigger: This could cause a save to occur prior
   // to loading subsequent pages and result in data loss
   disable_save = true;
 
   // As we moved notes from loadout to profiles, make it so for loading older mdcs
-  if (data.loadout && data.loadout.notes) {
+  if (data && data.loadout && data.loadout.notes) {
     if (!data.profiles) { data['profiles'] = {}; }
     data.profiles.notes = data.loadout.notes;
   }
-
-  ['data', 'flight', 'mission', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'].forEach(function(section) {
-    if (section in data) {
+  
+  // Async, sequential loading of the pages in order
+  (function loader(list, callback, current=0) {
+    var section = list[current];
+    if (section) {
       debug("Loading " + section);
-      window[section+"_load"](data[section])
+      console.log(`running load: ${section}`);
+      window[section+"_load"](data ? data[section] : null, function() {
+        console.log(`callback: ${section}`);
+        loader(list, callback, current+1);
+      });
+    } else {
+      callback();
     }
+  })(['data', 'flight', 'mission', 'presets', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'], function() {
+    disable_save = false;
+    callback();
   });
-
-  disable_save = false;
 }
 
 
@@ -398,11 +481,3 @@ function xml_createNSResolver(document) {
   nsResolver.lookupNamespaceURI = nsResolver;
   return nsResolver;
 }
-
-// Changes for PST
-$(".freq-pst").each(function(index, input) {
-  $(input).on('change', function(evt) {
-    $("#" + evt.target.id + "-pst").val(lookup_preset($(evt.target).val()))
-    $("#" + evt.target.id + "-code").val(lookup_freq_code($(evt.target).val()))
-  });
-});

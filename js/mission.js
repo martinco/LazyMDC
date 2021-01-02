@@ -14,27 +14,33 @@ $(document).on('flight-airframe-changed', function(e) {
 $('#mission-callsign').autocomplete({
     source: function(request, response) {
       var mission = $('#data-mission').val();
-      var lookup = callsigns;
-
-      if (mission_data[mission] && mission_data[mission]['callsigns']) {
-        lookup = mission_data[mission]['callsigns'];
-      }
-
-      response(match_item_in_arr(lookup, request.term))
-
+      response(match_item_in_arr(squadron_data.callsigns ? squadron_data.callsigns : [], request.term))
     },
     minLength: 1,
 });
 
 function mission_export() {
-  return get_form_data($("#mission-form"))
+  var data = get_form_data($("#mission-form"));
+  data['mission-pri-freq'] = freq_to_obj(data['mission-pri-freq']);
+  data['mission-sec-freq'] = freq_to_obj(data['mission-sec-freq']);
+  return data;
 }
 
-function mission_load(data) {
+function mission_load(data, callback) {
+
+  if (!data) { callback(); return; }
+
   for (const [key, value] of Object.entries(data)) {
     var input = $("#" + key)
     if (input) {
-      input.val(value)
+      if (input.hasClass("freq-pst")) {
+        if(value) {
+          input.val(value.value)
+        }
+      } else {
+        input.val(value)
+      }
     }
   }
+  callback();
 }

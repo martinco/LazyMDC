@@ -19,21 +19,31 @@
   </div>
 
   <div class="form-group">
-    <label for="data-mission">Mission Data</label>
-    <select name="mission" id="data-mission" class="form-control">
-      <option>None</option>
+    <label for="data-squadron">Squadron</label>
+    <select name="squadron" id="data-squadron" class="form-control">
     </select>
     <small class="form-text text-muted">
-      This is used to populate aircraft presets, frequency auto-completes, agency auto-completes and navaids for waypoint auto-completes
+      This is used to populate the mission selector below
     </small>
   </div>
 
   <div class="form-group">
-    <label for="data-theatre">Theatre</label>
-    <select name="theatre" id="data-theatre" class="form-control">
+    <label for="data-mission">Mission</label>
+    <select name="mission" id="data-mission" class="form-control">
     </select>
     <small class="form-text text-muted">
-      This is used to help populate airfields to supplement navaids from the Mission Data
+      This is used to resolve aircraft presets, frequency auto-completes, agency auto-completes
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="data-side">Side</label>
+    <select name="side" id="data-side" class="form-control">
+      <option>blue</option>
+      <option>red</option>
+    </select>
+    <small class="form-text text-muted">
+      This is used to restrict navpoint selection and identify manual navpoints vs built-in mission navpoints
     </small>
   </div>
 

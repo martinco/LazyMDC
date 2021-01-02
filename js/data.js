@@ -2,33 +2,6 @@
 * Functions
 ******************************************************************************/
 
-mission_airfields = {}
-
-function generate_mission_airfields() {
-
-  // When we change the mission_airfields we want to regenerate the waypoints /
-  // airfields (carrier additions) 
-  
-  var theatre = $('#data-theatre').val();
-  var mission = $('#data-mission').val();
-
-  if (!mission_data.hasOwnProperty(mission) || !mission_data[mission].hasOwnProperty('airfields')) {
-    mission_airfields = theatres[theatre]['airfields'];
-    return;
-  }
-
-  mission_airfields = jQuery.extend(true, {}, theatres[theatre]['airfields'])
-
-  for (const [key, value] of Object.entries(mission_data[mission]['airfields'])) {
-    if (mission_airfields.hasOwnProperty(key)) {
-      jQuery.extend(true, mission_airfields[key], value);
-    } else {
-      mission_airfields[key] = jQuery.extend(true, {}, value);
-    }
-  };
-
-}
-
 function data_process_kml(xml) {
 
   // Reset / Present the route dialog
@@ -298,46 +271,224 @@ function data_load_file(input) {
 * Bindings
 ******************************************************************************/
 
-$("#data-mission").change(function(e) {
+function data_squadron_set(sqn, callback) {
 
-  var mission = $(e.target).val()
+  sqn = sqn || $('#data-squadron').val();
 
-  if (mission_data.hasOwnProperty(mission)) {
-
-    // If the mission contains a theatre, update it, and disable theatre
-    if (mission_data[mission].theatre) {
-      var input_theatre = $('#data-theatre');
-      input_theatre.val(mission_data[mission].theatre).change();
-      input_theatre.attr('disabled', 'disabled');
+  // If mission ID same as now, ignore
+  if (squadron_data.id && sqn == squadron_data.id) {
+    if (typeof(callback) === "function") {
+      callback();
     }
-    
-    // If the mission contains transition / FL info, update set those
-    if (mission_data[mission].hasOwnProperty('navdata')) {
-      if (mission_data[mission]['navdata'].hasOwnProperty('transition-alt')) {
-        $("#waypoints-transition-alt").val(mission_data[mission]['navdata']['transition-alt'])
-      }
-      if (mission_data[mission]['navdata'].hasOwnProperty('transition-level')) {
-        $("#waypoints-transition-level").val(mission_data[mission]['navdata']['transition-level'])
-      }
-    }
-
-    // Update to the default bullseye for the mission
-    // var bulls = mission_data[mission].bullseye ? mission_data[mission].bullseye :
-  } else {
-    $('#data-theatre').removeAttr('disabled');
+    console.log("SKIPPY", squadron_data, sqn);
+    return; 
   }
+
+  // Updated squadron, update relevant data
+  api_get(`squadrons/${sqn}`, function(resp) {
+
+    // Create lookups of frequency to code
+    var freqs = getDict(resp, 'freqs');
+    var lookups = {};
+    for (const [code, freq] of Object.entries(freqs)) {
+      lookups[freq] = code;
+    }
+
+    resp['freqs_lookup'] = lookups;
+
+    // Store squadron info
+    squadron_data = resp;
+
+    // Store current mission to see if teh data changes 
+    var input = $('#data-mission');
+    input.empty();
+    for (var msn of resp.missions) {
+      var option = new Option(msn.name, msn.id, msn.is_default, msn.is_default);
+      input.append(option)
+    }
+
+    if (typeof(callback) === "function") {
+      callback();
+    }
+  });
+}
+
+
+$("#data-squadron").change(function(e) {
+
+  var value = $(this).val();
+
+  // Update the squadron data and trigger if we've changed values
+  data_squadron_set(value, function() {
+    if (mission_data.id && mission_data.id != $('#data-mission').val()) {
+      $('#data-mission').change()
+    }
+  });
 
 });
 
+
+function build_preset_lookups(ac, radios) {
+
+  // There might not be mission radio data for all radios so we merge the keys
+  // to ensure all readios are evaluated 
+  
+  var airframe_radios = Object.keys(getDict(airframes, ac, 'radios', 'presets'));
+
+  var preset_lookups = {};
+  for (const radio of airframe_radios) {
+    for (const [preset, freq] of Object.entries(getDict(radios, radio))) {
+      if (!preset_lookups[freq]) { preset_lookups[freq] = []; };
+      preset_lookups[freq].push([radio, parseInt(preset)])
+    }
+  }
+
+  // Consolidate down to what's displayed
+  // If single radio then show RADIO-<PST>
+  // If multiple on same radio, we show RAIDO-<FIRST_PST>
+  // If multiple on different radios, we go PST, PST in aircraft radio priority order
+  
+  for (var [freq, data] of Object.entries(preset_lookups)) {
+    // data is [[RADIO, PST]], so find unique radios and lowest presets
+    var v = {}
+    data.forEach((x) => v[x[0]] = !v[x[0]] || v[x[0]] > x[1] ? x[1] : v[x[0]] );
+
+    if (Object.keys(v).length == 1)  {
+      var k = Object.keys(v)[0];
+      preset_lookups[freq] = `${k} ${v[k]}`;
+    } else {
+      var prio = getDict(airframes, ac, 'radios', 'priority');
+      if (typeof(prio) !== "array") {
+        prio = Object.keys(v);
+      }
+      var elems = [];
+      for (const pick of prio) {
+        if (v[pick]) {
+          elems.push(v[pick]);
+        }
+      }
+      preset_lookups[freq] = elems.join(',');
+    }
+  }
+
+  return preset_lookups;
+}
+
+
+function data_mission_set(mid, callback) {
+
+  var input = $('#data-mission');
+
+  var squadron_id = $("#data-squadron").val();
+  var target_mission_id = mid || input.val();
+
+  // we only do anythji
+  if (mission_data.id && target_mission_id == mission_data.id) {
+    if (typeof(callback) === "function") {
+      callback();
+    }
+    return;
+  }
+
+  // Else we need to load the requested mission
+  input.val(target_mission_id);
+
+  // Updated squadron, update relevant data
+  api_get(`squadrons/${squadron_id}/missions/${target_mission_id}`, function(resp) {
+
+    // Our mission data presets aren't ideal for us to consume, so we'll format
+    // the presets into AC => freq => radio, so we can do a direct lookup,
+    // additionally the airframe doesn't always have presets so we merge our
+    // mission presets with the airframe default presets
+
+    var preset_lookups = {};
+
+    for (const side of ['red', 'blue']) {
+      for (const airframe of Object.keys(airframes)) {
+        var defaults = getDict(airframes, airframe, 'radios', 'presets');
+        var presets = getDictInit(resp, 'data', 'presets', 'presets', airframe, side);
+        var merged = $.extend(true, {}, defaults, presets);
+
+        // We save the merged list so we can print out an up-to-date PRESET
+        // card or override them during the the MDC build
+        var merged_dest = getDictInit(resp, 'data', 'presets', 'merged', airframe);
+        if (!merged_dest.priority) {
+          merged_dest.priority = getDict(airframes, airframe, 'radios', 'priority')
+          merged_dest.data = {};
+        }
+        merged_dest['data'][side] = merged;
+
+        var dest = getDictInit(resp, 'data', 'presets', 'lookups', airframe);
+        dest[side] = build_preset_lookups(airframe, merged);
+      }
+    }
+
+    // Merge "all" presets into both red / blue so we can look in one location
+    if (!resp.data.agencies) { resp.data.agencies = {} }
+    for (const [agency, agency_info] of Object.entries(getDict(resp, 'data', 'agencies', 'all'))) {
+      for (const side of ['blue', 'red']) {
+        if (!resp.data.agencies[side]) { resp.data.agencies[side] = {}; }
+        if (!resp.data.agencies[side][agency]) {
+          resp.data.agencies[side][agency] = agency_info;
+        }
+      }
+    }
+
+    // We also merge the DCS airfield agencies / Custom Airfield agencies lists
+    var agency_map = [
+      ['twr', 'Tower'],
+      ['atis', 'ATIS'],
+      ['uhf', 'AI Tower', 'pri'],
+      ['vhf', 'AI Tower', 'sec'],
+      ['par', 'PAR / LSO'],
+      ['gnd', 'Ground'],
+      ['ctrl', 'Control'],
+    ];
+
+    for (const [af, af_data] of Object.entries(getDict(resp, 'data', 'airfields'))) {
+      for (var [key, agency, target] of agency_map) {
+
+        if (!af_data[key]) { continue; }
+        if (!target) { target = "pri"; }
+
+
+        // We add the agency to both the ICAO and the Full name for ease of lookup
+        var agency_name = `${af}: ${agency}`;
+        for (const side of ['blue', 'red']) {
+          if (!resp.data.agencies[side]) { resp.data.agencies[side] = {}; }
+          if (!resp.data.agencies[side][agency_name]) {
+            resp.data.agencies[side][agency_name] = {};
+            if (af_data.icao) {
+              resp.data.agencies[side][agency_name]['alt_names'] = [
+                `${af_data.icao}: ${agency}`
+              ];
+            }
+          }
+          resp.data.agencies[side][agency_name][target] = af_data[key]
+        }
+      }
+    }
+
+    mission_data = resp;
+
+    // Update our default bulls / presets
+    data_update_default_bulls();
+    update_presets();
+
+    if (typeof(callback) === "function") {
+      callback();
+    }
+  });
+}
+
+$("#data-mission").change(function(e) {
+  data_mission_set();
+});
+
 function data_update_default_bulls() {
-  // Try Mission, then theatre
-  var mission = $('#data-mission').val()
-  var theatre = $('#data-theatre').val()
 
-  var bulls = mission_data[mission] && mission_data[mission]['bullseye'] ?
-              mission_data[mission]['bullseye'] : theatres[theatre]['bullseye'];
-
-  $('#waypoints-bullseye-name').val(bulls['label']);
+  var bulls = getDict(mission_data, 'data', 'bullseye', $('#data-side').val());
+  $('#waypoints-bullseye-name').val(bulls['name']);
   $('#waypoints-bullseye-lat')[0].setAttribute('data-raw', bulls['lat']);
   $('#waypoints-bullseye-lon')[0].setAttribute('data-raw', bulls['lon']);
 
@@ -348,11 +499,6 @@ function data_update_default_bulls() {
   }
 
 }
-
-$('#data-theatre').change(function(e) {
-  generate_mission_airfields()
-  data_update_default_bulls();
-});
 
 $("#data-route-dialog-submit").click(function(e, data) {
 
@@ -428,11 +574,38 @@ function data_export() {
     return data
 }
 
-function data_load(data) {
-    $('#data-mission').val(data.mission).change()
-    $('#data-theatre').val(data.theatre).change()
+function data_load(data, callback) {
+
+  api_get('squadrons', function(resp) {
+
+    // DOM update the data-squadron selection box
+    var input = $('#data-squadron')
+    input.empty();
+    for (var sqn of resp) {
+      // The default is either the one from initial data (saved MDC) or the DB default
+      var def = data && data.squadron ? sqn.idx == data.squadron : sqn.is_default === 1; 
+      var option = new Option(sqn.name, sqn.idx, def, def);
+      input.append(option)
+    }
+
+    // Load the squadron data, we already set the default to match our squadron above
+    data_squadron_set(null, function() {
+      data_mission_set(data ? data.mission : null, function() {
+        callback();
+      });
+    });
+  });
+
+  // We can always change side
+  if (data) {
+    $('#data-side').val(data.side).change();
+  }
 }
 
+$('#data-side').on('change', function() {
+  update_presets();
+  data_update_default_bulls();
+});
 
 
 /******************************************************************************
@@ -440,27 +613,3 @@ function data_load(data) {
 ******************************************************************************/
 
 zip.workerScriptsPath = 'js/zip-js/';
-
-// opulate the Mission Data / Theatres
-(function() {
-
-  var input = $('#data-theatre');
-  for (var x in theatres) {
-    var def = theatres[x].default === true
-    var option = new Option(theatres[x].display_name, x, def, def)
-    input.append(option)
-  }
-
-  var input = $('#data-mission')
-  for (var x in mission_data) {
-    var def = mission_data[x].default === true
-    var option = new Option(x, x, def, def)
-    input.append(option)
-  }
-
-  // Issue changed on mission to ensure the theatre / etc. gets updated
-  $('#data-mission').change()
-
-}())
-
-generate_mission_airfields();

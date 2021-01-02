@@ -18,100 +18,143 @@ function coordinate_dd2ddm(dd, precision) {
   return [deg, min, dd >= 0];
 }
 
-function coordinate_dd2dms(dd, precision) {
+var Coords = function() {
 
-  if (isNaN(dd) || dd === "") {
-    return ["", "", "", true];
+  this._display_format = 'ddm';
+  this._display_decimals = 3;
+
+  this.set_display_format = function(new_format) {
+    if (new_format == this._display_format) { return; }
+    this._display_format = new_format;
+    this.update_display();
   }
 
-  var work, deg, sec, mins;
-
-  work = Math.abs(dd)
-
-  // returns array of deg, mins, sec
-  deg  = Math.floor(work);
-  work -= deg;
-  work *= 60;
-
-  mins = Math.floor(work);
-
-  sec = work - mins;
-  sec *= 60;
-
-  // Round secs, and bubble
-  sec = Number(sec.toFixed(precision))
-  if (sec == 60) {
-    sec = 0;
-    mins++;
+  this.set_display_decimals = function(new_decimals) {
+    if (new_decimals == this._display_decimals) { return; }
+    this._display_decimals = new_decimals;
+    this.update_display();
   }
 
-  if (mins == 60) {
-    mins = 0;
-    deg++;
-  }
+  this.dd2dms = function(dd, precision) {
 
-  return [deg, mins, sec, dd >= 0]
-}
-
-function coordinate_display_format(td) {
-
-  var elem = $(td)
-  var value = parseFloat(td.getAttribute('data-raw'))
-  var method = td.tagName == 'INPUT' ? 'val' : 'html'
-
-  if (isNaN(value)) {
-    elem[method]("")
-    return;
-  }
-
-  var axis = elem.hasClass('coord-lon') ?
-         value >= 0 ? "E " : "W " :
-         value >= 0 ? "N " : "S ";
-
-  var coordDisplay = td.getAttribute('data-fmt') || $('input[name=flight-coord]:checked').val()
-  var llPrecision = td.getAttribute('data-dmp');
-  if (llPrecision == null) {
-    llPrecision = parseInt($("#flight-coord-decimals").val());
-  } else {
-    llPrecision = parseInt(llPrecision);
-  }
-
-
-  if (coordDisplay == 'ddm') {
-    var arr = coordinate_dd2ddm(value, llPrecision);
-    var deg = arr[0];
-    var min = arr[1];
-
-    elem[method](axis + pad(deg, 2) + "\xB0 " + pad(min, 2, null, llPrecision) + "'")
-    return 
-  }
-
-  if (coordDisplay == 'dms') {
-
-    var arr = coordinate_dd2dms(value, Math.max(llPrecision, 0));
-
-    var deg = arr[0];
-    var min = arr[1];
-    var sec = arr[2];
-
-    var rv = axis + pad(deg, 2) + "\xB0 " + pad(min, 2) + "' "
-
-    // we do not add " as it's not seconds, but 1/6th of a minutes
-    if (llPrecision == -1) {
-      rv += (sec / 10).toFixed(0)
-    } else {
-      rv += pad(sec,2,null,llPrecision) + "\"";
+    if (isNaN(dd) || dd === "") {
+      return ["", "", "", true];
     }
 
-    elem[method](rv)
-    return
+    var work, deg, sec, mins;
 
+    work = Math.abs(dd)
+
+    // returns array of deg, mins, sec
+    deg  = Math.floor(work);
+    work -= deg;
+    work *= 60;
+
+    mins = Math.floor(work);
+
+    sec = work - mins;
+    sec *= 60;
+
+    // Round secs, and bubble
+    sec = Number(sec.toFixed(precision))
+    if (sec == 60) {
+      sec = 0;
+      mins++;
+    }
+
+    if (mins == 60) {
+      mins = 0;
+      deg++;
+    }
+
+    return [deg, mins, sec, dd >= 0]
   }
 
-  // Default to DD
-  elem[method](value.toFixed(llPrecision))
-  return
+  this.format_td = function(td) {
+
+    var elem = $(td)
+    var value = parseFloat(td.getAttribute('data-raw'))
+    var set = function(elem, value) { 
+      if(elem.tagName == 'INPUT') {
+        elem.val(v);
+      } else {
+        elem.html(value);
+      }
+    }
+
+    if (isNaN(value)) {
+      set(elem, "")
+      return;
+    }
+
+    var axis = elem.hasClass('coord-lon') ?
+           value >= 0 ? "E " : "W " :
+           value >= 0 ? "N " : "S ";
+
+    var llPrecision = parseInt(td.getAttribute('data-dmp'));
+    if (isNaN(llPrecision)) {
+      llPrecision = this._display_decimals;
+    }
+   
+    var deg_pad = elem.hasClass('coord-lon') ? 2 : 2;
+
+    if (this._display_format == 'ddm') {
+      var arr = coordinate_dd2ddm(value, llPrecision);
+      var deg = arr[0];
+      var min = arr[1];
+
+      set(elem, axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'");
+      return 
+    }
+
+    if (this._display_format == 'dms') {
+
+      var arr = this.dd2dms(value, Math.max(llPrecision, 0));
+
+      var deg = arr[0];
+      var min = arr[1];
+      var sec = arr[2];
+
+      var rv = axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2) + "'"
+
+      // we do not add " as it's not seconds, but 1/6th of a minutes
+      if (llPrecision == -1) {
+        rv += (sec / 10).toFixed(0)
+      } else {
+        rv += pad(sec,2,null,llPrecision) + "\"";
+      }
+
+      set(elem, rv);
+      return
+
+    }
+
+    // Default to DD
+    set(elem, value.toFixed(llPrecision));
+    return
+  }
+
+  this.update_display = function() {
+    $('.coord').each(function(idx, td) {
+      this.format_td(td);
+    }.bind(this));
+  }
+
+};
+
+coords = new Coords();
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/ /g, "&nbsp;");
 }
+
+
 
 function coordinate_input(td, lat_idx) {
 
@@ -169,8 +212,8 @@ function coordinate_update_fields() {
   $("#coordinate-ddm-lon-min").val(lon_ddm[1])
   $("#coordinate-ddm-lon-axis").val(lon_ddm[2] ? 'E' : 'W')
 
-  var lat_dms = coordinate_dd2dms(lat, 3) 
-  var lon_dms = coordinate_dd2dms(lon, 3) 
+  var lat_dms = coords.dd2dms(lat, 3) 
+  var lon_dms = coords.dd2dms(lon, 3) 
 
   $("#coordinate-dms-lat-deg").val(lat_dms[0])
   $("#coordinate-dms-lat-min").val(lat_dms[1])
@@ -293,6 +336,9 @@ $('#coordinate-dialog-submit').click(function() {
   lat = isNaN(lat) ? "" : lat
   lon = isNaN(lon) ? "" : lon
 
+  var mod_lat = parseFloat(tr.cells[lat_idx].getAttribute('data-raw')) != lat;
+  var mod_lon = parseFloat(tr.cells[lat_idx+1].getAttribute('data-raw')) != lon;
+
   tr.cells[lat_idx].setAttribute('data-raw', lat)
   tr.cells[lat_idx+1].setAttribute('data-raw', lon)
 
@@ -310,10 +356,16 @@ $('#coordinate-dialog-submit').click(function() {
     tr.cells[lat_idx+1].removeAttribute('data-dmp')
   }
 
-  coordinate_display_format(tr.cells[lat_idx])
-  coordinate_display_format(tr.cells[lat_idx+1])
+  coords.format_td(tr.cells[lat_idx])
+  coords.format_td(tr.cells[lat_idx+1])
 
-  $(document).trigger('coordinates-changed')
+  if (mod_lat) {
+    $(tr.cells[lat_idx]).trigger('coordinates-changed');
+  };
+
+  if (mod_lon) {
+    $(tr.cells[lat_idx+1]).trigger('coordinates-changed');
+  }
 
   dlg.modal('hide');
 

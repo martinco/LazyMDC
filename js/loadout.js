@@ -386,12 +386,12 @@ function loadout_export() {
   return ret
 }
 
-function loadout_load(data) {
+function loadout_load(data, callback) {
 
-  if (!data || data instanceof Array) {
-    return
-  }
+  if (!data || data instanceof Array) { callback(); return; }
 
   // We store the pylon data in order, to the real name
   loadout_set(data);
+ 
+  callback();
 }

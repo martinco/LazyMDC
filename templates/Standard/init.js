@@ -184,6 +184,11 @@ function Header(data, unit, page) {
             <th>PACKAGE</th>`;
     }
 
+    var callsign = data['mission']['mission-callsign'];
+    if (data['mission']['mission-flight-number']) {
+      callsign += `-${data['mission']['mission-flight-number']}`;
+    }
+
     html += `
             <th>MISSION</th>
             <th>ID</th>
@@ -191,9 +196,9 @@ function Header(data, unit, page) {
           </tr>
           
           <tr>
-            <td class="text-center">${data['mission']['mission-callsign']}</td>
-            <td class="text-center text-bold">${data['mission']['mission-pri-freq']}</td>
-            <td class="text-center text-bold">${data['mission']['mission-sec-freq']}</td>`;
+            <td class="text-center">${callsign}</td>
+            <td class="text-center text-bold">${data['mission']['mission-pri-freq'] ? data['mission']['mission-pri-freq'].value || "" : ""}</td>
+            <td class="text-center text-bold">${data['mission']['mission-sec-freq'] ? data['mission']['mission-sec-freq'].value || "" : ""}</td>`;
 
     if (package) {
       html += `
@@ -320,7 +325,16 @@ function Flight(data, unit) {
         }
         html += `>`;
 
-        html += member[col[0] == "#" ? 'id' : col[0].toLowerCase()];
+        if (col[0] == "#") {
+          if (data['mission']['mission-flight-number']) {
+            html += data['mission']['mission-flight-number'] + "-" + member['id'];
+          } else {
+            html += member['id'];
+          }
+        } else {
+          html += member[col[0].toLowerCase()];
+        }
+
 
         html += `</td>`;
       }
@@ -380,7 +394,7 @@ function Package(data, unit) {
         <tr>
           <td class="lp5">${member['callsign']}</td>
           <td class="lp5">${member['aircraft']}</td>
-          <td class="text-center text-bold">${member['freq']}</td>
+          <td class="text-center text-bold">${member['freq'] ? member['freq'].value || "" : ""}</td>
           <td class="text-right rp5 text-bold">${member['tcn']}</td>
           <td class="lp5">${member['idm']}</td>
           <td class="lp5">${member['mission']}</td>
@@ -845,6 +859,110 @@ var Loadout = function(data, unit) {
 
 }
 
+var Presets = function(data, unit) {
+
+  var data = data;
+  var unit = unit;
+
+  this.single_page = true;
+  this.force_newpage_before = true;
+  this.force_newpage_after = true;
+  this.breakable = false;
+
+  this.table = function () {
+
+    var html = `
+      <table class="kb-width std" style="table-layout: fixed">
+        <colgroup>
+          <col />
+        </colgroup>
+        <tbody>
+          <tr class="header">
+            <th>RADIO PRESETS</th>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="height:10px"></div>
+    `;
+
+    // 2 rows for each radio + 1 spacer
+    var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+    var col_group = '<col width=35px /><col width=85px/><col width=127px/><col width=18px/>'.repeat(priorities.length-1)
+    var headers = `<td class="bg-blank" style="border:0"></td>`;
+    for (const idx in priorities) {
+      headers += `<th colspan=3>${priorities[idx]}</th>`;
+      if (idx < priorities.length-1) {
+        headers += '<td class="bg-blank" style="border:0"></td>';
+      }
+    }
+
+    html += `
+    <table class="kb-width std" style="table-layout: fixed">
+      <colgroup>
+        <col />
+        ${col_group}
+        <col width=35px /><col width=85px/><col width=127px/>
+        <col />
+      </colgroup>
+      <tbody>
+        <tr class="header">
+          ${headers}
+        </tr>
+      </tbody>
+    </table>`;
+
+    return $(html);
+  };
+
+  this.get_data = function() {
+    return data;
+  }
+
+  this.content = (function() {
+    var content = [];
+    var last = {
+      gs: "",
+      alt: "",
+    };
+
+    if (!data) {
+      return [];
+    }
+
+    var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+    var presets = Math.max(...Object.values(data.radios).map(x => Object.keys(x).length));
+    var radio_count = priorities.length
+    var html = ``;
+
+    // loop 1-30
+    for (var x = 1; x <= presets; x++) {
+      html += '<tr><td class="bg-blank" style="border:0"></td>';
+      for (const [radio_id, radio] of Object.entries(priorities)) {
+        var pst = data.radios[radio][x];
+        console.log(x, radio_id, radio,pst);
+        if (pst) {
+          html += `
+            <td class="text-right rp5">${x}</td>
+            <td class="text-bold text-right rp5">${pst.value}</td>
+            <td class="lp5">${pst.code ? pst.code : ""}</td>`;
+          if (radio_id < radio_count-1) {
+            html += '<td class="bg-blank" style="border:0"></td>';
+          }
+        } else {
+          html += `<td class="bg-blank" style="border:0" colspan=3></td>`;
+          html += `<td class="bg-blank" style="border:0"></td>`;
+        }
+      }
+      html += '<td class="bg-blank" style="border:0"></td></tr>';
+    }
+
+    content.push($(html));
+    return content
+  })();
+  
+}
+
 var Waypoints = function(data, unit) {
   var data = data;
   var unit = unit;
@@ -1110,7 +1228,11 @@ var Page = function(data, unit, id) {
 
   // Page DIV container fixed 1200px 
   // this.page = $(`<div id="page${this.id}" style="height:1200px; background:${"#"+((1<<24)*Math.random()|0).toString(16)}"></div>`);
-  this.page = $(`<div id="page${this.id}" style="position: absolute; top: ${(id-1)*1200}px; height:100%; width: 780px"></div>`);
+  this.page = $(`
+    <div id="page${this.id}" style="position: absolute; top: ${(id-1)*1200}px; height:100%; width: 780px">
+      <div style="position: absolute; top: 1180px; text-align: right; width:780px; font-size:12px;">${mdc_key}</div>
+    </div>
+  `);
 
   // Content is the entire page (inc. header)
   this.content = $(`<div class="content"></div>`);
@@ -1282,6 +1404,8 @@ function DepArr(data, unit) {
   this.content = (function() {
 
     var elems = [];
+    var last = null;
+    var last_id = null;
 
     ['dep', 'arr', 'alt'].forEach(function(x) {
       var elem = data.deparr[x];
@@ -1295,25 +1419,41 @@ function DepArr(data, unit) {
         return;
       }
 
-      elems.push($(`
+      // Same as previous ? Skip it, and update
+      var elem_json = JSON.stringify(elem);
+      if (last && elem_json == last) {
+        if (x == "arr") {
+          // This can only be hit with arr /alt, so if we're arr, then previous must be DEP
+          elems[elems.length-1][0].firstElementChild.innerText = "D/A"
+        } else if (last_id == "dep") {
+          // Otherwise we are ALT, and if the previous line as DEP, then ALL must be 1 AF
+          elems[elems.length-1][0].firstElementChild.innerText = "ALL"
+        }
+
+        // And lastly, the case when ARR / ALT are the same, just skip
+        return ;
+      }
+
+      var html = `
           <tr>
             <td class="text-center">${x.toUpperCase()}</td>
             <td class="lp5 overflow-hidden">${elem.location}</td>
-            <td class="text-right rp5 text-bold">${elem.tcn}</td>
+            <td class="text-right rp5 text-bold">${elem.tcn}</td>`;
 
-            <td class="text-center text-bold rb0">${elem.atis}</td>
-            <td class="text-center lb0 text-pst text-bottom">${elem['atis-pst']}</td>
+      for (const agency of ['atis', 'gnd', 'twr', 'ctrl']) {
+        if (elem[agency]) {
+          html += `
+            <td class="text-center text-bold rb0">${elem[agency].value}</td>
+            <td class="text-center lb0 text-pst text-bottom">${elem[agency].pst || ""}</td>`;
+        } else {
+          html += `<td colspan=2></td>`;
+        }
+      }
 
-            <td class="text-center text-bold rb0">${elem['gnd']}</td>
-            <td class="text-center lb0 text-pst text-bottom">${elem['gnd-pst']}</td>
-
-            <td class="text-center text-bold rb0">${elem['twr']}</td>
-            <td class="text-center lb0 text-pst text-bottom">${elem['twr-pst']}</td>
-
-            <td class="text-center text-bold rb0">${elem['ctrl']}</td>
-            <td class="text-center lb0 text-pst text-bottom">${elem['ctrl-pst']}</td>
-          </tr>
-      `));
+      html += '</tr>';
+      elems.push($(html));
+      last = JSON.stringify(elem);
+      last_id = x;
     });
 
     return elems
@@ -1330,7 +1470,7 @@ function Agencies (data, unit) {
 
         <colgroup>
           <col style="width:265${unit}" />
-          <col style="width:48${unit}" />
+          <col style="width:60${unit}" />
           <col style="width:76${unit}" />
           <col style="width:50${unit}" />
           <col style="width:76${unit}" />
@@ -1363,20 +1503,28 @@ function Agencies (data, unit) {
           <td class="overflow-hidden align-top">${elem['agency']}</td>
           <td class="text-right rp5 align-top text-bold">${elem['tcn']}</td>`;
 
-      if (elem['pri'].startsWith('MIDS')) {
-        elem_html += `<td class="text-center align-top text-bold rb0" colspan=2>${elem['pri']}</td>`;
+      if (elem.pri) {
+        if (elem.pri.value.startsWith('MIDS')) {
+          elem_html += `<td class="text-center align-top text-bold rb0" colspan=2>${elem.pri.value}</td>`;
+        } else {
+          elem_html += `
+            <td class="text-right rp2 text-bold rb0 align-top">${elem.pri.value}</td>
+            <td class="text-left lb0 pt3 text-pst align-top">${elem.pri.pst || ""}</td>`;
+        }
       } else {
-        elem_html += `
-          <td class="text-center text-bold rb0 align-top">${elem['pri']}</td>
-          <td class="text-center lb0 pt3 text-pst align-top">${elem['pri_pst']}</td>`;
+        elem_html += `<td class="text-center align-top text-bold rb0" colspan=2></td>`;
       }
 
-      if (elem['sec'].startsWith('MIDS')) {
-        elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['sec']}</td>`;
+      if (elem.sec) {
+        if (elem.sec.value.startsWith('MIDS')) {
+          elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem.sec.value}</td>`;
+        } else {
+          elem_html += `
+            <td class="text-right rp2 text-bold rb0 align-top">${elem.sec.value}</td>
+            <td class="text-left lb0 pt3 text-pst align-top">${elem.sec.pst || ""}</td>`;
+        }
       } else {
-        elem_html += `
-          <td class="text-center text-bold rb0 align-top">${elem['sec']}</td>
-          <td class="text-center lb0 pt3 text-pst align-top">${elem['sec_pst']}</td>`;
+        elem_html += `<td class="text-center align-top text-bold rb0" colspan=2></td>`;
       }
 
       var notes = elem['notes'];
@@ -1626,6 +1774,7 @@ function Builder(data, unit) {
     'agencies',
     'threats',
     'notes',
+    'presets',
   ];
 
   // Loadout notes moved from loadout to profiles, so allow both
@@ -1651,6 +1800,7 @@ function Builder(data, unit) {
     'agencies': new Agencies(data, unit),
     'threats': new Threats(data, unit),
     'notes': new Notes(data.notes, unit),
+    'presets': new Presets(data.presets, unit),
   };
 
   var page = new Page(data, unit, 1);
@@ -1735,6 +1885,23 @@ function Builder(data, unit) {
     }
   }
 
+  this.complete = function() {
+
+    // The last page might be empty, so delete it if so (e.g. force_newpage_after set on last item)
+    if (page.body.contents().length == 0) {
+      pages.pop().page.remove();
+    }
+
+    // We are at the end, expand pages and download
+    for (var x of pages) {
+      x.expand();
+      x.header.set_page_count(pages.length);
+    }
+
+    // This is very important: it is used by pyppeteer to start processing
+    $('body').append($(`<div style="display:none" id="page_count">${pages.length}</div>`));
+  }
+
   this.process_section = function() {
     // This mybe called for the same thing in the event of a new page, but it
     // shouldn't be triggered on BR or so as these need to get filtered
@@ -1743,15 +1910,7 @@ function Builder(data, unit) {
     
     section = sections[key];
     if (section === undefined) {
-      // We are at the end, expand pages and download
-
-      for (var x of pages) {
-        x.expand();
-        x.header.set_page_count(pages.length);
-      }
-
-      // This is very important: it is used by pyppeteer to start processing
-      $('body').append($(`<div style="display:none" id="page_count">${pages.length}</div>`));
+      this.complete();
       return;
     }
 
@@ -1764,6 +1923,13 @@ function Builder(data, unit) {
 
       $(document).trigger('SectionComplete');
       return
+    }
+
+    // Handle force newpage before section start
+    if (section.content.length > 0 && section.force_newpage_before) {
+      page = page.next()
+      pages.push(page);
+      section.force_newpage_before = false;
     }
     
     if (new_section) {
@@ -1787,9 +1953,9 @@ function Builder(data, unit) {
 
       // Find where we add content, either a specific body class or a
       // tbody default for standard tables
-      body = header.find('.body')
+      body = header.find('.body');
       if (!body[0]) {
-        body = header.find('tbody');
+        body = header.find('tbody').last();
       }
 
       new_section = false;
@@ -1949,6 +2115,12 @@ function Builder(data, unit) {
         row.remove();
         $(document).trigger('RowComplete');
         return
+      }
+
+      // Nothing we can do if it's a single page section that doesn't fit
+      if (section.single_page) {
+        $(document).trigger('RowComplete');
+        return;
       }
 
       page = page.next();

@@ -70,7 +70,7 @@ function get_time_from_seconds(seconds, duration) {
 
 function waypoint_update_display() {
   $('.coord').each(function(idx, td) {
-    coordinate_display_format(td);
+    coords.format_td(td);
   });
 }
 
@@ -264,7 +264,7 @@ function waypoint_add(wp_info) {
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
           <td class="input-container text-center border-left-0">
-            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='$(this).closest("tr").remove();'>
+            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_row(this);'>
               <i data-feather="delete"></i>
             </button>
           </td>
@@ -289,6 +289,12 @@ function waypoint_add(wp_info) {
   waypoint_update();
   
   return last_row;
+}
+
+function waypoints_delete_row(row) {
+  $(row).closest("tr").remove();
+  // Update DIST / TBRG etc.
+  waypoint_update();
 }
 
 function waypoint_add_poi(poi_data) {
@@ -629,7 +635,10 @@ function waypoint_export() {
 }
 
 
-function waypoint_load(data) {
+function waypoint_load(data, callback) {
+
+  if (!data) { callback(); return; }
+    
 
   $("#waypoints-walk-time").val(data['walk-time']);
   $("#waypoints-transition-alt").val(data['transition-alt']);
@@ -679,6 +688,7 @@ function waypoint_load(data) {
     });
   }
 
+  callback();
 }
 
 waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);

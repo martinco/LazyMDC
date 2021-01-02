@@ -162,7 +162,9 @@ select.input-full {
 td.coord,
 #waypoints-table td.coord,
 #waypoints-poi-table td.coord {
+  font-family: Courier Prime;
   font-weight: bold;
+  font-size: 14px;
 }
 
 td.input-container {
@@ -201,4 +203,14 @@ body .overhang-overlay {
 
 .br-2 {
   border-right: 2px solid black !important;
+}
+
+.vpill {
+  border-bottom-left-radius: .25rem !important;
+  border-top-right-radius: 0 !important;
+}
+
+.vpill.active {
+  border-color: #dee2e6 #fafafa #dee2e6 #dee2e6 !important;
+  background: #fafafa !important;
 }

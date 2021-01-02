@@ -2,14 +2,14 @@
 function threats_autocomplete(input, fields) {
   $(input).autocomplete({
     source: function(request, response) {
-      response(match_labels_in_arr(threats, request.term))
+      response(match_key_in_arr(threats, "label", request.term))
     },
     minLength: 1,
     select: function( event, ui) {
       
       var tr = event.target.closest('tr')
 
-      var itms = ['RWR', 'TYPE', 'CMS', 'D_min_nm', 'D_max_nm', 'H_min', 'H_max', 'NOTES']
+      var itms = ['rwr', 'type', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'notes']
 
       var i = 1;
       for (var itm of itms) {
@@ -21,7 +21,6 @@ function threats_autocomplete(input, fields) {
     }
   });
 }
-
 
 function threats_add(opts) {
 
@@ -72,8 +71,6 @@ $('#threats-add').click(function() {
 });
 
 
-
-
 function threats_export() {
 
     var ret = {
@@ -87,11 +84,15 @@ function threats_export() {
     return ret
 }
 
-function threats_load(data) {
+function threats_load(data, callback) {
+
+    if (!data) { callback(); return; }
     
     $('#threats-table > tbody').empty()
 
     data['threats'].forEach(function(data) {
         threats_add(data)
     });
+
+    callback();
 }

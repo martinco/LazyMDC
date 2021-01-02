@@ -17,7 +17,7 @@ function package_add(vals) {
     <tr>
       <td class="input-container"><input class="input-full package-name" value="${values.callsign}" pattern=".+" required></td>
       <td class="input-container"><input class="input-full" value="${values.aircraft}"></td>
-      <td class="input-container text-center"><input class="input-full text-center" value="${values.freq}"></td>
+      <td class="input-container text-center"><input class="input-full text-center" value="${values.freq ? values.freq.value || "" : ""}"></td>
       <td class="input-container text-center"><input class="input-full text-center" value="${values.tcn}" pattern="^[0-9]+\\s*(X|Y)$"></td>
       <td class="input-container text-center"><input class="input-full text-center" value="${values.idm}"></td>
       <td class="input-container" style="border-right: 0px"><input class="input-full" value="${values.mission}"></td>
@@ -80,26 +80,32 @@ function package_export() {
   })
 
   $("#package-members-table > tbody > tr").each(function(idx, row) {
-    ret['members'].push(get_row_data(row, headers));
+    var row = get_row_data(row, headers);
+    row['freq'] = freq_to_obj(row['freq']);
+    ret['members'].push(row);
   })
 
   return ret
 }
 
-function package_load(data) {
+function package_load(data, callback) {
+
+  if (!data) { callback(); return; }
+
   var pkg = data['package-member'] || "package-false"
   $("label[for='"+pkg+"']").click()
 
-  if (pkg == "package-false") {
-    return;
+  if (pkg != "package-false") {
+
+    $("#package-name").val(data['package-name']);
+
+    // Clear package
+    $("#package-members-table > tbody").empty()
+
+    data['members'].forEach(function(member) {
+      package_add(member)
+    });
   }
 
-  $("#package-name").val(data['package-name']);
-
-  // Clear package
-  $("#package-members-table > tbody").empty()
-
-  data['members'].forEach(function(member) {
-    package_add(member)
-  });
+  callback();
 }

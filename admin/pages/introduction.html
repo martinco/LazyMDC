@@ -1,0 +1,99 @@
+<div class="tab-pane" id="introduction">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Introduction</h1>
+  </div>
+  <div>
+    <p>
+    Welcome to MDC Builder Administration
+    </p>
+    <p>
+    There is an overwhelmingly large amount of data within a mission, and this
+    administration interface hopefully makes life easier and to help ensure data
+    is kept up to date in a reasonable way
+    </p>
+  </div>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h3">Structure</h1>
+  </div>
+  <div>
+    <p>
+    Fundamentally there is a straight forward hierarchy in place to avoid
+    having to re-input data over and over again
+    </p>
+
+    <ul>
+      <li>
+        <strong>Theatres</strong>
+        <ul>
+          <li>The base element to build upon</li>
+          <li>extracted from DCS via LUA, most people won't need to touch this too much</li>
+          <li>As DCS doesn't have pragmatic way to obtain ICAO, AI ATC Frequencies or TCN, these are manually set here</li>
+          <li>You are also able to edit display names of airfields (e.g: Abu Dhabi Intl => Abu Dhabi)</li>
+        </ul>
+      </li>
+      <br>
+      <li>
+        <strong>Squadrons</strong>
+        <ul>
+          <li>A Squadron is a container of other information</li>
+          <li>
+            Theatre Overrides
+            <ul>
+              <li>Mainly ATC frequencies for Base DCS airfields to be inherited by missions</li>
+              <li>PAR, ATS, GND, TWR, CTRL, TCN etc.</li>
+            </ul>
+          </li>
+          <li>Members + Borts</li>
+          <li>Flight Callsigns</li>
+          <li>Frequency Codes (for lookups)</li>
+          <li>Rather manual!</li>
+        </ul>
+      </li>
+      <br>
+      <li>
+        <strong>Missions</strong>
+        <ul>
+          <li>A mission is part of a squadron and is the front-end selector</li>
+          <li>Inherits infromation from squadron and theatre</li>
+          <li>Updates using the DCS miz file directly from your browser</li>
+          <li>
+            Allows the following overrides
+            <ul>
+              <li>Bullseye extracted from Miz (As no name, you can set here)</li>
+              <li>DCS Airfield Frequencies from Squadron</li>
+              <li>Mission Airfields (FARPs, Carriers etc)</li>
+              <li>
+                Navpoints
+                <ul>
+                  <li>We extract navpoints from several sources within a miz</li>
+                  <li>nav_points: these are coalition specific</li>
+                  <li>triggers: some missions (BlueFlag for instance) use a lot of triggers which help identify locations etc. so they're useful to extract</li>
+                  <li>custom: manual entries</li>
+                  <li>You can hide entries you don't want users selecting</li>
+                </ul>
+              </li>
+              <li>
+                Aircraft Presets
+                <ul>
+                  <li>We extract presets for each coalition from the miz</li>
+                  <li>Read Only as you should update the miz</li>
+                  <li>
+                    <strong>Warnings</strong>
+                    <ul>
+                      <li>If the miz has conflicting presets on aircraft, a warning section will be shown with the AC that need fixing</li>
+                      <li>The "correct" value is determined by the frequency list with the most AC</li>
+                      <li>I.e: if 5 AC have presets [1,2,3] and 2 AC have [1,2,4] and 1 AC has [1,2,5] then [1,2,3] will be used and the 3 incrrect AC will be identified</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    </p>
+  </div>
+
+</div>

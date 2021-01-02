@@ -288,11 +288,9 @@ function profiles_export() {
 }
 
 
-function profiles_load(data) {
+function profiles_load(data, callback) {
 
-  if (!data || data instanceof Array) {
-    return
-  }
+  if (!data || data instanceof Array) { callback(); return }
 
   // Try and load F16 CMDS if present
   profiles_set_f16_cmds(data['cmds']);
@@ -302,4 +300,6 @@ function profiles_load(data) {
   if (data['notes'] && data['notes']['html'] && tinymce) {
     tinymce.editors['profiles-mce'].setContent(data['notes']['html']);
   }
+
+  callback();
 }

@@ -5,8 +5,9 @@ function notes_export() {
   }
 }
 
-function notes_load(data) {
-  if (tinymce) {
+function notes_load(data, callback) {
+  if (data && tinymce) {
     tinymce.editors['notes-mce'].setContent(data['html'])
   }
+  callback();
 }

@@ -3,14 +3,22 @@
 function freq_autocomplete(input) {
 
   // Set on focus out to update preset
-  $(input).autocomplete({
+ $(input).autocomplete({
     source: function(request, response) {
-      response(match_labels_in_arr(freqs, request.term).slice(0,15))
+
+      var matches = [];
+      var freqs = getDict(squadron_data, 'freqs');
+      for (const [code, freq] of Object.entries(freqs)) {
+        if (code.toLowerCase().indexOf(request.term.toLowerCase()) !== -1 || freq.startsWith(request.term)) {
+          matches.push({
+            'label': `${code}: ${freq}`,
+            'value': freq
+          });
+        }
+      }
+      response(matches);
     },
     minLength: 1,
-    select: function( event, ui) {
-      //event.target.parentElement.parentElement.cells[fields[0]].children[0].value = ui.item.data;
-    }
   });
 
   // Attach validator
@@ -54,6 +62,32 @@ function freq_autocomplete(input) {
 
 }
 
+function match_keys_in_dict(dict, find, sub) {
+
+  var get_obj = function(label, obj) {
+    return jQuery.extend(true, {'label': label}, obj);
+  }
+
+  var matches = []; 
+  for (const [key, data] of Object.entries(dict)) {
+    if (key.toLowerCase().indexOf(find.toLowerCase()) !== -1) {
+      matches.push(get_obj(key, data));
+    } else if (sub && data[sub]) {
+      if (Array.isArray(data[sub])) {
+        for (var label of data[sub]) {
+          if (label.toLowerCase().indexOf(find.toLowerCase()) !== -1) {
+            matches.push(get_obj(key, data));
+            break;
+          }
+        }
+      } else if (data[sub].toLowerCase().indexOf(find.toLowerCase()) !== -1) {
+        matches.push(get_obj(key, data));
+      }
+    }
+  }
+  return matches;
+}
+
 function match_item_in_arr(arr, find) {
   var i, l, matches = [];
 
@@ -67,7 +101,7 @@ function match_item_in_arr(arr, find) {
 
 }
 
-function match_labels_in_arr(arr, find, mapper) {
+function match_key_in_arr(arr, key, find, mapper) {
   var i, l, matches = [];
 
   if (!mapper) {
@@ -75,7 +109,7 @@ function match_labels_in_arr(arr, find, mapper) {
   }
 
   for (i = 0, l=arr.length; i < l; i++) {
-    if (arr[i].label && arr[i].label.toLowerCase().indexOf(find.toLowerCase()) !== -1) {
+    if (arr[i][key] && arr[i][key].toLowerCase().indexOf(find.toLowerCase()) !== -1) {
       matches.push(mapper(arr[i]))
     } else if (arr[i].alt_label) {
       if (Array.isArray(arr[i].alt_label)) {
@@ -110,11 +144,17 @@ function waypoint_lookup_function(request, response, airfields_only=false) {
     return
   }
 
-  // search airfields on ICAO / Label
-  for (const [key, value] of Object.entries(mission_airfields)) {
+  var coalition = $('#data-side').val();
+
+  // search airfields on ICAO / Label and limit them to those on same coalition
+  for (const [key, value] of Object.entries(mission_data.data.airfields)) {
     if (hasMatch(key) || (value.hasOwnProperty('icao') && hasMatch(value['icao']))) {
-      value['label'] = key
-      matches.push(value)
+
+      if (value['side'] && value['side'] != 'all' && value['side'] != coalition) {
+        continue;
+      }
+      value['label'] = key;
+      matches.push(value);
     }
   }
 
@@ -124,14 +164,17 @@ function waypoint_lookup_function(request, response, airfields_only=false) {
   }
 
   var mission = $('#data-mission').val();
-  var navpoints = []
+  var navpoints = {}
   try {
-    navpoints = mission_data[mission]['navpoints']
+    navpoints = mission_data.data.navpoints
   } catch {}
 
   // search navaids on Label
   navpoints.forEach(function(obj) {
-    if (hasMatch(obj.label)) {
+    if (obj.label && hasMatch(obj.label)) {
+      if (obj['side'] && obj['side'] != 'all' && obj['side'] != coalition) {
+        return;
+      }
       matches.push(obj);
     }
   });

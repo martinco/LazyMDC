@@ -1,0 +1,251 @@
+<div class="tab-pane" id="theatres">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Theatres</h1>
+  </div>
+
+  <table class="table table-striped" id="theatres-table">
+    <colgroup>
+      <col>
+      <col width=60px>
+    </colgroup>
+    <tbody>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" id='theatre-add-button' type="button">
+    <i data-feather="user-plus"></i>
+  </button>
+</div>
+
+<!-- Contianer for editing a selected theatre -->
+<div class="tab-pane" id="theatres-edit">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2" id='theatre-edit-title'>Theatre Edit</h1>
+  </div>
+  <form id="theatre-edit-form" target='#' method=post class="needs-validation" novalidate>
+
+    <!-- hack naming to reuse coords for now -->
+    <div class="form-row">
+      <div class="col">
+        <div class="form-row">
+          <div class="form-group p-0 mb-0">
+            <label>Update from DCS</label>
+          </div>
+        </div>
+        <div class="form-row pb-2">
+          Update values from DCS export<br><br>
+        </div>
+        <div class="form-row text-bottom">
+          <button class="btn btn-primary" type="button" id="theatre-edit-update">Update from DCS</button>
+        </div>
+      </div>
+      <div class="col">
+      <div class="form-row">
+        <div class="form-group p-0 mb-0">
+          <label>Coordinate Format</label>
+        </div>
+      </div>
+      <div class="form-row pb-2">
+        This is just to help you visualise any coordinates on this page and has no bearing on the MDCs 
+      </div>
+
+      <input type="hidden" name="theatre" id="theatre-edit-theatre-id" />
+      <input type="hidden" name="theatre" id="theatre-edit-theatre-name" />
+      
+      <div class="form-row mb-3">
+        <div class="form-inline">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="radio" name="flight-coord" id="flight-coord-dms" value="dms" autocomplete="off" checked>DMS
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-ddm" value="ddm" autocomplete="off">DDM
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
+            </label>
+          </div>
+          <div class="p-2">to</div>
+          <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
+          <div class="p-2">decimal places
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="form-row mb-3">
+      <label class="heading">Display Name</label>
+      <input type="text" id="theatre-edit-display-name" class="form-control">
+      <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Bullseyes</label>
+        <table class="table table-striped" id="theatre-edit-bullseye-table">
+          <colgroup>
+            <col style="width:80px" />
+            <col />
+            <col style="width:140px" />
+            <col style="width:140px" />
+          </colgroup>
+
+          <thead class="thead-light">
+            <tr>
+              <th>SIDE</th>
+              <th>NAME</th>
+              <th>LAT</th>
+              <th>LON</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- workaround for bg color -->
+          <tr style="display:none"></tr>
+          <tr>
+            <td class="" data-base="blue">BLUE</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="" data-base="red">RED</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="" data-base="neutral">NEUTRAL</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Airfields</label>
+        <div class="mb-3">
+          ED occasionally changes airfield names which is a right pain as we
+          then need to re-link overrides (such as AI UHF/VHF) on a theatre
+          level but also on a squadron, or mission level.
+          <br><br>
+          To mitigate this pain we maintain a local "id" for each airfield, but
+          as such require more care when updating from DCS.
+          
+          Items will be marked for deletion or to be added, so we can update
+          the DCS name of the item highlighted, and remove the new item before
+          saving to successfully update the name of a reference
+
+          A deleted item will remove the item from all downstream updates
+          (squadron, mission etc)
+          <br><br>
+          These are the ATC frequencies set in DCS (see F10 or ME), not any
+          mission or squadron specific frequencies that may be in use.
+          Unfortunately there is no way to pragmatically get them out!
+        </div>
+        <table class="table table-striped" id="theatre-edit-airfield-table">
+          <colgroup>
+            <col style="width:20px" />
+            <col style="width:30px" />
+            <col />
+            <col />
+            <col style="width:60px" />
+            <col style="width:140px" />
+            <col style="width:140px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
+            <col style="width:20px" />
+          </colgroup>
+
+          <thead class="thead-light">
+            <tr>
+              <th class="border-right-0"></th>
+              <th class="border-left-0">ID</th>
+              <th>DCS NAME</th>
+              <th>DISPLAY NAME</th>
+              <th>ICAO</th>
+              <th>LAT</th>
+              <th>LON</th>
+              <th>ALT (ft)</th>
+              <th>AI UHF</th>
+              <th>AI VHF</th>
+              <th class="border-right-0">TCN</th>
+              <th class="border-left-0"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- workaround for bg color -->
+          <tr style="display:none"></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="theatre-edit-save">Save</button>
+  </div>
+
+</div>
+
+<!-- ADD THEATRE MODAL -->
+<div class="modal fade" id="theatre-add-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="theatre-add-dialog-title">Add new Theatre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom:10px">
+          The base information just holds super basic information:
+
+          - Airfields, their Tacan stations, and Coalition bullseyes
+          <br><br>
+          This is obtained as follows:
+
+          <ul>
+            <li>Download <a href=scripts/MDCGameGUI.lua>MDCGameGUI.lua</a> and place into Saved Games\DCS\Scripts\Hooks</li>
+            <li>Download <a href=scripts/MDC.lua>MDC.lua</a> and place into Saved Games\DCS\Scripts</li>
+            <ul>
+              <li>Edit this if required to change the export_dir variable</li>
+              <li>This Defaults to C:\DCS\output</li>
+            </ul>
+            <li>Edit scripts\MissionScripting.lua in DCS installation directory to comment out (--) sanitizeModule('io') and sanitizeModule('lfs')</li>
+            <li>Load up the ME, Load the Theatre you wish to add, and play (no need to save)</li>
+            <li>You should now have an output <img src="img/MDCGameGUI.png" width="80%"></li>
+            <li>Open the output file and paste in the json below</li>
+          </ul>
+        </div>
+
+        <form id="theatre-add-form" target='#' method=post class="needs-validation" novalidate>
+          <input type="hidden" id="theatre-add-type" class="form-control">
+          <div class="form-row" id="theatre-add-display-name-div">
+            <label class="heading">Display Name</label>
+            <input type="text" id="theatre-add-display-name" class="form-control">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="form-row">
+            <label class="heading">JSON</label>
+            <textarea id="theatre-add-json" class="form-control" required></textarea>
+            <div class="invalid-feedback"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="theatre-add-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+

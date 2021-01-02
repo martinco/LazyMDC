@@ -13,7 +13,7 @@ function bot_detected() {
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Data Card Builder v2</title>
+    <title>DCS Mission Data Card (MDC) Builder</title>
 
     <meta name="description" content="Mission Data Card (MDC) generator for DCS with support for importing data from CombatFlite or Google Earth, editing navigation, loadouts / weights, images for notes and more. Generates PDF, or PNG for immediate kneeboard use including A-10C CDU DataLoader files where applicable">
     <meta name="keywords" content="DCS, MDC, MissionDataCard, Mission Data Card, Data Card, Kneeboard, knee board, loadout, route, planning, combat flite, combatflite, google earth">
@@ -28,6 +28,10 @@ function bot_detected() {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/file-icon-vectors@1.0.0/dist/file-icon-classic.min.css">
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+    </style>
 
     <style type="text/css">
       body {
@@ -215,6 +219,7 @@ function bot_detected() {
             <p>
             - MartinCo
             </p>
+            <pre id="error-content"></pre>
           </div>
         </div>
         <div class="tab-pane active" id="about">
@@ -304,6 +309,8 @@ function bot_detected() {
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- Init -->
+    <script src="js/api.js?<?php echo time() ?>"></script>
+    <script src="js/common.js?<?php echo time() ?>"></script>
     <script src="js/init.js?<?php echo time() ?>"></script>
     <script src="js/autocomplete.js"></script>
   </body>

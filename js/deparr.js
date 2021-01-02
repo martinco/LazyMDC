@@ -1,11 +1,13 @@
 
 function setup_airfield(elem_id, airfield) {
-    
+
+    if (!airfield || !mission_data) { return; }
+
     var [prefix, path] = /^(([^-]+-){2}).*/.exec(elem_id).slice(1,3);
         
-    if (!mission_airfields[airfield] ) { return; }
+    af_data = mission_data.data.airfields[airfield];
 
-    af_data = mission_airfields[airfield];
+    if (!af_data) { return; }
     
     // Departure ? If so used to update  arrival / alternate info
     var departure = prefix == "deparr-dep-";
@@ -46,7 +48,10 @@ $(document).on('flight-airframe-changed', function(e) {
   })
 });
 
-function deparr_load(data) {
+function deparr_load(data, callback) {
+
+    if (!data) { callback(); return; }
+    
     // Handle in order as we need to rely on the clicks() to trigger select
     // updates for the values This means we have to do it in order...
     
@@ -80,7 +85,14 @@ function deparr_load(data) {
                 if (k == "icao") {
                   v = v || "----";
                 }
-                elem.val(v)
+
+                if (elem.hasClass("freq-pst")) {
+                  if (v) {
+                    elem.val(v.value)
+                  }
+                } else {
+                  elem.val(v)
+                }
                 if (elem.nodeType == "SELECT") {
                     elem.change()
                 }
@@ -88,17 +100,18 @@ function deparr_load(data) {
             
         }
     })
+    callback();
 }
 
 function deparr_export() {
-    
+
     var form = $("#deparr-form")
     
     // Temp enable disabled fields so we get the value (e.g. ICAO)
     var disabled = form.find(':input:disabled').removeAttr('disabled')
     var data = $("#deparr-form").serializeObject();
     disabled.attr('disabled', 'disabled');
-    
+
     var ret = {
         'dep': {},
         'alt': {},
@@ -108,8 +121,15 @@ function deparr_export() {
     ret['alt']['usedep'] = data['alt-usedep'] == "true"
     ret['arr']['usedep'] = data['arr-usedep'] == "true"
     
+    // map all our keys to return pages
     for (var [k, v] of Object.entries(data)) {
-        var loc = k.substr(0,3)
+        var loc = k.substr(0,3);
+        
+        // Migrate freq. lookups to nicer objects
+        if ($('#deparr-'+k).hasClass('freq-pst')) {
+          v = freq_to_obj(v)
+        }
+
         k = k.substr(4)
         if (k == 'usedep') { continue }
         ret[loc][k] = v
