@@ -15,12 +15,12 @@ function api_get(path, callback) {
       }
 
       if (typeof callback === "function") {
-        console.log("callback");
         callback(obj);
       }
     },
     "json"
   ).fail(function() {
+    console.log("fatal 3");
   });
 }
 
@@ -41,12 +41,13 @@ function api_post(path, data, callback) {
       }
 
       if (typeof callback === "function") {
-        console.log("callback");
         callback(obj);
       }
     },
     "json"
   ).fail(function() {
+    console.log("fatal 3");
+    return;
   });
 }
 
@@ -55,6 +56,7 @@ var dt = (new Date()).getTime();
 $.when(
 
   $.get("js/login.js?" + dt),
+  $.get("js/theatres.js?" + dt),
 
 ).then(function() {
 
@@ -82,11 +84,6 @@ $.when(
 
   // Nav Handling
   $('a.nav-link').not('.direct-link').click(function (e) {
-
-    // Save as if the user hit next, just to avoid editing say notes, hitting
-    // next, and it not saving when selecting html
-    save()
-
     e.preventDefault();
     window.location.hash = $(this).attr('href');
     $(this).tab('show');
@@ -114,17 +111,22 @@ $.when(
       case 83: // s 
         if (event.ctrlKey || event.metaKey) {
           event.preventDefault();
-          save({notify: true})
         }
         break;
+    }
+  });
+
+  // Initialize tab show handler
+  $(document).on('show.bs.tab', function(x) {
+    var tab = x.target.getAttribute("href").substring(1);
+    var fn = tab + "_refresh";
+    if (typeof window[fn] === "function") {
+      window[fn]();
     }
   });
   
   // Display main content
   $("#main-page").show()
-
-  // Try log load page 
-  $("a.nav-link[href$=\"" + document.location.hash + "\"]").tab('show');
 
   // Fade out Loader
   $("#loader-container").fadeOut("fast");

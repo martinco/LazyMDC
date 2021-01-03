@@ -25,6 +25,7 @@ $user = user\User::login($json['username'], $json['password']);
   'success' => true,
   'reset'   => $user->password_reset,
   'username' => $user->username,
+  'permissions' => $user->permissions,
 ));
 
 

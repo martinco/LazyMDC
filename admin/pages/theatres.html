@@ -1,0 +1,77 @@
+<div class="tab-pane" id="theatres">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Theatres</h1>
+  </div>
+
+  <table class="table table-striped" id="theatres-table">
+    <colgroup>
+      <col>
+      <col width=60px>
+    </colgroup>
+    <tbody>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" id='theatre-add-button' type="button">
+    <i data-feather="user-plus"></i>
+  </button>
+</div>
+
+<!-- Contianer for editing a selected theatre -->
+<div class="tab-pane" id="theatres-edit">
+</div>
+
+<!-- ADD THEATRE MODAL -->
+<div class="modal fade" id="theatre-add-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new Theatre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom:10px">
+          The base information just holds super basic information:
+
+          - Airfields, their Tacan stations, and Coalition bullseyes
+          <br><br>
+          This is obtained as follows:
+
+          <ul>
+            <li>Download <a href=scripts/MDCGameGUI.lua>MDCGameGUI.lua</a> and place into Saved Games\DCS\Scripts\Hooks</li>
+            <li>Download <a href=scripts/MDC.lua>MDC.lua</a> and place into Saved Games\DCS\Scripts</li>
+            <ul>
+              <li>Edit this if required to change the export_dir variable</li>
+              <li>This Defaults to C:\DCS\output</li>
+            </ul>
+            <li>Load up the ME, Load the Theatre you wish to add, and play (no need to save)</li>
+            <li>You should now have an output <img src="img/MDCGameGUI.png" width="80%"></li>
+            <li>Open the output file and paste in the json below</li>
+          </ul>
+        </div>
+
+        <form id="theatre-add-form" target='#' method=post class="needs-validation" novalidate>
+        <div class="form-row">
+          <label class="heading">Display Name</label>
+          <input type="text" id="theatre-add-display-name" class="form-control" required>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-row">
+          <label class="heading">JSON</label>
+          <textarea id="theatre-add-json" class="form-control" required></textarea>
+          <div class="invalid-feedback"></div>
+        </div>
+      </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="theatre-add-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -94,59 +94,12 @@
 
         <div style="padding-left: .75rem; padding-top: .75rem; font-size:1rem; height:48px; border-bottom: 1px solid #bdbdbd; background-color: #222; color: #fff">Data Card Builder v2</div>
 
-        <div id="sidebar-anon" class="" style="padding-top: 10px">
+        <div id="sidebar" class="" style="padding-top: 10px">
           <ul class="nav flex-column show" id="side-nav">
             <li class="nav-item">
               <a class="nav-link active" href="#login">
                 <span data-feather="log-in"></span>
                 Log In
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div id="sidebar-loggedin" class="" style="padding-top: 10px; display:none">
-          <ul class="nav flex-column show" id="side-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#theatres">
-                <span data-feather="globe"></span>
-                Theatres
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#squadrons">
-                <span data-feather="database"></span>
-                Squadrons
-              </a>
-            </li>
-            <li class="nav-item" style="padding-left:2em">
-              <a class="nav-link" href="#members">
-                <span data-feather="users"></span>
-                Members
-              </a>
-            </li>
-            <li class="nav-item" style="padding-left:2em">
-              <a class="nav-link" href="#frequencies">
-                <span data-feather="activity"></span>
-                Frequency Codes
-              </a>
-            </li>
-            <li class="nav-item" style="padding-left:2em">
-              <a class="nav-link disabled" href="#mission">
-                <span data-feather="crosshair"></span>
-                Missions
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#package">
-                <span data-feather="user-plus"></span>
-                Admin 
-              </a>
-            </li>
-            <li class="nav-item" style="padding-left:2em">
-              <a class="nav-link disabled" href="#loadout">
-                <span data-feather="gift"></span>
-                Users
               </a>
             </li>
           </ul>
@@ -174,8 +127,9 @@
       <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
         <?php
         readfile('pages/login.html');
+        readfile('pages/theatres.html');
+        readfile('pages/squadrons.html');
         ?>
-        <div class="tab-pane" id="dynamic-content">
         </div>
       </div>
 

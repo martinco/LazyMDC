@@ -69,15 +69,36 @@ class User {
 
       $hash = hash_pbkdf2("sha256", $pass, $salt, $iter, 0);
 
+      $perms = array();
+
       if ($hash === $db_hash) {
-        // login success
+
+        $q->close();
         
+        // login success, load perms
+        $pq = $db->preparex(
+          'SELECT p.name '.
+          'FROM user_permissions up '.
+          'JOIN permissions p '.
+            'ON up.permission_id = p.idx '.
+          'JOIN users u '.
+            'ON up.user_id = u.idx '.
+            'WHERE u.idx = ?',
+          "i", $idx);
+
+        $pq->bind_result($perm);
+
+        while ($pq->fetch()) {
+          array_push($perms, $perm);
+        }
+
         $password_reset = $password_reset == 1;
         
         \session\regenerate_id();
         $_SESSION['idx'] = $idx;
         $_SESSION['username'] = $user;
         $_SESSION['password_reset'] = $password_reset;
+        $_SESSION['permissions'] = $perms;
         session_commit();
 
         return new User();
@@ -133,6 +154,7 @@ class User {
     $this->idx = $_SESSION['idx'];
     $this->password_reset = $_SESSION['password_reset'];
     $this->username = $_SESSION['username'];
+    $this->permissions = $_SESSION['permissions'];
   }
 
   function check_perms($perms, $section = 'user') {
@@ -148,36 +170,10 @@ class User {
     // Dedupe
     $perms = array_unique($perms);
 
-    $db = Connection::get();
-    $q = $db->prepare('SELECT 1 '.
-                      'FROM user_permissions up '.
-                      'JOIN permissions p '.
-                        'ON up.permission_id = p.idx '.
-                      'JOIN users u '.
-                        'ON up.user_id = u.idx '.
-                      'WHERE u.idx = ? '.
-                        'AND p.name IN ('.str_repeat('?,', sizeof($perms)-1).'?)');
+    // Make sure they intesect 
+    $intersect = array_intersect($perms, $this->permissions);
 
-    if (!$q) {
-      \utils\error("user", "Query preparation failed: " . $db->error);
-    }
-
-    // Work around the lack of ... operator and wanting references
-    $args = array_merge(["i" . str_repeat('s', sizeof($perms)), $this->idx], $perms);
-    $refs = array();
-    foreach ($args as $k => $v) {
-      $refs[$k] = &$args[$k];
-    }
-
-    call_user_func_array(array($q, 'bind_param'), $refs);
-
-    if (!$q->execute()) {
-      \utils\error("user", "Query execution failed: " . $db->error);
-    }
-
-    // If the number of rows match the perms, we're golden
-    $q->store_result();
-    if ($q->num_rows == sizeof($perms)) {
+    if (sizeof($intersect) == sizeof($perms)) {
       return true;
     }
 

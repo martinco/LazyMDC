@@ -18,6 +18,7 @@ $data = array(
 
 if ($user->password_reset) {
   $data['password_reset'] = true;
+  $data['permissions'] = $user->permissions;
 }
 
 

@@ -30,11 +30,49 @@ function login(event) {
 function do_logout() {
   api_post('user/logout', {}, function() {
     $('#header-user-container').fadeOut();
-    $('#sidebar-loggedin').fadeOut(300, function() {
-      $('#sidebar-anon').fadeIn();
+    $('#sidebar').fadeOut(300, function() {
+      update_nav();
+      $('#sidebar').fadeIn();
+      $("a.nav-link[href$=\"#login\"]").tab('show');
     });
-
   });
+
+}
+
+function nav_item(href, title, icon, depth = 0) {
+  return $(`<li class="nav-item" style="padding-left:${2*depth}em">
+    <a class="nav-link" href="#${href}">
+    <span data-feather="${icon}"></span>
+    ${title}
+    </a>
+  </li>`);
+}
+
+function update_nav(data) {
+
+  // Build side nav and pick default page
+  var nav = $('#side-nav');
+  nav.empty();
+
+  if (!data || !data.username) {
+    nav.append(nav_item('login', 'Login', 'log-in'));
+  } else {
+    if (data.permissions.includes('theatre-create')) {
+      nav.append(nav_item('theatres', 'Theatres', 'globe'));
+    }
+
+    nav.append(nav_item('squadrons', 'Squadrons', 'database'));
+    nav.append(nav_item('frequencies', 'Frequency Codes', 'activity', 1));
+    nav.append(nav_item('missions', 'Missions', 'crosshair', 1));
+    nav.append(nav_item('members', 'Members', 'users', 1));
+
+    if (data.permissions.includes('users-view')) {
+      nav.append(nav_item('users', 'Users', 'users'));
+    }
+  }
+
+  feather.replace();
+
 }
 
 function do_login(data, instant) {
@@ -44,15 +82,21 @@ function do_login(data, instant) {
 
   // Change sidebar
   if (instant || false) {
-    $('#sidebar-anon').hide();
-    $('#sidebar-loggedin').show();
     $('#header-user-container').show();
+    update_nav(data);
+    var target = document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+    $("a.nav-link[href$=\"" + target + "\"]").tab('show');
   } else {
     $('#header-user-container').fadeIn();
-    $('#sidebar-anon').fadeOut(300, function() {
-      $('#sidebar-loggedin').fadeIn();
+    $('#sidebar').fadeOut(300, function() {
+      update_nav(data);
+      $('#sidebar').fadeIn();
+
+      var target = document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+      $("a.nav-link[href$=\"" + target + "\"]").tab('show');
     });
   }
+
 
 }
 
