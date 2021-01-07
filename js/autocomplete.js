@@ -136,5 +136,5 @@ function waypoint_lookup_function(request, response, airfields_only=false) {
     }
   });
 
-  response(matches);
+  response(matches.sort((a, b) => { return a.label > b.label ? 1 : -1 } ));
 }
