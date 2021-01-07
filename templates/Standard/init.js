@@ -1375,8 +1375,8 @@ function Agencies (data, unit) {
         elem_html += `<td class="text-center text-bold rb0" colspan=2>${elem['sec']}</td>`;
       } else {
         elem_html += `
-          <td class="text-center text-bold rb0">${elem['sec']}</td>
-          <td class="text-center lb0 text-pst text-bottom">${elem['sec_pst']}</td>`;
+          <td class="text-center text-bold rb0 align-top">${elem['sec']}</td>
+          <td class="text-center lb0 pt3 text-pst align-top">${elem['sec_pst']}</td>`;
       }
 
       var notes = elem['notes'];
