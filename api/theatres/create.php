@@ -46,4 +46,8 @@ $q = $db->preparex(
 
 $q->close();
 
+\utils\json_response(array(
+  "success" => "true",
+));
+
 ?>

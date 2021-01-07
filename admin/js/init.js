@@ -55,6 +55,8 @@ var dt = (new Date()).getTime();
 
 $.when(
 
+  $.get("../js/common.js?" + dt),
+  $.get("../js/coords.js?" + dt),
   $.get("js/login.js?" + dt),
   $.get("js/theatres.js?" + dt),
 
@@ -82,19 +84,37 @@ $.when(
       $('<div style="height:1.25rem; float: right;"></div>').insertAfter($(b).parent());
   });
 
-  // Nav Handling
-  $('a.nav-link').not('.direct-link').click(function (e) {
+  // nav click handlers
+  /*
+  $(document).on('click', function (e) {
+
+    var tgt = $(e.target);
+
+    if (!tgt.hasClass('nav-link') || tgt.hasClass('direct-link')) {
+      return
+    }
+    console.log("NAV_LINK");
     e.preventDefault();
-    window.location.hash = $(this).attr('href');
-    $(this).tab('show');
+    window.location.hash = tgt.attr('href');
+    tgt.tab('show');
   });
+  */
 
   // Nav Cleanup / Deactivation
-  $('a.nav-link').not('.direct-link').on('shown.bs.tab', function(e) {
+  $(document).on('shown.bs.tab', function(e) {
     var href = e.target.getAttribute('href');
+    console.log("SHOW: " + href);
+    /*
     $('a.nav-link:not([href="'+href+'"])').each(function(idx, itm) {
       itm.classList.remove('active');
     });
+    */
+  });
+
+  $(document).on('hide.bs.tab', 'a.nav-link', function(e) {
+    console.log("HIDE: " + e.target.getAttribute('href'));
+    // If we have a child already; replace
+    //$('#side-nav a[href="#theatres-edit"]').remove();
   });
 
   // Set freq_autocomplete on all freqs
@@ -133,6 +153,7 @@ $.when(
 
   // Initialize popstate for navigation
   window.onpopstate = function() {
+    $("a.nav-link[href!=\"" + document.location.hash + "\"]").removeClass('active');
     $("a.nav-link[href$=\"" + document.location.hash + "\"]").tab('show');
   }
 

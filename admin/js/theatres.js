@@ -1,6 +1,14 @@
 
-function theatre_edit(e) {
+function theatre_populate_edit() {
 
+  // Update coordinate display formats
+  flight_update_coord();
+
+  var container = $('#theatres-edit');
+
+}
+
+function theatre_edit(e) {
 
   var row = $(e.currentTarget);
 
@@ -15,6 +23,8 @@ function theatre_edit(e) {
   // Add new child NAV
   feather.replace();
 
+  theatre_populate_edit(row.data('id'));
+
   $('#side-nav a[href="#theatres-edit"]').tab('show');
 
 }
@@ -22,9 +32,13 @@ function theatre_edit(e) {
 
 function theatre_add() {
 
-  var dlg = $('#theatre-add-dialog');
+  // Reset the form
+  var form = $('#theatre-add-form');
+  form[0].reset();
+  form[0].classList.remove('was-validated');
 
-  dlg.modal({
+  // Show the dlg
+  $('#theatre-add-dialog').modal({
     backdrop: 'static',
   });
 
@@ -132,7 +146,33 @@ $('#theatre-add-submit').click(function() {
     data,
     function(response) {
       console.log(response);
+
+      // Refresh our list, and close the dlg
+      theatres_refresh();
+
+      dlg.modal('hide');
     });
-  console.log("Get Attem");
 
 });
+
+function flight_update_coord() {
+
+  $('.coord').each(function(idx, td) {
+    coordinate_display_format(td);
+  });
+}
+
+
+$(document).on('change', function(e) {
+  var elem = $(e.target);
+  if (elem.hasClass('freq')) {
+    // There was a request to allow commas for expedited entry, as it doesn't
+    // cause much pain to have we will facilitate that here
+    var val = elem.val().replace(',', '.');
+    var float_val = parseFloat(val).toFixed(3)
+    elem.val(float_val);
+  }
+});
+
+$("input[name=flight-coord]").change(flight_update_coord)
+$("#flight-coord-decimals").change(flight_update_coord)

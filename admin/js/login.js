@@ -73,6 +73,7 @@ function update_nav(data) {
 
   feather.replace();
 
+
 }
 
 function do_login(data, instant) {
@@ -84,7 +85,8 @@ function do_login(data, instant) {
   if (instant || false) {
     $('#header-user-container').show();
     update_nav(data);
-    var target = document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+    var target = !document.location.hash || document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+    console.log(target);
     $("a.nav-link[href$=\"" + target + "\"]").tab('show');
   } else {
     $('#header-user-container').fadeIn();
@@ -92,7 +94,7 @@ function do_login(data, instant) {
       update_nav(data);
       $('#sidebar').fadeIn();
 
-      var target = document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+      var target = !document.location.hash || document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
       $("a.nav-link[href$=\"" + target + "\"]").tab('show');
     });
   }

@@ -129,6 +129,7 @@
         readfile('pages/login.html');
         readfile('pages/theatres.html');
         readfile('pages/squadrons.html');
+        readfile('../modals/coords.html');
         ?>
         </div>
       </div>

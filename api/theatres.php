@@ -9,7 +9,10 @@ define('ERROR_ROOT', 'theatres');
 
 $db = Connection::get();
 
-$r = $db->query('SELECT theatre, display_name, data, overrides FROM theatres');
+$r = $db->query(
+  'SELECT theatre, display_name, data, overrides '.
+  'FROM theatres '.
+  'ORDER BY display_name');
 
 $output = array();
 

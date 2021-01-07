@@ -19,6 +19,147 @@
 
 <!-- Contianer for editing a selected theatre -->
 <div class="tab-pane" id="theatres-edit">
+  <form id="theatre-edit-form" target='#' method=post class="needs-validation" novalidate>
+
+    <!-- hack naming to reuse coords for now -->
+    <div class="form-row">
+      <div class="form-group p-0 mb-0">
+        <label>Coordinate Format</label>
+      </div>
+    </div>
+    <div class="form-row pb-2">
+      This is just to help you visualise any coordinates on this page and has no bearing on the MDCs 
+    </div>
+    
+    <div class="form-row mb-3">
+      <div class="form-inline">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="flight-coord" id="flight-coord-dms" value="dms" autocomplete="off" checked>DMS
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="flight-coord" id="flight-coord-ddm" value="ddm" autocomplete="off">DDM
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
+          </label>
+        </div>
+        <div class="p-2">to</div>
+        <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
+        <div class="p-2">decimal places
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mb-3">
+      <label class="heading">Display Name</label>
+      <input type="text" id="theatre-edit-display-name" class="form-control" required>
+      <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Bullseyes</label>
+        <table class="table table-striped" id="theatre-edit-bullseye-table">
+          <colgroup>
+            <col style="width:80px" />
+            <col />
+            <col style="width:140px" />
+            <col style="width:140px" />
+          </colgroup>
+
+          <thead class="thead-light">
+            <tr>
+              <th>SIDE</th>
+              <th>NAME</th>
+              <th>LAT</th>
+              <th>LON</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- workaround for bg color -->
+          <tr style="display:none"></tr>
+          <tr>
+            <td class="">BLUE</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="">RED</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          <tr>
+            <td class="">NEUTRAL</td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);"></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="heading">Airfields</label>
+        <div class="mb-3">
+          We use DCS Name to correlate refreshing data from DCS.
+          <br><br>
+          ED ccasionally changes airfield names so if we refresh the data, we
+          can easily see those items that have no DCS name (highlighted) and
+          thus will be excluded and acts as a reminder to migrate any required
+          data to the renamed airfield.
+          <br><br>
+          These are the ATC frequencies set in DCS (see F10 or ME), not any
+          mission or squadron specific frequencies that may be in use.
+          Unfortunately there is no way to pragmatically get them out!
+        </div>
+        <table class="table table-striped" id="theatre-edit-airfield-table">
+          <colgroup>
+            <col style="width:140px" />
+            <col style="width:140px" />
+            <col style="width:140px" />
+            <col style="width:140px" />
+            <col style="width:40px" />
+            <col />
+            <col />
+          </colgroup>
+
+          <thead class="thead-light">
+            <tr>
+              <th>DCS NAME</th>
+              <th>DISPLAY NAME</th>
+              <th>LAT</th>
+              <th>LON</th>
+              <th>ALT</th>
+              <th>AI ATC UHF</th>
+              <th>AI ATC VHF</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- workaround for bg color -->
+          <tr style="display:none"></tr>
+          <tr>
+            <td class="input-container"></td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="coord" onClick="coordinate_input(this, 2);" id='theatre-edit-bullseye-lat'></td>
+            <td class="coord coord-lon" onClick="coordinate_input(this, 2);" id='theatre-edit-bullseye-lon'></td>
+            <td class="input-container"><input class="input-full"></td>
+            <td class="input-container"><input class="input-full freq"></td>
+            <td class="input-container"><input class="input-full freq"></td>
+          </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" id='theatre-add-button' type="button">
+          <i data-feather="user-plus"></i>
+        </button>
+      </div>
+    </div>
+
+  </form>
 </div>
 
 <!-- ADD THEATRE MODAL -->
@@ -54,17 +195,17 @@
         </div>
 
         <form id="theatre-add-form" target='#' method=post class="needs-validation" novalidate>
-        <div class="form-row">
-          <label class="heading">Display Name</label>
-          <input type="text" id="theatre-add-display-name" class="form-control" required>
-          <div class="invalid-feedback"></div>
-        </div>
-        <div class="form-row">
-          <label class="heading">JSON</label>
-          <textarea id="theatre-add-json" class="form-control" required></textarea>
-          <div class="invalid-feedback"></div>
-        </div>
-      </form>
+          <div class="form-row">
+            <label class="heading">Display Name</label>
+            <input type="text" id="theatre-add-display-name" class="form-control" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="form-row">
+            <label class="heading">JSON</label>
+            <textarea id="theatre-add-json" class="form-control" required></textarea>
+            <div class="invalid-feedback"></div>
+          </div>
+        </form>
       </div>
 
       <div class="modal-footer">
