@@ -3528,27 +3528,22 @@
         "lon": 54.3542383513915
       },
       {
-        "label": "Range 1: P1",
+        "label": "Range 1: NW",
         "lat": 25.0642899729656,
         "lon": 50.5186732390154
       },
       {
-        "label": "Range 1: P2",
+        "label": "Range 1: NE",
         "lat": 25.0620924610684,
         "lon": 53.5111838720311
       },
       {
-        "label": "Range 1: P3",
-        "lat": 24.4477331100548,
-        "lon": 53.4377673919995
-      },
-      {
-        "label": "Range 1: P4",
+        "label": "Range 1: SE",
         "lat": 24.0706280056414,
         "lon": 53.3796291471916
       },
       {
-        "label": "Range 1: P5",
+        "label": "Range 1: SW",
         "lat": 23.9827298453403,
         "lon": 50.5721464230952
       },
@@ -3573,27 +3568,27 @@
         "lon": 51.2760410295972
       },
       {
-        "label": "Range 3: P1",
+        "label": "Range 3: NW",
         "lat": 23.3282900959968,
         "lon": 53.0867720325819
       },
       {
-        "label": "Range 3: P2",
+        "label": "Range 3: N",
         "lat": 23.4474574747712,
         "lon": 53.8497763973704
       },
       {
-        "label": "Range 3: P3",
+        "label": "Range 3: NE",
         "lat": 23.1738086569409,
         "lon": 54.2544251890507
       },
       {
-        "label": "Range 3: P4",
+        "label": "Range 3: SE",
         "lat": 22.3723903520431,
         "lon": 53.8644674057131
       },
       {
-        "label": "Range 3: P5",
+        "label": "Range 3: SW",
         "lat": 22.3329783748686,
         "lon": 53.0088304140109
       },
@@ -3798,34 +3793,24 @@
         "lon": 56.4300831176603
       },
       {
-        "label": "Range 15: P1",
+        "label": "Range 15: NW",
         "lat": 24.4913487385908,
         "lon": 55.8352940120183
       },
       {
-        "label": "Range 15: P2",
+        "label": "Range 15: NE",
         "lat": 24.5059362406368,
         "lon": 56.4193114777121
       },
       {
-        "label": "Range 15: P3",
+        "label": "Range 15: SE",
         "lat": 24.2222269248227,
         "lon": 56.6494524316848
       },
       {
-        "label": "Range 15: P4",
+        "label": "Range 15: SW",
         "lat": 24.0528334631889,
         "lon": 55.9132907504634
-      },
-      {
-        "label": "Range 15: P5",
-        "lat": 24.2322013504284,
-        "lon": 55.8932733587835
-      },
-      {
-        "label": "Range 15: P6",
-        "lat": 24.3268262782935,
-        "lon": 55.8326373978788
       },
       {
         "label": "Range 16: NW",
@@ -3908,32 +3893,27 @@
         "lon": 55.0202754765441
       },
       {
-        "label": "MOA 4: P1",
+        "label": "MOA 4: NW",
         "lat": 26.6789693275912,
         "lon": 56.2477504989105
       },
       {
-        "label": "MOA 4: P2",
+        "label": "MOA 4: W",
         "lat": 25.7648771289303,
         "lon": 54.6405612402918
       },
       {
-        "label": "MOA 4: P3",
-        "lat": 25.0309142099735,
-        "lon": 55.3924257955111
-      },
-      {
-        "label": "MOA 4: P7",
+        "label": "MOA 4: S",
         "lat": 24.9972912839994,
         "lon": 55.4552670848053
       },
       {
-        "label": "MOA 4: P4",
+        "label": "MOA 4: E",
         "lat": 25.0184262605987,
         "lon": 57.5055911749995
       },
       {
-        "label": "MOA 4: P5",
+        "label": "MOA 4: NE",
         "lat": 26.6408048364106,
         "lon": 56.7303124820001
       },
@@ -4078,34 +4058,29 @@
         "lon": 56.2116666666667
       },
       {
-        "label": "KILLBOX NEPTUNE: P1",
+        "label": "KILLBOX NEPTUNE: NW",
         "lat": 25.9478116724268,
         "lon": 56.0960543528887
       },
       {
-        "label": "KILLBOX NEPTUNE: P2",
+        "label": "KILLBOX NEPTUNE: SW",
         "lat": 25.8206159849213,
         "lon": 56.0958477041745
       },
       {
-        "label": "KILLBOX NEPTUNE: P3",
+        "label": "KILLBOX NEPTUNE: SE",
         "lat": 25.696834343303,
         "lon": 56.2544862030457
       },
       {
-        "label": "KILLBOX NEPTUNE: P4",
+        "label": "KILLBOX NEPTUNE: NE",
         "lat": 25.9427357544309,
         "lon": 56.3328393416481
       },
       {
-        "label": "KILLBOX NEPTUNE: P5",
+        "label": "KILLBOX NEPTUNE: N",
         "lat": 25.9690856823605,
         "lon": 56.2010950514516
-      },
-      {
-        "label": "KILLBOX NEPTUNE: P6",
-        "lat": 25.9478116724268,
-        "lon": 56.0960543528887
       },
       {
         "label": "KILLBOX MARCH: NE",
