@@ -29,6 +29,10 @@ function bot_detected() {
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
 
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+    </style>
+
     <style type="text/css">
       body {
         margin: 0px;

@@ -14,9 +14,16 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
 
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+    </style>
+
     <style type="text/css">
       body {
         margin: 0px;
+      }
+      .modified {
+        background-color: rgba(255,0,0,0.1) !important;
       }
       #loader-container {
         position: absolute;
@@ -94,7 +101,7 @@
 
         <div style="padding-left: .75rem; padding-top: .75rem; font-size:1rem; height:48px; border-bottom: 1px solid #bdbdbd; background-color: #222; color: #fff">Data Card Builder v2</div>
 
-        <div id="sidebar" class="" style="padding-top: 10px">
+        <div id="sidebar" class="nav" role="tablist" style="padding-top: 10px">
           <ul class="nav flex-column show" id="side-nav">
             <li class="nav-item">
               <a class="nav-link active" href="#login">

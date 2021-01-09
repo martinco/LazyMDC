@@ -72,8 +72,6 @@ $('#threats-add').click(function() {
 });
 
 
-
-
 function threats_export() {
 
     var ret = {

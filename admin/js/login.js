@@ -41,7 +41,7 @@ function do_logout() {
 
 function nav_item(href, title, icon, depth = 0) {
   return $(`<li class="nav-item" style="padding-left:${2*depth}em">
-    <a class="nav-link" href="#${href}">
+    <a class="nav-link" href="#${href}" role="tab" data-toggle="pill">
     <span data-feather="${icon}"></span>
     ${title}
     </a>
@@ -86,6 +86,8 @@ function do_login(data, instant) {
     $('#header-user-container').show();
     update_nav(data);
     var target = !document.location.hash || document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+    // If we're an edit page, change target to parent 
+    if (target.endsWith('-edit')) { target = target.slice(0,-5); }
     console.log(target);
     $("a.nav-link[href$=\"" + target + "\"]").tab('show');
   } else {
@@ -95,6 +97,8 @@ function do_login(data, instant) {
       $('#sidebar').fadeIn();
 
       var target = !document.location.hash || document.location.hash == "#login" ? $('#side-nav').find('a.nav-link')[0].getAttribute('href') : document.location.hash;
+      // If we're an edit page, change target to parent 
+      if (target.endsWith('-edit')) { target = target.slice(0,-5); }
       $("a.nav-link[href$=\"" + target + "\"]").tab('show');
     });
   }

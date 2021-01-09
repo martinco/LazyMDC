@@ -23,37 +23,57 @@
 
     <!-- hack naming to reuse coords for now -->
     <div class="form-row">
-      <div class="form-group p-0 mb-0">
-        <label>Coordinate Format</label>
+      <div class="col">
+        <div class="form-row">
+          <div class="form-group p-0 mb-0">
+            <label>Update from DCS</label>
+          </div>
+        </div>
+        <div class="form-row pb-2">
+          Update values from DCS export<br><br>
+        </div>
+        <div class="form-row text-bottom">
+          <button class="btn btn-primary" type="button" id="theatre-edit-update">Update from DCS</button>
+        </div>
       </div>
-    </div>
-    <div class="form-row pb-2">
-      This is just to help you visualise any coordinates on this page and has no bearing on the MDCs 
-    </div>
-    
-    <div class="form-row mb-3">
-      <div class="form-inline">
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="flight-coord" id="flight-coord-dms" value="dms" autocomplete="off" checked>DMS
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="flight-coord" id="flight-coord-ddm" value="ddm" autocomplete="off">DDM
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
-          </label>
+      <div class="col">
+      <div class="form-row">
+        <div class="form-group p-0 mb-0">
+          <label>Coordinate Format</label>
         </div>
-        <div class="p-2">to</div>
-        <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
-        <div class="p-2">decimal places
+      </div>
+      <div class="form-row pb-2">
+        This is just to help you visualise any coordinates on this page and has no bearing on the MDCs 
+      </div>
+
+      <input type="hidden" name="theatre" id="theatre-edit-theatre-id" />
+      <input type="hidden" name="theatre" id="theatre-edit-theatre-name" />
+      
+      <div class="form-row mb-3">
+        <div class="form-inline">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="radio" name="flight-coord" id="flight-coord-dms" value="dms" autocomplete="off" checked>DMS
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-ddm" value="ddm" autocomplete="off">DDM
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
+            </label>
+          </div>
+          <div class="p-2">to</div>
+          <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
+          <div class="p-2">decimal places
+          </div>
         </div>
+      </div>
       </div>
     </div>
 
     <div class="form-row mb-3">
       <label class="heading">Display Name</label>
-      <input type="text" id="theatre-edit-display-name" class="form-control" required>
+      <input type="text" id="theatre-edit-display-name" class="form-control">
       <div class="invalid-feedback"></div>
     </div>
 
@@ -80,19 +100,19 @@
           <!-- workaround for bg color -->
           <tr style="display:none"></tr>
           <tr>
-            <td class="">BLUE</td>
+            <td class="" data-base="BLUE">BLUE</td>
             <td class="input-container"><input class="input-full"></td>
             <td class="coord" onClick="coordinate_input(this, 2);"></td>
             <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
           </tr>
           <tr>
-            <td class="">RED</td>
+            <td class="" data-base="RED">RED</td>
             <td class="input-container"><input class="input-full"></td>
             <td class="coord" onClick="coordinate_input(this, 2);"></td>
             <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
           </tr>
           <tr>
-            <td class="">NEUTRAL</td>
+            <td class="" data-base="NEUTRAL">NEUTRAL</td>
             <td class="input-container"><input class="input-full"></td>
             <td class="coord" onClick="coordinate_input(this, 2);"></td>
             <td class="coord coord-lon" onClick="coordinate_input(this, 2);"></td>
@@ -119,13 +139,14 @@
         </div>
         <table class="table table-striped" id="theatre-edit-airfield-table">
           <colgroup>
-            <col style="width:140px" />
-            <col style="width:140px" />
-            <col style="width:140px" />
-            <col style="width:140px" />
-            <col style="width:40px" />
             <col />
             <col />
+            <col style="width:140px" />
+            <col style="width:140px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
+            <col style="width:60px" />
           </colgroup>
 
           <thead class="thead-light">
@@ -134,23 +155,15 @@
               <th>DISPLAY NAME</th>
               <th>LAT</th>
               <th>LON</th>
-              <th>ALT</th>
-              <th>AI ATC UHF</th>
-              <th>AI ATC VHF</th>
+              <th>ALT (ft)</th>
+              <th>AI UHF</th>
+              <th>AI VHF</th>
+              <th>TCN</th>
             </tr>
           </thead>
           <tbody>
           <!-- workaround for bg color -->
           <tr style="display:none"></tr>
-          <tr>
-            <td class="input-container"></td>
-            <td class="input-container"><input class="input-full"></td>
-            <td class="coord" onClick="coordinate_input(this, 2);" id='theatre-edit-bullseye-lat'></td>
-            <td class="coord coord-lon" onClick="coordinate_input(this, 2);" id='theatre-edit-bullseye-lon'></td>
-            <td class="input-container"><input class="input-full"></td>
-            <td class="input-container"><input class="input-full freq"></td>
-            <td class="input-container"><input class="input-full freq"></td>
-          </tr>
           </tbody>
         </table>
         <button class="btn btn-primary" id='theatre-add-button' type="button">
@@ -158,8 +171,11 @@
         </button>
       </div>
     </div>
-
   </form>
+  <div style="text-align: right">
+    <button class="btn btn-primary" type="submit" id="theatre-edit-save">Save</button>
+  </div>
+
 </div>
 
 <!-- ADD THEATRE MODAL -->
@@ -167,7 +183,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add new Theatre</h5>
+        <h5 class="modal-title" id="theatre-add-dialog-title">Add new Theatre</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -188,6 +204,7 @@
               <li>Edit this if required to change the export_dir variable</li>
               <li>This Defaults to C:\DCS\output</li>
             </ul>
+            <li>Edit scripts\MissionScripting.lua in DCS installation directory to comment out (--) sanitizeModule('io') and sanitizeModule('lfs')</li>
             <li>Load up the ME, Load the Theatre you wish to add, and play (no need to save)</li>
             <li>You should now have an output <img src="img/MDCGameGUI.png" width="80%"></li>
             <li>Open the output file and paste in the json below</li>
@@ -195,9 +212,10 @@
         </div>
 
         <form id="theatre-add-form" target='#' method=post class="needs-validation" novalidate>
-          <div class="form-row">
+          <input type="hidden" id="theatre-add-type" class="form-control">
+          <div class="form-row" id="theatre-add-display-name-div">
             <label class="heading">Display Name</label>
-            <input type="text" id="theatre-add-display-name" class="form-control" required>
+            <input type="text" id="theatre-add-display-name" class="form-control">
             <div class="invalid-feedback"></div>
           </div>
           <div class="form-row">

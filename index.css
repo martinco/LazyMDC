@@ -162,7 +162,9 @@ select.input-full {
 td.coord,
 #waypoints-table td.coord,
 #waypoints-poi-table td.coord {
+  font-family: Courier Prime;
   font-weight: bold;
+  font-size: 14px;
 }
 
 td.input-container {

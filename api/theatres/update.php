@@ -28,10 +28,8 @@ if ($json === null) {
   \utils\client_error(ERROR_ROOT, "invalid json");
 }
 
-print_r($json);
-
 // Ensure we have our required paramters
-if (!isset($json['data']) || !isset($json['theatre_id'])) {
+if ( !isset($json['theatre_id']) || (!isset($json['base']) && !isset($json['overrides'])) ) {
   \utils\client_error(ERROR_ROOT, "invalid request");
 }
 
@@ -41,16 +39,65 @@ if (!is_int($json['theatre_id'])) {
 }
 
 // Update
-$db = Connection::get();
-$q = $db->prepare('UPDATE theatres SET data=? WHERE idx=?');
 
-$q->bind_param("si", json_encode($json['data']), $json['theatre_id']);
+$query = 'UPDATE theatres SET ';
+$args_refs = [];
+$args = [""];
+$sets = [];
+
+if (isset($json['base'])) {
+  $sets[] = 'data=?';
+
+  $next = sizeof($args);
+
+  // Order based on airfield when we save it 
+  ksort($json['base']);
+  $args[$next] = json_encode($json['base']);
+
+  $args[0] .= "s";
+  $args_refs[] = &$args[$next];
+}
+
+if (isset($json['overrides'])) {
+  $sets[] = 'overrides=?';
+
+  $next = sizeof($args);
+  $args[$next] = json_encode($json['overrides']);
+
+  $args[0] .= "s";
+  $args_refs[] = &$args[$next];
+}
+
+if (isset($json['display_name'])) {
+  $sets[] = 'display_name=?';
+
+  $next = sizeof($args);
+  $args[$next] = $json['display_name'];
+
+  $args[0] .= "s";
+  $args_refs[] = &$args[$next];
+}
+
+$query .= join(',', $sets) . ' WHERE idx=?';
+
+$next = sizeof($args);
+$args[$next] = $json['theatre_id'];
+$args[0] .= "i";
+$args_refs[] = &$args[$next];
+
+$db = Connection::get();
+$q = $db->prepare($query);
+call_user_func_array(array($q, 'bind_param'), $args);
 
 if (!$q->execute()) {
   \utils\error("user", "Query execution failed: " . $db->error);
 }
 
 $q->close();
+
+\utils\json_response(array(
+  "success" => "true",
+));
 
 
 ?>

@@ -33,6 +33,35 @@ function pad(n, width, z, precision) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
+
+function get_elem_data(elem) {
+  // If we have children (e.g. input), use that value
+  if (elem.children.length) {
+
+    child = $(elem.children[0])
+
+    // If it's an MCE text area just grab the HTML content
+    if (child.hasClass('mce')) {
+      return tinymce.editors[child.attr('id')].getContent()
+    }
+
+    dd = child[0].getAttribute('data-raw')
+    if (dd) {
+      return dd
+    }
+    return child[0].value
+  }
+
+  // If our TD holds raw-data, use that
+  dd = elem.getAttribute('data-raw')
+  if (dd) {
+    return dd
+  }
+
+  // Finally, just use what's in the cell
+  return elem.innerHTML
+}
+
 // Get a table row data, either as an array, or dict if provided headings
 function get_row_data(row, headings) {
   if (!row) {
@@ -40,31 +69,7 @@ function get_row_data(row, headings) {
   }
 
   var data = Array.prototype.map.call(row.querySelectorAll('td, th'), function(td) {
-    // If we have children (e.g. input), use that value
-    if (td.children.length) {
-
-      child = $(td.children[0])
-
-      // If it's an MCE text area just grab the HTML content
-      if (child.hasClass('mce')) {
-        return tinymce.editors[child.attr('id')].getContent()
-      }
-
-      dd = child[0].getAttribute('data-raw')
-      if (dd) {
-        return dd
-      }
-      return child[0].value
-    }
-
-    // If our TD holds raw-data, use that
-    dd = td.getAttribute('data-raw')
-    if (dd) {
-      return dd
-    }
-
-    // Finally, just use what's in the cell
-    return td.innerHTML
+    return get_elem_data(td)
   });
 
   if (!headings) {

@@ -53,14 +53,32 @@ function coordinate_dd2dms(dd, precision) {
   return [deg, mins, sec, dd >= 0]
 }
 
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/ /g, "&nbsp;");
+}
+
+
 function coordinate_display_format(td) {
 
   var elem = $(td)
   var value = parseFloat(td.getAttribute('data-raw'))
-  var method = td.tagName == 'INPUT' ? 'val' : 'html'
+  var set = function(elem, value) { 
+    if(elem.tagName == 'INPUT') {
+      elem.val(v);
+    } else {
+      elem.html(value);
+    }
+  }
 
   if (isNaN(value)) {
-    elem[method]("")
+    set(elem, "")
     return;
   }
 
@@ -75,14 +93,15 @@ function coordinate_display_format(td) {
   } else {
     llPrecision = parseInt(llPrecision);
   }
-
+ 
+  var deg_pad = elem.hasClass('coord-lon') ? 2 : 2;
 
   if (coordDisplay == 'ddm') {
     var arr = coordinate_dd2ddm(value, llPrecision);
     var deg = arr[0];
     var min = arr[1];
 
-    elem[method](axis + pad(deg, 2) + "\xB0 " + pad(min, 2, null, llPrecision) + "'")
+    set(elem, axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'");
     return 
   }
 
@@ -94,7 +113,7 @@ function coordinate_display_format(td) {
     var min = arr[1];
     var sec = arr[2];
 
-    var rv = axis + pad(deg, 2) + "\xB0 " + pad(min, 2) + "' "
+    var rv = axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2) + "'"
 
     // we do not add " as it's not seconds, but 1/6th of a minutes
     if (llPrecision == -1) {
@@ -103,13 +122,13 @@ function coordinate_display_format(td) {
       rv += pad(sec,2,null,llPrecision) + "\"";
     }
 
-    elem[method](rv)
+    set(elem, rv);
     return
 
   }
 
   // Default to DD
-  elem[method](value.toFixed(llPrecision))
+  set(elem, value.toFixed(llPrecision));
   return
 }
 
@@ -293,6 +312,11 @@ $('#coordinate-dialog-submit').click(function() {
   lat = isNaN(lat) ? "" : lat
   lon = isNaN(lon) ? "" : lon
 
+  var mod_lat = parseFloat(tr.cells[lat_idx].getAttribute('data-raw')) != lat;
+  console.log(parseFloat(tr.cells[lat_idx].getAttribute('data-raw')), lat);
+  var mod_lon = parseFloat(tr.cells[lat_idx+1].getAttribute('data-raw')) != lon;
+  console.log(parseFloat(tr.cells[lat_idx+1].getAttribute('data-raw')), lon);
+
   tr.cells[lat_idx].setAttribute('data-raw', lat)
   tr.cells[lat_idx+1].setAttribute('data-raw', lon)
 
@@ -313,7 +337,13 @@ $('#coordinate-dialog-submit').click(function() {
   coordinate_display_format(tr.cells[lat_idx])
   coordinate_display_format(tr.cells[lat_idx+1])
 
-  $(document).trigger('coordinates-changed')
+  if (mod_lat) {
+    $(tr.cells[lat_idx]).trigger('coordinates-changed');
+  };
+
+  if (mod_lon) {
+    $(tr.cells[lat_idx+1]).trigger('coordinates-changed');
+  }
 
   dlg.modal('hide');
 

@@ -8,11 +8,11 @@ dofile('Mods\\terrains\\' .. env.mission.theatre .. '\\beacons.lua')
 
 -- Functions
 function get_nearest_tacan(to)
-
-  local closest = nil
-
-  for _, beacon in pairs(beacons) do
-
+    
+    local closest = nil
+    
+    for _, beacon in pairs(beacons) do
+  
     if beacon["type"] == BEACON_TYPE_TACAN or beacon["type"] == BEACON_TYPE_VORTAC then
       local dist = ((beacon["position"][1] - to.x)^2 + (beacon["position"][3] - to.z)^2)^0.5;
       if closest ~= nil then
@@ -23,23 +23,26 @@ function get_nearest_tacan(to)
         closest = {dist, beacon}
       end
     end
-  end
-
-  return closest
+    end
+    
+    return closest
 end
 
 -- Main 
 
-data = {}
-data['theatre'] = env.mission.theatre
-data['airfields'] = {}
-data['bullseye'] = {}
+local data = {}
+data['theatre'] = env.mission.theatre;
+data['airfields'] = {};
+data['bullseye'] = {};
 
 -- Iterate all the coalition's and collect their default bullsye and airbase positions
 for c_name, c_id in pairs(coalition.side) do
+    
+  local pos = {coord.LOtoLL(coalition.getMainRefPoint(c_id))};
 
   data['bullseye'][c_name] = {
-    ['position'] = {coord.LOtoLL(coalition.getMainRefPoint(c_id))},
+    ['lat'] = pos[1],
+    ['lon'] = pos[2],
     ['name'] = 'BULLS',
   }
 
@@ -49,7 +52,6 @@ for c_name, c_id in pairs(coalition.side) do
     local name = v:getName();
 
     local afdata = {
-      ["display_name"] = name,
       ["lat"] = pos[1],
       ["lon"] = pos[2],
       ["alt"] = math.floor(pos[3]*3.28084),
@@ -59,9 +61,11 @@ for c_name, c_id in pairs(coalition.side) do
     -- we use 7000 because Kish island is no where near the iarfield
     local tcn = get_nearest_tacan(point)
     if tcn ~= nil and tcn[1] < 7000 then
+      local pos = {coord.LOtoLL(tcn[2].position)}
       afdata['tcn'] = {
         ['channel'] = tcn[2].channel,
-        ['position'] = {coord.LOtoLL(tcn[2].position)},
+        ['lat'] = pos[1],
+        ['lon'] = pos[2],
         ['distance'] = tonumber(string.format("%.2f", tcn[1]/1000)),
       }
     end
