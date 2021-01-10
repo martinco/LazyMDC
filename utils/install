@@ -34,5 +34,6 @@ set -u
 
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs
 [[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs_html ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/mdcs_html
+[[ ! -d /var/www/vhosts/mdc.hatchlane.com/httpdocs/cache ]] && mkdir -m 777 /var/www/vhosts/mdc.hatchlane.com/httpdocs/cache
 
 rm -rf "$TEMPDIR"

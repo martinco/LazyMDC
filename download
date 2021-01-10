@@ -241,6 +241,8 @@ def main():
         print("Status: 400 Bad Request\n")
         sys.exit(0)
 
+    mdc_modified = os.path.getmtime(mdc_file)
+
     with open(mdc_file) as fh:
         mdc = json.load(fh)
 
@@ -270,49 +272,104 @@ def main():
         return
 
     if params['output'] == "pdf":
+
+        # Check if we have a cache
+        cache_file = os.path.join(ROOT, 'cache', params['key'])
+        if cdu:
+            cache_file += '.zip'
+            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+                print ("Content-Disposition: attachment; "
+                       "filename=\"MDC-%s.zip\"" % params['id'])
+                print ("Content-Type: application/zip\n")
+                sys.stdout.flush()
+                with open(cache_file, 'rb') as fh:
+                    sys.stdout.buffer.write(fh.read())
+                return
+        else:
+            cache_file += '.pdf'
+            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+                print ("Content-Disposition: attachment; "
+                       "filename=\"MDC-%s.pdf\"" % params['id'])
+                print("Content-Type: application/pdf\n")
+                sys.stdout.flush()
+                with open(cache_file, 'rb') as fh:
+                    sys.stdout.buffer.write(fh.read())
+                return
+
         pdf = asyncio.get_event_loop().run_until_complete(get_pdf(url))
 
         if cdu:
             # Then we zip it up instead
-            zipfd = io.BytesIO()
-            zipf = ZipFile(zipfd, 'w')
-
+            zipf = ZipFile(cache_file, 'w')
             zipf.writestr('%s.txt' % params['id'], cdu)
             zipf.writestr('%s.pdf' % params['id'], pdf)
-
             zipf.close()
-            zipfd.seek(0)
 
             print ("Content-Disposition: attachment; "
                    "filename=\"MDC-%s.zip\"" % params['id'])
             print ("Content-Type: application/zip\n")
             sys.stdout.flush()
-            sys.stdout.buffer.write(zipfd.read())
+            with open(cache_file, 'rb') as fh:
+                sys.stdout.buffer.write(fh.read())
             return
 
         print ("Content-Disposition: attachment; "
                "filename=\"MDC-%s.pdf\"" % params['id'])
         print("Content-Type: application/pdf\n")
         sys.stdout.flush()
+        with open(cache_file, 'wb') as fh:
+            fh.write(pdf)
         sys.stdout.buffer.write(pdf)
         return
 
     if params['output'].startswith("png"):
 
+        cache_base = os.path.join(ROOT, 'cache', params['key'])
+
+        # See if a png exists, as we don't know how many pages tehre are
+        if not cdu:
+            cache_file = cache_base + '.png'
+            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+                print ("Content-Disposition: attachment; "
+                       "filename=\"0000-%s-0001.png\"" % params['id'])
+                print("Content-Type: image/png\n")
+                sys.stdout.flush()
+                with open(cache_file, 'rb') as fh:
+                    sys.stdout.buffer.write(fh.read())
+                return
+
+        # Otherwise see if a zip exists
+        else:
+            cache_file = cache_base + '.zip'
+            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+                print ("Content-Disposition: attachment; "
+                       "filename=\"MDC-%s.zip\"" % params['id'])
+                print ("Content-Type: application/zip\n")
+                sys.stdout.flush()
+                with open(cache_file, 'rb') as fh:
+                    sys.stdout.buffer.write(fh.read())
+                return
+
+
         pages, png = asyncio.get_event_loop().run_until_complete(
             get_image(url))
 
         if pages == 1 and not cdu:
+            cache_file = cache_base + '.png'
             print ("Content-Disposition: attachment; "
                    "filename=\"0000-%s-0001.png\"" % params['id'])
             print("Content-Type: image/png\n")
             sys.stdout.flush()
+
+            with open(cache_file, 'wb') as fh:
+                fh.write(png);
+
             sys.stdout.buffer.write(png)
             return
 
         # Zip up each page
-        zipfd = io.BytesIO()
-        zipf = ZipFile(zipfd, 'w')
+        cache_file = cache_base + '.zip'
+        zipf = ZipFile(cache_file, 'w')
 
         if cdu:
             zipf.writestr('%s.txt' % params['id'], cdu)
@@ -333,13 +390,13 @@ def main():
                     '0000-%s-%03d.png' % (params['id'], x+1), f.read())
 
         zipf.close()
-        zipfd.seek(0)
 
         print ("Content-Disposition: attachment; "
                "filename=\"MDC-%s.zip\"" % params['id'])
         print ("Content-Type: application/zip\n")
         sys.stdout.flush()
-        sys.stdout.buffer.write(zipfd.read())
+        with open(cache_file, 'rb') as fh:
+            sys.stdout.buffer.write(fh.read())
         return
 
     print("Content-Type: text/plain\n")
