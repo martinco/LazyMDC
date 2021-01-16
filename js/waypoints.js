@@ -26,10 +26,19 @@ function get_seconds_from_time(time) {
     return 0
   }
 
-  // Regex is (H:)?M
+  // Regex is (H:)?M, this also covers the 4 numbers case below
   var res = time.match(/^(?:([0-9]+):)?([0-9]+)?$/);
   if (!res) {
     return 0
+  }
+
+  // If we have 4 numbers thats < 2400 then we can treat 1920 as 19:20
+  // 4 numbers is ensured by the previous regex above
+  if (time.length == 4) {
+    var inttime = parseInt(time);
+    if (!isNaN(inttime) && inttime <= 2400 && inttime >= 0) {
+      res = [time, time.substring(0,2), time.substring(2,4)]
+    }
   }
 
   var secs = 0;
@@ -673,3 +682,8 @@ function waypoint_load(data) {
 }
 
 waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);
+
+$("#waypoints-walk-time").on('change', function(evt) {
+  var tgt = evt.target;
+  tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
+});
