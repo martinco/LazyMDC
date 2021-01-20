@@ -407,7 +407,7 @@ $('#flight-airframe').on('flight-airframe-changed', function(e) {
 
   // Set default speed format else default to kts
   if (airframes[type] && airframes[type]['gs_units']) {
-    $('#waypoints-gs-units').val(airframes[type]['gs_units']).chnage();
+    $('#waypoints-gs-units').val(airframes[type]['gs_units']).change();
   } else {
     $('#waypoints-gs-units').val("kts").change();
   }
