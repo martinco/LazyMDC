@@ -5,10 +5,70 @@
 
 <form id="notes-form" data-nav-target="#download" class="needs-validation" novalidate>
 
-  <textarea id="notes-mce" class="mce" style="height:400px"></textarea>
 
-  <div class="pt-3" style="text-align: right">
-    <button class="btn btn-primary" type="submit">Next...</button>
+  <div class="form-group">
+    <label class="heading">Notes</label>
+    <textarea id="notes-mce" class="mce" data-min-height="500px"></textarea>
+
+    <div class="pt-3" style="text-align: right">
+      <button class="btn btn-primary" type="submit">Next...</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="heading pb-2">Useful Information</label>
+    <div>
+      Inserting Images:
+      <ul>
+        <li>
+          Imgur (preferred, and means your MDC saves quickly)
+          <ul>
+            <li>Upload to Imgur</li>
+            <li>Right click the image on and 'copy image address' (otherwise you get a view url rather than an image url)
+            <li>In the notes section use "Insert" -> "Image" and paste the URL into Source (expecting it to end in .jpg / .png etc)</li>
+            <li>Hit Save</li>
+          </ul>
+        </li>
+        <li>
+          Local File
+          <ul>
+            <li>Open the image in an image viewer such as "Photos", or perhaps from Snipping Tool or Snip and Sketch (area of Combat Flite perhaps)</li>
+            <li>ctrl+c to copy the image data, select the notes text area and ctrl+v it</li>
+            <li>NB: you might notice your save taking a while, as it's saving the image data each time!</li>
+          </ul>
+        </li>
+        <li>
+          Images will be resized, maintaining aspect ratio to fill the width or height of the available page
+          <ul>
+            <li>If you want side by side images, use a table</li>
+          </ul>
+        </li>
+      </ul>
+      Table Limitations
+      <ul>
+        <li>At the moment, tables will only be split between pages on a row by row basis
+        <li>if you have tables with very large content / or nested tables then you may get funky results such as clipping off the page
+      </ul>
+      Page Breaks
+      <ul>
+        <li>
+          You may have a notes section on page 1 with a few lines of content with the rest on page 2.<br>
+          If you wish to push the first bit to make a nice self contained notes on page 2 
+          <ul>
+            <li>Use "Insert" -> "Page Break" as the first item and this will be honored</li>
+          </ul>
+        </li>
+      </ul>
+      Funky Formatted pastes from other apps such as discord etc
+      <ul>
+        <li>
+          You might get dark backgrounds etc. to avoid this you can do any of the following
+          <ul>
+            <li>Paste as plain text (ctrl+shift+v)</li>
+            <li>Paste into notepad.exe, then copy and paste as normal</li>
+          </ul>
+        </li>
+        </ul>
+    </div>
   </div>
 
 </form>

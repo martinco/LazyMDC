@@ -1821,6 +1821,12 @@ function Builder(data, unit) {
           page = page.next();
           pages.push(page);
           new_section = true;
+        } else if (rowid == 0) {
+          // We honor the page break if it's the first row of the notes section
+          page = page.next();
+          pages.push(page);
+          page.append($(`<div style="height:5${unit}"></div>`));
+          page.append(header);
         }
         $(document).trigger('RowComplete');
         return;
