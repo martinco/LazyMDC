@@ -53,17 +53,13 @@ $("#flight-airframe").on('change', function(e) {
 
 });
 
-$("input[name=flight-coord]").change(flight_update_coord)
-$("#flight-coord-decimals").change(flight_update_coord)
+$("input[name=flight-coord]").change(function() {
+  coords.set_display_format($(this).val());
+});
 
-function flight_update_coord() {
-
-  // And our example
-  coords.format_td($('#flight-coord-example')[0])
-
-  // Broadcast event
-  $(document).trigger('flight-coordinates-changed');
-}
+$("#flight-coord-decimals").change(function() {
+  coords.set_display_decimals($(this).val());
+});
 
 function flight_update_default_coord_format() {
 
@@ -78,9 +74,7 @@ function flight_update_default_coord_format() {
 
   // Update Radio / DP
   $('#flight-coord-'+fmt).prop("checked", true).click();
-  $('#flight-coord-decimals').val(dp);
-
-  flight_update_coord();
+  $('#flight-coord-decimals').val(dp).change();
 
 }
 

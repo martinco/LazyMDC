@@ -394,15 +394,6 @@ $.contextMenu({
   }
 });
 
-// If coordinate format updates, we need to refersh the table
-$(document).on('flight-coordinates-changed', function() {
-  waypoint_update_display();
-});
-
-$(document).on('coordinates-changed', function() {
-  waypoint_update();
-});
-
 $('#waypoints-gs-units').on('change', function() {
   $('#waypoints-table-dist').html($('#waypoints-gs-units').val() == "kts" ? "NM" : "KM");
   waypoint_update();

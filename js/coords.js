@@ -70,41 +70,27 @@ var Coords = function() {
     return [deg, mins, sec, dd >= 0]
   }
 
-  this.format_td = function(td) {
-
-    var elem = $(td)
-    var value = parseFloat(td.getAttribute('data-raw'))
-    var set = function(elem, value) { 
-      if(elem.tagName == 'INPUT') {
-        elem.val(v);
-      } else {
-        elem.html(value);
-      }
-    }
-
+  this.format_value = function(value, lon=false, llPrecision) {
     if (isNaN(value)) {
-      set(elem, "")
-      return;
+      return ""
     }
 
-    var axis = elem.hasClass('coord-lon') ?
+    var axis = lon ?
            value >= 0 ? "E " : "W " :
            value >= 0 ? "N " : "S ";
 
-    var llPrecision = parseInt(td.getAttribute('data-dmp'));
-    if (isNaN(llPrecision)) {
+    if (isNaN(llPrecision) || llPrecision==undefined) {
       llPrecision = this._display_decimals;
     }
    
-    var deg_pad = elem.hasClass('coord-lon') ? 2 : 2;
+    var deg_pad = 2;
 
     if (this._display_format == 'ddm') {
       var arr = coordinate_dd2ddm(value, llPrecision);
       var deg = arr[0];
       var min = arr[1];
 
-      set(elem, axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'");
-      return 
+      return axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'";
     }
 
     if (this._display_format == 'dms') {
@@ -124,13 +110,27 @@ var Coords = function() {
         rv += pad(sec,2,null,llPrecision) + "\"";
       }
 
-      set(elem, rv);
-      return
-
+      return rv;
     }
 
     // Default to DD
-    set(elem, value.toFixed(llPrecision));
+    return value.toFixed(llPrecision);
+  }
+
+  this.format_td = function(td) {
+
+    var elem = $(td)
+
+    var value = this.format_value(
+      parseFloat(td.getAttribute('data-raw')),
+      elem.hasClass('coord-lon'),
+      parseInt(td.getAttribute('data-dmp')));
+
+    if(elem.tagName == 'INPUT') {
+      elem.val(value);
+    } else {
+      elem.html(value);
+    }
     return
   }
 
@@ -225,6 +225,13 @@ function coordinate_update_fields() {
   $("#coordinate-dms-lon-sec").val(lon_dms[2])
   $("#coordinate-dms-lon-axis").val(lon_dms[3] ? 'E' : 'W')
 
+  // Update the text to the current display format
+  if (lat && lon) {
+    $('#coordinate-string').val(coords.format_value(lat, false) + " " + coords.format_value(lon, true));
+  } else {
+    $('#coordinate-string').val("");
+  }
+  
   // Override Attributes
   var dp = dlg.data('dmp')
   var fmt = dlg.data('fmt')
@@ -359,14 +366,6 @@ $('#coordinate-dialog-submit').click(function() {
   coords.format_td(tr.cells[lat_idx])
   coords.format_td(tr.cells[lat_idx+1])
 
-  if (mod_lat) {
-    $(tr.cells[lat_idx]).trigger('coordinates-changed');
-  };
-
-  if (mod_lon) {
-    $(tr.cells[lat_idx+1]).trigger('coordinates-changed');
-  }
-
   dlg.modal('hide');
 
 });
@@ -407,13 +406,33 @@ function coordinate_from_string(str) {
   }
 
   // DMS
-  var dms_arr = /^\s*([NS])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)(?:"|\s)\s*([NS])?\s*([EW])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)"?\s*([EW])?\s*$/.exec(str);
+  //var dms_arr = /^\s*([NS])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)(?:"|\s)\s*([NS])?\s*([EW])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+)(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)"?\s*([EW])?\s*$/.exec(str);
+  var dms_arr = new RegExp([
+    /^\s*/,                                           // Allow start padding
+    /([NS])?\s*/,                                     // We allow N at the start, or end, so it's optional
+    /(-?[0-9]+)/,                                     // Degrees is always required
+    /(?:(?:\xB0|\s)([0-9]+)\s*)?/,                    // Minutes are optional, but if present, need to be preceded by a space or degree sign, integer to differentiate between DMS / DDM
+      /(?:(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)"?)?\s*/,   // Seconds are also optional, but if present, need to be preceeded by a ' or space from minutes and o ptioanll end in a "
+      /([NS])?\s*/,                                   // Allow NS at end
+    /([EW])?\s*/,                                     // Repeat for East West 
+    /(-?[0-9]+)/,
+    /(?:(?:\xB0|\s)([0-9]+))?\s*/,
+      /(?:(?:'|\s)\s*([0-9]+(?:\.[0-9]+)?)"?)?\s*/,
+      /([EW])?\s*/,
+    /$/
+  ].map(function(r) {return r.source}).join('')).exec(str);
+
+
   if (dms_arr) {
-    var lat = parseInt(dms_arr[2]) + parseInt(dms_arr[3])/60 + parseFloat(dms_arr[4])/3600;
+    var lat = parseInt(dms_arr[2]);
+    if (dms_arr[3]) { lat += parseInt(dms_arr[3])/60; }
+    if (dms_arr[4]) { lat += parseFloat(dms_arr[4])/3600; }
     if (dms_arr[1] && dms_arr[1] == 'S') { lat *= -1; }
     else if (dms_arr[5] && dms_arr[5] == 'S') { lat *= -1; }
 
-    var lon = parseInt(dms_arr[7]) + parseInt(dms_arr[8])/60 + parseFloat(dms_arr[9])/3600;
+    var lon = parseInt(dms_arr[7]);
+    if (dms_arr[8]) { lon += parseInt(dms_arr[8])/60; }
+    if (dms_arr[9]) { lon += parseFloat(dms_arr[9])/3600; }
     if (dms_arr[6] && dms_arr[6] == 'W') { lon *= -1; }
     else if (dms_arr[10] && dms_arr[10] == 'W') { lon *= -1; }
 
@@ -421,8 +440,20 @@ function coordinate_from_string(str) {
     return
   }
 
-  // DDM
-  var ddm_arr = /^\s*([NS])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+(?:\.[0-9]+)?)(?:'|\s)\s*([NS])?\s*([EW])?\s*(-?[0-9]+)(?:\xB0|\s)\s*([0-9]+(?:\.[0-9]+)?)'?\s*([EW])?\s*$/.exec(str);
+  // DDM, This only needs to cater for full format DDM as leaving of the decimal makes it matched by DMS above
+  var ddm_arr = new RegExp([
+    /^\s*/,                            // Allow start padding
+    /([NS])?\s*/,                      // We allow N at the start, or end, so it's optional
+    /(-?[0-9]+)(?:\xB0|\s)\s*/,        // Degrees is always required and must end in a space to be valid
+    /([0-9]+(?:\.[0-9]+)?)'?\s*/,      // Minutes
+    /([NS])?\s*/,                      // Cater for NS at end of string
+    /([EW])?\s*/,
+    /(-?[0-9]+)(?:\xB0|\s)\s*/,
+    /([0-9]+(?:\.[0-9]+)?)'?\s*/,
+    /([EW])?\s*/,
+    /$/
+  ].map(function(r) {return r.source}).join('')).exec(str);
+  
   if (ddm_arr) {
     var lat = parseInt(ddm_arr[2]) + parseFloat(ddm_arr[3])/60;
     if (ddm_arr[1] && ddm_arr[1] == 'S') { lat *= -1; }
