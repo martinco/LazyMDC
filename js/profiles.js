@@ -98,7 +98,8 @@ function profiles_set_f16_cmds(data) {
       var mode = headers[Math.floor((col+1)/2)];
       var cms = ['CHAFF', 'FLARE'][(col+1) % 2];
       try {
-        var val = data[mode][cms][param];
+        var val = parseFloat(data[mode][cms][param]);
+        if (isNaN(val)) { return; }
         $(tr.cells[col].firstChild).val(val).change();
       } catch {}
     }
