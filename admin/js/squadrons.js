@@ -2301,8 +2301,10 @@ $("#squadrons-edit-mission-add-agencies-bulk-dialog-submit").on('click', functio
     }
     return float_val;
   }
-  
-  
+
+  // Update existing entries if they have the same name
+  var updates = {};
+
   var lines = $('#squadrons-edit-missions-add-agencies-bulk-csv').val().split(/\r?\n/);
   for (line of lines) {
     var [agency, side, tcn, pri, sec] = line.split(/,\s*/).map(s => s.trim());
@@ -2335,12 +2337,52 @@ $("#squadrons-edit-mission-add-agencies-bulk-dialog-submit").on('click', functio
       continue
     }
 
-    squadrons_edit_mission_add_agency(agency, {
+    // Add to update list keyed off agency
+    updates[agency] = {
       'pri': pri,
       'sec': sec,
       'side': side,
       'tcn': tcn,
-    }, true);
+    }
+  }
+
+  $("#squadrons-edit-mission-edit-agencies-table > tbody > tr").each(function(a, tr) {
+
+    // If the row is marked for delete, ignore it
+    if (tr.hasAttribute("data-delete")) {
+      return;
+    }
+
+    // collect the row data
+    var headers = ['-', 'agency', 'side', 'tcn', 'pri', 'sec'];
+    var row_data = get_row_data(tr, headers);
+    var name = row_data['agency'];
+    delete(row_data['agency']);
+
+    // If we are updating this, go ahead
+    if (updates[name]) {
+
+      console.log(name, row_data)
+
+      for (const [header, value] of Object.entries(row_data)) {
+        var col = headers.indexOf(header);
+        var upv = updates[name][header] || "";
+        if (upv != value) {
+          if (tr.cells[col].firstElementChild) {
+            tr.cells[col].firstElementChild.setAttribute('data-base', upv);
+          } else {
+            tr.cells[col].innerHTML = upv;
+          }
+          $(tr.cells[col]).addClass('modified');
+        }
+      }
+
+      delete(updates[name])
+    }
+  });
+
+  for (var [agency, data] of Object.entries(updates)) {
+    squadrons_edit_mission_add_agency(agency, data, true);
   }
 
   dlg.modal('hide');
