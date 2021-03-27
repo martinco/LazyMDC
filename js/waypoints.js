@@ -250,15 +250,15 @@ function waypoint_add(wp_info) {
           <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="^([0-9]+:)?[0-9]+$"></td>`
     
     if (data['lat_fmt']) {
-        row += `<td class="coord" onClick="coordinate_input(this, 6);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
+        row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
     } else {
-        row += `<td class="coord" onClick="coordinate_input(this, 6);" data-raw="${data['lat']}"></td>`
+        row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);" data-raw="${data['lat']}"></td>`
     }
     
     if (data['lon_fmt']) {
-        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
+        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6);" data-raw="${data['lon']}"></td>`
+        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6, waypoint_update);" data-raw="${data['lon']}"></td>`
     }
     
     row += `<td class="text-right"></td>

@@ -156,7 +156,7 @@ function escapeHtml(unsafe) {
 
 
 
-function coordinate_input(td, lat_idx) {
+function coordinate_input(td, lat_idx, callback) {
 
   // Get the lat / lon from the table, and update coordinates before showing
   // Lat  stores if we are in an override state or not 
@@ -179,6 +179,7 @@ function coordinate_input(td, lat_idx) {
     'fmt_override': fmt !== null,
     'tr': tr,
     'lat_idx': lat_idx,
+    'callback': callback,
   })
 
   coordinate_update_fields();
@@ -365,6 +366,11 @@ $('#coordinate-dialog-submit').click(function() {
 
   coords.format_td(tr.cells[lat_idx])
   coords.format_td(tr.cells[lat_idx+1])
+
+  var callback = dlg.data('callback');
+  if (callback && typeof(callback) == "function") {
+    callback();
+  }
 
   dlg.modal('hide');
 
