@@ -70,7 +70,7 @@ var Coords = function() {
     return [deg, mins, sec, dd >= 0]
   }
 
-  this.format_value = function(value, lon=false, llPrecision) {
+  this.format_value = function(value, lon=false, llPrecision, display_format) {
     if (isNaN(value)) {
       return ""
     }
@@ -82,10 +82,14 @@ var Coords = function() {
     if (isNaN(llPrecision) || llPrecision==undefined) {
       llPrecision = this._display_decimals;
     }
+
+    if (display_format == undefined) {
+      display_format = this._display_format;
+    }
    
     var deg_pad = 2;
 
-    if (this._display_format == 'ddm') {
+    if (display_format == 'ddm') {
       var arr = coordinate_dd2ddm(value, llPrecision);
       var deg = arr[0];
       var min = arr[1];
@@ -93,7 +97,7 @@ var Coords = function() {
       return axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'";
     }
 
-    if (this._display_format == 'dms') {
+    if (display_format == 'dms') {
 
       var arr = this.dd2dms(value, Math.max(llPrecision, 0));
 
@@ -121,10 +125,13 @@ var Coords = function() {
 
     var elem = $(td)
 
+    // If the td has a override, use it 
+
     var value = this.format_value(
       parseFloat(td.getAttribute('data-raw')),
       elem.hasClass('coord-lon'),
-      parseInt(td.getAttribute('data-dmp')));
+      parseInt(td.getAttribute('data-dmp')),
+      td.getAttribute('data-fmt'));
 
     if(elem.tagName == 'INPUT') {
       elem.val(value);
@@ -166,8 +173,8 @@ function coordinate_input(td, lat_idx, callback) {
   var coordDisplay = $('input[name=flight-coord]:checked').val()
   var llPrecision = parseInt($("#flight-coord-decimals").val())
 
-  var lat_elem = td.closest('tr').cells[lat_idx]
-  var fmt = lat_elem.getAttribute('data-fmt')
+  var lat_elem = td.closest('tr').cells[lat_idx];
+  var fmt = lat_elem.getAttribute('data-fmt');
 
   var dlg = $('#coordinate-dialog');
 
@@ -228,7 +235,10 @@ function coordinate_update_fields() {
 
   // Update the text to the current display format
   if (lat && lon) {
-    $('#coordinate-string').val(coords.format_value(lat, false) + " " + coords.format_value(lon, true));
+    $('#coordinate-string').val(
+        coords.format_value(lat, false, dlg.data('dmp'), dlg.data('fmt'))
+        + " " 
+        + coords.format_value(lon, true, dlg.data('dmp'), dlg.data('fmt')));
   } else {
     $('#coordinate-string').val("");
   }
@@ -514,6 +524,9 @@ $('#coordinate-override-submit').click(function() {
     'fmt': coordDisplay,
     'dmp': llPrecision,
   })
+
+  // Update the coord display to show the updated Set from String
+  coordinate_update_fields()
 
   $("#coordinate-override-unset").show()
 });
