@@ -3,5 +3,5 @@ Pillow==8.1.1
 pyee==7.0.4
 pyppeteer==0.2.2
 tqdm==4.50.2
-urllib3==1.25.10
+urllib3==1.26.5
 websockets==8.1
