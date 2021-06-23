@@ -39,7 +39,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -133,7 +133,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -251,7 +251,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -345,7 +345,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -551,7 +551,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -559,7 +559,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -849,7 +849,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -857,7 +857,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1011,7 +1011,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -1019,7 +1019,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1089,7 +1089,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1155,7 +1155,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -1163,7 +1163,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1317,7 +1317,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -1325,7 +1325,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1559,7 +1559,7 @@
           "clsid": "{CBU_103}",
           "weight": 430
         },
-        "CBU-105 - 10 x CEM, CBU with WCMD": {
+        "CBU-105 - 10 x SFW, CBU with WCMD": {
           "clsid": "{CBU_105}",
           "weight": 417
         },
@@ -1567,7 +1567,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -1892,43 +1892,43 @@
         },
         "AIM-9M Sidewinder IR AAM": {
           "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-          "weight": 86.64
+          "weight": 85.73
         },
-        "AN/ASQ-T50 TCTS Pod": {
+        "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "CAP-9M": {
+        "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
-          "weight": 85.5
+          "weight": 85.73
         },
-        "GBU-12": {
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
         },
         "Smokewinder - blue": {
           "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}",
@@ -1958,67 +1958,59 @@
       "2": {
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_LEFT}",
-          "weight": 610
+          "weight": 547
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_LEFT}",
-          "weight": 610
+          "weight": 579
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_LEFT}",
-          "weight": 566
-        },
-        "2 MK-82": {
-          "clsid": "{BRU-42_2*Mk-82_LEFT}",
-          "weight": 542
-        },
-        "2 MK-82 AIR": {
-          "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
-          "weight": 542
-        },
-        "2 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
-          "weight": 542
+          "weight": 603
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_LEFT}",
-          "weight": 504
+          "weight": 541
         },
-        "3 BDU-33": {
-          "clsid": "BRU-42_3*BDU-33",
-          "weight": 98
+        "2 Mk-82": {
+          "clsid": "{BRU-42_2*Mk-82_LEFT}",
+          "weight": 579
+        },
+        "2 Mk-82 AIR": {
+          "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
+          "weight": 579
+        },
+        "2 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
+          "weight": 579
         },
         "3 GBU-12": {
           "clsid": "{BRU-42A_3*GBU-12}",
-          "weight": 885
+          "weight": 772
         },
         "3 GBU-38": {
           "clsid": "{BRU-42_3*GBU-38}",
-          "weight": 885
+          "weight": 820
         },
         "3 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_3*GBU-54}",
-          "weight": 819
+          "weight": 856
         },
-        "3 MK-81 LD": {
+        "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 414
+          "weight": 451
         },
-        "3 MK-82 LD": {
+        "3 Mk-82": {
           "clsid": "{BRU-42_3*Mk-82LD}",
-          "weight": 783
+          "weight": 820
         },
-        "3 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
-          "weight": 783
-        },
-        "3 Mk-82AIR": {
+        "3 Mk-82 AIR": {
           "clsid": "{BRU-42_3_MK82AIR}",
-          "weight": 783
+          "weight": 820
         },
-        "3 SUU-25 * 8 LUU-2": {
-          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
-          "weight": 490
+        "3 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
+          "weight": 820
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
@@ -2032,107 +2024,111 @@
           "clsid": "{LAU_7_AGM_122_SIDEARM}",
           "weight": 107
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "GBU-12": {
+        "BRU-42 with 3 x BDU-33 - 25lb Practice Bombs LD": {
+          "clsid": "BRU-42_3*BDU-33",
+          "weight": 90.15
+        },
+        "BRU-42 with 3 x SUU-25 x 8 LUU-2 - Target Marker Flares": {
+          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
+          "weight": 736.65
+        },
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "GBU-16": {
+        "GBU-16 - 1000lb Laser Guided Bomb": {
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
+          "weight": 513
         },
-        "GBU-32(V)2/B": {
+        "GBU-32(V)2/B - JDAM, 1000lb GPS Guided Bomb": {
           "clsid": "{GBU_32_V_2B}",
           "weight": 467
         },
-        "GBU-38": {
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "GBU-54(V)1/B": {
+        "GBU-54B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 - 4 ZUNI MK 71": {
+        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 440
+          "weight": 316.6
         },
-        "LAU-117,AGM-65E": {
+        "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
-        "LAU-117,AGM-65F": {
+        "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-3 - 19 FFAR M156 WP": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 312.8707256
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20A}",
+          "weight": 134.5
         },
-        "LAU-3 - 19 FFAR Mk1 HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 285.292332
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20 M282}",
+          "weight": 148.5
         },
-        "LAU-3 - 19 FFAR Mk5 HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 286.1541568
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
+          "weight": 113.9
         },
-        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
+          "weight": 114.46
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 120.13
+          "weight": 118.8
         },
-        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
+          "weight": 102.07
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 FFAR M156 WP": {
-          "clsid": "{LAU68_FFAR_WP156}",
-          "weight": 120.1560568
-        },
-        "LAU-68 - 7 FFAR Mk1 HE": {
-          "clsid": "{LAU68_FFAR_MK1HE}",
-          "weight": 109.995596
-        },
-        "LAU-68 - 7 FFAR Mk5 HEAT": {
-          "clsid": "{LAU68_FFAR_MK5HEAT}",
-          "weight": 110.3131104
-        },
-        "LAU-7 AIM-9M Sidewinder IR AAM": {
+        "LAU-7 with AIM-9M Sidewinder IR AAM": {
           "clsid": "{AIM-9M-ON-ADAPTER}",
-          "weight": 101.64
+          "weight": 100.73
         },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
         },
-        "Mk-83": {
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
+        },
+        "Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}",
-          "weight": 447
+          "weight": 454
         },
-        "SUU-25 * 8 LUU-2": {
+        "SUU-25 x 8 LUU-2 - Target Marker Flares": {
           "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}",
           "weight": 130
         },
@@ -2164,43 +2160,39 @@
       "3": {
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_LEFT}",
-          "weight": 610
+          "weight": 547
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_LEFT}",
-          "weight": 610
+          "weight": 579
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_LEFT}",
-          "weight": 566
-        },
-        "2 MK-82": {
-          "clsid": "{BRU-42_2*Mk-82_LEFT}",
-          "weight": 542
-        },
-        "2 MK-82 AIR": {
-          "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
-          "weight": 542
-        },
-        "2 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
-          "weight": 542
-        },
-        "2 MK-83": {
-          "clsid": "{BRU-42_2*Mk-83_LEFT}",
-          "weight": 954
+          "weight": 603
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_LEFT}",
-          "weight": 504
+          "weight": 541
         },
-        "3 BDU-33": {
-          "clsid": "BRU-42_3*BDU-33",
-          "weight": 98
+        "2 Mk-82": {
+          "clsid": "{BRU-42_2*Mk-82_LEFT}",
+          "weight": 579
         },
-        "3 MK-81 LD": {
+        "2 Mk-82 AIR": {
+          "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
+          "weight": 579
+        },
+        "2 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
+          "weight": 579
+        },
+        "2 Mk-83": {
+          "clsid": "{BRU-42_2*Mk-83_LEFT}",
+          "weight": 991
+        },
+        "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 414
+          "weight": 451
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
@@ -2210,129 +2202,105 @@
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
           "weight": 93.89362
         },
-        "AN/AAQ-28 LITENING": {
+        "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
-          "weight": 300
+          "weight": 208
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "GBU-12": {
+        "BRU-42 with 3 x BDU-33 - 25lb Practice Bombs LD": {
+          "clsid": "BRU-42_3*BDU-33",
+          "weight": 90.15
+        },
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "GBU-16": {
+        "GBU-16 - 1000lb Laser Guided Bomb": {
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
+          "weight": 513
         },
-        "GBU-32(V)2/B": {
+        "GBU-32(V)2/B - JDAM, 1000lb GPS Guided Bomb": {
           "clsid": "{GBU_32_V_2B}",
           "weight": 467
         },
-        "GBU-38": {
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "GBU-54(V)1/B": {
+        "GBU-54B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 - 4 ZUNI MK 71": {
+        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 440
+          "weight": 316.6
         },
-        "LAU-117,AGM-65E": {
+        "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
-        "LAU-117,AGM-65F": {
+        "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-3 - 19 FFAR M156 WP": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 312.8707256
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20A}",
+          "weight": 134.5
         },
-        "LAU-3 - 19 FFAR Mk1 HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 285.292332
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20 M282}",
+          "weight": 148.5
         },
-        "LAU-3 - 19 FFAR Mk5 HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 286.1541568
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
+          "weight": 113.9
         },
-        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
+          "weight": 114.46
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 120.13
+          "weight": 118.8
         },
-        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
+          "weight": 102.07
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 FFAR M156 WP": {
-          "clsid": "{LAU68_FFAR_WP156}",
-          "weight": 120.1560568
-        },
-        "LAU-68 - 7 FFAR Mk1 HE": {
-          "clsid": "{LAU68_FFAR_MK1HE}",
-          "weight": 109.995596
-        },
-        "LAU-68 - 7 FFAR Mk5 HEAT": {
-          "clsid": "{LAU68_FFAR_MK5HEAT}",
-          "weight": 110.3131104
-        },
-        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 394.39
-        },
-        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 398.17
-        },
-        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 411.19
-        },
-        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 394.39
-        },
-        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 361
-        },
-        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 394.39
-        },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
         },
-        "Mk-83": {
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
+        },
+        "Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}",
-          "weight": 447
+          "weight": 454
         }
       },
       "4": {
@@ -2342,9 +2310,9 @@
         }
       },
       "5": {
-        "AN/AAQ-28 LITENING": {
+        "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
-          "weight": 300
+          "weight": 208
         },
         "AN/ALQ-164 DECM Pod": {
           "clsid": "{ALQ_164_RF_Jammer}",
@@ -2354,43 +2322,39 @@
       "6": {
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_RIGHT}",
-          "weight": 610
+          "weight": 547
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_RIGHT}",
-          "weight": 610
+          "weight": 579
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_RIGHT}",
-          "weight": 566
-        },
-        "2 MK-82": {
-          "clsid": "{BRU-42_2*Mk-82_RIGHT}",
-          "weight": 542
-        },
-        "2 MK-82 AIR": {
-          "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
-          "weight": 542
-        },
-        "2 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
-          "weight": 542
-        },
-        "2 MK-83": {
-          "clsid": "{BRU-42_2*Mk-83_RIGHT}",
-          "weight": 954
+          "weight": 603
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_RIGHT}",
-          "weight": 504
+          "weight": 541
         },
-        "3 BDU-33": {
-          "clsid": "BRU-42_3*BDU-33",
-          "weight": 98
+        "2 Mk-82": {
+          "clsid": "{BRU-42_2*Mk-82_RIGHT}",
+          "weight": 579
         },
-        "3 MK-81 LD": {
+        "2 Mk-82 AIR": {
+          "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
+          "weight": 579
+        },
+        "2 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
+          "weight": 579
+        },
+        "2 Mk-83": {
+          "clsid": "{BRU-42_2*Mk-83_RIGHT}",
+          "weight": 991
+        },
+        "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 414
+          "weight": 451
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
@@ -2400,195 +2364,163 @@
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
           "weight": 93.89362
         },
-        "AN/AAQ-28 LITENING": {
+        "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
-          "weight": 300
+          "weight": 208
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "GBU-12": {
+        "BRU-42 with 3 x BDU-33 - 25lb Practice Bombs LD": {
+          "clsid": "BRU-42_3*BDU-33",
+          "weight": 90.15
+        },
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "GBU-16": {
+        "GBU-16 - 1000lb Laser Guided Bomb": {
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
+          "weight": 513
         },
-        "GBU-32(V)2/B": {
+        "GBU-32(V)2/B - JDAM, 1000lb GPS Guided Bomb": {
           "clsid": "{GBU_32_V_2B}",
           "weight": 467
         },
-        "GBU-38": {
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "GBU-54(V)1/B": {
+        "GBU-54B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 - 4 ZUNI MK 71": {
+        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 440
+          "weight": 316.6
         },
-        "LAU-117,AGM-65E": {
+        "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
-        "LAU-117,AGM-65F": {
+        "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-3 - 19 FFAR M156 WP": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 312.8707256
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20A}",
+          "weight": 134.5
         },
-        "LAU-3 - 19 FFAR Mk1 HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 285.292332
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20 M282}",
+          "weight": 148.5
         },
-        "LAU-3 - 19 FFAR Mk5 HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 286.1541568
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
+          "weight": 113.9
         },
-        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
+          "weight": 114.46
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 120.13
+          "weight": 118.8
         },
-        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
+          "weight": 102.07
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 FFAR M156 WP": {
-          "clsid": "{LAU68_FFAR_WP156}",
-          "weight": 120.1560568
-        },
-        "LAU-68 - 7 FFAR Mk1 HE": {
-          "clsid": "{LAU68_FFAR_MK1HE}",
-          "weight": 109.995596
-        },
-        "LAU-68 - 7 FFAR Mk5 HEAT": {
-          "clsid": "{LAU68_FFAR_MK5HEAT}",
-          "weight": 110.3131104
-        },
-        "LAU-68*3 - 7 2.75' rockets M151 (HE)": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 394.39
-        },
-        "LAU-68*3 - 7 2.75' rockets M156 (WP)": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 398.17
-        },
-        "LAU-68*3 - 7 2.75' rockets M257 (Parachute illumination)": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 411.19
-        },
-        "LAU-68*3 - 7 2.75' rockets M274 (Practice smoke)": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 394.39
-        },
-        "LAU-68*3 - 7 2.75' rockets MK5 (HE)": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 361
-        },
-        "LAU-68*3 - 7 2.75' rockets WTU1B (Practice)": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 394.39
-        },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
         },
-        "Mk-83": {
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
+        },
+        "Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}",
-          "weight": 447
+          "weight": 454
         }
       },
       "7": {
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_RIGHT}",
-          "weight": 610
+          "weight": 547
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_RIGHT}",
-          "weight": 610
+          "weight": 579
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_RIGHT}",
-          "weight": 566
-        },
-        "2 MK-82": {
-          "clsid": "{BRU-42_2*Mk-82_RIGHT}",
-          "weight": 542
-        },
-        "2 MK-82 AIR": {
-          "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
-          "weight": 542
-        },
-        "2 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
-          "weight": 542
+          "weight": 603
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_RIGHT}",
-          "weight": 504
+          "weight": 541
         },
-        "3 BDU-33": {
-          "clsid": "BRU-42_3*BDU-33",
-          "weight": 98
+        "2 Mk-82": {
+          "clsid": "{BRU-42_2*Mk-82_RIGHT}",
+          "weight": 579
+        },
+        "2 Mk-82 AIR": {
+          "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
+          "weight": 579
+        },
+        "2 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
+          "weight": 579
         },
         "3 GBU-12": {
           "clsid": "{BRU-42A_3*GBU-12}",
-          "weight": 885
+          "weight": 772
         },
         "3 GBU-38": {
           "clsid": "{BRU-42_3*GBU-38}",
-          "weight": 885
+          "weight": 820
         },
         "3 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_3*GBU-54}",
-          "weight": 819
+          "weight": 856
         },
-        "3 MK-81 LD": {
+        "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 414
+          "weight": 451
         },
-        "3 MK-82 LD": {
+        "3 Mk-82": {
           "clsid": "{BRU-42_3*Mk-82LD}",
-          "weight": 783
+          "weight": 820
         },
-        "3 MK-82 SNAKEYE": {
-          "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
-          "weight": 783
-        },
-        "3 Mk-82AIR": {
+        "3 Mk-82 AIR": {
           "clsid": "{BRU-42_3_MK82AIR}",
-          "weight": 783
+          "weight": 820
         },
-        "3 SUU-25 * 8 LUU-2": {
-          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
-          "weight": 490
+        "3 Mk-82 Snakeye": {
+          "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
+          "weight": 820
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
@@ -2602,107 +2534,111 @@
           "clsid": "{LAU_7_AGM_122_SIDEARM}",
           "weight": 107
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "GBU-12": {
+        "BRU-42 with 3 x BDU-33 - 25lb Practice Bombs LD": {
+          "clsid": "BRU-42_3*BDU-33",
+          "weight": 90.15
+        },
+        "BRU-42 with 3 x SUU-25 x 8 LUU-2 - Target Marker Flares": {
+          "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
+          "weight": 736.65
+        },
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "GBU-16": {
+        "GBU-16 - 1000lb Laser Guided Bomb": {
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
+          "weight": 513
         },
-        "GBU-32(V)2/B": {
+        "GBU-32(V)2/B - JDAM, 1000lb GPS Guided Bomb": {
           "clsid": "{GBU_32_V_2B}",
           "weight": 467
         },
-        "GBU-38": {
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "GBU-54(V)1/B": {
+        "GBU-54B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 - 4 ZUNI MK 71": {
+        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 440
+          "weight": 316.6
         },
-        "LAU-117,AGM-65E": {
+        "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
-        "LAU-117,AGM-65F": {
+        "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-3 - 19 FFAR M156 WP": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 312.8707256
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20A}",
+          "weight": 134.5
         },
-        "LAU-3 - 19 FFAR Mk1 HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 285.292332
+        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+          "clsid": "{LAU-131 - 7 AGR-20 M282}",
+          "weight": 148.5
         },
-        "LAU-3 - 19 FFAR Mk5 HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 286.1541568
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
+          "weight": 113.9
         },
-        "LAU-68 - 7 2.75' rockets M257 (Parachute illumination)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+          "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
+          "weight": 114.46
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 120.13
+          "weight": 118.8
         },
-        "LAU-68 - 7 2.75' rockets M274 (Practice smoke)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 2.75' rockets WTU1B (Practice)": {
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+          "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
+          "weight": 102.07
+        },
+        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 114.53
+          "weight": 113.2
         },
-        "LAU-68 - 7 FFAR M156 WP": {
-          "clsid": "{LAU68_FFAR_WP156}",
-          "weight": 120.1560568
-        },
-        "LAU-68 - 7 FFAR Mk1 HE": {
-          "clsid": "{LAU68_FFAR_MK1HE}",
-          "weight": 109.995596
-        },
-        "LAU-68 - 7 FFAR Mk5 HEAT": {
-          "clsid": "{LAU68_FFAR_MK5HEAT}",
-          "weight": 110.3131104
-        },
-        "LAU-7 AIM-9M Sidewinder IR AAM": {
+        "LAU-7 with AIM-9M Sidewinder IR AAM": {
           "clsid": "{AIM-9M-ON-ADAPTER}",
-          "weight": 101.64
+          "weight": 100.73
         },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
         },
-        "Mk-83": {
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
+        },
+        "Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}",
-          "weight": 447
+          "weight": 454
         },
-        "SUU-25 * 8 LUU-2": {
+        "SUU-25 x 8 LUU-2 - Target Marker Flares": {
           "clsid": "{CAE48299-A294-4bad-8EE6-89EFC5DCDF00}",
           "weight": 130
         },
@@ -2738,43 +2674,43 @@
         },
         "AIM-9M Sidewinder IR AAM": {
           "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
-          "weight": 86.64
+          "weight": 85.73
         },
-        "AN/ASQ-T50 TCTS Pod": {
+        "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
         },
-        "BDU-33": {
+        "BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BDU-33}",
           "weight": 11
         },
-        "CAP-9M": {
+        "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
-          "weight": 85.5
+          "weight": 85.73
         },
-        "GBU-12": {
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "Mk-20": {
+        "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
           "weight": 222
         },
-        "Mk-81": {
+        "Mk-81 - 250lb GP Bomb LD": {
           "clsid": "{90321C8E-7ED1-47D4-A160-E074D5ABD902}",
           "weight": 118
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
-          "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
-        },
-        "Mk-82AIR": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{Mk82AIR}",
-          "weight": 232
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{Mk82SNAKEYE}",
+          "weight": 249.5
         },
         "Smokewinder - blue": {
           "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}",
@@ -3046,6 +2982,14 @@
         }
       },
       "2": {
+        "2 BDU-45": {
+          "clsid": "{PHXBRU3242_2*BDU45 LS}",
+          "weight": 649.38
+        },
+        "2 BDU-45B": {
+          "clsid": "{PHXBRU3242_2*BDU45B LS}",
+          "weight": 649.38
+        },
         "2 LAU-10 - 4 ZUNI MK 71": {
           "clsid": "{PHXBRU3242_2*LAU10 LS}",
           "weight": 1065.38
@@ -3158,6 +3102,14 @@
           "clsid": "{BELLY AIM-7MH}",
           "weight": 230
         },
+        "BDU-45": {
+          "clsid": "{BRU-32 BDU-45}",
+          "weight": 298.38
+        },
+        "BDU-45B": {
+          "clsid": "{BRU-32 BDU-45B}",
+          "weight": 298.38
+        },
         "GBU-10": {
           "clsid": "{BRU-32 GBU-10}",
           "weight": 997.38
@@ -3185,6 +3137,14 @@
         "MAK79 4 BDU-33": {
           "clsid": "{MAK79_BDU33 4}",
           "weight": 84
+        },
+        "MAK79 4 BDU-45": {
+          "clsid": "{MAK79_BDU45 4}",
+          "weight": 968
+        },
+        "MAK79 4 BDU-45B": {
+          "clsid": "{MAK79_BDU45B 4}",
+          "weight": 968
         },
         "MAK79 4 Mk-81": {
           "clsid": "{MAK79_MK81 4}",
@@ -3264,6 +3224,14 @@
           "clsid": "{BELLY AIM-7MH}",
           "weight": 230
         },
+        "BDU-45": {
+          "clsid": "{BRU-32 BDU-45}",
+          "weight": 298.38
+        },
+        "BDU-45B": {
+          "clsid": "{BRU-32 BDU-45B}",
+          "weight": 298.38
+        },
         "GBU-12": {
           "clsid": "{BRU-32 GBU-12}",
           "weight": 332.38
@@ -3275,6 +3243,14 @@
         "MAK79 3 BDU-33": {
           "clsid": "{MAK79_BDU33 3L}",
           "weight": 63
+        },
+        "MAK79 3 BDU-45": {
+          "clsid": "{MAK79_BDU45 3L}",
+          "weight": 726
+        },
+        "MAK79 3 BDU-45B": {
+          "clsid": "{MAK79_BDU45B 3L}",
+          "weight": 726
         },
         "MAK79 3 Mk-81": {
           "clsid": "{MAK79_MK81 3L}",
@@ -3358,6 +3334,14 @@
           "clsid": "{BELLY AIM-7MH}",
           "weight": 230
         },
+        "BDU-45": {
+          "clsid": "{BRU-32 BDU-45}",
+          "weight": 298.38
+        },
+        "BDU-45B": {
+          "clsid": "{BRU-32 BDU-45B}",
+          "weight": 298.38
+        },
         "GBU-12": {
           "clsid": "{BRU-32 GBU-12}",
           "weight": 332.38
@@ -3373,6 +3357,14 @@
         "MAK79 3 BDU-33": {
           "clsid": "{MAK79_BDU33 3R}",
           "weight": 63
+        },
+        "MAK79 3 BDU-45": {
+          "clsid": "{MAK79_BDU45 3R}",
+          "weight": 726
+        },
+        "MAK79 3 BDU-45B": {
+          "clsid": "{MAK79_BDU45B 3R}",
+          "weight": 726
         },
         "MAK79 3 Mk-81": {
           "clsid": "{MAK79_MK81 3R}",
@@ -3460,6 +3452,14 @@
           "clsid": "{BELLY AIM-7MH}",
           "weight": 230
         },
+        "BDU-45": {
+          "clsid": "{BRU-32 BDU-45}",
+          "weight": 298.38
+        },
+        "BDU-45B": {
+          "clsid": "{BRU-32 BDU-45B}",
+          "weight": 298.38
+        },
         "GBU-10": {
           "clsid": "{BRU-32 GBU-10}",
           "weight": 997.38
@@ -3487,6 +3487,14 @@
         "MAK79 4 BDU-33": {
           "clsid": "{MAK79_BDU33 4}",
           "weight": 84
+        },
+        "MAK79 4 BDU-45": {
+          "clsid": "{MAK79_BDU45 4}",
+          "weight": 968
+        },
+        "MAK79 4 BDU-45B": {
+          "clsid": "{MAK79_BDU45B 4}",
+          "weight": 968
         },
         "MAK79 4 Mk-81": {
           "clsid": "{MAK79_MK81 4}",
@@ -3540,6 +3548,14 @@
         }
       },
       "9": {
+        "2 BDU-45": {
+          "clsid": "{PHXBRU3242_2*BDU45 RS}",
+          "weight": 649.38
+        },
+        "2 BDU-45B": {
+          "clsid": "{PHXBRU3242_2*BDU45B RS}",
+          "weight": 649.38
+        },
         "2 LAU-10 - 4 ZUNI MK 71": {
           "clsid": "{PHXBRU3242_2*LAU10 RS}",
           "weight": 1065.38
@@ -4230,11 +4246,15 @@
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
         },
+        "BRU-57 with 2 x GBU-38 - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{BRU57_2*GBU-38}",
+          "weight": 573
+        },
         "CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -4249,6 +4269,18 @@
         "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
+        },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{GBU-38}",
+          "weight": 241
         },
         "LAU-117 with AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}",
@@ -4330,11 +4362,11 @@
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
         },
-        "TER-9A with 2 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
           "weight": 913
         },
-        "TER-9A with 2 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-97}",
           "weight": 887
         },
@@ -4380,7 +4412,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -4436,11 +4468,11 @@
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
         },
-        "TER-9A with 2 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
           "weight": 913
         },
-        "TER-9A with 2 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-97}",
           "weight": 887
         },
@@ -4460,11 +4492,11 @@
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
         },
-        "TER-9A with 3 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
           "weight": 1343
         },
-        "TER-9A with 3 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 3 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-97}",
           "weight": 1304
         },
@@ -4500,7 +4532,7 @@
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -4556,11 +4588,11 @@
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
         },
-        "TER-9A with 2 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
           "weight": 913
         },
-        "TER-9A with 2 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-97}",
           "weight": 887
         },
@@ -4580,11 +4612,11 @@
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
         },
-        "TER-9A with 3 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
           "weight": 1343
         },
-        "TER-9A with 3 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 3 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-97}",
           "weight": 1304
         },
@@ -4630,11 +4662,15 @@
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
         },
+        "BRU-57 with 2 x GBU-38 - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{BRU57_2*GBU-38}",
+          "weight": 573
+        },
         "CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{CBU-87}",
           "weight": 430
         },
-        "CBU-97 - 10 x CEM Cluster Bomb": {
+        "CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{5335D97A-35A5-4643-9D9B-026C75961E52}",
           "weight": 417
         },
@@ -4649,6 +4685,18 @@
         "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
+        },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38 - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{GBU-38}",
+          "weight": 241
         },
         "LAU-117 with AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}",
@@ -4730,11 +4778,11 @@
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
         },
-        "TER-9A with 2 x CBU-87 - 202 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
           "weight": 913
         },
-        "TER-9A with 2 x CBU-97 - 10 x Anti-Armor Skeet SFW Cluster Bomb": {
+        "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-97}",
           "weight": 887
         },
@@ -5021,6 +5069,10 @@
           "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}",
           "weight": 628
         },
+        "AGM-84H SLAM-ER (Expanded Response)": {
+          "clsid": "{AGM_84H}",
+          "weight": 675
+        },
         "AGM-88C HARM - High Speed Anti-Radiation Missile": {
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
@@ -5139,7 +5191,7 @@
         },
         "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
-          "weight": 934
+          "weight": 1087
         },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
@@ -5275,6 +5327,10 @@
           "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}",
           "weight": 628
         },
+        "AGM-84H SLAM-ER (Expanded Response)": {
+          "clsid": "{AGM_84H}",
+          "weight": 675
+        },
         "AGM-88C HARM - High Speed Anti-Radiation Missile": {
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
@@ -5397,7 +5453,7 @@
         },
         "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
-          "weight": 934
+          "weight": 1087
         },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
@@ -5631,6 +5687,10 @@
           "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}",
           "weight": 628
         },
+        "AGM-84H SLAM-ER (Expanded Response)": {
+          "clsid": "{AGM_84H}",
+          "weight": 675
+        },
         "AGM-88C HARM - High Speed Anti-Radiation Missile": {
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
@@ -5753,7 +5813,7 @@
         },
         "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
-          "weight": 934
+          "weight": 1087
         },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
@@ -5860,6 +5920,10 @@
         "AGM-84E Harpoon/SLAM (Stand-Off Land-Attack Missile)": {
           "clsid": "{AF42E6DF-9A60-46D8-A9A0-1708B241AADB}",
           "weight": 628
+        },
+        "AGM-84H SLAM-ER (Expanded Response)": {
+          "clsid": "{AGM_84H}",
+          "weight": 675
         },
         "AGM-88C HARM - High Speed Anti-Radiation Missile": {
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
@@ -5979,7 +6043,7 @@
         },
         "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
-          "weight": 934
+          "weight": 1087
         },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
@@ -6271,7 +6335,7 @@
           "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}",
           "weight": 506
         },
-        "Fuel tank Ka-50": {
+        "Fuel tank PTB-450": {
           "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
           "weight": 550
         },
@@ -6321,7 +6385,7 @@
           "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}",
           "weight": 506
         },
-        "Fuel tank Ka-50": {
+        "Fuel tank PTB-450": {
           "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
           "weight": 550
         },
@@ -6367,7 +6431,7 @@
           "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}",
           "weight": 506
         },
-        "Fuel tank Ka-50": {
+        "Fuel tank PTB-450": {
           "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
           "weight": 550
         },
@@ -6417,7 +6481,7 @@
           "clsid": "{37DCC01E-9E02-432F-B61D-10C166CA2798}",
           "weight": 506
         },
-        "Fuel tank Ka-50": {
+        "Fuel tank PTB-450": {
           "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
           "weight": 550
         },
@@ -6483,6 +6547,30 @@
         "Matra Type 155 Rocket Pod": {
           "clsid": "{Matra155RocketPod}",
           "weight": 190
+        },
+        "Smokewinder - blue": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}",
+          "weight": 200
+        },
+        "Smokewinder - green": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}",
+          "weight": 200
+        },
+        "Smokewinder - orange": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}",
+          "weight": 200
+        },
+        "Smokewinder - red": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}",
+          "weight": 200
+        },
+        "Smokewinder - white": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}",
+          "weight": 200
+        },
+        "Smokewinder - yellow": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}",
+          "weight": 200
         }
       },
       "10": {
@@ -6491,10 +6579,20 @@
           "weight": 20
         }
       },
+      "11": {
+        "A/G Training": {
+          "clsid": "{M2KC_AGF}",
+          "weight": 0
+        }
+      },
       "2": {
         "AUF2 BLG-66-AC x 2": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
+        },
+        "AUF2 MK-82 Air x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82A}",
+          "weight": 525
         },
         "AUF2 MK-82 Snakeyes x 2": {
           "clsid": "{M2KC_RAFAUT_MK82S}",
@@ -6520,13 +6618,17 @@
           "clsid": "{Matra155RocketPod}",
           "weight": 190
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         },
         "RPL 541 2000 liters Fuel Tank ": {
           "clsid": "{M2KC_02_RPL541}",
@@ -6542,17 +6644,21 @@
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
-        "GBU-12": {
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         }
       },
       "4": {
@@ -6560,13 +6666,17 @@
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         }
       },
       "5": {
@@ -6574,21 +6684,33 @@
           "clsid": "{M2KC_RAFAUT_GBU12}",
           "weight": 621
         },
+        "BAP-100 x 12": {
+          "clsid": "{M2KC_BAP100_12_RACK}",
+          "weight": 465
+        },
+        "BAP-100 x 18": {
+          "clsid": "{M2KC_BAP100_18_RACK}",
+          "weight": 660
+        },
+        "BAP-100 x 6": {
+          "clsid": "{M2KC_BAP100_6_RACK}",
+          "weight": 270
+        },
         "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
-        "GBU-12": {
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "GBU-16": {
+        "GBU-16 - 1000lb Laser Guided Bomb": {
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
-          "weight": 564
+          "weight": 513
         },
-        "GBU-24": {
+        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
-          "weight": 900
+          "weight": 1087
         },
         "RPL 522 1300 liters Fuel Tank": {
           "clsid": "{M2KC_RPL_522}",
@@ -6597,6 +6719,30 @@
         "RPL 522 1300 liters Fuel Tank (Empty)": {
           "clsid": "{M2KC_RPL_522_EMPTY}",
           "weight": 180
+        },
+        "Smokewinder - blue": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}",
+          "weight": 200
+        },
+        "Smokewinder - green": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}",
+          "weight": 200
+        },
+        "Smokewinder - orange": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}",
+          "weight": 200
+        },
+        "Smokewinder - red": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}",
+          "weight": 200
+        },
+        "Smokewinder - white": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}",
+          "weight": 200
+        },
+        "Smokewinder - yellow": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}",
+          "weight": 200
         }
       },
       "6": {
@@ -6604,13 +6750,17 @@
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         }
       },
       "7": {
@@ -6618,23 +6768,31 @@
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
-        "GBU-12": {
+        "GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
-          "weight": 275
+          "weight": 277
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         }
       },
       "8": {
         "AUF2 BLG-66-AC x 2": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
+        },
+        "AUF2 MK-82 Air x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82A}",
+          "weight": 525
         },
         "AUF2 MK-82 Snakeyes x 2": {
           "clsid": "{M2KC_RAFAUT_MK82S}",
@@ -6660,13 +6818,17 @@
           "clsid": "{Matra155RocketPod}",
           "weight": 190
         },
-        "Mk-82": {
+        "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
-          "weight": 241
+          "weight": 228
         },
-        "Mk-82 SnakeEye": {
+        "Mk-82 AIR Ballute - 500lb GP Bomb HD": {
+          "clsid": "{Mk82AIR}",
+          "weight": 242
+        },
+        "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
-          "weight": 232
+          "weight": 249.5
         },
         "RPL 541 2000 liters Fuel Tank ": {
           "clsid": "{M2KC_08_RPL541}",
@@ -6685,6 +6847,30 @@
         "Matra Type 155 Rocket Pod": {
           "clsid": "{Matra155RocketPod}",
           "weight": 190
+        },
+        "Smokewinder - blue": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E743}",
+          "weight": 200
+        },
+        "Smokewinder - green": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E742}",
+          "weight": 200
+        },
+        "Smokewinder - orange": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E746}",
+          "weight": 200
+        },
+        "Smokewinder - red": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E741}",
+          "weight": 200
+        },
+        "Smokewinder - white": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E744}",
+          "weight": 200
+        },
+        "Smokewinder - yellow": {
+          "clsid": "{A4BCC903-06C8-47bb-9937-A30FEDB4E745}",
+          "weight": 200
         }
       }
     },

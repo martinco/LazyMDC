@@ -13,8 +13,25 @@ function threats_autocomplete(input, fields) {
 
       var i = 1;
       for (var itm of itms) {
-        if (ui.item[itm]) {
-          tr.cells[i].firstChild.value = ui.item[itm];
+        var clear = true;
+
+        // If we have an autocomplete field, we only replace it if its not been
+        // altered or empty
+        var current = tr.cells[i].firstChild.value;
+        var ac_value = tr.cells[i].firstChild.getAttribute('data-ac');
+        if (current != "" && ac_value && current != ac_value) {
+          console.log(itm, "a", current, "b", ac_value);
+          clear = false;
+        };
+
+        if (clear) {
+          if (ui.item[itm]) {
+            tr.cells[i].firstChild.value = ui.item[itm];
+            tr.cells[i].firstChild.setAttribute('data-ac', ui.item[itm]);
+          } else {
+            tr.cells[i].firstChild.value = "";
+            tr.cells[i].firstChild.removeAttribute('data-ac');
+          }
         }
         i++;
       }
