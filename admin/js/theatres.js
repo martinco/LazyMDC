@@ -370,6 +370,7 @@ $('#theatre-add-button').click(theatre_add);
 $('#theatre-add-submit').click(function() {
   var dlg = $('#theatre-add-dialog'); 
   var form = $('#theatre-add-form');
+  var mode = dlg.data('mode');
 
   // Required etc. is ok, but not nessesarilly things like the JSON
   form[0].classList.add('was-validated');
@@ -377,36 +378,66 @@ $('#theatre-add-submit').click(function() {
     return;
   }
 
-  var data = {
-    'data': JSON.parse($('#theatre-add-json').val()),
-  }
+  // Submitted data
+  var src = JSON.parse($('#theatre-add-json').val());
 
-  // Display name defaults to theatre if not set
-  data['display_name'] = $('#theatre-add-display-name').val() || data.data.theatre;
-
-  // If it's add, we submit / close
-  var mode = dlg.data('mode');
-  console.log(mode);
-
-  if (mode == "new") {
-    api_post(
-      'theatres',
-      data,
-      function(response) {
-        console.log(response);
-
-        // Refresh content page
-        update_content();
-
-        dlg.modal('hide');
-      });
-    return
-  }
-
+  // On update we just pass it on
   if (mode == "update") {
+    var data = {
+      'data': src,
+    }
     theatre_update_data(data.data);
     dlg.modal('hide');
+    return;
   }
+
+  // Shouldn't be anything else, just close and do nothing
+  if (mode != "new") {
+    dlg.modal('hide');
+    return;
+  }
+
+  // However if we're new, we need to generate airfield indexes to allow for
+  // DCS changing the names of airfields without all our data getting messed up
+
+  var data = {
+    'data': {
+      'airfields': {},
+      'bullseye': {},
+      'next_airfield': 1,
+      'theatre': src.theatre,
+    }
+  }
+
+  var airfield_id = 1;
+  for (const [dcs_name, af_data] of Object.entries(src.airfields)) {
+    af_data['dcs_name'] = dcs_name;
+    data.data.airfields[airfield_id++] = af_data
+  };
+
+  // Store next ID
+  data.data.next_airfield = airfield_id;
+
+  // Bullseye's come upper case so downcase them
+  for (const [bulls_side, bulls_data] of Object.entries(src.bullseye)) {
+    data.data.bullseye[bulls_side.toLowerCase()] = bulls_data;
+  };
+
+  // Display name defaults to theatre if not set
+  data['display_name'] = $('#theatre-add-display-name').val() || src.theatre;
+
+  api_post(
+    'theatres',
+    data,
+    function(response) {
+      console.log(response);
+
+      // Refresh content page
+      update_content();
+
+      dlg.modal('hide');
+    });
+  return
 
 });
 
