@@ -1,7 +1,7 @@
 appdirs==1.4.4
-Pillow==8.1.1
+Pillow==8.2.0
 pyee==7.0.4
 pyppeteer==0.2.2
 tqdm==4.50.2
-urllib3==1.25.10
-websockets==8.1
+urllib3==1.26.5
+websockets==9.1
