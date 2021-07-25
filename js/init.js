@@ -40,6 +40,7 @@ $.when(
       plugins: [
         'autoresize',
         'image',
+        'paste',
         'pagebreak',
         'table',
       ],
@@ -53,6 +54,16 @@ $.when(
         cellpadding: 0,
         cellspacing: 0,
       },
+      // Take that image blob and upload it
+      automatic_uploads: true,
+      images_upload_url: "mce_upload.php",
+      images_file_types: "jpeg,jpg,png,gif,bmp",
+      // image pasting uploads (paste plugin), without using relative paths
+      smart_paste: true,
+      paste_data_images: true,
+      relative_urls : false,
+      remove_script_host: false,
+      convert_urls: false,
       //toolbar: "undo redo pastetext | fontselect | fontsizeselect",
       content_css: "tinymce.css",
       fontsize_formats: "14px 16px 18px 20px 22px 24px 30px 40px",
