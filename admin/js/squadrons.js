@@ -245,6 +245,11 @@ MissionProcessor = function() {
         'northing': 3879865,
         'easting': 217198,
         'zone': 37,
+      },
+      'MarianaIslands': {
+        'northing': 1491809,
+        'easting': 261577,
+        'zone': 55,
       }
     }
 
