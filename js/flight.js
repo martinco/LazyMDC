@@ -229,7 +229,9 @@ function flightmembers_del(tr) {
 
   // We only care if more than 2 ship
   if (rows.length > 2 && rows.length % 2 == 0) {
-    rows[row_id - 1].cells[elems['LSS']].firstChild.value = rows[row_id - 3].cells[elems['LSR']].firstChild.value;
+    if (elems['LSS']) {
+      rows[row_id - 1].cells[elems['LSS']].firstChild.value = rows[row_id - 3].cells[elems['LSR']].firstChild.value;
+    }
   }
 
   // Allow the previous row to be deleted
