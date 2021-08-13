@@ -1,0 +1,14 @@
+[Unit]
+Description=MDC API
+After=network.target network-online.target
+
+[Service]
+User=mdc_api
+Group=mdc_api
+EnvironmentFile=-/etc/sysconfig/mdc_api
+SyslogIdentifier=mdc_api
+ExecStart=/opt/mdc_api/env/bin/hupper -m waitress --host "127.0.0.1" --port 5001 'mdc_api:app'
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
