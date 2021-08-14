@@ -138,8 +138,19 @@ CREATE TABLE `squadron_missions` (
   PRIMARY KEY (`idx`),
   UNIQUE KEY `squadron_id` (`squadron_id`,`name`),
   CONSTRAINT `squadron_missions_ibfk_1` FOREIGN KEY (`squadron_id`) REFERENCES `squadrons` (`idx`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Dumping data for table `squadron_missions`
+--
+
+LOCK TABLES `squadron_missions` WRITE;
+/*!40000 ALTER TABLE `squadron_missions` DISABLE KEYS */;
+INSERT INTO `squadron_missions` VALUES (1,1,1,1,'Caucases','',NULL,1),(2,1,0,2,'Nevada','',NULL,1),(3,1,0,3,'Normandy','',NULL,1),(4,1,0,4,'Persian Gulf','',NULL,1),(5,1,0,5,'Syria','',NULL,1),(6,1,0,6,'Mariana Islands','',NULL,1);
+/*!40000 ALTER TABLE `squadron_missions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `squadron_perms`
