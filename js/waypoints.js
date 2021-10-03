@@ -363,6 +363,10 @@ $('#waypoints-table > tbody').sortable({
   },
 })
 
+$('#waypoints-poi-table > tbody').sortable({
+  items: 'tr',
+})
+
 $('#waypoints-bullseye-name').autocomplete({
   source: function(request, response) {
     waypoint_lookup_function(request, response)
