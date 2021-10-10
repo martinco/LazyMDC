@@ -37,6 +37,7 @@ class CDU_DataLoader():
         self._waypoints = waypoints
         self._wp_names = {}
         self.content = ""
+        self.ext = "txt"
         self.generate()
 
     def generate(self):
@@ -128,6 +129,198 @@ class CDU_DataLoader():
         return lat_str
 
 
+class F16_DTC():
+    '''
+    Used by dcs-dtc to auto-enter waypoints, comms etc.
+
+    https://github.com/the-paid-actor/dcs-dtc
+    '''
+
+    def __init__(self, mdc):
+
+        self._mdc = mdc
+        self.content = ""
+        self.ext = "json"
+        self.generate()
+
+    def format_waypoints(self):
+        '''
+        This wants it in
+        {
+          "Waypoints": {
+            "Waypoints": [
+              {
+                "Sequence": 1,
+                "Name": "Al Dhafra AFB",
+                "Latitude": "N 24.14.891",
+                "Longitude": "E 054.32.863",
+                "Elevation": 52,
+                "Blank": false
+              },
+              {
+                "Sequence": 9,
+                "Name": "WPT 9",
+                "Latitude": "N 00.00.000",
+                "Longitude": "E 000.00.000",
+                "Elevation": 0,
+                "Blank": true
+              }
+            ]
+          }
+        }
+        '''
+
+        waypoints = []
+        sequence = 1
+
+        if ('waypoint' not in self._mdc
+                or 'waypoints' not in self._mdc['waypoint']):
+            return waypoints
+
+        for wp in self._mdc['waypoint']['waypoints']:
+
+            new_wp = {
+                "Sequence": sequence,
+                "Name": "WPT %i" % sequence,
+                "Latitude": "N 00.00.000",
+                "Longitude": "E 000.00.000",
+                "Elevation": 0,
+                "Blank": True
+            }
+
+            # Skip waypoints that have empty floats
+            lat = self.fmt_ll(wp['lat'])
+            lon = self.fmt_ll(wp['lon'], False)
+
+            if 'name' in wp and wp['name']:
+                new_wp['Name'] = wp['name']
+
+            if 'alt' in wp and wp['alt']:
+                new_wp['Elevation'] = wp['alt']
+
+            # if no lat / lon - then we're a blank entry
+            if lat and lon:
+                new_wp.update({
+                    'Longitude': lon,
+                    'Latitude': lat,
+                    'Blank': False,
+                })
+
+            waypoints.append(new_wp)
+            sequence += 1
+
+        return waypoints
+
+    def format_cms(self):
+        '''
+        "CMS": {
+            "Programs": [
+                {
+                    "Number": 1,
+                    "FlareBurstQty": 1,
+                    "FlareBurstInterval": 0.02,
+                    "FlareSalvoQty": 10,
+                    "FlareSalvoInterval": 1,
+                    "ChaffBurstQty": 1,
+                    "ChaffBurstInterval": 0.02,
+                    "ChaffSalvoQty": 10,
+                    "ChaffSalvoInterval": 1
+                },
+                ...
+            ]
+        }
+        '''
+
+        programs = []
+
+        if 'profiles' not in self._mdc or 'cmds' not in self._mdc['profiles']:
+            return programs
+
+        for x in range(1, 6):
+            prog = {
+                "Number": x,
+                "FlareBurstQty": 1,
+                "FlareBurstInterval": 0.02,
+                "FlareSalvoQty": 10,
+                "FlareSalvoInterval": 1,
+                "ChaffBurstQty": 1,
+                "ChaffBurstInterval": 0.02,
+                "ChaffSalvoQty": 10,
+                "ChaffSalvoInterval": 1
+            }
+
+            mapping = {
+                "BQ": "BurstQty",
+                "BI": "BurstInterval",
+                "SQ": "SalvoQty",
+                "SI": "SalvoInterval",
+            }
+
+            key = "MAN %i" % x
+            if key in self._mdc['profiles']['cmds']:
+                data = self._mdc['profiles']['cmds'][key]
+
+                updates = {}
+                for k, prefix in [('CHAFF', 'Chaff'), ('FLARE', 'Flare')]:
+                    for itm, value in data[k].items():
+                        try:
+                            out_key = mapping[itm]
+                        except:
+                            continue
+
+                        updates["%s%s" % (prefix, out_key)] = value
+
+                prog.update(updates)
+
+            programs.append(prog)
+
+        return programs
+
+    def generate(self):
+
+        content = {
+            'Waypoints': {
+                'Waypoints': self.format_waypoints()
+            },
+            'CMS': {
+                'Programs': self.format_cms()
+            }
+        }
+
+        self.content = json.dumps(content, indent=2, separators=(',', ': '))
+
+    def fmt_ll(self, wp, lat=True):
+
+        try:
+            work = float(wp)
+        except ValueError:
+            return None
+
+        positive = work > 0
+        work = abs(work)
+
+        degs = math.floor(work)
+        work -= degs
+        work *= 60
+
+        mins = round(work, 3)
+        if mins == 60:
+            degs += 1
+
+        if lat:
+            lat_str = 'N ' if positive else 'S'
+        else:
+            lat_str = 'E ' if positive else 'W'
+
+        if lat:
+            lat_str += '%02d.' % degs
+        else:
+            lat_str += '%03d.' % degs
+
+        lat_str += '%06.3f' % mins
+        return lat_str
+
+
 async def get_html(url):
 
     browser = await launch({
@@ -137,11 +330,11 @@ async def get_html(url):
     })
 
     page = await browser.newPage()
-    page.on('console', lambda x: print("CONSOLE LOG:", x.text));
-    page.on('error', lambda x: print("ERROR:", x));
-    page.on('pageerror', lambda x: print("PAGE ERROR:", x));
+    page.on('console', lambda x: print("CONSOLE LOG:", x.text))
+    page.on('error', lambda x: print("ERROR:", x))
+    page.on('pageerror', lambda x: print("PAGE ERROR:", x))
 
-    print("LOAD: " + url);
+    print("LOAD: " + url)
     await page.goto(url)
     try:
         await page.waitForSelector("#page_count", {"timeout": 2000})
@@ -251,7 +444,9 @@ def main():
     cdu = None
 
     if ac == 'A-10C':
-        cdu = CDU_DataLoader(mdc['waypoint']['waypoints']).content
+        cdu = CDU_DataLoader(mdc['waypoint']['waypoints'])
+    elif ac == 'F-16C':
+        cdu = F16_DTC(mdc)
 
     url = (
         '{scheme}://{host}/{root}'
@@ -274,10 +469,11 @@ def main():
     if params['output'] == "pdf":
 
         # Check if we have a cache
-        cache_file = os.path.join(ROOT, 'cache', params['key'])
+        cache_file = os.path.join(ROOT, 'cachef', params['key'])
         if cdu:
             cache_file += '.zip'
-            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+            if (os.path.exists(cache_file)
+                    and mdc_modified < os.path.getmtime(cache_file)):
                 print ("Content-Disposition: attachment; "
                        "filename=\"MDC-%s.zip\"" % params['id'])
                 print ("Content-Type: application/zip\n")
@@ -287,7 +483,8 @@ def main():
                 return
         else:
             cache_file += '.pdf'
-            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+            if (os.path.exists(cache_file)
+                    and mdc_modified < os.path.getmtime(cache_file)):
                 print ("Content-Disposition: attachment; "
                        "filename=\"MDC-%s.pdf\"" % params['id'])
                 print("Content-Type: application/pdf\n")
@@ -301,7 +498,7 @@ def main():
         if cdu:
             # Then we zip it up instead
             zipf = ZipFile(cache_file, 'w')
-            zipf.writestr('%s.txt' % params['id'], cdu)
+            zipf.writestr('%s.%s' % (params['id'], cdu.ext), cdu.content)
             zipf.writestr('%s.pdf' % params['id'], pdf)
             zipf.close()
 
@@ -329,7 +526,8 @@ def main():
         # See if a png exists, as we don't know how many pages tehre are
         if not cdu:
             cache_file = cache_base + '.png'
-            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+            if (os.path.exists(cache_file)
+                    and mdc_modified < os.path.getmtime(cache_file)):
                 print ("Content-Disposition: attachment; "
                        "filename=\"0000-%s-0001.png\"" % params['id'])
                 print("Content-Type: image/png\n")
@@ -341,7 +539,8 @@ def main():
         # Otherwise see if a zip exists
         else:
             cache_file = cache_base + '.zip'
-            if (os.path.exists(cache_file) and mdc_modified < os.path.getmtime(cache_file)):
+            if (os.path.exists(cache_file)
+                    and mdc_modified < os.path.getmtime(cache_file)):
                 print ("Content-Disposition: attachment; "
                        "filename=\"MDC-%s.zip\"" % params['id'])
                 print ("Content-Type: application/zip\n")
@@ -349,7 +548,6 @@ def main():
                 with open(cache_file, 'rb') as fh:
                     sys.stdout.buffer.write(fh.read())
                 return
-
 
         pages, png = asyncio.get_event_loop().run_until_complete(
             get_image(url))
@@ -362,7 +560,7 @@ def main():
             sys.stdout.flush()
 
             with open(cache_file, 'wb') as fh:
-                fh.write(png);
+                fh.write(png)
 
             sys.stdout.buffer.write(png)
             return
@@ -372,7 +570,7 @@ def main():
         zipf = ZipFile(cache_file, 'w')
 
         if cdu:
-            zipf.writestr('%s.txt' % params['id'], cdu)
+            zipf.writestr('%s.%s' % (params['id'], cdu.ext), cdu.content)
 
         # Crop out pages
         if pages == 1:

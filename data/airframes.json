@@ -5015,7 +5015,9 @@
         "U",
         "V"
       ]
-    }
+    },
+    "waypoint_initial_index": 1,
+    "waypoint_reindex": true
   },
   "FA-18C": {
     "bingo": 3000,

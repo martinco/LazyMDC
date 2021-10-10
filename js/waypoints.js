@@ -86,7 +86,26 @@ function waypoint_update() {
   var tot_valid = true;
   var gs = 0;
 
+  var type = $('#flight-airframe').val()
+
+  var waypoint_initial_index = 0;
+  var waypoint_reindex = false;
+
+  if (type && airframes[type]) {
+    waypoint_reindex = airframes[type]['waypoint_reindex'] === true;
+    if (airframes[type]['waypoint_initial_index']) {
+      waypoint_initial_index = airframes[type]['waypoint_initial_index'];
+    }
+  }
+
+  var index = waypoint_initial_index;
+
   $('#waypoints-table > tbody > tr').each(function(idx, row) {
+
+    // If we reindex, each row must be incremented
+    if (waypoint_reindex) {
+      row.cells[0].innerText = index++;
+    }
 
     // If we have a GS specified, use it; otherwise continue to use previous
     // gs. This allows someone to declutter and only specify when GS changes
@@ -174,6 +193,18 @@ function waypoint_add(wp_info) {
   var last_row = $("#waypoints-table > tbody > tr:last")[0]
   var current_last_data = get_row_data(last_row);
 
+  var type = $('#flight-airframe').val()
+
+  var waypoint_initial_index = 0;
+  var waypoint_reindex = false;
+
+  if (type && airframes[type]) {
+    waypoint_reindex = airframes[type]['waypoint_reindex'] === true;
+    if (airframes[type]['waypoint_initial_index']) {
+      waypoint_initial_index = airframes[type]['waypoint_initial_index'];
+    }
+  }
+
   if (!last_row) {
 
     // We also remove declutter to avoid GS / ALT being removed in the case
@@ -184,7 +215,6 @@ function waypoint_add(wp_info) {
     // unless they're already defined (e.g. CF) otherwise, we'll use the
     // previous row's data
 
-    var type = $('#flight-airframe').val()
     if (type && airframes[type]) {
       if (airframes[type]['cruise_gs'] && !data['gs']) {
         data['gs'] = airframes[type]['cruise_gs'].toString()
@@ -194,8 +224,8 @@ function waypoint_add(wp_info) {
       }
     }
 
-    data['act'] = "00:20"
-    data['typ'] = ["FA-18C"].includes(type) ? "0" : "1";
+    data['act'] = "00:20";
+    data['typ'] = waypoint_initial_index;
   } else {
 
     // If typ is a number, increment it
@@ -241,8 +271,16 @@ function waypoint_add(wp_info) {
 
   waypoints_table.data('declutter', declutter);
 
-  var row = `<tr>
-          <td class="input-container"><input class="text-center" value="${data['typ']}"></td>
+  // F-16 waypoints always 
+  var row = `<tr>`;
+
+  if (waypoint_reindex) {
+    row += `<td class="text-center">${data['typ']}</td>`;
+  } else {
+    row += `<td class="input-container"><input class="text-center" value="${data['typ']}"></td>`;
+  }
+
+  row += `
           <td class="input-container"><input value="${data['name']}"></td>
           <td class="input-container text-right"><input value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
