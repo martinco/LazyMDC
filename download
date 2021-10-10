@@ -278,14 +278,20 @@ class F16_DTC():
 
     def generate(self):
 
-        content = {
-            'Waypoints': {
-                'Waypoints': self.format_waypoints()
-            },
-            'CMS': {
+        content = {}
+
+        waypoints = self.format_waypoints()
+        if waypoints:
+            content['Waypoints'] = {
+                'Waypoints': waypoints
+            }
+
+        cms = self.format_cms()
+
+        if cms:
+            content['CMS'] = {
                 'Programs': self.format_cms()
             }
-        }
 
         self.content = json.dumps(content, indent=2, separators=(',', ': '))
 
