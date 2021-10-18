@@ -6319,7 +6319,9 @@
         "PRI",
         "SEC"
       ]
-    }
+    },
+    "waypoint_initial_index": 0,
+    "waypoint_reindex": true
   },
   "Ka-50": {
     "bingo": 500,

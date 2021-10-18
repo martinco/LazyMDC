@@ -129,6 +129,73 @@ class CDU_DataLoader():
         return lat_str
 
 
+class MDC_LOADER():
+    '''
+    Used by MDC Loader to auto-enter waypoints, sequence etc.
+    '''
+
+    def __init__(self, mdc, key):
+
+        self._mdc = mdc
+        self._key = key
+        self.content = ""
+        self.ext = "mdc-loader.json"
+        self.generate()
+
+    def format_waypoints(self):
+        '''
+        This wants a simple array of waypoints
+        [
+            [lat, lon, alt(ft)]
+            ...
+        ]
+        '''
+
+        waypoints = []
+        sequence = []
+
+        if ('waypoint' not in self._mdc
+                or 'waypoints' not in self._mdc['waypoint']):
+            return (None, None)
+
+        i = 0
+        for wp in self._mdc['waypoint']['waypoints']:
+
+            wp_data = [0,0,0]
+
+            for idx, k in enumerate(['lat', 'lon', 'alt']):
+                if k in wp and wp[k]:
+                    try:
+                        wp_data[idx] = float(wp[k])
+                    except:
+                        pass
+
+            if wp_data[0] and wp_data[1]:
+                sequence.append(i)
+
+            waypoints.append(wp_data)
+            i += 1
+
+        return (waypoints, [sequence])
+
+    def generate(self):
+
+        content = {
+            "id": self._key,
+            "version": "1.0",
+            "data": {},
+        }
+
+        (waypoints, sequence) = self.format_waypoints()
+        if waypoints:
+            content['data']['waypoints'] = waypoints
+
+        if sequence:
+            content['data']['sequence'] = sequence
+
+        self.content = json.dumps(content, indent=2, separators=(',', ': '))
+
+
 class F16_DTC():
     '''
     Used by dcs-dtc to auto-enter waypoints, comms etc.
@@ -453,6 +520,8 @@ def main():
         cdu = CDU_DataLoader(mdc['waypoint']['waypoints'])
     elif ac == 'F-16C':
         cdu = F16_DTC(mdc)
+    elif ac == 'FA-18C':
+        cdu = MDC_LOADER(mdc, params['key'])
 
     url = (
         '{scheme}://{host}/{root}'
