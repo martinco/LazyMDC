@@ -1,0 +1,43 @@
+<div class="tab-pane active" id="apps">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Apps</h1>
+  </div>
+  <div>
+    <div style="font-size: 22px; padding-bottom: 10px">
+      MDC Data Loader
+    </div>
+    <p>
+      This is a small application which can automatically enter waypoints for
+      the F/A-18C using the mdc-loader.json which is supplied with the PDF /
+      PNG download zip archive
+    </p>
+    <p>
+      Download: <a href="https://dcs-mdc.com/apps/mdc-data-loader-0.1.zip">mdc-data-loader-0.1.zip</a>
+    </p>
+    <p>
+      This is <b>*very*</b> alpha at the moment and the source will be put on github in due course
+      <ul>
+        <li>Currently only supports F/A-18C
+        <li>All valid waypoints will be entered<ul>
+          <li>Invalid or empty waypoints will be ignroed and skipped
+          <li>It will continue to enter next waypoint gaps in the MDC will be honored in-pit
+        </ul>
+        <li>Waypoints will be entered starting at the currently selected waypoint
+          <ul>
+            <li>To ensure consistency, ensure WP0 is selected (default at startup)
+            <li>If you wish to skip WP 0 (e.g. loading prior to alignment), have a blank item on the waypoints page and it will be skipped on data entry
+          </ul>
+        <li>Sequence currently uses all valid waypoints and ignores what's in the sequence box
+          <ul>
+            <li>When I update the Waypoints tab to manually create sequences these will be honored 
+            <li>Right now as a free-form text entry box it's too much data sanitation 
+          </ul>
+      </ul>
+      Credits:<br><br>
+      <ul>
+        <li>the-paid-actor's <a href=https://github.com/the-paid-actor/dcs-dtc>DCS-DTC</a> from which the current mdc-data-loader's LUA component was derived
+        <li>This will likely be rewritten to facilitate other features but was used to speed up PoC
+      </ul>
+    </p>
+  </div>
+</div>

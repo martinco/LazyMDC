@@ -181,6 +181,12 @@ function bot_detected() {
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#apps">
+                <span data-feather="truck"></span>
+                Apps<span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#about">
                 <span data-feather="at-sign"></span>
                 About<span class="sr-only"></span>
@@ -272,6 +278,7 @@ function bot_detected() {
         readfile('pages/threats.html');
         readfile('pages/notes.html');
         readfile('pages/download.html');
+        readfile('pages/apps.html');
         ?>
       </div>
 
