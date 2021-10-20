@@ -13,6 +13,7 @@ git rev-parse HEAD > $TEMPDIR/commit
 
 rsync -rlDq \
   --delete \
+  --exclude /apps \
   --exclude /venv \
   --exclude /install \
   --exclude '/mdcs/*.json' \
