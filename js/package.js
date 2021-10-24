@@ -109,3 +109,7 @@ function package_load(data, callback) {
 
   callback();
 }
+
+$('#package-members-table > tbody').sortable({
+  items: 'tr',
+})
