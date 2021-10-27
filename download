@@ -32,61 +32,92 @@ class CDU_DataLoader():
     http://www.virtual-jabog32.de/forum/viewtopic.php?f=38&t=11569
     '''
 
-    def __init__(self, waypoints):
+    def __init__(self, mdc, key, mission_id):
 
-        self._waypoints = waypoints
+        self._mdc = mdc
         self._wp_names = {}
-        self.content = ""
-        self.ext = "txt"
+        self._files = {}
         self.generate()
+
+    @property
+    def files(self):
+        return self._files
 
     def generate(self):
 
-        # Hold alt as our default unless specified elsewhere
+        main_fp = self.generate_main_fp()
+        if main_fp:
+            self._files['main.cdu-dataloader.txt'] = main_fp
+
+        poi_fp = self.generate_poi_fp()
+        if poi_fp:
+            self._files['poi.cdu-dataloader.txt'] = poi_fp
+
+    def get_waypoint_line(self, wp, prefix):
+
+        # Skip waypoints that have empty floats
+        lat = self.fmt_ll(wp['lat'])
+        lon = self.fmt_ll(wp['lon'], False)
         alt = 0
 
-        for wp in self._waypoints:
+        if 'tot' in wp:
+            tot = 'T' + wp['tot'].replace(':', '') + '00'
+        else:
+            tot = 'T000000'
 
-            # Skip waypoints that have empty floats
-            lat = self.fmt_ll(wp['lat'])
-            lon = self.fmt_ll(wp['lon'], False)
+        try:
+            alt = int(wp['alt'])
+        except (ValueError, KeyError):
+            # We can pass now to hit the updated alt
+            pass
 
+        if not lat or not lon:
+            raise Exception("Missing lat / lon")
+
+        # We prefix the name with M to help ensure no collisions in game
+        # waypoints are limited to 12 characters, so we truncate
+        name = (prefix + " " + wp['name'])[0:12].strip()
+
+        # They also can't be identical, so if we encounter the same name
+        # add "space ID"
+        if name in self._wp_names:
+            self._wp_names[name] += 1
+            suffix = " " + str(self._wp_names[name])
+            remove = (len(suffix) + len(name)) - 12
+            if remove > 0:
+                name = name[0:-remove]
+            name += suffix
+        else:
+            self._wp_names[name] = 1
+
+        # However, when we write them out, we pad them all to 12 so
+        # autocomplete doesn't autocomplete when subsequent points are
+        # prefixed
+        #
+        # E.g: Racetrack followed by Race
+        return "{} {} EL{:05} {} {:12}\n".format(
+            lat,
+            lon,
+            alt,
+            tot,
+            name)
+
+    def generate_main_fp(self):
+
+        content = ""
+        for wp in self._mdc['waypoint']['waypoints']:
             try:
-                alt = int(wp['alt'])
-            except ValueError:
-                # We can pass now to hit the updated alt
-                pass
-
-            if not lat or not lon:
+                content += self.get_waypoint_line(wp, 'M')
+            except Exception as e:
                 continue
 
-            # We prefix the name with M to help ensure no collisions in game
-            # waypoints are limited to 12 characters, so we truncate
-            name = ("M " + wp['name'])[0:12].strip()
+        return content
 
-            # They also can't be identical, so if we encounter the same name
-            # add "space ID"
-            if name in self._wp_names:
-                self._wp_names[name] += 1
-                suffix = " " + str(self._wp_names[name])
-                remove = (len(suffix) + len(name)) - 12
-                if remove > 0:
-                    name = name[0:-remove]
-                name += suffix
-            else:
-                self._wp_names[name] = 1
-
-            # However, when we write them out, we pad them all to 12 so
-            # autocomplete doesn't autocomplete when subsequent points are
-            # prefixed
-            #
-            # E.g: Racetrack followed by Race
-            self.content += "{} {} EL{:05} {} {:12}\n".format(
-                lat,
-                lon,
-                alt,
-                'T' + wp['tot'].replace(':', '') + '00',
-                name)
+    def generate_poi_fp(self):
+        content = ""
+        for wp in self._mdc['waypoint']['poi']:
+            content += self.get_waypoint_line(wp, 'P')
+        return content
 
     def fmt_ll(self, wp, lat=True):
 
@@ -134,13 +165,17 @@ class MDC_LOADER():
     Used by MDC Loader to auto-enter waypoints, sequence etc.
     '''
 
-    def __init__(self, mdc, key):
+    def __init__(self, mdc, key, mission_id):
 
         self._mdc = mdc
+        self._mission_id = mission_id
         self._key = key
-        self.content = ""
-        self.ext = "mdc-loader.json"
+        self._files = {}
         self.generate()
+
+    @property
+    def files(self):
+        return self._files
 
     def format_waypoints(self):
         '''
@@ -161,7 +196,7 @@ class MDC_LOADER():
         i = 0
         for wp in self._mdc['waypoint']['waypoints']:
 
-            wp_data = [0,0,0]
+            wp_data = [0, 0, 0]
 
             for idx, k in enumerate(['lat', 'lon', 'alt']):
                 if k in wp and wp[k]:
@@ -189,11 +224,11 @@ class MDC_LOADER():
 
         return None
 
-
     def generate(self):
 
         content = {
-            "id": self._key,
+            "id": self._mission_id,
+            "key": self._key,
             "version": "1.0",
             "data": {},
         }
@@ -209,7 +244,9 @@ class MDC_LOADER():
         if bulls:
             content['data']['bullseye'] = bulls
 
-        self.content = json.dumps(content, indent=2, separators=(',', ': '))
+        if content['data']:
+            self._files['mdc-loader.json'] = json.dumps(
+                content, indent=2, separators=(',', ': '))
 
 
 class F16_DTC():
@@ -219,12 +256,16 @@ class F16_DTC():
     https://github.com/the-paid-actor/dcs-dtc
     '''
 
-    def __init__(self, mdc):
+    def __init__(self, mdc, key, mission_id):
 
         self._mdc = mdc
-        self.content = ""
-        self.ext = "json"
+        self._files = {}
         self.generate()
+        self.generate()
+
+    @property
+    def files(self):
+        return self._files
 
     def format_waypoints(self):
         '''
@@ -376,7 +417,9 @@ class F16_DTC():
                 'Programs': self.format_cms()
             }
 
-        self.content = json.dumps(content, indent=2, separators=(',', ': '))
+        if content:
+            self._files['f16_dtc.json'] = json.dumps(
+                content, indent=2, separators=(',', ': '))
 
     def fmt_ll(self, wp, lat=True):
 
@@ -533,11 +576,11 @@ def main():
     cdu = None
 
     if ac == 'A-10C':
-        cdu = CDU_DataLoader(mdc['waypoint']['waypoints'])
+        cdu = CDU_DataLoader(mdc, params['key'], params['id'])
     elif ac == 'F-16C':
-        cdu = F16_DTC(mdc)
+        cdu = F16_DTC(mdc, params['key'], params['id'])
     elif ac == 'FA-18C':
-        cdu = MDC_LOADER(mdc, params['key'])
+        cdu = MDC_LOADER(mdc, params['key'], params['id'])
 
     url = (
         '{scheme}://{host}/{root}'
@@ -561,7 +604,7 @@ def main():
 
         # Check if we have a cache
         cache_file = os.path.join(ROOT, 'cache', params['key'])
-        if cdu:
+        if cdu.files:
             cache_file += '.zip'
             if (os.path.exists(cache_file)
                     and mdc_modified < os.path.getmtime(cache_file)):
@@ -586,11 +629,14 @@ def main():
 
         pdf = asyncio.get_event_loop().run_until_complete(get_pdf(url))
 
-        if cdu:
+        if cdu.files:
             # Then we zip it up instead
             zipf = ZipFile(cache_file, 'w')
-            zipf.writestr('%s.%s' % (params['id'], cdu.ext), cdu.content)
             zipf.writestr('%s.pdf' % params['id'], pdf)
+
+            for cdu_file, cdu_data in cdu.files.items():
+                zipf.writestr('%s.%s' % (params['id'], cdu_file), cdu_data)
+
             zipf.close()
 
             print ("Content-Disposition: attachment; "
@@ -615,7 +661,7 @@ def main():
         cache_base = os.path.join(ROOT, 'cache', params['key'])
 
         # See if a png exists, as we don't know how many pages tehre are
-        if not cdu:
+        if not cdu.files:
             cache_file = cache_base + '.png'
             if (os.path.exists(cache_file)
                     and mdc_modified < os.path.getmtime(cache_file)):
@@ -643,7 +689,7 @@ def main():
         pages, png = asyncio.get_event_loop().run_until_complete(
             get_image(url))
 
-        if pages == 1 and not cdu:
+        if pages == 1 and not cdu.files:
             cache_file = cache_base + '.png'
             print ("Content-Disposition: attachment; "
                    "filename=\"0000-%s-0001.png\"" % params['id'])
@@ -660,8 +706,8 @@ def main():
         cache_file = cache_base + '.zip'
         zipf = ZipFile(cache_file, 'w')
 
-        if cdu:
-            zipf.writestr('%s.%s' % (params['id'], cdu.ext), cdu.content)
+        for cdu_file, cdu_data in cdu.files.items():
+            zipf.writestr('%s.%s' % (params['id'], cdu_file), cdu_data)
 
         # Crop out pages
         if pages == 1:
