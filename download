@@ -47,11 +47,11 @@ class CDU_DataLoader():
 
         main_fp = self.generate_main_fp()
         if main_fp:
-            self._files['main.cdu-dataloader.txt'] = main_fp
+            self._files['main.txt'] = main_fp
 
         poi_fp = self.generate_poi_fp()
         if poi_fp:
-            self._files['poi.cdu-dataloader.txt'] = poi_fp
+            self._files['poi.txt'] = poi_fp
 
     def get_waypoint_line(self, wp, prefix):
 
