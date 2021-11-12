@@ -116,7 +116,11 @@ class CDU_DataLoader():
     def generate_poi_fp(self):
         content = ""
         for wp in self._mdc['waypoint']['poi']:
-            content += self.get_waypoint_line(wp, 'P')
+            try:
+                content += self.get_waypoint_line(wp, 'P')
+            except Exception as e:
+                continue
+
         return content
 
     def fmt_ll(self, wp, lat=True):
