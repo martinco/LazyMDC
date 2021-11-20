@@ -16,6 +16,7 @@ rsync -rlDq \
   --exclude /apps \
   --exclude /venv \
   --exclude /install \
+  --exclude /mdc_images \
   --exclude '/mdcs/*.json' \
   --include /mdcs/.htaccess \
   --exclude /docs \
