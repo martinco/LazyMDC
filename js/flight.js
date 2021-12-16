@@ -70,12 +70,18 @@ function flight_update_default_coord_format() {
 
   if (ac == "F-14B") {
     dp = 1
+  } else if (ac == 'AV8BNA') {
+    fmt = "dms";
+    dp = 0;
   }
 
   // Update Radio / DP
-  $('#flight-coord-'+fmt).prop("checked", true).click();
+  $('#flight-coord-'+fmt).click();
   $('#flight-coord-decimals').val(dp).change();
 
+  // Set them in case the click/change doesn't trigger nicely
+  coords.set_display_format(fmt);
+  coords.set_display_decimals(dp);
 }
 
 function pilot_autocomplete(input, fields=null, rio=false) {
