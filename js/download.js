@@ -93,7 +93,7 @@ function download_stage2(key, format, template) {
     });
 
   } else if (format == 'html') {
-    window.location = "templates/" + template + "/template.htm?kb=" + key;
+    window.open("templates/" + template + "/template.htm?kb=" + key, "_blank");
   } else {
     window.location = dl + "&output=" + format;
   }
