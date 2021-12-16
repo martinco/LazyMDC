@@ -1563,7 +1563,7 @@ function Threats (data, unit) {
 
         <colgroup>
           <col />
-          <col style="width:80${unit}" />
+          <col style="width:85${unit}" />
           <col style="width:80${unit}" />
           <col style="width:60${unit}" />
           <col style="width:60${unit}" />
