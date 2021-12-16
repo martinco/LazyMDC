@@ -458,9 +458,9 @@ function flight_load(data, callback) {
 
   if (!data) { callback(); return; }
 
-  $("#flight-airframe").val(data['flight-airframe']).change()
-  $("#flight-coord").val(data['flight-coord'])
-  $("#flight-coord-decimals").val(data['flight-coord-decimals'])
+  $("#flight-airframe").val(data['flight-airframe']).change();
+  $('#flight-coord-' + data['flight-coord']).click();
+  $("#flight-coord-decimals").val(data['flight-coord-decimals']).change();
 
   flightmembers_format()
   data['members'].forEach(function(member) {
