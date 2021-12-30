@@ -143,10 +143,12 @@ class CDU_DataLoader():
 
         secs = round(work)
 
-        if secs == 60:
+        if secs == 1000:
             mins += 1
+            secs = 0
         if mins == 60:
             degs += 1
+            mins = 0
 
         if lat:
             lat_str = 'N' if positive else 'S'
@@ -442,6 +444,7 @@ class F16_DTC():
         mins = round(work, 3)
         if mins == 60:
             degs += 1
+            mins = 0
 
         if lat:
             lat_str = 'N ' if positive else 'S'
@@ -597,6 +600,13 @@ def main():
 
     if params['output'] == "html":
         print("Content-Type: text/plain\n")
+        if cdu and cdu.files:
+            for cdu_file, cdu_data in cdu.files.items():
+                print("-"*60)
+                print(cdu_file)
+                print("-"*60)
+                print(cdu_data)
+                sys.stdout.flush()
         content = asyncio.get_event_loop().run_until_complete(get_html(url))
         print("-"*60)
         print("-"*60)
