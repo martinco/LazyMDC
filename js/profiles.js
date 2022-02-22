@@ -255,6 +255,64 @@ $('#profiles-f16-hts-man-table > tbody > tr > td > input').each(function(idx, fi
   autocomplete(idx, field, options);
 });
 
+function profiles_get_f16_hts_manual() {
+
+  var headers = get_row_data($("#profiles-f16-hts-man-table > thead > tr:last")[0]);
+  var ret = null;
+
+  $("#profiles-f16-hts-man-table > tbody > tr").each(function(row, tr) {
+    get_row_data(tr).forEach(function(value, col) {
+      if (!value || value === "") {
+        return;
+      }
+
+      var attr = headers[col].toLowerCase();
+
+      if (!ret) {
+        ret = {
+          'man': []
+        };
+      }
+
+      if (!ret['man'][row]) {
+         ret['man'][row] = {}
+      }
+
+      ret['man'][row][attr] = value;
+    });
+  });
+
+  const checkedClassIds = [];
+  let allChecked = true;
+  for (let classId = 1; classId < 11; classId++) {
+    const checkBox = $(`#hts-class-check${classId}:last`);
+    if (checkBox.length == 0) {
+      continue;
+    }
+
+    if (checkBox[0].checked) {
+      checkedClassIds.push(classId);
+    } else {
+      allChecked = false;
+    }
+  }
+
+  // if all checked, nothing has changed.
+  if (!allChecked) {
+    if (!ret) {
+      ret = {};
+    }
+
+    if (!ret['classes']) {
+      ret['classes'] = [];
+    }
+
+    ret['classes'].push(...checkedClassIds);
+  }
+
+  return ret;
+}
+
 function profiles_generate_f16_hts_tables(data) {
 
   if (!data) { return; }
@@ -276,7 +334,7 @@ function profiles_generate_f16_hts_tables(data) {
           <thead class="thead-light">
             <tr>
               <th colspan=2 class="text-center br-2">
-                <input type="checkbox" label="Enable CLASS ${classId}" checked="true" />
+                <input type="checkbox" id="hts-class-check${classId}" label="Enable CLASS ${classId}" checked="true" />
                 <label>CLASS ${classId}</label>
               </th>
             </tr>
@@ -315,7 +373,6 @@ profiles_set_f16_harm(airframes['F-16C']['harm']['defaults']);
 // Load default HTS classes
 
 const htsTables = profiles_generate_f16_hts_tables(airframes['F-16C']['hts']['defaults']);
-
 $("#grid").empty().append(htsTables);
 
 ////////////////////////////////////////////////////////////
@@ -341,6 +398,11 @@ function profiles_export() {
     var harm = profiles_get_f16_harm();
     if (harm) {
       ret['harm'] = harm;
+    }
+
+    var hts = profiles_get_f16_hts_manual();
+    if (hts) {
+      ret['hts'] = hts;
     }
   }
 
