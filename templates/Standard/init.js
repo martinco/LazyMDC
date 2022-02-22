@@ -589,8 +589,6 @@ function F16Harm (data, unit) {
       return elems;
     }
 
-    var tables = Object.keys(data.profiles.harm);
-
     for (var row = 0; row < 5; row++ ){
 
       var html = `<tr>`;
@@ -606,6 +604,92 @@ function F16Harm (data, unit) {
         html += `<td class="${cls}">${data.profiles.harm[table]['values'][row][attr]}</td>`;
       }
       html += `</tr>`;
+      elems.push($(html));
+    }
+
+    return elems;
+  }.bind(this))();
+
+}
+
+function F16HTS (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  console.log(JSON.stringify(data));
+
+  this.nobreak = true;
+
+  this.table = function() {
+    if (!data.profiles || !data.profiles.hts) {
+      return $();
+    }
+
+    var html = `
+      <div style="overflow: auto">
+        <div style="float: left; width: 529${unit}">
+          <table class="std" style="width: 100%; table-layout: fixed"">
+            <colgroup>
+              <col width="38${unit}"/>
+              <col width="38${unit}"/>
+              <col />
+              <col width="38${unit}"/>
+              <col width="38${unit}"/>
+              <col />
+            </colgroup>
+            <thead class="thead-light">
+              <tr>
+                <th colspan=6 class="text-center">HTS MAN TABLE</th>
+              </tr>
+              <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">RWR</th>
+                <th class="text-center rb2">Name</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">RWR</th>
+                <th class="text-center">Name</th>
+              </tr>
+              </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+    
+    return $(html);
+  };
+
+  this.content = (function() {
+
+    var elems = [];
+
+    if (!data.profiles || !data.profiles.hts) {
+      return elems;
+    }
+
+    for (var row = 0; row < 4; row++){
+
+      var html = `<tr>`;
+      for (var col = 0; col < 6; col++) {
+          var attr = ['id', 'rwr', 'name'][col % 3];
+
+          var cls = (col + 1) % 3  == 0
+            ? (col != 5 ? 'lp5 rb2 text-harm' : 'lp5 text-harm')
+            : "text-center";
+
+          let tableIdx = row + (col > 2 ? 4 : 0);
+          console.log(tableIdx);
+
+          let content = "-";
+          if (data.profiles.hts.man.length > tableIdx) {
+            content = data.profiles.hts.man[tableIdx][attr];
+          }
+
+          html += `<td class="${cls}">${content}</td>`;
+      }
+      html += `</tr>`;
+
       elems.push($(html));
     }
 
@@ -1834,6 +1918,7 @@ function Builder(data, unit) {
     'loadout-notes',
     'f16cmds',
     'f16harm',
+    'f16hts',
     'ramrod',
     'waypoints',
     'sequence',
@@ -1859,6 +1944,7 @@ function Builder(data, unit) {
     'loadout': new Loadout(data, unit),
     'f16cmds': new F16CMDS(data, unit),
     'f16harm': new F16Harm(data, unit),
+    'f16hts': new F16HTS(data, unit),
     'loadout-notes': new Notes(loadout_notes, unit),
     'ramrod': new RAMROD(data, unit),
     'waypoints': new Waypoints(data, unit),
