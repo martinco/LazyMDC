@@ -114,7 +114,7 @@ profiles_set_f16_cmds_formatter()
 // F16 HARM TABLES
 ////////////////////////////////////////////////////////////
 
-function profiles_f16_harm_lookup(request, response, heading) {
+function profiles_f16_harm_lookup(request, response, heading, options) {
 
   function hasMatch(fs) {
     if (typeof fs !== 'string' || fs === "") {
@@ -128,9 +128,7 @@ function profiles_f16_harm_lookup(request, response, heading) {
     return
   }
 
-  var matches = []
-  var options = airframes['F-16C']['harm']['options'];
-
+  var matches = [];
   options.forEach(function(elem) {
 
     // If we're the name field, use everything, else limit to single vlaue
@@ -201,9 +199,7 @@ function profiles_set_f16_harm(data) {
   });
 }
 
-// HARM ID Autocompletes
-$('#profiles-f16-harm-table > tbody > tr > td > input').each(function(idx, field) {
-
+function autocomplete(idx, field, options) {
   // Offset in the id, rwr, name collection
   var offset = idx % 3;
   var heading = ['id', 'rwr', 'name'][offset]
@@ -211,7 +207,7 @@ $('#profiles-f16-harm-table > tbody > tr > td > input').each(function(idx, field
   // Create Autocomplete
   $(field).autocomplete({
     source: function(request, response) {
-      profiles_f16_harm_lookup(request, response, heading)
+      profiles_f16_harm_lookup(request, response, heading, options)
     },
     select: function(event, ui) {
       var id = $(event.target.parentElement).index() - offset;
@@ -244,14 +240,83 @@ $('#profiles-f16-harm-table > tbody > tr > td > input').each(function(idx, field
 
       // If we get here, then we're the last cell, and it would be right to do
       // default behaviour and just continue to whatever is next
-    }
-  });
+    }});
+}
 
+// HARM ID Autocompletes
+$('#profiles-f16-harm-table > tbody > tr > td > input').each(function(idx, field) {
+  const options = airframes['F-16C']['harm']['options'];
+  autocomplete(idx, field, options);
 });
 
+// HTS ID Autocompletes
+$('#profiles-f16-hts-man-table > tbody > tr > td > input').each(function(idx, field) {
+  const options = airframes['F-16C']['hts']['options'];
+  autocomplete(idx, field, options);
+});
+
+function profiles_generate_f16_hts_tables(data) {
+
+  if (!data) { return; }
+
+  let tables = "";
+  for (let classId = 1; classId < 11; classId++) {
+
+    const entries = data[classId - 1]['values'];
+    if (entries.length == 0)
+      continue;
+
+    tables += `
+      <table class="table table-striped" id="profiles-f16-hts-table-${classId}">
+          <colgroup>
+            <col width="10px"/>
+            <col width="10px"/>
+            <col width="40px"/>
+          </colgroup>
+          <thead class="thead-light">
+            <tr>
+              <th colspan=2 class="text-center br-2">
+                <input type="checkbox" label="Enable CLASS ${classId}" checked="true" />
+                <label>CLASS ${classId}</label>
+              </th>
+            </tr>
+            <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">RWR</th>
+              <th class="text-center br-2">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+
+    for (const entry of entries) {
+      tables += `
+            <tr>
+              <td class="text-center">${entry['id']}</td>
+              <td class="text-center">${entry['rwr']}</td>
+              <td class="text-left">${entry['name']}</td>
+            </tr>
+            `;
+    }
+
+    tables += `
+          </tbody>
+        </table>
+
+    `;
+  }
+
+  return tables;
+}
 
 // Load default HARM tables
 profiles_set_f16_harm(airframes['F-16C']['harm']['defaults']);
+
+// Load default HTS classes
+
+const htsTables = profiles_generate_f16_hts_tables(airframes['F-16C']['hts']['defaults']);
+
+$("#grid").empty().append(htsTables);
 
 ////////////////////////////////////////////////////////////
 // GENERAL
