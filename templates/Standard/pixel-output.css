@@ -31,6 +31,10 @@ body {
 
 table.std td {
   border: 1px solid #000000;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 
 table.std tr {
