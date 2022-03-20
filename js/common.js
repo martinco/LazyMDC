@@ -198,6 +198,17 @@ function lookup_preset(value) {
       return "V-M"; // VOR (108-118) / ATC AM (118-137) / Also upto 151.9
     }
     return "-";
+  } else if (type == 'AH-64D') {
+    if (float_val >= 225 && float_val < 400) {
+      return "U-M";
+    }
+    if (float_val >= 108 && float_val < 152) {
+      return "V-M"; // VOR (108-118) / ATC AM (118-137) / Also upto 151.9
+    }
+    if (float_val >= 30 && float_val < 88) {
+      return "F-M"; // VHF FM
+    }
+    return "-";
   }
 
   return "M";

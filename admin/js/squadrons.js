@@ -616,6 +616,7 @@ MissionProcessor = function() {
       'SA342Minigun': ['FM'],
       'SA342Mistral': ['FM'],
       'UH-1H': ['UHF'],
+      'AH-64D': ['V', 'U', 'FM1', 'FM2'],
     }
 
     var errors = [];
@@ -638,6 +639,7 @@ MissionProcessor = function() {
               var type = unit_data.type;
               if (type == "FA-18C_hornet") { type = "FA-18C"; };
               if (type == "F-16C_50") { type = "F-16C"; };
+              if (type == "AH-64D_BLK_II") { type = "AH-64D"; };
 
               // Unit ID is useful for tracking which one, whilst unit_name maps to a dictionary object
               var unit_id = unit_data.unitId;
@@ -1429,7 +1431,7 @@ function squadrons_populate_missions_edit_presets(data, callback) {
     var radio_count = Object.keys(presets[airframe]).length;
 
     // Take the width, minus the number of frequencies, minus the 10px spacings for inter-radios, and 5px border each size
-    var div_width = (715 - 80*2*radio_count - 10*(radio_count-1) - 10) / radio_count;
+    var div_width = (910 - 80*2*radio_count - 10*(radio_count-1) - 10) / radio_count;
 
     for (const [radio_name, radio_presets] of Object.entries(presets[airframe]).sort()) {
 

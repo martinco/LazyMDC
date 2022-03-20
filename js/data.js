@@ -367,7 +367,13 @@ function build_preset_lookups(ac, radios) {
           elems.push(v[pick]);
         }
       }
-      preset_lookups[freq] = elems.join(',');
+      if (ac == "AH-64D") {
+        // If we have multiple, it must be on the FM since there can't be
+        // overlaping freqs on any other radios, so prefix with FM
+        preset_lookups[freq] = "FM " + elems.join(',');
+      } else {
+        preset_lookups[freq] = elems.join(',');
+      }
     }
   }
 

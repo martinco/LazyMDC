@@ -6,7 +6,7 @@
     "cruise_alt": 15000,
     "cruise_gs": 280,
     "cvn": false,
-    "empty_lbs": 24967,
+    "empty_lbs": 25106,
     "flare": 240,
     "fuel": 100,
     "fuel_lbs": 11087,
@@ -1870,6 +1870,318 @@
         "U",
         "V",
         "F"
+      ]
+    }
+  },
+  "AH-64D": {
+    "bingo": 700,
+    "chaff": 30,
+    "comments": "",
+    "cruise_alt": 500,
+    "cruise_gs": 120,
+    "cvn": false,
+    "empty_lbs": 12783,
+    "flare": 60,
+    "fuel": 100,
+    "fuel_lbs": 3170,
+    "gs_units": "kts",
+    "gun": 100,
+    "gun_lbs": 227,
+    "joker": 1000,
+    "loadout": {
+      "1": {
+        "Fuel tank 230 gal": {
+          "clsid": "{EFT_230GAL}",
+          "weight": 765.45
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "M261_MK151",
+          "weight": 234
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M229, HEDP": {
+          "clsid": "{M261_M229}",
+          "weight": 338.19
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M257, Illum.": {
+          "clsid": "{M261_M257}",
+          "weight": 271.5
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M274, Smk": {
+          "clsid": "{M261_M274}",
+          "weight": 286.7
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M282, MPP": {
+          "clsid": "{M261_M282}",
+          "weight": 309.88
+        },
+        "M261: Outboard Launcher, Zones A/B: M151 Hydra (6PD), Zone E: M257 Hydra (6IL)": {
+          "clsid": "{M261_OUTBOARD_AB_M151_E_M257}",
+          "weight": 275.5
+        },
+        "M261: Outboard Launcher, Zones A/B: M151 Hydra (6PD), Zone E: M274 Hydra (6SK)": {
+          "clsid": "{M261_OUTBOARD_AB_M151_E_M274}",
+          "weight": 273.1
+        },
+        "M299 - 1 x AGM-114K Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
+          "weight": 111.2
+        },
+        "M299 - 2 x AGM-114K Hellfire": {
+          "clsid": "{M299_2xAGM_114K}",
+          "weight": 156.6
+        },
+        "M299 - 3 x AGM-114K Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
+          "weight": 202
+        },
+        "M299 - 4 x AGM-114K Hellfire": {
+          "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+          "weight": 247.4
+        },
+        "M299 - Empty Launcher": {
+          "clsid": "{M299_EMPTY}",
+          "weight": 65.8
+        }
+      },
+      "2": {
+        "Fuel tank 230 gal": {
+          "clsid": "{EFT_230GAL}",
+          "weight": 765.45
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "M261_MK151",
+          "weight": 234
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M229, HEDP": {
+          "clsid": "{M261_M229}",
+          "weight": 338.19
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M257, Illum.": {
+          "clsid": "{M261_M257}",
+          "weight": 271.5
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M274, Smk": {
+          "clsid": "{M261_M274}",
+          "weight": 286.7
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M282, MPP": {
+          "clsid": "{M261_M282}",
+          "weight": 309.88
+        },
+        "M261: Inboard Launcher, Zone C: M257 Hydra (6IL), Zones D/E: M151 Hydra (6PD)": {
+          "clsid": "{M261_INBOARD_DE_M151_C_M257}",
+          "weight": 275.5
+        },
+        "M261: Inboard Launcher, Zone C: M274 Hydra (6SK), Zones D/E: M151 Hydra (6PD)": {
+          "clsid": "{M261_INBOARD_DE_M151_C_M274}",
+          "weight": 273.1
+        },
+        "M299 - 1 x AGM-114K Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
+          "weight": 111.2
+        },
+        "M299 - 2 x AGM-114K Hellfire": {
+          "clsid": "{M299_2xAGM_114K}",
+          "weight": 156.6
+        },
+        "M299 - 3 x AGM-114K Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
+          "weight": 202
+        },
+        "M299 - 4 x AGM-114K Hellfire": {
+          "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+          "weight": 247.4
+        },
+        "M299 - Empty Launcher": {
+          "clsid": "{M299_EMPTY}",
+          "weight": 65.8
+        }
+      },
+      "3": {
+        "Fuel tank 230 gal": {
+          "clsid": "{EFT_230GAL}",
+          "weight": 765.45
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "M261_MK151",
+          "weight": 234
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M229, HEDP": {
+          "clsid": "{M261_M229}",
+          "weight": 338.19
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M257, Illum.": {
+          "clsid": "{M261_M257}",
+          "weight": 271.5
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M274, Smk": {
+          "clsid": "{M261_M274}",
+          "weight": 286.7
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M282, MPP": {
+          "clsid": "{M261_M282}",
+          "weight": 309.88
+        },
+        "M261: Inboard Launcher, Zone C: M257 Hydra (6IL), Zones D/E: M151 Hydra (6PD)": {
+          "clsid": "{M261_INBOARD_DE_M151_C_M257}",
+          "weight": 275.5
+        },
+        "M261: Inboard Launcher, Zone C: M274 Hydra (6SK), Zones D/E: M151 Hydra (6PD)": {
+          "clsid": "{M261_INBOARD_DE_M151_C_M274}",
+          "weight": 273.1
+        },
+        "M299 - 1 x AGM-114K Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
+          "weight": 111.2
+        },
+        "M299 - 2 x AGM-114K Hellfire": {
+          "clsid": "{M299_2xAGM_114K}",
+          "weight": 156.6
+        },
+        "M299 - 3 x AGM-114K Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
+          "weight": 202
+        },
+        "M299 - 4 x AGM-114K Hellfire": {
+          "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+          "weight": 247.4
+        },
+        "M299 - Empty Launcher": {
+          "clsid": "{M299_EMPTY}",
+          "weight": 65.8
+        }
+      },
+      "4": {
+        "Fuel tank 230 gal": {
+          "clsid": "{EFT_230GAL}",
+          "weight": 765.45
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+          "clsid": "M261_MK151",
+          "weight": 234
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M229, HEDP": {
+          "clsid": "{M261_M229}",
+          "weight": 338.19
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M257, Illum.": {
+          "clsid": "{M261_M257}",
+          "weight": 271.5
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M274, Smk": {
+          "clsid": "{M261_M274}",
+          "weight": 286.7
+        },
+        "M261 pod - 19 x 2.75 Hydra, UnGd Rkts M282, MPP": {
+          "clsid": "{M261_M282}",
+          "weight": 309.88
+        },
+        "M261: Outboard Launcher, Zones A/B: M151 Hydra (6PD), Zone E: M257 Hydra (6IL)": {
+          "clsid": "{M261_OUTBOARD_AB_M151_E_M257}",
+          "weight": 275.5
+        },
+        "M261: Outboard Launcher, Zones A/B: M151 Hydra (6PD), Zone E: M274 Hydra (6SK)": {
+          "clsid": "{M261_OUTBOARD_AB_M151_E_M274}",
+          "weight": 273.1
+        },
+        "M299 - 1 x AGM-114K Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
+          "weight": 111.2
+        },
+        "M299 - 2 x AGM-114K Hellfire": {
+          "clsid": "{M299_2xAGM_114K}",
+          "weight": 156.6
+        },
+        "M299 - 3 x AGM-114K Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
+          "weight": 202
+        },
+        "M299 - 4 x AGM-114K Hellfire": {
+          "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
+          "weight": 247.4
+        },
+        "M299 - Empty Launcher": {
+          "clsid": "{M299_EMPTY}",
+          "weight": 65.8
+        }
+      }
+    },
+    "mlw_field": 23000,
+    "mtow_field": 23000,
+    "pylons": [
+      [
+        "1",
+        ""
+      ],
+      [
+        "2",
+        ""
+      ],
+      [
+        "3",
+        ""
+      ],
+      [
+        "4",
+        ""
+      ]
+    ],
+    "radios": {
+      "presets": {
+        "FM1": {
+          "1": "30.000",
+          "10": "30.050",
+          "2": "30.010",
+          "3": "30.015",
+          "4": "30.020",
+          "5": "30.025",
+          "6": "30.030",
+          "7": "30.035",
+          "8": "30.040",
+          "9": "30.045"
+        },
+        "FM2": {
+          "1": "30.000",
+          "10": "30.050",
+          "2": "30.010",
+          "3": "30.015",
+          "4": "30.020",
+          "5": "30.025",
+          "6": "30.030",
+          "7": "30.035",
+          "8": "30.040",
+          "9": "30.045"
+        },
+        "U": {
+          "1": "225.000",
+          "10": "390.000",
+          "2": "240.000",
+          "3": "255.000",
+          "4": "270.000",
+          "5": "285.000",
+          "6": "300.000",
+          "7": "325.000",
+          "8": "350.000",
+          "9": "375.000"
+        },
+        "V": {
+          "1": "127.500",
+          "10": "137.000",
+          "2": "135.000",
+          "3": "136.000",
+          "4": "127.000",
+          "5": "125.000",
+          "6": "121.000",
+          "7": "141.000",
+          "8": "128.000",
+          "9": "126.000"
+        }
+      },
+      "priority": [
+        "U",
+        "V",
+        "FM1",
+        "FM2"
       ]
     }
   },
@@ -4328,9 +4640,25 @@
           "clsid": "ALQ_184",
           "weight": 215
         },
+        "ALQ-184 Long - ECM Pod": {
+          "clsid": "ALQ_184_Long",
+          "weight": 286
+        },
         "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
+        },
+        "BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{BDU-50HD}",
+          "weight": 232
+        },
+        "BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LD}",
+          "weight": 232
+        },
+        "BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LGB}",
+          "weight": 280
         },
         "BRU-57 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU57_2*AGM-154A}",
@@ -4514,6 +4842,18 @@
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
         },
+        "BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{BDU-50HD}",
+          "weight": 232
+        },
+        "BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LD}",
+          "weight": 232
+        },
+        "BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LGB}",
+          "weight": 280
+        },
         "CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{CBU-87}",
           "weight": 430
@@ -4624,6 +4964,10 @@
           "clsid": "ALQ_184",
           "weight": 215
         },
+        "ALQ-184 Long - ECM Pod": {
+          "clsid": "ALQ_184_Long",
+          "weight": 286
+        },
         "Fuel tank 300 gal": {
           "clsid": "{8A0BE8AE-58D4-4572-9263-3144C0D06364}",
           "weight": 1083.5076415
@@ -4637,6 +4981,18 @@
         "AGM-88C HARM - High Speed Anti-Radiation Missile": {
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
+        },
+        "BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{BDU-50HD}",
+          "weight": 232
+        },
+        "BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LD}",
+          "weight": 232
+        },
+        "BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LGB}",
+          "weight": 280
         },
         "CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{CBU-87}",
@@ -4776,9 +5132,25 @@
           "clsid": "ALQ_184",
           "weight": 215
         },
+        "ALQ-184 Long - ECM Pod": {
+          "clsid": "ALQ_184_Long",
+          "weight": 286
+        },
         "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "{AIS_ASQ_T50}",
           "weight": 62.6
+        },
+        "BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{BDU-50HD}",
+          "weight": 232
+        },
+        "BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LD}",
+          "weight": 232
+        },
+        "BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{BDU-50LGB}",
+          "weight": 280
         },
         "BRU-57 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU57_2*AGM-154A}",
@@ -5221,15 +5593,15 @@
           "clsid": "{AWW-13}",
           "weight": 200
         },
-        "BDU-45": {
+        "BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BDU_45}",
           "weight": 232
         },
-        "BDU-45 LG": {
+        "BDU-45 LG - 500lb Practice Laser Guided Bomb": {
           "clsid": "{BDU_45LG}",
           "weight": 277
         },
-        "BDU-45B": {
+        "BDU-45B - 500lb Practice Bomb": {
           "clsid": "{BDU_45B}",
           "weight": 232
         },
@@ -5413,13 +5785,13 @@
           "clsid": "LAU-115_2*LAU-127_CATM-9M",
           "weight": 316.46
         },
-        "LAU-115 with AIM-7M Sparrow Semi-Active Radar": {
-          "clsid": "{LAU-115 - AIM-7M}",
-          "weight": 285.5
-        },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
           "weight": 285.4
+        },
+        "LAU-115C with AIM-7M Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7M}",
+          "weight": 285.5
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
@@ -5487,15 +5859,15 @@
           "clsid": "{AWW-13}",
           "weight": 200
         },
-        "BDU-45": {
+        "BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BDU_45}",
           "weight": 232
         },
-        "BDU-45 LG": {
+        "BDU-45 LG - 500lb Practice Laser Guided Bomb": {
           "clsid": "{BDU_45LG}",
           "weight": 277
         },
-        "BDU-45B": {
+        "BDU-45B - 500lb Practice Bomb": {
           "clsid": "{BDU_45B}",
           "weight": 232
         },
@@ -5651,13 +6023,13 @@
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
           "weight": 468
         },
-        "LAU-115 with AIM-7M Sparrow Semi-Active Radar": {
-          "clsid": "{LAU-115 - AIM-7M}",
-          "weight": 285.5
-        },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
           "weight": 285.4
+        },
+        "LAU-115C with AIM-7M Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7M}",
+          "weight": 285.5
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
@@ -5735,11 +6107,11 @@
           "clsid": "{AWW-13}",
           "weight": 200
         },
-        "BDU-45": {
+        "BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BDU_45}",
           "weight": 232
         },
-        "BDU-45B": {
+        "BDU-45B - 500lb Practice Bomb": {
           "clsid": "{BDU_45B}",
           "weight": 232
         },
@@ -5855,15 +6227,15 @@
           "clsid": "{AWW-13}",
           "weight": 200
         },
-        "BDU-45": {
+        "BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BDU_45}",
           "weight": 232
         },
-        "BDU-45 LG": {
+        "BDU-45 LG - 500lb Practice Laser Guided Bomb": {
           "clsid": "{BDU_45LG}",
           "weight": 277
         },
-        "BDU-45B": {
+        "BDU-45B - 500lb Practice Bomb": {
           "clsid": "{BDU_45B}",
           "weight": 232
         },
@@ -6019,13 +6391,13 @@
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
           "weight": 468
         },
-        "LAU-115 with AIM-7M Sparrow Semi-Active Radar": {
-          "clsid": "{LAU-115 - AIM-7M}",
-          "weight": 285.5
-        },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
           "weight": 285.4
+        },
+        "LAU-115C with AIM-7M Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7M}",
+          "weight": 285.5
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
@@ -6097,15 +6469,15 @@
           "clsid": "{AWW-13}",
           "weight": 200
         },
-        "BDU-45": {
+        "BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BDU_45}",
           "weight": 232
         },
-        "BDU-45 LG": {
+        "BDU-45 LG - 500lb Practice Laser Guided Bomb": {
           "clsid": "{BDU_45LG}",
           "weight": 277
         },
-        "BDU-45B": {
+        "BDU-45B - 500lb Practice Bomb": {
           "clsid": "{BDU_45B}",
           "weight": 232
         },
@@ -6289,13 +6661,13 @@
           "clsid": "LAU-115_2*LAU-127_CATM-9M",
           "weight": 316.46
         },
-        "LAU-115 with AIM-7M Sparrow Semi-Active Radar": {
-          "clsid": "{LAU-115 - AIM-7M}",
-          "weight": 285.5
-        },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
           "weight": 285.4
+        },
+        "LAU-115C with AIM-7M Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7M}",
+          "weight": 285.5
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
@@ -6718,6 +7090,10 @@
           "clsid": "{MMagicII}",
           "weight": 85
         },
+        "Matra Magic II / DDM": {
+          "clsid": "{MMagicII_DDM}",
+          "weight": 95
+        },
         "Matra Type 155 Rocket Pod": {
           "clsid": "{Matra155RocketPod}",
           "weight": 190
@@ -6748,8 +7124,36 @@
         }
       },
       "10": {
-        "Eclair": {
+        "Eclair 16 flares 16 chaffs": {
           "clsid": "{Eclair}",
+          "weight": 20
+        },
+        "Eclair-M 0/6 : 108 chaffs": {
+          "clsid": "{EclairM_06}",
+          "weight": 20
+        },
+        "Eclair-M 1/5 : 8 flares 90 chaffs": {
+          "clsid": "{EclairM_15}",
+          "weight": 20
+        },
+        "Eclair-M 2/4 : 16 flares 72 chaffs": {
+          "clsid": "{EclairM_24}",
+          "weight": 20
+        },
+        "Eclair-M 3/3 : 24 flares 54 chaffs": {
+          "clsid": "{EclairM_33}",
+          "weight": 20
+        },
+        "Eclair-M 4/2 : 32 flares 36 chaffs": {
+          "clsid": "{EclairM_42}",
+          "weight": 20
+        },
+        "Eclair-M 5/1 : 40 flares 18 chaffs": {
+          "clsid": "{EclairM_51}",
+          "weight": 20
+        },
+        "Eclair-M 6/0 : 48 flares": {
+          "clsid": "{EclairM_60}",
           "weight": 20
         }
       },
@@ -6760,23 +7164,23 @@
         }
       },
       "2": {
-        "AUF2 BLG-66-AC x 2": {
+        "AUF2 - 2 x BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
+        },
+        "AUF2 - 2 x Mk-82 - 500lb GP Bomb LD": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 531
+        },
+        "AUF2 - 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 574
         },
         "AUF2 MK-82 Air x 2": {
           "clsid": "{M2KC_RAFAUT_MK82A}",
           "weight": 525
         },
-        "AUF2 MK-82 Snakeyes x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 525
-        },
-        "AUF2 MK-82 x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 525
-        },
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6814,7 +7218,7 @@
         }
       },
       "3": {
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6836,7 +7240,7 @@
         }
       },
       "4": {
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6854,9 +7258,9 @@
         }
       },
       "5": {
-        "AUF2 GBU-12 x 2": {
+        "AUF2 - 2 x GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{M2KC_RAFAUT_GBU12}",
-          "weight": 621
+          "weight": 629
         },
         "BAP-100 x 12": {
           "clsid": "{M2KC_BAP100_12_RACK}",
@@ -6870,7 +7274,7 @@
           "clsid": "{M2KC_BAP100_6_RACK}",
           "weight": 270
         },
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6920,7 +7324,7 @@
         }
       },
       "6": {
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6938,7 +7342,7 @@
         }
       },
       "7": {
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -6960,23 +7364,23 @@
         }
       },
       "8": {
-        "AUF2 BLG-66-AC x 2": {
+        "AUF2 - 2 x BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
+        },
+        "AUF2 - 2 x Mk-82 - 500lb GP Bomb LD": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 531
+        },
+        "AUF2 - 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 574
         },
         "AUF2 MK-82 Air x 2": {
           "clsid": "{M2KC_RAFAUT_MK82A}",
           "weight": 525
         },
-        "AUF2 MK-82 Snakeyes x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 525
-        },
-        "AUF2 MK-82 x 2": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 525
-        },
-        "BLG-66-AC Belouga": {
+        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7017,6 +7421,10 @@
         "Matra Magic II": {
           "clsid": "{MMagicII}",
           "weight": 85
+        },
+        "Matra Magic II / DDM": {
+          "clsid": "{MMagicII_DDM}",
+          "weight": 95
         },
         "Matra Type 155 Rocket Pod": {
           "clsid": "{Matra155RocketPod}",
@@ -7139,7 +7547,7 @@
           "9": "126.000"
         }
       },
-      "priorities": [
+      "priority": [
         "U",
         "V"
       ]
@@ -7644,6 +8052,12 @@
           "clsid": "{IR_Deflector}",
           "weight": 5
         }
+      },
+      "7": {
+        "Dipole Antanna (aesthetic)": {
+          "clsid": "{SA342_Dipole}",
+          "weight": 5
+        }
       }
     },
     "mlw_field": 4630,
@@ -7723,6 +8137,12 @@
       "6": {
         "IR Deflector": {
           "clsid": "{IR_Deflector}",
+          "weight": 5
+        }
+      },
+      "7": {
+        "Dipole Antanna (aesthetic)": {
+          "clsid": "{SA342_Dipole}",
           "weight": 5
         }
       }

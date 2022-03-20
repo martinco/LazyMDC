@@ -147,7 +147,7 @@ function flightmembers_items(ac) {
       ['OID', 50, "text-center", "number"])
   };
 
-  if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
+  if (!["UH-1H", "Ka-50", "Mi-8MT", "AH-64D"].includes(ac)) {
     cols.push(
       ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$', function(field) { tcn_formatter(field); } ],
     );

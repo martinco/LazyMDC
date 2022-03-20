@@ -156,7 +156,7 @@ function Header(data, unit, page) {
       <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
-          <col style="width: 115${unit}" />
+          <col style="width: 120${unit}" />
           <col style="width: 90${unit}" />
           <col style="width: 90${unit}" />`
 
@@ -760,7 +760,7 @@ var Loadout = function(data, unit) {
 
     // Table Sizing
     var pylons_count = data.loadout.pylons.length;
-    var loop_count = Math.max(pylons_count, other_col.length + mtow_rows, lbs_col.length + mtow_rows)
+    var loop_count = Math.max(pylons_count, other_col.length, lbs_col.length + mtow_rows)
 
     html = "";
     for (var n = 0; n < loop_count; n++) {
@@ -793,7 +793,7 @@ var Loadout = function(data, unit) {
       } else if (n < other_col.length) {
         html += `<td></td><td></td><td class="rb2"></td>`;
       } else {
-        html += `<td class="bg-blank rb2" style="border:0" colspan=3></td>`;
+        html += `<td class="bg-blank" style="border:0" colspan=3></td>`;
       }
 
       if (other_itm) {
@@ -830,7 +830,7 @@ var Loadout = function(data, unit) {
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_vtol'])}</td>`;
         } else {
-          html += `<th class="text-center">${single_max ? 'MAX' : 'MAX T/O'}</th>
+          html += `<th class="text-center lb2">${single_max ? 'MAX' : 'MAX T/O'}</th>
                     <td colspan=2 class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>`;
         }
       } else if (n == loop_count-mtow_rows+2) {
@@ -861,7 +861,8 @@ var Loadout = function(data, unit) {
 
 var Presets = function(data, unit) {
 
-  var data = data;
+  var ac = data['flight']['flight-airframe'];
+  var data = data.presets;
   var unit = unit;
 
   this.single_page = true;
@@ -886,31 +887,40 @@ var Presets = function(data, unit) {
       <div style="height:10px"></div>
     `;
 
-    // 2 rows for each radio + 1 spacer
+    // 2 rows for each radio + 1 spacer, unless we're an AH-64D, in which case,
+    // we have 4 radios, each with 10 presets, so can fit on one page with 2
+    // tables
+    
     var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
-    var col_group = '<col width=35px /><col width=85px/><col width=127px/><col width=18px/>'.repeat(priorities.length-1)
-    var headers = `<td class="bg-blank" style="border:0"></td>`;
-    for (const idx in priorities) {
-      headers += `<th colspan=3>${priorities[idx]}</th>`;
-      if (idx < priorities.length-1) {
-        headers += '<td class="bg-blank" style="border:0"></td>';
-      }
-    }
 
-    html += `
-    <table class="kb-width std" style="table-layout: fixed">
-      <colgroup>
-        <col />
-        ${col_group}
-        <col width=35px /><col width=85px/><col width=127px/>
-        <col />
-      </colgroup>
-      <tbody>
-        <tr class="header">
-          ${headers}
-        </tr>
-      </tbody>
-    </table>`;
+    if (ac == 'AH-64D') {
+    } else {
+
+      var col_group = '<col width=35px /><col width=85px/><col width=127px/><col width=18px/>'.repeat(priorities.length-1)
+
+      var headers = `<td class="bg-blank" style="border:0"></td>`;
+      for (const idx in priorities) {
+        headers += `<th colspan=3>${priorities[idx]}</th>`;
+        if (idx < priorities.length-1) {
+          headers += '<td class="bg-blank" style="border:0"></td>';
+        }
+      }
+
+      html += `
+      <table class="kb-width std" style="table-layout: fixed">
+        <colgroup>
+          <col />
+          ${col_group}
+          <col width=35px /><col width=85px/><col width=127px/>
+          <col />
+        </colgroup>
+        <tbody>
+          <tr class="header">
+            ${headers}
+          </tr>
+        </tbody>
+      </table>`;
+    }
 
     return $(html);
   };
@@ -930,34 +940,93 @@ var Presets = function(data, unit) {
       return [];
     }
 
-    var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
-    var presets = Math.max(...Object.values(data.radios).map(x => Object.keys(x).length));
-    var radio_count = priorities.length
-    var html = ``;
+    // For the AH64, we yeet this up manually, ugh
+    if (ac == 'AH-64D') {
 
-    // loop 1-30
-    for (var x = 1; x <= presets; x++) {
-      html += '<tr><td class="bg-blank" style="border:0"></td>';
-      for (const [radio_id, radio] of Object.entries(priorities)) {
-        var pst = data.radios[radio][x];
-        console.log(x, radio_id, radio,pst);
-        if (pst) {
+      var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+      console.log(data)
+      for (var start of [0, 2]) {
+
+        var html = `
+        <div style="height:20px"></div>
+        <table class="kb-width std" style="table-layout: fixed">
+          <colgroup>
+            <col/>
+            <col width=35px /><col width=85px/><col width=127px/>
+            <col/>
+            <col width=35px /><col width=85px/><col width=127px/>
+            <col/>
+          </colgroup>
+          <tbody>
+            <tr class="header">
+              <td class="bg-blank" style="border:0"></td>
+              <th colspan=3>${priorities[start]}</th>
+              <td class="bg-blank" style="border:0"></td>
+              <th colspan=3>${priorities[start+1]}</th>
+              <td class="bg-blank" style="border:0"></td>
+            </tr>`;
+
+        for (var x = 1; x <= 10; x++) {
+          html += `<tr>`;
+          pst = data.radios[priorities[start]][x];
+          html += `
+            <td class="bg-blank" style="border:0"></td>
+            <td class="text-right rp5">${x}</td>
+            <td class="text-bold text-right rp5">${pst.value}</td>
+            <td class="lp5">${pst.code ? pst.code : ""}</td>
+            <td class="bg-blank" style="border:0"></td>
+          `;
+
+          pst = data.radios[priorities[start+1]][x];
           html += `
             <td class="text-right rp5">${x}</td>
             <td class="text-bold text-right rp5">${pst.value}</td>
-            <td class="lp5">${pst.code ? pst.code : ""}</td>`;
-          if (radio_id < radio_count-1) {
-            html += '<td class="bg-blank" style="border:0"></td>';
-          }
-        } else {
-          html += `<td class="bg-blank" style="border:0" colspan=3></td>`;
-          html += `<td class="bg-blank" style="border:0"></td>`;
-        }
-      }
-      html += '<td class="bg-blank" style="border:0"></td></tr>';
-    }
+            <td class="lp5">${pst.code ? pst.code : ""}</td>
+            <td class="bg-blank" style="border:0"></td>
+          `;
 
-    content.push($(html));
+          html += `</tr>`;
+        }
+
+        html += `
+          </tbody>
+        </table>
+        <div style="height:20px"></div>`;
+
+        content.push($(html));
+      }
+
+    } else {
+
+      var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+      var presets = Math.max(...Object.values(data.radios).map(x => Object.keys(x).length));
+      var radio_count = priorities.length
+      var html = ``;
+
+      // loop 1-30
+      for (var x = 1; x <= presets; x++) {
+        html += '<tr><td class="bg-blank" style="border:0"></td>';
+        for (const [radio_id, radio] of Object.entries(priorities)) {
+          var pst = data.radios[radio][x];
+          console.log(x, radio_id, radio,pst);
+          if (pst) {
+            html += `
+              <td class="text-right rp5">${x}</td>
+              <td class="text-bold text-right rp5">${pst.value}</td>
+              <td class="lp5">${pst.code ? pst.code : ""}</td>`;
+            if (radio_id < radio_count-1) {
+              html += '<td class="bg-blank" style="border:0"></td>';
+            }
+          } else {
+            html += `<td class="bg-blank" style="border:0" colspan=3></td>`;
+            html += `<td class="bg-blank" style="border:0"></td>`;
+          }
+        }
+        html += '<td class="bg-blank" style="border:0"></td></tr>';
+      }
+
+      content.push($(html));
+    }
     return content
   })();
   
@@ -1800,7 +1869,7 @@ function Builder(data, unit) {
     'agencies': new Agencies(data, unit),
     'threats': new Threats(data, unit),
     'notes': new Notes(data.notes, unit),
-    'presets': new Presets(data.presets, unit),
+    'presets': new Presets(data, unit),
   };
 
   var page = new Page(data, unit, 1);
