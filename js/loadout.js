@@ -90,11 +90,18 @@ function loadout_update_weight() {
     $('#loadout-fuel_lbs').val(fuel_lbs);
     total += fuel_lbs;
 
+    var pyl_kg = 0
     $(".pylon-select").each(function(idx, pyl) {
-      var w = Math.round($(pyl).find("option:selected").data('pyl-weight') || 0);
-      total += w*2.20462
-      stores += w*2.20462
+      var w = $(pyl).find("option:selected").data('pyl-weight') || 0;
+      pyl_kg += w
     })
+
+
+    var pyl_lbs = pyl_kg * 2.20462;
+    total += pyl_lbs;
+    stores += pyl_lbs;
+
+    //console.log(`Gun: ${gun_lbs}, Empty: ${empty_weight}, Fuel: ${fuel_lbs}, Stores: ${pyl_lbs}, Total :${total}`);
 
     total = Math.round(total)
     $("#loadout-table-weight").html(total)
