@@ -73,6 +73,8 @@ function flight_update_default_coord_format() {
   } else if (ac == 'AV8BNA') {
     fmt = "dms";
     dp = 0;
+  } else if (ac == 'AH-64D') {
+    dp = 2;
   }
 
   // Update Radio / DP
