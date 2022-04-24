@@ -6,10 +6,19 @@ zip.workerScriptsPath = kneeboard_root + '../js/zip-js/';
 
 MissionProcessor = function() {
 
-  uhf = null;
-  vhf_am = null;
-  vhf_fm = null;
+  // These globals are used for A-10 / F-16 radios when lacking an avionics folder
+  global_settings = {
+    'UHF_RADIO': null,      // A-10 and F-16 default UHF
+    'VHF_RADIO': null,      // F-16 default VHF
+    'VHF_AM_RADIO': null,   // A-10 default VHF AM
+    'VHF_FM_RADIO': null,   // A-10 default VHF FM
+  }
+
   mission = null;
+
+  // storing avionics data by module => unitid
+  avionics = {}
+
   dictionary = {};
 
   this.process = function(input, cb) {
@@ -17,6 +26,9 @@ MissionProcessor = function() {
     if (input === undefined) {
       return;
     }
+
+    // Pull out individual avionics for the F-16 / A-10s, eugh
+    let re_avionics = /Avionics\/(?<module>[^\/]+)\/(?<unitid>[0-9]+)\/(?<radio>[^\/]+)\/SETTINGS.lua/i
 
     // input will either be js or cf
     var file = input.files[0];
@@ -28,7 +40,14 @@ MissionProcessor = function() {
         'uhf': null,
         'vhf_am': null,
         'vhf_fm': null,
+        'vhf': null,
         'mission': null,
+        'avionics': null,
+      }
+
+      var todo_avionics = {
+        'processed': 0,
+        'count': 0,
       }
 
       zip.createReader(new zip.BlobReader(file), function(zipReader) {
@@ -40,7 +59,7 @@ MissionProcessor = function() {
 
               entry.getData(new zip.TextWriter(), function(data) {
                 var ast = luaparse.parse(data, { 'comments': false });
-                vhf_fm = parseLUATable(ast.body[0].init[0]);
+                global_settings['VHF_FM_RADIO'] = parseLUATable(ast.body[0].init[0]);
                 deferreds['vhf_fm'].resolve();
               });
             }
@@ -49,7 +68,7 @@ MissionProcessor = function() {
               deferreds['vhf_am'] = $.Deferred();
               entry.getData(new zip.TextWriter(), function(data) {
                 var ast = luaparse.parse(data, { 'comments': false });
-                vhf_am = parseLUATable(ast.body[0].init[0]);
+                global_settings['VHF_AM_RADIO'] = parseLUATable(ast.body[0].init[0]);
                 deferreds['vhf_am'].resolve();
               });
             }
@@ -58,8 +77,17 @@ MissionProcessor = function() {
               deferreds['uhf'] = $.Deferred();
               entry.getData(new zip.TextWriter(), function(data) {
                 var ast = luaparse.parse(data, { 'comments': false });
-                uhf = parseLUATable(ast.body[0].init[0]);
+                global_settings['UHF_RADIO'] = parseLUATable(ast.body[0].init[0]);
                 deferreds['uhf'].resolve();
+              });
+            }
+
+            if (entry.filename === "VHF_RADIO/SETTINGS.lua") {
+              deferreds['vhf'] = $.Deferred();
+              entry.getData(new zip.TextWriter(), function(data) {
+                var ast = luaparse.parse(data, { 'comments': false });
+                global_settings['VHF_RADIO'] = parseLUATable(ast.body[0].init[0]);
+                deferreds['vhf'].resolve();
               });
             }
 
@@ -73,7 +101,6 @@ MissionProcessor = function() {
             }
 
             if (entry.filename === "mission") {
-              // Parse XML
               deferreds['mission'] = $.Deferred();
               foo = entry.getData(new zip.TextWriter(), function(data) {
                 var ast = luaparse.parse(data, { 'comments': false });
@@ -82,10 +109,48 @@ MissionProcessor = function() {
               });
             }
 
+
+            let match = re_avionics.exec(entry.filename);
+            if (match) {
+
+              // Increment pending count so we know we're done
+              todo_avionics.count += 1
+
+              if (!(deferreds['avionics'])) {
+                deferreds['avionics'] = $.Deferred();
+                deferreds['avionics'].progress(function() {
+                  todo_avionics.processed += 1
+                  if (todo_avionics.count === todo_avionics.processed) {
+                    console.log("COMPLETE")
+                    deferreds['avionics'].resolve();
+                  } else {
+                    console.log("waiting", todo_avionics.processed, todo_avionics.count);
+                  }
+                })
+              }
+
+              let groups = match.groups;
+
+              // Prep target module, unitid 
+              if (!(groups.module in avionics)) { avionics[groups.module] = {} };
+              if (!(groups.unitid in avionics[groups.module])) { avionics[groups.module][groups.unitid] = {} };
+
+              entry.getData(new zip.TextWriter(), function(data) {
+                console.log(entry.filename)
+                var ast = luaparse.parse(data, { 'comments': false });
+                console.log("Completed", groups.module, groups.unitid, groups.radio)
+                avionics[groups.module][groups.unitid][groups.radio] = parseLUATable(ast.body[0].init[0]);
+                console.log(avionics);
+
+                // Mark it processed, and notify
+                deferreds['avionics'].notify();
+              });
+              
+            };
           })
 
           // If we're here, complete
-          process_stage2(Object.values(deferreds).filter((x) => { return x != null } ), cb);
+          process_stage2(Object.values(deferreds).filter((x) => { return x != null } ),  cb);
         })
 
       }, function(message) {
@@ -422,30 +487,44 @@ MissionProcessor = function() {
 
   }
 
-  function a10_presets() {
+  function get_presets_from_avionics(type, unit_id) {
 
-    var radios = {};
-    if (uhf) { radios['U'] = uhf.presets; }
-    if (vhf_am) { radios['V'] = vhf_am.presets; }
-    if (vhf_fm) { radios['F'] = vhf_fm.presets; }
-
-    var maps = {};
-    for (const [r, presets] of Object.entries(radios)) {
-      maps[r] = {};
-      for (const [x, freq] of Object.entries(presets)) {
-        var mhz = (freq / 1000000).toFixed(3);
-        if (maps[r][x] === undefined) {
-          maps[r][x] = mhz;
-        }
-      }
-    }
+    // We return an array of radios, similar to other units, in the order
+    // specified by radio_names to keep consistency
+    
+    var order = type.startsWith('A-10C')
+      ? ['UHF_RADIO', 'VHF_AM_RADIO', 'VHF_FM_RADIO']
+      : ['UHF_RADIO', 'VHF_RADIO'];
 
     var output = {};
-    if (Object.keys(maps).length) {
-      for (const coalition in mission.coalition) {
-        if (coalition == "neutrals") { continue; };
-        output[coalition] = maps;
+
+    var idx = 1;
+    for (radio of order) {
+      var presets = {};
+      if (type in avionics
+          && unit_id in avionics[type]
+          && radio in avionics[type][unit_id]
+          && avionics[type][unit_id][radio].presets) {
+
+        presets = avionics[type][unit_id][radio].presets;
+      } else if (radio in global_settings && global_settings[radio] && global_settings[radio].presets) {
+        presets = global_settings[radio].presets
+      } else {
+        console.log("FAILED", type, unit_id, radio)
       }
+
+      // If we have no presets in avionics, no global settings, then it's just
+      // DCS defaults, which we'll leave as empty
+      
+      // Presets is now a dict of preset => hz
+      console.log("Processing", type, unit_id, presets)
+      var freqs = {};
+      for (const [x, freq] of Object.entries(presets)) {
+        freqs[x] = freq / 1000000
+      }
+
+      output[idx] = {'channels': freqs};
+      idx += 1;
     }
 
     return output;
@@ -605,6 +684,8 @@ MissionProcessor = function() {
 
     // Radio Names are funny, so we just label them Radio 1, 2, 3 unless they have an index
     var radio_names = {
+      'A-10C': ['U', 'V', 'F'],
+      'F-16C': ['U', 'V'],
       'AV8BNA': ['PRI', 'SEC', 'RCS'],
       'F-14B': ['FWD', 'AFT'],
       'F-16C': ['U', 'V'],
@@ -632,21 +713,37 @@ MissionProcessor = function() {
 
             for (const [_, unit_data] of Object.entries(group_data.units)) {
               if (unit_data.skill !== 'Client') { continue; }
-              // A-10C etc. don't store them here so skip
-              if (unit_data.type.startsWith('A-10C')) { continue }
 
-              // Type mapping
+              // Type mapping, after we have the data
               var type = unit_data.type;
               if (type == "FA-18C_hornet") { type = "FA-18C"; };
               if (type == "F-16C_50") { type = "F-16C"; };
               if (type == "AH-64D_BLK_II") { type = "AH-64D"; };
 
+              // A-10C_2 and A-10C
+              if (type.startsWith('A-10C')) { type = "A-10C"; };
+
+
               // Unit ID is useful for tracking which one, whilst unit_name maps to a dictionary object
               var unit_id = unit_data.unitId;
               var unit_name = dictionary[unit_data.name] ? dictionary[unit_data.name] : unit_data.name
 
+              // A-10C etc. don't store them in the mission table, so we load
+              // from either the avionics folder, or the global which allows us
+              // to handle them the same as any other airframe, with just a
+              // different data location
+              
+              var radio_data = unit_data.Radio;
+              if (['A-10C', 'F-16C'].includes(type)) {
+                // use original type for the avionics folder names
+                radio_data = get_presets_from_avionics(unit_data.type, unit_id)
+              }
+
+
+              console.log("RD", type, radio_data)
+
               // We have radios configured ?
-              if (!unit_data.Radio) { continue; };
+              if (!radio_data) { continue; };
 
               // Ensure we have the maps
               if (maps[coalition] === undefined) { maps[coalition] = {}; }
@@ -662,7 +759,7 @@ MissionProcessor = function() {
               // Build our radio object
               var info = {};
 
-              for (const [radio_id, radio_data] of Object.entries(unit_data.Radio)) {
+              for (const [radio_id, data] of Object.entries(radio_data)) {
 
                 var radio_name = 'Radio ' + radio_id;
                 try {
@@ -671,7 +768,7 @@ MissionProcessor = function() {
 
                 info[radio_name] = {};
 
-                for (const [preset_id, preset_value] of Object.entries(radio_data.channels)) {
+                for (const [preset_id, preset_value] of Object.entries(data.channels)) {
 
                   var value = preset_value.toFixed(3);
                   info[radio_name][preset_id] = value;
@@ -751,11 +848,6 @@ MissionProcessor = function() {
           }
         }
       }
-    }
-
-    var a10 = a10_presets();
-    if (Object.keys(a10).length) {
-      outmap['A-10C'] = a10;
     }
 
     return {
@@ -1438,35 +1530,30 @@ function squadrons_populate_missions_edit_presets(data, callback) {
       html += `
         <table class="table table-striped" data-radio-name="${radio_name}" style="width:160px; float:left; margin:5px">
           <colgroup>
-            <col style="width:${div_width}px">
-            <col style="width:${airframe == 'A-10C' ? 160 : 80 }px">
-            ${airframe == 'A-10C' ? '' : '<col style="width:80px">'}
+            <col style="width:${div_width}px"/>
+            <col style="width:80px"/>
+            <col style="width:80px"/>
           </colgroup>
 
           <thead class="thead-light">
             <tr>
-              <th colspan=${airframe == 'A-10C' ? 2 : 3} class="text-center">${radio_name}</th>
+              <th colspan=3 class="text-center">${radio_name}</th>
             </tr>
             <tr>
               <th class="">PST</th>
-              ${airframe == 'A-10C' ? '<th class="text-center">ALL</th>' : '<th class="text-center">BLUE</th><th class="text-center">RED</th>'}
+              <th class="text-center">BLUE</th>
+              <th class="text-center">RED</th>
             </tr>
           </thead>
           <tbody>`;
 
       // Now we fill each row
-      //
-      // Do we want to make them editable / not - kinda pointless really 
-      // 
-      // <td class="input-container"><input class="input-full text-right freq" data-base="${pst.blue || ""}" value="${pst.blue || ""}"></td>
-      // ${airframe == 'A-10C' ? '' : '<td class="input-container"><input class="input-full text-right freq" data-base="' + (pst.red || "") + '" value="' + (pst.red || "") + '"></td>'}
-      //
       for (const [pst_id, pst] of Object.entries(radio_presets)) {
         html += `
           <tr>
             <td>${pst_id}</td>
             <td class="text-right freq">${pst.blue || ""}</td>
-            ${airframe == 'A-10C' ? '' : '<td class="text-right freq">' + (pst.red || "") + '</td>'}
+            <td class="text-right freq">${pst.red || ""}</td>
           </tr>`;
       }
 
