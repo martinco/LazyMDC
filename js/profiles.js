@@ -370,7 +370,7 @@ function profiles_generate_f16_hts_tables(data) {
           </colgroup>
           <thead class="thead-light">
             <tr>
-              <th colspan=2 class="text-center br-2">
+              <th colspan=2 class="text-center">
                 <input type="checkbox" id="hts-class-check${classId}" label="Enable CLASS ${classId}" checked="true" />
                 <label>CLASS ${classId}</label>
               </th>
@@ -378,7 +378,7 @@ function profiles_generate_f16_hts_tables(data) {
             <tr>
               <th class="text-center">ID</th>
               <th class="text-center">RWR</th>
-              <th class="text-center br-2">Name</th>
+              <th class="text-center">Name</th>
             </tr>
           </thead>
           <tbody>
