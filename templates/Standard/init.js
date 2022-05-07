@@ -589,8 +589,6 @@ function F16Harm (data, unit) {
       return elems;
     }
 
-    var tables = Object.keys(data.profiles.harm);
-
     for (var row = 0; row < 5; row++ ){
 
       var html = `<tr>`;
@@ -606,6 +604,92 @@ function F16Harm (data, unit) {
         html += `<td class="${cls}">${data.profiles.harm[table]['values'][row][attr]}</td>`;
       }
       html += `</tr>`;
+      elems.push($(html));
+    }
+
+    return elems;
+  }.bind(this))();
+
+}
+
+function F16HTS (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  this.nobreak = true;
+
+  this.table = function() {
+    if (!data.profiles || !data.profiles.hts) {
+      return $();
+    }
+
+    var html = `
+    <table class="std" style="width: 100%; table-layout: fixed"">
+      <colgroup>
+        <col width="38${unit}"/>
+        <col width="38${unit}"/>
+        <col />
+        <col width="38${unit}"/>
+        <col width="38${unit}"/>
+        <col />
+        <col width="20%"/>
+        <col />
+      </colgroup>
+      <thead class="thead-light">
+        <tr>
+          <th colspan=6 class="text-center rb2">HTS MAN TABLE</th>
+          <th colspan=2 class="text-center">HTS CLASSES</th>
+        </tr>
+        </thead>
+      <tbody>
+      </tbody>
+    </table>
+    `;
+    
+    return $(html);
+  };
+
+  this.content = (function() {
+
+    var elems = [];
+
+    if (!data.profiles || !data.profiles.hts) {
+      return elems;
+    }
+
+    for (var row = 0; row < 5; row++){
+
+      var html = `<tr>`;
+      for (var col = 0; col < 8; col++) {
+          if (row == 0 && col < 6) {
+            if (col % 3 == 0) html += `<th class="text-center">ID</th>`;
+            if (col % 3 == 1) html += `<th class="text-center">RWR</th>`;
+            if (col % 3 == 2) html += `<th class="text-center rb2">Name</th>`;
+          }
+          else if (row > 0 && col < 6) {
+            var attr = ['id', 'rwr', 'name'][col % 3];
+
+            let tableIdx = (row - 1) + (col > 2 ? 4 : 0);
+
+            let content = "-";
+            if (data.profiles.hts.hasOwnProperty('man') && data.profiles.hts.man.length > tableIdx) {
+              content = data.profiles.hts.man[tableIdx][attr];
+            }
+
+            var cls = attr === "name"
+              ? "lp5 rb2 text-harm"
+              : "text-center";
+
+            html += `<td class="${cls}">${content}</td>`;
+          }
+          else {
+            let classId = row + 1 + (col == 7 ? 5 : 0);
+            const on = !data.profiles.hts.hasOwnProperty('classes') || data.profiles.hts.classes.includes(classId);
+            html += `<td class="text-left">${on ? "X" : "-"} CLASS ${classId}</td>`;
+          }
+      }
+      html += `</tr>`;
+
       elems.push($(html));
     }
 
@@ -1834,6 +1918,7 @@ function Builder(data, unit) {
     'loadout-notes',
     'f16cmds',
     'f16harm',
+    'f16hts',
     'ramrod',
     'waypoints',
     'sequence',
@@ -1859,6 +1944,7 @@ function Builder(data, unit) {
     'loadout': new Loadout(data, unit),
     'f16cmds': new F16CMDS(data, unit),
     'f16harm': new F16Harm(data, unit),
+    'f16hts': new F16HTS(data, unit),
     'loadout-notes': new Notes(loadout_notes, unit),
     'ramrod': new RAMROD(data, unit),
     'waypoints': new Waypoints(data, unit),

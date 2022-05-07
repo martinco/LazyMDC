@@ -49,6 +49,7 @@ $("#download-dialog-pdf-button").click(download_cpy);
 $("#download-dialog-png-button").click(download_cpy);
 
 function download(format) {
+
   var template = $('#download-template').val()
 
   // Silently save here, it's an unlikely scenario given it saves on the nav

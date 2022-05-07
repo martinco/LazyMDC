@@ -406,6 +406,37 @@ class F16_DTC():
 
         return programs
 
+    def format_hts(self):
+        '''
+        "HTS": {
+            "ManualTableEnabled": true,
+            "ManualEmitters": [122, 108, 110],
+            "EnabledClasses": [true, false, false, false, false, true, true, true, true, true, true]
+        }
+        '''
+
+        hts = {}
+
+        if 'profiles' not in self._mdc or 'hts' not in self._mdc['profiles']:
+            return hts
+
+        manTableEnabled = 'man' in self._mdc['profiles']['hts']
+        hts['ManualTableEnabled'] = manTableEnabled
+
+        if manTableEnabled:
+            hts['ManualEmitters'] = []
+            for entry in self._mdc['profiles']['hts']['man']:
+                hts['ManualEmitters'].append(entry['id'])
+
+        classes = self._mdc['profiles']['hts']['classes']
+
+        hts['EnabledClasses'] = []
+
+        for x in range(1, 11):
+            hts['EnabledClasses'].append(x in classes)
+
+        return hts
+
     def generate(self):
 
         content = {}
@@ -417,11 +448,14 @@ class F16_DTC():
             }
 
         cms = self.format_cms()
-
         if cms:
             content['CMS'] = {
                 'Programs': self.format_cms()
             }
+
+        hts = self.format_hts()
+        if hts:
+            content['HTS'] = hts
 
         if content:
             self._files['f16_dtc.json'] = json.dumps(

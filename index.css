@@ -214,3 +214,14 @@ body .overhang-overlay {
   border-color: #dee2e6 #fafafa #dee2e6 #dee2e6 !important;
   background: #fafafa !important;
 }
+
+#grid {
+  width: fit-content;
+  display: grid;
+  gap: 10px;
+  grid-template: repeat(3, 0fr) / repeat(3, 1fr);
+  grid-auto-flow: row;
+  align-items: start;
+  justify-content: start;
+  grid-template-columns: 270px 270px 270px;
+}
