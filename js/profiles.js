@@ -199,6 +199,43 @@ function profiles_set_f16_harm(data) {
   });
 }
 
+function profiles_set_f16_hts_man(data) {
+  if (!data) { return; }
+
+  // data is an dict of program, chaff / flare, element
+  var headers = get_row_data($("#profiles-f16-hts-man-table > thead > tr:last")[0]);
+
+  $("#profiles-f16-hts-man-table > tbody > tr").each(function(row, tr) {
+    // iterate each
+    for (var col = 0; col < tr.cells.length; col++) {
+      var param = headers[col].toLowerCase();
+      try {
+        var val = data[row][param];
+        $(tr.cells[col].firstChild).val(val);
+      } catch {}
+    }
+  });
+}
+
+function profiles_set_f16_hts_classes(data) {
+
+  if (!data) { return; }
+
+  // Default is checked, if we load up a profile, we expect an array of checked
+  // classes
+  
+  const checkedClassIds = [];
+  let allChecked = true;
+  for (let classId = 1; classId < 11; classId++) {
+    const checkBox = $(`#hts-class-check${classId}:last`);
+    if (checkBox.length == 0) {
+      continue;
+    }
+
+    checkBox[0].checked = data.includes(classId);
+  }
+}
+
 function autocomplete(idx, field, options) {
   // Offset in the id, rwr, name collection
   var offset = idx % 3;
@@ -371,7 +408,6 @@ function profiles_generate_f16_hts_tables(data) {
 profiles_set_f16_harm(airframes['F-16C']['harm']['defaults']);
 
 // Load default HTS classes
-
 const htsTables = profiles_generate_f16_hts_tables(airframes['F-16C']['hts']['defaults']);
 $("#grid").empty().append(htsTables);
 
@@ -423,6 +459,11 @@ function profiles_load(data, callback) {
   // Try and load F16 CMDS if present
   profiles_set_f16_cmds(data['cmds']);
   profiles_set_f16_harm(data['harm']);
+
+  if (data['hts']) {
+    profiles_set_f16_hts_man(data['hts']['man'])
+    profiles_set_f16_hts_classes(data['hts']['classes'])
+  }
 
   // Load notes if we have them
   if (data['notes'] && data['notes']['html'] && tinymce) {
