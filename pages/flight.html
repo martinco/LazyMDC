@@ -25,7 +25,7 @@
   <div id="flight-members-container" style="display: none">
 
     <div class="form-row">
-      <div class="col"> 
+      <div class="col-7"> 
         <div class="form-group p-0 mb-0">
           <label>Coordinate Format</label>
         </div>
@@ -40,6 +40,9 @@
             <label class="btn btn-primary">
               <input type="radio" name="flight-coord" id="flight-coord-dd" value="dd" autocomplete="off">DD
             </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="flight-coord" id="flight-coord-mgrs" value="mgrs" autocomplete="off">MGRS
+            </label>
           </div>
           <div class="p-2">to</div>
           <input type="number" min="0" max="5" class="form-control" style="width: 80px" name="flight-coord-decimals" id="flight-coord-decimals" value="2">
@@ -49,7 +52,7 @@
       <div class="col"> 
         <div class="form-group">
           <label class="heading">Example</label>
-          <div type="text" class="form-control coord" data-raw="37.56383" id="flight-coord-example" style="background-color: #e9ecef"></div>
+          <div type="text" class="form-control coord-ctrl" data-fmt-combo data-lat="50.4482744" data-lon="30.5375435" id="flight-coord-example" style="background-color: #e9ecef"></div>
         </div>
       </div>
     </div>

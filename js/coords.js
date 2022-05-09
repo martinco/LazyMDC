@@ -23,6 +23,29 @@ var Coords = function() {
   this._display_format = 'ddm';
   this._display_decimals = 3;
 
+  // This is awful, but the proj4js doesn't quite expose what we want and this
+  // is easier
+  this._re_mgrs = new RegExp([
+        /^([0-9]+[A-Z])/,
+        /([A-Z][A-Z])/,
+        /([0-9]+)/,
+  ].map(r => r.source).join(''))
+    
+  this.ll_to_mgrs = function(lat, lon, accuracy) {
+    if (isNaN(lat) || isNaN(lon)) {
+      return "";
+    }
+    let re = this._re_mgrs.exec(proj4.mgrs.forward([lon, lat], accuracy));
+
+
+    // Insert a space half way through
+    let dec = re[3].length/2
+    let loc = re[3].slice(0, dec) + " " + re[3].slice(dec);
+
+    return `${re[1]} ${re[2]} ${loc}`
+  }
+
+
   this.set_display_format = function(new_format) {
     if (new_format == this._display_format) { return; }
     this._display_format = new_format;
@@ -70,6 +93,26 @@ var Coords = function() {
     return [deg, mins, sec, dd >= 0]
   }
 
+  this.format_ll = function(lat, lon, llPrecision, display_format) {
+
+    if (display_format == undefined) {
+      display_format = this._display_format;
+    }
+
+    if (isNaN(llPrecision) || llPrecision==undefined) {
+      llPrecision = this._display_decimals;
+    }
+   
+    if (display_format == "mgrs") {
+      return [this.ll_to_mgrs(lat, lon, llPrecision), ""]
+    }
+
+    return [
+      this.format_value(lat, false, llPrecision, display_format),
+      this.format_value(lon, true, llPrecision, display_format)
+    ]
+  }
+
   this.format_value = function(value, lon=false, llPrecision, display_format) {
     if (isNaN(value)) {
       return ""
@@ -89,12 +132,17 @@ var Coords = function() {
    
     var deg_pad = 2;
 
-    if (display_format == 'ddm') {
+    if (display_format == 'ddm' || display_format == 'cf') {
       var arr = coordinate_dd2ddm(value, llPrecision);
       var deg = arr[0];
       var min = arr[1];
 
+      if (display_format == 'cf') {
+        return axis + pad(deg, lon ? 3 : 2, "0") + " " + pad(min, 2, 0, llPrecision);
+      }
+
       return axis + pad(deg, deg_pad, " ") + "\xB0" + pad(min, 2, null, llPrecision) + "'";
+
     }
 
     if (display_format == 'dms') {
@@ -123,26 +171,51 @@ var Coords = function() {
 
   this.format_td = function(td) {
 
-    var elem = $(td)
+    var lat_elem = $(td)
 
     // If the td has a override, use it 
-
-    var value = this.format_value(
-      parseFloat(td.getAttribute('data-raw')),
-      elem.hasClass('coord-lon'),
+    let [lat, lon] = this.format_ll(
+      parseFloat(td.getAttribute('data-lat')),
+      parseFloat(td.getAttribute('data-lon')),
       parseInt(td.getAttribute('data-dmp')),
       td.getAttribute('data-fmt'));
 
-    if(elem.tagName == 'INPUT') {
-      elem.val(value);
+    // Lat elem is current
+    if(lat_elem.tagName == 'INPUT') {
+      lat_elem.val(lat);
     } else {
-      elem.html(value);
+      if (td.hasAttribute('data-fmt-combo')) {
+        lat_elem.html(`${lat} ${lon}`);
+      } else {
+        lat_elem.html(lat);
+      }
+    }
+
+    // Lon elem is next
+    let tr = lat_elem.closest('tr')
+    if (tr[0] && td.cellIndex) {
+
+      let lon_elem = $(tr[0].cells[td.cellIndex+1]);
+      if(lon_elem.tagName == 'INPUT') {
+        lon_elem.val(lon);
+      } else {
+        lon_elem.html(lon);
+      }
+
+      // If no lon, then we're probably MGRS and can merge the cells
+      if (lon === '') {
+        lon_elem.css('display', 'none');
+        lat_elem.attr('colspan', 2);
+      } else {
+        lat_elem.removeAttr('colspan');
+        lon_elem.css('display', '');
+      }
     }
     return
   }
 
   this.update_display = function() {
-    $('.coord').each(function(idx, td) {
+    $('.coord-ctrl').each(function(idx, td) {
       this.format_td(td);
     }.bind(this));
   }
@@ -179,8 +252,8 @@ function coordinate_input(td, lat_idx, callback) {
   var dlg = $('#coordinate-dialog');
 
   dlg.data({
-    'lat': lat_elem.getAttribute('data-raw'),
-    'lon': td.closest('tr').cells[lat_idx+1].getAttribute('data-raw'),
+    'lat': lat_elem.getAttribute('data-lat'),
+    'lon': lat_elem.getAttribute('data-lon'),
     'fmt': fmt || coordDisplay,
     'dmp': lat_elem.getAttribute('data-dmp') || llPrecision,
     'fmt_override': fmt !== null,
@@ -235,12 +308,16 @@ function coordinate_update_fields() {
 
   // Update the text to the current display format
   if (lat && lon) {
-    $('#coordinate-string').val(
-        coords.format_value(lat, false, dlg.data('dmp'), dlg.data('fmt'))
-        + " " 
-        + coords.format_value(lon, true, dlg.data('dmp'), dlg.data('fmt')));
+
+    let [str_lat, str_lon] = coords.format_ll(lat, lon, dlg.data('dmp'), dlg.data('fmt'))
+    $('#coordinate-string').val(`${str_lat} ${str_lon}`);
+
+    [str_lat, str_lon] = coords.format_ll(lat, lon, 3, 'cf');
+    $('#coordinate-cf-string').html(`${str_lat} ${str_lon}`);
+
   } else {
     $('#coordinate-string').val("");
+    $('#coordinate-cf-string').val("");
   }
   
   // Override Attributes
@@ -262,7 +339,7 @@ function coordinate_focus_next(evt) {
 
 function coordinate_dd_update(evt) {
 
-  // Update our table's data-raw, then refresh
+  // Update our table's data-lat/lon, then refresh
   var lat_raw = parseFloat($("#coordinate-dd-lat").val())
   var lon_raw = parseFloat($("#coordinate-dd-lon").val())
 
@@ -354,11 +431,11 @@ $('#coordinate-dialog-submit').click(function() {
   lat = isNaN(lat) ? "" : lat
   lon = isNaN(lon) ? "" : lon
 
-  var mod_lat = parseFloat(tr.cells[lat_idx].getAttribute('data-raw')) != lat;
-  var mod_lon = parseFloat(tr.cells[lat_idx+1].getAttribute('data-raw')) != lon;
+  var mod_lat = parseFloat(tr.cells[lat_idx].getAttribute('data-lat')) != lat;
+  var mod_lon = parseFloat(tr.cells[lat_idx].getAttribute('data-lon')) != lon;
 
-  tr.cells[lat_idx].setAttribute('data-raw', lat)
-  tr.cells[lat_idx+1].setAttribute('data-raw', lon)
+  tr.cells[lat_idx].setAttribute('data-lat', lat)
+  tr.cells[lat_idx].setAttribute('data-lon', lon)
 
   // Update any override attributes
   if (dlg.data('fmt_override')) {
@@ -374,8 +451,8 @@ $('#coordinate-dialog-submit').click(function() {
     tr.cells[lat_idx+1].removeAttribute('data-dmp')
   }
 
+  // Update our fmt
   coords.format_td(tr.cells[lat_idx])
-  coords.format_td(tr.cells[lat_idx+1])
 
   var callback = dlg.data('callback');
   if (callback && typeof(callback) == "function") {
@@ -419,6 +496,41 @@ function coordinate_from_string(str) {
     if (fseg_arr[4]) { lon *= (fseg_arr[4] == 'E' ? 1 : -1); }
     coordinate_update(lat, lon)
     return
+  }
+
+  // MGRS
+  let mgrs_arr = new RegExp([
+      /^\s*/,                                                        // Allow start padding
+      /([0-6]?[0-9])\s*([ABCDEFGHJKLMNPQRSTYVWX])\s*/,               // Grid Zone: C-X omiiting I and O (not including poles / UPS)
+      /([ABCDEFGHJKLMNPQRSTUVWXYZ])\s*([ABCDEFGHJKLMNPQRSTUV])\s*/,  // 100km square, column and row, [A-Z, A-V] excluding I and O
+      /([0-9 ]+)/,                                                // location reference, this needs to be two groups of eql. length
+                                                                     // But we'll handle that in the test function
+      /$/
+  ].map(function(r) {return r.source}).join('')).exec(str);
+
+  if(mgrs_arr) {
+    
+    let mgrs = (() => {
+      // Simple checks before sending it of to proj4
+      
+      let grid_zone = parseInt(mgrs_arr[0]);
+      if (isNaN(grid_zone) || grid_zone > 60 || grid_zone == 0) { return null; }
+
+      // ensure our numbers are multiple of 2
+      let locref = mgrs_arr[5].replaceAll(' ', '');
+      if (locref.length % 2 != 0) { return null; }
+
+      // Finally we're good to go, just merge all our capture groups except 0
+      mgrs_arr.shift();
+      return proj4.mgrs.inverse(mgrs_arr.join('').replaceAll(' ', ''));
+
+    })();
+
+    if (mgrs) {
+      coordinate_update(mgrs[1], mgrs[0])
+      return
+    }
+
   }
 
   // DMS
@@ -541,3 +653,6 @@ $('#coordinate-override-unset').click(function() {
 $('#coordinates-string-tooltip').tooltip({
   template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner tooltip-coords"></div></div>'
 });
+
+
+

@@ -314,6 +314,9 @@ function bot_detected() {
 
     <script type="text/javascript" src="js/zip-js/zip.js"></script>
 
+    <!-- proj4 (MGRS / Coords) --> 
+    <script type="text/javascript" src="js/proj4.js"></script>
+
     <!-- Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 

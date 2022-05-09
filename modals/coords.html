@@ -188,7 +188,9 @@
           </div>
           <div class="col" style="max-width:10px"></div> 
           <div class="col-4"> 
-            <label class="heading">Set from String</label>
+            <label class="heading" style="margin-bottom: 0.25rem">CombatFlite String</label>
+            <div style="padding:0" id='coordinate-cf-string'></div>
+            <label class="heading" style="margin-top: 0">Set from String</label>
             <a id="coordinates-string-tooltip" style="float: right; margin-top:4px; white-space: nowrap; align: right" data-toggle="tooltip" data-html="true" title="
               Combat Flite: <br>
               &nbsp;&nbsp;N 25 06.333 E 056 20.417<br>
@@ -209,6 +211,9 @@
               &nbsp;&nbsp;N 23 12 14 E 52 32 12<br>
               &nbsp;&nbsp;23 12 14N 52 32 12W<br>
               &nbsp;&nbsp;-23 12 14 52 32 12<br>
+              MGRS:<br>
+              &nbsp;&nbsp;39R XJ 12345 12345<br>
+              &nbsp;&nbsp;39RXJ12345 12345<br>
             ">
               <i data-feather="help-circle"></i>
             </a>
@@ -229,6 +234,9 @@
                 </label>
                 <label class="btn btn-secondary">
                   <input type="radio" name="coordinate-override-fmt" id="coordinate-override-dd" value="dd" autocomplete="off">DD
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="coordinate-override-fmt" id="coordinate-override-mgrs" value="mgrs" autocomplete="off">MGRS
                 </label>
               </div>
               <div class="input-group pb-2 p-0">

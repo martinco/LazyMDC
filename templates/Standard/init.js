@@ -1,6 +1,43 @@
 var sections = {};
 var pages = []
 
+var re_mgrs = new RegExp([
+    /^([0-9]+[A-Z])/,
+    /([A-Z][A-Z])/,
+    /([0-9]+)/,
+].map(r => r.source).join(''));
+
+function display_coord(data, info) {
+
+  // if lat_fmt or flight-coord
+  var coord = info['lat_fmt'] === undefined ? data.flight['flight-coord'] : info['lat_fmt'];
+  var decimals = parseInt(info['lat_dmp'] === undefined ? data.flight['flight-coord-decimals'] : info['lat_dmp']);
+
+  if (coord === 'mgrs') {
+
+    // Make sure lat, lon are nice
+    let lat = parseFloat(info['lat']);
+    let lon = parseFloat(info['lon']);
+
+    if (isNaN(lat) || isNaN(lon)) {
+      return ["", ""];
+    }
+
+
+    // Insert a space half way through
+    let re = re_mgrs.exec(proj4.mgrs.forward([lon, lat], decimals));
+    let dec = re[3].length/2
+    let loc = re[3].slice(0, dec) + " " + re[3].slice(dec);
+    return [`${re[1]} ${re[2]} ${loc}`, ""]
+  }
+
+  return [
+    ll(data, info, true),
+    ll(data, info, false),
+  ]
+
+}
+
 function ll(data, info, lat) {
 
   if (!info) return "";
@@ -25,12 +62,9 @@ function ll(data, info, lat) {
   }
 
   // Get Coordinate Format
-  
-  var dmp_override = info[`${prefix}_dmp`]
-  var fmt_override = info[`${prefix}_fmt`]
 
-  var coord = fmt_override === undefined ? data.flight['flight-coord'] : fmt_override;
-  var decimals = parseInt(dmp_override === undefined ? data.flight['flight-coord-decimals'] : dmp_override);
+  var coord = info['lat_fmt'] === undefined ? data.flight['flight-coord'] : lat['fmt'];
+  var decimals = parseInt(info['lat_dmp'] === undefined ? data.flight['flight-coord-decimals'] : info['lat_dmp']);
 
   var dec_width = 2 + decimals
 
@@ -1177,22 +1211,27 @@ var Waypoints = function(data, unit) {
     };
     for (var wp of data.waypoint.waypoints) {
 
-      // EMPTY rows if no lat or lon
-      var lat = ll(data, wp, true);
-      var lon = ll(data, wp, false);
-
       // Declutter here too
       if (last) {
         if (last.gs == wp.gs) { wp.gs = ""; } else { last.gs = wp.gs };
         if (last.alt == wp.alt) { wp.alt = ""; } else { last.alt = wp.alt };
       }
 
-      if (wp.name || wp.act != '00:00' || (lat && lon)) {
+      // EMPTY rows if no lat or lon
+      let [lat, lon] = display_coord(data, wp);
+      let ll = (() => {
+        if (lon === "") {
+          return `<td class="text-center text-bold" colspan=2>${lat}</td>`;
+        };
+        return `<td class="text-center text-bold">${lat}</td>
+                <td class="text-center text-bold">${lon}</td>`;
+      })();
+
+      if (wp.name !== "" || wp.act !== '' || (lat !== "" && lon !== "")) {
         content.push($(`
           <tr>
             <td class="text-center">${wp.typ}</td>
-            <td class="text-center text-bold">${lat}</td>
-            <td class="text-center text-bold">${lon}</td>
+            ${ll}
             <td class="lp5">${wp.name}</td>
             <td class="text-center">${alt_formatter(data, wp.alt | '')}</td>
             <td class="text-center">${gs_formatter(wp.gs)}</td>
@@ -1266,11 +1305,21 @@ var POI = function(data, unit) {
 
     var content = [];
     for (var elem of data.waypoint.poi) {
+
+      // EMPTY rows if no lat or lon
+      let [lat, lon] = display_coord(data, elem);
+      let ll = (() => {
+        if (lon === "") {
+          return `<td class="text-center text-bold" colspan=2>${lat}</td>`;
+        };
+        return `<td class="text-center text-bold">${lat}</td>
+                <td class="text-center text-bold">${lon}</td>`;
+      })();
+
       content.push($(`
         <tr>
           <td class="lp5">${elem['name']}</td>
-          <td class="text-center text-bold">${ll(data, elem, true)}</td>
-          <td class="text-center text-bold">${ll(data, elem, false)}</td>
+          ${ll}
         </tr>`));
     }
     return content
@@ -1450,6 +1499,16 @@ function RAMROD(data, unit) {
   this.content = [null];
 
   this.table = function() {
+    // EMPTY rows if no lat or lon
+    let [lat, lon] = display_coord(data, data.waypoint.bullseye);
+    let ll = (() => {
+      if (lon === "") {
+        return `<td class="text-center text-bold" colspan=2>${lat}</td>`;
+      };
+      return `<td class="text-center text-bold">${lat}</td>
+              <td class="text-center text-bold">${lon}</td>`;
+    })();
+
     html = `
       <div style="overflow: auto">
         <div style="float: left; width: 529${unit}">
@@ -1467,8 +1526,7 @@ function RAMROD(data, unit) {
 
               <tr>
                 <td class="lp5">${data.waypoint.bullseye.name}</td>
-                <td class="text-center text-bold">${ll(data, data.waypoint.bullseye, true)}</td>
-                <td class="text-center text-bold">${ll(data, data.waypoint.bullseye, false)}</td>
+                ${ll}
               </tr>
             </tbody>
           </table>

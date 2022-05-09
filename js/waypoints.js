@@ -7,8 +7,8 @@ function waypoint_autocomplete(input, lat_idx) {
     minLength: 2,
     select: function(event, ui) {
       var tr = event.target.closest('tr')
-      tr.cells[lat_idx].setAttribute('data-raw', ui.item.lat)
-      tr.cells[lat_idx+1].setAttribute('data-raw', ui.item.lon)
+      tr.cells[lat_idx].setAttribute('data-lat', ui.item.lat)
+      tr.cells[lat_idx].setAttribute('data-lon', ui.item.lon)
 
       if (ui.item.alt && tr.cells[2].firstChild) {
         tr.cells[2].firstChild.value = ui.item.alt;
@@ -69,7 +69,7 @@ function get_time_from_seconds(seconds, duration) {
 }
 
 function waypoint_update_display() {
-  $('.coord').each(function(idx, td) {
+  $('.coord-ctrl').each(function(idx, td) {
     coords.format_td(td);
   });
 }
@@ -120,8 +120,8 @@ function waypoint_update() {
 
     // If lat or lon are empty; we can't do any calculations for distance /
     // time / tot so we just bail
-    var lat = row.cells[6].getAttribute('data-raw');
-    var lon = row.cells[7].getAttribute('data-raw');
+    var lat = row.cells[6].getAttribute('data-lat');
+    var lon = row.cells[6].getAttribute('data-lon');
 
     lat = parseFloat(lat)
     lon = parseFloat(lon)
@@ -288,17 +288,14 @@ function waypoint_add(wp_info) {
           <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="^([0-9]+:)?[0-9]+$"></td>`
     
     if (data['lat_fmt']) {
-        row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
+        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);" data-raw="${data['lat']}"></td>`
+        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 6, waypoint_update);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     }
-    
-    if (data['lon_fmt']) {
-        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
-    } else {
-        row += `<td class="coord coord-lon" onClick="coordinate_input(this, 6, waypoint_update);" data-raw="${data['lon']}"></td>`
-    }
-    
+
+    // Moves to a dumb row and is updated from format_td
+    row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);"></td>`
+
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
           <td class="input-container text-center border-left-0">
@@ -349,18 +346,15 @@ function waypoint_add_poi(poi_data) {
   var row = `<tr>
         <td class="input-container"><input value="${data['name']}"></td>`        
 
+
     if (data['lat_fmt']) {
-        row += `<td class="coord" onClick="coordinate_input(this, 1);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-raw="${data['lat']}"></td>`
+      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 1);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord" onClick="coordinate_input(this, 1);" data-raw="${data['lat']}"></td>`
+      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 1);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     }
-    
-    if (data['lon_fmt']) {
-        row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);" data-dmp="${data['lon_dmp']}" data-fmt="${data['lon_fmt']}" data-raw="${data['lon']}"></td>`
-    } else {
-        row += `<td class="coord border-right-0 coord-lon" onClick="coordinate_input(this, 1);" data-raw="${data['lon']}"></td>`
-    }
-  
+
+    row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);"></td>`
+
     row += `<td class="input-container text-center border-left-0">
           <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='$(this).closest("tr").remove();'>
             <i data-feather="delete"></i>
@@ -385,8 +379,21 @@ function waypoint_add_poi(poi_data) {
 }
 
 function waypoint_get_row(row) {
-  var headings = ['typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg']
-  return get_row_data(row, headings)
+  let headings = ['typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg'];
+  let d = get_row_data(row, headings)
+  
+  if (row.cells[6].hasAttribute('data-fmt')) {
+      d['lat_fmt'] = row.cells[6].getAttribute('data-fmt')
+      d['lat_dmp'] = row.cells[6].getAttribute('data-dmp')
+  }
+
+  // Lon is always stored on lat, so move it (this is so awful but provides
+  // MGRS and is currently in progress) 
+
+  let [lat, lon] = d['lat'];
+  d['lat'] = lat;
+  d['lon'] = lon;
+  return d
 }
 
 $('#waypoints-add-waypoint').click(function() {
@@ -412,8 +419,8 @@ $('#waypoints-bullseye-name').autocomplete({
   minLength: 2,
   select: function(event, ui) {
 
-    $('#waypoints-bullseye-lat').attr('data-raw', ui.item.lat)
-    $('#waypoints-bullseye-lon').attr('data-raw', ui.item.lon)
+    $('#waypoints-bullseye-lat').attr('data-lat', ui.item.lat)
+    $('#waypoints-bullseye-lat').attr('data-lon', ui.item.lon)
 
     waypoint_update()
   }
@@ -472,9 +479,9 @@ $('#flight-airframe').on('data-poi-updated', function(e) {
       })
     });
   } else if (route.xml_format == "ge") {
-    var coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
+    var process_coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
     var x = 1;
-    for (var coord of coords) {
+    for (var coord of process_coords) {
       coord = coord.trim();
       if (!coord) {
         continue;
@@ -562,9 +569,9 @@ $('#flight-airframe').on('data-route-updated', function(e) {
       idx++;
     });
   } else if (route.xml_format == "ge") {
-    var coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
+    let process_coords = route.xml.querySelector('LineString > coordinates').textContent.split(" ");
     var x = 1;
-    for (var coord of coords) {
+    for (var coord of process_coords) {
       coord = coord.trim();
 
       if (!coord) {
@@ -603,21 +610,16 @@ function waypoint_export() {
     delete(ret['bullseye-name'])
 
     var be_lat = $("#waypoints-bullseye-lat")
-    var be_lon = $("#waypoints-bullseye-lon")
 
     var bullseye = {
       'name': $("#waypoints-bullseye-name").val(),
-      'lat': be_lat.attr('data-raw'),
-      'lon': be_lon.attr('data-raw'),
+      'lat': be_lat.attr('data-lat'),
+      'lon': be_lat.attr('data-lon'),
     }
 
     if (be_lat[0].hasAttribute('data-fmt')) {
         bullseye['lat_fmt'] = be_lat[0].getAttribute('data-fmt')
         bullseye['lat_dmp'] = be_lat[0].getAttribute('data-dmp')
-    }
-    if (be_lon[0].hasAttribute('data-fmt')) {
-        bullseye['lon_fmt'] = be_lon[0].getAttribute('data-fmt')
-        bullseye['lon_dmp'] = be_lon[0].getAttribute('data-dmp')
     }
 
     ret['bullseye'] = bullseye
@@ -626,31 +628,20 @@ function waypoint_export() {
     ret["waypoints"] = []
     $('#waypoints-table > tbody > tr').each(function(idx, tr) {
         // waypoints also have override display formats in addition to visible data
-        var d = get_row_data(tr, ['typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg'])
-        
-        if (tr.cells[6].hasAttribute('data-fmt')) {
-            d['lat_fmt'] = tr.cells[6].getAttribute('data-fmt')
-            d['lat_dmp'] = tr.cells[6].getAttribute('data-dmp')
-        }
-        if (tr.cells[7].hasAttribute('data-fmt')) {
-            d['lon_fmt'] = tr.cells[7].getAttribute('data-fmt')
-            d['lon_dmp'] = tr.cells[7].getAttribute('data-dmp')
-        }
-        
-        ret['waypoints'].push(d)
+        ret['waypoints'].push(waypoint_get_row(tr))
     })
     
     ret["poi"] = []
     $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
         var d = get_row_data(tr, ['name', 'lat', 'lon'])
+
+        let [lat, lon] = d['lat'];
+        d['lat'] = lat;
+        d['lon'] = lon;
                         
         if (tr.cells[1].hasAttribute('data-fmt')) {
             d['lat_fmt'] = tr.cells[1].getAttribute('data-fmt')
             d['lat_dmp'] = tr.cells[1].getAttribute('data-dmp')
-        }
-        if (tr.cells[2].hasAttribute('data-fmt')) {
-            d['lon_fmt'] = tr.cells[2].getAttribute('data-fmt')
-            d['lon_dmp'] = tr.cells[2].getAttribute('data-dmp')
         }
         
         ret['poi'].push(d)
@@ -682,19 +673,13 @@ function waypoint_load(data, callback) {
   $("#waypoints-bullseye-name").val(data['bullseye']['name'])
 
   var be_lat = $("#waypoints-bullseye-lat")
-  var be_lon = $("#waypoints-bullseye-lon")
 
-  be_lat.attr('data-raw', data['bullseye']['lat'])
-  be_lon.attr('data-raw', data['bullseye']['lon'])
+  be_lat.attr('data-lat', data['bullseye']['lat'])
+  be_lat.attr('data-lon', data['bullseye']['lon'])
 
   if (data['bullseye'].lat_fmt) {
     be_lat.attr('data-fmt', data['bullseye']['lat_fmt'])
     be_lat.attr('data-dmp', data['bullseye']['lat_dmp'])
-  }
-
-  if (data['bullseye'].lon_fmt) {
-    be_lon.attr('data-fmt', data['bullseye']['lon_fmt'])
-    be_lon.attr('data-dmp', data['bullseye']['lon_dmp'])
   }
 
   $("#waypoints-table > tbody").empty();

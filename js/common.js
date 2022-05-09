@@ -72,6 +72,12 @@ function get_elem_data(elem) {
       return tinymce.editors[child.attr('id')].getContent()
     }
 
+    // If our td holds data-lat and data-lon, return those
+    let lat = child[0].getAttribute('data-lat');
+    if (lat) {
+      return [lat, child[0].getAttribute('data-lon')]
+    }
+
     dd = child[0].getAttribute('data-raw')
     if (dd) {
       return dd
@@ -84,6 +90,12 @@ function get_elem_data(elem) {
     }
 
     return val;
+  }
+
+  // If our td holds data-lat and data-lon, return those
+  let lat = elem.getAttribute('data-lat');
+  if (lat) {
+    return [lat, elem.getAttribute('data-lon')]
   }
 
   // If our TD holds raw-data, use that
