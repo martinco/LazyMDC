@@ -54,7 +54,14 @@ $("#flight-airframe").on('change', function(e) {
 });
 
 $("input[name=flight-coord]").change(function() {
-  coords.set_display_format($(this).val());
+  let val = $(this).val();
+
+  // When we change to MGRS, default decimals to 5 (1m) resolution
+  if (val === "mgrs") {
+    $("#flight-coord-decimals").val(5);
+    coords.set_display_decimals(5);
+  }
+  coords.set_display_format(val);
 });
 
 $("#flight-coord-decimals").change(function() {

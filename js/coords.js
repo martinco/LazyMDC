@@ -625,6 +625,17 @@ $('#coordinate-offset-submit').click(function() {
   coordinate_update_fields()
 });
 
+$("input[name=coordinate-override-fmt]").change(function() {
+  let val = $(this).val();
+  if (val === "mgrs" || val === "dd") {
+    $("#coordinate-override-decimals").val(5);
+  } else if (val == "ddm") {
+    $("#coordinate-override-decimals").val(3);
+  } else {
+    $("#coordinate-override-decimals").val(0);
+  }
+});
+
 $('#coordinate-override-submit').click(function() {
 
   var dlg = $('#coordinate-dialog')
