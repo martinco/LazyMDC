@@ -56,8 +56,12 @@ class CDU_DataLoader():
     def get_waypoint_line(self, wp, prefix):
 
         # Skip waypoints that have empty floats
-        lat = self.fmt_ll(wp['lat'])
-        lon = self.fmt_ll(wp['lon'], False)
+        try:
+            lat = self.fmt_ll(wp['lat'])
+            lon = self.fmt_ll(wp['lon'], False)
+        except KeyError:
+            lat = None
+            lon = None
         alt = 0
 
         if 'tot' in wp:
@@ -318,9 +322,13 @@ class F16_DTC():
                 "Blank": True
             }
 
-            # Skip waypoints that have empty floats
-            lat = self.fmt_ll(wp['lat'])
-            lon = self.fmt_ll(wp['lon'], False)
+            # If either lat or lon aren't set, skip the WP
+            try:
+                lat = self.fmt_ll(wp['lat'])
+                lon = self.fmt_ll(wp['lon'], False)
+            except KeyError:
+                lat = None
+                lon = None
 
             if 'name' in wp and wp['name']:
                 new_wp['Name'] = wp['name']
