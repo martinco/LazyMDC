@@ -495,8 +495,8 @@ function data_update_default_bulls() {
 
   var bulls = getDict(mission_data, 'data', 'bullseye', $('#data-side').val());
   $('#waypoints-bullseye-name').val(bulls['name']);
-  $('#waypoints-bullseye-lat')[0].setAttribute('data-raw', bulls['lat']);
-  $('#waypoints-bullseye-lon')[0].setAttribute('data-raw', bulls['lon']);
+  $('#waypoints-bullseye-lat')[0].setAttribute('data-lat', bulls['lat']);
+  $('#waypoints-bullseye-lat')[0].setAttribute('data-lon', bulls['lon']);
 
   // Refresh Waypoint Display, this maybe absent on first load as waypoints.js
   // loaded after data.js but that's ok
@@ -548,10 +548,10 @@ $("#data-route-dialog-submit").click(function(e, data) {
       $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
 
       var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
-      $('#waypoints-bullseye-lat').attr('data-raw', bulls_lat);
+      $('#waypoints-bullseye-lat').attr('data-lat', bulls_lat);
 
       var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
-      $('#waypoints-bullseye-lon').attr('data-raw', bulls_lon);
+      $('#waypoints-bullseye-lat').attr('data-lon', bulls_lon);
     }
   }
 
