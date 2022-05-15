@@ -1172,7 +1172,7 @@ var Waypoints = function(data, unit) {
   }
 
   this.table = function () {
-    var table = $(`
+    var table = `
       <table class="kb-width std" style="table-layout: fixed">
         <colgroup>
           <col style="width:37${unit}" />
@@ -1196,11 +1196,32 @@ var Waypoints = function(data, unit) {
             <th>${data.waypoint['gs-units'] == "kmh" ? 'KM' : 'NM'}</th>
             <th>TOT</th>
             <th>ACT</th>
-          </tr>
+          </tr>`;
+
+    // FIrst table, we insert our walk time if we have a to-time
+    if (tables.length === 0 && data.waypoint['to-time']) {
+      table += `
+        <tr>
+          <td></td>
+          <td colspan=2></td>
+          <td class="lp5">Walk / Startup</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">${data.waypoint['walk-time']}</td>
+          <td class="text-center">${get_time_from_seconds(
+            get_seconds_from_time(data.waypoint['to-time'])-get_seconds_from_time(data.waypoint['walk-time']))}</td>
+        </tr>
+      `;
+    }
+
+    table += `
         </tbody>
-      </table>`);
-    tables.push(table);
-    return table;
+      </table>`;
+
+    elem = $(table);
+    tables.push(elem);
+    return elem;
   };
 
   this.content = (function() {
@@ -1488,6 +1509,39 @@ var Page = function(data, unit, id) {
 
   this.next = function() {
     return new Page(data, unit, id+1)
+  }
+}
+
+function Walktime(data, unit) {
+
+  var data = data;
+  var unit = unit;
+
+  this.content = [null];
+
+  this.table = function() {
+    html = `
+        <table class="std" style="width: 100%; table-layout: fixed">
+          <colgroup>
+            <col style="width:75${unit}" />
+            <col style="width:75${unit}" />
+            <col style="width:75${unit}" />
+            <col style="width:75${unit}" />
+            <col/>
+          </colgroup>
+
+          <tbody>
+            <tr>
+              <th class="lp5">WALK</th>
+              <td class="lp5">${data.waypoint['walk-time']}</td>
+              <th class="lp5">TAKEOFF</th>
+              <td class="lp5">${data.waypoint['to-time']}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>`;
+
+    return $(html);
   }
 }
 
@@ -2005,6 +2059,7 @@ function Builder(data, unit) {
     'f16hts': new F16HTS(data, unit),
     'loadout-notes': new Notes(loadout_notes, unit),
     'ramrod': new RAMROD(data, unit),
+    'walktime': new Walktime(data, unit),
     'waypoints': new Waypoints(data, unit),
     'poi': new POI(data, unit),
     'sequence': new Sequence(data, unit),

@@ -103,6 +103,8 @@ $.when(
   // Load page-dependent JS sequentially
   $.when(
     $.get("js/coords.js?" + dt),
+    $.get("js/time.js?" + dt),
+    $.get("js/pad.js?" + dt),
     $.get("js/mission.js?" + dt),
     $.get("js/flight.js?" + dt),
     $.get("js/data.js?" + dt),
