@@ -63,7 +63,7 @@ function ll(data, info, lat) {
 
   // Get Coordinate Format
 
-  var coord = info['lat_fmt'] === undefined ? data.flight['flight-coord'] : lat['fmt'];
+  var coord = info['lat_fmt'] === undefined ? data.flight['flight-coord'] : info['lat_fmt'];
   var decimals = parseInt(info['lat_dmp'] === undefined ? data.flight['flight-coord-decimals'] : info['lat_dmp']);
 
   var dec_width = 2 + decimals
