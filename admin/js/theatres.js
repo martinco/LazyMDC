@@ -25,16 +25,23 @@ function theatre_populate_airfield(id, af_data, overrides, new_item) {
       <td class="input-container"><input class="input-full" value="${overrides.icao || ""}"></td>`;
 
   // if we are an override, data-base
-  if (overrides.lat) {
-    row += `<td class="coord modified" onClick="coordinate_input(this, 5);" data-base="${af_data.lat}"  data-raw="${overrides.lat}"></td>`;
-  } else {
-    row += `<td class="coord" onClick="coordinate_input(this, 5);" data-base="${af_data.lat}"  data-raw="${af_data.lat}"></td>`;
-  }
+  if (overrides.lat || overrides.lon) {
+    // we now treat either as an override
+    let lat = overrides.lat ? overrides.lat : af_data.lat;
+    let lon = overrides.lon ? overrides.lon : af_data.lon;
 
-  if (overrides.lon) {
-    row += `<td class="coord coord-lon modified" onClick="coordinate_input(this, 5);" data-base="${af_data.lon}" data-raw="${overrides.lon}"></td>`;
+    row += `
+      <td class="coord coord-ctrl ${overrides.lat ? "modified" : ""}" onClick="coordinate_input(this, 5);"
+        data-base-lat="${af_data.lat}" data-base-lon="${af_data.lon}" 
+        data-lat="${lat}" data-lon="${lon}"></td>
+      <td class="coord ${overrides.lon ? "modified" : ""}" onClick="coordinate_input(this, 5);"></td>`;
+
   } else {
-    row += `<td class="coord coord-lon" onClick="coordinate_input(this, 5);" data-base="${af_data.lon}" data-raw="${af_data.lon}"></td>`;
+    row += `
+      <td class="coord coord-ctrl" onClick="coordinate_input(this, 5);"
+        data-base-lat="${af_data.lat}" data-base-lon="${af_data.lon}" 
+        data-lat="${af_data.lat}" data-lon="${af_data.lon}"></td>
+      <td class="coord" onClick="coordinate_input(this, 5);"></td>`;
   }
 
   if (overrides.alt) {
@@ -56,7 +63,7 @@ function theatre_populate_airfield(id, af_data, overrides, new_item) {
   tbody.append(elem);
 
   // Process coordinates
-  elem.find('.coord').each(function(idx, elem) { coords.format_td(elem); });
+  elem.find('.coord-ctrl').each(function(idx, elem) { coords.format_td(elem); });
 
   feather.replace();
 }
@@ -97,15 +104,21 @@ function theatre_populate_edit(theatre_id) {
           tr.cells[1].firstChild.value = override.name || data.base.bullseye[k].name;
           tr.cells[1].firstChild.setAttribute("data-base", data.base.bullseye[k].name);
 
-          if(override.lat) { $(tr.cells[2]).addClass("modified"); }
-          tr.cells[2].setAttribute("data-raw", override.lat || data.base.bullseye[k].lat);
-          tr.cells[2].setAttribute("data-base", data.base.bullseye[k].lat);
-          coords.format_td(tr.cells[2]);
+          if(override.lat) {
+            $(tr.cells[2]).addClass("modified"); 
+          }
 
-          if(override.lon) { $(tr.cells[2]).addClass("modified"); }
-          tr.cells[3].setAttribute("data-raw", override.lon || data.base.bullseye[k].lon);
-          tr.cells[3].setAttribute("data-base", data.base.bullseye[k].lon);
-          coords.format_td(tr.cells[3]);
+          if (override.lon) {
+            $(tr.cells[3]).addClass("modified"); 
+          }
+
+          tr.cells[2].setAttribute("data-lat", override.lat || data.base.bullseye[k].lat);
+          tr.cells[2].setAttribute("data-base-lat", data.base.bullseye[k].lat);
+
+          tr.cells[2].setAttribute("data-lon", override.lon || data.base.bullseye[k].lon);
+          tr.cells[2].setAttribute("data-base-lon", data.base.bullseye[k].lon);
+
+          coords.format_td(tr.cells[2]);
         }
       }
     });
@@ -202,21 +215,14 @@ function theatre_update_data(data) {
         // Bulls Name
         tr.cells[1].firstChild.setAttribute("data-base", bulls.name);
         var current_value = get_elem_data(tr.cells[1]);
-        if (current_value != bulls.name) {
-          $(tr.cells[1]).addClass("modified");
-        }
+        if (current_value != bulls.name) { $(tr.cells[1]).addClass("modified"); }
 
-        tr.cells[2].setAttribute("data-base", bulls.lat);
-        var current_value = get_elem_data(tr.cells[2]);
-        if (current_value != bulls.lat) {
-          $(tr.cells[2]).addClass("modified");
-        }
+        tr.cells[2].setAttribute("data-base-lat", bulls.lat);
+        tr.cells[2].setAttribute("data-base-lon", bulls.lon);
 
-        tr.cells[3].setAttribute("data-base", bulls.lon);
-        var current_value = get_elem_data(tr.cells[3]);
-        if (current_value != bulls.lon) {
-          $(tr.cells[3]).addClass("modified");
-        }
+        let latlon = get_elem_data(tr.cells[2]);
+        if (latlon[0] != bulls.lat) { $(tr.cells[2]).addClass("modified"); } 
+        if (latlon[1] != bulls.lon) { $(tr.cells[3]).addClass("modified"); }
       }
     }
   });
@@ -442,7 +448,7 @@ $('#theatre-add-submit').click(function() {
 });
 
 function flight_update_coord() {
-  $('.coord').each(function(idx, td) {
+  $('.coord-ctrl').each(function(idx, td) {
     coords.format_td(td);
   });
 }
@@ -473,7 +479,8 @@ function theatres_save() {
     if (tr.cells.length) {
 
       // override
-      var data = get_modified_row_data(tr, ["-", "name", "lat", "lon"]);
+      var data = get_modified_row_data(tr, ["-", "name", "lat", "-"]);
+      console.log(data);
       var name = tr.cells[0].getAttribute('data-base');
       if (Object.keys(data).length) {
         if (!overrides.bullseye) { overrides.bullseye = {} };
@@ -481,7 +488,7 @@ function theatres_save() {
       }
 
       // base 
-      var data = get_base_row_data(tr, ["side", "name", "lat", "lon"]);
+      var data = get_base_row_data(tr, ["side", "name", "lat", "-"]);
       var name = data['side'];
       delete(data['side']);
       if (Object.keys(data).length) {
@@ -497,7 +504,7 @@ function theatres_save() {
     if (tr.cells.length) {
 
       // Overrides
-      var data = get_modified_row_data(tr, ["-", "id", "dcs_name", "display_name", "icao", "lat", "lon", "alt", "uhf", "vhf", "tcn"]);
+      var data = get_modified_row_data(tr, ["-", "id", "dcs_name", "display_name", "icao", "lat", "-", "alt", "uhf", "vhf", "tcn"]);
       var id = $(tr).data('id');
       if (!id) {
         id = next_id++;
@@ -518,7 +525,7 @@ function theatres_save() {
       }
 
       // Base values (in case of update)
-      var data = get_base_row_data(tr, ["-", "-", "-", "-", "-", "lat", "lon", "alt", "-", "-"]);
+      var data = get_base_row_data(tr, ["-", "-", "-", "-", "-", "lat", "-", "alt", "-", "-"]);
       data['dcs_name'] = dcs_name;
 
       if (Object.keys(data).length) {
@@ -545,7 +552,6 @@ function theatres_save() {
       // Refresh displayed content
       update_content();
     });
-
 }
 
 // Any time we move away from theatres-edit, we remove the nav

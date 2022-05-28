@@ -82,6 +82,18 @@ function get_modified_row_data(row, headings) {
       return dd ? dd : undefined;
     }
 
+    // If we have lat lon (which are never inputs), we can return two items
+    if (td.classList.contains('coord-ctrl')) {
+      let base_lat = td.getAttribute('data-base-lat');
+      let base_lon = td.getAttribute('data-base-lon');
+      let lat = td.getAttribute('data-lat');
+      let lon = td.getAttribute('data-lon');
+
+      return [
+        lat == base_lat ? null : lat,
+        lon == base_lon ? null : lon];
+    }
+
     // Finally, just use what's in the cell
     if (td.hasAttribute('data-base')) {
       if (td.getAttribute('data-base') != td.innerHTML) {
@@ -98,13 +110,27 @@ function get_modified_row_data(row, headings) {
   }
 
   // Map array to keys if we have them
-  return headings.reduce(function(obj,key,idx) {
+  let obj = headings.reduce(function(obj,key,idx) {
     if (key == "-" || data[idx] == undefined) {
         return obj
     }
     obj[key] = data[idx];
     return obj
   }, {});
+
+  // If heading includes lat, then auto add lon
+  if (obj.lat) {
+    if (obj.lat[1]) {
+      obj.lon = obj.lat[1];
+    }
+    if (obj.lat[0]) {
+      obj.lat = obj.lat[0];
+    } else {
+      delete obj.lat
+    }
+  }
+
+  return obj;
 
 }
 
@@ -123,6 +149,13 @@ function get_base_row_data(row, headings) {
       }
     }
 
+    // If we have lat lon (which are never inputs), we can return two items
+    if (td.hasAttribute('data-base-lat')) {
+      let base_lat = td.getAttribute('data-base-lat');
+      let base_lon = td.getAttribute('data-base-lon');
+      return [base_lat, base_lon];
+    }
+
     // If our TD holds raw-data, use that
     dd = td.getAttribute('data-base')
     if (dd) {
@@ -137,7 +170,7 @@ function get_base_row_data(row, headings) {
   }
 
   // Map array to keys if we have them
-  return headings.reduce(function(obj,key,idx) {
+  let obj = headings.reduce(function(obj,key,idx) {
     if (key == "-" || data[idx] == undefined) {
         return obj
     }
@@ -145,6 +178,13 @@ function get_base_row_data(row, headings) {
     return obj
   }, {});
 
+  // If heading includes lat, then auto add lon
+  if (obj.lat) {
+    obj.lon = obj.lat[1];
+    obj.lat = obj.lat[0];
+  }
+
+  return obj;
 }
 
 function sort_th(th, inverse) {
@@ -325,7 +365,7 @@ $.when(
       }
     }
 
-    // if it's got a data-base then it's an ovverride, so we add modified to the class
+    // if it's got a data-base then it's an override, so we add modified to the class
     if (elem[0].hasAttribute('data-base')) {
       var base = elem[0].getAttribute('data-base')
 
@@ -348,12 +388,17 @@ $.when(
   });
 
   $(document).on('coordinates-changed', function(e) {
+    // elem is the lat item, so we need to go up and get next cell
     var elem = $(e.target);
-    if (elem[0].hasAttribute('data-base')) {
-      // It's eitehr set or reset 
-      var base = elem[0].getAttribute('data-base');
-      var raw = elem[0].getAttribute('data-raw');
+    if (elem[0].hasAttribute('data-base-lat')) {
+      var base = elem[0].getAttribute('data-base-lat');
+      var raw = elem[0].getAttribute('data-lat');
       elem.toggleClass("modified", base != raw);
+    }
+    if (elem[0].hasAttribute('data-base-lon')) {
+      var base = elem[0].getAttribute('data-base-lon');
+      var raw = elem[0].getAttribute('data-lon');
+      $(elem.closest('tr').children()[elem.index()+1]).toggleClass("modified", base != raw);
     }
   });
 
@@ -376,20 +421,33 @@ $.when(
           root.removeClass('modified');
 
           // Update display value
-          if (elem.hasClass("coord")) {
-            coords.format_td(elem[0]);
-          } else {
-            var tag = elem[0].tagName;
-            if (tag == "INPUT" || tag == "SELECT") {
-              if (elem.prop("type") == "checkbox") {
-                elem.prop('checked', attr == 1);
-              } else {
-                elem.val(attr);
-              }
+          var tag = elem[0].tagName;
+          if (tag == "INPUT" || tag == "SELECT") {
+            if (elem.prop("type") == "checkbox") {
+              elem.prop('checked', attr == 1);
+            } else {
+              elem.val(attr);
             }
           }
         }
 
+        if (elem[0].classList.contains('coord')) {
+
+          let data_elem = elem;
+          let tgt = "lat";
+          if (!elem[0].classList.contains('coord-ctrl')) {
+            data_elem = $(elem.closest('tr').children()[elem.index()-1]);
+            tgt = "lon";
+          }
+
+          // Now we know what to reset based on where they're clicking, and the
+          // key to update
+          data_elem[0].setAttribute(`data-${tgt}`, data_elem[0].getAttribute(`data-base-${tgt}`));
+          elem.removeClass('modified');
+
+          // update the render
+          coords.format_td(data_elem[0]);
+        }
       }
     },
     items: {

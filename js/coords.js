@@ -459,6 +459,11 @@ $('#coordinate-dialog-submit').click(function() {
     callback();
   }
 
+  // used by admin to highlight modified etc.
+  if (mod_lat || mod_lon) {
+    $(tr.cells[lat_idx]).trigger('coordinates-changed');
+  }
+
   dlg.modal('hide');
 
 });

@@ -183,6 +183,8 @@
     <script src="<?php echo $kneeboard_root ?>js/luaparse.js?<?php echo time() ?>"></script>
 
     <!-- Init -->
+    <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/pad.js"></script>
+    <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/time.js"></script>
     <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/common.js?<?php echo time() ?>"></script>
     <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/api.js"></script>
     <script src="<?php echo $kneeboard_root ?>js/init.js?<?php echo time() ?>"></script>

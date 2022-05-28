@@ -1198,7 +1198,7 @@ function squadron_populate_theatre_airfield(id, af_data, overrides) {
   tbody.append(elem);
 
   // Process coordinates
-  elem.find('.coord').each(function(idx, elem) { coords.format_td(elem); });
+  elem.find('.coord-ctrl').each(function(idx, elem) { coords.format_td(elem); });
 
 }
 
@@ -1445,8 +1445,8 @@ function squadrons_insert_airfield(table, id, af_data, overrides, name_editable,
   }
 
   if (table == "squadrons-edit-mission-edit-custom-airfield-table") {
-    row += `<td class="coord" data-base="${af_data.lat}" data-raw="${af_data.lat}"></td>`;
-    row += `<td class="coord coord-lon" data-base="${af_data.lon}" data-raw="${af_data.lon}"></td>`;
+    row += `<td class="coord coord-ctrl" data-base-lat="${af_data.lat}" data-base-lon="${af_data.lon}" data-lat="${af_data.lat}" data-lon="${af_data.lon}"></td>`;
+    row += `<td class="coord"></td>`;
   }
 
   var itms = [
@@ -1471,7 +1471,7 @@ function squadrons_insert_airfield(table, id, af_data, overrides, name_editable,
   tbody.append(elem);
 
   // Process coordinates
-  elem.find('.coord').each(function(idx, elem) { coords.format_td(elem); });
+  elem.find('.coord-ctrl').each(function(idx, elem) { coords.format_td(elem); });
 
   feather.replace();
 }
@@ -1615,8 +1615,9 @@ function squadrons_populate_missions_edit(sqn_id, mission_id, callback) {
           // Base Values
           tr.cells[1].firstChild.setAttribute("data-base", bulls.name);
           tr.cells[1].firstChild.value = bulls.name;
-          tr.cells[2].setAttribute("data-base", bulls.lat);
-          tr.cells[3].setAttribute("data-base", bulls.lon);
+
+          tr.cells[2].setAttribute("data-base-lat", bulls.lat);
+          tr.cells[2].setAttribute("data-base-lon", bulls.lon);
 
           var lat = bulls.lat;
           var lon = bulls.lon;
@@ -1630,12 +1631,10 @@ function squadrons_populate_missions_edit(sqn_id, mission_id, callback) {
           }
 
           // Set data-raw for reset
-          tr.cells[2].setAttribute("data-raw", lat);
-          tr.cells[3].setAttribute("data-raw", lon);
+          tr.cells[2].setAttribute("data-lat", lat);
+          tr.cells[2].setAttribute("data-lon", lon);
 
           coords.format_td(tr.cells[2]);
-          coords.format_td(tr.cells[3]);
-
         }
       }
     });
@@ -1721,8 +1720,8 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
 
   if (data) {
     row += `<td class="input-container${overrides.name ? ' modified' : ''}"><input class="input-full" data-base="${name}" value="${overrides.name || name}"></td>`;
-    row += `<td class="coord${overrides.lat ? ' modified' : ''}" onClick="coordinate_input(this, 5);" data-base="${data.lat}"  data-raw="${overrides.lat || data.lat}"></td>`;
-    row += `<td class="coord coord-lon${overrides.lon ? ' modified' : ''}" onClick="coordinate_input(this, 5);" data-base="${data.lon}"  data-raw="${overrides.lon || data.lon}"></td>`;
+    row += `<td class="coord coord-ctrl${overrides.lat ? ' modified' : ''}" onClick="coordinate_input(this, 5);" data-base-lat="${data.lat}"  data-lat="${overrides.lat || data.lat}" data-lon="${overrides.lon || data.lon}" data-base-lon="${data.lon}"></td>`;
+    row += `<td class="coord${overrides.lon ? ' modified' : ''}" onClick="coordinate_input(this, 5);"></td>`;
     row += `<td class="input-container${overrides.alt ? ' modified' : ''}"><input class="input-full text-right" data-base="${data.alt || 0}" value="${overrides.alt || data.alt || 0}"></td>`;
     row += `<td class="text-center border-right-0${overrides.hide ? ' modified' : ''}"><input type="checkbox" name="hidden" data-npname='hide' data-base="0" ${overrides.hide == 1 ? 'checked' : ''}></td>`;
   } else {
@@ -1731,13 +1730,12 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
     if (overrides.name) { row += `data-base="${overrides.name}" `; }
     row += `value="${overrides.name || name || ""}"></td>`;
 
-    row += `<td class="coord" onClick="coordinate_input(this, 5);" data-raw="${overrides.lat || ""} `;
-    if (overrides.name) { row += `data-base="${overrides.lat}" `; }
+    row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 5);" data-lat="${overrides.lat || ""}" data-lon="${overrides.lon || ""}" `;
+    if (overrides.lat) { row += `data-base-lat="${overrides.lat}" `; }
+    if (overrides.lon) { row += `data-base-lon="${overrides.lon}" `; }
     row += `"></td>`;
 
-    row += `<td class="coord coord-lon" onClick="coordinate_input(this, 5);" data-raw="${overrides.lon || ""}" `;
-    if (overrides.lon) { row += `data-base="${overrides.lon}" `; }
-    row += `></td>`;
+    row += `<td class="coord" onClick="coordinate_input(this, 5);"></td>`;
 
     row += `<td class="input-container"><input class="input-full text-right" value="${overrides.alt || 0}"`;
     if (overrides.alt) { row += `data-base="${overrides.alt}" `; }
@@ -1767,7 +1765,7 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
       'side': coalition,
     });
   }
-  elem.find('.coord').each(function(idx, elem) { coords.format_td(elem); });
+  elem.find('.coord-ctrl').each(function(idx, elem) { coords.format_td(elem); });
 
   $("#squadrons-edit-mission-edit-navpoints-table > tbody").append(elem);
 
@@ -1792,7 +1790,7 @@ function squadrons_edit_missions_edit_save() {
     if (tr.cells.length) {
 
       // override
-      var data = get_modified_row_data(tr, ["-", "name", "lat", "lon"]);
+      var data = get_modified_row_data(tr, ["-", "name", "lat", "-"]);
       var name = tr.cells[0].getAttribute('data-base');
       if (Object.keys(data).length) {
         if (!overrides.bullseye) { overrides.bullseye = {} };
@@ -1800,7 +1798,7 @@ function squadrons_edit_missions_edit_save() {
       }
 
       // base 
-      var data = get_base_row_data(tr, ["side", "name", "lat", "lon"]);
+      var data = get_base_row_data(tr, ["side", "name", "lat", "-"]);
       var name = data['side'];
       delete(data['side']);
       if (Object.keys(data).length) {
@@ -1838,7 +1836,7 @@ function squadrons_edit_missions_edit_save() {
       var af_base = $(tr).data('base');
 
       // Overrides
-      var data = get_modified_row_data(tr, ['', 'display_name', '', 'lat', 'lon', 'uhf', 'vhf', 'par', 'atis', 'gnd', 'twr', 'ctrl', 'tcn']);
+      var data = get_modified_row_data(tr, ['', 'display_name', '', 'lat', '-', 'uhf', 'vhf', 'par', 'atis', 'gnd', 'twr', 'ctrl', 'tcn']);
       if (Object.keys(data).length) {
         if (!overrides.mission_airfields) { overrides.mission_airfields = {} };
         overrides.mission_airfields[id] = data;
@@ -1864,7 +1862,7 @@ function squadrons_edit_missions_edit_save() {
       var type = np_data.type || "custom";
 
       // Overrides
-      var data = get_modified_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', 'lon', 'alt', 'hide']);
+      var data = get_modified_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', '-', 'alt', 'hide']);
       var name = np_data.name || data.name;
 
       // Refuse to save if we have no name, lat or lon
@@ -1880,7 +1878,7 @@ function squadrons_edit_missions_edit_save() {
         if (overrides.navpoints[type] === undefined) { overrides.navpoints[type] = {}; }
         if (overrides.navpoints[type]["all"] === undefined) { overrides.navpoints[type]["all"] = {}; }
 
-        var cdata = get_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', 'lon', 'alt', 'hide']);
+        var cdata = get_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', '-', 'alt', 'hide']);
         if (cdata.lat && cdata.lon) {
           overrides.navpoints[type]["all"][cdata.name] = {
             'lat': cdata.lat,
@@ -2100,7 +2098,6 @@ function squadrons_add_row(id, squadron, url, editable, active, is_default) {
     var elem = $(this);
     var id = elem.closest('tr').data('id');
 
-    console.log($(this).is(':checked'));
     api_post(`/squadrons/${id}`, {
       'squadron': id,
       'update': {
@@ -2702,18 +2699,13 @@ function squadrons_update_cf_data(data) {
         matches[nav_data.name] = true;
 
         // we can only do lat/lon from cf
-        current_value = get_elem_data(tr.cells[5]);
-        tr.cells[5].setAttribute("data-base", updates.lat);
-        if (current_value != updates.lat) {
-          console.log(current_value, updates.lat);
-          $(tr.cells[5]).addClass("modified");
-        }
+        let latlon = get_elem_data(tr.cells[5]);
 
-        current_value = get_elem_data(tr.cells[6]);
-        tr.cells[6].setAttribute("data-base", updates.lon);
-        if (current_value != updates.lon) {
-          $(tr.cells[6]).addClass("modified");
-        }
+        tr.cells[5].setAttribute("data-base-lat", updates.lat);
+        tr.cells[5].setAttribute("data-base-lon", updates.lon);
+
+        if (latlon[0] != updates.lat) { $(tr.cells[5]).addClass("modified"); }
+        if (latlon[1] != updates.lon) { $(tr.cells[6]).addClass("modified"); }
 
       } else {
 
@@ -2752,20 +2744,20 @@ function squadrons_update_mission_data(data) {
       var k = tr.cells[0].getAttribute('data-base');
       if (k in data.bullseye) {
         var bulls = data.bullseye[k];
-        var current_value = 0
 
-        // we can only do lat/lon from miz
-        current_value = get_elem_data(tr.cells[2]);
-        tr.cells[2].setAttribute("data-base", bulls.lat);
-        if (current_value != bulls.lat) {
-          $(tr.cells[2]).addClass("modified");
+        // Bulls Name
+        tr.cells[1].firstChild.setAttribute("data-base", bulls.name);
+        var current_value = get_elem_data(tr.cells[1]);
+        if (current_value != bulls.name) {
+          $(tr.cells[1]).addClass("modified");
         }
 
-        current_value = get_elem_data(tr.cells[3]);
-        tr.cells[3].setAttribute("data-base", bulls.lon);
-        if (current_value != bulls.lon) {
-          $(tr.cells[3]).addClass("modified");
-        }
+        tr.cells[2].setAttribute("data-base-lat", bulls.lat);
+        tr.cells[2].setAttribute("data-base-lon", bulls.lon);
+
+        let latlon = get_elem_data(tr.cells[2]);
+        if (latlon[0] != bulls.lat) { $(tr.cells[2]).addClass("modified"); } 
+        if (latlon[1] != bulls.lon) { $(tr.cells[3]).addClass("modified"); }
       }
     }
   });

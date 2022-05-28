@@ -34,6 +34,7 @@ local data = {}
 data['theatre'] = env.mission.theatre;
 data['airfields'] = {};
 data['bullseye'] = {};
+data['beacons'] = {};
 
 -- Iterate all the coalition's and collect their default bullsye and airbase positions
 for c_name, c_id in pairs(coalition.side) do
