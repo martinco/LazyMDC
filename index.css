@@ -225,3 +225,11 @@ body .overhang-overlay {
   justify-content: start;
   grid-template-columns: 270px 270px 270px;
 }
+
+#waypoints-table tbody{ 
+  border: 1px solid black;
+}
+
+#waypoints-table tbody:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}

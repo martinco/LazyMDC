@@ -82,8 +82,8 @@ function bot_detected() {
       </div>
     </div>
 
-    <div id="main-page" style="width: 1050px; margin: 0 auto; min-height: 100%; display: flex">
-      <div style="position: absolute; margin: 0 auto; top:0px; height:48px; width:1050px; border-bottom: 1px solid #bdbdbd; background: #444">
+    <div id="main-page" style="width: 1150px; margin: 0 auto; min-height: 100%; display: flex">
+      <div style="position: absolute; margin: 0 auto; top:0px; height:48px; width:1150px; border-bottom: 1px solid #bdbdbd; background: #444">
         <?php if ($kneeboard_root != '/' || $_SERVER['HTTP_HOST'] == 'dev.dcs-mdc.com') { ?>
         <div style="padding-left: 215px; color:#ff0000; padding-top: .75rem; font-size:1rem;">
           Development Build, use <a style="color: #ff0000" href="https://dcs-mdc.com">https://dcs-mdc.com</a>
@@ -203,7 +203,7 @@ function bot_detected() {
       </nav>
 
       <!-- Main Page -->
-      <div class="tab-content" style="float: left; width:850px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
+      <div class="tab-content" style="float: left; width:950px; min-height: 100%; padding: 15px; border-right:1px solid #dfdfdf; padding-top:58px">
         <div style="<?php echo !isset($_GET['debug']) ? 'display: none' : ''; ?>"><pre id="debug"></pre></div>
         <div class="tab-pane" id="error">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">

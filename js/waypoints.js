@@ -19,7 +19,6 @@ function waypoint_autocomplete(input, lat_idx) {
   });
 }
 
-
 function waypoint_update_display() {
   $('.coord-ctrl').each(function(idx, td) {
     coords.format_td(td);
@@ -52,8 +51,9 @@ function waypoint_update() {
 
   var index = waypoint_initial_index;
 
-  $('#waypoints-table > tbody > tr').each(function(idx, row) {
-
+  // When processing our waypoints, just go straight to the children
+  $('#waypoints-table > tbody > tr:not(.notes)').each(function(idx, row) {
+   
     // If we reindex, each row must be incremented
     if (waypoint_reindex) {
       row.cells[0].innerText = index++;
@@ -128,9 +128,33 @@ function waypoint_update() {
 
 }
 
+function waypoints_add_notes(tbody, notes) {
+
+  tbody = $(tbody.closest('tbody'));
+
+  // Add notes to a waypoint tbody, this could be triggered on the tbody, or on
+  // the button
+
+  let html = `
+    <tr class='notes'>
+      <td colspan=11 class="border-right-0 p-0"><textarea style='width:100%; border:0; background-color: transparent; white-space: pre-wrap;'>${notes || ""}</textarea></td>
+      <td class="input-container text-center border-left-0">
+        <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_row(this);'>
+          <i data-feather="delete"></i>
+        </button>
+      </td>
+    </tr>
+  `;
+
+  tbody.append(html);
+
+  // Replace feather
+  feather.replace();
+}
+
 
 function waypoint_add(wp_info) {
- 
+
   var data = {
       'typ': 'WP',
       'name': '',
@@ -142,8 +166,10 @@ function waypoint_add(wp_info) {
   }
   
   var waypoints_table = $("#waypoints-table");
-  var last_row = $("#waypoints-table > tbody > tr:last")[0]
-  var current_last_data = get_row_data(last_row);
+
+  // last row with data
+  var last_tbody = $("#waypoints-table > tbody:last")[0]
+  var current_last_data = get_row_data(last_tbody);
 
   var type = $('#flight-airframe').val()
 
@@ -157,7 +183,7 @@ function waypoint_add(wp_info) {
     }
   }
 
-  if (!last_row) {
+  if (!last_tbody) {
 
     // We also remove declutter to avoid GS / ALT being removed in the case
     // someone adds a row, deletes all the rows, and adds a row
@@ -223,7 +249,7 @@ function waypoint_add(wp_info) {
   waypoints_table.data('declutter', declutter);
 
   // F-16 waypoints always 
-  var row = `<tr>`;
+  var row = `<tbody style="border-bottom: 1px solid black"><tr>`;
 
   if (waypoint_reindex) {
     row += `<td class="text-center">${data['typ']}</td>`;
@@ -236,7 +262,7 @@ function waypoint_add(wp_info) {
           <td class="input-container text-right"><input value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
           <td class="text-center"></td>
-          <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--" pattern="^([0-9]+:)?[0-9]+$"></td>`
+          <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--:--" pattern="^([0-9]+:)?([0-9]+:)?[0-9]+$"></td>`
     
     if (data['lat_fmt']) {
         row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
@@ -249,20 +275,32 @@ function waypoint_add(wp_info) {
 
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
+          <td class="input-container text-center border-left-0 border-right-0" alt="foo">
+            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_add_notes(this);'>
+              <i data-feather="file-plus"></i>
+            </button>
+          </td>
           <td class="input-container text-center border-left-0">
-            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_row(this);'>
+            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_tbody(this);'>
               <i data-feather="delete"></i>
             </button>
           </td>
-        </tr>`
-  
-  $("#waypoints-table > tbody").append(row)
+        </tr>
+      </tbody>`;
 
-  last_row = $("#waypoints-table > tbody > tr:last");
+  $("#waypoints-table").append(row);
 
-  waypoint_autocomplete(last_row[0].cells[1].firstChild, 6);
+  // Lookup new real last row
+  last_tbody = $("#waypoints-table > tbody:last");
 
-  $(last_row[0].cells[5].firstChild).on('change', function(evt) {
+  // If we have notes, add the notes row
+  if (wp_info && wp_info.notes) {
+    waypoints_add_notes(last_tbody, wp_info.notes);
+  }
+
+  waypoint_autocomplete(last_tbody[0].rows[0].cells[1].firstChild, 6);
+
+  $(last_tbody[0].rows[0].cells[5].firstChild).on('change', function(evt) {
     // Get seconds from time, and format accordingly
     var tgt = evt.target;
     tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
@@ -274,13 +312,16 @@ function waypoint_add(wp_info) {
   // Update DIST / TBRG etc.
   waypoint_update();
   
-  return last_row;
+  return last_tbody;
 }
 
-function waypoints_delete_row(row) {
-  $(row).closest("tr").remove();
-  // Update DIST / TBRG etc.
+function waypoints_delete_tbody(elem) {
+  $(elem).closest('tbody').remove();
   waypoint_update();
+}
+
+function waypoints_delete_row(elem) {
+  $(elem).closest('tr').remove();
 }
 
 function waypoint_add_poi(poi_data) {
@@ -329,9 +370,11 @@ function waypoint_add_poi(poi_data) {
 
 }
 
-function waypoint_get_row(row) {
+function waypoint_get_tbody(tbody) {
+
   let headings = ['typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg'];
-  let d = get_row_data(row, headings)
+  let row = tbody[0].rows[0];
+  let d = get_row_data(row, headings);
   
   if (row.cells[6].hasAttribute('data-fmt')) {
       d['lat_fmt'] = row.cells[6].getAttribute('data-fmt')
@@ -340,10 +383,53 @@ function waypoint_get_row(row) {
 
   // Lon is always stored on lat, so move it (this is so awful but provides
   // MGRS and is currently in progress) 
-
   let [lat, lon] = d['lat'];
   d['lat'] = lat;
   d['lon'] = lon;
+
+  // If the next row is notes, join them to this
+  let notes_row = tbody[0].rows[1]
+  if (notes_row) {
+    let notes = notes_row.cells[0].firstChild.value.trim();
+    if (notes) {
+      d['notes'] = notes;
+    }
+  }
+
+  // Now we attach the nearest tacan station (if there is one)
+  let closest = {
+    data: {},
+    distance: null,
+  }
+  for (const [tcn, value] of Object.entries(mission_data.data.beacons || {})) {
+    let r = geod.Inverse(lat, lon, value.lat, value.lon);
+    let distance = r.s12/1000;
+
+    // Convert distance from km -> kts if needed
+    if ($('#waypoints-gs-units').val() != "kts") {
+      distance /= 1.852;
+    }
+
+    // Round to 1 DP
+    distance = Math.round((distance + Number.EPSILON) * 10) / 10;
+
+    let azi = Math.round(r.azi1);
+    if (azi < 0) { azi += 360; }
+    console.log(tcn, distance);
+
+    if (!closest.distance || closest.distance > distance) {
+      closest.distance = distance;
+      closest.data = {...value, ...{
+        'channel': tcn,
+        'brg': azi,
+        'rng': distance,
+      }}
+    }
+  }
+  if (closest.distance) {
+    d['nearest_tcn'] = closest.data;
+  }
+  
   return d
 }
 
@@ -352,10 +438,21 @@ $('#waypoints-add-waypoint').click(function() {
 });
 
 // Make Draggable Elements
-$('#waypoints-table > tbody').sortable({
-  items: 'tr',
+$('#waypoints-table').sortable({
+  items: 'tbody',
   update: function() {
     waypoint_update();
+  },
+  helper: function(e, tr)
+  {
+    // Wrap our tbody around the same table definition to maintain the column
+    // spacing and keep things pretty
+    let jtr = $(tr);
+    return `
+      <table class="table">
+        ${$(jtr.closest('table')).find('colgroup')[0].outerHTML}
+        ${jtr.html()}
+      </table>`;
   },
 })
 
@@ -379,13 +476,16 @@ $('#waypoints-bullseye-name').autocomplete({
 
 // Allow cloning of waypoints
 $.contextMenu({
-  selector: '#waypoints-table > tbody > tr',
+  selector: '#waypoints-table > tbody',
   callback: function(key, options) {
     if (key == 'duplicate') {
 
-      var data = waypoint_get_row($(this)[0]);
+      var data = waypoint_get_tbody($(this));
+
+      // If the row after this row is notes, we need to insert after this row 
       var last_row = waypoint_add(data);
       last_row.insertAfter($(this));
+
       waypoint_update();
     }
   },
@@ -573,9 +673,10 @@ function waypoint_export() {
     
     // waypoints
     ret["waypoints"] = []
-    $('#waypoints-table > tbody > tr').each(function(idx, tr) {
+    $('#waypoints-table > tbody').each(function(idx, tbody) {
+
         // waypoints also have override display formats in addition to visible data
-        ret['waypoints'].push(waypoint_get_row(tr))
+        ret['waypoints'].push(waypoint_get_tbody($(tbody)))
     })
     
     ret["poi"] = []
@@ -600,7 +701,7 @@ function waypoint_export() {
         $('#waypoints-sequence-table > tbody > tr').each(function(idx, tr) {
             ret['sequence'].push(get_row_data(tr, ['id', 'seq', 'notes']))
         })
-    }   
+    }
     
     return ret
 }

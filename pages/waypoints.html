@@ -87,18 +87,19 @@
 
   <div class="form-group">
     <label class="heading">Mission Plan</label>
-    <table class="table table-striped" id="waypoints-table">
+    <table class="table mb-0" id="waypoints-table" style="overflow:hidden">
       <colgroup>
         <col style="width:38px" />
         <col />
         <col style="width:45px" />
         <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:70px" />
+        <col style="width:60px" />
+        <col style="width:60px" />
         <col style="width:140px" />
         <col style="width:140px" />
         <col style="width:45px" />
         <col style="width:45px" />
+        <col style="width:20px;" />
         <col style="width:20px;" />
       </colgroup>
 
@@ -113,12 +114,14 @@
           <th>LAT</th>
           <th>LON</th>
           <th id="waypoints-table-dist">NM</th>
-          <th colspan=2>TBRG</th>
+          <th colspan=3>TBRG</th>
         </tr>
       </thead>
-      <tbody>
-      </tbody>
     </table>
+
+    <small class="form-text text-muted mb-2">
+      Notes are only available on output templates after 2022-05
+    </small>
 
     <button class="btn btn-primary" id='waypoints-add-waypoint' type="button">
       <i data-feather="map-pin"></i>

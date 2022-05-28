@@ -7,7 +7,8 @@ function download_export() {
 
 function download_load(data, callback) {
   if(data) {
-    $('#download-template').val(data['template']);
+    // Cater for the rename of standard -> original
+    $('#download-template').val(data['template'].replace('Standard', 'Original'));
   }
   callback();
 }

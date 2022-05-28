@@ -16,7 +16,7 @@ from zipfile import ZipFile
 RE_ARGS = {
     'id': re.compile(r'^[0-9a-zA-Z-]+$'),
     'key': re.compile(r'^[0-9a-zA-Z-]+$'),
-    'template': re.compile(r'^[a-z]+$', re.IGNORECASE),
+    'template': re.compile(r'^[a-z0-9-]+$', re.IGNORECASE),
     'output': re.compile(r'^(png|pdf|html)$'),
 }
 
