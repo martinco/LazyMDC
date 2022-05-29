@@ -1954,7 +1954,7 @@ function Agencies (data, unit) {
       }
 
       elem_html += `
-          <td class="">${notes}</td>
+          <td style="white-space: normal">${notes}</td>
         </tr>`;
 
       elems.push($(elem_html));
