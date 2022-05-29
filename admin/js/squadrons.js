@@ -1879,10 +1879,10 @@ function squadrons_edit_missions_edit_save() {
         if (overrides.navpoints[type]["all"] === undefined) { overrides.navpoints[type]["all"] = {}; }
 
         var cdata = get_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', '-', 'alt', 'hide']);
-        if (cdata.lat && cdata.lon) {
+        if (cdata.lat) {
           overrides.navpoints[type]["all"][cdata.name] = {
-            'lat': cdata.lat,
-            'lon': cdata.lon,
+            'lat': cdata.lat[0],
+            'lon': cdata.lat[1],
           }
 
           if (cdata.hide) {
@@ -2847,18 +2847,15 @@ function squadrons_update_mission_data(data) {
 
         // we can only do lat/lon from miz
         current_value = get_elem_data(tr.cells[5]);
+
         updates.lat = Number(updates.lat.toFixed(12));
         updates.lon = Number(updates.lon.toFixed(12));
-        tr.cells[5].setAttribute("data-base", updates.lat);
-        if (current_value != updates.lat) {
-          $(tr.cells[5]).addClass("modified");
-        }
 
-        current_value = get_elem_data(tr.cells[6]);
-        tr.cells[6].setAttribute("data-base", updates.lon);
-        if (current_value != updates.lon) {
-          $(tr.cells[6]).addClass("modified");
-        }
+        tr.cells[5].setAttribute("data-base-lat", updates.lat);
+        tr.cells[5].setAttribute("data-base-lon", updates.lon);
+
+        if (current_value.lat != updates.lat) { $(tr.cells[5]).addClass("modified"); }
+        if (current_value.lon != updates.lon) { $(tr.cells[6]).addClass("modified"); }
 
       } else {
 
