@@ -569,11 +569,16 @@ $('#flight-airframe').on('data-route-updated', function(e) {
     if (!route.route_only) {
       // Mission Start
       var start_time = parseInt(route.xml.ownerDocument.querySelector('Mission > Environment > Starttime').textContent);
-      $("#waypoints-to-time").val(get_time_from_seconds(start_time)).change();
+      $("#waypoints-walk-time").val(get_time_from_seconds(start_time)).change();
+
+      // Default T/O time is 20 minutes hence
+      $("#waypoints-to-time").val(get_time_from_seconds(start_time+60*20)).change();
     }
 
     // F-18 waypoints start at 0
     var idx = ["FA-18C"].includes(type) ? 0 : 1;
+
+    let first = true;
 
     var style = route.wp_style || "index";
 
@@ -607,6 +612,22 @@ $('#flight-airframe').on('data-route-updated', function(e) {
           break
       }
 
+      // If we're the first row and not route only, then add ACT to walk
+      let act = wp.querySelector('Activity').textContent.split(':').splice(0,2).join(':');
+      if (first) {
+        first = false;
+        if (!route.route_only) {
+
+          // Update our T/O time from walk + ACT
+          let to_time = get_seconds_from_time($("#waypoints-walk-time").val()) + get_seconds_from_time(act);
+          $("#waypoints-to-time").val(get_time_from_seconds(to_time)).change();
+
+          // Clear act, as it's set from walk + to now, though could be added
+          // by someone for after depart refuel or such 
+          act = "00:00";
+        }
+      }
+
       waypoint_add({
           'typ': type,
           'name': name,
@@ -614,7 +635,7 @@ $('#flight-airframe').on('data-route-updated', function(e) {
           'alt': wp.querySelector('Altitude').textContent,
           'lat': wp.querySelector('Lat').textContent,
           'lon': wp.querySelector('Lon').textContent,
-          'act': wp.querySelector('Activity').textContent.split(':').splice(0,2).join(':'),
+          'act': act,
       })
 
       idx++;
