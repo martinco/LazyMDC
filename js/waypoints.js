@@ -406,7 +406,7 @@ function waypoint_get_tbody(tbody) {
     let distance = r.s12/1000;
 
     // Convert distance from km -> kts if needed
-    if ($('#waypoints-gs-units').val() != "kts") {
+    if ($('#waypoints-gs-units').val() == "kts") {
       distance /= 1.852;
     }
 
@@ -415,7 +415,6 @@ function waypoint_get_tbody(tbody) {
 
     let azi = Math.round(r.azi1);
     if (azi < 0) { azi += 360; }
-    console.log(tcn, distance);
 
     if (!closest.distance || closest.distance > distance) {
       closest.distance = distance;
