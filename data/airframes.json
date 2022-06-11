@@ -5280,6 +5280,10 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
+        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
+          "weight": 1087
+        },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
           "weight": 934
@@ -5310,23 +5314,23 @@
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234
+          "weight": 234.19
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
           "clsid": "LAU3_WP156",
-          "weight": 234
+          "weight": 155.91
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 234
+          "weight": 201.89
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
           "clsid": "LAU3_WP61",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "LAU3_WP1B",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -5450,25 +5454,29 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
+        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
+          "weight": 1087
+        },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234
+          "weight": 234.19
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
           "clsid": "LAU3_WP156",
-          "weight": 234
+          "weight": 155.91
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 234
+          "weight": 201.89
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
           "clsid": "LAU3_WP61",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "LAU3_WP1B",
-          "weight": 234
+          "weight": 207.59
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -5590,25 +5598,29 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
+        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
+          "weight": 1087
+        },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234
+          "weight": 234.19
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
           "clsid": "LAU3_WP156",
-          "weight": 234
+          "weight": 155.91
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 234
+          "weight": 201.89
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
           "clsid": "LAU3_WP61",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "LAU3_WP1B",
-          "weight": 234
+          "weight": 207.59
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -5772,6 +5784,10 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
+        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+          "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
+          "weight": 1087
+        },
         "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
           "clsid": "{GBU-31}",
           "weight": 934
@@ -5802,23 +5818,23 @@
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234
+          "weight": 234.19
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
           "clsid": "LAU3_WP156",
-          "weight": 234
+          "weight": 155.91
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 234
+          "weight": 201.89
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
           "clsid": "LAU3_WP61",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
           "clsid": "LAU3_WP1B",
-          "weight": 234
+          "weight": 207.59
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -6285,7 +6301,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -6313,13 +6329,13 @@
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120B}",
-          "weight": 301
+          "weight": 302.85
         },
-        "LAU-115 with 1 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120C}",
-          "weight": 306.5
+          "weight": 306.48
         },
         "LAU-115 with 1 x LAU-127 AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-115_LAU-127_AIM-9L",
@@ -6337,13 +6353,13 @@
           "clsid": "LAU-115_LAU-127_CATM-9M",
           "weight": 230.73
         },
-        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120B",
-          "weight": 457
+          "weight": 460.7
         },
-        "LAU-115 with 2 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
-          "weight": 468
+          "weight": 467.96
         },
         "LAU-115 with 2 x LAU-127 AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-9L",
@@ -6371,6 +6387,10 @@
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
+          "weight": 285.4
+        },
+        "LAU-115C with AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7P}",
           "weight": 285.4
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
@@ -6555,7 +6575,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -6583,21 +6603,21 @@
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120B}",
-          "weight": 301
+          "weight": 302.85
         },
-        "LAU-115 with 1 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120C}",
-          "weight": 306.5
+          "weight": 306.48
         },
-        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120B",
-          "weight": 457
+          "weight": 460.7
         },
-        "LAU-115 with 2 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
-          "weight": 468
+          "weight": 467.96
         },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
@@ -6609,6 +6629,10 @@
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
+          "weight": 285.4
+        },
+        "LAU-115C with AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7P}",
           "weight": 285.4
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
@@ -6663,6 +6687,10 @@
         },
         "AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7H}",
+          "weight": 231
+        },
+        "AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{AIM-7P}",
           "weight": 231
         },
         "AN/AAQ-28 LITENING - Targeting Pod": {
@@ -6771,6 +6799,10 @@
         },
         "AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7H}",
+          "weight": 231
+        },
+        "AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{AIM-7P}",
           "weight": 231
         }
       },
@@ -6923,7 +6955,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -6951,21 +6983,21 @@
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120B_R}",
-          "weight": 301
+          "weight": 302.85
         },
-        "LAU-115 with 1 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120C_R}",
-          "weight": 306.5
+          "weight": 306.48
         },
-        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120B",
-          "weight": 457
+          "weight": 460.7
         },
-        "LAU-115 with 2 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
-          "weight": 468
+          "weight": 467.96
         },
         "LAU-115C with AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7F}",
@@ -6977,6 +7009,10 @@
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
+          "weight": 285.4
+        },
+        "LAU-115C with AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7P}",
           "weight": 285.4
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
@@ -7161,7 +7197,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -7189,13 +7225,13 @@
           "clsid": "{GBU-38}",
           "weight": 241
         },
-        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120B_R}",
-          "weight": 301
+          "weight": 302.85
         },
-        "LAU-115 with 1 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 1 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{LAU-115 - AIM-120C_R}",
-          "weight": 306.5
+          "weight": 306.48
         },
         "LAU-115 with 1 x LAU-127 AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-115_LAU-127_AIM-9L_R",
@@ -7213,13 +7249,13 @@
           "clsid": "LAU-115_LAU-127_CATM-9M_R",
           "weight": 230.73
         },
-        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120B",
-          "weight": 457
+          "weight": 460.7
         },
-        "LAU-115 with 2 x LAU-127 AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "LAU-115 with 2 x LAU-127 AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-120C",
-          "weight": 468
+          "weight": 467.96
         },
         "LAU-115 with 2 x LAU-127 AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-115_2*LAU-127_AIM-9L",
@@ -7247,6 +7283,10 @@
         },
         "LAU-115C with AIM-7MH Sparrow Semi-Active Radar": {
           "clsid": "{LAU-115 - AIM-7H}",
+          "weight": 285.4
+        },
+        "LAU-115C with AIM-7P Sparrow Semi-Active Radar": {
+          "clsid": "{LAU-115 - AIM-7P}",
           "weight": 285.4
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
@@ -7740,23 +7780,23 @@
         }
       },
       "2": {
-        "AUF2 - 2 x BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "AUF2 BLG-66-AC x 2": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
-        },
-        "AUF2 - 2 x Mk-82 - 500lb GP Bomb LD": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 531
-        },
-        "AUF2 - 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 574
         },
         "AUF2 MK-82 Air x 2": {
           "clsid": "{M2KC_RAFAUT_MK82A}",
           "weight": 525
         },
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "AUF2 MK-82 Snakeyes x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 525
+        },
+        "AUF2 MK-82 x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 525
+        },
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7794,7 +7834,7 @@
         }
       },
       "3": {
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7816,7 +7856,7 @@
         }
       },
       "4": {
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7834,9 +7874,9 @@
         }
       },
       "5": {
-        "AUF2 - 2 x GBU-12 - 500lb Laser Guided Bomb": {
+        "AUF2 GBU-12 x 2": {
           "clsid": "{M2KC_RAFAUT_GBU12}",
-          "weight": 629
+          "weight": 621
         },
         "BAP-100 x 12": {
           "clsid": "{M2KC_BAP100_12_RACK}",
@@ -7850,7 +7890,7 @@
           "clsid": "{M2KC_BAP100_6_RACK}",
           "weight": 270
         },
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7900,7 +7940,7 @@
         }
       },
       "6": {
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7918,7 +7958,7 @@
         }
       },
       "7": {
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -7940,23 +7980,23 @@
         }
       },
       "8": {
-        "AUF2 - 2 x BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "AUF2 BLG-66-AC x 2": {
           "clsid": "{M2KC_RAFAUT_BLG66}",
           "weight": 685
-        },
-        "AUF2 - 2 x Mk-82 - 500lb GP Bomb LD": {
-          "clsid": "{M2KC_RAFAUT_MK82}",
-          "weight": 531
-        },
-        "AUF2 - 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
-          "clsid": "{M2KC_RAFAUT_MK82S}",
-          "weight": 574
         },
         "AUF2 MK-82 Air x 2": {
           "clsid": "{M2KC_RAFAUT_MK82A}",
           "weight": 525
         },
-        "BLG-66 Belouga AC - 305kg CBU, 151 x HEAT Bomblets": {
+        "AUF2 MK-82 Snakeyes x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82S}",
+          "weight": 525
+        },
+        "AUF2 MK-82 x 2": {
+          "clsid": "{M2KC_RAFAUT_MK82}",
+          "weight": 525
+        },
+        "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
         },
@@ -8608,13 +8648,45 @@
     "joker": 200,
     "loadout": {
       "2": {
-        "LAU_SNEB68G - 8xSNEB68_EAP": {
-          "clsid": "{LAU_SNEB68G}",
-          "weight": 50.08
+        "Telson 8 - 8 x 68 mm SNEB Type 250 F1B TP-SM": {
+          "clsid": "{TELSON8_SNEBT250}",
+          "weight": 61.152
         },
-        "LAU_SNEB68G - 8xSNEB68_WP": {
-          "clsid": "{LAU_SNEB68_WP}",
-          "weight": 50.08
+        "Telson 8 - 8 x 68 mm SNEB Type 251 H1 HE": {
+          "clsid": "{TELSON8_SNEBT251}",
+          "weight": 64.48
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 252 H1 TP": {
+          "clsid": "{TELSON8_SNEBT252}",
+          "weight": 65.04
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 253 H1 HEAT": {
+          "clsid": "{TELSON8_SNEBT253}",
+          "weight": 70.4
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 254 H1 SM Green": {
+          "clsid": "{TELSON8_SNEBT254_GREEN}",
+          "weight": 61.152
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 254 H1 SM Red": {
+          "clsid": "{TELSON8_SNEBT254_RED}",
+          "weight": 61.152
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 254 H1 SM Yellow": {
+          "clsid": "{TELSON8_SNEBT254_YELLOW}",
+          "weight": 61.152
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 256 H1 HE/Frag": {
+          "clsid": "{TELSON8_SNEBT256}",
+          "weight": 80.08
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 257 H1 HE/Frag Lg Whd": {
+          "clsid": "{TELSON8_SNEBT257}",
+          "weight": 93.04
+        },
+        "Telson 8 - 8 x 68 mm SNEB Type 259E H1 IL": {
+          "clsid": "{TELSON8_SNEBT259E}",
+          "weight": 102.48
         }
       },
       "5": {
