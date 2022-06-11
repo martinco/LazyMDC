@@ -259,7 +259,7 @@ function waypoint_add(wp_info) {
 
   row += `
           <td class="input-container"><input value="${data['name']}"></td>
-          <td class="input-container text-right"><input value="${data['alt']}"></td>
+          <td class="input-container text-right"><input class="nospin" type="number" value="${data['alt']}"></td>
           <td class="input-container text-right" onChange="waypoint_update()"><input value="${data['gs']}"></td>
           <td class="text-center"></td>
           <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--:--" pattern="^([0-9]+:)?([0-9]+:)?[0-9]+$"></td>`
