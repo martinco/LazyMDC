@@ -435,13 +435,14 @@ class F16_DTC():
             hts['ManualEmitters'] = []
             for entry in self._mdc['profiles']['hts']['man']:
                 hts['ManualEmitters'].append(entry['id'])
+    
+        if 'classes' in self._mdc['profiles']['hts']:
+            classes = self._mdc['profiles']['hts']['classes']
 
-        classes = self._mdc['profiles']['hts']['classes']
+            hts['EnabledClasses'] = []
 
-        hts['EnabledClasses'] = []
-
-        for x in range(1, 11):
-            hts['EnabledClasses'].append(x in classes)
+            for x in range(1, 11):
+                hts['EnabledClasses'].append(x in classes)
 
         return hts
 
