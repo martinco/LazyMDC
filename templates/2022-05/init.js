@@ -210,9 +210,11 @@ function Header(data, unit, page) {
       <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
-          <col style="width: 120${unit}" />
-          <col style="width: 90${unit}" />
-          <col style="width: 90${unit}" />`
+          <col style="width: 130${unit}" />
+          <col style="width:77${unit}" />
+          <col class="" style="width:50${unit}" />
+          <col style="width:77${unit}" />
+          <col class="" style="width:50${unit}" />`;
 
     if (package) {
       html += `
@@ -230,8 +232,8 @@ function Header(data, unit, page) {
 
           <tr class="header">
             <th>CALLSIGN</th>
-            <th>PRI</th>
-            <th>SEC</th>`;
+            <th colspan=2>PRI</th>
+            <th colspan=2>SEC</th>`;
 
     if (package) {
       html += `
@@ -251,8 +253,10 @@ function Header(data, unit, page) {
           
           <tr>
             <td class="text-center">${callsign}</td>
-            <td class="text-center text-bold">${data['mission']['mission-pri-freq'] ? data['mission']['mission-pri-freq'].value || "" : ""}</td>
-            <td class="text-center text-bold">${data['mission']['mission-sec-freq'] ? data['mission']['mission-sec-freq'].value || "" : ""}</td>`;
+            <td class="text-center text-bold rb0">${data['mission']['mission-pri-freq'] ? data['mission']['mission-pri-freq'].value || "" : ""}</td>
+            <td class="lp5 lb0">${data['mission']['mission-pri-freq'] ? data['mission']['mission-pri-freq'].pst || "" : ""}</td>
+            <td class="text-center text-bold rb0">${data['mission']['mission-sec-freq'] ? data['mission']['mission-sec-freq'].value || "" : ""}</td>
+            <td class="lp5 lb0">${data['mission']['mission-sec-freq'] ? data['mission']['mission-sec-freq'].pst || "" : ""}</td>`;
 
     if (package) {
       html += `
