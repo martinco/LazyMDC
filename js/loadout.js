@@ -162,6 +162,23 @@ function get_pylon_options(type, name, val = "") {
   return [output, Math.round(selected_weight*2.20462)]
 }
 
+function loadout_preset_apply(evt) {
+
+  if (!evt.value) { return; }
+
+  let type = $('#flight-airframe').val();
+  if (!type) { return; }
+
+  // Find preset values
+  if (!airframes[type].loadout_presets) { return; }
+  let presets = airframes[type].loadout_presets[evt.value];
+  if (!presets) { return; }
+
+  // Update our pylon selects
+  loadout_set(presets)
+
+}
+
 function loadout_set(opts) {
 
   var type = $('#flight-airframe').val();
@@ -265,6 +282,13 @@ function loadout_set(opts) {
     pylon_index++;
   }
 
+  let loadout_presets = "<option value='' selected></option>";
+  if (values.loadout_presets) {
+    for (let id in values.loadout_presets) {
+      loadout_presets += `<option value="${id}">${values.loadout_presets[id]['name']}</option>`;
+    }
+  }
+
   // Update image
   $("#loadout-image").attr('src', "img/" + type + ".png")
 
@@ -272,6 +296,9 @@ function loadout_set(opts) {
   $("#loadout-table > colgroup").empty().append(colgroup)
   $("#loadout-table > thead").empty().append(header)
   $("#loadout-table > tbody").empty().append(body)
+
+  // Presets list
+  $("#pylon-preset-select").empty().append(loadout_presets);
 
   // Pylon Table
   $("#loadout-pyl-table > tbody").empty().append(pyl_body)
