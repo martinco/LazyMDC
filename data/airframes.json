@@ -6838,6 +6838,10 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "No Pylon": {
+          "clsid": "{MDC_NO_PYLON}",
+          "weight": 0
         }
       },
       "3": {
@@ -7080,6 +7084,10 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "No Pylon": {
+          "clsid": "{MDC_NO_PYLON}",
+          "weight": 0
         }
       },
       "4": {
@@ -7460,6 +7468,10 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "No Pylon": {
+          "clsid": "{MDC_NO_PYLON}",
+          "weight": 0
         }
       },
       "8": {
@@ -7734,6 +7746,10 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "No Pylon": {
+          "clsid": "{MDC_NO_PYLON}",
+          "weight": 0
         }
       },
       "9": {
