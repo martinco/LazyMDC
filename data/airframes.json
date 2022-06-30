@@ -3437,7 +3437,7 @@
     "loadout": {
       "1": {
         "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
-          "clsid": "{AIS_ASQ_T50}",
+          "clsid": "{LAU-138 wtip - TCTS L}",
           "weight": 62.6
         },
         "Captive AIM-9M for ACM": {
@@ -3479,7 +3479,7 @@
       },
       "10": {
         "AN/ASQ-T50 TCTS Pod - ACMI Pod": {
-          "clsid": "{AIS_ASQ_T50}",
+          "clsid": "{LAU-138 wtip - TCTS R}",
           "weight": 62.6
         },
         "Captive AIM-9M for ACM": {
@@ -3580,6 +3580,10 @@
           "clsid": "{SHOULDER AIM-7MH}",
           "weight": 284.4
         },
+        "AIM-7P": {
+          "clsid": "{SHOULDER AIM-7P}",
+          "weight": 284.4
+        },
         "LAU-7 AIM-9L": {
           "clsid": "{LAU-7 - AIM-9L}",
           "weight": 100.5
@@ -3587,6 +3591,10 @@
         "LAU-7 AIM-9M": {
           "clsid": "{LAU-7 - AIM-9M}",
           "weight": 101.64
+        },
+        "LAU-7 AN/ASQ-T50 TCTS Pod - ACMI Pod": {
+          "clsid": "{LAU-7 - TCTS}",
+          "weight": 77.6
         },
         "Mk-83": {
           "clsid": "{PHXBRU3242_MK83 LS}",
@@ -3638,6 +3646,10 @@
         },
         "AIM-7MH": {
           "clsid": "{BELLY AIM-7MH}",
+          "weight": 230
+        },
+        "AIM-7P": {
+          "clsid": "{BELLY AIM-7P}",
           "weight": 230
         },
         "BDU-45": {
@@ -3762,6 +3774,10 @@
           "clsid": "{BELLY AIM-7MH}",
           "weight": 230
         },
+        "AIM-7P": {
+          "clsid": "{BELLY AIM-7P}",
+          "weight": 230
+        },
         "BDU-45": {
           "clsid": "{BRU-32 BDU-45}",
           "weight": 298.38
@@ -3870,6 +3886,10 @@
         },
         "AIM-7MH": {
           "clsid": "{BELLY AIM-7MH}",
+          "weight": 230
+        },
+        "AIM-7P": {
+          "clsid": "{BELLY AIM-7P}",
           "weight": 230
         },
         "BDU-45": {
@@ -3988,6 +4008,10 @@
         },
         "AIM-7MH": {
           "clsid": "{BELLY AIM-7MH}",
+          "weight": 230
+        },
+        "AIM-7P": {
+          "clsid": "{BELLY AIM-7P}",
           "weight": 230
         },
         "BDU-45": {
@@ -4146,6 +4170,10 @@
           "clsid": "{SHOULDER AIM-7MH}",
           "weight": 284.4
         },
+        "AIM-7P": {
+          "clsid": "{SHOULDER AIM-7P}",
+          "weight": 284.4
+        },
         "LANTIRN Targeting Pod": {
           "clsid": "{F14-LANTIRN-TP}",
           "weight": 342
@@ -4157,6 +4185,10 @@
         "LAU-7 AIM-9M": {
           "clsid": "{LAU-7 - AIM-9M}",
           "weight": 101.64
+        },
+        "LAU-7 AN/ASQ-T50 TCTS Pod - ACMI Pod": {
+          "clsid": "{LAU-7 - TCTS}",
+          "weight": 77.6
         },
         "Mk-83": {
           "clsid": "{PHXBRU3242_MK83 RS}",
@@ -6687,6 +6719,18 @@
           "clsid": "{BRU41_6X_BDU-33}",
           "weight": 195.713
         },
+        "BRU-42 with 2 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x2_ADM_141A}",
+          "weight": 410.8
+        },
+        "BRU-42 with 3 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x3_ADM_141A}",
+          "weight": 590.8
+        },
+        "BRU-42 with ADM-141A TALD": {
+          "clsid": "{BRU_42A_x1_ADM_141A}",
+          "weight": 230.8
+        },
         "BRU-55 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU55_2*AGM-154A}",
           "weight": 1057.5
@@ -6960,6 +7004,18 @@
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
           "weight": 195.713
+        },
+        "BRU-42 with 2 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x2_ADM_141A}",
+          "weight": 410.8
+        },
+        "BRU-42 with 3 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x3_ADM_141A}",
+          "weight": 590.8
+        },
+        "BRU-42 with ADM-141A TALD": {
+          "clsid": "{BRU_42A_x1_ADM_141A}",
+          "weight": 230.8
         },
         "BRU-55 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU55_2*AGM-154A}",
@@ -7345,6 +7401,18 @@
           "clsid": "{BRU41_6X_BDU-33}",
           "weight": 195.713
         },
+        "BRU-42 with 2 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x2_ADM_141A}",
+          "weight": 410.8
+        },
+        "BRU-42 with 3 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x3_ADM_141A}",
+          "weight": 590.8
+        },
+        "BRU-42 with ADM-141A TALD": {
+          "clsid": "{BRU_42A_x1_ADM_141A}",
+          "weight": 230.8
+        },
         "BRU-55 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU55_2*AGM-154A}",
           "weight": 1057.5
@@ -7594,6 +7662,18 @@
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
           "weight": 195.713
+        },
+        "BRU-42 with 2 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x2_ADM_141A}",
+          "weight": 410.8
+        },
+        "BRU-42 with 3 x ADM-141A TALD": {
+          "clsid": "{BRU_42A_x3_ADM_141A}",
+          "weight": 590.8
+        },
+        "BRU-42 with ADM-141A TALD": {
+          "clsid": "{BRU_42A_x1_ADM_141A}",
+          "weight": 230.8
         },
         "BRU-55 with 2 x AGM-154A - JSOW CEB (CBU-type)": {
           "clsid": "{BRU55_2*AGM-154A}",
@@ -8333,6 +8413,14 @@
           "clsid": "{M2KC_RAFAUT_MK82}",
           "weight": 525
         },
+        "AUF2 SAMP-250 HD x 2": {
+          "clsid": "{M2KC_RAFAUT_SAMP250HD}",
+          "weight": 613
+        },
+        "AUF2 SAMP-250 x 2": {
+          "clsid": "{M2KC_RAFAUT_SAMP250LD}",
+          "weight": 565
+        },
         "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
           "weight": 305
@@ -8368,6 +8456,14 @@
         "RPL 541 2000 liters Fuel Tank (Empty)": {
           "clsid": "{M2KC_02_RPL541_EMPTY}",
           "weight": 257
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "3": {
@@ -8390,6 +8486,14 @@
         "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
           "weight": 249.5
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "4": {
@@ -8408,6 +8512,14 @@
         "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
           "weight": 249.5
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "5": {
@@ -8492,6 +8604,14 @@
         "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
           "weight": 249.5
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "7": {
@@ -8514,6 +8634,14 @@
         "Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{Mk82SNAKEYE}",
           "weight": 249.5
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "8": {
@@ -8532,6 +8660,14 @@
         "AUF2 MK-82 x 2": {
           "clsid": "{M2KC_RAFAUT_MK82}",
           "weight": 525
+        },
+        "AUF2 SAMP-250 HD x 2": {
+          "clsid": "{M2KC_RAFAUT_SAMP250HD}",
+          "weight": 613
+        },
+        "AUF2 SAMP-250 x 2": {
+          "clsid": "{M2KC_RAFAUT_SAMP250LD}",
+          "weight": 565
         },
         "BLG-66-AC Belouga": {
           "clsid": "{BLG66_BELOUGA_AC}",
@@ -8568,6 +8704,14 @@
         "RPL 541 2000 liters Fuel Tank (Empty)": {
           "clsid": "{M2KC_08_RPL541_EMPTY}",
           "weight": 257
+        },
+        "SAMP-250 - 250 kg GP Bomb LD": {
+          "clsid": "{SAMP250LD}",
+          "weight": 245
+        },
+        "SAMP-250 - 250 kg GP Chute Retarded Bomb HD": {
+          "clsid": "{SAMP250HD}",
+          "weight": 269
         }
       },
       "9": {
