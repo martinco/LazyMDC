@@ -509,7 +509,7 @@ $('#flight-airframe').on('flight-airframe-changed', function(e) {
   }
 
   // Hide / Show Sequenc based on Airframe
-  $('#waypoints-sequence').toggle(['F-16C', 'FA-18C'].includes(type))
+  $('#waypoints-sequence').toggle(['FA-18C'].includes(type))
 });
 
 $('#flight-airframe').on('data-poi-updated', function(e) {
