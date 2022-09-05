@@ -559,7 +559,7 @@ $('#flight-airframe').on('data-route-updated', function(e) {
     return
   }
  
-  $("#waypoints-table > tbody").empty()
+  $("#waypoints-table > tbody").remove()
   $("#waypoints-table").data('declutter', null);
 
   if (route.xml_format == "cf") {
@@ -751,7 +751,7 @@ function waypoint_load(data, callback) {
     be_lat.attr('data-dmp', data['bullseye']['lat_dmp'])
   }
 
-  $("#waypoints-table > tbody").empty();
+  $("#waypoints-table > tbody").remove();
   $("#waypoints-table").data('declutter', null);
 
   data['waypoints'].forEach(function(data) {
