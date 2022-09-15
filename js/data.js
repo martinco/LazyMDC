@@ -448,7 +448,7 @@ function data_mission_set(mid, callback) {
       ['vhf', 'AI Tower', 'sec'],
       ['par', 'PAR / LSO'],
       ['gnd', 'Ground'],
-      ['ctrl', 'Control'],
+      ['ctrl', 'Approach'],
     ];
 
     for (const [af, af_data] of Object.entries(getDict(resp, 'data', 'airfields'))) {

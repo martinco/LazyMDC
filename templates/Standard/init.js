@@ -1660,7 +1660,7 @@ function DepArr(data, unit) {
             <th colspan=2>ATIS</th>
             <th colspan=2>GND</th>
             <th colspan=2>TWR/LSO</th>
-            <th colspan=2>CTRL/MARSHALL</th>
+            <th colspan=2>TMA/CCA</th>
           </tr>
         </tbody>
       </table>`);
