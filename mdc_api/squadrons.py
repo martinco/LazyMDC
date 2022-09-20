@@ -7,6 +7,9 @@ from contextlib import closing
 from deepmerge import always_merger
 from flask import jsonify, request
 
+from flask_jwt_extended import (
+    jwt_optional, get_jwt_identity, get_jwt_claims)
+
 from mdc_api import (
     app, mysql, require_roles, success, fail, bad_request)
 
@@ -191,6 +194,7 @@ def lookup_squadron_callsigns(sid):
 
         return json.loads(row[1]) if row[1] else []
 
+
 def lookup_squadron_freqs(sid):
     with closing(mysql.connection.cursor()) as cur:
 
@@ -213,6 +217,7 @@ def lookup_squadron_freqs(sid):
 
 
 @app.route('/squadrons')
+@jwt_optional
 def squadrons():
     """
     Returns a list of squadrons, if show_all then it shows inactive and those
@@ -220,6 +225,17 @@ def squadrons():
     """
 
     show_all = request.args.get('all', '0') == "1"
+    show_editable = request.args.get('editable', '0') == "1"
+    identity = get_jwt_identity()
+
+    try:
+        editable = get_jwt_claims().get('roles', {}).get('squadron-edit', [])
+    except (KeyError, AttributeError):
+        editable = []
+
+    # If we request editable, but have no identity, nothing to do
+    if show_editable and not identity:
+        return jsonify([])
 
     with closing(mysql.connection.cursor()) as cur:
 
@@ -244,9 +260,14 @@ def squadrons():
             if row['active'] == 0 and not show_all:
                 continue
 
-            # Don't
+            # Don't show squadrons with no missions
             if row['missions'] == 0 and not show_all:
                 continue
+
+            # If we're editable then don't show if we haven't got rights
+            if show_editable:
+                if row['idx'] not in editable and 0 not in editable:
+                    continue
 
             retval.append(row)
 
@@ -323,7 +344,7 @@ def get_squadron(sid):
 
 
 @app.route('/squadrons/<int:sid>', methods=['post'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit')
 def post_squadron(sid):
 
     if not request.json:
@@ -384,7 +405,7 @@ def get_squadron_members(sid):
 
 
 @app.route('/squadrons/<int:sid>/members', methods=['POST'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_members(sid):
 
     """
@@ -479,7 +500,7 @@ def get_squadron_theatre(sid, tid):
 
 
 @app.route('/squadrons/<int:sid>/theatres/<int:tid>', methods=['POST'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_theatre(sid, tid):
 
     if not request.json:
@@ -526,7 +547,7 @@ def get_squadron_freqs(sid):
 
 
 @app.route('/squadrons/<int:sid>/frequencies', methods=['POST'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_freqs(sid):
 
     if not request.json:
@@ -569,7 +590,7 @@ def get_squadron_callsigns(sid):
 
 
 @app.route('/squadrons/<int:sid>/callsigns', methods=['POST'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_callsigns(sid):
 
     if not request.json:
@@ -617,7 +638,7 @@ def get_squadron_missions(sid):
 
 
 @app.route('/squadrons/<int:sid>/missions', methods=['post'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_mission_create(sid):
     '''
     Post to create a new mission, on success, we reutrn the mission id
@@ -823,7 +844,7 @@ def get_squadron_mission(sid, mid):
 
 
 @app.route('/squadrons/<int:sid>/missions/<int:mid>', methods=['post'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def post_squadron_mission(sid, mid):
 
     if not request.json:
@@ -869,7 +890,7 @@ def post_squadron_mission(sid, mid):
 
 
 @app.route('/squadrons/<int:sid>/missions/<int:mid>', methods=['delete'])
-@require_roles('squadrons-create')
+@require_roles('squadron-edit', 'sid')
 def delete_squadron_mission(sid, mid):
     with closing(mysql.connection.cursor()) as cur:
         cur.execute((

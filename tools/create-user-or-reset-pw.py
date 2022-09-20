@@ -1,4 +1,4 @@
-#!/bin/env python
+#!venv/bin/python
 
 import hashlib
 import MySQLdb

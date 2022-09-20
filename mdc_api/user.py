@@ -21,11 +21,11 @@ jwt = JWTManager(app)
 
 
 # Role Check Decorator
-def require_roles(*required_roles):
+def require_roles(required_role, restriction=None):
 
     # Ensure each args is a string
-    if not all(isinstance(elem, str) for elem in required_roles):
-        raise Exception('Usage: require_roles(<str>, <str>, ...)')
+    if not isinstance(required_role, str):
+        raise Exception('Usage: require_roles(<str>, [<int>])')
 
     def decorator(f):
         @wraps(f)
@@ -34,10 +34,27 @@ def require_roles(*required_roles):
             # Verify we're JWTd up
             verify_jwt_in_request()
 
-            user_roles = get_jwt_claims().get('roles', [])
+            user_roles = get_jwt_claims().get('roles', {})
 
-            if not list(required_roles) <= user_roles:
+            if required_role not in user_roles:
                 return denied()
+
+            # if restriction in the users role, or users role includefs 0 we
+            # are ok, if the user has both 0 (all) and a restriction (e.g: 1)
+            # then we fail
+
+            values = user_roles[required_role]
+            superuser = values == [0]
+
+            if not superuser:
+                if not restriction:
+                    return denied()
+
+                if restriction not in kwargs:
+                    return denied()
+
+                if kwargs[restriction] not in values:
+                    return denied()
 
             return f(*args, **kwargs)
         return check_roles
@@ -79,9 +96,9 @@ def login():
             return fail("Invalid username or password")
 
         # Lookup roles
-        roles = []
+        roles = {}
         cur.execute((
-            'SELECT p.name '
+            'SELECT p.name,up.restricts '
             'FROM user_permissions up '
             'JOIN permissions p '
             '   ON up.permission_id = p.idx '
@@ -90,7 +107,10 @@ def login():
             'WHERE u.idx = %s'), (idx,))
 
         for row in cur:
-            roles.append(row[0])
+            if row[0] not in roles:
+                roles[row[0]] = []
+
+            roles[row[0]].append(row[1])
 
         # Create Token and cookify it
         access_token = create_access_token(
@@ -154,7 +174,7 @@ def whoami():
     if not identity:
         return jsonify({})
 
-    roles = get_jwt_claims().get('roles', [])
+    roles = get_jwt_claims().get('roles', {})
     return jsonify({'username': identity, 'roles': roles})
 
 

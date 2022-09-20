@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='mdc_api',
-    version='1.0',
+    version='1.1',
     long_description='API for MDC management',
     packages=['mdc_api'],
     include_package_data=True,
