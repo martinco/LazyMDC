@@ -2136,7 +2136,7 @@ function squadrons_refresh(elems, callback) {
   squadrons_cleanup_nav();
 
   // Load up squadrons and update the table
-  api_get('squadrons?all=1', function(res) {
+  api_get('squadrons?all=1&editable=1', function(res) {
 
     // Save theatre data, and build our table of squadrons, with an edit button
     squadrons = res;
@@ -2154,6 +2154,9 @@ function squadrons_refresh(elems, callback) {
     if (typeof(callback) === "function") {
       callback()
     }
+
+    // Show / Hide the add button
+    $('#squadrons-add').toggle(admin_user?.roles?.["squadrons-create"] !== undefined);
 
   });
 }

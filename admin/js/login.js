@@ -20,6 +20,7 @@ function login(event) {
         console.log('alert');
         return;
       }
+      admin_user = r;
       do_login(r);
     }
   );
@@ -70,14 +71,17 @@ function update_nav(data) {
   } else {
     nav.append(nav_item('introduction', 'Introduction', 'help-circle'));
 
-    if (data.roles.includes('theatre-create')) {
+    if (data.roles['theatre-create']) {
       nav.append(nav_item('theatres', 'Theatres', 'globe'));
     }
 
     nav.append(nav_item('squadrons', 'Squadrons', 'database'));
-    nav.append(nav_item('threats', 'Threats', 'alert-triangle'));
 
-    if (data.roles.includes('users-view')) {
+    if (data.roles['squadrons-create']) {
+      nav.append(nav_item('threats', 'Threats', 'alert-triangle'));
+    }
+
+    if (data.roles['users-view']) {
       nav.append(nav_item('users', 'Users', 'users'));
     }
   }

@@ -1,4 +1,6 @@
 
+admin_user = null;
+
 function url_elems() {
   return (window.location.pathname.replace(kneeboard_root, '') || "introduction").split('/');
 }
