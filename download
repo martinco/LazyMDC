@@ -37,6 +37,7 @@ class CDU_DataLoader():
         self._mdc = mdc
         self._wp_names = {}
         self._files = {}
+        self._alt = 0
         self.generate()
 
     @property
@@ -62,7 +63,6 @@ class CDU_DataLoader():
         except KeyError:
             lat = None
             lon = None
-        alt = 0
 
         if 'tot' in wp:
             tot = 'T' + wp['tot'].replace(':', '') + '00'
@@ -70,7 +70,7 @@ class CDU_DataLoader():
             tot = 'T000000'
 
         try:
-            alt = int(wp['alt'])
+            self._alt = int(wp['alt'])
         except (ValueError, KeyError):
             # We can pass now to hit the updated alt
             pass
@@ -102,13 +102,14 @@ class CDU_DataLoader():
         return "{} {} EL{:05} {} {:12}\n".format(
             lat,
             lon,
-            alt,
+            self._alt,
             tot,
             name)
 
     def generate_main_fp(self):
 
         content = ""
+        self._alt = 0
         for wp in self._mdc['waypoint']['waypoints']:
             try:
                 content += self.get_waypoint_line(wp, 'M')
@@ -119,6 +120,7 @@ class CDU_DataLoader():
 
     def generate_poi_fp(self):
         content = ""
+        self._alt = 0
         for wp in self._mdc['waypoint']['poi']:
             try:
                 content += self.get_waypoint_line(wp, 'P')
@@ -198,7 +200,7 @@ class MDC_LOADER():
 
         waypoints = []
         sequence = []
-
+        alt = 0
         if ('waypoint' not in self._mdc
                 or 'waypoints' not in self._mdc['waypoint']):
             return (None, None)
@@ -208,14 +210,22 @@ class MDC_LOADER():
 
             wp_data = [0, 0, 0]
 
-            for idx, k in enumerate(['lat', 'lon', 'alt']):
+            for idx, k in enumerate(['lat', 'lon']):
                 if k in wp and wp[k]:
                     try:
                         wp_data[idx] = float(wp[k])
                     except:
                         pass
 
+            # Update our current assigned altitude to follow through the next
+            # points instead of reverting to 0
+            try:
+                alt = int(wp['alt'])
+            except:
+                pass
+
             if wp_data[0] and wp_data[1]:
+                wp_data[2] = alt
                 sequence.append(i)
 
             waypoints.append(wp_data)
@@ -306,6 +316,7 @@ class F16_DTC():
 
         waypoints = []
         sequence = 1
+        alt = 0
 
         if ('waypoint' not in self._mdc
                 or 'waypoints' not in self._mdc['waypoint']):
@@ -322,6 +333,14 @@ class F16_DTC():
                 "Blank": True
             }
 
+            # Update our current assigned altitude to follow through the next
+            # points instead of reverting to 0
+            if 'alt' in wp:
+                try:
+                    alt = int(wp['alt'])
+                except:
+                    pass
+
             # If either lat or lon aren't set, skip the WP
             try:
                 lat = self.fmt_ll(wp['lat'])
@@ -333,15 +352,13 @@ class F16_DTC():
             if 'name' in wp and wp['name']:
                 new_wp['Name'] = wp['name']
 
-            if 'alt' in wp and wp['alt']:
-                new_wp['Elevation'] = wp['alt']
-
-            # if no lat / lon - then we're a blank entry
+            # if we have lat / lon, include them and curretn assigned altitude 
             if lat and lon:
                 new_wp.update({
-                    'Longitude': lon,
-                    'Latitude': lat,
                     'Blank': False,
+                    'Elevation': alt,
+                    'Latitude': lat,
+                    'Longitude': lon,
                 })
 
             waypoints.append(new_wp)
@@ -435,7 +452,7 @@ class F16_DTC():
             hts['ManualEmitters'] = []
             for entry in self._mdc['profiles']['hts']['man']:
                 hts['ManualEmitters'].append(entry['id'])
-    
+
         if 'classes' in self._mdc['profiles']['hts']:
             classes = self._mdc['profiles']['hts']['classes']
 
