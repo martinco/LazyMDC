@@ -244,8 +244,13 @@ function loadout_set(opts) {
         <col />
         <col />`;
 
+  header += `<th>FUEL %</th>`;
+
+  if (values.tiger !== undefined) {
+    header += `<th>TIGER</th>`;
+  }
+
   header += `
-          <th>FUEL %</th>
           <th>JOKER</th>
           <th>BINGO</th>
         </tr>`
@@ -254,7 +259,13 @@ function loadout_set(opts) {
       <td class="input-container">
         <input class="input-full" name="fuel" type=number min=0 max=100 id="loadout-fuel" value="${values.fuel}">
         <input class="input-full" name="fuel_lbs" hidden id="loadout-fuel_lbs" value="${values.fuel_lbs}">
-      </td>
+      </td>`;
+
+  if (values.tiger !== undefined) {
+    body += `<td class="input-container"><input class="input-full" name="tiger" value="${values.tiger}"></td>`;
+  }
+
+  body += `
       <td class="input-container"><input class="input-full" name="joker" value="${values.joker}"></td>
       <td class="input-container"><input class="input-full" name="bingo" value="${values.bingo}"></td>`;
 

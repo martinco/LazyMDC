@@ -882,6 +882,7 @@ var Loadout = function(data, unit) {
 
     if (data.loadout.chaff) { other_col.push(['CHAFF', ntos(data.loadout.chaff), ""]); };
     if (data.loadout.flare) { other_col.push(['FLARE', ntos(data.loadout.flare), ""]); };
+    if (data.loadout.tiger && data.loadout.tiger !== "0") { other_col.push(['TIGER', ntos(data.loadout.tiger), ""]); };
     if (data.loadout.joker) { other_col.push(['JOKER', ntos(data.loadout.joker), ""]); };
     if (data.loadout.bingo) { other_col.push(['BINGO', ntos(data.loadout.bingo), ""]); };
 

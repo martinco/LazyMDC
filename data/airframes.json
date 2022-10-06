@@ -6532,6 +6532,7 @@
         "V"
       ]
     },
+    "tiger": 0,
     "waypoint_initial_index": 1,
     "waypoint_reindex": true
   },
@@ -8063,6 +8064,7 @@
         "SEC"
       ]
     },
+    "tiger": 7500,
     "waypoint_initial_index": 0,
     "waypoint_reindex": true
   },
