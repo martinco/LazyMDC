@@ -2026,20 +2026,22 @@ function Builder(data, unit) {
 
   var section_order = [
     'flight',
+    'package',
     'loadout',
     'loadout-notes',
     'f16cmds',
     'f16harm',
     'f16hts',
-    'ramrod',
-    'waypoints',
-    'sequence',
-    'poi',
-    'package',
     'deparr',
     'agencies',
     'threats',
+    'ramrod',
     'notes',
+
+    'waypoints',
+    'sequence',
+    'poi',
+
     'presets',
   ];
 
@@ -2070,6 +2072,11 @@ function Builder(data, unit) {
     'notes': new Notes(data.notes, unit),
     'presets': new Presets(data, unit),
   };
+
+  // If we have notes, then expand them before waypoints
+  if (sections['notes'].content.length > 0) {
+    sections['waypoints'].force_newpage_before = true;
+  }
 
   var page = new Page(data, unit, 1);
   var pages = [ page ];
