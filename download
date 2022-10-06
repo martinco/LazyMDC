@@ -709,7 +709,7 @@ def main():
             zipf.writestr('%s.pdf' % params['id'], pdf)
 
             for cdu_file, cdu_data in cdu.files.items():
-                zipf.writestr('%s.%s' % (params['id'], cdu_file), cdu_data)
+                zipf.writestr('0000-%s.%s' % (params['id'], cdu_file), cdu_data)
 
             zipf.close()
 
@@ -782,7 +782,7 @@ def main():
 
         if cdu and cdu.files:
             for cdu_file, cdu_data in cdu.files.items():
-                zipf.writestr('%s.%s' % (params['id'], cdu_file), cdu_data)
+                zipf.writestr('0000-%s.%s' % (params['id'], cdu_file), cdu_data)
 
         # Crop out pages
         if pages == 1:
