@@ -15,6 +15,14 @@ function getDictInit(obj) {
   return obj;
 }
 
+function update_presets() {
+  $("input.freq-preset").each(function(idx, elem) {
+    var elem = $(elem)
+    var offset = elem.parent().index();
+    var row = elem.closest('tr')[0];
+    row.cells[offset+1].innerHTML = lookup_preset(elem.val())
+  });
+}
 
 function getDict(obj) {
   if (obj === undefined) {
@@ -128,14 +136,6 @@ function freq_to_obj(value) {
   return v
 }
 
-function update_presets() {
-  $("input.freq-preset").each(function(idx, elem) {
-    var elem = $(elem)
-    var offset = elem.parent().index();
-    var row = elem.closest('tr')[0];
-    row.cells[offset+1].innerHTML = lookup_preset(elem.val())
-  });
-}
 
 function lookup_preset(value) {
 
@@ -145,25 +145,11 @@ function lookup_preset(value) {
 
   var float_val = parseFloat(value);
   var float_str = float_val.toFixed(3)
+  let preset = presets?.lookups?.[float_str];
+
+  if (preset) { return preset; }
+
   var type = $("#flight-airframe").val();
-  var side = $("#data-side").val();
-
-  // Presets are stored either in the mission_data => data => presets => lookup
-  // => airframe => side => freq, if it's not there, then if the AC does not
-  // have a preset on there in the mission, check for defaults
-  
-  var side_freqs = getDict(mission_data, 'data', 'presets', 'lookups', type, side);
-  if (side_freqs[float_str]) {
-    return side_freqs[float_str];
-  }
-
-  // If we have no presets for this side in the data, then lookup DCS defaults
-  if (Object.keys(side_freqs).length == 0) {
-    var default_freqs = getDict(airframes, type, 'radios', 'lookups');
-    if (default_freqs[float_str]) {
-      return default_freqs[float_str];
-    }
-  }
 
   // If that fails, it's manual 
   if (type == 'FA-18C') {

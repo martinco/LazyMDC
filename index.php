@@ -116,6 +116,12 @@ function bot_detected() {
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link disabled" href="#presets">
+                <span data-feather="phone-forwarded"></span>
+                Presets
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link disabled" href="#package">
                 <span data-feather="user-plus"></span>
                 Package
@@ -269,6 +275,7 @@ function bot_detected() {
         readfile('pages/data.html');
         readfile('pages/flight.html');
         readfile('pages/mission.html');
+        readfile('pages/presets.html');
         readfile('pages/package.html');
         readfile('pages/loadout.html');
         readfile('pages/profiles.html');

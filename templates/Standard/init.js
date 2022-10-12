@@ -1015,7 +1015,7 @@ var Presets = function(data, unit) {
     if (ac == 'AH-64D') {
     } else {
 
-      var col_group = '<col width=35px /><col width=85px/><col width=127px/><col width=18px/>'.repeat(priorities.length-1)
+      var col_group = '<col width=40px /><col width=85px/><col width=122px/><col width=18px/>'.repeat(priorities.length-1)
 
       var headers = `<td class="bg-blank" style="border:0"></td>`;
       for (const idx in priorities) {
@@ -1030,7 +1030,7 @@ var Presets = function(data, unit) {
         <colgroup>
           <col />
           ${col_group}
-          <col width=35px /><col width=85px/><col width=127px/>
+          <col width=40px /><col width=85px/><col width=122px/>
           <col />
         </colgroup>
         <tbody>
@@ -1071,9 +1071,9 @@ var Presets = function(data, unit) {
         <table class="kb-width std" style="table-layout: fixed">
           <colgroup>
             <col/>
-            <col width=35px /><col width=85px/><col width=127px/>
+            <col width=40px /><col width=85px/><col width=122px/>
             <col/>
-            <col width=35px /><col width=85px/><col width=127px/>
+            <col width=40px /><col width=85px/><col width=122px/>
             <col/>
           </colgroup>
           <tbody>
@@ -1086,20 +1086,33 @@ var Presets = function(data, unit) {
             </tr>`;
 
         for (var x = 1; x <= 10; x++) {
+          let label = x;
+          let label_cls = "";
+          let pst = data.radios[priorities[start]][x];
+
+          if (pst.override) {
+            label = `*${x}`;
+            label_cls = 'text-bold';
+          }
+          
           html += `<tr>`;
-          pst = data.radios[priorities[start]][x];
           html += `
             <td class="bg-blank" style="border:0"></td>
-            <td class="text-right rp5">${x}</td>
-            <td class="text-bold text-right rp5">${pst.value}</td>
+            <td class="text-right rp5 ${label_cls}">${label}</td>
+            <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
             <td class="lp5">${pst.code ? pst.code : ""}</td>
             <td class="bg-blank" style="border:0"></td>
           `;
 
           pst = data.radios[priorities[start+1]][x];
+          if (pst.override) {
+            label = `*${x}`;
+            label_cls = 'text-bold';
+          }
+
           html += `
-            <td class="text-right rp5">${x}</td>
-            <td class="text-bold text-right rp5">${pst.value}</td>
+            <td class="text-right rp5 ${label_cls}">${label}</td>
+            <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
             <td class="lp5">${pst.code ? pst.code : ""}</td>
             <td class="bg-blank" style="border:0"></td>
           `;
@@ -1127,11 +1140,19 @@ var Presets = function(data, unit) {
         html += '<tr><td class="bg-blank" style="border:0"></td>';
         for (const [radio_id, radio] of Object.entries(priorities)) {
           var pst = data.radios[radio][x];
-          console.log(x, radio_id, radio,pst);
           if (pst) {
+
+            let label = x;
+            let label_cls = "";
+
+            if (pst.override) {
+              label = `*${x}`;
+              label_cls = 'text-bold';
+            }
+
             html += `
-              <td class="text-right rp5">${x}</td>
-              <td class="text-bold text-right rp5">${pst.value}</td>
+              <td class="text-right rp5 ${label_cls}">${label}</td>
+              <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
               <td class="lp5">${pst.code ? pst.code : ""}</td>`;
             if (radio_id < radio_count-1) {
               html += '<td class="bg-blank" style="border:0"></td>';

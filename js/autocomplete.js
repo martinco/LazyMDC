@@ -1,8 +1,8 @@
 // Lookup functions that don't belong to specific pages, mostly helpers
 
-function freq_autocomplete(input) {
+function freq_autocomplete(input, onchange) {
 
-  // Set on focus out to update preset
+ // Set on focus out to update preset
  $(input).autocomplete({
     source: function(request, response) {
 
@@ -57,6 +57,11 @@ function freq_autocomplete(input) {
     // Lookup preset
     if (elem.hasClass('freq-preset')) {
       elem.closest('tr')[0].cells[elem.parent().index()+1].innerHTML = lookup_preset(float_val)
+    }
+
+    // Callback
+    if (typeof onchange === 'function') {
+      onchange(input);
     }
   });
 

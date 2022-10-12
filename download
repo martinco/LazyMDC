@@ -281,7 +281,6 @@ class F16_DTC():
         self._mdc = mdc
         self._files = {}
         self.generate()
-        self.generate()
 
     @property
     def files(self):
@@ -352,7 +351,7 @@ class F16_DTC():
             if 'name' in wp and wp['name']:
                 new_wp['Name'] = wp['name']
 
-            # if we have lat / lon, include them and curretn assigned altitude 
+            # if we have lat / lon, include them and curretn assigned altitude
             if lat and lon:
                 new_wp.update({
                     'Blank': False,
@@ -463,6 +462,67 @@ class F16_DTC():
 
         return hts
 
+    def format_radio(self, name, type_id, radio_data):
+        data = {
+            'Name': name,
+            'Type': type_id,
+            'Channels': []
+        }
+
+        for preset, info in radio_data.items():
+            channel = {
+                'Type': type_id,
+                'Channel': int(preset),
+                'Frequency': float(info['value']),
+                'ToBeUpdated': False,
+            }
+
+            if 'override' in info:
+                channel['Frequency'] = float(info['override'])
+                channel['ToBeUpdated'] = True
+
+            data['Channels'].append(channel)
+
+        return data
+
+    def format_radios(self):
+        '''
+        "Radios": {
+            "COM1": {
+                "Name": "COM1",
+                'Type": 1,
+                "Channels": {
+                    {"Type":1,"Channel":1,"Frequency":251.0,"ToBeUpdated":false},
+                    ...
+                }
+            }
+            "COM2": {
+                "Name": "COM2",
+                'Type": 2,
+                "Channels": {
+                    {"Type":2,"Channel":2,"Frequency":251.0,"ToBeUpdated":false},
+                    ...
+                }
+            }
+        }
+        '''
+
+        radios = {}
+
+        if 'presets' not in self._mdc:
+            return radios
+
+        presets = self._mdc.get('presets', {}).get('radios', {})
+        com1 = presets.get('U')
+        if com1:
+            radios['COM1'] = self.format_radio('COM1', 1, com1)
+
+        com2 = presets.get('V')
+        if com2:
+            radios['COM2'] = self.format_radio('COM2', 2, com2)
+
+        return radios
+
     def generate(self):
 
         content = {}
@@ -482,6 +542,10 @@ class F16_DTC():
         hts = self.format_hts()
         if hts:
             content['HTS'] = hts
+
+        radios = self.format_radios()
+        if radios:
+            content['Radios'] = radios
 
         if content:
             self._files['f16_dtc.json'] = json.dumps(

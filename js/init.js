@@ -12,6 +12,7 @@ function debug(msg) {
 
 squadron_data = {};
 mission_data = {};
+presets = {};
 threats = null;
 
 debug("init loaded");

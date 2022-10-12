@@ -328,59 +328,6 @@ $("#data-squadron").change(function(e) {
 });
 
 
-function build_preset_lookups(ac, radios) {
-
-  // There might not be mission radio data for all radios so we merge the keys
-  // to ensure all readios are evaluated 
-  
-  var airframe_radios = Object.keys(getDict(airframes, ac, 'radios', 'presets'));
-
-  var preset_lookups = {};
-  for (const radio of airframe_radios) {
-    for (const [preset, freq] of Object.entries(getDict(radios, radio))) {
-      if (!preset_lookups[freq]) { preset_lookups[freq] = []; };
-      preset_lookups[freq].push([radio, parseInt(preset)])
-    }
-  }
-
-  // Consolidate down to what's displayed
-  // If single radio then show RADIO-<PST>
-  // If multiple on same radio, we show RAIDO-<FIRST_PST>
-  // If multiple on different radios, we go PST, PST in aircraft radio priority order
-  
-  for (var [freq, data] of Object.entries(preset_lookups)) {
-    // data is [[RADIO, PST]], so find unique radios and lowest presets
-    var v = {}
-    data.forEach((x) => v[x[0]] = !v[x[0]] || v[x[0]] > x[1] ? x[1] : v[x[0]] );
-
-    if (Object.keys(v).length == 1)  {
-      var k = Object.keys(v)[0];
-      preset_lookups[freq] = `${k} ${v[k]}`;
-    } else {
-      var prio = getDict(airframes, ac, 'radios', 'priority');
-      if (typeof(prio) !== "array") {
-        prio = Object.keys(v);
-      }
-      var elems = [];
-      for (const pick of prio) {
-        if (v[pick]) {
-          elems.push(v[pick]);
-        }
-      }
-      if (ac == "AH-64D") {
-        // If we have multiple, it must be on the FM since there can't be
-        // overlaping freqs on any other radios, so prefix with FM
-        preset_lookups[freq] = "FM " + elems.join(',');
-      } else {
-        preset_lookups[freq] = elems.join(',');
-      }
-    }
-  }
-
-  return preset_lookups;
-}
-
-
 function data_mission_set(mid, callback) {
 
   var input = $('#data-mission');
@@ -411,21 +358,36 @@ function data_mission_set(mid, callback) {
 
     for (const side of ['red', 'blue']) {
       for (const airframe of Object.keys(airframes)) {
-        var defaults = getDict(airframes, airframe, 'radios', 'presets');
-        var presets = getDictInit(resp, 'data', 'presets', 'presets', airframe, side);
-        var merged = $.extend(true, {}, defaults, presets);
 
-        // We save the merged list so we can print out an up-to-date PRESET
-        // card or override them during the the MDC build
-        var merged_dest = getDictInit(resp, 'data', 'presets', 'merged', airframe);
-        if (!merged_dest.priority) {
-          merged_dest.priority = getDict(airframes, airframe, 'radios', 'priority')
-          merged_dest.data = {};
+        var merged = {}
+
+        // Airframe defaults
+        for (const [radio, presets] of Object.entries(getDict(airframes, airframe, 'radios', 'presets'))) {
+          merged[radio] = {};
+          for (const [pst, freq] of Object.entries(presets)) {
+            merged[radio][pst] = {value: freq};
+          }
         }
-        merged_dest['data'][side] = merged;
 
-        var dest = getDictInit(resp, 'data', 'presets', 'lookups', airframe);
-        dest[side] = build_preset_lookups(airframe, merged);
+        // Merge side based mission preset info
+        for (const [radio, presets] of Object.entries(getDict(resp, 'data', 'presets', 'presets', airframe, side))) {
+
+          // if radio not in merged ignore it, or add it ? 
+          if (!merged?.[radio]) { continue; }
+
+          for (const [pst, freq] of Object.entries(presets)) {
+            merged[radio][pst] = { value: freq };
+          }
+        }
+
+        // Merge each value under the side
+        var merged_dest = getDictInit(resp, 'data', 'presets', 'merged', airframe, side);
+        merged_dest.data = merged;
+
+        merged_dest.priority = airframes?.[airframe]?.radios?.priority
+        if (!merged_dest.priority) {
+          merged_dest.priority = Object.keys(merged)
+        }
       }
     }
 
@@ -479,7 +441,9 @@ function data_mission_set(mid, callback) {
 
     // Update our default bulls / presets
     data_update_default_bulls();
-    update_presets();
+
+    // Trigger event to update presets
+    $("#data-mission").trigger('data-mission-changed');
 
     if (typeof(callback) === "function") {
       callback();
@@ -609,7 +573,7 @@ function data_load(data, callback) {
 }
 
 $('#data-side').on('change', function() {
-  update_presets();
+  $('#data-side').trigger('data-side-changed');
   data_update_default_bulls();
 });
 
