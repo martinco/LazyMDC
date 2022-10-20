@@ -13,7 +13,7 @@ function setup_airfield(elem_id, airfield) {
     var departure = prefix == "deparr-dep-";
 
     // Handle the simple stuff
-    (['tcn', 'par', 'atis', 'gnd', 'twr', 'ctrl', 'alt']).forEach(function(e) {
+    (['tcn', 'par', 'atis', 'gnd', 'twr', 'ctrl', 'alt', 'uhf', 'vhf']).forEach(function(e) {
       var tgt = prefix + e;
       var val = af_data.hasOwnProperty(e) ? af_data[e] : ""
       $("#"+tgt).val(val).change()

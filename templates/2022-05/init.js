@@ -973,7 +973,7 @@ var Loadout = function(data, unit) {
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_vtol'])}</td>`;
         } else {
-          html += `<th class="text-center lb2">${single_max ? 'MAX' : 'MAX T/O'}</th>
+          html += `<th class="text-center">${single_max ? 'MAX' : 'MAX T/O'}</th>
                     <td colspan=2 class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>`;
         }
       } else if (n == loop_count-mtow_rows+2) {
@@ -1806,7 +1806,7 @@ function DepArr(data, unit) {
 
   this.table = function() {
     return $(`
-      <table class="kb-width std std-striped" style="table-layout: fixed">
+      <table class="kb-width std" style="table-layout: fixed">
 
         <colgroup>
           <col style="width:37${unit}" />
@@ -1822,9 +1822,6 @@ function DepArr(data, unit) {
           <col style="width:77${unit}" />
           <col class="" style="width:50${unit}" />
 
-          <col style="width:76${unit}" />
-          <col class="" style="width:50${unit}" />
-
         </colgroup>
 
         <tbody>
@@ -1833,10 +1830,9 @@ function DepArr(data, unit) {
             <th></th>
             <th>LOCATION</th>
             <th>TCN</th>
-            <th colspan=2>ATIS</th>
-            <th colspan=2>GND</th>
-            <th colspan=2>TWR/LSO</th>
-            <th colspan=2>TMA/CCA</th>
+            <th colspan=2>ATIS<br>GND</th>
+            <th colspan=2>TWR/LSO<br>TMA/CCA</th>
+            <th colspan=2>AI UHF<br>AI VHF</th>
           </tr>
         </tbody>
       </table>`);
@@ -1845,43 +1841,86 @@ function DepArr(data, unit) {
   this.content = (function() {
 
     var elems = [];
-    var last = null;
+    var comparitor = {};
+    var titles = {}
+    var dep = null;
     var last_id = null;
 
-    ['dep', 'arr', 'alt'].forEach(function(x) {
+    // What to show, it's one of:
+    //  - ALL
+    //  - DEP + ARR
+    //  - DEP/ALT + ARR
+    //  - DEP/ARR + ALT
+
+    ['dep', 'arr', 'alt'].forEach((x) => {
       var elem = data.deparr[x];
-      if (elem.usedep) {
-        elem = data.deparr.dep;
-      }
+
+      // Purge usedep just in case someone puts in the same for both DEP / ALT
+      // or so and this allows us to consolidate, also allows the empty check
+      // below to work
+      var use_dep = elem.usedep;
+      delete(elem['usedep']);
 
       // Empty ? skip it 
-      var nonempty = Object.values(elem).filter(function(x) { return x != "" && x != "----"});
+      var nonempty = Object.values(elem).filter(function(x) { return x && x != "" && x != "----"});
       if (!nonempty.length) {
+        delete(data.deparr[x]);
         return;
       }
 
-      // Same as previous ? Skip it, and update
-      var elem_json = JSON.stringify(elem);
-      if (last && elem_json == last) {
-        if (x == "arr") {
-          // This can only be hit with arr /alt, so if we're arr, then previous must be DEP
-          elems[elems.length-1][0].firstElementChild.innerText = "D/A"
-        } else if (last_id == "dep") {
-          // Otherwise we are ALT, and if the previous line as DEP, then ALL must be 1 AF
-          elems[elems.length-1][0].firstElementChild.innerText = "ALL"
-        }
-
-        // And lastly, the case when ARR / ALT are the same, just skip
-        return ;
+      // If we're just using dep and dep exists, append title
+      if (use_dep && titles['dep']) {
+        titles['dep'].push(x.toUpperCase());
+        delete(data.deparr[x]);
+        return;
       }
 
-      var html = `
-          <tr>
-            <td class="text-center">${x.toUpperCase()}</td>
-            <td class="lp5 overflow-hidden">${elem.location}</td>
-            <td class="text-right rp5 text-bold">${elem.tcn}</td>`;
+      var elem_json = JSON.stringify(elem);
 
-      for (const agency of ['atis', 'gnd', 'twr', 'ctrl']) {
+      // Now check if we match any existing items
+      ['dep', 'arr', 'alt'].forEach((y) => {
+        if (comparitor[y] && comparitor[y] == elem_json) {
+          titles[y].push(x.toUpperCase());
+          delete(data.deparr[x]);
+          return;
+        }
+      });
+
+      // Stringify to compare
+      comparitor[x] = elem_json;
+      titles[x] = [x.toUpperCase()];
+    });
+
+    let row_id = 1;
+    for (const [x, title] of Object.entries(titles)) {
+      console.log(x, title, data.deparr)
+      var elem = data.deparr[x];
+      if (!elem) { continue; }
+      row_id += 1;
+
+      // All 3 - just use ALL
+      let title_str = title.length == 3 ? "ALL" : title.join('<br>');
+
+      var html = '';
+      var stripe = row_id % 2 == 0 ? 'striped-even' : ''
+
+      if (x == 'dep') {
+        html += `<tr class="${stripe}">`;
+      } else {
+        html += `<tr class="bt2 ${stripe}">`;
+      }
+
+      html += `
+            <td class="text-center" rowspan=2>${title_str}</td>
+            <td class="lp5 overflow-hidden" rowspan=2>${elem.location}</td>
+            <td class="text-center text-bold" rowspan=2>${elem.tcn}</td>`;
+
+      for (const agency of ['atis', 'twr', 'uhf', '', 'gnd', 'ctrl', 'vhf']) {
+        if (agency == '') {
+          html += `</tr><tr class="${stripe}">`;
+          continue
+        }
+
         if (elem[agency]) {
           html += `
             <td class="text-center text-bold rb0">${elem[agency].value}</td>
@@ -1893,9 +1932,8 @@ function DepArr(data, unit) {
 
       html += '</tr>';
       elems.push($(html));
-      last = JSON.stringify(elem);
       last_id = x;
-    });
+    };
 
     return elems
   })();
