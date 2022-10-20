@@ -40,31 +40,31 @@
     <div class="col"> 
       <div class="form-group">
         <label class="heading">PAR</label>
-        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-par" id="deparr-dep-par">
+        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-par" data-suffix='PAR' data-title='deparr-dep-location' id="deparr-dep-par">
       </div>
     </div>
     <div class="col"> 
       <div class="form-group">
         <label class="heading">ATIS</label>
-        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-atis" id="deparr-dep-atis">
+        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-atis" data-suffix="ATIS" data-title='deparr-dep-location' id="deparr-dep-atis">
       </div>
     </div>
     <div class="col"> 
       <div class="form-group">
         <label class="heading">GND</label>
-        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-gnd" id="deparr-dep-gnd">
+        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-gnd" data-suffix='GND' data-title='deparr-dep-location' id="deparr-dep-gnd">
       </div>
     </div>
     <div class="col"> 
       <div class="form-group">
         <label class="heading">TWR/LSO</label>
-        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-twr" id="deparr-dep-twr">
+        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-twr" data-suffix='TWR/LSO' data-title='deparr-dep-location' id="deparr-dep-twr">
       </div>
     </div>
     <div class="col"> 
       <div class="form-group">
-        <label class="heading">CTRL/MARSHALL</label>
-        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-ctrl" id="deparr-dep-ctrl">
+        <label class="heading">TMA/CCA</label>
+        <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="dep-ctrl" data-suffix='TMA/CCA' data-title='deparr-dep-location' id="deparr-dep-ctrl">
       </div>
     </div>
   </div>
@@ -123,10 +123,10 @@
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h1 class="h2">Arrival</h1>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active" onclick="$('#deparr-arr-full').hide(); $('#deparr-arr-min').show()">
+      <label class="btn btn-secondary active" onclick="$('#deparr-arr-full').hide(); $('#deparr-arr-min').show(); presets_update_inuse();">
         <input type="radio" id="deparr-arr-usedep-true" name="arr-usedep" value="true" autocomplete="off" checked> Use Depature
       </label>
-      <label class="btn btn-secondary" onclick="$('#deparr-arr-full').show(); $('#deparr-arr-min').hide()">
+      <label class="btn btn-secondary" onclick="$('#deparr-arr-full').show(); $('#deparr-arr-min').hide(); presets_update_inuse();">
         <input type="radio" id="deparr-arr-usedep-false" name="arr-usedep" value="false" autocomplete="off"> Custom
       </label>
     </div>
@@ -165,31 +165,31 @@
       <div class="col"> 
         <div class="form-group">
           <label class="heading">PAR</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-par" id="deparr-arr-par">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-par" data-exclude-if-hidden='deparr-arr-full' data-title="deparr-arr-location" data-suffix="PAR" id="deparr-arr-par">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">ATIS</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-atis" id="deparr-arr-atis">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-atis" data-exclude-if-hidden='deparr-arr-full' data-title="deparr-arr-location" data-suffix="ATIS" id="deparr-arr-atis">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">GND</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-gnd" id="deparr-arr-gnd">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-gnd" data-exclude-if-hidden='deparr-arr-full' data-title="deparr-arr-location" data-suffix="GND" id="deparr-arr-gnd">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">TWR/LSO</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-twr" id="deparr-arr-twr">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-twr" data-exclude-if-hidden='deparr-arr-full' data-title="deparr-arr-location" data-suffix="TWR" id="deparr-arr-twr">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
-          <label class="heading">CTRL/MARSHALL</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-ctrl" id="deparr-arr-ctrl">
+          <label class="heading">TMA/CCA</label>
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="arr-ctrl" data-exclude-if-hidden='deparr-arr-full' data-title="deparr-arr-location" data-suffix="TMA/CCA" id="deparr-arr-ctrl">
         </div>
       </div>
     </div>
@@ -200,10 +200,10 @@
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h1 class="h2">Alternate</h1>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active" onclick="$('#deparr-alt-full').hide(); $('#deparr-alt-min').show()">
+      <label class="btn btn-secondary active" onclick="$('#deparr-alt-full').hide(); $('#deparr-alt-min').show(); presets_update_inuse();">
         <input type="radio" id="deparr-alt-usedep-true" name="alt-usedep" value="true" autocomplete="off" checked> Use Depature
       </label>
-      <label class="btn btn-secondary" onclick="$('#deparr-alt-full').show(); $('#deparr-alt-min').hide()">
+      <label class="btn btn-secondary" onclick="$('#deparr-alt-full').show(); $('#deparr-alt-min').hide(); presets_update_inuse();">
         <input type="radio" id="deparr-alt-usedep-false" name="alt-usedep" value="false" autocomplete="off"> Custom
       </label>
     </div>
@@ -242,31 +242,31 @@
       <div class="col"> 
         <div class="form-group">
           <label class="heading">PAR</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-par" id="deparr-alt-par">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-par" data-exclude-if-hidden='deparr-alt-full' data-title="deparr-alt-location" data-suffix="PAR" id="deparr-alt-par">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">ATIS</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-atis" id="deparr-alt-atis">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-atis" data-exclude-if-hidden='deparr-alt-full' data-title="deparr-alt-location" data-suffix="ATIS" id="deparr-alt-atis">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">GND</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-gnd" id="deparr-alt-gnd">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-gnd" data-exclude-if-hidden='deparr-alt-full' data-title="deparr-alt-location" data-suffix="GND" id="deparr-alt-gnd">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
           <label class="heading">TWR/LSO</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-twr" id="deparr-alt-twr">
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-twr" data-exclude-if-hidden='deparr-alt-full' data-title="deparr-alt-location" data-suffix="TWR" id="deparr-alt-twr">
         </div>
       </div>
       <div class="col"> 
         <div class="form-group">
-          <label class="heading">CTRL/MARSHALL</label>
-          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-ctrl" id="deparr-alt-ctrl">
+          <label class="heading">TMA/CCA</label>
+          <input type="text" class="form-control freq-autocomplete freq-autocomplete-optional freq-pst" name="alt-ctrl" data-exclude-if-hidden='deparr-alt-full' data-title="deparr-alt-location" data-suffix="TMA/CCA" id="deparr-alt-ctrl">
         </div>
       </div>
     </div>

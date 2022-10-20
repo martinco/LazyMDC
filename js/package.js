@@ -17,7 +17,7 @@ function package_add(vals) {
     <tr>
       <td class="input-container"><input class="input-full package-name" value="${values.callsign}" pattern=".+" required></td>
       <td class="input-container"><input class="input-full" value="${values.aircraft}"></td>
-      <td class="input-container text-center"><input class="input-full text-center" value="${values.freq ? values.freq.value || "" : ""}"></td>
+      <td class="input-container text-center"><input class="input-full freq-autocomplete text-center" value="${values.freq ? values.freq.value || "" : ""}"></td>
       <td class="input-container text-center"><input class="input-full text-center" value="${values.tcn}" pattern="^[0-9]+\\s*(X|Y)$"></td>
       <td class="input-container text-center"><input class="input-full text-center" value="${values.idm}"></td>
       <td class="input-container" style="border-right: 0px"><input class="input-full" value="${values.mission}"></td>

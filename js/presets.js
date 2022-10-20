@@ -4,8 +4,111 @@ $(document).on({
   'flight-airframe-changed': presets_reset,
   'data-mission-changed': presets_reset,
   'data-side-changed': presets_reset,
+  'frequency-updated': presets_update_inuse,
 });
 
+
+function presets_update_inuse() {
+  // Find all the presets in use, and update the table with info icons on those
+  // in use, and a second block of in-use but without presets
+  //
+  // This is ugly as there isn't a standard way fo handling it across the pages
+  // so we're very much bolt-on until we re-do the whole site, but at least we
+  // have the functionality to add to requirements / UX
+
+  let form_title = (elem) => {
+    let retval = [];
+
+    let prefix = elem.attr('data-prefix');
+    if (prefix) { retval.push(prefix); }
+
+    let title = elem.attr('data-title');
+    if (title) {
+      let value = $('#' + title).val();
+      if (value) {
+        retval.push(value);
+      } else {
+        retval.push(title);
+      };
+    }
+
+    // If we have no retval yet, we just pick the row's first cell and suffix
+    // column title
+    if (!title) {
+
+      // First child value
+      let value = elem.closest('tr')[0].cells[0].firstChild.value;
+      if (value) { retval.push(value); }
+
+      // Column header
+      value = elem.closest('table').find('th').eq(elem.parent().index()).text();
+      if(value && value != 'FREQ') { retval.push(value); }
+    }
+
+    let suffix = elem.attr('data-suffix');
+    if (suffix) { retval.push(suffix); }
+
+    return retval.join(" ");
+  }
+
+  // Compile a list of all our frequencies 
+  let inuse = {};
+
+  $("input.freq-autocomplete:not(.freq-preset-table)").each(function(idx, elem) {
+
+    // If we have a data-title => references a cell ID of  name
+    // If we have a data-suffix => Append to name
+    // If we have neither, don't know what to do
+    let jelem = $(elem);
+
+    let ignoreif = $(elem).attr('data-exclude-if-hidden');
+    if (ignoreif && $('#' + ignoreif).is(':hidden')) {
+      return;
+    }
+
+    let value = jelem.val();
+    if (!value) { return; }
+    inuse[value] = form_title(jelem);
+  });
+
+  // Copy in use and delete those we have set, so we can use the items
+  let no_presets = jQuery.extend(true, {}, inuse);
+
+  // Loop through our comms table
+  $('#presets-container').find('table>tbody>tr').each((idx, tr) => {
+    let pst = tr.cells[0].innerHTML;
+    let val = tr.cells[1].firstElementChild.value;
+    let mark = $(tr).find('.validation-info-mark');
+
+    if (inuse[val]) {
+      delete(no_presets[val]);
+      if (mark.length == 0) {
+        $(tr.cells[1]).append($(`<div class="validation-info-mark" data-content="${inuse[val]}" rel="popover" data-trigger="hover" ></div>`));
+      } else {
+        mark[0].setAttribute('data-content', inuse[val]);
+      }
+    } else {
+      mark.remove();
+    }
+  });
+
+  if (Object.keys(no_presets).length == 0) {
+    $('#presets-missing-container').hide();
+  } else {
+    let tbody = $('#presets-missing-table-body');
+    tbody.empty();
+    for (const key of Object.keys(no_presets).sort()) {
+      tbody.append($(`
+        <tr>
+          <td class='text-center font-weight-bold'>${key}</td>
+          <td>${no_presets[key]}</td>
+        </tr>
+      `));
+    }
+    $('#presets-missing-container').show();
+  }
+
+}
 
 function presets_build_lookups() {
 
@@ -118,7 +221,13 @@ function presets_onchange(elem) {
 
   // Since we've updated, we need to update our lookups and presets
   presets_build_lookups();
+
+  // Then we update all presets to show the correct presets
   update_presets();
+
+  // Update our markers
+  presets_update_inuse();
+
 }
 
 function presets_draw() {
@@ -171,8 +280,8 @@ function presets_draw() {
       body.append($(`
         <tr>
           <td data-key="${key}" class="text-right ${key_class}">${info.override === undefined ? '' : '*'}${key}</td>
-          <td class="input-container text-center font-weight-bold">
-            <input class="freq-autocomplete input-full ${input_class}" data-orig="${info.value}" value="${active}" autocomplete="off">
+          <td class="input-container text-center font-weight-bold" style="position:relative">
+            <input class="freq-autocomplete freq-preset-table input-full ${input_class}" data-orig="${info.value}" value="${active}" autocomplete="off">
           </td>
         </tr>`));
     }
@@ -188,6 +297,9 @@ function presets_draw() {
 
   // Add in expansion
   $('#presets-container').append('<div style="clear: both;"></div>');
+
+  // And refresh our presets in use
+  presets_update_inuse();
 }
 
 function presets_load(data, callback) {
@@ -250,4 +362,12 @@ $.contextMenu({
   items: {
     "reset": {name: "reset", icon: "rotate-left"},
   }
+});
+
+$('body').popover({
+  placement: 'bottom',
+  container: 'body',
+  html: true,
+  selector: '[rel="popover"]', 
+  trigger: "hover",
 });

@@ -7,8 +7,29 @@
   <div id="presets-container" class="pb-0">
   </div>
   <small class="form-text text-muted mb-2" style="padding-top:0">
-    * Note: changing side, mission or airframe will revert any changes made here
+    * Note: changing side, mission or airframe will revert any changes made here, right click -&gt; reset to revert a preset
   </small>
+
+  <div id='presets-missing-container' style='display:none'>
+    <div class="form-group">
+      <label>Frequencies referenced without presets</label>
+    </div>
+    <div >
+      <table class='table table-striped'>
+        <colgroup>
+          <col style='width: 65px'/>
+          <col/>
+        </colgroup>
+        <thead class='thead-light'>
+          <th>FREQ</th>
+          <th>AGENCY</th>
+        </thead>
+        <tbody id='presets-missing-table-body'>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <div style="text-align: right">
     <button class="btn btn-primary" type="submit">Next...</button>
   </div>

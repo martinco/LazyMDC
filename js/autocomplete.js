@@ -30,6 +30,9 @@ function freq_autocomplete(input, onchange) {
 
     if (elem.hasClass('freq-autocomplete-optional') && elem.val() == "") { 
       this.setCustomValidity('');
+
+      // We still trigger here to remove it from presets
+      elem.trigger('frequency-updated')
       return
     }
 
@@ -62,6 +65,10 @@ function freq_autocomplete(input, onchange) {
     // Callback
     if (typeof onchange === 'function') {
       onchange(input);
+    } else {
+      // If we haven't got a custom handler, we just notify that it's been
+      // changed, so we can refresh the presets page
+      elem.trigger('frequency-updated')
     }
   });
 

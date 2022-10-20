@@ -14,6 +14,9 @@ function agency_autocomplete(input, fields) {
 
       var row = event.target.parentElement.parentElement;
 
+      // Set this now, so presets can lookup the full value, not the partial
+      event.target.value = ui.item.label;
+
       var tcn = ui.item.tcn;
       if (tcn && fields[0]) { row.cells[fields[0]].firstChild.value = tcn };
 
@@ -27,7 +30,9 @@ function agency_autocomplete(input, fields) {
         row.cells[fields[2]].firstChild.value = sec
       };
 
-      update_presets()
+      update_presets();
+
+      presets_update_inuse();
 
     }
   });
@@ -47,7 +52,7 @@ function comms_add(opts) {
     
     
   $("#comms-table > tbody").append(`<tr>
-      <td class="input-container"><input value="${data['agency']}"></td>
+      <td class="input-container"><input onchange="presets_update_inuse();" value="${data['agency']}"></td>
       <td class="input-container text-center"><input value="${data['tcn']}"></td>
       <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" value="${data.pri ? data.pri.value || "" : ""}"></td>
       <td class="text-center"></td>
@@ -55,7 +60,7 @@ function comms_add(opts) {
       <td class="text-center"></td>
       <td class="input-container border-right-0"><input value="${data['notes']}"></td>
       <td class="input-container text-center border-left-0">
-        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
+        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove(); presets_update_inuse();'>
           <i data-feather="delete"></i>
         </button>
       </td>
@@ -110,9 +115,12 @@ function comms_load(data, callback) {
         comms_add(data)
     });
   }
-    
-  update_presets()
 
+  update_presets();
+
+  presets_update_inuse();
+
+  
   callback();
   
 }
