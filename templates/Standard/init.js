@@ -1329,6 +1329,7 @@ var POI = function(data, unit) {
           <col />
           <col style="width:150${unit}" />
           <col style="width:150${unit}" />
+          <col style="width:60${unit}" />
         </colgroup>
 
         <tbody>
@@ -1336,6 +1337,7 @@ var POI = function(data, unit) {
             <th>Point of Interest</th>
             <th>LAT</th>
             <th>LON</th>
+            <th>ELEV</th>
           </tr>
         </tbody>
       </table>`)
@@ -1356,7 +1358,8 @@ var POI = function(data, unit) {
           return `<td class="text-center text-bold" colspan=2>${lat}</td>`;
         };
         return `<td class="text-center text-bold">${lat}</td>
-                <td class="text-center text-bold">${lon}</td>`;
+                <td class="text-center text-bold">${lon}</td>
+                <td class="text-center">${elem.alt || ''}</td>`;
       })();
 
       content.push($(`

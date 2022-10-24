@@ -324,6 +324,9 @@ function bot_detected() {
     <!-- proj4 (MGRS / Coords) --> 
     <script type="text/javascript" src="js/proj4.js"></script>
 
+    <!-- LUA parse for miz processing -->
+    <script type="text/javascript" src="js/luaparse.js"></script>
+
     <!-- Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 

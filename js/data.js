@@ -10,6 +10,7 @@ function data_process_kml(xml) {
 
   $('#data-route-dialog-cf').hide();
   $('#data-route-dialog-ge').show();
+  $('#data-route-dialog-miz-or-cf-only').hide();
   $('#data-route-dialog-cf-only').hide();
 
   // Reset the form to wipe out any previous routes (first option = None)
@@ -70,6 +71,7 @@ function data_process_cf(xml) {
   
   $('#data-route-dialog-cf').show();
   $('#data-route-dialog-ge').hide();
+  $('#data-route-dialog-miz-or-cf-only').show();
   $('#data-route-dialog-cf-only').show();
 
   // Reset the form to wipe out any previous routes (first option = None)
@@ -138,7 +140,6 @@ function data_process_cf(xml) {
     }
 
     var units = route_xml.querySelector('Units').textContent;
-
     var route_title = `[${task}] ${name} ${units}x${aircraft_source}`
 
     // Store so we can fire the event
@@ -167,6 +168,178 @@ function data_process_cf(xml) {
     .data({
       'routes': route_data,
       'xml': xml,
+    })
+    .modal({
+      backdrop: 'static',
+    });
+}
+
+data_parse_lua_table = function(ast, obj) {
+
+  obj = obj || {}
+
+  function _removeQuotes(str) {
+    var char0 = str.charAt(0)
+    if (["'", '"'].includes(char0) && str.charAt(str.length - 1) === char0) {
+      return str.substr(1, str.length - 2)
+    }
+    return str
+  }
+
+  function _getValue(value) {
+    var retval = null
+    if (value.type == "StringLiteral") {
+      retval = _removeQuotes(value.raw)
+    } else if (value.type == "NumericLiteral") {
+      retval = value.value
+    } else if (value.type == "UnaryExpression") {
+      if (value.operator == "-") {
+        retval = - value.argument.value;
+      }
+    } else if (value.type == "BooleanLiteral") {
+      retval = value.value
+    }
+    return retval
+  }
+
+  function _visit(node, obj) {
+    if (node.type == "TableConstructorExpression") {
+      for (let j = 0; j < node.fields.length; j++) {
+        _visit(node.fields[j], obj);
+      }
+    } else if (node.type == 'TableKey') {
+      var key = _getValue(node.key);
+      var value = _getValue(node.value)
+
+      if (value !== null) {
+        obj[key] = value;
+      } else {
+        if (["TableConstructorExpression", "TableKey"].includes(node.type)) {
+          obj[key] = {};
+          _visit(node.value, obj[key]);
+        } else {
+          console.log("FATAL", node);
+        }
+      }
+    } else {
+      console.log("FATAL", node);
+    }
+  }
+  _visit(ast, obj);
+  return obj;
+}
+
+function data_process_miz(miz) {
+
+  // Reset / Present the route dialog
+  var select_wp = $("#data-route-dialog-waypoints");
+  var select_poi = $("#data-route-dialog-poi");
+  
+  $('#data-route-dialog-cf').show();
+  $('#data-route-dialog-ge').hide();
+  $('#data-route-dialog-miz-or-cf-only').show();
+  $('#data-route-dialog-cf-only').hide();
+
+  // Reset the form to wipe out any previous routes (first option = None)
+  select_wp.children('option:not(:first)').remove();
+  select_poi.children('option:not(:first)').remove();
+
+  // Build up a list of routes / store against their names so we can 
+  var route_data = new Object(); 
+
+  // Process coalition[color] -> country[ID] -> (helicopter|plane) -> group[ID] -> route[<points>]
+  for (const[side, side_data] of Object.entries(miz.coalition)) {
+    for (const[country, country_data] of Object.entries(side_data.country)) {
+      for (const type of ['helicopter', 'plane']) {
+
+        // No groups, continue
+        if (!country_data?.[type]?.group) { continue; }
+
+        for (const[group_id, group_data] of Object.entries(country_data[type].group)) {
+
+          // If we have no route, skip it
+          let points = group_data.route?.points;
+          if (!points) { continue; }
+
+          let aircraft = group_data.units[1].type;
+          let task = group_data.task;
+          let units = Object.keys(group_data.units).length;
+
+          let route_id = `${side}-${country}-${group_id}`;
+          let route_title = `[${task}] ${group_data.name} ${units}x${aircraft}`
+          let route_append = ''
+          let load_loadout = true
+
+          if (aircraft.startsWith("F-16")) {
+            if (aircraft != 'F-16C_50') {
+              route_append = " - Select F-16C_50 in CF for loadout";
+              load_loadout = false;
+            }
+            aircraft = "F-16C"
+
+          // F-18C Variants: F/A-18C, FA-18C_hornet
+          } else if (aircraft == 'F/A-18C' || aircraft == 'FA-18C_hornet') {
+            if (aircraft != 'FA-18C_hornet') {
+              route_append = " - Select FA-18C_hornet in CF for loadout";
+              load_loadout = false;
+            }
+            aircraft = "FA-18C"
+
+          // F-14 Variants: F-14A, F-14B
+          } else if (aircraft.startsWith("F-14")) {
+            if (aircraft != 'F-14B') {
+              route_append = " - select F-14B in CF for loadout";
+              load_loadout = false;
+            }
+            aircraft = "F-14B"
+
+          // A-10 Variants: A-10A, A-10C, A-10C_2 (which is same as a10c for this
+          // generator)
+          } else if (aircraft.startsWith("A-10")) {
+            if (!aircraft.startsWith('A-10C')) {
+              route_append = " - Select A-10C or A-10C_2 in CF for loadout";
+              load_loadout = false;
+            }
+            aircraft = "A-10C"
+
+            // Anything else 
+          } else {
+            route_append = " - unsupported airframe - route only";
+            load_loadout = false;
+            aircraft = null;
+          }
+
+          // Store so we can add
+          route_data[route_id] = {
+            aircraft: aircraft,
+            side: side,
+            task: task,
+            units: units,
+            use_loadout: load_loadout,
+            group_data: group_data,
+            xml: miz,
+            xml_format: 'miz',
+          }
+
+          // Add options to route selector
+          var opt = new Option(route_title + route_append, route_id)
+          if (!load_loadout) {
+            opt.style.color = '#cc0000'
+          }
+
+          select_wp.append(opt);
+          select_poi.append(new Option(route_title, route_id));
+        }
+      }
+    }
+  }
+
+
+  // Bind our routes to the dialog, and show
+  $('#data-route-dialog')
+    .data({
+      'routes': route_data,
+      'xml': miz,
     })
     .modal({
       backdrop: 'static',
@@ -253,6 +426,26 @@ function data_load_file(input) {
 
               data_process_kml(xml)
 
+            })
+            return
+          }
+        })
+      })
+    }, function(message) {
+      alert("Failed to load KMZ: " + message);
+    })
+  } else if(file_ext == 'miz') {
+    // mission (LUA table) within a Zip File, we can avoid dictionary parsing
+    // here as group name now included in the table
+
+    zip.createReader(new zip.BlobReader(file), function(zipReader) {
+      zipReader.getEntries(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.filename === "mission") {
+            text = entry.getData(new zip.TextWriter(), function(text) {
+              var ast = luaparse.parse(text, { 'comments': false });
+              let miz = data_parse_lua_table(ast.body[0].init[0]);
+              data_process_miz(miz)
             })
             return
           }
@@ -442,6 +635,9 @@ function data_mission_set(mid, callback) {
     // Update our default bulls / presets
     data_update_default_bulls();
 
+    // Update our coordinate theatre
+    coords.set_theatre(resp.data.theatre);
+
     // Trigger event to update presets
     $("#data-mission").trigger('data-mission-changed');
 
@@ -486,8 +682,15 @@ $("#data-route-dialog-submit").click(function(e, data) {
 
   if (mission_route_data) {
 
+    if (mission_route_data.xml_format == "miz") {
+      // Add a coord handler for procesing
+      mission_route_data.coords = new Coords()
+      mission_route_data.coords.set_theatre(xml.theatre)
+    }
+
     // If we have checked route-only, then we avoid doing a lot of things 
     mission_route_data.route_only = $("#data-route-dialog-route-only").is(':checked');
+    mission_route_data.append_route = $("#data-route-dialog-append-route").is(':checked');
     
     // Store we have waypoint style; store it
     var wp_style = $("#data-route-dialog input[name=data-route-dialog-wp-style]:checked").val();
@@ -496,26 +699,49 @@ $("#data-route-dialog-submit").click(function(e, data) {
     }
 
     // Handle CF specifics if we're loading everything
-    if (!mission_route_data.route_only && mission_route_data.xml_format == "cf") {
+    if (!mission_route_data.route_only) {
+      
+      if (mission_route_data.xml_format == "cf") {
 
-      // Data -> Theatre
-      var theater = xml.querySelector('Mission > Theater').textContent;
-      $('#data-theatre').val(theater);
+        // Data -> Theatre
+        var theater = xml.querySelector('Mission > Theater').textContent;
+        $('#data-theatre').val(theater);
 
-      // If we have an aircraft, set the selector
-      if (mission_route_data.aircraft) {
-        $('#flight-airframe').val(mission_route_data.aircraft).change();
+        // If we have an aircraft, set the selector
+        if (mission_route_data.aircraft) {
+          $('#flight-airframe').val(mission_route_data.aircraft).change();
+        }
+
+        // Update bulls, if we have a route selected, use side's bulls, else default blue
+        var bulls = xml.querySelector(mission_route_data.side + "Bullseye");
+        $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
+
+        var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
+        $('#waypoints-bullseye-lat').attr('data-lat', bulls_lat);
+
+        var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
+        $('#waypoints-bullseye-lat').attr('data-lon', bulls_lon);
+
+        waypoint_update_display()
+
+      } else if (mission_route_data.xml_format == "miz") {
+  
+        // If we have an aircraft, set the selector
+        if (mission_route_data.aircraft) {
+          $('#flight-airframe').val(mission_route_data.aircraft).change();
+        }
+
+        let bulls = mission_route_data.xml?.coalition?.[mission_route_data.side]?.bullseye;
+        if (bulls) {
+
+          bulls = mission_route_data.coords.xz_to_ll(bulls.x, bulls.y);
+          $('#waypoints-bullseye-name').val("BULLSEYE");
+          $('#waypoints-bullseye-lat').attr('data-lat', bulls.lat);
+          $('#waypoints-bullseye-lat').attr('data-lon', bulls.lon);
+          waypoint_update_display()
+        }
       }
 
-      // Update bulls, if we have a route selected, use side's bulls, else default blue
-      var bulls = xml.querySelector(mission_route_data.side + "Bullseye");
-      $('#waypoints-bullseye-name').val(bulls.getElementsByTagName("Name")[0].textContent);
-
-      var bulls_lat = bulls.getElementsByTagName("Lat")[0].textContent;
-      $('#waypoints-bullseye-lat').attr('data-lat', bulls_lat);
-
-      var bulls_lon = bulls.getElementsByTagName("Lon")[0].textContent;
-      $('#waypoints-bullseye-lat').attr('data-lon', bulls_lon);
     }
   }
 
@@ -525,6 +751,13 @@ $("#data-route-dialog-submit").click(function(e, data) {
   // Store the route for poi
   var poi_route = $('#data-route-dialog-poi').val()
   var poi_route_data = poi_route == 'None' ? null : dialog.data('routes')[poi_route];
+
+  // Add a coord handler
+  if (poi_route_data) {
+    poi_route_data.coords = new Coords()
+    poi_route_data.coords.set_theatre(xml.theatre)
+  }
+
   $('#flight-airframe').data('poi', poi_route_data).trigger('data-poi-updated');
 
   // Update coordiantes

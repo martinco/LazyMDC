@@ -1,6 +1,44 @@
 
 geod = GeographicLib.Geodesic.WGS84;
 
+const PROJ4_THEATRES = {
+  'PersianGulf': {
+    'central_meridian': 57,
+    'easting': 75755.99999999645,
+    'northing': -2894933.0000000377,
+  },
+  'Nevada': {
+    'central_meridian': -117,
+    'easting': -193996.80999964548,
+    'northing': -4410028.063999966,
+  },
+  'Caucasus': {
+    'central_meridian': 33,
+    'easting': -99516.9999999732,
+    'northing': -4998114.999999984,
+  },
+  'Normandy': {
+    'central_meridian': -3,
+    'easting': -195526.00000000204,
+    'northing': -5484812.999999951,
+  },
+  'TheChannel': {
+    'central_meridian': 3,
+    'easting': 99376.00000000288,
+    'northing': -5636889.00000001,
+  },
+  'Syria': {
+    'central_meridian': 39,
+    'easting': 282801.00000003993,
+    'northing': -3879865.9999999935,
+  },
+  'MarianaIslands': {
+    'central_meridian': 147,
+    'easting': 238417.99999989968,
+    'northing': -1491840.000000048,
+  }
+}
+
 
 function coordinate_dd2ddm(dd, precision) {
 
@@ -20,6 +58,8 @@ function coordinate_dd2ddm(dd, precision) {
 
 var Coords = function() {
 
+  this._theatre = '';
+  this._theatre_name = '';
   this._display_format = 'ddm';
   this._display_decimals = 3;
 
@@ -30,7 +70,58 @@ var Coords = function() {
         /([A-Z][A-Z])/,
         /([0-9]+)/,
   ].map(r => r.source).join(''))
-    
+
+  this.get_transform = function(theatre) {
+
+    let origins = PROJ4_THEATRES[theatre];
+
+    return '+proj=tmerc ' +
+      '+lat_0=0 ' +
+      `+lon_0=${origins.central_meridian} ` +
+      '+k_0=0.9996 ' +
+      `+x_0=${origins.easting} ` +
+      `+y_0=${origins.northing} ` + 
+      '+towgs84=0,0,0,0,0,0,0 ' +
+      '+units=m ' +
+      '+vunits=m ' +
+      '+ellps=WGS84 ' +
+      '+no_defs ' +
+      '+axis=neu';
+  }
+
+  this.set_theatre = function(theatre) {
+    this._theatre_name = theatre;
+    this._theatre = this.get_transform(theatre);
+  }
+
+  this.xz_to_ll = function(x, z) {
+    let ll = proj4(
+      this._theatre,
+      proj4.Proj("WGS84"),
+      proj4.toPoint([z, x]));
+
+    return {
+      'x': x,
+      'z': z,
+      'lat': ll.y,
+      'lon': ll.x,
+    }
+  }
+
+  this.ll_to_xz = function(lat, lon, theatre) {
+    var xy = proj4(
+      proj4.Proj("WGS84"),
+      this._theatre,
+      proj4.toPoint([lon, lat]));
+
+    return {
+      'x': Math.round(xy.y) + 0,
+      'z': Math.round(xy.x) + 0,
+      'lat': lat,
+      'lon': lon,
+    }
+  }
+
   this.ll_to_mgrs = function(lat, lon, accuracy) {
     if (isNaN(lat) || isNaN(lon)) {
       return "";

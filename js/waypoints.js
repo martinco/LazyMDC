@@ -330,6 +330,7 @@ function waypoint_add_poi(poi_data) {
     'name': '',
     'lat': '',
     'lon': '',
+    'alt': '',
   }
   
   data = jQuery.extend(true, data, poi_data);
@@ -346,6 +347,8 @@ function waypoint_add_poi(poi_data) {
     }
 
     row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);"></td>`
+
+    row += `<td class="input-container text-right border-right-0"><input class="nospin" type="number" value="${data['alt']}"></td>`;
 
     row += `<td class="input-container text-center border-left-0">
           <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='$(this).closest("tr").remove();'>
@@ -526,6 +529,7 @@ $('#flight-airframe').on('data-poi-updated', function(e) {
           'name': wp.querySelector('Name').textContent,
           'lat': wp.querySelector('Lat').textContent,
           'lon': wp.querySelector('Lon').textContent,
+          'alt': wp.querySelector('Altitude').textContent,
       })
     });
   } else if (route.xml_format == "ge") {
@@ -538,10 +542,27 @@ $('#flight-airframe').on('data-poi-updated', function(e) {
       }
 
       var [lon,lat,alt] = coord.split(",");
+      alt = Math.round(alt * 0.328084) * 10;
+
       waypoint_add_poi({
           'name': "POI " + x,
           'lat': lat,
           'lon': lon,
+          'alt': alt,
+      });
+      x++;
+    }
+  } else if (route.xml_format == "miz") {
+    let x = 1;
+    for (const [wp, info] of Object.entries(route.group_data.route.points)) {
+
+      let ll = route.coords.xz_to_ll(info.x, info.y);
+
+      waypoint_add_poi({
+        'name': info.name || "Waypoint " + x,
+        'lat': ll.lat,
+        'lon': ll.lon,
+        'alt': Math.round(info.alt * 0.328084)*10,
       });
       x++;
     }
@@ -559,7 +580,9 @@ $('#flight-airframe').on('data-route-updated', function(e) {
     return
   }
  
-  $("#waypoints-table > tbody").remove()
+  if (!route.append_route) {
+    $("#waypoints-table > tbody").remove()
+  }
   $("#waypoints-table").data('declutter', null);
 
   if (route.xml_format == "cf") {
@@ -661,6 +684,22 @@ $('#flight-airframe').on('data-route-updated', function(e) {
       });
       x++;
     }
+  } else if (route.xml_format == "miz") {
+    let x = 1;
+    for (const [wp, info] of Object.entries(route.group_data.route.points)) {
+
+      let ll = route.coords.xz_to_ll(info.x, info.y)
+
+      waypoint_add({
+        'typ': x,
+        'name': info.name || "Waypoint " + x,
+        'lat': ll.lat,
+        'lon': ll.lon,
+        'alt': Math.round(info.alt * 0.328084)*10,
+        'gs': Math.round(info.speed / 10)*10,
+      });
+      x++;
+    }
   }
 });
 
@@ -701,7 +740,7 @@ function waypoint_export() {
     
     ret["poi"] = []
     $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
-        var d = get_row_data(tr, ['name', 'lat', 'lon'])
+        var d = get_row_data(tr, ['name', 'lat', 'lon', 'alt'])
 
         let [lat, lon] = d['lat'];
         d['lat'] = lat;

@@ -9,9 +9,9 @@
   <div class="form-group">
     <div class="custom-file">
       <div id='data-file-input-container'>
-        <input type="file" class="custom-file-input" id="data-file-input" accept=".cf,.json,.kmz,.kml" onChange="data_load_file(this);">
+        <input type="file" class="custom-file-input" id="data-file-input" accept=".cf,.json,.kmz,.kml,.miz" onChange="data_load_file(this);">
       </div>
-      <label class="custom-file-label" for="validatedCustomFile">Combat Flite / Google Earth / Saved JSON</label>
+      <label class="custom-file-label" for="validatedCustomFile">Combat Flite / Google Earth / MIZ / Saved JSON</label>
     </div>
     <small class="form-text text-muted">
       These are not uploaded or stored and are processed by your browser
@@ -112,16 +112,26 @@
             <select id="data-route-dialog-waypoints" class="form-control">
               <option value="" selected>None</option>
             </select>
+
           </div>
 
-          <div id='data-route-dialog-cf-only'>
+          <div class="form-group mb-0">
+            <div class="form-check">
+                <input class="form-check-input" id="data-route-dialog-append-route" type="checkbox">
+                <label class="form-check-label" for="data-route-dialog-append-route">Append route (not replace)</label>
+            </div>
+          </div>
+
+          <div id='data-route-dialog-miz-or-cf-only'>
             <div class="form-group">
               <div class="form-check">
                   <input class="form-check-input" id="data-route-dialog-route-only" type="checkbox">
-                  <label class="form-check-label" for="data-route-dialog-route-only">Load route only (This will not set theatre, airframe, loadout etc.)</label>
+                  <label class="form-check-label" for="data-route-dialog-route-only">Load route only (This will not set the airframe and loadout</label>
               </div>
             </div>
+          </div>
 
+          <div id='data-route-dialog-cf-only'>
             <div class="form-group">
               <label for="data-route-dialog-waypoints-style">Waypoint ID Style</label>
               <table class="table table-striped">

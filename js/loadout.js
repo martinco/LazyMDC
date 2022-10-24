@@ -13,12 +13,57 @@ $('#flight-airframe').on('data-route-updated', function(e) {
 
   var route_data = $('#flight-airframe').data('route');
   if (route_data && !route_data.route_only && route_data.use_loadout) {
-    loadout_set({
-      'pylons': get_loadout_from_xml(route_data),
-    })
+    if (route_data.xml_format == 'cf') {
+      loadout_set({
+        'pylons': get_loadout_from_xml(route_data),
+      })
+    } else if (route_data.xml_format == 'miz') {
+      loadout_set(get_loadout_from_miz(route_data));
+    }
   }
 
 });
+
+function get_loadout_from_miz(route) {
+
+  let primary = route?.group_data?.units?.["1"].payload;
+  if (!primary) { return {}; }
+
+  var ac_info = airframes[route.aircraft];
+
+  // Resulting Loadout Template
+  let loadout = {}
+
+  if (primary?.chaff) { loadout.chaff = primary.chaff; }
+  if (primary?.flare) { loadout.flare = primary.flare; }
+  if (primary?.gun) { loadout.gun = primary.gun; }
+  if (primary?.fuel) { loadout.fuel = Math.min(Math.round(primary.fuel * 2.204678 * 100 / ac_info.fuel_lbs), 100) }
+
+  let type_map = ac_info['loadout_map'] || {};
+
+  // Map DCS ordering to a lookup, so we can process in order of the MDC display
+  let stores_obj = {}
+  for (const[pylon_id, pylon_data] of Object.entries(primary.pylons)) {
+    var pylon_name = type_map[pylon_id] || pylon_id;
+    stores_obj[pylon_name] = { 'pylon': pylon_name, 'clsid': pylon_data.CLSID };
+  }
+
+  // Convert to an ordered list as per the loadout defaults (we want this to be
+  // ordered to match the order of the aircraft image / MDC)
+
+  loadout.pylons = [];
+  for (var data of airframes[route.aircraft]['pylons']) {
+    var store = stores_obj[data[0]];
+    if (store?.clsid) {
+      loadout.pylons.push(store)
+    } else {
+      loadout.pylons.push({"pylon": data[0], "store": "" })
+    }
+  }
+
+  return loadout
+
+}
 
 function get_loadout_from_xml(route) {
 
