@@ -1461,7 +1461,7 @@ var Waypoints = function(data, unit) {
         content.push($(html));
 
       } else {
-        content.push($(`<tr><td class="text-center">${wp.typ}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`));
+        content.push($(`<tr class="wp-border-top" style="height:23px"><td class="text-center">${wp.typ}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`));
       }
 
       row++;

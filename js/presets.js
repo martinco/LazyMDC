@@ -126,6 +126,11 @@ function presets_build_lookups() {
     }
   }
 
+  // Radio abbreviations
+  let airframe = $('#flight-airframe').val();
+  let abbrev = getDict(airframes, airframe, 'radios', 'abbreviations');
+  let prio = getDict(airframes, airframe, 'radios', 'priority');
+
   // Consolidate down to what's displayed
   // If single radio then show RADIO-<PST>
   // If multiple on same radio, we show RAIDO-<FIRST_PST>
@@ -138,10 +143,8 @@ function presets_build_lookups() {
 
     if (Object.keys(v).length == 1)  {
       var k = Object.keys(v)[0];
-      preset_lookups[freq] = `${k} ${v[k]}`;
+      preset_lookups[freq] = `${abbrev[k] || k}-${v[k]}`;
     } else {
-      let airframe = $('#flight-airframe').val();
-      var prio = getDict(airframes, airframe, 'radios', 'priority');
       if (typeof(prio) !== "array") {
         prio = Object.keys(v);
       }

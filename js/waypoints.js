@@ -53,11 +53,12 @@ function waypoint_update() {
 
   // When processing our waypoints, just go straight to the children
   $('#waypoints-table > tbody > tr:not(.notes)').each(function(idx, row) {
-   
-    // If we reindex, each row must be incremented
-    if (waypoint_reindex) {
-      row.cells[0].innerText = index++;
-    }
+
+    // FA-18C we don't want to index empty rows with Lat/Lon as the DCS
+    // DTC loader doesn't like them, so to make things consistent we'll
+    // skip them for compatability reasons
+    
+    let allow_reindex = true;
 
     // If we have a GS specified, use it; otherwise continue to use previous
     // gs. This allows someone to declutter and only specify when GS changes
@@ -119,6 +120,13 @@ function waypoint_update() {
         lat: lat,
         lon: lon,
       }
+    } else if (type == 'FA-18C') {
+      allow_reindex = false;
+    }
+   
+    // If we reindex, each row must be incremented
+    if (waypoint_reindex) {
+      row.cells[0].innerText = allow_reindex ? index++ : "";
     }
 
     // Add activity time to tot

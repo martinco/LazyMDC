@@ -8140,7 +8140,11 @@
       "priority": [
         "PRI",
         "SEC"
-      ]
+      ],
+      "abbreviations": {
+        "PRI": "P",
+        "SEC": "S"
+      }
     },
     "tiger": 7500,
     "waypoint_initial_index": 0,

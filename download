@@ -20,10 +20,15 @@ RE_ARGS = {
     'output': re.compile(r'^(png|pdf|html)$'),
 }
 
+RE_VALID_SEQUENCE = re.compile(r'^\s*[0-9]+(\s*,\s*[0-9]+)*$')
+
 PNG_WIDTH = 800
 PNG_HEIGHT = 1200
 ROOT = os.path.dirname(__file__)
 
+class CDU_BASE():
+    def __init__(self):
+        self.files = {}
 
 class CDU_DataLoader():
     '''
@@ -269,7 +274,7 @@ class MDC_LOADER():
                 content, indent=2, separators=(',', ': '))
 
 
-class F16_DTC():
+class DCS_DTC():
     '''
     Used by dcs-dtc to auto-enter waypoints, comms etc.
 
@@ -280,11 +285,91 @@ class F16_DTC():
 
         self._mdc = mdc
         self._files = {}
+        self._ac = mdc['flight']['flight-airframe']
         self.generate()
 
     @property
     def files(self):
         return self._files
+
+    def format_sequence(self):
+        '''
+        "Sequences":{
+            "Seq1":{
+                "_seq":[2,3,4]
+            },
+            "Seq2":{
+                "_seq":[1,2,3]
+            },
+            "Seq3":{
+                "_seq":[]
+            },
+            "EnableUpload":false,
+            "EnableUpload1":false,
+            "EnableUpload2":false,
+            "EnableUpload3":false
+        }
+        '''
+
+        # If we have properly formatted sequences use them
+        retval = {
+            "Seq1":{
+                "_seq": []
+            },
+            "Seq2":{
+                "_seq": []
+            },
+            "Seq3":{
+                "_seq": []
+            },
+            "EnableUpload": False,
+            "EnableUpload1": False,
+            "EnableUpload2": False,
+            "EnableUpload3": False
+        }
+
+        sequence = self._mdc.get('waypoint', {}).get('sequence', [])
+        for sequence in sequence:
+            seq_id = sequence['id']
+            seq = sequence.get('seq', '')
+            m = RE_VALID_SEQUENCE.match(seq)
+            if m:
+                # We add 1 here as DCS DTC is 1 indexed, MDC builder is 0 indexed
+                retval['Seq%s' % seq_id] = { 
+                        "_seq": [int(x) for x in seq.replace(' ', '').split(',')]
+                }
+                retval['EnableUpload%s' % seq_id] = True
+
+        return retval
+
+
+    def format_misc(self):
+        '''
+        Misc is a bit of a random collection of bingo, baro alt / radalt / TCN
+        etc. the only consistent one is bingo, which we shall set to MAX of
+        bingo, tiger, joker
+        '''
+
+        misc = {}
+
+        loadout = self._mdc.get('loadout', {})
+        if loadout:
+            bingo = 0
+            for x in ['bingo', 'tiger', 'joker']:
+                try:
+                    # Round value to 100 lbs
+                    value = int(math.ceil(loadout.get(x, 0)/100)*100)
+                    if value > bingo:
+                        bingo = value
+                except:
+                    pass
+
+            if bingo:
+                misc['Bingo'] = bingo
+                misc['BingoToBeUpdated'] = True
+
+        return misc
+
 
     def format_waypoints(self):
         '''
@@ -359,6 +444,10 @@ class F16_DTC():
                     'Latitude': lat,
                     'Longitude': lon,
                 })
+            elif self._ac == 'FA-18C':
+                # If we're an 18, and it's blank, skip to avoid errors in DCS
+                # DTC and it decrementing back beyond what was entered
+                continue
 
             waypoints.append(new_wp)
             sequence += 1
@@ -512,14 +601,30 @@ class F16_DTC():
         if 'presets' not in self._mdc:
             return radios
 
-        presets = self._mdc.get('presets', {}).get('radios', {})
-        com1 = presets.get('U')
-        if com1:
-            radios['COM1'] = self.format_radio('COM1', 1, com1)
+        # Map of target and source presets based on DTC indexes to ensure
+        # consistent ordering / type IDs
+        maps = {
+            'F-16C': [
+                ['COM1', 'U'],
+                ['COM2', 'V'],
+            ],
+            'FA-18C': [
+                ['COM1', 'PRI'],
+                ['COM2', 'SEC'],
+            ]
+        }
 
-        com2 = presets.get('V')
-        if com2:
-            radios['COM2'] = self.format_radio('COM2', 2, com2)
+        mapping = maps.get(self._ac)
+        if not mapping:
+            return radios
+
+        presets = self._mdc.get('presets', {}).get('radios', {})
+
+        for index, data in enumerate(mapping):
+            dest_key, src_key = data
+            info = presets.get(src_key)
+            if info:
+                radios[dest_key] = self.format_radio(dest_key, index+1, info)
 
         return radios
 
@@ -530,8 +635,13 @@ class F16_DTC():
         waypoints = self.format_waypoints()
         if waypoints:
             content['Waypoints'] = {
-                'Waypoints': waypoints
+                'Waypoints': waypoints,
+                'EnableUpload': True
             }
+
+            # If we're an 18, default starting at 0
+            if self._ac == 'FA-18C':
+                content['Waypoints']['SteerpointStart'] = 0
 
         cms = self.format_cms()
         if cms:
@@ -547,8 +657,16 @@ class F16_DTC():
         if radios:
             content['Radios'] = radios
 
+        sequence = self.format_sequence()
+        if sequence:
+            content['Sequences'] = sequence
+
+        misc = self.format_misc()
+        if misc:
+            content['Misc'] = misc
+
         if content:
-            self._files['f16_dtc.json'] = json.dumps(
+            self._files['dcs_dtc.json'] = json.dumps(
                 content, indent=2, separators=(',', ': '))
 
     def fmt_ll(self, wp, lat=True):
@@ -709,9 +827,17 @@ def main():
     if ac == 'A-10C':
         cdu = CDU_DataLoader(mdc, params['key'], params['id'])
     elif ac == 'F-16C':
-        cdu = F16_DTC(mdc, params['key'], params['id'])
+        cdu = DCS_DTC(mdc, params['key'], params['id'])
     elif ac == 'FA-18C':
-        cdu = MDC_LOADER(mdc, params['key'], params['id'])
+        cdu = CDU_BASE()
+
+        mdc_loader = MDC_LOADER(mdc, params['key'], params['id'])
+        if mdc_loader.files:
+            cdu.files.update(mdc_loader.files)
+
+        dtc = DCS_DTC(mdc, params['key'], params['id'])
+        if dtc.files:
+            cdu.files.update(dtc.files)
 
     url = (
         '{scheme}://{host}/{root}'
