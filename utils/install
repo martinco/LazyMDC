@@ -3,13 +3,25 @@
 set -eu
 
 TARGET=/var/www/vhosts/mdc.hatchlane.com/httpdocs
+NEW_VENV=0
+
+while getopts "p" arg; do
+  case "$arg" in
+    p)
+      NEW_VENV=1
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
 
 TEMPDIR="$(mktemp -d)"
 chmod 755 "$TEMPDIR"
 
 git archive HEAD | tar x -C "$TEMPDIR"
 
-git rev-parse HEAD > $TEMPDIR/commit
+git rev-parse HEAD > "$TEMPDIR/commit"
 
 rsync -rlDq \
   --delete \
@@ -22,8 +34,10 @@ rsync -rlDq \
   --exclude /docs \
  "$TEMPDIR"/  "$TARGET/"
 
-if [[ ! -d "${TARGET}/venv" ]]; then
-  python3 -m venv "${TARGET/venv}"
+if [[ ! -d "${TARGET}/venv" || $NEW_VENV -eq 1 ]]; then
+  [[ -d "${TARGET}/venv" ]] && rm -rf "${TARGET}/venv"
+  /opt/rh/rh-python38/root/usr/bin/python3.8 -m venv "${TARGET}/venv"
+  "${TARGET}/venv/bin/pip" install --upgrade pip
 fi
 
 "${TARGET}/venv/bin/pip" install -r "${TARGET}/etc/requirements.txt"
