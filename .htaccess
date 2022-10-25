@@ -2,8 +2,11 @@
   SetHandler cgi-script 
 </Files>
 
-  AddType application/octet-stream miz
+AddType application/octet-stream miz
 
+Header always set Content-Security-Policy "default-src 'unsafe-inline' 'self' fonts.googleapis.com cdn.jsdelivr.net cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com fonts.gstatic.com data:; frame-ancestors 'none';"
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+Header always set X-Content-Type-Options nosniff
 
 Options +ExecCGI
 
@@ -17,9 +20,10 @@ RewriteRule (.*) http://dcs-mdc.com/$1 [L,R,NE]
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
 RewriteRule ^(.*)$ - [E=BASE:%1]
 
+RewriteRule ^(venv|.git) - [F,L,NC]
+
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
 RewriteRule ^([0-9a-zA-Z]{8})/(.*) %{ENV:BASE}$2 [L]
 RewriteRule ^([0-9a-zA-Z]{8})$ %{ENV:BASE}/index.php
-
