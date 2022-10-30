@@ -175,12 +175,7 @@ function waypoint_lookup_function(request, response, airfields_only=false) {
     return;
   }
 
-  var mission = $('#data-mission').val();
-  var navpoints = {}
-  try {
-    navpoints = mission_data.data.navpoints
-  } catch {}
-
+  var navpoints = mission_data?.data?.navpoints || [];
   // search navaids on Label
   navpoints.forEach(function(obj) {
     if (obj.label && hasMatch(obj.label)) {
