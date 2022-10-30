@@ -689,16 +689,21 @@ class DCS_DTC():
             mins = 0
 
         if lat:
-            lat_str = 'N ' if positive else 'S'
+            lat_str = 'N ' if positive else 'S '
         else:
-            lat_str = 'E ' if positive else 'W'
+            lat_str = 'E ' if positive else 'W '
 
         if lat:
             lat_str += '%02d.' % degs
         else:
             lat_str += '%03d.' % degs
 
-        lat_str += '%06.3f' % mins
+        # 18 uses 2 DP, 16 uses 3
+        if self._ac == 'FA-18C':
+            lat_str += '%05.2f' % mins
+        else:
+            lat_str += '%06.3f' % mins
+
         return lat_str
 
 
