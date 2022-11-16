@@ -1115,10 +1115,10 @@ var Presets = function(data, unit) {
     // we have 4 radios, each with 10 presets, so can fit on one page with 2
     // tables
     
-    var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+    var priorities = data.priority.length > 0 ? data.priority : Object.keys(data.radios);
 
     if (ac == 'AH-64D') {
-    } else {
+    } else if (priorities.length > 0) {
 
       var col_group = '<col width=40px /><col width=85px/><col width=122px/><col width=18px/>'.repeat(priorities.length-1)
 
@@ -1235,6 +1235,9 @@ var Presets = function(data, unit) {
     } else {
 
       var priorities = data.priority.length ? data.priority : Object.keys(data.radios);
+      if (priorities.length == 0) { 
+        return [];
+      }
       var presets = Math.max(...Object.values(data.radios).map(x => Object.keys(x).length));
       var radio_count = priorities.length
       var html = ``;
