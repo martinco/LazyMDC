@@ -135,21 +135,41 @@ function loadout_update_weight() {
     $('#loadout-fuel_lbs').val(fuel_lbs);
     total += fuel_lbs;
 
-    var pyl_kg = 0
-    $(".pylon-select").each(function(idx, pyl) {
-      var w = $(pyl).find("option:selected").data('pyl-weight') || 0;
-      pyl_kg += w
-    })
+    // If we're an apache, update this to the base weight of each element
+    if(type === 'AH-64D') {
+
+      for (let x = 1 ; x < 5; x++) {
+        let flight_member_weight = total;
+        let tr = $(`#loadout-pyl-table-ah64 > tbody > tr:nth-child(${x})`);
+        for (let y = 2; y < 6; y++) {
+          let select = tr[0].cells[y].firstElementChild;
+          let itm = select.options[select.selectedIndex];
+
+          flight_member_weight += Math.round(itm.getAttribute('data-pyl-weight')*2.20462)
+        }
+
+        // Update lbs
+        tr[0].cells[6].innerText = flight_member_weight;
+      }
+
+    } else {
+
+      var pyl_kg = 0
+      $(".pylon-select").each(function(idx, pyl) {
+        var w = $(pyl).find("option:selected").data('pyl-weight') || 0;
+        pyl_kg += w
+      })
 
 
-    var pyl_lbs = pyl_kg * 2.20462;
-    total += pyl_lbs;
-    stores += pyl_lbs;
+      var pyl_lbs = pyl_kg * 2.20462;
+      total += pyl_lbs;
+      stores += pyl_lbs;
 
-    //console.log(`Gun: ${gun_lbs}, Empty: ${empty_weight}, Fuel: ${fuel_lbs}, Stores: ${pyl_lbs}, Total :${total}`);
+      //console.log(`Gun: ${gun_lbs}, Empty: ${empty_weight}, Fuel: ${fuel_lbs}, Stores: ${pyl_lbs}, Total :${total}`);
 
-    total = Math.round(total)
-    $("#loadout-table-weight").html(total)
+      total = Math.round(total)
+      $("#loadout-table-weight").html(total)
+    }
 
     return {
       'total': total,
@@ -207,7 +227,7 @@ function get_pylon_options(type, name, val = "") {
   return [output, Math.round(selected_weight*2.20462)]
 }
 
-function loadout_preset_apply(evt) {
+function loadout_preset_apply(evt, member_index) {
 
   if (!evt.value) { return; }
 
@@ -218,6 +238,17 @@ function loadout_preset_apply(evt) {
   if (!airframes[type].loadout_presets) { return; }
   let presets = airframes[type].loadout_presets[evt.value];
   if (!presets) { return; }
+
+  // If we're a member index, take our presets.pylons and push it to member
+  // index instead
+  if (member_index !== undefined) {
+    // Avoid overwriting our pylons
+    presets = jQuery.extend(true, {}, presets)
+
+    let new_pylons = loadout_get_pylons();
+    new_pylons[member_index] = presets.pylons;
+    presets.pylons = new_pylons;
+  }
 
   // Update our pylon selects
   loadout_set(presets)
@@ -237,6 +268,8 @@ function loadout_set(opts) {
   // If we are maintaining the same type of aircraft, we try and preserve the
   // loadout by default, this is useful if for instance we select a new route
   // and uncheck select loadout from route
+
+  // If we're an apache we have data.loadout.pylons.[flight_member_id] instead
   
   opts = opts || {
     'pylons': type_changed ? [] : loadout_get_pylons(),
@@ -253,11 +286,33 @@ function loadout_set(opts) {
 
   // values.pylons is an ordered dict of ["pylon", "loadout"]
   // whilst pylons_opts should be, assume it's incomplete
-  for (var id in values.pylons) {
-    if (id in pylon_opts) {
-      values.pylons[id][1] = pylon_opts[id]
+  if (type === 'AH-64D') {
+    // For the apache, we want per-member loadouts, so just create na array,
+    // apache is limited to 4 and will be for hte life of this app, so meh
+    //
+    // Also values.pylons here is the default pylon info in the airframe
+    //
+
+    // List of pylons per flight member
+    let ah64_pylons = [];
+
+    for (let x = 0; x < 4; x ++) {
+      let fm_pylons = []
+      for (var id in values.pylons) {
+        let selected_pylon = pylon_opts?.[x]?.[id];
+        fm_pylons.push([values.pylons[id][0], selected_pylon ? selected_pylon : values.pylons[id][1]])
+      }
+      ah64_pylons.push(fm_pylons)
+    }
+    values.pylons = ah64_pylons
+  } else {
+    for (var id in values.pylons) {
+      if (id in pylon_opts) {
+        values.pylons[id][1] = pylon_opts[id]
+      }
     }
   }
+
   pylons = values.pylons
 
   // Content Build
@@ -314,35 +369,115 @@ function loadout_set(opts) {
       <td class="input-container"><input class="input-full" name="joker" value="${values.joker}"></td>
       <td class="input-container"><input class="input-full" name="bingo" value="${values.bingo}"></td>`;
 
+  // PYLON TABLE HANDLING
+  if (type !== 'AH-64D') {
 
-  var pyl_body = "";
-  var pylon_index = 0;
-  var pylon_count = pylons.length;
+    $('#loadout-pyl-table').show();
+    $('#loadout-preset-selector').show();
+    $('#loadout-pyl-table-ah64').hide();
 
-  while(pylon_index < pylon_count) {
+    var pyl_body = "";
+    var pylon_index = 0;
+    var pylon_count = pylons.length;
 
-    var [pyl_opts, pyl_weight] = get_pylon_options(type, pylons[pylon_index][0], pylons[pylon_index][1])
+    while(pylon_index < pylon_count) {
 
-    pyl_body += `
+      var [pyl_opts, pyl_weight] = get_pylon_options(type, pylons[pylon_index][0], pylons[pylon_index][1])
+
+      pyl_body += `
+          <tr>
+            <td class="text-center">${pylons[pylon_index][0]}</td>
+            <td class="input-container">
+              <select class="input-full pylon-select" data-pyl-name="${pylons[pylon_index][0]}">
+                <option data-pyl-weight="0"></option>${pyl_opts}
+              </select>
+            </td>
+            <td style="text-align: right">${pyl_weight || ""}</td>
+          </tr>
+      `
+
+      pylon_index++;
+    }
+
+    let loadout_presets = "<option value='' selected></option>";
+    if (values.loadout_presets) {
+      for (let id in values.loadout_presets) {
+        loadout_presets += `<option value="${id}">${values.loadout_presets[id]['name']}</option>`;
+      }
+    }
+
+    // Presets list
+    $("#pylon-preset-select").empty().append(loadout_presets);
+
+    // Pylon Table
+    $("#loadout-pyl-table > tbody").empty().append(pyl_body)
+
+  } else {
+    $('#loadout-pyl-table').hide();
+    $('#loadout-pyl-table-ah64').show();
+    $('#loadout-preset-selector').hide();
+
+    // In the apache, we just generate the 4 rows for each aircraft directly,
+    // with presets and a total lbs
+    
+    let loadout_presets = "<option value='' selected></option>";
+    if (values.loadout_presets) {
+      for (let id in values.loadout_presets) {
+        loadout_presets += `<option value="${id}">${values.loadout_presets[id]['name']}</option>`;
+      }
+    }
+    
+    let ah64_rows = '';
+
+    for (let x = 0; x < 4; x++) {
+      let unit_weight = 0;
+
+      let pyl_opts = [
+        get_pylon_options(type, pylons[x][0][0], pylons[x][0][1]),
+        get_pylon_options(type, pylons[x][1][0], pylons[x][1][1]),
+        get_pylon_options(type, pylons[x][2][0], pylons[x][2][1]),
+        get_pylon_options(type, pylons[x][3][0], pylons[x][3][1]),
+      ];
+      let unit_loadout_weight = pyl_opts.reduce((c, itm) => c = c+itm[1], 0);
+
+      ah64_rows += `
         <tr>
-          <td class="text-center">${pylons[pylon_index][0]}</td>
+          <td class="text-center font-weight-bold">#${x+1}</td>
           <td class="input-container">
-            <select class="input-full pylon-select" data-pyl-name="${pylons[pylon_index][0]}">
-              <option data-pyl-weight="0"></option>${pyl_opts}
+            <select class="input-full pylon-preset-select" onchange="loadout_preset_apply(this, ${x});">
+              ${loadout_presets}
             </select>
           </td>
-          <td style="text-align: right">${pyl_weight || ""}</td>
+          <td class="input-container">
+            <select class="input-full" data-pyl-name="1" onchange="loadout_update_weight()">
+              <option data-pyl-weight="0"></option>
+              ${pyl_opts[0]}
+            </select>
+          </td>
+          <td class="input-container">
+            <select class="input-full" data-pyl-name="2" onchange="loadout_update_weight()">
+              <option data-pyl-weight="0"></option>
+              ${pyl_opts[1]}
+            </select>
+          </td>
+          <td class="input-container">
+            <select class="input-full" data-pyl-name="3" onchange="loadout_update_weight()">
+              <option data-pyl-weight="0"></option>
+              ${pyl_opts[2]}
+            </select>
+          </td>
+          <td class="input-container">
+            <select class="input-full" data-pyl-name="4" onchange="loadout_update_weight()">
+              <option data-pyl-weight="0"></option>
+              ${pyl_opts[3]}
+            </select>
+          </td>
+          <td class="input-container text-center" data-unit-weight="${unit_loadout_weight}">${unit_loadout_weight}</td>
         </tr>
-    `
-
-    pylon_index++;
-  }
-
-  let loadout_presets = "<option value='' selected></option>";
-  if (values.loadout_presets) {
-    for (let id in values.loadout_presets) {
-      loadout_presets += `<option value="${id}">${values.loadout_presets[id]['name']}</option>`;
+        `;
     }
+
+    $('#loadout-pyl-table-ah64 > tbody').empty().append(ah64_rows);
   }
 
   // Update image
@@ -352,12 +487,6 @@ function loadout_set(opts) {
   $("#loadout-table > colgroup").empty().append(colgroup)
   $("#loadout-table > thead").empty().append(header)
   $("#loadout-table > tbody").empty().append(body)
-
-  // Presets list
-  $("#pylon-preset-select").empty().append(loadout_presets);
-
-  // Pylon Table
-  $("#loadout-pyl-table > tbody").empty().append(pyl_body)
 
   // Events
   $("#loadout-fuel").on('change', function(e) {
@@ -372,6 +501,9 @@ function loadout_set(opts) {
 
     // Type
     var type = $('#flight-airframe').val();
+
+    // Just bailk on ah64
+    if (type === 'AH-64D') return;
 
     // Set current weight
     var option = $("option:selected", this);
@@ -432,16 +564,38 @@ function loadout_set(opts) {
 function loadout_get_pylons() {
   var pylons = [];
 
-  // Load our pylons separately, as we want more data
-  $("#loadout-pyl-table .pylon-select").each(function(idx, select) {
-    var itm = select.options[select.selectedIndex];
-    pylons.push({
-      'pyl': select.getAttribute('data-pyl-name'),
-      'store': select.options[select.selectedIndex].textContent,
-      'weight': Math.round(itm.getAttribute('data-pyl-weight')*2.20462),
-      'clsid': itm.getAttribute('data-pyl-clsid'),
-    })
-  });
+  if (loadout_type !== 'AH-64D') {
+    // Load our pylons separately, as we want more data
+    $("#loadout-pyl-table .pylon-select").each(function(idx, select) {
+      var itm = select.options[select.selectedIndex];
+      pylons.push({
+        'pyl': select.getAttribute('data-pyl-name'),
+        'store': select.options[select.selectedIndex].textContent,
+        'weight': Math.round(itm.getAttribute('data-pyl-weight')*2.20462),
+        'clsid': itm.getAttribute('data-pyl-clsid'),
+      })
+    });
+  } else {
+    // We go for each flight member and gobble them up
+    for (let x = 1 ; x < 5; x++) {
+      $(`#loadout-pyl-table-ah64 > tbody > tr:nth-child(${x})`).each(function(idx, tr) {
+        let member_pylons = []
+        for (let y = 2; y < 6; y++) {
+          let select = tr.cells[y].firstElementChild;
+          let itm = select.options[select.selectedIndex];
+          member_pylons.push(
+            {
+              'pyl': select.getAttribute('data-pyl-name'),
+              'store': select.options[select.selectedIndex].textContent,
+              'weight': Math.round(itm.getAttribute('data-pyl-weight')*2.20462),
+              'clsid': itm.getAttribute('data-pyl-clsid'),
+            }
+          )
+        }
+        pylons.push(member_pylons);
+      });
+    }
+  }
 
   return pylons;
 

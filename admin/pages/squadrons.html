@@ -493,6 +493,47 @@
 
     <div class="form-row">
       <div class="form-group">
+        <label class="heading">Code Words</label>
+        <div>
+          These are the default codewords added to MDCs for this event, users
+          can add / remove them from their MDC but aims to save time
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <table class="table table-striped multi-select" id="squadrons-edit-mission-edit-codeword-table">
+        <colgroup>
+          <col style="width:20px" />
+          <col />
+          <col />
+          <col style="width:20px" />
+        </colgroup>
+
+        <thead class="thead-light">
+          <tr>
+            <th class="border-right-0"></th>
+            <th class="border-left-0">CODEWORD</th>
+            <th class="border-right-0">ACTION/EVENT</th>
+            <th class="border-left-0"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- workaround for bg color -->
+        <tr style="display:none"></tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" title="Add Codeword" id='squadrons-edit-mission-edit-codeword-button' type="button">
+        <i data-feather="plus-square"></i>
+      </button>
+      <button class="btn btn-primary ml-2" title="Bulk Add Codewords" id='squadrons-edit-mission-edit-codeword-bulk-button' type="button">
+        <i data-feather="layers"></i>
+      </button>
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="form-row">
+      <div class="form-group">
         <label class="heading">Aircraft Presets</label>
         <div>
           These presets are pulled from the mission file, they are just for
@@ -701,6 +742,43 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="squadrons-edit-mission-add-agencies-bulk-dialog-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BULK ADD CODEWORDS-->
+<div class="modal fade" id="squadrons-edit-mission-add-codeword-bulk-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Bulk add Code words</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom:10px">
+          Simple way to add more codewords to save time
+          <ul>
+            <li>1 word per line</li>
+            <li>comma separated list of: codeword, action/event</li>
+          </ul>
+        </div>
+
+        <form target='#' method=post class="needs-validation" novalidate>
+          <div class="form-row">
+            <label class="heading">Codeword CSV</label>
+            <textarea id="squadrons-edit-missions-add-codeword-bulk-csv" class="form-control" style="min-height:300px; white-space: pre-wrap;" required></textarea>
+            <div class="invalid-feedback"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="squadrons-edit-mission-add-codeword-bulk-dialog-submit">Submit</button>
       </div>
     </div>
   </div>

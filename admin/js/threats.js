@@ -28,14 +28,16 @@ function threats_add_row(dcs_type, threat, overrides) {
 
   var cols = [
     ['name', 'text', 'input-full', ""],
+    ['short_name', 'text', 'input-full', ""],
+    ['report_name', 'text', 'input-full', ""],
     ['type', 'text', 'input-full', ""],
+    ['tracker', 'text', 'input-full', ""],
     ['rwr', 'text', 'input-full', ""],
     ['cms', 'text', 'input-full', ""],
     ['rmin', 'number', 'input-full nospin text-right pr-2', 0],
     ['rmax', 'number', 'input-full nospin text-right pr-2', 0],
     ['hmin', 'number', 'input-full nospin text-right pr-2', 0],
     ['hmax', 'number', 'input-full nospin text-right pr-2', 0],
-    ['notes', 'text', 'input-full', ""],
   ]
 
   if (Object.keys(threat).length + Object.keys(overrides).length) {
@@ -97,6 +99,8 @@ function threats_add_row(dcs_type, threat, overrides) {
       <tr data-create>
         <td class="input-container border-right-0 text-center"><span style="color:green" data-feather="plus-circle"></span></td>
         <td class="input-container border-left-0"><input class="input-full"></td>
+        <td class="input-container"><input class="input-full"></td>
+        <td class="input-container"><input class="input-full"></td>
         <td class="input-container"><input class="input-full"></td>
         <td class="input-container"><input class="input-full"></td>
         <td class="input-container"><input class="input-full"></td>
@@ -189,16 +193,16 @@ $('#threats-save').on('click', function() {
       // If we have a DCS type then we have both base  / modified
       if (dcs_type) {
         if (!base['import']) { base['import'] = {}; }
-        base['import'][dcs_type] = get_base_row_data(tr, ['-', 'name', 'type', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'notes']);
+        base['import'][dcs_type] = get_base_row_data(tr, ['-', 'name', 'short_name', 'report_name', 'type', 'tracker', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax']);
 
-        var overs = get_modified_row_data(tr, ['-', 'name', 'type', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'notes', 'active']);
+        var overs = get_modified_row_data(tr, ['-', 'name', 'short_name', 'report_name', 'type', 'tracker', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'active']);
         if (Object.keys(overs).length > 0) {
           if (!overrides['import']) { overrides['import'] = {}; }
           overrides['import'][dcs_type] = overs;
         }
 
       } else {
-        var row = get_row_data(tr, ['-', 'name', 'type', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'notes', 'active']);
+        var row = get_row_data(tr, ['-', 'name', 'short_name', 'report_name', 'type', 'tracker', 'rwr', 'cms', 'rmin', 'rmax', 'hmin', 'hmax', 'active']);
         if (!row.name) {
           return;
         }

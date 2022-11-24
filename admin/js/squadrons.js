@@ -1677,6 +1677,13 @@ function squadrons_populate_missions_edit(sqn_id, mission_id, callback) {
       }
     }
 
+    // Codeword
+    $("#squadrons-edit-mission-edit-codeword-table > tbody").empty();
+    for (const [codeword, codeword_data] of Object.entries(getDict(data, 'overrides', 'codewords'))) {
+      // Custom navpoints only have the data, never overrides
+      squadrons_edit_mission_add_codeword(codeword, codeword_data);
+    }
+
     squadrons_populate_missions_edit_presets(data.data);
 
     // Update icons
@@ -1942,6 +1949,31 @@ function squadrons_edit_missions_edit_save() {
     }
 
     overrides['agencies'][mods['side']][name] = mods;
+  });
+
+  // codeword - simple collection into overrides
+  overrides['codewords'] = {};
+  $("#squadrons-edit-mission-edit-codeword-table > tbody > tr").each(function(a, tr) {
+
+    // If the row is marked for delete, ignore it
+    if (tr.hasAttribute("data-delete")) {
+      return;
+    }
+
+    // Otherwise simply collect the data
+    var mods = get_row_data(tr, ['-', 'codeword', 'action']);
+    var name = mods['codeword'];
+    delete(mods['agency']);
+
+    // Skip empty names
+    if (name === "") return;
+
+    // Skip if all values are empty
+    if (Object.values(mods).filter(x => x != "").length == 0) {
+      return;
+    }
+
+    overrides['codewords'][name] = mods;
   });
 
   // Bring in presets as we were
@@ -2365,6 +2397,7 @@ $('#squadrons-add-custom-navpoint').on('click', function() {
   squadrons_edit_navpoint_add("custom", null, null, null, null, null, true);
 });
 
+// AGENCIES
 $('#squadrons-edit-mission-edit-agencies-button').on('click', function() {
   squadrons_edit_mission_add_agency();
 });
@@ -2482,6 +2515,88 @@ $("#squadrons-edit-mission-add-agencies-bulk-dialog-submit").on('click', functio
   dlg.modal('hide');
 });
 
+// CODEWORDS 
+//
+$('#squadrons-edit-mission-edit-codeword-button').on('click', function() {
+  squadrons_edit_mission_add_codeword();
+});
+
+$("#squadrons-edit-mission-edit-codeword-bulk-button").on('click', function() {
+  var dlg = $('#squadrons-edit-mission-add-codeword-bulk-dialog');
+
+  // Reset the form
+  var form = dlg.find('form');
+  form[0].reset();
+
+  // Show the dialog
+  dlg.modal({
+    backdrop: 'static',
+  });
+});
+
+$("#squadrons-edit-mission-add-codeword-bulk-dialog-submit").on('click', function() {
+  var dlg = $('#squadrons-edit-mission-add-codeword-bulk-dialog');
+
+  // we won't care about duplicates here given this will all be replaced soon
+  var updates = {};
+
+  var lines = $('#squadrons-edit-missions-add-codeword-bulk-csv').val().split(/\r?\n/);
+  for (line of lines) {
+    var [codeword, action] = line.split(/,\s*/).map(s => s.trim());
+
+    // non empty
+    if (action === "" || codeword === "") { continue }
+
+    squadrons_edit_mission_add_codeword(codeword, {action: action}, true);
+  }
+
+  dlg.modal('hide');
+});
+
+function squadrons_edit_mission_add_codeword(codeword, data, add=false) {
+
+  var html = null;
+
+  if (codeword && data) {
+    if (add) {
+      html = `
+        <tr data-create>
+        <td class="input-container border-right-0 text-center"><span style="color:green" data-feather="plus-circle"></span></td>`;
+    } else {
+      html = `
+        <tr>
+        <td class="input-container border-right-0 text-center"></td>`;
+    }
+
+    html += `
+      <td class="input-container border-left-0"><input class="input-full" data-base="${codeword}" value="${codeword}"></td>
+      <td class="input-container border-right-0"><input class="input-full" data-base="${data.action || ""}" value="${data.action || ""}"></td>
+      <td class="input-container text-center border-left-0">
+        <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='squadrons_edit_mission_delete_managed_row(this);'>
+          <i data-feather="delete"></i>
+        </button>
+      </td>
+    </tr>`;
+  } else {
+    html = `
+      <tr data-create>
+      <td class="input-container border-right-0 text-center"><span style="color:green" data-feather="plus-circle"></span></td>
+      <td class="input-container border-left-0"><input class="input-full"></td>
+      <td class="input-container border-right-0"><input class="input-full"></td>
+      <td class="input-container text-center border-left-0">
+        <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='squadrons_edit_mission_delete_managed_row(this);'>
+          <i data-feather="delete"></i>
+        </button>
+      </td>
+    </tr>`;
+  }
+
+  $('#squadrons-edit-mission-edit-codeword-table tbody').append($(html));
+  feather.replace();
+}
+
+
+// Mission 
 
 $("#squadrons-edit-mission-edit-save").on('click', squadrons_edit_missions_edit_save);
 

@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-row">
-    <div class="col"> 
+    <div class="col fixed-wing-only">
       <div class="form-group">
         <label class="heading">TCN</label>
         <input type="text" class="form-control tcn-validator" name="dep-tcn" id="deparr-dep-tcn">
@@ -136,7 +136,7 @@
     <h1 class="h2">Arrival</h1>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-secondary active" onclick="$('#deparr-arr-full').hide(); $('#deparr-arr-min').show(); presets_update_inuse();">
-        <input type="radio" id="deparr-arr-usedep-true" name="arr-usedep" value="true" autocomplete="off" checked> Use Depature
+        <input type="radio" id="deparr-arr-usedep-true" name="arr-usedep" value="true" autocomplete="off" checked> Use Departure
       </label>
       <label class="btn btn-secondary" onclick="$('#deparr-arr-full').show(); $('#deparr-arr-min').hide(); presets_update_inuse();">
         <input type="radio" id="deparr-arr-usedep-false" name="arr-usedep" value="false" autocomplete="off"> Custom
@@ -168,7 +168,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col"> 
+      <div class="col fixed-wing-only">
         <div class="form-group">
           <label class="heading">TCN</label>
           <input type="text" class="form-control tcn-validator" name="arr-tcn" id="deparr-arr-tcn">
@@ -225,7 +225,7 @@
     <h1 class="h2">Alternate</h1>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-secondary active" onclick="$('#deparr-alt-full').hide(); $('#deparr-alt-min').show(); presets_update_inuse();">
-        <input type="radio" id="deparr-alt-usedep-true" name="alt-usedep" value="true" autocomplete="off" checked> Use Depature
+        <input type="radio" id="deparr-alt-usedep-true" name="alt-usedep" value="true" autocomplete="off" checked> Use Departure
       </label>
       <label class="btn btn-secondary" onclick="$('#deparr-alt-full').show(); $('#deparr-alt-min').hide(); presets_update_inuse();">
         <input type="radio" id="deparr-alt-usedep-false" name="alt-usedep" value="false" autocomplete="off"> Custom
@@ -257,7 +257,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col"> 
+      <div class="col fixed-wing-only">
         <div class="form-group">
           <label class="heading">TCN</label>
           <input type="text" class="form-control tcn-validator" name="alt-tcn" id="deparr-alt-tcn">

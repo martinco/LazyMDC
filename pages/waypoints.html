@@ -21,7 +21,20 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col rotary-only">
+      <div class="form-group">
+        <label for="callsign">Endurance</label>
+        <input type="text" class="form-control" name="endurance" id="waypoints-endurance" value="">
+      </div>
+    </div>
+    <div class="col rotary-only">
+      <div class="form-group">
+        <label for="callsign">ETE</label>
+        <input type="text" class="form-control" name="ete" id="waypoints-ete" value="">
+      </div>
+    </div>
+
+    <div class="col fixed-wing-only">
       <div class="form-group">
         <label for="callsign">Transition Altitude</label>
         <div class="input-group mb-2 ">
@@ -32,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col fixed-wing-only">
       <div class="form-group">
         <label for="callsign">Transition Level</label>
         <div class="input-group mb-2 ">
@@ -43,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col fixed-wing-only">
       <div class="form-group">
         <div class="form-group">
           <label class="heading">Units</label>
@@ -57,7 +70,7 @@
   </div>
 
   <!-- workaround for coordinate dialog which assumes tables -->
-  <div class="form-group">
+  <div class="form-group fixed-wing-only">
     <label class="heading">Bullseye</label>
     <table class="table table-striped" id="waypoints-bullseye-table">
       <colgroup>
@@ -85,37 +98,17 @@
     </table>
   </div>
 
+  <div class="form-group" id='waypoints-tag-group'>
+    <label class="heading">Available WP Tags (drag)</label>
+    <div id='waypoints-tag-container'></div>
+  </div>
+
   <div class="form-group">
     <label class="heading">Mission Plan</label>
     <table class="table mb-0" id="waypoints-table" style="overflow:hidden">
       <colgroup>
-        <col style="width:38px" />
-        <col />
-        <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:60px" />
-        <col style="width:60px" />
-        <col style="width:140px" />
-        <col style="width:140px" />
-        <col style="width:45px" />
-        <col style="width:45px" />
-        <col style="width:20px;" />
-        <col style="width:20px;" />
       </colgroup>
-
       <thead class="thead-light">
-        <tr>
-          <th class="text-center">#</th>
-          <th>WAYPOINT</th>
-          <th>ALT</th>
-          <th>GS</th>
-          <th>TOT</th>
-          <th>ACT</th>
-          <th>LAT</th>
-          <th>LON</th>
-          <th id="waypoints-table-dist">NM</th>
-          <th colspan=3>TBRG</th>
-        </tr>
       </thead>
     </table>
 
@@ -169,20 +162,8 @@
     <label class="heading">Additional Points of Interest</label>
     <table class="table table-striped" id="waypoints-poi-table">
       <colgroup>
-        <col />
-        <col style="width:140px" />
-        <col style="width:140px" />
-        <col style="width:45px" />
-        <col style="width:20px;" />
       </colgroup>
-
       <thead class="thead-light">
-        <tr>
-          <th>WAYPOINT</th>
-          <th>LAT</th>
-          <th>LON</th>
-          <th colspan=2>ELEV</th>
-        </tr>
       </thead>
       <tbody>
       </tbody>

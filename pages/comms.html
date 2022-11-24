@@ -14,6 +14,7 @@
     <label class="heading">Agencies</label>
     <table class="table table-striped" id="comms-table">
       <colgroup>
+        <col style="width:20px" />
         <col style="width:265px" />
         <col style="width:45px" />
         <col style="width:65px" />
@@ -26,7 +27,8 @@
 
       <thead class="thead-light">
         <tr>
-          <th class="text-center">AGENCY</th>
+          <th class="text-center border-right-0"></th>
+          <th class="text-center border-left-0">AGENCY</th>
           <th class="text-center">TCN</th>
           <th class="text-center">PRI</th>
           <th class="text-center">PRI #</th>
@@ -43,6 +45,33 @@
       <i data-feather="user-plus"></i>
     </button>
   </div>
+
+  <div class="form-group">
+    <label class="heading">Code words</label>
+    <table class="table table-striped" id="codewords-table">
+      <colgroup>
+        <col style="width:20px" />
+        <col />
+        <col />
+        <col style="width:20px" />
+      </colgroup>
+
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center border-right-0"></th>
+          <th class="text-center border-left-0">CODEWORD</th>
+          <th class="text-center" colspan=2>ACTION/EVENT</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" id='codewords-add' type="button">
+      <i data-feather="plus"></i>
+    </button>
+  </div>
+
   <div style="text-align: right">
     <button class="btn btn-primary" type="submit">Next...</button>
   </div>

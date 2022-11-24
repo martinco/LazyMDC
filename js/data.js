@@ -131,7 +131,14 @@ function data_process_cf(xml) {
         load_loadout = false;
       }
       aircraft = "A-10C"
-
+    // APACHE
+    } else if (aircraft.startsWith("AH-64D")) {
+      console.log(aircraft);
+      if (aircraft !== 'AH-64D_BLK_II') {
+        route_append = " - Select AH-64D_BLK_II for loadout";
+        load_loadout = false;
+      }
+      aircraft = "AH-64D"
     // Anything else 
     } else { 
       route_append = " - unsupported airframe - route only";

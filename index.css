@@ -145,7 +145,10 @@ input {
 }
 
 #threats-table input,
+#threats-targets-table input,
+#threats-prio-table input,
 #comms-table input,
+#codewords-table input,
 #waypoints-poi-table input,
 #waypoints-table input,
 #waypoints-table select,
@@ -253,3 +256,28 @@ body .overhang-overlay {
 .validation-info-mark {
   border-top: 12px solid #00cc00;
 }
+
+#waypoints-tag-container {
+  height: 35px;
+  border: 1px dashed black;
+  border-radius: 15px;
+}
+
+.wp-pill {
+  border-radius: 10px;
+  margin: 5px; 
+  padding-left: 5px;
+  padding-right: 5px;
+  float: left
+}
+
+.wp-pill-green {
+  border: 1px solid #00990044;
+  background: #00990044;
+}
+
+.wp-pill-red {
+  border: 1px solid #ff000022;
+  background: #ff000022;
+}
+

@@ -23,6 +23,7 @@ function mission_export() {
   var data = get_form_data($("#mission-form"));
   data['mission-pri-freq'] = freq_to_obj(data['mission-pri-freq']);
   data['mission-sec-freq'] = freq_to_obj(data['mission-sec-freq']);
+  data['mission-ter-freq'] = freq_to_obj(data['mission-ter-freq']);
   data['mission-beacons'] = mission_data.data.beacons;
   return data;
 }

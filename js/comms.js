@@ -1,5 +1,8 @@
 // Whooop
 
+
+$(document).on('data-mission-changed', codeword_reset);
+
 function agency_autocomplete(input, fields) {
   $(input).autocomplete({
     source: function(request, response) {
@@ -52,11 +55,12 @@ function comms_add(opts) {
     
     
   $("#comms-table > tbody").append(`<tr>
-      <td class="input-container"><input onchange="presets_update_inuse();" value="${data['agency']}"></td>
+      <td class="input-container text-center border-right-0"><i data-feather="more-vertical"></i></td>
+      <td class="input-container border-left-0"><input onchange="presets_update_inuse();" value="${data['agency']}"></td>
       <td class="input-container text-center"><input value="${data['tcn']}"></td>
-      <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" value="${data.pri ? data.pri.value || "" : ""}"></td>
+      <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" data-title-col="1" value="${data.pri ? data.pri.value || "" : ""}"></td>
       <td class="text-center"></td>
-      <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" value="${data.sec ? data.sec.value || "" : ""}"></td>
+      <td class="input-container text-center font-weight-bold"><input class="freq-autocomplete freq-preset" data-title-col="1" value="${data.sec ? data.sec.value || "" : ""}"></td>
       <td class="text-center"></td>
       <td class="input-container border-right-0"><input value="${data['notes']}"></td>
       <td class="input-container text-center border-left-0">
@@ -74,7 +78,7 @@ function comms_add(opts) {
   })
 
   // Setup
-  agency_autocomplete(last[0].cells[0].firstChild, [1,2,4])
+  agency_autocomplete(last[0].cells[1].firstChild, [2,3,5])
   tcn_formatter(last[0].cells[1].firstChild)
 
   feather.replace()
@@ -85,20 +89,65 @@ $('#comms-add').click(function() {
   comms_add()
 });
 
+// CODEWORD
+
+function codeword_reset() {
+  // Triggered when mission changes, so populate with mission defaults from
+  // admin
+  
+  $("#codewords-table > tbody").empty();
+  
+  // Admin stores them by just codeword - action
+  for (const [codeword, data] of Object.entries(mission_data?.data?.codewords || {})) {
+    codeword_add({codeword: codeword, action: data.action})
+  }
+
+}
+
+function codeword_add(data) {
+  data = data || {}
+    
+  $("#codewords-table > tbody").append(`<tr>
+      <td class="input-container text-center border-right-0"><i data-feather="more-vertical"></i></td>
+      <td class="input-container text-center border-left-0"><input class="text-uppercase" value="${data.codeword||""}"></td>
+      <td class="input-container border-right-0"><input value="${data.action||""}"></td>
+      <td class="input-container text-center border-left-0">
+        <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove(); presets_update_inuse();'>
+          <i data-feather="delete"></i>
+        </button>
+      </td>
+    </tr>
+  `)
+
+  // Setup
+  feather.replace()
+
+}
+
+$('#codewords-add').click(function() {
+  codeword_add()
+});
 
 function comms_export() {
 
     var ret = {
+        'codewords': [],
         'agencies': [],
         'ramrod': $("#comms-ramrod").val(),
     }
     
     $("#comms-table > tbody > tr").each(function(idx, tr) {
-      var row = get_row_data(tr, ['agency', 'tcn', 'pri', '-', 'sec', '-', 'notes']);
+      var row = get_row_data(tr, ['-', 'agency', 'tcn', 'pri', '-', 'sec', '-', 'notes']);
       row['pri'] = freq_to_obj(row['pri']);
       row['sec'] = freq_to_obj(row['sec']);
       ret['agencies'].push(row)
-    })
+    });
+
+    $("#codewords-table > tbody > tr").each(function(idx, tr) {
+      var row = get_row_data(tr, ['-', 'codeword', 'action']);
+      if (row.codeword === "" || row.action === "") return;
+      ret['codewords'].push({'codeword': row.codeword, action: row.action})
+    });
     
     return ret
 }
@@ -113,6 +162,11 @@ function comms_load(data, callback) {
 
     data['agencies'].forEach(function(data) {
         comms_add(data)
+    });
+
+    $('#codewords-table > tbody').empty();
+    data['codewords'].forEach(function(data) {
+        codeword_add(data)
     });
   }
 

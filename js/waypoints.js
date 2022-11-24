@@ -1,22 +1,220 @@
 
-function waypoint_autocomplete(input, lat_idx) {
+waypoint_offset = {}
+poi_offset = {}
+waypoint_airframe = null;
+
+function waypoint_autocomplete(input, offsets) {
   $(input).autocomplete({
     source: function(request, response) {
       waypoint_lookup_function(request, response)
     },
     minLength: 2,
     select: function(event, ui) {
-      var tr = event.target.closest('tr')
-      tr.cells[lat_idx].setAttribute('data-lat', ui.item.lat)
-      tr.cells[lat_idx].setAttribute('data-lon', ui.item.lon)
+      var tr = event.target.closest('tr');
+      tr.cells[offsets.lat].setAttribute('data-lat', ui.item.lat)
+      tr.cells[offsets.lat].setAttribute('data-lon', ui.item.lon)
 
-      if (ui.item.alt && tr.cells[2].firstChild) {
-        tr.cells[2].firstChild.value = ui.item.alt;
+      if (ui.item.alt && tr.cells[offsets.alt].firstChild) {
+        tr.cells[offsets.alt].firstChild.value = ui.item.alt;
       }
 
       waypoint_update()
     }
   });
+}
+
+
+function waypoints_get_ah64_ident_options(sel_db, sel_ident) {
+
+  let output = ''
+
+  for (const [name, dbitems] of Object.entries(airframes["AH-64D"].point_db)) {
+    for (const [db, typeinfo] of Object.entries(dbitems.types)) {
+      for (const [desc, desc_data] of Object.entries(typeinfo)) {
+        output += `<optgroup label="${desc}">`;
+        // Sort Idents 
+        for (const ident of Object.keys(desc_data.values).sort()) {
+          const label = desc_data.values[ident];
+
+          let display_name = `${ident} - ${label}`;
+
+          selected = ident == sel_ident && db == sel_db ? 'selected' : '';
+
+          output += `<option data-text="${display_name}" data-db="${db}" data-ident="${ident}" value="${ident}" ${selected}>${selected ? ident : display_name}</option>`;
+        }
+        output += `</optgroup>`;
+      } 
+    }
+  }
+
+  return output
+}
+
+function waypoint_autocomplete_ah64_ident(input, db_offset) {
+  // make our select box options
+  $(input).focus(function() {
+    let selected = $(this).find('option:selected');
+    selected.text(selected.data('text'));
+  });
+
+  $(input).change(function() { this.blur(); });
+
+  $(input).blur(function() {
+    this.blur();
+
+    let selected = $(this).find('option:selected');
+    selected.text(selected.data('ident'));
+    
+    // now update our other columns with the data
+    let row = $(this).closest('tr');
+    row[0].cells[db_offset].setAttribute('data-raw', selected.data('db'));
+
+    // We need to update waypoints when this changes to renumber
+    waypoint_update()
+  });
+
+}
+
+function waypoints_table_format() {
+
+  var type = $('#flight-airframe').val()
+  
+  let colgroup = `
+    <col style="width:20px" />
+    <col style="width:38px" />`;
+
+  if (type === "AH-64D") {
+    // add in type, ident, free
+    colgroup += `
+      <col style="width:80px" />
+      <col style="width:60px" />`;
+  }
+
+  colgroup += `
+      <col />
+      <col style="width:45px" />
+      <col style="width:45px" />
+      <col style="width:60px" />
+      <col style="width:60px" />`;
+
+  // if we're apache, then we can put these down to a 
+  lat_lon_width = type == "AH-64D" ? 113 : 140;
+
+  colgroup += `
+      <col style="width:${lat_lon_width}px" />
+      <col style="width:${lat_lon_width}px" />`;
+
+  colgroup += `
+      <col style="width:45px" />
+      <col style="width:45px" />
+      <col style="width:20px;" />
+      <col style="width:20px;" />`;
+
+  let thead = `
+      <tr>
+        <th class="border-right-0"></th>
+        <th class="border-left-0 text-center">#</th>`;
+
+  if (type === "AH-64D") {
+    thead += `
+          <th style="display:none">DB</th>
+          <th>IDENT</th>
+          <th>FREE</th>`;
+  }
+
+  thead += `
+          <th>WAYPOINT</th>
+          <th>ALT</th>
+          <th>GS</th>
+          <th>TOT</th>
+          <th>ACT</th>
+          <th>LAT</th>
+          <th>LON</th>
+          <th id="waypoints-table-dist" data-key="dist">NM</th>
+          <th colspan=3>TBRG</th>
+          <th data-key="time" style="display:none"></th>
+        </tr>`;
+
+  // Build our column offset
+  let offsets = {}
+  let thead_obj = $(thead);
+  let columns = $(thead_obj)[0].children;
+
+  for (var i = 0; i < columns.length; i++) {
+    let header = columns[i].getAttribute('data-key') || columns[i].innerHTML.toLowerCase();
+    if (header === "#") header = "id";
+    if (header !== "") {
+      offsets[header] = i
+    }
+  }
+
+  waypoint_offset = offsets;
+
+  $("#waypoints-table > colgroup").empty().append(colgroup);
+  $("#waypoints-table > thead").empty().append(thead_obj);
+}
+
+function waypoints_poi_table_format() {
+
+  let colgroup = `
+    <col style="width:20px" />
+  `;
+
+  let thead = `
+    <tr>
+      <th class="border-right-0"></th>`;
+
+  // add in type, ident, free
+  if (waypoint_airframe === "AH-64D") {
+    colgroup += `
+      <col style="width:80px" />
+      <col style="width:60px" />`;
+
+    thead += `
+          <th style="display:none">TYP</th>
+          <th style="display:none">DB</th>
+          <th class="border-left-0">IDENT</th>
+          <th>FREE</th>
+          <th>WAYPOINT</th>`;
+  } else {
+    thead += `<th class="border-left-0">WAYPOINT</th>`;
+  }
+
+  // Oterwise, it's just our usual
+  colgroup += `
+      <col />
+      <col style="width:140px" />
+      <col style="width:140px" />
+      <col style="width:45px" />
+      <col style="width:20px;" />
+  `;
+
+  thead += `
+      <th>LAT</th>
+      <th>LON</th>
+      <th colspan=2>ALT</th>
+    </tr>
+  `;
+
+
+  // Build our column offset
+  let offsets = {}
+  let thead_obj = $(thead);
+  let columns = $(thead_obj)[0].children;
+
+  for (var i = 0; i < columns.length; i++) {
+    let header = columns[i].getAttribute('data-key') || columns[i].innerHTML.toLowerCase();
+    if (header === "#") header = "id";
+    if (header !== "") {
+      offsets[header] = i
+    }
+  }
+
+  poi_offset = offsets;
+
+  $("#waypoints-poi-table > colgroup").empty().append(colgroup);
+  $("#waypoints-poi-table > thead").empty().append(thead_obj);
+  
 }
 
 function waypoint_update_display() {
@@ -29,6 +227,13 @@ function waypoint_update_display() {
 function waypoint_update() {
 
   waypoint_update_display();
+
+  // ah64 index helper
+  let ah64_helper = {
+    'WP': 1,
+    'CM': 51,
+    'TG': 1,
+  }
 
   // seconds
   var unit = $("#waypoints-gs-units").val();
@@ -51,8 +256,8 @@ function waypoint_update() {
 
   var index = waypoint_initial_index;
 
-  // When processing our waypoints, just go straight to the children
-  $('#waypoints-table > tbody > tr:not(.notes)').each(function(idx, row) {
+  // When processing our waypoints, just go straight to the first child
+  $('#waypoints-table > tbody > tr:first-child').each(function(idx, row) {
 
     // FA-18C we don't want to index empty rows with Lat/Lon as the DCS
     // DTC loader doesn't like them, so to make things consistent we'll
@@ -62,8 +267,8 @@ function waypoint_update() {
 
     // If we have a GS specified, use it; otherwise continue to use previous
     // gs. This allows someone to declutter and only specify when GS changes
-    if (row.cells[3].children[0].value) {
-      gs = parseInt(row.cells[3].children[0].value);
+    if (row.cells[waypoint_offset.gs].children[0].value) {
+      gs = parseInt(row.cells[waypoint_offset.gs].children[0].value);
 
       // If GS is in kts convert to km/h
       if (unit == "kts") {
@@ -73,11 +278,8 @@ function waypoint_update() {
 
     // If lat or lon are empty; we can't do any calculations for distance /
     // time / tot so we just bail
-    var lat = row.cells[6].getAttribute('data-lat');
-    var lon = row.cells[6].getAttribute('data-lon');
-
-    lat = parseFloat(lat)
-    lon = parseFloat(lon)
+    var lat = parseFloat(row.cells[waypoint_offset.lat].getAttribute('data-lat'));
+    var lon = parseFloat(row.cells[waypoint_offset.lat].getAttribute('data-lon'));
 
     if (!isNaN(lat) && !isNaN(lon)) {
       // If we have a last point, calculate distance + bearing from last point to
@@ -104,48 +306,87 @@ function waypoint_update() {
 
         tot += duration_sec
 
-        row.cells[8].innerHTML = unit == "kts" ? (distance/1.852).toFixed(1) : distance.toFixed(1);
-        row.cells[9].innerHTML = azi.toFixed(0);
+        row.cells[waypoint_offset.time].innerHTML = get_time_from_seconds(duration_sec)
+        row.cells[waypoint_offset.dist].innerHTML = unit == "kts" ? (distance/1.852).toFixed(1) : distance.toFixed(1);
+        row.cells[waypoint_offset.tbrg].innerHTML = azi.toFixed(0);
 
       } else {
-        row.cells[8].innerHTML = "";
-        row.cells[9].innerHTML = "";
+        row.cells[waypoint_offset.time].innerHTML = "";
+        row.cells[waypoint_offset.dist].innerHTML = "";
+        row.cells[waypoint_offset.tbrg].innerHTML = "";
       }
 
       // Set TOT
-      row.cells[4].innerHTML = tot_valid ? get_time_from_seconds(tot) : '';
+      row.cells[waypoint_offset.tot].innerHTML = tot_valid ? get_time_from_seconds(tot) : '';
 
       // Update last point
       last_point = {
         lat: lat,
         lon: lon,
       }
-    } else if (type == 'FA-18C') {
+    } else if (['FA-18C', 'AH-64D'].includes(type)) {
+      // Don't reindex empty spaces on the 18 as it doesn't support blank
+      // waypoints in the DTC etc.
       allow_reindex = false;
     }
    
     // If we reindex, each row must be incremented
     if (waypoint_reindex) {
-      row.cells[0].innerText = allow_reindex ? index++ : "";
+
+      // When we reindex apache, we do it based on db with different start points 
+      if (type == "AH-64D") {
+
+        let ah64_db = row.cells[waypoint_offset.db].getAttribute('data-raw');
+        let ah64_id = row.cells[waypoint_offset.id].innerHTML;
+        let next_index = ""
+
+        if (allow_reindex) {
+          next_index = ah64_db[0] + pad(ah64_helper[['WP', 'HZ'].includes(ah64_db) ? 'WP' : ah64_db]++, 2);
+        }
+        row.cells[waypoint_offset.id].innerText = next_index;
+
+      } else {
+        row.cells[waypoint_offset.id].innerText = allow_reindex ? index++ : "";
+      }
     }
 
     // Add activity time to tot
-    tot += get_seconds_from_time(row.cells[5].children[0].value);
+    tot += get_seconds_from_time(row.cells[waypoint_offset.act].children[0].value);
 
+  });
+
+  if (waypoint_airframe !== 'AH-64D') return;
+
+  // If we're an apache, we also need the TSD IDs of BF Geometry
+  $('#waypoints-poi-table > tbody > tr').each(function(idx, row) {
+
+    var lat = parseFloat(row.cells[poi_offset.lat].getAttribute('data-lat'));
+    var lon = parseFloat(row.cells[poi_offset.lat].getAttribute('data-lon'));
+
+    if (isNaN(lat) || isNaN(lon)) return;
+
+    let ah64_db = row.cells[poi_offset.db].getAttribute('data-raw');
+    let next_type = ah64_db[0] + pad(ah64_helper[['WP', 'HZ'].includes(ah64_db) ? 'WP' : ah64_db]++, 2);
+
+    row.cells[poi_offset.typ].setAttribute('data-raw', next_type);
   });
 
 }
 
+
 function waypoints_add_notes(tbody, notes) {
 
+  var type = $('#flight-airframe').val()
   tbody = $(tbody.closest('tbody'));
 
   // Add notes to a waypoint tbody, this could be triggered on the tbody, or on
   // the button
+  let colspan = type == "AH-64D" ? 13 : 11
 
   let html = `
     <tr class='notes'>
-      <td colspan=11 class="border-right-0 p-0"><textarea style='width:100%; border:0; background-color: transparent; white-space: pre-wrap;'>${notes || ""}</textarea></td>
+      <td class="border-right-0"></td>
+      <td colspan=${colspan} class="border-right-0 border-left-0 p-0"><textarea style='width:100%; border:0; background-color: transparent; white-space: pre-wrap;'>${notes || ""}</textarea></td>
       <td class="input-container text-center border-left-0">
         <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_row(this);'>
           <i data-feather="delete"></i>
@@ -154,11 +395,12 @@ function waypoints_add_notes(tbody, notes) {
     </tr>
   `;
 
-  tbody.append(html);
+  tbody.find('tr').first().after(html);
 
   // Replace feather
   feather.replace();
 }
+
 
 
 function waypoint_add(wp_info) {
@@ -257,12 +499,33 @@ function waypoint_add(wp_info) {
   waypoints_table.data('declutter', declutter);
 
   // F-16 waypoints always 
-  var row = `<tbody style="border-bottom: 1px solid black"><tr>`;
+  var row = `
+    <tbody style="border-bottom: 1px solid black">
+      <tr>
+        <td class="input-container text-center border-right-0"><i data-feather="more-vertical"></i></td>
+    `;
+
+  // Always add a handle for draggin waypoints
 
   if (waypoint_reindex) {
-    row += `<td class="text-center">${data['typ']}</td>`;
+    row += `<td class="text-center border-left-0">${data['typ']}</td>`;
   } else {
-    row += `<td class="input-container"><input class="text-center" value="${data['typ']}"></td>`;
+    row += `<td class="input-container border-left-0"><input class="text-center" value="${data['typ']}"></td>`;
+  }
+
+  // add in our ident (dropdown, autocomplete) and free fields
+  if (type == 'AH-64D') {
+
+    let sel_db = data.db;
+    let sel_ident = data.ident;
+    if (!sel_db || !sel_ident) {
+      sel_db = sel_ident = "WP";
+    }
+
+    row += `
+      <td style="display: none" data-raw="${sel_db}"></td>
+      <td class="input-container"><select class="input-full ah64-ident-select">${waypoints_get_ah64_ident_options(sel_db, sel_ident)}</td>
+      <td class="input-container text-center"><input value="${data['free'] || ""}" maxlength=3 /></td>`;
   }
 
   row += `
@@ -273,16 +536,17 @@ function waypoint_add(wp_info) {
           <td class="input-container text-center" onChange="waypoint_update()"><input type="text" value="${data['act']}" placeholder="--:--:--" pattern="^([0-9]+:)?([0-9]+:)?[0-9]+$"></td>`
     
     if (data['lat_fmt']) {
-        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 6, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
+        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, waypoint_offset.lat, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     } else {
-        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 6, waypoint_update);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
+        row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, waypoint_offset.lat, waypoint_update);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     }
 
     // Moves to a dumb row and is updated from format_td
-    row += `<td class="coord" onClick="coordinate_input(this, 6, waypoint_update);"></td>`
+    row += `<td class="coord" onClick="coordinate_input(this, waypoint_offset.lat, waypoint_update);"></td>`
 
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
+          <td style="display:none"></td>
           <td class="input-container text-center border-left-0 border-right-0" alt="foo">
             <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_add_notes(this);'>
               <i data-feather="file-plus"></i>
@@ -306,13 +570,35 @@ function waypoint_add(wp_info) {
     waypoints_add_notes(last_tbody, wp_info.notes);
   }
 
-  waypoint_autocomplete(last_tbody[0].rows[0].cells[1].firstChild, 6);
+  if (type == "AH-64D") {
+    waypoint_autocomplete_ah64_ident(last_tbody[0].rows[0].cells[waypoint_offset.ident].firstElementChild, waypoint_offset.db);
+  }
 
-  $(last_tbody[0].rows[0].cells[5].firstChild).on('change', function(evt) {
+  waypoint_autocomplete(last_tbody[0].rows[0].cells[waypoint_offset.waypoint].firstChild, waypoint_offset);
+
+  $(last_tbody[0].rows[0].cells[waypoint_offset.act].firstChild).on('change', function(evt) {
     // Get seconds from time, and format accordingly
     var tgt = evt.target;
     tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
   });
+
+  // Allow tag drops
+  last_tbody.droppable({
+    drop: function(event, ui) {
+      waypoints_tag_dropped(ui.draggable, $(event.target));
+    }
+  });
+
+  // move any tags to where we need to be
+  for (const tag of (wp_info?.tags || [])) {
+    // find our tag if still exists in avilable waypoin
+    let avail_pill = $(`#waypoints-tag-container > div:contains("${tag}")`).first();
+    if (avail_pill) {
+      waypoints_tag_dropped(avail_pill, last_tbody);
+    }
+
+  }
+  
 
   // Replace feather
   feather.replace()
@@ -343,18 +629,34 @@ function waypoint_add_poi(poi_data) {
   
   data = jQuery.extend(true, data, poi_data);
     
-    
   var row = `<tr>
-        <td class="input-container"><input value="${data['name']}"></td>`        
+    <td class="input-container text-center border-right-0"><i data-feather="more-vertical"></i></td>`;
+
+  if (waypoint_airframe == 'AH-64D') {
+
+    let sel_db = data.db;
+    let sel_ident = data.ident;
+    if (!sel_db || !sel_ident) {
+      sel_db = sel_ident = "WP";
+    }
+
+    row += `
+      <td style="display: none" data-raw="${data.typ||""}"></td>
+      <td style="display: none" data-raw="${sel_db}"></td>
+      <td class="input-container border-left-0"><select class="input-full ah64-ident-select">${waypoints_get_ah64_ident_options(sel_db, sel_ident)}</td>
+      <td class="input-container text-center"><input value="${data['free'] || ""}" maxlength=3 /></td>`;
+  }
+
+  row += `<td class="input-container ${waypoint_airframe !== 'AH-64D' ? "border-left-0" : ""}"><input value="${data['name']}"></td>`;
 
 
     if (data['lat_fmt']) {
-      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 1);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
+      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, poi_offset.lat, waypoint_update);" data-dmp="${data['lat_dmp']}" data-fmt="${data['lat_fmt']}" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     } else {
-      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, 1);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
+      row += `<td class="coord coord-ctrl" onClick="coordinate_input(this, poi_offset.lat, waypoint_update);" data-lat="${data['lat']}" data-lon="${data['lon']}"></td>`
     }
 
-    row += `<td class="coord border-right-0" onClick="coordinate_input(this, 1);"></td>`
+    row += `<td class="coord border-right-0" onClick="coordinate_input(this, poi_offset.lat, waypoint_update);"></td>`
 
     row += `<td class="input-container text-right border-right-0"><input class="nospin" type="number" value="${data['alt']}"></td>`;
 
@@ -369,27 +671,59 @@ function waypoint_add_poi(poi_data) {
   $("#waypoints-poi-table > tbody").append(row);
   
   var last_row = $("#waypoints-poi-table > tbody > tr:last")[0]
-  waypoint_autocomplete(last_row.cells[0].firstChild, 1);
+  waypoint_autocomplete(last_row.cells[poi_offset.waypoint].firstChild, poi_offset);
+
+  // Add our auto-complete handler
+  if (waypoint_airframe === "AH-64D") {
+    waypoint_autocomplete_ah64_ident(last_row.cells[poi_offset.ident].firstElementChild, poi_offset.db);
+  }
 
   // Replace feather
   feather.replace()
 
-  // Update Display
-  waypoint_update_display();
+  // Update WP info (full, not just display to re-caclulate TYP/TSD etc. if needed
+  waypoint_update();
   
   return last_row;
 
 }
 
+function waypoint_get_poi(tr) {
+
+  let type = waypoint_airframe;
+
+  let cols = type === 'AH-64D' 
+    ? ['-', 'typ', 'db', 'ident', 'free', 'name', 'lat', 'lon', 'alt']
+    : ['-', 'name', 'lat', 'lon', 'alt'];
+
+  var d = get_row_data(tr, cols);
+
+  let [lat, lon] = d['lat'];
+  d['lat'] = lat;
+  d['lon'] = lon;
+                  
+  if (tr.cells[poi_offset.lat].hasAttribute('data-fmt')) {
+      d['lat_fmt'] = tr.cells[poi_offset.lat].getAttribute('data-fmt')
+      d['lat_dmp'] = tr.cells[poi_offset.lat].getAttribute('data-dmp')
+  }
+
+  return d;
+}
+
 function waypoint_get_tbody(tbody) {
 
-  let headings = ['typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg'];
+  var type = waypoint_airframe;
+  let headings = ['-', 'typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'tbrg', 'dist', 'time'];
+
+  if (type == "AH-64D") {
+    headings = ['-', 'typ', 'db', 'ident', 'free', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'tbrg', 'dist', 'time'];
+  }
   let row = tbody[0].rows[0];
   let d = get_row_data(row, headings);
   
-  if (row.cells[6].hasAttribute('data-fmt')) {
-      d['lat_fmt'] = row.cells[6].getAttribute('data-fmt')
-      d['lat_dmp'] = row.cells[6].getAttribute('data-dmp')
+  if (row.cells[waypoint_offset.lat].hasAttribute('data-fmt')) {
+      d['lat_fmt'] = row.cells[waypoint_offset.lat].getAttribute('data-fmt')
+      d['lat_dmp'] = row.cells[waypoint_offset.lat].getAttribute('data-dmp')
   }
 
   // Lon is always stored on lat, so move it (this is so awful but provides
@@ -399,11 +733,20 @@ function waypoint_get_tbody(tbody) {
   d['lon'] = lon;
 
   // If the next row is notes, join them to this
-  let notes_row = tbody[0].rows[1]
-  if (notes_row) {
-    let notes = notes_row.cells[0].firstChild.value.trim();
+  let notes_row = tbody.find('.notes')
+  if (notes_row.length !== 0) {
+    let notes = notes_row[0].cells[1].firstChild.value.trim();
     if (notes) {
       d['notes'] = notes;
+    }
+  }
+
+  // Bring on the tags
+  let tags = tbody.find('.wp-tags').first()
+  if (tags.length !== 0) {
+    d['tags'] = []
+    for (const pill of tags.children()) {
+      d['tags'].push(pill.innerText);
     }
   }
 
@@ -468,6 +811,9 @@ $('#waypoints-table').sortable({
 
 $('#waypoints-poi-table > tbody').sortable({
   items: 'tr',
+  update: function() {
+    waypoint_update();
+  },
 })
 
 $('#waypoints-bullseye-name').autocomplete({
@@ -510,17 +856,61 @@ $('#waypoints-gs-units').on('change', function() {
 });
 
 $('#flight-airframe').on('flight-airframe-changed', function(e) {
-  var type = $('#flight-airframe').val()
+  var type = $('#flight-airframe').val();
+  let existing_rows = [];
+  let existing_poi = [];
 
-  // Set default speed format else default to kts
+  // If we're changing airframe, then we can't just change the columns as all
+  // the rows will be buggered, so we save / re-create the waypoints
+  if (waypoint_airframe && waypoint_airframe != type) {
+    $('#waypoints-table > tbody').each(function(idx, tbody) {
+      existing_rows.push(waypoint_get_tbody($(tbody)))
+    })
+    $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
+      existing_poi.push(waypoint_get_poi(tr))
+    })
+
+    // And delete
+    $('#waypoints-table > tbody').remove();
+    $('#waypoints-poi-table tbody > tr').remove();
+  }
+
+  waypoint_airframe = type;
+
+  // set default speed format else default to kts
   if (airframes[type] && airframes[type]['gs_units']) {
     $('#waypoints-gs-units').val(airframes[type]['gs_units']).change();
   } else {
     $('#waypoints-gs-units').val("kts").change();
   }
 
+  // Recreate pills
+  $('#waypoints-tag-container').empty();
+  let airframe_tags = airframes?.[type]?.waypoint_tags;
+  if (airframe_tags !== undefined) {
+    for (const [tag, color] of Object.entries(airframe_tags)) {
+      waypoints_create_pill(tag, color);
+    }
+    $('#waypoints-tag-group').toggle(true);
+  } else {
+    $('#waypoints-tag-group').toggle(false);
+  }
+
+  // refresh the layout for ah-64
+  waypoints_table_format();
+  waypoints_poi_table_format();
+
   // Hide / Show Sequenc based on Airframe
   $('#waypoints-sequence').toggle(['FA-18C'].includes(type))
+
+  // then add them again
+  existing_rows.forEach(function(data) {
+    waypoint_add(data)
+  });
+  existing_poi.forEach(function(data) {
+    waypoint_add_poi(data)
+  });
+
 });
 
 $('#flight-airframe').on('data-poi-updated', function(e) {
@@ -718,6 +1108,10 @@ $("#waypoints-add-poi").click(function() {
 
 function waypoint_export() {
 
+    // make sure we're blured to show the right data from the selects etc.
+    // (doesn't affect value)
+    document.activeElement.blur();
+
     var ret = $("#waypoints-form").serializeObject();
 
     // Bullseye is really a waypoint kinda of object so 
@@ -748,19 +1142,7 @@ function waypoint_export() {
     
     ret["poi"] = []
     $('#waypoints-poi-table > tbody > tr').each(function(idx, tr) {
-        var d = get_row_data(tr, ['name', 'lat', 'lon', 'alt'])
-
-        let [lat, lon] = d['lat'];
-        d['lat'] = lat;
-        d['lon'] = lon;
-                        
-        if (tr.cells[1].hasAttribute('data-fmt')) {
-            d['lat_fmt'] = tr.cells[1].getAttribute('data-fmt')
-            d['lat_dmp'] = tr.cells[1].getAttribute('data-dmp')
-        }
-        
-        ret['poi'].push(d)
-        
+      ret['poi'].push(waypoint_get_poi(tr));
     })
    
     if ($("#waypoints-sequence").css('display') != "none") {
@@ -784,6 +1166,9 @@ function waypoint_load(data, callback) {
   $("#waypoints-transition-alt").val(data['transition-alt']);
   $("#waypoints-transition-level").val(data['transition-level']);
   $("#waypoints-gs-units").val(data['gs-units'] || "kts").change();
+
+  $("#waypoints-endurance").val(data['endurance'] || "");
+  $("#waypoints-ete").val(data['ete'] || "");
 
   // Bullseye 
   $("#waypoints-bullseye-name").val(data['bullseye']['name'])
@@ -835,7 +1220,16 @@ function validate_walk_time() {
   inval.toggle(to < walk);
 }
 
-waypoint_autocomplete($('#waypoints-bullseye-name')[0], 1);
+
+function wp_pills_setup_draggable(elem) {
+  elem.draggable({
+    appendTo: 'body',
+    helper: 'clone',
+  });
+
+}
+
+waypoint_autocomplete($('#waypoints-bullseye-name')[0], {'lat': 1});
 
 $("#waypoints-walk-time").on('change', function(evt) {
   var tgt = evt.target;
@@ -850,3 +1244,80 @@ $("#waypoints-to-time").on('change', function(evt) {
   waypoint_update();
 });
 
+$("#waypoints-ete").on('change', function(evt) {
+  var tgt = evt.target;
+  tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
+});
+
+$("#waypoints-endurance").on('change', function(evt) {
+  var tgt = evt.target;
+  tgt.value = get_time_from_seconds(get_seconds_from_time(tgt.value), true);
+});
+
+function waypoints_tag_dropped(tag_div, tbody) {
+  // We move the tag to the target tbody
+  if (!tag_div.hasClass("wp-pill")) return;
+
+  // If we don't have a tags section, make one
+  let tag_container = tbody.find('.wp-tags').first();
+  let colspan = waypoint_airframe == "AH-64D" ? 13 : 11;
+
+  if (tag_container.length == 0) {
+    tbody.append(`
+      <tr class='waypoint-tags-container'>
+        <td class="border-right-0"></td>
+        <td class="border-right-0 border-left-0">Tags:</td>
+        <td colspan=${colspan} class="border-left-0 border-right-0 p-0 wp-tags"></td>
+      </tr>
+    `);
+    tag_container = tbody.find('.wp-tags').first();
+  }
+
+  // If our source was a waypoint-tags-container and it's left with no
+  // children, remove it
+  
+  let parent_elem = tag_div.parent();
+
+  // Move
+  tag_container.append(tag_div);
+
+  // Cleanup old TR if need be
+  if (parent_elem.hasClass('wp-tags')) {
+    if (parent_elem.children().length == 0) {
+      parent_elem.parent().remove();
+    }
+  }
+}
+
+function getColor(){ 
+  return "hsl(" + 360 * Math.random() + ',' +
+  (25 + 70 * Math.random()) + '%,' + 
+  (85 + 10 * Math.random()) + '%)'
+}
+
+
+function waypoints_create_pill(name, color) {
+  color = color || getColor();
+  let elem = $(`<div class="wp-pill" style="border:1px solid ${color}; background: ${color}">${name}</div>`);
+  wp_pills_setup_draggable(elem);
+  $('#waypoints-tag-container').append(elem);
+
+}
+
+$('#waypoints-tag-container').droppable({
+  drop: function(event, ui) {
+    // Only Pills
+    if (!ui.draggable.hasClass("wp-pill")) return;
+
+    // Find our parent
+    let td = ui.draggable.parent();
+
+    // Move our pill
+    $(this).append(ui.draggable);
+
+    // If we have no more pills, delete
+    if (td.children().length == 0) {
+      td.parent().remove();
+    }
+  }
+});

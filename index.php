@@ -115,7 +115,7 @@ function bot_detected() {
                 Mission
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id='nav-item-presets'>
               <a class="nav-link disabled" href="#presets">
                 <span data-feather="phone-forwarded"></span>
                 Presets
@@ -133,7 +133,7 @@ function bot_detected() {
                 Loadout
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item fixed-wing-only">
               <a class="nav-link disabled" href="#profiles">
                 <span data-feather="briefcase"></span>
                 Profiles

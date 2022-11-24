@@ -18,8 +18,9 @@ function package_add(vals) {
       <td class="input-container"><input class="input-full package-name" value="${values.callsign}" pattern=".+" required></td>
       <td class="input-container"><input class="input-full" value="${values.aircraft}"></td>
       <td class="input-container text-center"><input class="input-full freq-autocomplete text-center" value="${values.freq ? values.freq.value || "" : ""}"></td>
+      <td class="input-container text-center"><input class="input-full freq-autocomplete text-center" value="${values.freq_sec ? values.freq_sec.value || "" : ""}"></td>
       <td class="input-container text-center"><input class="input-full text-center" value="${values.tcn}" pattern="^[0-9]+\\s*(X|Y)$"></td>
-      <td class="input-container text-center"><input class="input-full text-center" value="${values.idm}"></td>
+      <td class="input-container text-center"><input class="input-full text-center nospin" type="number" min="1000", max="9999" value="${values.lsr}"></td>
       <td class="input-container" style="border-right: 0px"><input class="input-full" value="${values.mission}"></td>
       <td class="input-container text-center" style="border-left: 0px">
         <button type="button" class="btn btn-link btn-sm p-0 pt-0.5" onclick='$(this).closest("tr").remove();'>
@@ -33,6 +34,7 @@ function package_add(vals) {
   var last = $("#package-members-table > tbody > tr:last");
 
   freq_autocomplete(last[0].cells[2].firstChild);
+  freq_autocomplete(last[0].cells[3].firstChild);
   tcn_formatter(last[0].cells[3].firstChild);
 
   feather.replace()
@@ -76,12 +78,14 @@ function package_export() {
   
   var headers = []
   $("#package-members-table > thead > tr > th").each(function(idx, row) {
-    headers.push(row.innerText.toLowerCase())
+    let header = row.getAttribute('data-raw') || row.innerText.toLowerCase();
+    headers.push(header);
   })
 
   $("#package-members-table > tbody > tr").each(function(idx, row) {
     var row = get_row_data(row, headers);
     row['freq'] = freq_to_obj(row['freq']);
+    row['freq_sec'] = freq_to_obj(row['freq_sec']);
     ret['members'].push(row);
   })
 

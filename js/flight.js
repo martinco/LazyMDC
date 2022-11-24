@@ -45,6 +45,26 @@ $("#flight-airframe").on('change', function(e) {
   // Show options
   $('#flight-members-container').toggle(new_type !== null) 
 
+  // Hide anything rotary only
+  let rotary = airframes?.[new_type]?.rotary === true;
+  $('.fixed-wing-only').toggle(!rotary);
+  $('.rotary-only').toggle(rotary);
+
+  // If we're apache, set the DL to apache for now, also disable the presets
+  // page as it's not supported in game
+  if (new_type == 'AH-64D') {
+    $("#download-template").val("Apache");
+    $("#download-template").prop("disabled", true);
+    $("#nav-item-presets").hide();
+  } else {
+    $("#download-template").val("2022-05");
+    $("#download-template").prop("disabled", false);
+    $("#nav-item-presets").show();
+  }
+
+  // Show tertiary for AH64
+  $('#mission-ter-frequency').toggle(new_type === "AH-64D");
+
   // Trigger event for other pages
   $('#flight-airframe').trigger('flight-airframe-changed');
 
@@ -81,7 +101,8 @@ function flight_update_default_coord_format() {
     fmt = "dms";
     dp = 0;
   } else if (ac == 'AH-64D') {
-    dp = 2;
+    fmt = "mgrs";
+    dp = 4;
   }
 
   // Update Radio / DP
@@ -121,6 +142,12 @@ function flightmembers_items(ac) {
     cols.push(
       ['RIO', 0, "", "text"])
   };
+
+  if (ac == "AH-64D") {
+    cols.push(
+      ['CPG', 0, "", "text"])
+  }
+
 
   // F/A-18C additional flight / element comms 
   if (ac == "FA-18C") {
@@ -171,7 +198,7 @@ function flightmembers_items(ac) {
     cols.push(
       ['LSR', 50, "text-center", "number"])
 
-    if (!["Ka-50", "F-14B", "M-2000C"].includes(ac)) {
+    if (!["AH-64D", "Ka-50", "F-14B", "M-2000C"].includes(ac)) {
       cols.push(
         ['LSS', 50, "text-center", "number"])
     }
@@ -443,6 +470,10 @@ function flightmembers_add(values) {
     }
   } else {
     pilot_autocomplete(new_last_row[0].cells[1].firstChild);
+
+    if (elems['CPG']) {
+      pilot_autocomplete(new_last_row[0].cells[2].firstChild);
+    }
   }
 
   // Replace feather

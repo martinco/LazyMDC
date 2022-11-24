@@ -1360,7 +1360,7 @@ var Waypoints = function(data, unit) {
       let [lat, lon] = display_coord(data, wp, true);
 
       // If MGRS and just lat, then we're rowspan 2
-      if (wp.name !== "" || wp.act !== '' || (lat !== "" && lon !== "")) {
+      if (wp.name !== "" || wp.act !== '' || !(lat === "" && lon === "")) {
 
         let num_rows = wp.notes ? 3 : 2;
         let html = '';
@@ -2096,6 +2096,57 @@ function Threats (data, unit) {
 
 }
 
+function Codewords (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  this.nobreak = true;
+
+  this.table = function() {
+    return $(`
+      <table class="kb-width std std-striped" style="table-layout: fixed">
+
+        <colgroup>
+          <col style="width:150px" />
+          <col />
+          <col style="width:150px" />
+          <col />
+        </colgroup>
+
+        <tbody>
+          <tr class="header">
+            <th>CODEWORD</th>
+            <th class="rb2">ACTION</th>
+            <th>CODEWORD</th>
+            <th>ACTION</th>
+          </tr>
+        </tbody>
+      </table>`);
+  };
+
+  this.content = (function() {
+
+    var elems = [];
+    let codewords = data?.comms?.codewords || [];
+    let rows = Math.ceil(codewords.length / 2);
+
+    for (let x = 0; x < rows; x++) {
+      let left_cw = codewords?.[x]||{};
+      let right_cw = codewords?.[x+rows]||{};
+
+      elems.push($(`
+        <tr>
+          <td class="text-center">${left_cw['codeword']||""}</td>
+          <td class="lp5 rb2">${left_cw['action']|""}</td>
+          <td class="text-center">${right_cw['codeword']||""}</td>
+          <td class="lp5">${right_cw['action']||""}</td>
+        </tr>`));
+    }
+
+    return elems;
+  })();
+}
+
 function PageBreak() {}
 
 function Notes (data, unit) {
@@ -2255,6 +2306,7 @@ function Builder(data, unit) {
     'agencies',
     'threats',
     'ramrod',
+    'codewords',
     'notes',
 
     'waypoints',
@@ -2288,6 +2340,7 @@ function Builder(data, unit) {
     'deparr': new DepArr(data, unit),
     'agencies': new Agencies(data, unit),
     'threats': new Threats(data, unit),
+    'codewords': new Codewords(data, unit),
     'notes': new Notes(data.notes, unit),
     'presets': new Presets(data, unit),
     'tacans': new Tacans(data, unit),

@@ -949,7 +949,7 @@ var Loadout = function(data, unit) {
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>
             <td class="text-right rp5">${ntos(data['loadout']['weights']['mtow_vtol'])}</td>`;
         } else {
-          html += `<th class="text-center lb2">${single_max ? 'MAX' : 'MAX T/O'}</th>
+          html += `<th class="text-center">${single_max ? 'MAX' : 'MAX T/O'}</th>
                     <td colspan=2 class="text-right rp5">${ntos(data['loadout']['weights']['mtow_field'])}</td>`;
         }
       } else if (n == loop_count-mtow_rows+2) {
@@ -1273,7 +1273,7 @@ var Waypoints = function(data, unit) {
                 <td class="text-center text-bold">${lon}</td>`;
       })();
 
-      if (wp.name !== "" || wp.act !== '' || (lat !== "" && lon !== "")) {
+      if (wp.name !== "" || wp.act !== '' || !(lat === "" && lon === "")) {
         content.push($(`
           <tr>
             <td class="text-center">${wp.typ}</td>
@@ -1904,6 +1904,57 @@ function Threats (data, unit) {
 
 }
 
+function Codewords (data, unit) {
+  var data = data;
+  var unit = unit;
+
+  this.nobreak = true;
+
+  this.table = function() {
+    return $(`
+      <table class="kb-width std std-striped" style="table-layout: fixed">
+
+        <colgroup>
+          <col style="width:150px" />
+          <col />
+          <col style="width:150px" />
+          <col />
+        </colgroup>
+
+        <tbody>
+          <tr class="header">
+            <th>CODEWORD</th>
+            <th class="rb2">ACTION</th>
+            <th>CODEWORD</th>
+            <th>ACTION</th>
+          </tr>
+        </tbody>
+      </table>`);
+  };
+
+  this.content = (function() {
+
+    var elems = [];
+    let codewords = data?.comms?.codewords || [];
+    let rows = Math.ceil(codewords.length / 2);
+
+    for (let x = 0; x < rows; x++) {
+      let left_cw = codewords?.[x]||{};
+      let right_cw = codewords?.[x+rows]||{};
+
+      elems.push($(`
+        <tr>
+          <td class="text-center">${left_cw['codeword']||""}</td>
+          <td class="lp5 rb2">${left_cw['action']|""}</td>
+          <td class="text-center">${right_cw['codeword']||""}</td>
+          <td class="lp5">${right_cw['action']||""}</td>
+        </tr>`));
+    }
+
+    return elems;
+  })();
+}
+
 function PageBreak() {}
 
 function Notes (data, unit) {
@@ -2064,6 +2115,7 @@ function Builder(data, unit) {
     'agencies',
     'threats',
     'ramrod',
+    'codewords',
     'notes',
 
     'waypoints',
@@ -2098,6 +2150,7 @@ function Builder(data, unit) {
     'agencies': new Agencies(data, unit),
     'threats': new Threats(data, unit),
     'notes': new Notes(data.notes, unit),
+    'codewords': new Codewords(data, unit),
     'presets': new Presets(data, unit),
   };
 

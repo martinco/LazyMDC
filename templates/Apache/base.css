@@ -1,0 +1,143 @@
+:root {
+  --color-border: #000000;
+  --color-dark: #515151;
+  --color-light: #6C6C6C;
+  --color-text-light: #BFBFBF;
+}
+
+body {
+  background: var(--color-border);
+  font-family: Calibri;
+  font-size: 11pt;
+  border: 0;
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+table {
+  margin: 0px;
+  padding: 0;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: var(--color-light);
+  table-layout: fixed;
+  width: 780px;
+}
+
+table tr {
+  height: 26px;
+}
+
+table td {
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+table td.text-center,
+table th.text-center,
+table td.text-col-title {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.bordered-b {
+  border-bottom: 1px solid black;
+}
+
+.bordered-b2 {
+  border-bottom: 2px solid black !important;
+}
+
+table tr.bordered > td,
+table td.bordered {
+  border: 1px solid black;
+}
+
+table tr.bordered > td {
+  border-bottom: 1px solid black;
+}
+
+.bordered-vdash-r,
+.bordered-vdash-r > td {
+  border-right: 1px dashed black;
+}
+
+table td.bordered-r2 {
+  border-right: 2px solid black !important;
+}
+
+.bg-dark {
+  background: var(--color-dark);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-ul {
+  text-decoration: underline;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.text-light {
+  color: var(--color-text-light);
+}
+
+.text-up {
+  text-transform: uppercase;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-it {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-r90 {
+  transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+  color: #000000;
+}
+
+.text-col-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: #000000;
+}
+
+.text-item {
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.text-ar {
+  text-align: right;
+}
+
+.text-al {
+  text-align: left;
+}
+
+.noinfo {
+  color: red
+}
+
+.notes-content {
+  font-size: 18px;
+}

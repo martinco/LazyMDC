@@ -36,9 +36,10 @@ function presets_update_inuse() {
     // column title
     if (!title) {
 
-      // First child value
-      let value = elem.closest('tr')[0].cells[0].firstChild.value;
-      if (value) { retval.push(value); }
+      // Named title column or first column
+      let title_col = parseInt(elem.attr('data-title-col')) || 0;
+      let value = elem.closest('tr')[0].cells[title_col].firstChild.value;
+      if(value) { retval.push(value); }
 
       // Column header
       value = elem.closest('table').find('th').eq(elem.parent().index()).text();
@@ -241,6 +242,16 @@ function presets_draw() {
   if (!airframe) { return; }
   var side = $('#data-side').val();
 
+  // not all presets are editable in game right now - e.g: apache, so disable if so
+  let presets_not_editable = airframes?.[airframe]?.presets_not_editable;
+
+  if (presets_not_editable) {
+    $('#presets-not-editable-reason').text(presets_not_editable)
+    $('#presets-not-editable-reason').show();
+  } else {
+    $('#presets-not-editable-reason').hide();
+  }
+
   // Clear and redraw data
   $('#presets-container').empty();
 
@@ -284,7 +295,7 @@ function presets_draw() {
         <tr>
           <td data-key="${key}" class="text-right ${key_class}">${info.override === undefined ? '' : '*'}${key}</td>
           <td class="input-container text-center font-weight-bold" style="position:relative">
-            <input class="freq-autocomplete freq-preset-table input-full ${input_class}" data-orig="${info.value}" value="${active}" autocomplete="off">
+            <input class="freq-autocomplete freq-preset-table input-full ${input_class}" ${presets_not_editable ? "disabled" : ""} data-orig="${info.value}" value="${active}" autocomplete="off">
           </td>
         </tr>`));
     }
