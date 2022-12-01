@@ -547,10 +547,17 @@ function waypoint_add(wp_info) {
     row += `<td class="text-right"></td>
           <td class="text-right border-right-0"></td>
           <td style="display:none"></td>
-          <td class="input-container text-center border-left-0 border-right-0" alt="foo">
-            <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_add_notes(this);'>
-              <i data-feather="file-plus"></i>
-            </button>
+          <td class="input-container text-center border-left-0 border-right-0" alt="foo">`;
+
+    if (waypoint_airframe !== 'AH-64D') {
+      row += `
+              <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_add_notes(this);'>
+                <i data-feather="file-plus"></i>
+              </button>
+      `;
+    }
+
+    row += `
           </td>
           <td class="input-container text-center border-left-0">
             <button class="btn btn-link btn-sm p-0 pt-0.5" type="button" onclick='waypoints_delete_tbody(this);'>
@@ -566,7 +573,7 @@ function waypoint_add(wp_info) {
   last_tbody = $("#waypoints-table > tbody:last");
 
   // If we have notes, add the notes row
-  if (wp_info && wp_info.notes) {
+  if (wp_info && wp_info.notes && waypoint_airframe !== 'AH-64D') {
     waypoints_add_notes(last_tbody, wp_info.notes);
   }
 
