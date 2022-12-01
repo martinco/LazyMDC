@@ -404,7 +404,7 @@ function Package(data, unit) {
             <th>AIRCRAFT</th>
             <th>FREQ</th>
             <th>TCN</th>
-            <th>IDM</th>
+            <th>LSR</th>
             <th>MISSION</th>
           </tr>
         </tbody>
@@ -430,7 +430,7 @@ function Package(data, unit) {
           <td class="lp5">${member['aircraft']}</td>
           <td class="text-center text-bold">${member['freq'] ? member['freq'].value || "" : ""}</td>
           <td class="text-right rp5 text-bold">${member['tcn']}</td>
-          <td class="lp5">${member['idm']}</td>
+          <td class="text-center">${member?.lsr||""}</td>
           <td class="lp5">${member['mission']}</td>
         </tr>`))
     }
