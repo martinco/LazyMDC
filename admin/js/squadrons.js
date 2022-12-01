@@ -535,7 +535,7 @@ MissionProcessor = function() {
     // Output Dict of FARPs, Carriers, etc.
     var output = {};
     var match_type = function(typ) {
-      if (["FARP"].includes(typ)) { return true; }
+      if (["FARP", "Invisible FARP"].includes(typ)) { return true; }
       if (typ.match(/^(CVN_[0-9]+|LHA_[^ ]+)$/)) { return true; }
       return false;
     }
