@@ -59,7 +59,7 @@ $("#flight-airframe").on('change', function(e) {
   } else {
     $("#download-template").val("2022-05");
     $("#download-template").prop("disabled", false);
-    $("#nav-item-presets").show();
+    $("#nav-item-presets").toggle(new_type !== 'Ka-50');
   }
 
   // Show tertiary for AH64

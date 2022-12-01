@@ -330,8 +330,9 @@ function presets_load(data, callback) {
           }
           return value})();
 
-        if (target !== presets.data[radio][pst].value) {
-          presets.data[radio][pst].override = target;
+        let existing_value = presets?.data?.[radio]?.[pst];
+        if (existing_value && target !== existing_value.value) {
+          existing_value.override = target;
         }
       }
     }
