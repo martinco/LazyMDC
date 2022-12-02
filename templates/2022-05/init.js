@@ -2137,7 +2137,7 @@ function Codewords (data, unit) {
       elems.push($(`
         <tr>
           <td class="text-center">${left_cw['codeword']||""}</td>
-          <td class="lp5 rb2">${left_cw['action']|""}</td>
+          <td class="lp5 rb2">${left_cw['action']||""}</td>
           <td class="text-center">${right_cw['codeword']||""}</td>
           <td class="lp5">${right_cw['action']||""}</td>
         </tr>`));
