@@ -4826,7 +4826,7 @@
         }
       }
     },
-    "comments": "AGM-88 can be carried on stations 4 and 6 but not launched!",
+    "comments": "",
     "cruise_alt": 15000,
     "cruise_gs": 400,
     "cvn": false,
