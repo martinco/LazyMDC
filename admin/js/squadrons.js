@@ -2975,8 +2975,8 @@ function squadrons_update_mission_data(data) {
         tr.cells[5].setAttribute("data-base-lat", updates.lat);
         tr.cells[5].setAttribute("data-base-lon", updates.lon);
 
-        if (current_value.lat != updates.lat) { $(tr.cells[5]).addClass("modified"); }
-        if (current_value.lon != updates.lon) { $(tr.cells[6]).addClass("modified"); }
+        if (current_value[0] != updates.lat) { $(tr.cells[5]).addClass("modified"); }
+        if (current_value[1] != updates.lon) { $(tr.cells[6]).addClass("modified"); }
 
       } else {
 
