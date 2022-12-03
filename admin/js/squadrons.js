@@ -501,23 +501,20 @@ MissionProcessor = function() {
     var idx = 1;
     for (radio of order) {
       var presets = {};
-      if (type in avionics
-          && unit_id in avionics[type]
-          && radio in avionics[type][unit_id]
-          && avionics[type][unit_id][radio].presets) {
-
+      if (avionics?.[type]?.[unit_id]?.[radio]?.presets) {
         presets = avionics[type][unit_id][radio].presets;
-      } else if (radio in global_settings && global_settings[radio] && global_settings[radio].presets) {
-        presets = global_settings[radio].presets
+      } else if (global_settings?.[radio]?.presets) {
+        presets = global_settings[radio].presets;
       } else {
         console.log("FAILED", type, unit_id, radio)
+        idx += 1;
+        continue;
       }
 
       // If we have no presets in avionics, no global settings, then it's just
       // DCS defaults, which we'll leave as empty
       
       // Presets is now a dict of preset => hz
-      console.log("Processing", type, unit_id, presets)
       var freqs = {};
       for (const [x, freq] of Object.entries(presets)) {
         freqs[x] = freq / 1000000
@@ -712,7 +709,7 @@ MissionProcessor = function() {
             var group_name = dictionary[group_data.name] ? dictionary[group_data.name] : group_data.name;
 
             for (const [_, unit_data] of Object.entries(group_data.units)) {
-              if (unit_data.skill !== 'Client') { continue; }
+              if (!['Client', 'Player'].includes(unit_data.skill)) { continue; }
 
               // Type mapping, after we have the data
               var type = unit_data.type;
@@ -733,17 +730,23 @@ MissionProcessor = function() {
               // to handle them the same as any other airframe, with just a
               // different data location
               
-              var radio_data = unit_data.Radio;
+              var radio_data = unit_data.Radio || {};
+
               if (['A-10C', 'F-16C'].includes(type)) {
                 // use original type for the avionics folder names
-                radio_data = get_presets_from_avionics(unit_data.type, unit_id)
-              }
+                avionics_data = get_presets_from_avionics(unit_data.type, unit_id);
 
+                // Merge avionics data with radio_data (if it exists, F-16 uses it)
+                for (const [key, value] of Object.entries(avionics_data)) {
+                  console.log("Overriding", key, value);
+                  radio_data[key] = value;
+                }
+              }
 
               console.log("RD", type, radio_data)
 
               // We have radios configured ?
-              if (!radio_data) { continue; };
+              if (Object.keys(radio_data).length === 0) { continue; };
 
               // Ensure we have the maps
               if (maps[coalition] === undefined) { maps[coalition] = {}; }
