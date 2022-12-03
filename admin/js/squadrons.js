@@ -738,12 +738,9 @@ MissionProcessor = function() {
 
                 // Merge avionics data with radio_data (if it exists, F-16 uses it)
                 for (const [key, value] of Object.entries(avionics_data)) {
-                  console.log("Overriding", key, value);
                   radio_data[key] = value;
                 }
               }
-
-              console.log("RD", type, radio_data)
 
               // We have radios configured ?
               if (Object.keys(radio_data).length === 0) { continue; };
@@ -1733,7 +1730,7 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
     row += `<td class="coord coord-ctrl${overrides.lat ? ' modified' : ''}" onClick="coordinate_input(this, 5);" data-base-lat="${data.lat}"  data-lat="${overrides.lat || data.lat}" data-lon="${overrides.lon || data.lon}" data-base-lon="${data.lon}"></td>`;
     row += `<td class="coord${overrides.lon ? ' modified' : ''}" onClick="coordinate_input(this, 5);"></td>`;
     row += `<td class="input-container${overrides.alt ? ' modified' : ''}"><input class="input-full text-right" data-base="${data.alt || 0}" value="${overrides.alt || data.alt || 0}"></td>`;
-    row += `<td class="text-center border-right-0${overrides.hide ? ' modified' : ''}"><input type="checkbox" name="hidden" data-npname='hide' data-base="0" ${overrides.hide == 1 ? 'checked' : ''}></td>`;
+    row += `<td class="text-center border-right-0${overrides.hide ? ' modified' : ''}"><input type="checkbox" name="hidden" data-npname='hide' data-base="0" ${overrides.hide || data.hide == 1 ? 'checked' : ''}></td>`;
   } else {
 
     row += `<td class="input-container"><input class="input-full" `;
@@ -1751,7 +1748,7 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
     if (overrides.alt) { row += `data-base="${overrides.alt}" `; }
     row += `></td>`;
 
-    row += `<td class="text-center border-right-0${overrides.hide ? ' modified' : ''}"><input type="checkbox" name="hidden" data-npname='hide' data-base="0" ${overrides.hide == 1 ? 'checked' : ''}></td>`;
+    row += `<td class="text-center border-right-0${overrides.hide ? ' modified' : ''}"><input type="checkbox" name="hidden" data-npname='hide' data-base="0" ${overrides.hide || data.hide == 1 ? 'checked' : ''}></td>`;
   }
 
   if (deletable) {
@@ -2969,15 +2966,27 @@ function squadrons_update_mission_data(data) {
         // we can only do lat/lon from miz
         current_value = get_elem_data(tr.cells[5]);
 
-        updates.lat = Number(updates.lat.toFixed(12));
-        updates.lon = Number(updates.lon.toFixed(12));
+        updates.lat = updates.lat.toFixed(12);
+        updates.lon = updates.lon.toFixed(12);
 
-        tr.cells[5].setAttribute("data-base-lat", updates.lat);
-        tr.cells[5].setAttribute("data-base-lon", updates.lon);
+        let has_update = false;
 
-        if (current_value[0] != updates.lat) { $(tr.cells[5]).addClass("modified"); }
-        if (current_value[1] != updates.lon) { $(tr.cells[6]).addClass("modified"); }
+        console.log(current_value[0], updates.lat, typeof(current_value[0]), typeof(updates.lat));
 
+        if (current_value[0] !== updates.lat) { $(tr.cells[5]).addClass("modified"); has_update = true; }
+        if (current_value[1] !== updates.lon) { $(tr.cells[6]).addClass("modified"); has_update = true; }
+
+        if (has_update) {
+
+          // Update the base data which will be persisted to base
+          $(tr).data({
+            'data': updates,
+          });
+
+          // We also need to update the npdata of the row
+          tr.cells[5].setAttribute("data-base-lat", updates.lat);
+          tr.cells[5].setAttribute("data-base-lon", updates.lon);
+        }
       } else {
 
         // It no longer exists, mark for delete
