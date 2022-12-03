@@ -390,7 +390,7 @@ function Page1(data) {
     let ld = data?.deparr?.[loc];
     if (ld.usedep === true) {
       ld = data?.deparr?.dep;
-      if (loc == "arr") {
+      if (loc == "arr" || data?.deparr?.arr?.usedep) {
         ld = {
           "icao": '"',
           "gnd": { "value": '"' },
