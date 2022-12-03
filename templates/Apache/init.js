@@ -402,10 +402,15 @@ function Page1(data) {
       }
     }
 
+    let af_name = ld?.icao;
+    if (!af_name || af_name === '----') {
+      af_name = ld.location.replace("FARP", "").trim();
+    }
+
     content += `
-      <tr class="bordered-vdash-r bordered-b ${loc == 'alt' ? 'bordered-b2': ''}">
+      <tr class="bordered-vdash-r bordered-b ${loc == 'arr' ? 'bg-dark' : ''} ${loc == 'alt' ? 'bordered-b2': ''}">
         <td class="text-col-title" colspan=2>${loc}</td>
-        <td class="text-item" colspan=2>${ld.icao}</td>
+        <td class="text-item" colspan=2>${af_name}</td>
         <td class="text-item" colspan=2>${ld?.gnd?.value||""}</td>
         <td class="text-item" colspan=2>${ld?.twr?.value||""}</td>
         <td class="text-item" colspan=2>${ld?.atis?.value||""}</td>
