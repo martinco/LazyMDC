@@ -720,10 +720,10 @@ function waypoint_get_poi(tr) {
 function waypoint_get_tbody(tbody) {
 
   var type = waypoint_airframe;
-  let headings = ['-', 'typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'tbrg', 'dist', 'time'];
+  let headings = ['-', 'typ', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg', 'time'];
 
   if (type == "AH-64D") {
-    headings = ['-', 'typ', 'db', 'ident', 'free', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'tbrg', 'dist', 'time'];
+    headings = ['-', 'typ', 'db', 'ident', 'free', 'name', 'alt', 'gs', 'tot', 'act', 'lat', 'lon', 'dist', 'tbrg', 'time'];
   }
   let row = tbody[0].rows[0];
   let d = get_row_data(row, headings);
