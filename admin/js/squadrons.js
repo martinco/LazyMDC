@@ -243,6 +243,45 @@ MissionProcessor = function() {
       };
     });
 
+    // Killboxes
+    xml.querySelectorAll('AOR').forEach(function(np) {
+
+      // Helper function for direct
+      let get_lat_lon = (lat, lon, brg, range) => {
+        var r = geod.Direct(lat, lon, brg, range);
+        return {
+          'lat': r.lat2.toFixed(12),
+          'lon': r.lon2.toFixed(12),
+        }
+      }
+
+      // Lat, Lon is an anchor point midpoint of the "width line"
+      // Length is distance along the Hot BRG the rectangle extends
+      
+      let name = np.getElementsByTagName('Name')[0].textContent;
+
+      let brg = parseInt(np.getElementsByTagName('Brg')[0].textContent);
+      let lat = parseFloat(np.getElementsByTagName('Lat')[0].textContent).toFixed(12);
+      let lon = parseFloat(np.getElementsByTagName('Lon')[0].textContent).toFixed(12);
+
+      // NM
+      let width_m = Number((parseFloat(np.getElementsByTagName('Width')[0].textContent)*926).toFixed(2));
+      let length_m = Number((parseFloat(np.getElementsByTagName('Length')[0].textContent)*1852).toFixed(2));
+
+      // Get our far anchor
+      let far_anchor = get_lat_lon(lat, lon, brg, length_m);
+
+      // We want the points to make a nice square if we go P1 -> P2 -> P3 -> P4
+      //
+      // Start near right, far right, far left, near left - this way we dont
+      // have to worry about cardinal directions
+
+      waypoints[`${name}: P1`] = get_lat_lon(lat, lon, brg+90, width_m)
+      waypoints[`${name}: P2`] = get_lat_lon(far_anchor.lat, far_anchor.lon, brg+90, width_m)
+      waypoints[`${name}: P3`] = get_lat_lon(far_anchor.lat, far_anchor.lon, brg-90, width_m)
+      waypoints[`${name}: P4`] = get_lat_lon(lat, lon, brg-90, width_m)
+    });
+
     var data = {
       "format": "cf",
       "waypoints": waypoints,
