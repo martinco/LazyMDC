@@ -2038,7 +2038,6 @@
     "flare": 60,
     "fuel": 100,
     "fuel_lbs": 3170,
-    "rotary": true,
     "gs_units": "kts",
     "gun": 100,
     "gun_lbs": 227,
@@ -2333,16 +2332,16 @@
         "name": "Light Scout",
         "pylons": [
           {
-              "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}"
+            "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}"
           },
           {
-              "clsid": null
+            "clsid": null
           },
           {
-              "clsid": "{M261_M274}"
+            "clsid": "{M261_M274}"
           },
           {
-              "clsid": "M261_MK151"
+            "clsid": "M261_MK151"
           }
         ]
       },
@@ -2350,22 +2349,212 @@
         "name": "Heavy Scout",
         "pylons": [
           {
-              "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}"
+            "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}"
           },
           {
-              "clsid": null
+            "clsid": null
           },
           {
-              "clsid": "{M261_M274}"
+            "clsid": "{M261_M274}"
           },
           {
-              "clsid": "M261_MK151"
+            "clsid": "M261_MK151"
           }
         ]
       }
     },
     "mlw_field": 23000,
     "mtow_field": 23000,
+    "point_db": {
+      "Waypoint/Hazards": {
+        "start": 1,
+        "types": {
+          "WP": {
+            "Waypoints": {
+              "values": {
+                "CC": "Communications Check Point",
+                "LZ": "Landing Zone",
+                "PP": "Passage Point",
+                "RP": "Release Point",
+                "SP": "Start Point",
+                "WP": "Waypoint"
+              }
+            }
+          },
+          "HZ": {
+            "Hazards": {
+              "values": {
+                "TO": "Tower Over 1000'",
+                "TU": "Tower Under 1000'",
+                "WL": "Wires Power",
+                "WS": "Wires Telephone/Electric"
+              }
+            }
+          }
+        }
+      },
+      "Control Measures": {
+        "start": 51,
+        "types": {
+          "CM": {
+            "General Control Measure": {
+              "values": {
+                "AA": "Assembly Area",
+                "AG": "Airfield General",
+                "AI": "Airfield Instrument",
+                "AL": "Lighted Airport",
+                "AP": "Air Control Point",
+                "BD": "Brigade",
+                "BE": "NDB Symbol",
+                "BN": "Battalion",
+                "BP": "Battle Position",
+                "BR": "Bridge or Gap",
+                "CO": "Company",
+                "CP": "Checkpoint",
+                "CR": "Corps",
+                "DI": "Division",
+                "F1": "Artillery Firing Point 1",
+                "F2": "Artillery Firing Point 2",
+                "FA": "Forward Assembly Area",
+                "FC": "FARP Fuel and Ammo",
+                "FF": "FARP Fuel Only",
+                "FM": "FARP Ammo Only",
+                "GL": "Ground Light/Small Town",
+                "GP": "Regiment or Group",
+                "HA": "Holding Area",
+                "ID": "IDM Subscriber",
+                "NB": "NBC Area",
+                "RH": "Railhead Point",
+                "US": "US Army"
+              }
+            },
+            "Friendly Control Measure": {
+              "values": {
+                "AB": "Friendly Airborne",
+                "AD": "Friendly Air Defense",
+                "AH": "Friendly Attack Helicopter",
+                "AM": "Friendly Armor",
+                "AS": "Friendly Air Assault",
+                "AV": "Friendly Air Cavalry",
+                "CA": "Friendly Armored Cavalry",
+                "CF": "Friendly Chemical",
+                "DF": "Friendly Decontamination",
+                "EN": "Friendly Engineers",
+                "FG": "Friendly Helicopter, General",
+                "FI": "Friendly Infantry",
+                "FL": "Friendly Field Artillery",
+                "FU": "Friendly Unit",
+                "FW": "Friendly Electronic Warfare",
+                "HO": "Friendly Hospital",
+                "MA": "Friendly Aviation Maintenance",
+                "MD": "Friendly Medical",
+                "MI": "Friendly Mechanized Infantry",
+                "TF": "Friendly Tactical Operations Center",
+                "WF": "Friendly Fixed Wing"
+              }
+            },
+            "Enemy Control Measure": {
+              "values": {
+                "AE": "Enemy Armor",
+                "CE": "Enemy Chemical",
+                "DE": "Enemy Decontamination",
+                "EB": "Enemy Airborne",
+                "EC": "Enemy Armored Cavalry",
+                "ED": "Enemy Air Defense",
+                "EE": "Enemy Engineers",
+                "EF": "Enemy Field Artillery",
+                "EH": "Enemy Hospital",
+                "EI": "Enemy Infantry",
+                "EK": "Enemy Attack Helicopter",
+                "EM": "Enemy Mechanized Infantry",
+                "ES": "Enemy Air Assault",
+                "ET": "Enemy Tactical Operations Center",
+                "EU": "Enemy Unit",
+                "EV": "Enemy Air Cavalry",
+                "EX": "Enemy Medical",
+                "HG": "Enemy Helicopter, General",
+                "ME": "Enemy Aviation Maintenance",
+                "WE": "Enemy Fixed Wing",
+                "WR": "Enemy Electronic Warfare"
+              }
+            }
+          }
+        }
+      },
+      "Targets/Threats": {
+        "start": 1,
+        "types": {
+          "TG": {
+            "Targets": {
+              "values": {
+                "1": "SA-1 SAM System",
+                "10": "SA-10 SAM System",
+                "11": "SA-11 SAM System",
+                "12": "SA-12 SAM System",
+                "13": "SA-13 SAM System",
+                "14": "SA-14 SAM System",
+                "15": "SA-15 SAM System",
+                "16": "SA-16 SAM System",
+                "17": "SA-17 SAM System",
+                "2": "SA-2 SAM System",
+                "3": "SA-3 SAM System",
+                "4": "SA-4 SAM System",
+                "5": "SA-5 SAM System",
+                "6": "SA-6 SAM System",
+                "7": "SA-7 SAM System",
+                "70": "RBS-70 SAM System",
+                "8": "SA-8 SAM System",
+                "83": "M1983 Air Defense Gun",
+                "9": "SA-9 SAM System",
+                "AA": "Air Defense Gun",
+                "AD": "Friendly Air Defense Unit",
+                "AS": "Aspide SAM System",
+                "AX": "AMX-13 Air Defense Gun",
+                "BH": "Bloodhound SAM System",
+                "BP": "Blowpipe SAM System",
+                "C2": "CSA-2/1/X SAM System",
+                "CH": "Chapparal SAM System",
+                "CT": "Crotale SAM System",
+                "G1": "Growth 1",
+                "G2": "Growth 2",
+                "G3": "Growth 3",
+                "G4": "Growth 4",
+                "GP": "Gepard Air Defense Gun",
+                "GS": "Self-Propelled Air Defense Gun",
+                "GT": "Towed Air Defense Gun",
+                "GU": "Generic Air Defense Unit",
+                "HK": "Hawk SAM System",
+                "JA": "Javelin SAM System",
+                "MK": "Marksman Air Defense Gun",
+                "NV": "Naval Air Defense System",
+                "PT": "Patriot SAM System",
+                "RA": "Rapier SAM System",
+                "RE": "Redeye SAM System",
+                "RO": "Roland SAM System",
+                "S6": "2S6 / SA-19 Air Defense Unit",
+                "SA": "Towed SAM System",
+                "SB": "Sabre Air Defense Gun",
+                "SC": "SATCP SAM System",
+                "SD": "Spada SAM System",
+                "SH": "Shahine/R440 SAM System",
+                "SM": "SAMP SAM System",
+                "SP": "Self-Propelled SAM System",
+                "SR": "Battlefield Surveillance Radar",
+                "SS": "Starstreak SAM System",
+                "ST": "Stinger SAM System",
+                "TC": "Tigercat SAM System",
+                "TG": "Target Point",
+                "TR": "Target Acquisition Radar",
+                "U": "Unknown Air Defense Unit",
+                "VU": "Vulcan Air Defense Gun",
+                "ZU": "ZSU-23-4 Air Defense Gun"
+              }
+            }
+          }
+        }
+      }
+    },
+    "presets_not_editable": "The Apache is unable to set presets at present, this page is disabled",
     "pylons": [
       [
         "1",
@@ -2442,204 +2631,15 @@
         "FM2"
       ]
     },
-    "point_db": {
-      "Waypoint/Hazards": {
-        "start": 1,
-        "types": {
-          "WP": {
-            "Waypoints": {
-              "values": {
-                "CC": "Communications Check Point",
-                "LZ": "Landing Zone",
-                "PP": "Passage Point",
-                "RP": "Release Point",
-                "SP": "Start Point",
-                "WP": "Waypoint"
-              }
-            }
-          },
-          "HZ": {
-            "Hazards": {
-              "values": { 
-                "TO": "Tower Over 1000'",
-                "TU": "Tower Under 1000'",
-                "WL": "Wires Power",
-                "WS": "Wires Telephone/Electric"
-              }
-            }
-          }
-        }
-      },
-      "Control Measures": {
-        "start": 51,
-        "types": {
-          "CM": {
-            "General Control Measure": {
-              "values": {
-                "AP": "Air Control Point",
-                "AG": "Airfield General",
-                "AI": "Airfield Instrument",
-                "AL": "Lighted Airport",
-                "F1": "Artillery Firing Point 1",
-                "F2": "Artillery Firing Point 2",
-                "AA": "Assembly Area",
-                "BN": "Battalion",
-                "BP": "Battle Position",
-                "BR": "Bridge or Gap",
-                "BD": "Brigade",
-                "CP": "Checkpoint",
-                "CO": "Company",
-                "CR": "Corps",
-                "DI": "Division",
-                "FF": "FARP Fuel Only",
-                "FM": "FARP Ammo Only",
-                "FC": "FARP Fuel and Ammo",
-                "FA": "Forward Assembly Area",
-                "GL": "Ground Light/Small Town",
-                "HA": "Holding Area",
-                "NB": "NBC Area",
-                "ID": "IDM Subscriber",
-                "BE": "NDB Symbol",
-                "RH": "Railhead Point",
-                "GP": "Regiment or Group",
-                "US": "US Army"
-              }
-            },
-            "Friendly Control Measure": {
-              "values": {
-                "AD": "Friendly Air Defense",
-                "AS": "Friendly Air Assault",
-                "AV": "Friendly Air Cavalry",
-                "AB": "Friendly Airborne",
-                "AM": "Friendly Armor",
-                "CA": "Friendly Armored Cavalry",
-                "MA": "Friendly Aviation Maintenance",
-                "CF": "Friendly Chemical",
-                "DF": "Friendly Decontamination",
-                "EN": "Friendly Engineers",
-                "FW": "Friendly Electronic Warfare",
-                "WF": "Friendly Fixed Wing",
-                "FL": "Friendly Field Artillery",
-                "AH": "Friendly Attack Helicopter",
-                "FG": "Friendly Helicopter, General",
-                "HO": "Friendly Hospital",
-                "FI": "Friendly Infantry",
-                "MI": "Friendly Mechanized Infantry",
-                "MD": "Friendly Medical",
-                "TF": "Friendly Tactical Operations Center",
-                "FU": "Friendly Unit"
-              }
-            },
-            "Enemy Control Measure": {
-              "values": {
-                "ES": "Enemy Air Assault",
-                "EV": "Enemy Air Cavalry",
-                "ED": "Enemy Air Defense",
-                "EB": "Enemy Airborne",
-                "EC": "Enemy Armored Cavalry",
-                "AE": "Enemy Armor",
-                "ME": "Enemy Aviation Maintenance",
-                "CE": "Enemy Chemical",
-                "DE": "Enemy Decontamination",
-                "EE": "Enemy Engineers",
-                "WR": "Enemy Electronic Warfare",
-                "EF": "Enemy Field Artillery",
-                "WE": "Enemy Fixed Wing",
-                "EK": "Enemy Attack Helicopter",
-                "HG": "Enemy Helicopter, General",
-                "EH": "Enemy Hospital",
-                "EI": "Enemy Infantry",
-                "EM": "Enemy Mechanized Infantry",
-                "EX": "Enemy Medical",
-                "ET": "Enemy Tactical Operations Center",
-                "EU": "Enemy Unit"
-              }
-            }
-          }
-        }
-      },
-      "Targets/Threats": {
-        "start": 1,
-        "types": {
-          "TG": {
-            "Targets": {
-              "values": {
-                "TG": "Target Point",
-                "AX": "AMX-13 Air Defense Gun",
-                "AS": "Aspide SAM System",
-                "AD": "Friendly Air Defense Unit",
-                "GP": "Gepard Air Defense Gun",
-                "G1": "Growth 1",
-                "G2": "Growth 2",
-                "G3": "Growth 3",
-                "G4": "Growth 4",
-                "SD": "Spada SAM System",
-                "83": "M1983 Air Defense Gun",
-                "U": "Unknown Air Defense Unit",
-                "S6": "2S6 / SA-19 Air Defense Unit",
-                "AA": "Air Defense Gun",
-                "GU": "Generic Air Defense Unit",
-                "MK": "Marksman Air Defense Gun",
-                "SB": "Sabre Air Defense Gun",
-                "GS": "Self-Propelled Air Defense Gun",
-                "GT": "Towed Air Defense Gun",
-                "ZU": "ZSU-23-4 Air Defense Gun",
-                "NV": "Naval Air Defense System",
-                "SR": "Battlefield Surveillance Radar",
-                "TR": "Target Acquisition Radar",
-                "70": "RBS-70 SAM System",
-                "BP": "Blowpipe SAM System",
-                "BH": "Bloodhound SAM System",
-                "CH": "Chapparal SAM System",
-                "CT": "Crotale SAM System",
-                "C2": "CSA-2/1/X SAM System",
-                "HK": "Hawk SAM System",
-                "JA": "Javelin SAM System",
-                "PT": "Patriot SAM System",
-                "RE": "Redeye SAM System",
-                "RA": "Rapier SAM System",
-                "RO": "Roland SAM System",
-                "1": "SA-1 SAM System",
-                "2": "SA-2 SAM System",
-                "3": "SA-3 SAM System",
-                "4": "SA-4 SAM System",
-                "5": "SA-5 SAM System",
-                "6": "SA-6 SAM System",
-                "7": "SA-7 SAM System",
-                "8": "SA-8 SAM System",
-                "9": "SA-9 SAM System",
-                "10": "SA-10 SAM System",
-                "11": "SA-11 SAM System",
-                "12": "SA-12 SAM System",
-                "13": "SA-13 SAM System",
-                "14": "SA-14 SAM System",
-                "15": "SA-15 SAM System",
-                "16": "SA-16 SAM System",
-                "17": "SA-17 SAM System",
-                "SM": "SAMP SAM System",
-                "SC": "SATCP SAM System",
-                "SP": "Self-Propelled SAM System",
-                "SH": "Shahine/R440 SAM System",
-                "SS": "Starstreak SAM System",
-                "TC": "Tigercat SAM System",
-                "ST": "Stinger SAM System",
-                "SA": "Towed SAM System",
-                "VU": "Vulcan Air Defense Gun"
-              }
-            }
-          }
-        }
-      }
-    },
-    "presets_not_editable": "The Apache is unable to set presets at present, this page is disabled",
-    "threats_use_targets": true,
+    "rotary": true,
     "threats_prio_count": 6,
+    "threats_use_targets": true,
     "waypoint_reindex": true,
     "waypoint_tags": {
       "Fence In": "#ff000022",
       "Fence Out": "#00dd0044",
-      "RV": "#20cfcf42",
-      "Holding": "#dcec00ff"
+      "Holding": "#dcec00ff",
+      "RV": "#20cfcf42"
     }
   },
   "AV8BNA": {
@@ -2657,7 +2657,7 @@
       "1": {
         "AGM-122 Sidearm": {
           "clsid": "{AGM_122_SIDEARM}",
-          "weight": 92
+          "weight": 98.883056
         },
         "AIM-9M Sidewinder IR AAM": {
           "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
@@ -2731,75 +2731,75 @@
       "2": {
         "2 CBU-99": {
           "clsid": "{BRU-70_2*CBU-99_LEFT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_LEFT}",
-          "weight": 547
+          "weight": 612.802792
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_LEFT}",
-          "weight": 579
+          "weight": 569.25796
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_LEFT}",
-          "weight": 603
+          "weight": 563.814856
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_LEFT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 Mk-82": {
           "clsid": "{BRU-42_2*Mk-82_LEFT}",
-          "weight": 579
+          "weight": 520.270024
         },
         "2 Mk-82 AIR": {
           "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
-          "weight": 579
+          "weight": 551.11428
         },
         "2 Mk-82 Snakeye": {
           "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
-          "weight": 579
+          "weight": 556.557384
         },
         "3 GBU-12": {
           "clsid": "{BRU-42A_3*GBU-12}",
-          "weight": 772
+          "weight": 890.401096
         },
         "3 GBU-38": {
           "clsid": "{BRU-42_3*GBU-38}",
-          "weight": 820
+          "weight": 825.083848
         },
         "3 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_3*GBU-54}",
-          "weight": 856
+          "weight": 816.919192
         },
         "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 451
+          "weight": 411.407944
         },
         "3 Mk-82": {
           "clsid": "{BRU-42_3*Mk-82LD}",
-          "weight": 820
+          "weight": 751.601944
         },
         "3 Mk-82 AIR": {
           "clsid": "{BRU-42_3_MK82AIR}",
-          "weight": 820
+          "weight": 797.868328
         },
         "3 Mk-82 Snakeye": {
           "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
-          "weight": 820
+          "weight": 806.032984
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
-          "weight": 1002.439
+          "weight": 998.3513
         },
         "AERO 1D 300 Gallons Fuel Tank (Empty)": {
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
-          "weight": 93.89362
+          "weight": 89.8113
         },
         "AGM-122 Sidearm": {
           "clsid": "{LAU_7_AGM_122_SIDEARM}",
-          "weight": 107
+          "weight": 139.706336
         },
         "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
@@ -2949,51 +2949,51 @@
       "3": {
         "2 CBU-99": {
           "clsid": "{BRU-70_2*CBU-99_LEFT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_LEFT}",
-          "weight": 547
+          "weight": 612.802792
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_LEFT}",
-          "weight": 579
+          "weight": 569.25796
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_LEFT}",
-          "weight": 603
+          "weight": 563.814856
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_LEFT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 Mk-82": {
           "clsid": "{BRU-42_2*Mk-82_LEFT}",
-          "weight": 579
+          "weight": 520.270024
         },
         "2 Mk-82 AIR": {
           "clsid": "{BRU-42_2*Mk-82AIR_LEFT}",
-          "weight": 579
+          "weight": 551.11428
         },
         "2 Mk-82 Snakeye": {
           "clsid": "{BRU-42_2*Mk-82SNAKEYE_LEFT}",
-          "weight": 579
+          "weight": 556.557384
         },
         "2 Mk-83": {
           "clsid": "{BRU-42_2*Mk-83_LEFT}",
-          "weight": 991
+          "weight": 951.182424
         },
         "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 451
+          "weight": 411.407944
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
-          "weight": 1002.439
+          "weight": 998.3513
         },
         "AERO 1D 300 Gallons Fuel Tank (Empty)": {
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
-          "weight": 93.89362
+          "weight": 89.8113
         },
         "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
@@ -3125,57 +3125,57 @@
         },
         "AN/ALQ-164 DECM Pod": {
           "clsid": "{ALQ_164_RF_Jammer}",
-          "weight": 143.789
+          "weight": 188.241
         }
       },
       "6": {
         "2 CBU-99": {
           "clsid": "{BRU-70_2*CBU-99_RIGHT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_RIGHT}",
-          "weight": 547
+          "weight": 612.802792
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_RIGHT}",
-          "weight": 579
+          "weight": 569.25796
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_RIGHT}",
-          "weight": 603
+          "weight": 563.814856
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_RIGHT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 Mk-82": {
           "clsid": "{BRU-42_2*Mk-82_RIGHT}",
-          "weight": 579
+          "weight": 520.270024
         },
         "2 Mk-82 AIR": {
           "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
-          "weight": 579
+          "weight": 551.11428
         },
         "2 Mk-82 Snakeye": {
           "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
-          "weight": 579
+          "weight": 556.557384
         },
         "2 Mk-83": {
           "clsid": "{BRU-42_2*Mk-83_RIGHT}",
-          "weight": 991
+          "weight": 951.182424
         },
         "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 451
+          "weight": 411.407944
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
-          "weight": 1002.439
+          "weight": 998.3513
         },
         "AERO 1D 300 Gallons Fuel Tank (Empty)": {
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
-          "weight": 93.89362
+          "weight": 89.8113
         },
         "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
@@ -3289,75 +3289,75 @@
       "7": {
         "2 CBU-99": {
           "clsid": "{BRU-70_2*CBU-99_RIGHT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 GBU-12": {
           "clsid": "{BRU-42_2*GBU-12_RIGHT}",
-          "weight": 547
+          "weight": 612.802792
         },
         "2 GBU-38": {
           "clsid": "{BRU-42_2*GBU-38_RIGHT}",
-          "weight": 579
+          "weight": 569.25796
         },
         "2 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_2*GBU-54_RIGHT}",
-          "weight": 603
+          "weight": 563.814856
         },
         "2 Mk-20 Rockeye": {
           "clsid": "{BRU-42_2*MK-20_RIGHT}",
-          "weight": 541
+          "weight": 515.734104
         },
         "2 Mk-82": {
           "clsid": "{BRU-42_2*Mk-82_RIGHT}",
-          "weight": 579
+          "weight": 520.270024
         },
         "2 Mk-82 AIR": {
           "clsid": "{BRU-42_2*Mk-82AIR_RIGHT}",
-          "weight": 579
+          "weight": 551.11428
         },
         "2 Mk-82 Snakeye": {
           "clsid": "{BRU-42_2*Mk-82SNAKEYE_RIGHT}",
-          "weight": 579
+          "weight": 556.557384
         },
         "3 GBU-12": {
           "clsid": "{BRU-42A_3*GBU-12}",
-          "weight": 772
+          "weight": 890.401096
         },
         "3 GBU-38": {
           "clsid": "{BRU-42_3*GBU-38}",
-          "weight": 820
+          "weight": 825.083848
         },
         "3 GBU-54(V)1/B": {
           "clsid": "{BRU-70A_3*GBU-54}",
-          "weight": 856
+          "weight": 816.919192
         },
         "3 Mk-81": {
           "clsid": "{BRU-42_3*Mk-81LD}",
-          "weight": 451
+          "weight": 411.407944
         },
         "3 Mk-82": {
           "clsid": "{BRU-42_3*Mk-82LD}",
-          "weight": 820
+          "weight": 751.601944
         },
         "3 Mk-82 AIR": {
           "clsid": "{BRU-42_3_MK82AIR}",
-          "weight": 820
+          "weight": 797.868328
         },
         "3 Mk-82 Snakeye": {
           "clsid": "{BRU-42_3*Mk-82SNAKEYE}",
-          "weight": 820
+          "weight": 806.032984
         },
         "AERO 1D 300 Gallons Fuel Tank ": {
           "clsid": "{AV8BNA_AERO1D}",
-          "weight": 1002.439
+          "weight": 998.3513
         },
         "AERO 1D 300 Gallons Fuel Tank (Empty)": {
           "clsid": "{AV8BNA_AERO1D_EMPTY}",
-          "weight": 93.89362
+          "weight": 89.8113
         },
         "AGM-122 Sidearm": {
           "clsid": "{LAU_7_AGM_122_SIDEARM}",
-          "weight": 107
+          "weight": 139.706336
         },
         "AN/AAQ-28 LITENING - Targeting Pod": {
           "clsid": "{A111396E-D3E8-4b9c-8AC9-2432489304D5}",
@@ -3507,7 +3507,7 @@
       "8": {
         "AGM-122 Sidearm": {
           "clsid": "{AGM_122_SIDEARM}",
-          "weight": 92
+          "weight": 98.883056
         },
         "AIM-9M Sidewinder IR AAM": {
           "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}",
@@ -6025,6 +6025,14 @@
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
         },
+        "Mk-84 AIR (BSU-50) - 2000 lb GP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_GP}",
+          "weight": 911.7
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb TP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_TP}",
+          "weight": 911.7
+        },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
           "weight": 913
@@ -6146,6 +6154,14 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb GP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_GP}",
+          "weight": 911.7
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb TP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_TP}",
+          "weight": 911.7
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
@@ -6294,6 +6310,14 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb GP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_GP}",
+          "weight": 911.7
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb TP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_TP}",
+          "weight": 911.7
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
@@ -6536,6 +6560,14 @@
         "Mk-84 - 2000lb GP Bomb LD": {
           "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}",
           "weight": 894
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb GP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_GP}",
+          "weight": 911.7
+        },
+        "Mk-84 AIR (BSU-50) - 2000 lb TP Chute Retarded Bomb HD": {
+          "clsid": "{Mk_84AIR_TP}",
+          "weight": 911.7
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
@@ -8378,6 +8410,10 @@
       ]
     ],
     "radios": {
+      "abbreviations": {
+        "PRI": "P",
+        "SEC": "S"
+      },
       "presets": {
         "PRI": {
           "1": "305.000",
@@ -8427,18 +8463,13 @@
       "priority": [
         "PRI",
         "SEC"
-      ],
-      "abbreviations": {
-        "PRI": "P",
-        "SEC": "S"
-      }
+      ]
     },
     "tiger": 7500,
     "waypoint_initial_index": 0,
     "waypoint_reindex": true
   },
   "Ka-50": {
-    "rotary": true,
     "bingo": 500,
     "comments": "",
     "cruise_alt": 500,
@@ -8491,7 +8522,7 @@
           "weight": 506
         },
         "Fuel tank PTB-450": {
-          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
+          "clsid": "{PTB_450}",
           "weight": 550
         },
         "KMGU-2 - 96 x AO-2.5RT Dispenser (CBU) HE/Frag": {
@@ -8545,7 +8576,7 @@
           "weight": 506
         },
         "Fuel tank PTB-450": {
-          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
+          "clsid": "{PTB_450}",
           "weight": 550
         },
         "KMGU-2 - 96 x AO-2.5RT Dispenser (CBU) HE/Frag": {
@@ -8595,7 +8626,7 @@
           "weight": 506
         },
         "Fuel tank PTB-450": {
-          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
+          "clsid": "{PTB_450}",
           "weight": 550
         },
         "KMGU-2 - 96 x AO-2.5RT Dispenser (CBU) HE/Frag": {
@@ -8649,7 +8680,7 @@
           "weight": 506
         },
         "Fuel tank PTB-450": {
-          "clsid": "{B99EE8A8-99BC-4a8d-89AC-A26831920DCE}",
+          "clsid": "{PTB_450}",
           "weight": 550
         },
         "KMGU-2 - 96 x AO-2.5RT Dispenser (CBU) HE/Frag": {
@@ -8689,7 +8720,8 @@
         "4",
         ""
       ]
-    ]
+    ],
+    "rotary": true
   },
   "M-2000C": {
     "bingo": 1500,
@@ -9239,7 +9271,6 @@
     }
   },
   "Mi-8MT": {
-    "rotary": true,
     "bingo": 500,
     "comments": "",
     "cruise_alt": 500,
@@ -9700,10 +9731,10 @@
         }
       }
     },
-    "rope_length": 50
+    "rope_length": 50,
+    "rotary": true
   },
   "SA342L": {
-    "rotary": true,
     "bingo": 300,
     "comments": "",
     "cruise_alt": 500,
@@ -9808,10 +9839,10 @@
           "8": "50.000"
         }
       }
-    }
+    },
+    "rotary": true
   },
   "SA342M": {
-    "rotary": true,
     "bingo": 300,
     "comments": "",
     "cruise_alt": 500,
@@ -9908,10 +9939,10 @@
           "8": "50.000"
         }
       }
-    }
+    },
+    "rotary": true
   },
   "UH-1H": {
-    "rotary": true,
     "bingo": 150,
     "comments": "",
     "cruise_alt": 500,
@@ -10051,6 +10082,7 @@
         "6",
         ""
       ]
-    ]
+    ],
+    "rotary": true
   }
 }
