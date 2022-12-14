@@ -310,6 +310,12 @@ function data_process_miz(miz) {
             aircraft = "A-10C"
 
             // Anything else 
+          } else if (aircraft.startsWith("AH-64D")) {
+            if (aircraft !== 'AH-64D_BLK_II') {
+              route_append = " - Select AH-64D_BLK_II for loadout";
+              load_loadout = false;
+            }
+            aircraft = "AH-64D"
           } else {
             route_append = " - unsupported airframe - route only";
             load_loadout = false;
