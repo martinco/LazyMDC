@@ -165,7 +165,7 @@ function comms_load(data, callback) {
     });
 
     $('#codewords-table > tbody').empty();
-    data['codewords'].forEach(function(data) {
+    (data?.codewords || []).forEach(function(data) {
         codeword_add(data)
     });
   }
