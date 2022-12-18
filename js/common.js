@@ -279,11 +279,6 @@ function document_update_title() {
 // function save(data = null, new_id = false, update_id=true, notify = false, cb = null, cb_args = []) {
 function save(override) {
 
-  if (disable_save) {
-    debug("Saving Disabled");
-    return
-  }
-
   var params = {
     data: null,
     new_id: false,
@@ -297,6 +292,14 @@ function save(override) {
 
   // Extend with user provided opts
   jQuery.extend(true, params, override)
+    
+  if (disable_save) {
+    debug("Saving Disabled");
+
+    // Do our callback if we have one but no args without a save
+    if (params.callback) params.callback();
+    return
+  }
 
   // As a simple sanity check we ensure we have mission ID as bare minimum to save
   if (!$('#flight-airframe').val()) {
@@ -438,7 +441,7 @@ function load(data, callback) {
     }
   })(['data', 'flight', 'mission', 'presets', 'package', 'loadout', 'profiles', 'deparr', 'waypoint', 'comms', 'threats', 'notes', 'download'], function() {
     disable_save = false;
-    callback();
+    if(typeof(callback) === "function") callback();
   });
 }
 
