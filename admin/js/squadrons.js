@@ -1741,6 +1741,7 @@ function squadrons_populate_missions_edit(sqn_id, mission_id, callback) {
 function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new_item=false, deletable=false) {
 
   overrides = overrides || {};
+  data = data || {};
   new_item = new_item || false;
 
   var for_coalition = overrides.side === undefined ? coalition : overrides.side;
@@ -1765,7 +1766,7 @@ function squadrons_edit_navpoint_add(type, coalition, name, data, overrides, new
       </td>`;
 
   if (data) {
-    row += `<td class="input-container${overrides.name ? ' modified' : ''}"><input class="input-full" data-base="${name}" value="${overrides.name || name}"></td>`;
+    row += `<td class="input-container${overrides.name ? ' modified' : ''}"><input class="input-full" data-base="${name}" value="${overrides.name || name || ""}"></td>`;
     row += `<td class="coord coord-ctrl${overrides.lat ? ' modified' : ''}" onClick="coordinate_input(this, 5);" data-base-lat="${data.lat}"  data-lat="${overrides.lat || data.lat}" data-lon="${overrides.lon || data.lon}" data-base-lon="${data.lon}"></td>`;
     row += `<td class="coord${overrides.lon ? ' modified' : ''}" onClick="coordinate_input(this, 5);"></td>`;
     row += `<td class="input-container${overrides.alt ? ' modified' : ''}"><input class="input-full text-right" data-base="${data.alt || 0}" value="${overrides.alt || data.alt || 0}"></td>`;
