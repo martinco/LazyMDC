@@ -766,7 +766,7 @@ $("#data-route-dialog-submit").click(function(e, data) {
   var poi_route_data = poi_route == 'None' ? null : dialog.data('routes')[poi_route];
 
   // Add a coord handler
-  if (poi_route_data) {
+  if (poi_route_data && poi_route_data.xml_format == "miz") {
     poi_route_data.coords = new Coords()
     poi_route_data.coords.set_theatre(xml.theatre)
   }
