@@ -9,6 +9,10 @@ import re
 import sys
 import urllib
 
+os.environ['PYPPETEER_CHROMIUM_REVISION'] = '1089147'
+#os.environ['PYPPETEER_CHROMIUM_REVISION'] = '1058933'
+
+#import pyppeteer
 from pyppeteer import launch
 from PIL import Image
 from zipfile import ZipFile
@@ -711,7 +715,6 @@ async def get_html(url):
 
     browser = await launch({
         'headless': True,
-        'executablePath': '/usr/share/chromium/10705304/chrome-linux/chrome',
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
 
@@ -735,7 +738,6 @@ async def get_image(url):
 
     browser = await launch({
         'headless': True,
-        'executablePath': '/usr/share/chromium/10705304/chrome-linux/chrome',
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
 
@@ -764,7 +766,6 @@ async def get_image(url):
 async def get_pdf(url):
     browser = await launch({
         'headless': True,
-        'executablePath': '/usr/share/chromium/10705304/chrome-linux/chrome',
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
 
