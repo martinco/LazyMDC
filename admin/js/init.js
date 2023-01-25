@@ -252,11 +252,26 @@ var dt = (new Date()).getTime();
 
 $.when(
 
-  $.get(kneeboard_root + "../js/coords.js?" + dt),
-  $.get(kneeboard_root + "js/login.js?" + dt),
-  $.get(kneeboard_root + "js/theatres.js?" + dt),
-  $.get(kneeboard_root + "js/squadrons.js?" + dt),
-  $.get(kneeboard_root + "js/threats.js?" + dt),
+  $.ajax({
+    url: kneeboard_root + "../js/coords.js?" + dt,
+    headers: {'Accept': 'application/javascript'},
+  }),
+  $.ajax({
+    url: kneeboard_root + "js/login.js?" + dt,
+    headers: {'Accept': 'application/javascript'},
+  }),
+  $.ajax({
+    url: kneeboard_root + "js/theatres.js?" + dt,
+    headers: {'Accept': 'application/javascript'},
+  }),
+  $.ajax({
+    url: kneeboard_root + "js/squadrons.js?" + dt,
+    headers: {'Accept': 'application/javascript'},
+  }),
+  $.ajax({
+    url: kneeboard_root + "js/threats.js?" + dt,
+    headers: {'Accept': 'application/javascript'},
+  }),
 
 ).then(function() {
 
