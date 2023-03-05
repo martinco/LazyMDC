@@ -401,7 +401,7 @@ function loadout_set(opts) {
 
     let loadout_presets = "<option value='' selected></option>";
     if (values.loadout_presets) {
-      for (let id in values.loadout_presets) {
+      for (let id of Object.keys(values.loadout_presets).sort()) {
         loadout_presets += `<option value="${id}">${values.loadout_presets[id]['name']}</option>`;
       }
     }

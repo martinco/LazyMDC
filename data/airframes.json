@@ -4640,6 +4640,706 @@
             "clsid": "{LAU-138 wtip - AIM-9M}"
           }
         ]
+      },
+      "4C3-1": {
+        "name": "4C3-1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "2C5": {
+        "name": "2C5",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 R}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "6C8": {
+        "name": "6C8",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-16}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-16}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "2C1": {
+        "name": "2C1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{LAU-7 - AIM-9M}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{LAU-7 - AIM-9M}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "4C3": {
+        "name": "4C3",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "2C3": {
+        "name": "2C3",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "5C8-1": {
+        "name": "5C8-1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-12}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-12}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "8C8": {
+        "name": "8C8",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-24}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-24}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "5C8": {
+        "name": "5C8",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-12}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-12}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "1C": {
+        "name": "1C",
+        "pylons": [
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          }
+        ]
+      },
+      "6C8-1": {
+        "name": "6C8-1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-16}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-16}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "1C8": {
+        "name": "1C8",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "3C3": {
+        "name": "3C3",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "7C8": {
+        "name": "7C8",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-10}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-10}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "1C9": {
+        "name": "1C9",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "7C8-1": {
+        "name": "7C8-1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{BRU-32 GBU-10}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{BRU-32 GBU-10}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{F14-LANTIRN-TP}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "1C5": {
+        "name": "1C5",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 L}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM_54C_Mk47 R}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "9C10": {
+        "name": "9C10",
+        "pylons": [
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "1C3": {
+        "name": "1C3",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
+      },
+      "9C11-1": {
+        "name": "9C11-1",
+        "pylons": [
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          },
+          {
+            "clsid": "{LAU-7 - AIM-9M}"
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{AIM_54C_Mk47}"
+          },
+          {
+            "clsid": "{BELLY AIM-7MH}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F14-300gal}"
+          },
+          {
+            "clsid": "{SHOULDER AIM-7MH}"
+          },
+          {
+            "clsid": "{LAU-138 wtip - AIM-9M}"
+          }
+        ]
       }
     },
     "mlw_cvn": 54000,
