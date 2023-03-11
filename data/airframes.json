@@ -9061,6 +9061,1382 @@
             "clsid": null
           }
         ]
+      },
+      "SLAG01 [ 4xGBU38 ]": {
+        "name": "SLAG01 [ 4xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG02 [ 4xGBU12 ]": {
+        "name": "SLAG02 [ 4xGBU12 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_GBU-12}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_GBU-12}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG03 [ 2xGBU12 2xGBU38 ]": {
+        "name": "SLAG03 [ 2xGBU12 2xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_GBU-12}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG04 [ 2xGBU12 ]": {
+        "name": "SLAG04 [ 2xGBU12 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG05 [ 2xAGM65E ]": {
+        "name": "SLAG05 [ 2xAGM65E ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG06 [ 4xMk20 ]": {
+        "name": "SLAG06 [ 4xMk20 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_ROCKEYE}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_ROCKEYE}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAG07 [ 4xMk82 Snakeye ]": {
+        "name": "SLAG07 [ 4xMk82 Snakeye ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD01 [ 2xHARM ]": {
+        "name": "SLSD01 [ 2xHARM ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD02 [ 4xHARM ]": {
+        "name": "SLSD02 [ 4xHARM ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD03 [ 1xHARM 2xGBU38 ]": {
+        "name": "SLSD03 [ 1xHARM 2xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD04 [ 1xHARM 2xMk20 ]": {
+        "name": "SLSD04 [ 1xHARM 2xMk20 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_ROCKEYE}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD05 [ 1xHARM 2xTALD ]": {
+        "name": "SLSD05 [ 1xHARM 2xTALD ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU_42A_x2_ADM_141A}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD06 [ 4xTALD ]": {
+        "name": "SLSD06 [ 4xTALD ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU_42A_x2_ADM_141A}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU_42A_x2_ADM_141A}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSD07 [ 2xGBU38 2xTALD ]": {
+        "name": "SLSD07 [ 2xGBU38 2xTALD ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU_42A_x2_ADM_141A}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD01 [ 4xGBU38 ]": {
+        "name": "SLDD01 [ 4xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU55_2*GBU-38}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD02 [ 2xGBU38 ]": {
+        "name": "SLDD02 [ 2xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU-38}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD03 [ 4xGBU12 ]": {
+        "name": "SLDD03 [ 4xGBU12 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_GBU-12}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_GBU-12}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD04 [ 4xMk20 ]": {
+        "name": "SLDD04 [ 4xMk20 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_ROCKEYE}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_ROCKEYE}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD05 [ 4xMk82 Snakeye ]": {
+        "name": "SLDD05 [ 4xMk82 Snakeye ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLDD06 [ 4xJSOW A ]": {
+        "name": "SLDD06 [ 4xJSOW A ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU55_2*AGM-154A}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU55_2*AGM-154A}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE01 [ 4xMk82 Snakeye ]": {
+        "name": "SLSE01 [ 4xMk82 Snakeye ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{BRU33_2X_MK-82_Snakeye}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE02  [ 2xMk82 Snakeye ]": {
+        "name": "SLSE02  [ 2xMk82 Snakeye ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{Mk82SNAKEYE}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{Mk82SNAKEYE}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE03  [ 2xMk83 ]": {
+        "name": "SLSE03  [ 2xMk83 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{7A44FF09-527C-4B7E-B42B-3F111CFE50FB}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE04  [ 2xMk84 ]": {
+        "name": "SLSE04  [ 2xMk84 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AB8B8299-F1CC-4359-89B5-2172E0CF4A5A}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE05 [ 2xGBU12 ]": {
+        "name": "SLSE05 [ 2xGBU12 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE06 [ 2xGBU38 ]": {
+        "name": "SLSE06 [ 2xGBU38 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU-38}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU-38}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE07 [ 2xGBU24 ]": {
+        "name": "SLSE07 [ 2xGBU24 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU-24}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU-24}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE08 [ 2xGBU32 ]": {
+        "name": "SLSE08 [ 2xGBU32 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU_32_V_2B}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU_32_V_2B}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE09 [ 2xGBU31 ]": {
+        "name": "SLSE09 [ 2xGBU31 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU_31_V_2B}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU-31V3B}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE10 [ 2xGBU31 Penetrators ]": {
+        "name": "SLSE10 [ 2xGBU31 Penetrators ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{GBU_31_V_4B}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{GBU_31_V_4B}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE11 [ 2xJSOW C ]": {
+        "name": "SLSE11 [ 2xJSOW C ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{9BCC2A2B-5708-4860-B1F1-053A18442067}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSE12 [ 2xSLAM-ER ]": {
+        "name": "SLSE12 [ 2xSLAM-ER ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{AGM_84H}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{AWW-13}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AGM_84H}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLCP01 [ 502 ]": {
+        "name": "SLCP01 [ 502 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLCP02 [ 602 ]": {
+        "name": "SLCP02 [ 602 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLCP03 [ 802 ]": {
+        "name": "SLCP03 [ 802 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLCP04 [ 1002 ]": {
+        "name": "SLCP04 [ 1002 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLCP05 [ 206 ]": {
+        "name": "SLCP05 [ 206 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-9X"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-9X"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSP01 [ 602 ]": {
+        "name": "SLSP01 [ 602 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSP02 [ 802 ]": {
+        "name": "SLSP02 [ 802 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLSP03 [ 502 ]": {
+        "name": "SLSP03 [ 502 ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU-115_2*LAU-127_AIM-120C"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAS01 [ 2xHARPOON ]": {
+        "name": "SLAS01 [ 2xHARPOON ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAS02 [ 4xHARPOON ]": {
+        "name": "SLAS02 [ 4xHARPOON ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{AGM_84D}"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
+      },
+      "SLAS03 [ 2xAGM65F ]": {
+        "name": "SLAS03 [ 2xAGM65F ]",
+        "pylons": [
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          },
+          {
+            "clsid": "LAU_117_AGM_65F"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{AN_ASQ_228}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{FPU_8A_FUEL_TANK}"
+          },
+          {
+            "clsid": "LAU_117_AGM_65F"
+          },
+          {
+            "clsid": "{5CE2FF2A-645A-4197-B48D-8720AC69394F}"
+          }
+        ]
       }
     },
     "mlw_cvn": 34000,
