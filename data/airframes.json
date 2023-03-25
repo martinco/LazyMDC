@@ -4641,8 +4641,8 @@
           }
         ]
       },
-      "4C3-1": {
-        "name": "4C3-1",
+      "4C3-1  / 2xTNK 2x54C47 3x7MH 2x9M LAU138": {
+        "name": "4C3-1  / 2xTNK 2x54C47 3x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4676,8 +4676,8 @@
           }
         ]
       },
-      "2C5": {
-        "name": "2C5",
+      "2C5    / 2xTNK 2x54C47 4x7MH 2x9M LAU138": {
+        "name": "2C5    / 2xTNK 2x54C47 4x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4711,8 +4711,8 @@
           }
         ]
       },
-      "6C8": {
-        "name": "6C8",
+      "6C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x16 LANTIRN": {
+        "name": "6C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x16 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4746,8 +4746,8 @@
           }
         ]
       },
-      "2C1": {
-        "name": "2C1",
+      "2C1    / 2xTNK 0x54C47 4x7MH 4x9M LAU138": {
+        "name": "2C1    / 2xTNK 0x54C47 4x7MH 4x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4781,8 +4781,8 @@
           }
         ]
       },
-      "4C3": {
-        "name": "4C3",
+      "4C3    / 2xTNK 2x54C47 2x7MH 2x9M LAU138": {
+        "name": "4C3    / 2xTNK 2x54C47 2x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4816,8 +4816,8 @@
           }
         ]
       },
-      "2C3": {
-        "name": "2C3",
+      "2C3    / 2xTNK 0x54C47 6x7MH 2x9M LAU138": {
+        "name": "2C3    / 2xTNK 0x54C47 6x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4851,8 +4851,8 @@
           }
         ]
       },
-      "5C8-1": {
-        "name": "5C8-1",
+      "5C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x12 LANTIRN": {
+        "name": "5C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x12 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4886,8 +4886,8 @@
           }
         ]
       },
-      "8C8": {
-        "name": "8C8",
+      "8C8    / 2xTNK 0x54C47 1x7MH 2x9M LAU138 2x24 LANTIRN": {
+        "name": "8C8    / 2xTNK 0x54C47 1x7MH 2x9M LAU138 2x24 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4921,8 +4921,8 @@
           }
         ]
       },
-      "5C8": {
-        "name": "5C8",
+      "5C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x12 LANTIRN": {
+        "name": "5C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x12 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -4956,8 +4956,8 @@
           }
         ]
       },
-      "1C": {
-        "name": "1C",
+      "1C    / 2xTNK 0x54C47 0x7MH 0x9M": {
+        "name": "1C    / 2xTNK 0x54C47 0x7MH 0x9M",
         "pylons": [
           {
             "clsid": null
@@ -4991,8 +4991,8 @@
           }
         ]
       },
-      "6C8-1": {
-        "name": "6C8-1",
+      "6C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x16 LANTIRN": {
+        "name": "6C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x16 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5026,8 +5026,8 @@
           }
         ]
       },
-      "1C8": {
-        "name": "1C8",
+      "1C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 LANTIRN": {
+        "name": "1C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5061,8 +5061,8 @@
           }
         ]
       },
-      "3C3": {
-        "name": "3C3",
+      "3C3    / 2xTNK 4x54C47 2x7MH 2x9M LAU138": {
+        "name": "3C3    / 2xTNK 4x54C47 2x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5096,8 +5096,8 @@
           }
         ]
       },
-      "7C8": {
-        "name": "7C8",
+      "7C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x10 LANTIRN": {
+        "name": "7C8    / 2xTNK 1x54C47 0x7MH 2x9M LAU138 2x10 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5131,8 +5131,8 @@
           }
         ]
       },
-      "1C9": {
-        "name": "1C9",
+      "1C9    / 2xTNK 1x54C47 1x7MH 2x9M LAU138": {
+        "name": "1C9    / 2xTNK 1x54C47 1x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5166,8 +5166,8 @@
           }
         ]
       },
-      "7C8-1": {
-        "name": "7C8-1",
+      "7C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x10 LANTIRN": {
+        "name": "7C8-1  / 2xTNK 1x54C47 1x7MH 2x9M LAU138 2x10 LANTIRN",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5201,8 +5201,8 @@
           }
         ]
       },
-      "1C5": {
-        "name": "1C5",
+      "1C5    / 2xTNK 2x54C47 0x7MH 2x9M LAU138": {
+        "name": "1C5    / 2xTNK 2x54C47 0x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5236,8 +5236,8 @@
           }
         ]
       },
-      "9C10": {
-        "name": "9C10",
+      "9C10   / 2xTNK 1x54C47 1x7MH 1x9M LAU138": {
+        "name": "9C10   / 2xTNK 1x54C47 1x7MH 1x9M LAU138",
         "pylons": [
           {
             "clsid": null
@@ -5271,8 +5271,8 @@
           }
         ]
       },
-      "1C3": {
-        "name": "1C3",
+      "1C3    / 2xTNK 0x54C47 2x7MH 2x9M LAU138": {
+        "name": "1C3    / 2xTNK 0x54C47 2x7MH 2x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
@@ -5306,8 +5306,8 @@
           }
         ]
       },
-      "9C11-1": {
-        "name": "9C11-1",
+      "9C11-1 / 2xTNK 1x54C47 2x7MH 3x9M LAU138": {
+        "name": "9C11-1 / 2xTNK 1x54C47 2x7MH 3x9M LAU138",
         "pylons": [
           {
             "clsid": "{LAU-138 wtip - AIM-9M}"
