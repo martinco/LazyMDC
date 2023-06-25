@@ -296,7 +296,7 @@ function Flight(data, unit) {
       ["PILOT", 0, "lp5"],
     ]
 
-    if (ac == "F-14B") {
+    if (["F-14B", "F-15ESE"].includes(ac)) {
       cols.push(
         ['RIO', 0, "lp5"])
     }

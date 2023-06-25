@@ -1060,6 +1060,7 @@ function Builder(data, unit, start_page = 1) {
     for (var x of pages) {
       x.expand();
     }
+    console.log("CCCOMPLETE")
 
     // This is very important: it is used by pyppeteer to start processing
     $('body').append($(`<div style="display:none" id="page_count">${pages[pages.length-1].id}</div>`));
@@ -1334,9 +1335,12 @@ $(function() {
       console.log(data);
       mdc = data;
       Page1(data);
+      console.log("P1");
       Page2(data);
+      console.log("P2");
       builder = new Builder(data, "px", 3);
       builder.build()
+      console.log("P3");
     }).fail(function(err) {
       console.log("ERR", err)
     });

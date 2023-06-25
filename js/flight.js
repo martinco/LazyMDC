@@ -138,7 +138,7 @@ function flightmembers_items(ac) {
     ["PILOT", 0, "", "text", "^.+$"],
   ];
 
-  if (ac == "F-14B") {
+  if (["F-14B", "F-15ESE"].includes(ac)) {
     cols.push(
       ['RIO', 0, "", "text"])
   };

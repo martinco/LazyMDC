@@ -14,6 +14,7 @@ PLANES = {
     'F-16C_50': 'F-16C',
     'FA-18C_hornet': 'FA-18C',
     'A-10C_2': 'A-10C',
+    'F-15ESE': None,
     'AV8BNA': None,
     'M-2000C': None,
 }
