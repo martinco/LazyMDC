@@ -133,14 +133,19 @@ function data_process_cf(xml) {
       aircraft = "A-10C"
     // APACHE
     } else if (aircraft.startsWith("AH-64D")) {
-      console.log(aircraft);
       if (aircraft !== 'AH-64D_BLK_II') {
         route_append = " - Select AH-64D_BLK_II for loadout";
         load_loadout = false;
       }
       aircraft = "AH-64D"
-    // Anything else 
+    } else if (aircraft.startsWith("F-15ESE")) {
+      if (aircraft !== 'F-15ESE') {
+        route_append = " - Select F-15ESE for loadout";
+        load_loadout = false;
+      }
+      aircraft = "F-15ESE"
     } else { 
+      // Anything else 
       route_append = " - unsupported airframe - route only";
       load_loadout = false;
       aircraft = null;
@@ -182,7 +187,6 @@ function data_process_cf(xml) {
 }
 
 data_parse_lua_table = function(ast, obj) {
-
   obj = obj || {}
 
   function _removeQuotes(str) {
@@ -205,6 +209,10 @@ data_parse_lua_table = function(ast, obj) {
       }
     } else if (value.type == "BooleanLiteral") {
       retval = value.value
+    } else if (value.type == "TableConstructorExpression") {
+      let obj = {}
+      _visit(value, obj)
+      return obj
     }
     return retval
   }
@@ -212,7 +220,11 @@ data_parse_lua_table = function(ast, obj) {
   function _visit(node, obj) {
     if (node.type == "TableConstructorExpression") {
       for (let j = 0; j < node.fields.length; j++) {
-        _visit(node.fields[j], obj);
+        if (node.fields[j].type == "TableValue") {
+          obj[j+1] = _getValue(node.fields[j].value)
+        } else {
+          _visit(node.fields[j], obj);
+        }
       }
     } else if (node.type == 'TableKey') {
       var key = _getValue(node.key);
@@ -225,11 +237,11 @@ data_parse_lua_table = function(ast, obj) {
           obj[key] = {};
           _visit(node.value, obj[key]);
         } else {
-          console.log("FATAL", node);
+          console.log("FATAL 479", node);
         }
       }
     } else {
-      console.log("FATAL", node);
+      console.log("FATAL 483", node);
     }
   }
   _visit(ast, obj);
@@ -316,6 +328,12 @@ function data_process_miz(miz) {
               load_loadout = false;
             }
             aircraft = "AH-64D"
+          } else if (aircraft.startsWith("F-15")) {
+            if (aircraft !== 'F-15ESE') {
+              route_append = " - Select F-15ESE for loadout";
+              load_loadout = false;
+            }
+            aircraft = "F-15ESE"
           } else {
             route_append = " - unsupported airframe - route only";
             load_loadout = false;

@@ -456,6 +456,10 @@ MissionProcessor = function() {
         }
       } else if (value.type == "BooleanLiteral") {
         retval = value.value
+      } else if (value.type == "TableConstructorExpression") {
+        let obj = {}
+        _visit(value, obj)
+        return obj
       }
       return retval
     }
@@ -463,7 +467,11 @@ MissionProcessor = function() {
     function _visit(node, obj) {
       if (node.type == "TableConstructorExpression") {
         for (let j = 0; j < node.fields.length; j++) {
-          _visit(node.fields[j], obj);
+          if (node.fields[j].type == "TableValue") {
+            obj[j+1] = _getValue(node.fields[j].value)
+          } else {
+            _visit(node.fields[j], obj);
+          }
         }
       } else if (node.type == 'TableKey') {
         var key = _getValue(node.key);
@@ -476,11 +484,11 @@ MissionProcessor = function() {
             obj[key] = {};
             _visit(node.value, obj[key]);
           } else {
-            console.log("FATAL", node);
+            console.log("FATAL 479", node);
           }
         }
       } else {
-        console.log("FATAL", node);
+        console.log("FATAL 483", node);
       }
     }
     _visit(ast, obj);
@@ -585,29 +593,31 @@ MissionProcessor = function() {
 
           for (const [group_id, group_data] of Object.entries(elem_data.group)) {
             if (!group_data.units || !group_data.units[1]) { continue; }
-            if (match_type(group_data.units[1].type)) {
-              var name = dictionary[group_data.units[1].name] || group_data.units[1].name;
-              var obj = {
-                x: group_data.x,
-                y: group_data.y,
-                dcs_name: name,
-                dcs_type: group_data.units[1].type,
-                side: coalition,
-              }
-
-              // If we have a freq > 300000000, uhf, else vhf
-              var freq = parseInt(group_data.units[1].frequency);
-              if (!isNaN(freq)) {
-                freq /= 1000000;
-                if (freq >= 300) {
-                  obj.uhf = freq.toFixed(3);
-                } else {
-                  obj.vhf = freq.toFixed(3);
+            for (const [unit_id, unit_data] of Object.entries(group_data.units)) {
+              if (match_type(unit_data.type)) {
+                var name = dictionary[unit_data.name] || unit_data.name;
+                var obj = {
+                  x: group_data.x,
+                  y: group_data.y,
+                  dcs_name: name,
+                  dcs_type: unit_data.type,
+                  side: coalition,
                 }
-              }
 
-              dcstoll(mission.theatre, obj)
-              output[name] = obj
+                // If we have a freq > 300000000, uhf, else vhf
+                var freq = parseInt(unit_data.frequency);
+                if (!isNaN(freq)) {
+                  freq /= 1000000;
+                  if (freq >= 300) {
+                    obj.uhf = freq.toFixed(3);
+                  } else {
+                    obj.vhf = freq.toFixed(3);
+                  }
+                }
+
+                dcstoll(mission.theatre, obj)
+                output[name] = obj
+              }
             }
           }
         }
