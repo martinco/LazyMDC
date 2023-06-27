@@ -296,9 +296,11 @@ function Flight(data, unit) {
       ["PILOT", 0, "lp5"],
     ]
 
-    if (["F-14B", "F-15ESE"].includes(ac)) {
-      cols.push(
-        ['RIO', 0, "lp5"])
+    if (ac == "F-14B") {
+      cols.push(['RIO', 0, "lp5"])
+    }
+    if (ac == "F-15ESE") {
+      cols.push(['WSO', 0, "lp5"])
     }
 
     if (data['flight']['members'][0] && data['flight']['members'][0]['mids a'] !== undefined) {

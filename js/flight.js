@@ -138,9 +138,12 @@ function flightmembers_items(ac) {
     ["PILOT", 0, "", "text", "^.+$"],
   ];
 
-  if (["F-14B", "F-15ESE"].includes(ac)) {
-    cols.push(
-      ['RIO', 0, "", "text"])
+  if (ac == "F-14B") {
+    cols.push(['RIO', 0, "", "text"])
+  };
+
+  if (ac == "F-15ESE") {
+    cols.push(['WSO', 0, "", "text"])
   };
 
   if (ac == "AH-64D") {
@@ -470,6 +473,10 @@ function flightmembers_add(values) {
     }
   } else {
     pilot_autocomplete(new_last_row[0].cells[1].firstChild);
+
+    if (elems['WSO']) {
+      pilot_autocomplete(new_last_row[0].cells[2].firstChild);
+    }
 
     if (elems['CPG']) {
       pilot_autocomplete(new_last_row[0].cells[2].firstChild);

@@ -6500,6 +6500,458 @@
       "8": "5",
       "9": "NVP"
     },
+    "loadout_presets": {
+      "2G10x2Ax2Wx2": {
+        "name": "2G10x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "4G10x2Ax2Wx2": {
+        "name": "4G10x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_GBU_10_x_2}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_GBU_10_x_2}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "2G24x2Ax2Wx2": {
+        "name": "2G24x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "4M84x2Ax2Wx2": {
+        "name": "4M84x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_MK84AR_x_2}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_MK84AR_x_2}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "8G12x2Ax2Wx2": {
+        "name": "8G12x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_GBU_12_x_4}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_GBU_12_x_4}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "6Ax2Wx2": {
+        "name": "6Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "12M82x2Ax2Wx2": {
+        "name": "12M82x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_MK82SE_x_6}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_MK82SE_x_6}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "6C97x2Ax2Wx2": {
+        "name": "6C97x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_CBU_97_x_3}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_CBU_97_x_3}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
+      "6C87x2Ax2Wx2": {
+        "name": "6C87x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_CBU_87_x_3}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_CBU_87_x_3}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      }
+    },
     "mlw_field": 81000,
     "mtow_field": 81000,
     "pylons": [
