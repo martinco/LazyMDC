@@ -2048,35 +2048,31 @@
           "clsid": "{EFT_230GAL}",
           "weight": 765.45
         },
-        "M261 - 19 x Hydra 70 M151 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M151 HE, M433 RC Fuze": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE, M433 RC Fuze": {
           "clsid": "{M261_M151_M433}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M229 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
           "clsid": "{M261_M229}",
           "weight": 302.93
         },
-        "M261 - 19 x Hydra 70 M257 IL": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{M261_M257}",
           "weight": 252.2
         },
-        "M261 - 19 x Hydra 70 M274 TP-SM": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{M261_M274}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M282 MPP": {
-          "clsid": "{M261_M282}",
-          "weight": 275
-        },
-        "M261 - 19 x Hydra 70, Pod Zones: A/B - M151; E - M257": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A/B - M151; E - M257": {
           "clsid": "{M261_OUTBOARD_AB_M151_E_M257}",
           "weight": 239.4
         },
-        "M261 - 19 x Hydra 70, Pod Zones: A/B - M151; E - M274": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A/B - M151; E - M274": {
           "clsid": "{M261_OUTBOARD_AB_M151_E_M274}",
           "weight": 237
         },
@@ -2084,17 +2080,33 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114L_OUTBOARD_PORT}",
+          "weight": 113.9
+        },
         "M299 - 2 x AGM-114K Hellfire": {
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
+        },
+        "M299 - 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114L}",
+          "weight": 162.9
         },
         "M299 - 3 x AGM-114K Hellfire, Port": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
           "weight": 199.6
         },
+        "M299 - 3 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114L_OUTBOARD_PORT}",
+          "weight": 211.9
+        },
         "M299 - 4 x AGM-114K Hellfire": {
           "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
           "weight": 244.5
+        },
+        "M299 - 4 x AGM-114L Hellfire": {
+          "clsid": "{M299_4xAGM_114L}",
+          "weight": 260.9
         },
         "M299 - Empty Launcher": {
           "clsid": "{M299_EMPTY}",
@@ -2106,35 +2118,31 @@
           "clsid": "{EFT_230GAL}",
           "weight": 765.45
         },
-        "M261 - 19 x Hydra 70 M151 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M151 HE, M433 RC Fuze": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE, M433 RC Fuze": {
           "clsid": "{M261_M151_M433}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M229 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
           "clsid": "{M261_M229}",
           "weight": 302.93
         },
-        "M261 - 19 x Hydra 70 M257 IL": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{M261_M257}",
           "weight": 252.2
         },
-        "M261 - 19 x Hydra 70 M274 TP-SM": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{M261_M274}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M282 MPP": {
-          "clsid": "{M261_M282}",
-          "weight": 275
-        },
-        "M261 - 19 x Hydra 70, Pod Zones: C - M257; D/E - M151": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: C - M257; D/E - M151": {
           "clsid": "{M261_INBOARD_DE_M151_C_M257}",
           "weight": 239.4
         },
-        "M261 - 19 x Hydra 70, Pod Zones: C - M274; D/E - M151": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: C - M274; D/E - M151": {
           "clsid": "{M261_INBOARD_DE_M151_C_M274}",
           "weight": 237
         },
@@ -2142,17 +2150,33 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114L_OUTBOARD_PORT}",
+          "weight": 113.9
+        },
         "M299 - 2 x AGM-114K Hellfire": {
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
+        },
+        "M299 - 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114L}",
+          "weight": 162.9
         },
         "M299 - 3 x AGM-114K Hellfire, Port": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
           "weight": 199.6
         },
+        "M299 - 3 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114L_OUTBOARD_PORT}",
+          "weight": 211.9
+        },
         "M299 - 4 x AGM-114K Hellfire": {
           "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
           "weight": 244.5
+        },
+        "M299 - 4 x AGM-114L Hellfire": {
+          "clsid": "{M299_4xAGM_114L}",
+          "weight": 260.9
         },
         "M299 - Empty Launcher": {
           "clsid": "{M299_EMPTY}",
@@ -2164,35 +2188,31 @@
           "clsid": "{EFT_230GAL}",
           "weight": 765.45
         },
-        "M261 - 19 x Hydra 70 M151 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M151 HE, M433 RC Fuze": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE, M433 RC Fuze": {
           "clsid": "{M261_M151_M433}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M229 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
           "clsid": "{M261_M229}",
           "weight": 302.93
         },
-        "M261 - 19 x Hydra 70 M257 IL": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{M261_M257}",
           "weight": 252.2
         },
-        "M261 - 19 x Hydra 70 M274 TP-SM": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{M261_M274}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M282 MPP": {
-          "clsid": "{M261_M282}",
-          "weight": 275
-        },
-        "M261 - 19 x Hydra 70, Pod Zones: C - M257; D/E - M151": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: C - M257; D/E - M151": {
           "clsid": "{M261_INBOARD_DE_M151_C_M257}",
           "weight": 239.4
         },
-        "M261 - 19 x Hydra 70, Pod Zones: C - M274; D/E - M151": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: C - M274; D/E - M151": {
           "clsid": "{M261_INBOARD_DE_M151_C_M274}",
           "weight": 237
         },
@@ -2200,17 +2220,33 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114L_OUTBOARD_STARBOARD}",
+          "weight": 113.9
+        },
         "M299 - 2 x AGM-114K Hellfire": {
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
+        },
+        "M299 - 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114L}",
+          "weight": 162.9
         },
         "M299 - 3 x AGM-114K Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 199.6
         },
+        "M299 - 3 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114L_OUTBOARD_STARBOARD}",
+          "weight": 211.9
+        },
         "M299 - 4 x AGM-114K Hellfire": {
           "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
           "weight": 244.5
+        },
+        "M299 - 4 x AGM-114L Hellfire": {
+          "clsid": "{M299_4xAGM_114L}",
+          "weight": 260.9
         },
         "M299 - Empty Launcher": {
           "clsid": "{M299_EMPTY}",
@@ -2222,35 +2258,31 @@
           "clsid": "{EFT_230GAL}",
           "weight": 765.45
         },
-        "M261 - 19 x Hydra 70 M151 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M151 HE, M433 RC Fuze": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE, M433 RC Fuze": {
           "clsid": "{M261_M151_M433}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M229 HE": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
           "clsid": "{M261_M229}",
           "weight": 302.93
         },
-        "M261 - 19 x Hydra 70 M257 IL": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{M261_M257}",
           "weight": 252.2
         },
-        "M261 - 19 x Hydra 70 M274 TP-SM": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{M261_M274}",
           "weight": 237
         },
-        "M261 - 19 x Hydra 70 M282 MPP": {
-          "clsid": "{M261_M282}",
-          "weight": 275
-        },
-        "M261 - 19 x Hydra 70, Pod Zones: A/B - M151; E - M257": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A/B - M151; E - M257": {
           "clsid": "{M261_OUTBOARD_AB_M151_E_M257}",
           "weight": 239.4
         },
-        "M261 - 19 x Hydra 70, Pod Zones: A/B - M151; E - M274": {
+        "M261 - 19 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A/B - M151; E - M274": {
           "clsid": "{M261_OUTBOARD_AB_M151_E_M274}",
           "weight": 237
         },
@@ -2258,21 +2290,43 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114L_OUTBOARD_STARBOARD}",
+          "weight": 113.9
+        },
         "M299 - 2 x AGM-114K Hellfire": {
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
+        },
+        "M299 - 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114L}",
+          "weight": 162.9
         },
         "M299 - 3 x AGM-114K Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 199.6
         },
+        "M299 - 3 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114L_OUTBOARD_STARBOARD}",
+          "weight": 211.9
+        },
         "M299 - 4 x AGM-114K Hellfire": {
           "clsid": "{88D18A5E-99C8-4B04-B40B-1C02F2018B6E}",
           "weight": 244.5
         },
+        "M299 - 4 x AGM-114L Hellfire": {
+          "clsid": "{M299_4xAGM_114L}",
+          "weight": 260.9
+        },
         "M299 - Empty Launcher": {
           "clsid": "{M299_EMPTY}",
           "weight": 64.9
+        }
+      },
+      "5": {
+        "Internal Auxiliary Fuel tank 100 gal Combo Pak": {
+          "clsid": "{IAFS_ComboPak_100}",
+          "weight": 443.22
         }
       }
     },
@@ -6501,6 +6555,56 @@
       "9": "NVP"
     },
     "loadout_presets": {
+      "12M82x2Ax2Wx2": {
+        "name": "12M82x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_MK82SE_x_6}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_MK82SE_x_6}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
       "2G10x2Ax2Wx2": {
         "name": "2G10x2Ax2Wx2",
         "pylons": [
@@ -6539,56 +6643,6 @@
           },
           {
             "clsid": "{51F9AAE5-964F-4D21-83FB-502E3BFE5F8A}"
-          },
-          {
-            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-          },
-          {
-            "clsid": "{F15E_EXTTANK}"
-          },
-          {
-            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-          }
-        ]
-      },
-      "4G10x2Ax2Wx2": {
-        "name": "4G10x2Ax2Wx2",
-        "pylons": [
-          {
-            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-          },
-          {
-            "clsid": "{F15E_EXTTANK}"
-          },
-          {
-            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-          },
-          {
-            "clsid": "{CFT_L_GBU_10_x_2}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{F-15E_AAQ-14_LANTIRN}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{F-15E_AAQ-13_LANTIRN}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{CFT_R_GBU_10_x_2}"
           },
           {
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
@@ -6651,6 +6705,56 @@
           }
         ]
       },
+      "4G10x2Ax2Wx2": {
+        "name": "4G10x2Ax2Wx2",
+        "pylons": [
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{CFT_L_GBU_10_x_2}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-14_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{F-15E_AAQ-13_LANTIRN}"
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": null
+          },
+          {
+            "clsid": "{CFT_R_GBU_10_x_2}"
+          },
+          {
+            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
+          },
+          {
+            "clsid": "{F15E_EXTTANK}"
+          },
+          {
+            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
+          }
+        ]
+      },
       "4M84x2Ax2Wx2": {
         "name": "4M84x2Ax2Wx2",
         "pylons": [
@@ -6689,56 +6793,6 @@
           },
           {
             "clsid": "{CFT_R_MK84AR_x_2}"
-          },
-          {
-            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-          },
-          {
-            "clsid": "{F15E_EXTTANK}"
-          },
-          {
-            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-          }
-        ]
-      },
-      "8G12x2Ax2Wx2": {
-        "name": "8G12x2Ax2Wx2",
-        "pylons": [
-          {
-            "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
-          },
-          {
-            "clsid": "{F15E_EXTTANK}"
-          },
-          {
-            "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
-          },
-          {
-            "clsid": "{CFT_L_GBU_12_x_4}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{F-15E_AAQ-14_LANTIRN}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{F-15E_AAQ-13_LANTIRN}"
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": null
-          },
-          {
-            "clsid": "{CFT_R_GBU_12_x_4}"
           },
           {
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
@@ -6801,8 +6855,8 @@
           }
         ]
       },
-      "12M82x2Ax2Wx2": {
-        "name": "12M82x2Ax2Wx2",
+      "6C87x2Ax2Wx2": {
+        "name": "6C87x2Ax2Wx2",
         "pylons": [
           {
             "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
@@ -6814,7 +6868,7 @@
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
           },
           {
-            "clsid": "{CFT_L_MK82SE_x_6}"
+            "clsid": "{CFT_L_CBU_87_x_3}"
           },
           {
             "clsid": null
@@ -6838,7 +6892,7 @@
             "clsid": null
           },
           {
-            "clsid": "{CFT_R_MK82SE_x_6}"
+            "clsid": "{CFT_R_CBU_87_x_3}"
           },
           {
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
@@ -6901,8 +6955,8 @@
           }
         ]
       },
-      "6C87x2Ax2Wx2": {
-        "name": "6C87x2Ax2Wx2",
+      "8G12x2Ax2Wx2": {
+        "name": "8G12x2Ax2Wx2",
         "pylons": [
           {
             "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}"
@@ -6914,7 +6968,7 @@
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
           },
           {
-            "clsid": "{CFT_L_CBU_87_x_3}"
+            "clsid": "{CFT_L_GBU_12_x_4}"
           },
           {
             "clsid": null
@@ -6938,7 +6992,7 @@
             "clsid": null
           },
           {
-            "clsid": "{CFT_R_CBU_87_x_3}"
+            "clsid": "{CFT_R_GBU_12_x_4}"
           },
           {
             "clsid": "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}"
