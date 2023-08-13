@@ -557,6 +557,24 @@ class DCS_DTC():
 
         return hts
 
+    def format_radio_f15(self, name, type_id, radio_data):
+        data = {
+            "Frequencies": [],
+            "SelectedFrequency": None,
+            "SelectedPreset": 1,
+            "EnableGuard": True,
+            "Mode": 1,
+        }
+
+        for preset, info in radio_data.items():
+            if 'override' in info:
+                data['Frequencies'].append(int(round(float(info['override'])*1000)))
+            else:
+                data['Frequencies'].append(None)
+
+        return data
+
+
     def format_radio(self, name, type_id, radio_data):
         data = {
             'Name': name,
@@ -600,6 +618,18 @@ class DCS_DTC():
                 }
             }
         }
+
+        For the F15ESE it's different...
+        "Radios": {
+            "Radio1": {
+                "Frequencies": [...],
+                "SelectedFrequency": XXX.XXX,
+                "SelectedPreset": X,
+                "EnableGuard": bool,
+                "Mode": 1/2
+            },
+            "Radio2": ...
+        }
         '''
 
         radios = {}
@@ -617,7 +647,11 @@ class DCS_DTC():
             'FA-18C': [
                 ['COM1', 'PRI'],
                 ['COM2', 'SEC'],
-            ]
+            ],
+            'F-15ESE': [
+                ['Radio1', 'PRI'],
+                ['Radio2', 'SEC'],
+            ],
         }
 
         mapping = maps.get(self._ac)
@@ -630,7 +664,10 @@ class DCS_DTC():
             dest_key, src_key = data
             info = presets.get(src_key)
             if info:
-                radios[dest_key] = self.format_radio(dest_key, index+1, info)
+                if self._ac == "F-15ESE":
+                    radios[dest_key] = self.format_radio_f15(dest_key, index+1, info)
+                else:
+                    radios[dest_key] = self.format_radio(dest_key, index+1, info)
 
         return radios
 
@@ -839,6 +876,8 @@ def main():
     if ac == 'A-10C':
         cdu = CDU_DataLoader(mdc, params['key'], params['id'])
     elif ac == 'F-16C':
+        cdu = DCS_DTC(mdc, params['key'], params['id'])
+    elif ac == 'F-15ESE':
         cdu = DCS_DTC(mdc, params['key'], params['id'])
     elif ac == 'FA-18C':
         cdu = CDU_BASE()

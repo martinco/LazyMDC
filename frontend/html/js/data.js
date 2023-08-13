@@ -531,6 +531,11 @@ function data_squadron_set(sqn, callback) {
       input.append(option)
     }
 
+    // If we're 494th set the download item to 494FS
+    if ($('#data-squadron option:selected').text() === "494FS") {
+      $('#download-template').val('494FS');
+    }
+
     if (typeof(callback) === "function") {
       callback();
     }

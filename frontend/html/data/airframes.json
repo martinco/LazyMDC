@@ -7141,7 +7141,9 @@
         "PRI",
         "SEC"
       ]
-    }
+    },
+    "waypoint_initial_index": 1,
+    "waypoint_reindex": true
   },
   "F-16C": {
     "bingo": 2000,
