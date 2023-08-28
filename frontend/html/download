@@ -568,7 +568,7 @@ class DCS_DTC():
 
         for preset, info in radio_data.items():
             if 'override' in info:
-                data['Frequencies'].append(int(round(float(info['override'])*1000)))
+                data['Frequencies'].append("%.03f" % float(info['override']))
             else:
                 data['Frequencies'].append(None)
 
