@@ -206,17 +206,19 @@ function tcn_formatter(field) {
 function number_formatter(field, precision) {
   precision = precision || 0;
   field.addEventListener('keydown', function(e) {
-    // With numbers, we change the , to a . and only allow 
-    var key = e.keyCode ? e.keyCode : e.which;
+    var code = e.keyCode ? e.keyCode : e.which;
+    var key_int = parseInt(e.key);
     if (!(
-        // unmodified 0-9
-        (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey))
+
+        // unmodified 0-9 via key / code
+        (!isNaN(key_int) && key_int <= 9 && key_int >= 0)
+        || (code >= 48 && code <= 57 && !(e.shiftKey || e.altKey))
         // unmodified decimal point, comma or period where precision isn't 0
-        || ([110, 188, 190].indexOf(key) !== -1 && !(precision == 0))
+        || ([110, 188, 190].indexOf(code) !== -1 && !(precision == 0))
         // backspace, tab, enter, esc, left arrow, right arrow, del, f5
-        || ([8, 9, 13, 27, 37, 39, 46, 116].indexOf(key) !== -1)
+        || ([8, 9, 13, 27, 37, 39, 46, 116].indexOf(code) !== -1)
         // ctrl + a
-        || (key == 65 && e.ctrlKey)
+        || (code == 65 && e.ctrlKey)
     )) {
       e.preventDefault();
     }
@@ -224,6 +226,7 @@ function number_formatter(field, precision) {
 
   field.addEventListener('change', function(e) {
     // Format correctly
+    // With numbers, we change the , to a . and only allow 
     var value = parseFloat(e.target.value.replace(',', '.'));
     e.target.value = value.toFixed(precision);
   });
