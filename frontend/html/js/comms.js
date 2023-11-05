@@ -182,3 +182,7 @@ function comms_load(data, callback) {
 $('#comms-table > tbody').sortable({
   items: 'tr',
 })
+
+$('#codewords-table > tbody').sortable({
+  items: 'tr',
+})
