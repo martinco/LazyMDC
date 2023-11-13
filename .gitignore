@@ -1,5 +1,11 @@
-mdcs
-apps
-mdc_images
-venv
-cache
+frontend/mdcs
+frontend/apps
+frontend/mdc_images
+frontend/venv
+frontend/cache
+api/build/
+api/dist/
+api/venv/
+api/**/__pycache__
+api/*.pyc
+api/*\.egg-info
