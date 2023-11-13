@@ -1,0 +1,55 @@
+---
+
+services:
+  frontend:
+    image: mdcapi/frontend
+    build:
+      context: frontend
+    environment:
+      # This is for using jwilder/nginx-proxy and nginxproxy/acme-companion for
+      # SSL termination passing through, the vhost must be referenced in
+      # frontend/html/mce_upload.php
+      VIRTUAL_HOST: foo.s1.dcs-mdc.com
+      LETSENCRYPT_HOST: foo.s1.dcs-mdc.com 
+      VIRTUAL_PORT: "80"
+    volumes:
+      # Make sure these are chmod 777 these
+      - ./data/cache:/var/www/html/cache
+      - ./data/mdcs:/var/www/html/mdcs
+      - ./data/mdc_images:/var/www/html/mdc_images
+    networks:
+      - nginx-proxy
+      - api
+    depends_on:
+      - api
+
+  api:
+    image: mdcapi/api
+    build:
+      context: api
+    environment:
+      MDC_API_CONFIG: /data/app.conf
+    volumes:
+       - ./etc/app.conf:/data/app.conf
+    networks:
+      - api
+      - db
+
+  database:
+    image: mariadb:11
+    volumes:
+      - ./data/db:/var/lib/mysql
+      - ./api/mdc_api.sql:/docker-entrypoint-initdb.d/mdc_api.sql
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_USER: mdc_api
+      MARIADB_PASSWORD: mdc_api
+      MARIADB_DATABASE: mdc_api
+    networks:
+      - db
+
+networks:
+  nginx-proxy:
+    external: true
+  api:
+  db:

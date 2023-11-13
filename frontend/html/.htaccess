@@ -1,4 +1,5 @@
 <Files download>
+  Options +ExecCGI
   SetHandler cgi-script 
 </Files>
 
@@ -8,13 +9,7 @@ Header always set Content-Security-Policy "default-src 'unsafe-inline' 'self' fo
 Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 Header always set X-Content-Type-Options nosniff
 
-Options +ExecCGI
-
 RewriteEngine on
-
-# If we're mdc.hatchlane.com, redirect to dcs-mdc.com
-RewriteCond %{HTTP_HOST} ^mdc.hatchlane.com$
-RewriteRule (.*) http://dcs-mdc.com/$1 [L,R,NE]
 
 # SET BASE to match our root; everything except a possible last element DC ID
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$

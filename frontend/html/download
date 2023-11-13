@@ -9,7 +9,9 @@ import re
 import sys
 import urllib
 
+# Match these in docker
 os.environ['PYPPETEER_CHROMIUM_REVISION'] = '1089147'
+os.environ['PYPPETEER_HOME'] = '/tmp'
 #os.environ['PYPPETEER_CHROMIUM_REVISION'] = '1058933'
 
 #import pyppeteer
@@ -714,6 +716,7 @@ class DCS_DTC():
 async def get_html(url):
 
     browser = await launch({
+        'args': [ '--no-sandbox' ],
         'headless': True,
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
@@ -737,6 +740,7 @@ async def get_html(url):
 async def get_image(url):
 
     browser = await launch({
+        'args': [ '--no-sandbox' ],
         'headless': True,
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
@@ -765,6 +769,7 @@ async def get_image(url):
 
 async def get_pdf(url):
     browser = await launch({
+        'args': [ '--no-sandbox' ],
         'headless': True,
         'userDataDir': '/tmp/httpd/pyppeteer',
     })
@@ -846,12 +851,7 @@ def main():
         if dtc.files:
             cdu.files.update(dtc.files)
 
-    url = (
-        '{scheme}://{host}/{root}'
-        '/templates/{template}/template.htm?kb={key}').format(
-        scheme=os.environ.get('REQUEST_SCHEME'),
-        host=os.environ.get('HTTP_HOST'),
-        root=os.path.dirname(os.environ.get('SCRIPT_NAME')),
+    url = 'http://frontend/templates/{template}/template.htm?kb={key}'.format(
         template=params['template'],
         key=params['key'])
 

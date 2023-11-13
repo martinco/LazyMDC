@@ -1,5 +1,5 @@
 
-from flask_jwt_extended import jwt_required, jwt_optional
+from flask_jwt_extended import jwt_required
 
 from mdc_api.app import app, mysql
 from mdc_api.user import require_roles

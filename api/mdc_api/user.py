@@ -8,8 +8,8 @@ from functools import wraps
 from flask import request, jsonify
 
 from flask_jwt_extended import (
-    JWTManager, jwt_required, jwt_optional, create_access_token,
-    get_jwt_identity, get_jwt_claims, verify_jwt_in_request,
+    JWTManager, jwt_required, create_access_token,
+    get_jwt_identity, get_jwt, verify_jwt_in_request,
     set_access_cookies, unset_access_cookies)
 
 from mdc_api import app, mysql
@@ -34,7 +34,7 @@ def require_roles(required_role, restriction=None):
             # Verify we're JWTd up
             verify_jwt_in_request()
 
-            user_roles = get_jwt_claims().get('roles', {})
+            user_roles = get_jwt().get('roles', {})
 
             if required_role not in user_roles:
                 return denied()
@@ -115,7 +115,7 @@ def login():
         # Create Token and cookify it
         access_token = create_access_token(
             identity=username,
-            user_claims={
+            additional_claims={
                 'roles': roles,
             })
 
@@ -168,18 +168,18 @@ def create():
 
 
 @app.route('/user/whoami', methods=['GET', 'POST'])
-@jwt_optional
+@jwt_required(optional=True)
 def whoami():
     identity = get_jwt_identity()
     if not identity:
         return jsonify({})
 
-    roles = get_jwt_claims().get('roles', {})
+    roles = get_jwt().get('roles', {})
     return jsonify({'username': identity, 'roles': roles})
 
 
 @app.route('/user/logout', methods=['GET', 'POST'])
-@jwt_required
+@jwt_required()
 def logout():
     resp = jsonify({
         "logout": True,

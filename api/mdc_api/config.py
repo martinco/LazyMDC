@@ -1,10 +1,10 @@
 
 class ConfigBase(object):
     DEBUG = True
-    MYSQL_HOST = "localhost"
-    MYSQL_DB = "mdc_devel"
-    MYSQL_USER = "mdc_devel"
-    MYSQL_PASSWORD = "mdc_devel"
+    MYSQL_HOST = "database"
+    MYSQL_DB = "mdc_api"
+    MYSQL_USER = "mdc_api"
+    MYSQL_PASSWORD = "mdc_api"
 
     JWT_SECRET_KEY = "asoufbaousfbaosufgb"
     JWT_TOKEN_LOCATION = ['cookies']

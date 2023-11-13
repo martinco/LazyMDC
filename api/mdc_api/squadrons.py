@@ -8,7 +8,7 @@ from deepmerge import always_merger
 from flask import jsonify, request
 
 from flask_jwt_extended import (
-    jwt_optional, get_jwt_identity, get_jwt_claims)
+    jwt_required, get_jwt_identity, get_jwt)
 
 from mdc_api import (
     app, mysql, require_roles, success, fail, bad_request)
@@ -217,7 +217,7 @@ def lookup_squadron_freqs(sid):
 
 
 @app.route('/squadrons')
-@jwt_optional
+@jwt_required(optional=True)
 def squadrons():
     """
     Returns a list of squadrons, if show_all then it shows inactive and those
@@ -229,7 +229,7 @@ def squadrons():
     identity = get_jwt_identity()
 
     try:
-        editable = get_jwt_claims().get('roles', {}).get('squadron-edit', [])
+        editable = get_jwt().get('roles', {}).get('squadron-edit', [])
     except (KeyError, AttributeError):
         editable = []
 

@@ -1,0 +1,7 @@
+appdirs
+Pillow
+pyee
+pyppeteer
+tqdm
+urllib3
+websockets

@@ -61,7 +61,7 @@ CREATE TABLE `permissions` (
 
 LOCK TABLES `permissions` WRITE;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-INSERT INTO `permissions` VALUES (1,'users-view','View user accounts'),(2,'users-create','Create user accounts'),(3,'squadrons-create','Create squadrons'),(4,'theatre-create','Manage Theatres'),(5,'squadron-edit','Edit a Squadron')
+INSERT INTO `permissions` VALUES (1,'users-view','View user accounts'),(2,'users-create','Create user accounts'),(3,'squadrons-create','Create squadrons'),(4,'theatre-create','Manage Theatres'),(5,'squadron-edit','Edit a Squadron');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -5,7 +5,7 @@
   $accepted_origins = array(
     "https://dcs-mdc.com",
     "https://dev.dcs-mdc.com",
-    "https://mdc.132virtualwing.org"
+    "https://mdc.132virtualwing.org",
   );
 
   /*********************************************
@@ -52,8 +52,12 @@
         return;
     }
 
+    // Instead of doing uniqid(), just do checksum so the same file multiple times
+    // doesn't increase space usage
+    $file_sha1 = sha1_file($temp['tmp_name']);
+
     // Accept upload if there was no origin, or if it is an accepted origin
-    $filetowrite = $imageFolder . uniqid() . "." . $extension;
+    $filetowrite = $imageFolder . $file_sha1 . "." . $extension;
     move_uploaded_file($temp['tmp_name'], $filetowrite);
 
     // Determine the base URL

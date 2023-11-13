@@ -21,11 +21,11 @@ $data = file_get_contents('php://input');
 $json = json_decode($data, true);
 if (isset($json['key']) && preg_match($uuid_regex, $json['key']) === 1) {
   $id = $json['key'];
-  $fn = "mdcs/${id}.json";
+  $fn = "mdcs/{$id}.json";
 } else {
   while (true) {
     $id = generateID();
-    $fn = "mdcs/${id}.json";
+    $fn = "mdcs/{$id}.json";
     if (!file_exists($fn)) {
       break;
     }
