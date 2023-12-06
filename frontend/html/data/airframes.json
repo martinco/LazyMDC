@@ -23,6 +23,10 @@
           "clsid": "ALQ_184",
           "weight": 215
         },
+        "ALQ-184 Long - ECM Pod": {
+          "clsid": "ALQ_184_Long",
+          "weight": 286
+        },
         "BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{BDU-50HD}",
           "weight": 232
@@ -53,31 +57,31 @@
         },
         "LAU-105 with 1 x AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-105_1*AIM-9L_L",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 1 x AIM-9M Sidewinder IR AAM": {
           "clsid": "LAU-105_1*AIM-9M_L",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 1 x AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "LAU-105_AIS_ASQ_T50_L",
-          "weight": 92.6
+          "weight": 268.6
         },
         "LAU-105 with 1 x Captive AIM-9M for ACM": {
           "clsid": "LAU-105_1*CATM-9M_L",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 2 x AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-105_2*AIM-9L",
-          "weight": 201.46
+          "weight": 377.46
         },
         "LAU-105 with 2 x AIM-9M Sidewinder IR AAM": {
           "clsid": "{DB434044-F5D0-4F1F-9BA9-B73027E18DD3}",
-          "weight": 201.46
+          "weight": 377.46
         },
         "LAU-105 with 2 x Captive AIM-9M for ACM": {
           "clsid": "LAU-105_2*CATM-9M",
-          "weight": 201.46
+          "weight": 377.46
         },
         "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
@@ -235,6 +239,10 @@
           "clsid": "ALQ_184",
           "weight": 215
         },
+        "ALQ-184 Long - ECM Pod": {
+          "clsid": "ALQ_184_Long",
+          "weight": 286
+        },
         "BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{BDU-50HD}",
           "weight": 232
@@ -265,31 +273,31 @@
         },
         "LAU-105 with 1 x AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-105_1*AIM-9L_R",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 1 x AIM-9M Sidewinder IR AAM": {
           "clsid": "LAU-105_1*AIM-9M_R",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 1 x AN/ASQ-T50 TCTS Pod - ACMI Pod": {
           "clsid": "LAU-105_AIS_ASQ_T50_R",
-          "weight": 92.6
+          "weight": 268.6
         },
         "LAU-105 with 1 x Captive AIM-9M for ACM": {
           "clsid": "LAU-105_1*CATM-9M_R",
-          "weight": 115.73
+          "weight": 291.73
         },
         "LAU-105 with 2 x AIM-9L Sidewinder IR AAM": {
           "clsid": "LAU-105_2*AIM-9L",
-          "weight": 201.46
+          "weight": 377.46
         },
         "LAU-105 with 2 x AIM-9M Sidewinder IR AAM": {
           "clsid": "{DB434044-F5D0-4F1F-9BA9-B73027E18DD3}",
-          "weight": 201.46
+          "weight": 377.46
         },
         "LAU-105 with 2 x Captive AIM-9M for ACM": {
           "clsid": "LAU-105_2*CATM-9M",
-          "weight": 201.46
+          "weight": 377.46
         },
         "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
@@ -591,6 +599,10 @@
           "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}",
           "weight": 277
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65G - Maverick G (IIR ASM - Lg Whd)": {
           "clsid": "LAU_117_AGM_65G",
           "weight": 360
@@ -602,10 +614,6 @@
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
           "weight": 356
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-117 with CATM-65K - Captive Trg Round for Mav K (CCD)": {
           "clsid": "LAU_117_CATM_65K",
@@ -1599,6 +1607,10 @@
           "clsid": "{444BA8AE-82A7-4345-842E-76154EFCCA46}",
           "weight": 277
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65G - Maverick G (IIR ASM - Lg Whd)": {
           "clsid": "LAU_117_AGM_65G",
           "weight": 360
@@ -1610,10 +1622,6 @@
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
           "weight": 356
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-117 with CATM-65K - Captive Trg Round for Mav K (CCD)": {
           "clsid": "LAU_117_CATM_65K",
@@ -2080,6 +2088,10 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114K, 3 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114K_3xAGM_114L_PRT}",
+          "weight": 257.3
+        },
         "M299 - 1 x AGM-114L Hellfire, Port": {
           "clsid": "{M299_1xAGM_114L_OUTBOARD_PORT}",
           "weight": 113.9
@@ -2088,6 +2100,10 @@
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
         },
+        "M299 - 2 x AGM-114K, 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114K_2xAGM_114L}",
+          "weight": 253.7
+        },
         "M299 - 2 x AGM-114L Hellfire": {
           "clsid": "{M299_2xAGM_114L}",
           "weight": 162.9
@@ -2095,6 +2111,10 @@
         "M299 - 3 x AGM-114K Hellfire, Port": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
           "weight": 199.6
+        },
+        "M299 - 3 x AGM-114K, 1 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114K_1xAGM_114L_PRT}",
+          "weight": 250.1
         },
         "M299 - 3 x AGM-114L Hellfire, Port": {
           "clsid": "{M299_3xAGM_114L_OUTBOARD_PORT}",
@@ -2150,6 +2170,10 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_PORT}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114K, 3 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_1xAGM_114K_3xAGM_114L_PRT}",
+          "weight": 257.3
+        },
         "M299 - 1 x AGM-114L Hellfire, Port": {
           "clsid": "{M299_1xAGM_114L_OUTBOARD_PORT}",
           "weight": 113.9
@@ -2158,6 +2182,10 @@
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
         },
+        "M299 - 2 x AGM-114K, 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114K_2xAGM_114L}",
+          "weight": 253.7
+        },
         "M299 - 2 x AGM-114L Hellfire": {
           "clsid": "{M299_2xAGM_114L}",
           "weight": 162.9
@@ -2165,6 +2193,10 @@
         "M299 - 3 x AGM-114K Hellfire, Port": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_PORT}",
           "weight": 199.6
+        },
+        "M299 - 3 x AGM-114K, 1 x AGM-114L Hellfire, Port": {
+          "clsid": "{M299_3xAGM_114K_1xAGM_114L_PRT}",
+          "weight": 250.1
         },
         "M299 - 3 x AGM-114L Hellfire, Port": {
           "clsid": "{M299_3xAGM_114L_OUTBOARD_PORT}",
@@ -2220,6 +2252,10 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114K, 3 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114K_3xAGM_114L_STRBRD}",
+          "weight": 257.3
+        },
         "M299 - 1 x AGM-114L Hellfire, Starboard": {
           "clsid": "{M299_1xAGM_114L_OUTBOARD_STARBOARD}",
           "weight": 113.9
@@ -2228,6 +2264,10 @@
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
         },
+        "M299 - 2 x AGM-114K, 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114K_2xAGM_114L}",
+          "weight": 253.7
+        },
         "M299 - 2 x AGM-114L Hellfire": {
           "clsid": "{M299_2xAGM_114L}",
           "weight": 162.9
@@ -2235,6 +2275,10 @@
         "M299 - 3 x AGM-114K Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 199.6
+        },
+        "M299 - 3 x AGM-114K, 1 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114K_1xAGM_114L_STRBRD}",
+          "weight": 250.1
         },
         "M299 - 3 x AGM-114L Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114L_OUTBOARD_STARBOARD}",
@@ -2290,6 +2334,10 @@
           "clsid": "{M299_1xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 109.8
         },
+        "M299 - 1 x AGM-114K, 3 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_1xAGM_114K_3xAGM_114L_STRBRD}",
+          "weight": 257.3
+        },
         "M299 - 1 x AGM-114L Hellfire, Starboard": {
           "clsid": "{M299_1xAGM_114L_OUTBOARD_STARBOARD}",
           "weight": 113.9
@@ -2298,6 +2346,10 @@
           "clsid": "{M299_2xAGM_114K}",
           "weight": 154.7
         },
+        "M299 - 2 x AGM-114K, 2 x AGM-114L Hellfire": {
+          "clsid": "{M299_2xAGM_114K_2xAGM_114L}",
+          "weight": 253.7
+        },
         "M299 - 2 x AGM-114L Hellfire": {
           "clsid": "{M299_2xAGM_114L}",
           "weight": 162.9
@@ -2305,6 +2357,10 @@
         "M299 - 3 x AGM-114K Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114K_OUTBOARD_STARBOARD}",
           "weight": 199.6
+        },
+        "M299 - 3 x AGM-114K, 1 x AGM-114L Hellfire, Starboard": {
+          "clsid": "{M299_3xAGM_114K_1xAGM_114L_STRBRD}",
+          "weight": 250.1
         },
         "M299 - 3 x AGM-114L Hellfire, Starboard": {
           "clsid": "{M299_3xAGM_114L_OUTBOARD_STARBOARD}",
@@ -2939,13 +2995,13 @@
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
@@ -3017,7 +3073,7 @@
         },
         "LAU-7 with AIM-9M Sidewinder IR AAM": {
           "clsid": "{AIM-9M-ON-ADAPTER}",
-          "weight": 100.73
+          "weight": 126.73
         },
         "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
@@ -3161,13 +3217,13 @@
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
@@ -3371,13 +3427,13 @@
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
@@ -3621,13 +3677,13 @@
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
           "weight": 345
         },
+        "LAU-117 with AGM-65E2/L - Maverick E2/L (Laser Guided ASM)": {
+          "clsid": "LAU_117_AGM_65L",
+          "weight": 351
+        },
         "LAU-117 with AGM-65F - Maverick F (IIR ASM)": {
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
-        },
-        "LAU-117 with AGM-65L - Maverick E2/L (CCD Laser ASM)": {
-          "clsid": "LAU_117_AGM_65L",
-          "weight": 351
         },
         "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
@@ -3699,7 +3755,7 @@
         },
         "LAU-7 with AIM-9M Sidewinder IR AAM": {
           "clsid": "{AIM-9M-ON-ADAPTER}",
-          "weight": 100.73
+          "weight": 126.73
         },
         "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
@@ -5719,17 +5775,17 @@
     "joker": 8000,
     "loadout": {
       "1": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 76.9
+          "weight": 74.84
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -5741,7 +5797,7 @@
         },
         "AIM-9P Sidewinder IR AAM": {
           "clsid": "{9BFD8C90-F7AE-4e90-833B-BFD0CED0E536}",
-          "weight": 85.5
+          "weight": 74.84
         },
         "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
@@ -5749,13 +5805,13 @@
         }
       },
       "10": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -5775,13 +5831,13 @@
         }
       },
       "11": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -5893,6 +5949,30 @@
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
+        "GBU-31(V)1/B * 2": {
+          "clsid": "{CFT_R_GBU_31_x_2}",
+          "weight": 1788
+        },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B * 2": {
+          "clsid": "{CFT_R_GBU_31V3B_x_2}",
+          "weight": 1962
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38 * 3": {
+          "clsid": "{CFT_R_GBU_38_x_3}",
+          "weight": 723
+        },
+        "GBU-54B * 3": {
+          "clsid": "{CFT_R_GBU_54_x_3}",
+          "weight": 759
+        },
         "MK-84 * 2": {
           "clsid": "{CFT_R_MK84LD_x_2}",
           "weight": 1788
@@ -5979,17 +6059,17 @@
         }
       },
       "13": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 76.9
+          "weight": 74.84
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6001,7 +6081,7 @@
         },
         "AIM-9P Sidewinder IR AAM": {
           "clsid": "{9BFD8C90-F7AE-4e90-833B-BFD0CED0E536}",
-          "weight": 85.5
+          "weight": 74.84
         },
         "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
@@ -6049,6 +6129,22 @@
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38(V)1/B - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{GBU-38}",
+          "weight": 241
+        },
+        "GBU-54(V)1/B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
+          "clsid": "{GBU_54_V_1B}",
+          "weight": 253
+        },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
           "weight": 300
@@ -6083,17 +6179,17 @@
         }
       },
       "15": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 76.9
+          "weight": 74.84
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6105,7 +6201,7 @@
         },
         "AIM-9P Sidewinder IR AAM": {
           "clsid": "{9BFD8C90-F7AE-4e90-833B-BFD0CED0E536}",
-          "weight": 85.5
+          "weight": 74.84
         },
         "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
@@ -6153,6 +6249,22 @@
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38(V)1/B - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{GBU-38}",
+          "weight": 241
+        },
+        "GBU-54(V)1/B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
+          "clsid": "{GBU_54_V_1B}",
+          "weight": 253
+        },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
           "weight": 300
@@ -6187,17 +6299,17 @@
         }
       },
       "3": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 76.9
+          "weight": 74.84
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6209,7 +6321,7 @@
         },
         "AIM-9P Sidewinder IR AAM": {
           "clsid": "{9BFD8C90-F7AE-4e90-833B-BFD0CED0E536}",
-          "weight": 85.5
+          "weight": 74.84
         },
         "Captive AIM-9M for ACM": {
           "clsid": "CATM-9M",
@@ -6309,6 +6421,30 @@
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
+        "GBU-31(V)1/B * 2": {
+          "clsid": "{CFT_L_GBU_31_x_2}",
+          "weight": 1788
+        },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B * 2": {
+          "clsid": "{CFT_L_GBU_31V3B_x_2}",
+          "weight": 1962
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38 * 3": {
+          "clsid": "{CFT_L_GBU_38_x_3}",
+          "weight": 723
+        },
+        "GBU-54B * 3": {
+          "clsid": "{CFT_L_GBU_54_x_3}",
+          "weight": 759
+        },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
           "weight": 300
@@ -6395,13 +6531,13 @@
         }
       },
       "5": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -6421,13 +6557,13 @@
         }
       },
       "6": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -6496,6 +6632,22 @@
         "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
+        },
+        "GBU-31(V)1/B - JDAM, 2000lb GPS Guided Bomb": {
+          "clsid": "{GBU-31}",
+          "weight": 934
+        },
+        "GBU-31(V)3/B - JDAM, 2000lb GPS Guided Penetrator Bomb": {
+          "clsid": "{GBU-31V3B}",
+          "weight": 981
+        },
+        "GBU-38(V)1/B - JDAM, 500lb GPS Guided Bomb": {
+          "clsid": "{GBU-38}",
+          "weight": 241
+        },
+        "GBU-54(V)1/B - LJDAM, 500lb Laser & GPS Guided Bomb LD": {
+          "clsid": "{GBU_54_V_1B}",
+          "weight": 253
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -8125,13 +8277,13 @@
     "joker": 3000,
     "loadout": {
       "1": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -8193,13 +8345,13 @@
         }
       },
       "2": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -8231,13 +8383,13 @@
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
         },
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -8427,6 +8579,10 @@
           "clsid": "{Mk_84AIR_TP}",
           "weight": 911.7
         },
+        "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_2L*BDU-50LGB}",
+          "weight": 613
+        },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
           "weight": 913
@@ -8454,6 +8610,14 @@
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
+        },
+        "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{TER_9A_3*BDU-50HD}",
+          "weight": 749
+        },
+        "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_3*BDU-50LD}",
+          "weight": 749
         },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
@@ -8557,6 +8721,10 @@
           "clsid": "{Mk_84AIR_TP}",
           "weight": 911.7
         },
+        "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_2L*BDU-50LGB}",
+          "weight": 613
+        },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
           "weight": 913
@@ -8580,6 +8748,14 @@
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
+        },
+        "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{TER_9A_3*BDU-50HD}",
+          "weight": 749
+        },
+        "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_3*BDU-50LD}",
+          "weight": 749
         },
         "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
@@ -8713,6 +8889,10 @@
           "clsid": "{Mk_84AIR_TP}",
           "weight": 911.7
         },
+        "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_2R*BDU-50LGB}",
+          "weight": 613
+        },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
           "weight": 913
@@ -8736,6 +8916,14 @@
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
+        },
+        "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{TER_9A_3*BDU-50HD}",
+          "weight": 749
+        },
+        "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_3*BDU-50LD}",
+          "weight": 749
         },
         "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
@@ -8767,13 +8955,13 @@
           "clsid": "{B06DD79A-F21E-4EB9-BD9D-AB3844618C93}",
           "weight": 406.4
         },
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -8963,6 +9151,10 @@
           "clsid": "{Mk_84AIR_TP}",
           "weight": 911.7
         },
+        "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_2R*BDU-50LGB}",
+          "weight": 613
+        },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
           "weight": 913
@@ -8991,6 +9183,14 @@
           "clsid": "{TER_9A_3*BDU-33}",
           "weight": 86.9
         },
+        "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
+          "clsid": "{TER_9A_3*BDU-50HD}",
+          "weight": 749
+        },
+        "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
+          "clsid": "{TER_9A_3*BDU-50LD}",
+          "weight": 749
+        },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
           "weight": 737
@@ -9005,13 +9205,13 @@
         }
       },
       "8": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -9035,13 +9235,13 @@
         }
       },
       "9": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -9931,13 +10131,13 @@
         }
       },
       "4": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -10043,13 +10243,13 @@
         }
       },
       "6": {
-        "AIM-120B AMRAAM - Active Rdr AAM": {
+        "AIM-120B AMRAAM - Active Radar AAM": {
           "clsid": "{C8E06185-7CD6-4C90-959F-044679E90751}",
-          "weight": 156
+          "weight": 157.85
         },
-        "AIM-120C-5 AMRAAM - Active Rdr AAM": {
+        "AIM-120C AMRAAM - Active Radar AAM": {
           "clsid": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}",
-          "weight": 161.5
+          "weight": 161.48
         },
         "AIM-7F Sparrow Semi-Active Radar": {
           "clsid": "{AIM-7F}",
@@ -12267,7 +12467,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -12321,7 +12521,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -12371,7 +12571,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -12425,7 +12625,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13086,7 +13286,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13148,7 +13348,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13222,7 +13422,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13280,7 +13480,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13338,7 +13538,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
@@ -13412,7 +13612,7 @@
           "clsid": "{3C612111-C7AD-476E-8A8E-2485812F4E5C}",
           "weight": 250
         },
-        "FAB-250-M62 - 250kg GP Bomb LD": {
+        "FAB-250-M62 - 250 kg GP Bomb LD": {
           "clsid": "{FAB_250_M62}",
           "weight": 227
         },
