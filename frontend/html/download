@@ -417,8 +417,8 @@ class DCS_DTC():
             new_wp = {
                 "Sequence": sequence,
                 "Name": "WPT %i" % sequence,
-                "Latitude": "N 00.00.000",
-                "Longitude": "E 000.00.000",
+                "Latitude": "N 00°00.000",
+                "Longitude": "E 000°00.000",
                 "Elevation": 0,
                 "Blank": True
             }
@@ -710,7 +710,9 @@ class DCS_DTC():
 
         if content:
             self._files['dcs_dtc.json'] = json.dumps(
-                content, indent=2, separators=(',', ': '))
+                content, indent=2,
+                ensure_ascii=False,
+                separators=(',', ': '))
 
     def fmt_ll(self, wp, lat=True):
 
@@ -737,9 +739,9 @@ class DCS_DTC():
             lat_str = 'E ' if positive else 'W '
 
         if lat:
-            lat_str += '%02d.' % degs
+            lat_str += '%02d°' % degs
         else:
-            lat_str += '%03d.' % degs
+            lat_str += '%03d°' % degs
 
         # 18 uses 2 DP, 16 uses 3
         if self._ac == 'FA-18C':
