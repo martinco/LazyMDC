@@ -1,12 +1,4 @@
 <?php
-  /***************************************************
-   * Only these origins are allowed to upload images *
-   ***************************************************/
-  $accepted_origins = array(
-    "https://dcs-mdc.com",
-    "https://dev.dcs-mdc.com",
-    "https://mdc.132virtualwing.org",
-  );
 
   /*********************************************
    * Change this line to set the upload folder *
@@ -14,8 +6,13 @@
   $imageFolder = "mdc_images/";
 
   if (isset($_SERVER['HTTP_ORIGIN'])) {
-    // same-origin requests won't set an origin. If the origin is set, it must be valid.
-    if (in_array($_SERVER['HTTP_ORIGIN'], $accepted_origins)) {
+
+    // If our server_name matches our origin, we're good for this use case
+    // to prevent Cross site requests
+
+    $origin_host = parse_url($_SERVER['HTTP_ORIGIN'], PHP_URL_HOST);
+		error_log($origin_host . ' -> ' . $_SERVER['HTTP_HOST']);
+    if ($origin_host == $_SERVER['HTTP_HOST']) {
       header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
     } else {
       header("HTTP/1.1 403 Origin Denied");
