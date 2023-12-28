@@ -48,3 +48,11 @@ USER root
 COPY html/ /var/www/html/
 COPY etc/apache.conf /etc/apache2/conf-enabled/mdc-api.conf
 
+# Make and Chown directories required for uploads/downloads etc
+# The mdcs, and mdc_images directories are prime candidates for
+# bind mounting in to persist restarts
+RUN mkdir -p -m 0777 \
+    /var/www/html/cache \
+    /var/www/html/mdcs \
+    /var/www/html/mdc_images \
+  && chmod 755 /var/www/html/download
