@@ -60,14 +60,10 @@
     $filetowrite = $imageFolder . $file_sha1 . "." . $extension;
     move_uploaded_file($temp['tmp_name'], $filetowrite);
 
-    // Determine the base URL
-    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https://" : "http://";
-    $baseurl = $protocol . $_SERVER["HTTP_HOST"] . rtrim(dirname($_SERVER['REQUEST_URI']), "/") . "/";
-
     // Respond to the successful upload with JSON.
     // Use a location key to specify the path to the saved image resource.
     // { location : '/your/uploaded/image/file'}
-    echo json_encode(array('location' => $baseurl . $filetowrite));
+    echo json_encode(array('location' => '/'.$filetowrite));
   } else {
     // Notify editor that the upload failed
     header("HTTP/1.1 500 Server Error");
