@@ -33,7 +33,7 @@ RUN python3 -m venv /var/www/html/venv \
 		&& rm -f /tmp/requirements.txt
 
 # Apache/PHP Config
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+COPY etc/php.ini /usr/local/etc/php/php.ini
 RUN a2enmod proxy proxy_http proxy_http2 headers cgi rewrite
 
 # Install pyppeteer

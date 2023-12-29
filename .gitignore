@@ -10,4 +10,4 @@ api/**/__pycache__
 api/*.pyc
 api/*\.egg-info
 data
-etc
+/etc
