@@ -20,7 +20,6 @@ function login(event) {
         console.log('alert');
         return;
       }
-      admin_user = r;
       do_login(r);
     }
   );
@@ -100,6 +99,9 @@ function do_login(data, instant) {
   if (page == "login") {
     window.history.pushState('page', 'title', "introduction");
   }
+
+  // Store admin user
+  admin_user = data;
 
   // Change sidebar
   if (instant || false) {
