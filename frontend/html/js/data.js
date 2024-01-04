@@ -734,8 +734,11 @@ $("#data-route-dialog-submit").click(function(e, data) {
       mission_route_data.wp_style = wp_style;
     }
 
+    // Ignore route only if we haven't got an airframe specified
+    let existing_airframe = $('#flight-airframe').val();
+
     // Handle CF specifics if we're loading everything
-    if (!mission_route_data.route_only) {
+    if (!mission_route_data.route_only || !existing_airframe) {
       
       if (mission_route_data.xml_format == "cf") {
 
