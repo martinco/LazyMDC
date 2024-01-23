@@ -888,6 +888,7 @@ MissionProcessor = function() {
             // Iterate through each radio and compare to the master_map and identify items
             for (const [radio_name, radio_data] of Object.entries(unit.map)) {
               m_radio_data = m_map[radio_name];
+              if (!m_radio_data) continue;
 
               for (const [preset_id, preset_value] of Object.entries(radio_data)) {
                 if (m_radio_data[preset_id] != preset_value) {
