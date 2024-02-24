@@ -148,8 +148,11 @@ function loadout_update_weight() {
           flight_member_weight += Math.round(itm.getAttribute('data-pyl-weight')*2.20462)
         }
 
+        // If we have an FCR add in that too
+        if (tr[0].cells[1].firstElementChild.checked) flight_member_weight += Math.round(237.23 * 2.20462)
+
         // Update lbs
-        tr[0].cells[6].innerText = flight_member_weight;
+        tr[0].cells[7].innerText = flight_member_weight;
       }
 
     } else {
@@ -244,6 +247,9 @@ function loadout_preset_apply(evt, member_index) {
   if (member_index !== undefined) {
     // Avoid overwriting our pylons
     presets = jQuery.extend(true, {}, presets)
+
+    // Keep FCR
+    presets.fcr = get_ah64_fcr()
 
     let new_pylons = loadout_get_pylons();
     new_pylons[member_index] = presets.pylons;
@@ -443,6 +449,9 @@ function loadout_set(opts) {
       ah64_rows += `
         <tr>
           <td class="text-center font-weight-bold">#${x+1}</td>
+          <td class="text-center font-weight-bold">
+              <input type="checkbox" class="input-full" style="height: 100%" ${opts?.fcr?.[x] === "1" ? "checked" : ""} onchange="loadout_update_weight()"/>
+          </td>
           <td class="input-container">
             <select class="input-full pylon-preset-select" onchange="loadout_preset_apply(this, ${x});">
               ${loadout_presets}
@@ -580,7 +589,7 @@ function loadout_get_pylons() {
     for (let x = 1 ; x < 5; x++) {
       $(`#loadout-pyl-table-ah64 > tbody > tr:nth-child(${x})`).each(function(idx, tr) {
         let member_pylons = []
-        for (let y = 2; y < 6; y++) {
+        for (let y = 3; y < 7; y++) {
           let select = tr.cells[y].firstElementChild;
           let itm = select.options[select.selectedIndex];
           member_pylons.push(
@@ -601,6 +610,11 @@ function loadout_get_pylons() {
 
 }
 
+function get_ah64_fcr() {
+  return $('#loadout-pyl-table-ah64 > tbody').children().map(
+    (idx, x) => x.cells[1].firstElementChild.checked ? "1" : "0").toArray()
+}
+
 function loadout_export() {
   var ret = get_form_data($("#loadout-form"));
   ret['pylons'] = loadout_get_pylons();
@@ -610,6 +624,11 @@ function loadout_export() {
 
   if (!type_data) {
     return {}
+  }
+
+  // If we're an apache dump the FCR info too
+  if (type == "AH-64D") {
+    ret['fcr'] = get_ah64_fcr()
   }
 
   ret['weights'] = loadout_update_weight()

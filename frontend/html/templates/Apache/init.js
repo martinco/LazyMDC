@@ -203,7 +203,8 @@ function Page1(data) {
   let content = `
     <table class='std'>
       <colgroup>
-        <col style="width:75px">
+        <col style="width:51px">
+        <col style="width:24px">
         <col style="width:44px">
         <col style="width:44px">
         <col style="width:44px">
@@ -226,7 +227,7 @@ function Page1(data) {
   // FLIGHT
   content += `
         <tr class="bordered-b2">
-          <td class="text-col-title">CALLSIGN:</td>
+          <td class="text-col-title" colspan=2>CALLSIGN:</td>
           <td class="text-bold text-light text-upper" colspan=4>${data.mission["mission-callsign"]} ${data.mission["mission-flight-number"]}</td>
           <td class="text-col-title text-ar" colspan=2>TASKING:</td>
           <td class="text-bold text-light text-upper" colspan=6>${data.mission["mission-desc"]}</td>
@@ -236,6 +237,7 @@ function Page1(data) {
         <tr class="bordered">
           <td class="text-bold bordered-b2" rowspan=6>${text_r90("FLIGHT")}</td>
           <td class="text-col-title"></td>
+          <td class="text-col-title">FCR</td>
           <td class="text-col-title" colspan=2>PILOT</td>
           <td class="text-col-title" colspan=2>CPG</td>
           <td class="text-col-title" colspan=2>OUTR PYL L</td>
@@ -252,6 +254,7 @@ function Page1(data) {
     content += `
       <tr class="bordered-b ${x % 2 == 0 ? "bg-dark" : ""}">
         <td class="bordered text-bold text-center">#${x+1}</td>
+        <td class="bordered text-bold text-center">${data.loadout.fcr?.[x] === "1" ? '&#10003;' : ''}</td>
         <td class="bordered-vdash-r text-up text-bold text-light" colspan=2>${data.flight.members?.[x]?.pilot||""}</td>
         <td class="bordered-vdash-r text-up text-bold text-light" colspan=2>${data.flight.members?.[x]?.cpg||""}</td>`;
 
@@ -280,7 +283,7 @@ function Page1(data) {
 
   content += `
     <tr class="bg-dark bordered-b2">
-      <td class="text-col-title">FUEL</td>
+      <td class="text-col-title text-ar rp5" colspan=2>FUEL</td>
       <td class="text-bold text-light" colspan=2>${data.loadout.fuel}%</td>
       <td class="text-col-title">GUN</td>
       <td class="text-up text-light" colspan=1>${data.loadout.gun}%</td>
@@ -295,7 +298,7 @@ function Page1(data) {
   
   content += `
     <tr class="bordered">
-      <td class="text-bold bordered-b2" rowspan=5>${text_r90("PACKAGE")}</td>
+      <td class="text-bold bordered-b2" colspan=2 rowspan=5>${text_r90("PACKAGE")}</td>
       <td class="text-col-title" colspan=3>CALLSIGN</td>
       <td class="text-col-title" colspan=2>A/C</td>
       <td class="text-col-title" colspan=2>PRI FREQ</td>
@@ -322,7 +325,7 @@ function Page1(data) {
   let comms_rows = 6;
   content += `
     <tr class="bordered">
-      <td class="text-bold" rowspan=${comms_rows+1}>${text_r90("FREQUENCIES")}</td>
+      <td class="text-bold" colspan=2 rowspan=${comms_rows+1}>${text_r90("FREQUENCIES")}</td>
       <td class="text-col-title" colspan=4>ITEM</td>
       <td class="text-col-title" colspan=2>CODE</td>
       <td class="text-col-title bordered-r2" colspan=2>FREQ</td>
@@ -373,7 +376,7 @@ function Page1(data) {
   // AIRFIELD
   content += `
     <tr class="bordered">
-      <td class="text-bold bordered-b2" rowspan=4>${text_r90("AIRFIELD")}</td>
+      <td class="text-bold bordered-b2" colspan=2 rowspan=4>${text_r90("AIRFIELD")}</td>
       <td class="text-col-title" colspan=2></td>
       <td class="text-col-title" colspan=2>ICAO</td>
       <td class="text-col-title" colspan=2>GND</td>
@@ -433,7 +436,7 @@ function Page1(data) {
   let route_count = 19;
   content += `
     <tr class="bordered">
-      <td class="text-bold" rowspan=${route_count+3}>${text_r90("ROUTE")}</td>
+      <td class="text-bold" colspan=2 rowspan=${route_count+3}>${text_r90("ROUTE")}</td>
       <td class="text-col-title">TSD</td>
       <td class="text-col-title">TYPE</td>
       <td class="text-col-title">IDENT</td>

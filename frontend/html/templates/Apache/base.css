@@ -130,6 +130,10 @@ table td.bordered-r2 {
   text-align: right;
 }
 
+.rp5 {
+	padding-right: 5px!important;
+}
+
 .text-al {
   text-align: left;
 }
