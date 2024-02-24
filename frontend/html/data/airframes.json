@@ -4713,6 +4713,10 @@
           "clsid": "{BRU-32 BDU-45B}",
           "weight": 298.38
         },
+        "Expanded Chaff Adapter": {
+          "clsid": "{F14-ECA}",
+          "weight": 25
+        },
         "GBU-10": {
           "clsid": "{BRU-32 GBU-10}",
           "weight": 997.38
@@ -5036,6 +5040,10 @@
         "SUU-25 * 8 LUU-2": {
           "clsid": "{BRU3242_SUU25}",
           "weight": 315.38
+        },
+        "Tactical Airborne Reconnaissance Pod System": {
+          "clsid": "{F14-TARPS}",
+          "weight": 839
         }
       },
       "7": {
@@ -5078,6 +5086,10 @@
         "AIM-7P": {
           "clsid": "{BELLY AIM-7P}",
           "weight": 230
+        },
+        "ALQ-167 (non-functional)": {
+          "clsid": "{F14-ALQ167}",
+          "weight": 107
         },
         "BDU-45": {
           "clsid": "{BRU-32 BDU-45}",
@@ -14300,9 +14312,17 @@
     "joker": 200,
     "loadout": {
       "1": {
+        "1 x HOT-3 - ATGM, SACLOS, HEAT": {
+          "clsid": "{HOT3_R1}",
+          "weight": 54.5
+        },
         "1xMistral ATAM": {
           "clsid": "{SA342_Mistral_R1}",
           "weight": 99.2
+        },
+        "2 x HOT-3 - ATGM, SACLOS, HEAT": {
+          "clsid": "{HOT3_R2}",
+          "weight": 62.5
         },
         "2xMistral ATAM": {
           "clsid": "{SA342_Mistral_R2}",
@@ -14339,14 +14359,6 @@
         "GIAT M621 (240x combat mix 4x HE 1x AP)": {
           "clsid": "{GIAT_M621_HEAP}",
           "weight": 129.26
-        },
-        "HOT3 x1": {
-          "clsid": "{HOT3_R1}",
-          "weight": 78.5
-        },
-        "HOT3 x2": {
-          "clsid": "{HOT3_R2}",
-          "weight": 102
         },
         "Telson 8 - 8 x UnGd Rkts, 68 mm SNEB Type 250 F1B TP-SM": {
           "clsid": "{TELSON8_SNEBT250}",
@@ -14390,9 +14402,17 @@
         }
       },
       "2": {
+        "1 x HOT-3 - ATGM, SACLOS, HEAT": {
+          "clsid": "{HOT3_L1}",
+          "weight": 54.5
+        },
         "1xMistral ATAM": {
           "clsid": "{SA342_Mistral_L1}",
           "weight": 99.2
+        },
+        "2 x HOT-3 - ATGM, SACLOS, HEAT": {
+          "clsid": "{HOT3_L2}",
+          "weight": 62.5
         },
         "2xMistral ATAM": {
           "clsid": "{SA342_Mistral_L2}",
@@ -14409,14 +14429,6 @@
         "FN HMP400 (400rnds)": {
           "clsid": "{FN_HMP400}",
           "weight": 135.8
-        },
-        "HOT3 x1": {
-          "clsid": "{HOT3_L1}",
-          "weight": 78.5
-        },
-        "HOT3 x2": {
-          "clsid": "{HOT3_L2}",
-          "weight": 102
         },
         "Telson 8 - 8 x UnGd Rkts, 68 mm SNEB Type 250 F1B TP-SM": {
           "clsid": "{TELSON8_SNEBT250}",
@@ -14576,23 +14588,23 @@
     "joker": 200,
     "loadout": {
       "1": {
-        "HOT3 x1": {
+        "1 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_R1_M}",
-          "weight": 23.5
+          "weight": 54.5
         },
-        "HOT3 x2": {
+        "2 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_R2_M}",
-          "weight": 47
+          "weight": 62.5
         }
       },
       "2": {
-        "HOT3 x1": {
+        "1 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_L1_M}",
-          "weight": 23.5
+          "weight": 54.5
         },
-        "HOT3 x2": {
+        "2 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_L2_M}",
-          "weight": 47
+          "weight": 62.5
         }
       },
       "3": {
