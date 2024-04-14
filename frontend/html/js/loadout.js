@@ -141,7 +141,7 @@ function loadout_update_weight() {
       for (let x = 1 ; x < 5; x++) {
         let flight_member_weight = total;
         let tr = $(`#loadout-pyl-table-ah64 > tbody > tr:nth-child(${x})`);
-        for (let y = 2; y < 6; y++) {
+        for (let y = 2; y <= 6; y++) {
           let select = tr[0].cells[y].firstElementChild;
           let itm = select.options[select.selectedIndex];
 
