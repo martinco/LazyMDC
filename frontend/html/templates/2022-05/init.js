@@ -302,6 +302,9 @@ function Flight(data, unit) {
     if (ac == "F-15ESE") {
       cols.push(['WSO', 0, "lp5"])
     }
+    if (ac == "OH58D") {
+      cols.push(['CPG', 0, "lp5"])
+    }
 
     if (data['flight']['members'][0] && data['flight']['members'][0]['mids a'] !== undefined) {
       cols.push(['MIDS A', 60, "text-center"]);
@@ -325,7 +328,7 @@ function Flight(data, unit) {
         ['OID', 60, "text-center"]])
     }
 
-    if (!["UH-1H", "Ka-50", "Mi-8MT"].includes(ac)) {
+    if (!["UH-1H", "Ka-50", "Mi-8MT", "OH58D"].includes(ac)) {
       cols.push(['TCN', 60, "text-right rp5"]);
     }
 

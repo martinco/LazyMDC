@@ -146,7 +146,7 @@ function flightmembers_items(ac) {
     cols.push(['WSO', 0, "", "text"])
   };
 
-  if (ac == "AH-64D") {
+  if (["AH-64D", "OH58D"].includes(ac)) {
     cols.push(
       ['CPG', 0, "", "text"])
   }

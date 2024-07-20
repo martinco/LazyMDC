@@ -5,7 +5,7 @@ import json
 import os
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'dcs'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'dcs'))
 
 from dcs import planes, helicopters
 
@@ -25,6 +25,7 @@ HELOS = {
     'UH-1H': None,
     'SA342L': None,
     'SA342M': None,
+    'OH58D': None,
 }
 
 # Some weapons have very long names, and we want to shorten them

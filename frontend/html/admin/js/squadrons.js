@@ -745,6 +745,7 @@ MissionProcessor = function() {
       'SA342Mistral': ['FM'],
       'UH-1H': ['UHF'],
       'AH-64D': ['V', 'U', 'FM1', 'FM2'],
+      'OH58D': ['UHF', 'VHF', 'FM1', 'FM2'],
     }
 
     var errors = [];

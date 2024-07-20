@@ -39,6 +39,9 @@ def _modify_member(cur, change):
         if not SQL_HEADER_RE.match(key):
             continue
 
+        if value == '':
+            value = None
+
         keys.append("%s=%%s" % key)
         values.append(value)
 
@@ -68,6 +71,9 @@ def _create_member(cur, sqn_id, change):
 
         if key == 'squadron_id':
             continue
+
+        if value == "":
+            value = None
 
         keys.append(key)
         values.append(value)

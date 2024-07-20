@@ -145,77 +145,77 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
@@ -361,77 +361,77 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}",
@@ -483,78 +483,6 @@
           "clsid": "{BRU42_2X_GBU-12_L}",
           "weight": 610.25
         },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20A L}",
-          "weight": 325.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20 M282 L}",
-          "weight": 353.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_L}",
-          "weight": 263.45
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_L}",
-          "weight": 272.05
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_L}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_L}",
-          "weight": 238.65
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_L}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_L}",
-          "weight": 284.05
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_L}",
-          "weight": 285.25
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_L}",
-          "weight": 293.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_L}",
-          "weight": 282.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_L}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_L}",
-          "weight": 260.45
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_L}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_L}",
-          "weight": 282.65
-        },
         "BRU-42 with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BRU42_2X_MK-82_L}",
           "weight": 512.25
@@ -575,78 +503,6 @@
           "clsid": "BRU-42_3*GBU-12",
           "weight": 887.25
         },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "LAU_131x3_HYDRA_70_M151",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "LAU_131x3_HYDRA_70_M156",
-          "weight": 410.43
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "LAU_131x3_HYDRA_70_M257",
-          "weight": 423.45
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "LAU_131x3_HYDRA_70_M274",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK1",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "LAU_131x3_HYDRA_70_MK5",
-          "weight": 373.26
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK61",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20A}",
-          "weight": 454.3
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
-          "weight": 496.3
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 397.95
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 399.63
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 412.65
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 395.85
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 362.46
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 395.85
-        },
         "BRU-42 with 3 x Mk-82 - 500lb GP Bombs LD": {
           "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}",
           "weight": 740.25
@@ -658,6 +514,150 @@
         "BRU-42 with 3 x SUU-25 x 8 LUU-2 - Target Marker Flares": {
           "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
           "weight": 736.65
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20A L}",
+          "weight": 319.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20 M282 L}",
+          "weight": 347.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_L}",
+          "weight": 257.92
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_L}",
+          "weight": 266.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_L}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_L}",
+          "weight": 238.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_L}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_L}",
+          "weight": 282.32
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_L}",
+          "weight": 291
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_L}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_L}",
+          "weight": 263
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_L}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20A}",
+          "weight": 454.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
+          "weight": 496.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_M151",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M156",
+          "weight": 361.48
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "LAU_131x3_HYDRA_70_M257",
+          "weight": 374.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M274",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_MK1",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "LAU_131x3_HYDRA_70_MK5",
+          "weight": 332.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "LAU_131x3_HYDRA_70_MK61",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
+          "weight": 398.08
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
+          "weight": 411.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
+          "weight": 369.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
+          "weight": 394.3
         },
         "CBU-103 - 202 x CEM, CBU with WCMD": {
           "clsid": "{CBU_103}",
@@ -717,7 +717,7 @@
         },
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
-          "weight": 356
+          "weight": 357
         },
         "LAU-117 with CATM-65K - Captive Trg Round for Mav K (CCD)": {
           "clsid": "LAU_117_CATM_65K",
@@ -735,77 +735,77 @@
           "clsid": "LAU_117_TGM_65H",
           "weight": 267
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -885,78 +885,6 @@
           "clsid": "{BRU42_2X_GBU-12_L}",
           "weight": 610.25
         },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20A L}",
-          "weight": 325.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20 M282 L}",
-          "weight": 353.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_L}",
-          "weight": 263.45
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_L}",
-          "weight": 272.05
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_L}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_L}",
-          "weight": 238.65
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_L}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_L}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_L}",
-          "weight": 284.05
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_L}",
-          "weight": 285.25
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_L}",
-          "weight": 293.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_L}",
-          "weight": 282.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_L}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_L}",
-          "weight": 260.45
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_L}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_L}",
-          "weight": 282.65
-        },
         "BRU-42 with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BRU42_2X_MK-82_L}",
           "weight": 512.25
@@ -973,78 +901,6 @@
           "clsid": "BRU-42_3*GBU-12",
           "weight": 887.25
         },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "LAU_131x3_HYDRA_70_M151",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "LAU_131x3_HYDRA_70_M156",
-          "weight": 410.43
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "LAU_131x3_HYDRA_70_M257",
-          "weight": 423.45
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "LAU_131x3_HYDRA_70_M274",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK1",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "LAU_131x3_HYDRA_70_MK5",
-          "weight": 373.26
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK61",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20A}",
-          "weight": 454.3
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
-          "weight": 496.3
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 397.95
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 399.63
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 412.65
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 395.85
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 362.46
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 395.85
-        },
         "BRU-42 with 3 x Mk-82 - 500lb GP Bombs LD": {
           "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}",
           "weight": 740.25
@@ -1052,6 +908,150 @@
         "BRU-42 with 3 x Mk-82 AIR Ballute - 500lb GP Bombs HD": {
           "clsid": "{BRU-42_3*Mk-82AIR}",
           "weight": 782.25
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20A L}",
+          "weight": 319.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20 M282 L}",
+          "weight": 347.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_L}",
+          "weight": 257.92
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_L}",
+          "weight": 266.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_L}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_L}",
+          "weight": 238.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_L}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_L}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_L}",
+          "weight": 282.32
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_L}",
+          "weight": 291
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_L}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_L}",
+          "weight": 263
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_L}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_L}",
+          "weight": 279.8
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20A}",
+          "weight": 454.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
+          "weight": 496.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_M151",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M156",
+          "weight": 361.48
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "LAU_131x3_HYDRA_70_M257",
+          "weight": 374.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M274",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_MK1",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "LAU_131x3_HYDRA_70_MK5",
+          "weight": 332.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "LAU_131x3_HYDRA_70_MK61",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
+          "weight": 398.08
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
+          "weight": 411.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
+          "weight": 369.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
+          "weight": 394.3
         },
         "CBU-103 - 202 x CEM, CBU with WCMD": {
           "clsid": "{CBU_103}",
@@ -1097,77 +1097,77 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -1481,78 +1481,6 @@
           "clsid": "{BRU42_2X_GBU-12_R}",
           "weight": 610.25
         },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20A R}",
-          "weight": 325.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20 M282 R}",
-          "weight": 353.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_R}",
-          "weight": 263.45
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_R}",
-          "weight": 272.05
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_R}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_R}",
-          "weight": 238.65
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_R}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_R}",
-          "weight": 284.05
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_R}",
-          "weight": 285.25
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_R}",
-          "weight": 293.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_R}",
-          "weight": 282.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_R}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_R}",
-          "weight": 260.45
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_R}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_R}",
-          "weight": 282.65
-        },
         "BRU-42 with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BRU42_2X_MK-82_R}",
           "weight": 512.25
@@ -1569,78 +1497,6 @@
           "clsid": "BRU-42_3*GBU-12",
           "weight": 887.25
         },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "LAU_131x3_HYDRA_70_M151",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "LAU_131x3_HYDRA_70_M156",
-          "weight": 410.43
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "LAU_131x3_HYDRA_70_M257",
-          "weight": 423.45
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "LAU_131x3_HYDRA_70_M274",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK1",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "LAU_131x3_HYDRA_70_MK5",
-          "weight": 373.26
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK61",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20A}",
-          "weight": 454.3
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
-          "weight": 496.3
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 397.95
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 399.63
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 412.65
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 395.85
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 362.46
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 395.85
-        },
         "BRU-42 with 3 x Mk-82 - 500lb GP Bombs LD": {
           "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}",
           "weight": 740.25
@@ -1648,6 +1504,150 @@
         "BRU-42 with 3 x Mk-82 AIR Ballute - 500lb GP Bombs HD": {
           "clsid": "{BRU-42_3*Mk-82AIR}",
           "weight": 782.25
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20A R}",
+          "weight": 319.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20 M282 R}",
+          "weight": 347.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_R}",
+          "weight": 257.92
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_R}",
+          "weight": 266.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_R}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_R}",
+          "weight": 238.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_R}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_R}",
+          "weight": 282.32
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_R}",
+          "weight": 291
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_R}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_R}",
+          "weight": 263
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_R}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20A}",
+          "weight": 454.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
+          "weight": 496.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_M151",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M156",
+          "weight": 361.48
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "LAU_131x3_HYDRA_70_M257",
+          "weight": 374.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M274",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_MK1",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "LAU_131x3_HYDRA_70_MK5",
+          "weight": 332.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "LAU_131x3_HYDRA_70_MK61",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
+          "weight": 398.08
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
+          "weight": 411.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
+          "weight": 369.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
+          "weight": 394.3
         },
         "CBU-103 - 202 x CEM, CBU with WCMD": {
           "clsid": "{CBU_103}",
@@ -1693,77 +1693,77 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -1819,78 +1819,6 @@
           "clsid": "{BRU42_2X_GBU-12_R}",
           "weight": 610.25
         },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20A R}",
-          "weight": 325.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x2 - 7 AGR-20 M282 R}",
-          "weight": 353.25
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_R}",
-          "weight": 263.45
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_R}",
-          "weight": 272.05
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_R}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_R}",
-          "weight": 238.65
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_R}",
-          "weight": 242.85
-        },
-        "BRU-42 with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_R}",
-          "weight": 260.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_R}",
-          "weight": 284.05
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_R}",
-          "weight": 285.25
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_R}",
-          "weight": 293.85
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_R}",
-          "weight": 282.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_R}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_R}",
-          "weight": 260.45
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_R}",
-          "weight": 264.65
-        },
-        "BRU-42 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_R}",
-          "weight": 282.65
-        },
         "BRU-42 with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{BRU42_2X_MK-82_R}",
           "weight": 512.25
@@ -1911,78 +1839,6 @@
           "clsid": "BRU-42_3*GBU-12",
           "weight": 887.25
         },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "LAU_131x3_HYDRA_70_M151",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "LAU_131x3_HYDRA_70_M156",
-          "weight": 410.43
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "LAU_131x3_HYDRA_70_M257",
-          "weight": 423.45
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "LAU_131x3_HYDRA_70_M274",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK1",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "LAU_131x3_HYDRA_70_MK5",
-          "weight": 373.26
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_MK61",
-          "weight": 379.56
-        },
-        "BRU-42 with 3 x LAU-131 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
-          "weight": 406.65
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20A}",
-          "weight": 454.3
-        },
-        "BRU-42 with 3 x LAU-131 pods - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
-          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
-          "weight": 496.3
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
-          "weight": 397.95
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
-          "weight": 399.63
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
-          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
-          "weight": 412.65
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
-          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
-          "weight": 395.85
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
-          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
-          "weight": 362.46
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
-          "weight": 368.76
-        },
-        "BRU-42 with 3 x LAU-68 pods - 21 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
-          "weight": 395.85
-        },
         "BRU-42 with 3 x Mk-82 - 500lb GP Bombs LD": {
           "clsid": "{60CC734F-0AFA-4E2E-82B8-93B941AB11CF}",
           "weight": 740.25
@@ -1994,6 +1850,150 @@
         "BRU-42 with 3 x SUU-25 x 8 LUU-2 - Target Marker Flares": {
           "clsid": "{BRU-42_LS_3*SUU-25_8*LUU-2}",
           "weight": 736.65
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20A R}",
+          "weight": 319.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x2 - 7 AGR-20 M282 R}",
+          "weight": 347.8
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M151_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M156_R}",
+          "weight": 257.92
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M257_R}",
+          "weight": 266.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_M274_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK1_R}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK5_R}",
+          "weight": 238.6
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_MK61_R}",
+          "weight": 237.62
+        },
+        "BRU-42: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU131_HYDRA_70_WTU1B_R}",
+          "weight": 255.4
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M151_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M156_R}",
+          "weight": 282.32
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M257_R}",
+          "weight": 291
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_M274_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK1_R}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK5_R}",
+          "weight": 263
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_MK61_R}",
+          "weight": 262.02
+        },
+        "BRU-42: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{BRU42LS_2*LAU68_HYDRA_70_WTU1B_R}",
+          "weight": 279.8
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20A}",
+          "weight": 454.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
+          "clsid": "{LAU-131x3 - 7 AGR-20 M282}",
+          "weight": 496.3
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_M151",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M156",
+          "weight": 361.48
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "LAU_131x3_HYDRA_70_M257",
+          "weight": 374.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "LAU_131x3_HYDRA_70_M274",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "LAU_131x3_HYDRA_70_MK1",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "LAU_131x3_HYDRA_70_MK5",
+          "weight": 332.5
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "LAU_131x3_HYDRA_70_MK61",
+          "weight": 331.03
+        },
+        "BRU-42: 3 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "LAU_131x3_HYDRA_70_WTU1B",
+          "weight": 357.7
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{64329ED9-B14C-4c0b-A923-A3C911DA1527}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{C2593383-3CA8-4b18-B73D-0E750BCA1C85}",
+          "weight": 398.08
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{E6966004-A525-4f47-AF94-BCFEDF8FDBDA}",
+          "weight": 411.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{4C044B08-886B-46c8-9B1F-AB05B3ED9C1D}",
+          "weight": 394.3
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
+          "clsid": "{443364AE-D557-488e-9499-45EDB3BA6730}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{9BC82B3D-FE70-4910-B2B7-3E54EFE73262}",
+          "weight": 369.1
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{C0FA251E-B645-4ce5-926B-F4BC20822F8B}",
+          "weight": 367.63
+        },
+        "BRU-42: 3 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{A1853B38-2160-4ffe-B7E9-9BF81E6C3D77}",
+          "weight": 394.3
         },
         "CBU-103 - 202 x CEM, CBU with WCMD": {
           "clsid": "{CBU_103}",
@@ -2053,7 +2053,7 @@
         },
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
-          "weight": 356
+          "weight": 357
         },
         "LAU-117 with CATM-65K - Captive Trg Round for Mav K (CCD)": {
           "clsid": "LAU_117_CATM_65K",
@@ -2071,77 +2071,77 @@
           "clsid": "LAU_117_TGM_65H",
           "weight": 267
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{69926055-0DA8-4530-9F2F-C86B157EA9F6}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{2AF2EC3F-9065-4de5-93E1-1739C9A71EF7}",
           "weight": 103.56
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{DAD45FE5-CFF0-4a2b-99D4-5D044D3BC22F}",
           "weight": 107.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{6D6D5C07-2A90-4a68-9A74-C5D0CFFB05D9}",
           "weight": 102.3
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{D22C2D63-E5C9-4247-94FB-5E8F3DE22B71}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{319293F2-392C-4617-8315-7C88C22AF7C4}",
-          "weight": 91.17
+          "weight": 93.9
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{1CA5E00B-D545-4ff9-9B53-5970E292F14D}",
-          "weight": 93.27
+          "weight": 93.41
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{DDCE7D70-5313-4181-8977-F11018681662}",
           "weight": 102.3
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "{FC85D2ED-501A-48ce-9863-49D468DDD5FC}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "{65396399-9F5C-4ec3-A7D2-5A8F4C1D90C4}",
-          "weight": 104.17
+          "weight": 105.61
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -3419,9 +3419,9 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
+        "LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 288.9
+          "weight": 289.02
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
@@ -3435,69 +3435,69 @@
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 247.3707256
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk1, HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 219.792332
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 220.6541568
-        },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR M156 SM": {
+          "clsid": "{LAU3_FFAR_WP156}",
+          "weight": 211.82
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 1 HE": {
+          "clsid": "{LAU3_FFAR_MK1HE}",
+          "weight": 184.27
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 5 HEAT": {
+          "clsid": "{LAU3_FFAR_MK5HEAT}",
+          "weight": 185.6
+        },
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "LAU-7 with AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L-ON-ADAPTER}",
@@ -3641,9 +3641,9 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
+        "LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 288.9
+          "weight": 289.02
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
@@ -3657,69 +3657,69 @@
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 247.3707256
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk1, HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 219.792332
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 220.6541568
-        },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR M156 SM": {
+          "clsid": "{LAU3_FFAR_WP156}",
+          "weight": 211.82
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 1 HE": {
+          "clsid": "{LAU3_FFAR_MK1HE}",
+          "weight": 184.27
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 5 HEAT": {
+          "clsid": "{LAU3_FFAR_MK5HEAT}",
+          "weight": 185.6
+        },
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
@@ -3851,9 +3851,9 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
+        "LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 288.9
+          "weight": 289.02
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
@@ -3867,69 +3867,69 @@
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 247.3707256
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk1, HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 219.792332
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 220.6541568
-        },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR M156 SM": {
+          "clsid": "{LAU3_FFAR_WP156}",
+          "weight": 211.82
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 1 HE": {
+          "clsid": "{LAU3_FFAR_MK1HE}",
+          "weight": 184.27
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 5 HEAT": {
+          "clsid": "{LAU3_FFAR_MK5HEAT}",
+          "weight": 185.6
+        },
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}",
@@ -4101,9 +4101,9 @@
           "clsid": "{GBU_54_V_1B}",
           "weight": 253
         },
-        "LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
+        "LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
           "clsid": "{F3EFE0AB-E91A-42D8-9CA2-B63C91ED570A}",
-          "weight": 288.9
+          "weight": 289.02
         },
         "LAU-117 with AGM-65E - Maverick E (Laser ASM - Lg Whd)": {
           "clsid": "{F16A4DE0-116C-4A71-97F0-2CF85B0313EC}",
@@ -4117,69 +4117,69 @@
           "clsid": "LAU_117_AGM_65F",
           "weight": 360
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M151, HE APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20A}",
           "weight": 134.5
         },
-        "LAU-131 pod - 7 x 2.75 Hydra, Laser Guided Rkts M282, MPP APKWS": {
+        "LAU-131 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M282 MPP APKWS": {
           "clsid": "{LAU-131 - 7 AGR-20 M282}",
           "weight": 148.5
         },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{LAU3_FFAR_WP156}",
-          "weight": 247.3707256
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk1, HE": {
-          "clsid": "{LAU3_FFAR_MK1HE}",
-          "weight": 219.792332
-        },
-        "LAU-3 pod - 19 x 2.75 FFAR, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{LAU3_FFAR_MK5HEAT}",
-          "weight": 220.6541568
-        },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR M156 SM": {
+          "clsid": "{LAU3_FFAR_WP156}",
+          "weight": 211.82
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 1 HE": {
+          "clsid": "{LAU3_FFAR_MK1HE}",
+          "weight": 184.27
+        },
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Mk 4 FFAR Mk 5 HEAT": {
+          "clsid": "{LAU3_FFAR_MK5HEAT}",
+          "weight": 185.6
+        },
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}",
-          "weight": 113.9
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}",
-          "weight": 114.46
+          "weight": 115.76
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "{647C5F26-BDD1-41e6-A371-8DE1E4CC0E94}",
-          "weight": 118.8
+          "weight": 120.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "{0877B74B-5A00-4e61-BA8A-A56450BA9E27}",
-          "weight": 113.2
+          "weight": 114.5
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "{174C6E6D-0C3D-42ff-BCB3-0853CB371F5C}",
-          "weight": 102.07
+          "weight": 106.1
         },
-        "LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "{1F7136CB-8120-4e77-B97B-945FF01FB67C}",
-          "weight": 113.2
+          "weight": 114.5
         },
         "LAU-7 with AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L-ON-ADAPTER}",
@@ -6229,7 +6229,7 @@
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 74.84
+          "weight": 76.93
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6393,7 +6393,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -6517,7 +6517,7 @@
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 74.84
+          "weight": 76.93
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6577,7 +6577,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -6641,7 +6641,7 @@
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 74.84
+          "weight": 76.93
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6701,7 +6701,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -6765,7 +6765,7 @@
         },
         "AIM-9J Sidewinder IR AAM": {
           "clsid": "{AIM-9J}",
-          "weight": 74.84
+          "weight": 76.93
         },
         "AIM-9L Sidewinder IR AAM": {
           "clsid": "{AIM-9L}",
@@ -6877,7 +6877,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -7093,7 +7093,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -7840,12 +7840,12 @@
     "cruise_alt": 15000,
     "cruise_gs": 400,
     "cvn": false,
-    "empty_lbs": 21466,
+    "empty_lbs": 19899,
     "flare": 60,
     "fuel": 100,
     "fuel_lbs": 7163,
     "gun": 100,
-    "gun_lbs": 294,
+    "gun_lbs": 293,
     "harm": {
       "defaults": [
         {
@@ -8975,7 +8975,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -9005,27 +9005,27 @@
         },
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
-          "weight": 356
+          "weight": 357
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -9081,95 +9081,95 @@
         },
         "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
           "clsid": "{TER_9A_2L*BDU-50LGB}",
-          "weight": 613
+          "weight": 607.6
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
-          "weight": 913
+          "weight": 907.6
         },
         "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-97}",
-          "weight": 887
+          "weight": 881.6
         },
         "TER-9A with 2 x GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{TER_9A_2L*GBU-12}",
-          "weight": 607
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{TER_9A_2L*LAU-131_M151}",
-          "weight": 257.6
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{TER_9A_2L*LAU-131_M156}",
-          "weight": 260.2
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{TER_9A_2L*LAU-131_MK5}",
-          "weight": 235.4
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{TER_9A_2L*LAU-131_MK61}",
-          "weight": 239.6
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{TER_9A_2L*LAU-131_WTU-1/B}",
-          "weight": 257.6
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{TER_9A_2L*LAU-68_M151}",
-          "weight": 280.8
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{TER_9A_2L*LAU-68_M156}",
-          "weight": 282
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{TER_9A_2L*LAU-68_MK5}",
-          "weight": 257.2
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{TER_9A_2L*LAU-68_MK61}",
-          "weight": 261.4
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{TER_9A_2L*LAU-68_WTU-1/B}",
-          "weight": 279.4
+          "weight": 601.6
         },
         "TER-9A with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_2L*MK-82}",
-          "weight": 509
+          "weight": 503.6
         },
         "TER-9A with 2 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2L*MK-82AIR}",
-          "weight": 537
+          "weight": 531.6
         },
         "TER-9A with 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2L*MK-82_Snakeye}",
-          "weight": 552
+          "weight": 546.6
         },
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
-          "weight": 86.9
+          "weight": 81.5
         },
         "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{TER_9A_3*BDU-50HD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-50LD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
-          "weight": 737
+          "weight": 731.6
         },
         "TER-9A with 3 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82AIR}",
-          "weight": 779
+          "weight": 773.6
         },
         "TER-9A with 3 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82_Snakeye}",
-          "weight": 801.5
+          "weight": 796.1
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{TER_9A_2L*LAU-131_M151}",
+          "weight": 252.2
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{TER_9A_2L*LAU-131_M156}",
+          "weight": 254.72
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{TER_9A_2L*LAU-131_MK5}",
+          "weight": 235.4
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{TER_9A_2L*LAU-131_MK61}",
+          "weight": 234.42
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{TER_9A_2L*LAU-131_WTU-1/B}",
+          "weight": 252.2
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{TER_9A_2L*LAU-68_M151}",
+          "weight": 276.6
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{TER_9A_2L*LAU-68_M156}",
+          "weight": 279.12
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{TER_9A_2L*LAU-68_MK5}",
+          "weight": 259.8
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{TER_9A_2L*LAU-68_MK61}",
+          "weight": 258.82
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{TER_9A_2L*LAU-68_WTU-1/B}",
+          "weight": 276.6
         }
       },
       "4": {
@@ -9209,29 +9209,29 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -9263,55 +9263,55 @@
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-87}",
-          "weight": 913
+          "weight": 907.6
         },
         "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2L*CBU-97}",
-          "weight": 887
+          "weight": 881.6
         },
         "TER-9A with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_2L*MK-82}",
-          "weight": 509
+          "weight": 503.6
         },
         "TER-9A with 2 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2L*MK-82AIR}",
-          "weight": 537
+          "weight": 531.6
         },
         "TER-9A with 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2L*MK-82_Snakeye}",
-          "weight": 552
+          "weight": 546.6
         },
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
-          "weight": 86.9
+          "weight": 81.5
         },
         "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{TER_9A_3*BDU-50HD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-50LD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
-          "weight": 1343
+          "weight": 1337.6
         },
         "TER-9A with 3 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-97}",
-          "weight": 1304
+          "weight": 1298.6
         },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
-          "weight": 737
+          "weight": 731.6
         },
         "TER-9A with 3 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82AIR}",
-          "weight": 779
+          "weight": 773.6
         },
         "TER-9A with 3 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82_Snakeye}",
-          "weight": 801.5
+          "weight": 796.1
         }
       },
       "5": {
@@ -9373,29 +9373,29 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
         "MXU-648 Travel Pod": {
           "clsid": "MXU-648-TP",
@@ -9427,55 +9427,55 @@
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
-          "weight": 913
+          "weight": 907.6
         },
         "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-97}",
-          "weight": 887
+          "weight": 881.6
         },
         "TER-9A with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_2R*MK-82}",
-          "weight": 509
+          "weight": 503.6
         },
         "TER-9A with 2 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2R*MK-82AIR}",
-          "weight": 537
+          "weight": 531.6
         },
         "TER-9A with 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2R*MK-82_Snakeye}",
-          "weight": 552
+          "weight": 546.6
         },
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
-          "weight": 86.9
+          "weight": 81.5
         },
         "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{TER_9A_3*BDU-50HD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-50LD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-87}",
-          "weight": 1343
+          "weight": 1337.6
         },
         "TER-9A with 3 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_3*CBU-97}",
-          "weight": 1304
+          "weight": 1298.6
         },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
-          "weight": 737
+          "weight": 731.6
         },
         "TER-9A with 3 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82AIR}",
-          "weight": 779
+          "weight": 773.6
         },
         "TER-9A with 3 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82_Snakeye}",
-          "weight": 801.5
+          "weight": 796.1
         }
       },
       "7": {
@@ -9591,7 +9591,7 @@
           "clsid": "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}",
           "weight": 277
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -9621,27 +9621,27 @@
         },
         "LAU-117 with AGM-65K - Maverick K (CCD Imp ASM)": {
           "clsid": "{69DC8AE7-8F77-427B-B8AA-B19D3F478B66}",
-          "weight": 356
+          "weight": 357
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "LAU3_HE151",
-          "weight": 234.19
+          "weight": 231.2
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "LAU3_WP156",
-          "weight": 155.91
+          "weight": 234.62
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "LAU3_HE5",
-          "weight": 201.89
+          "weight": 208.4
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
           "clsid": "LAU3_WP61",
-          "weight": 207.59
+          "weight": 207.07
         },
-        "LAU-3 pod - 19 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
+        "LAU-3 - 19 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
           "clsid": "LAU3_WP1B",
-          "weight": 207.59
+          "weight": 231.2
         },
         "LAU-88 with 1 x AGM-65D - Maverick D (IIR ASM)": {
           "clsid": "LAU_88_AGM_65D_ONE",
@@ -9697,95 +9697,95 @@
         },
         "TER-9A with 2 x BDU-50LGB - 500lb Laser Guided Inert Practice Bomb LD": {
           "clsid": "{TER_9A_2R*BDU-50LGB}",
-          "weight": 613
+          "weight": 607.6
         },
         "TER-9A with 2 x CBU-87 - 202 x CEM Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-87}",
-          "weight": 913
+          "weight": 907.6
         },
         "TER-9A with 2 x CBU-97 - 10 x SFW Cluster Bomb": {
           "clsid": "{TER_9A_2R*CBU-97}",
-          "weight": 887
+          "weight": 881.6
         },
         "TER-9A with 2 x GBU-12 - 500lb Laser Guided Bomb": {
           "clsid": "{TER_9A_2R*GBU-12}",
-          "weight": 607
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{TER_9A_2R*LAU-131_M151}",
-          "weight": 257.6
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{TER_9A_2R*LAU-131_M156}",
-          "weight": 260.2
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{TER_9A_2R*LAU-131_MK5}",
-          "weight": 235.4
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{TER_9A_2R*LAU-131_MK61}",
-          "weight": 239.6
-        },
-        "TER-9A with 2 x LAU-131 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{TER_9A_2R*LAU-131_WTU-1/B}",
-          "weight": 257.6
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{TER_9A_2R*LAU-68_M151}",
-          "weight": 280.8
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
-          "clsid": "{TER_9A_2R*LAU-68_M156}",
-          "weight": 282
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{TER_9A_2R*LAU-68_MK5}",
-          "weight": 257.2
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk61, Practice": {
-          "clsid": "{TER_9A_2R*LAU-68_MK61}",
-          "weight": 261.4
-        },
-        "TER-9A with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts WTU-1/B, Practice": {
-          "clsid": "{TER_9A_2R*LAU-68_WTU-1/B}",
-          "weight": 279.4
+          "weight": 601.6
         },
         "TER-9A with 2 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_2R*MK-82}",
-          "weight": 509
+          "weight": 503.6
         },
         "TER-9A with 2 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2R*MK-82AIR}",
-          "weight": 537
+          "weight": 531.6
         },
         "TER-9A with 2 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_2R*MK-82_Snakeye}",
-          "weight": 552
+          "weight": 546.6
         },
         "TER-9A with 3 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-33}",
-          "weight": 86.9
+          "weight": 81.5
         },
         "TER-9A with 3 x BDU-50HD - 500lb Inert Practice Bomb HD": {
           "clsid": "{TER_9A_3*BDU-50HD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x BDU-50LD - 500lb Inert Practice Bomb LD": {
           "clsid": "{TER_9A_3*BDU-50LD}",
-          "weight": 749
+          "weight": 743.6
         },
         "TER-9A with 3 x Mk-82 - 500lb GP Bomb LD": {
           "clsid": "{TER_9A_3*MK-82}",
-          "weight": 737
+          "weight": 731.6
         },
         "TER-9A with 3 x Mk-82 AIR Ballute - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82AIR}",
-          "weight": 779
+          "weight": 773.6
         },
         "TER-9A with 3 x Mk-82 Snakeye - 500lb GP Bomb HD": {
           "clsid": "{TER_9A_3*MK-82_Snakeye}",
-          "weight": 801.5
+          "weight": 796.1
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{TER_9A_2R*LAU-131_M151}",
+          "weight": 252.2
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{TER_9A_2R*LAU-131_M156}",
+          "weight": 254.72
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{TER_9A_2R*LAU-131_MK5}",
+          "weight": 235.4
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{TER_9A_2R*LAU-131_MK61}",
+          "weight": 234.42
+        },
+        "TER-9A: 2 x LAU-131 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{TER_9A_2R*LAU-131_WTU-1/B}",
+          "weight": 252.2
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{TER_9A_2R*LAU-68_M151}",
+          "weight": 276.6
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{TER_9A_2R*LAU-68_M156}",
+          "weight": 279.12
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{TER_9A_2R*LAU-68_MK5}",
+          "weight": 259.8
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 61 TP": {
+          "clsid": "{TER_9A_2R*LAU-68_MK61}",
+          "weight": 258.82
+        },
+        "TER-9A: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 WTU-1/B TP": {
+          "clsid": "{TER_9A_2R*LAU-68_WTU-1/B}",
+          "weight": 276.6
         }
       },
       "8": {
@@ -10243,22 +10243,6 @@
           "clsid": "{BDU_45B}",
           "weight": 232
         },
-        "BRU-33 with 1 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_LAU10}",
-          "weight": 379.9
-        },
-        "BRU-33 with 1 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU61}",
-          "weight": 364.4
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU68}",
-          "weight": 204.9
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_LAU68_MK5}",
-          "weight": 193.1
-        },
         "BRU-33 with 2 x BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BRU33_2X_BDU-45}",
           "weight": 555
@@ -10279,22 +10263,6 @@
           "clsid": "{BRU33_2X_GBU-12}",
           "weight": 645
         },
-        "BRU-33 with 2 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_2*LAU10}",
-          "weight": 668.8
-        },
-        "BRU-33 with 2 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU61}",
-          "weight": 637.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU68}",
-          "weight": 318.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_2*LAU68_MK5}",
-          "weight": 295.2
-        },
         "BRU-33 with 2 x Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{BRU33_2X_ROCKEYE}",
           "weight": 535
@@ -10314,6 +10282,38 @@
         "BRU-33 with 2 x Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{BRU33_2X_MK-83}",
           "weight": 999
+        },
+        "BRU-33: 1 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_LAU10}",
+          "weight": 380.02
+        },
+        "BRU-33: 1 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU61}",
+          "weight": 381.6
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU68}",
+          "weight": 205.5
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_LAU68_MK5}",
+          "weight": 197.1
+        },
+        "BRU-33: 2 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_2*LAU10}",
+          "weight": 669.04
+        },
+        "BRU-33: 2 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU61}",
+          "weight": 672.2
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU68}",
+          "weight": 320
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_2*LAU68_MK5}",
+          "weight": 303.2
         },
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
@@ -10359,7 +10359,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24B/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -10525,22 +10525,6 @@
           "clsid": "{BDU_45B}",
           "weight": 232
         },
-        "BRU-33 with 1 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_LAU10}",
-          "weight": 379.9
-        },
-        "BRU-33 with 1 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU61}",
-          "weight": 364.4
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU68}",
-          "weight": 204.9
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_LAU68_MK5}",
-          "weight": 193.1
-        },
         "BRU-33 with 2 x BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BRU33_2X_BDU-45}",
           "weight": 555
@@ -10561,22 +10545,6 @@
           "clsid": "{BRU33_2X_GBU-12}",
           "weight": 645
         },
-        "BRU-33 with 2 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_2*LAU10}",
-          "weight": 668.8
-        },
-        "BRU-33 with 2 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU61}",
-          "weight": 637.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU68}",
-          "weight": 318.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_2*LAU68_MK5}",
-          "weight": 295.2
-        },
         "BRU-33 with 2 x Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{BRU33_2X_ROCKEYE}",
           "weight": 535
@@ -10596,6 +10564,38 @@
         "BRU-33 with 2 x Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{BRU33_2X_MK-83}",
           "weight": 999
+        },
+        "BRU-33: 1 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_LAU10}",
+          "weight": 380.02
+        },
+        "BRU-33: 1 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU61}",
+          "weight": 381.6
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU68}",
+          "weight": 205.5
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_LAU68_MK5}",
+          "weight": 197.1
+        },
+        "BRU-33: 2 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_2*LAU10}",
+          "weight": 669.04
+        },
+        "BRU-33: 2 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU61}",
+          "weight": 672.2
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU68}",
+          "weight": 320
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_2*LAU68_MK5}",
+          "weight": 303.2
         },
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
@@ -10645,7 +10645,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24B/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -10917,22 +10917,6 @@
           "clsid": "{BDU_45B}",
           "weight": 232
         },
-        "BRU-33 with 1 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_LAU10}",
-          "weight": 379.9
-        },
-        "BRU-33 with 1 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU61}",
-          "weight": 364.4
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU68}",
-          "weight": 204.9
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_LAU68_MK5}",
-          "weight": 193.1
-        },
         "BRU-33 with 2 x BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BRU33_2X_BDU-45}",
           "weight": 555
@@ -10953,22 +10937,6 @@
           "clsid": "{BRU33_2X_GBU-12}",
           "weight": 645
         },
-        "BRU-33 with 2 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_2*LAU10}",
-          "weight": 668.8
-        },
-        "BRU-33 with 2 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU61}",
-          "weight": 637.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU68}",
-          "weight": 318.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_2*LAU68_MK5}",
-          "weight": 295.2
-        },
         "BRU-33 with 2 x Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{BRU33_2X_ROCKEYE}",
           "weight": 535
@@ -10988,6 +10956,38 @@
         "BRU-33 with 2 x Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{BRU33_2X_MK-83}",
           "weight": 999
+        },
+        "BRU-33: 1 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_LAU10}",
+          "weight": 380.02
+        },
+        "BRU-33: 1 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU61}",
+          "weight": 381.6
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU68}",
+          "weight": 205.5
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_LAU68_MK5}",
+          "weight": 197.1
+        },
+        "BRU-33: 2 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_2*LAU10}",
+          "weight": 669.04
+        },
+        "BRU-33: 2 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU61}",
+          "weight": 672.2
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU68}",
+          "weight": 320
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_2*LAU68_MK5}",
+          "weight": 303.2
         },
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
@@ -11037,7 +11037,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24B/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -11175,22 +11175,6 @@
           "clsid": "{BDU_45B}",
           "weight": 232
         },
-        "BRU-33 with 1 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_LAU10}",
-          "weight": 379.9
-        },
-        "BRU-33 with 1 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU61}",
-          "weight": 364.4
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_LAU68}",
-          "weight": 204.9
-        },
-        "BRU-33 with 1 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_LAU68_MK5}",
-          "weight": 193.1
-        },
         "BRU-33 with 2 x BDU-45 - 500lb Practice Bomb": {
           "clsid": "{BRU33_2X_BDU-45}",
           "weight": 555
@@ -11211,22 +11195,6 @@
           "clsid": "{BRU33_2X_GBU-12}",
           "weight": 645
         },
-        "BRU-33 with 2 x LAU-10 pod - 4 x 127mm ZUNI, UnGd Rkts Mk71, HE/FRAG": {
-          "clsid": "{BRU33_2*LAU10}",
-          "weight": 668.8
-        },
-        "BRU-33 with 2 x LAU-61 pod - 19 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU61}",
-          "weight": 637.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
-          "clsid": "{BRU33_2*LAU68}",
-          "weight": 318.8
-        },
-        "BRU-33 with 2 x LAU-68 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
-          "clsid": "{BRU33_2*LAU68_MK5}",
-          "weight": 295.2
-        },
         "BRU-33 with 2 x Mk-20 Rockeye - 490lbs CBU, 247 x HEAT Bomblets": {
           "clsid": "{BRU33_2X_ROCKEYE}",
           "weight": 535
@@ -11246,6 +11214,38 @@
         "BRU-33 with 2 x Mk-83 - 1000lb GP Bomb LD": {
           "clsid": "{BRU33_2X_MK-83}",
           "weight": 999
+        },
+        "BRU-33: 1 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_LAU10}",
+          "weight": 380.02
+        },
+        "BRU-33: 1 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU61}",
+          "weight": 381.6
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_LAU68}",
+          "weight": 205.5
+        },
+        "BRU-33: 1 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_LAU68_MK5}",
+          "weight": 197.1
+        },
+        "BRU-33: 2 x LAU-10 - 4 x UnGd Rkts, 127 mm Zuni Mk. 24 Mod. 1 HE": {
+          "clsid": "{BRU33_2*LAU10}",
+          "weight": 669.04
+        },
+        "BRU-33: 2 x LAU-61 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU61}",
+          "weight": 672.2
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{BRU33_2*LAU68}",
+          "weight": 320
+        },
+        "BRU-33: 2 x LAU-68 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
+          "clsid": "{BRU33_2*LAU68_MK5}",
+          "weight": 303.2
         },
         "BRU-41A with 6 x BDU-33 - 25lb Practice Bomb LD": {
           "clsid": "{BRU41_6X_BDU-33}",
@@ -11291,7 +11291,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24B/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{GBU-24}",
           "weight": 1087
         },
@@ -13047,13 +13047,13 @@
     "joker": 650,
     "loadout": {
       "1": {
-        "APU-6 - 6 x 9M127-1 Vikhr-M ATGM, LOSBR, Tandem HEAT/Frag": {
+        "APU-6 - 6 x 9M127 Vikhr - ATGM, LOSBR, Tandem HEAT/Frag": {
           "clsid": "{A6FD14D3-6D30-4C85-88A7-8D17BEE120E2}",
           "weight": 416.25
         },
-        "B-13L pod - 5 x S-13-OF, 122mm UnGd Rkts, Blast/Frag": {
+        "B-13L - 5 x UnGd Rkts, 122 mm S-13OF Blast/Fragmentation": {
           "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}",
-          "weight": 510
+          "weight": 505
         },
         "B-8V20A - 20 x UnGd Rkts, 80 mm S-8KOM HEAT/Frag": {
           "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}",
@@ -13105,9 +13105,9 @@
         }
       },
       "2": {
-        "B-13L pod - 5 x S-13-OF, 122mm UnGd Rkts, Blast/Frag": {
+        "B-13L - 5 x UnGd Rkts, 122 mm S-13OF Blast/Fragmentation": {
           "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}",
-          "weight": 510
+          "weight": 505
         },
         "B-8V20A - 20 x UnGd Rkts, 80 mm S-8KOM HEAT/Frag": {
           "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}",
@@ -13155,9 +13155,9 @@
         }
       },
       "3": {
-        "B-13L pod - 5 x S-13-OF, 122mm UnGd Rkts, Blast/Frag": {
+        "B-13L - 5 x UnGd Rkts, 122 mm S-13OF Blast/Fragmentation": {
           "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}",
-          "weight": 510
+          "weight": 505
         },
         "B-8V20A - 20 x UnGd Rkts, 80 mm S-8KOM HEAT/Frag": {
           "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}",
@@ -13205,13 +13205,13 @@
         }
       },
       "4": {
-        "APU-6 - 6 x 9M127-1 Vikhr-M ATGM, LOSBR, Tandem HEAT/Frag": {
+        "APU-6 - 6 x 9M127 Vikhr - ATGM, LOSBR, Tandem HEAT/Frag": {
           "clsid": "{A6FD14D3-6D30-4C85-88A7-8D17BEE120E2}",
           "weight": 416.25
         },
-        "B-13L pod - 5 x S-13-OF, 122mm UnGd Rkts, Blast/Frag": {
+        "B-13L - 5 x UnGd Rkts, 122 mm S-13OF Blast/Fragmentation": {
           "clsid": "{FC56DF80-9B09-44C5-8976-DCFAFF219062}",
-          "weight": 510
+          "weight": 505
         },
         "B-8V20A - 20 x UnGd Rkts, 80 mm S-8KOM HEAT/Frag": {
           "clsid": "{6A4B9E69-64FE-439a-9163-3A87FB6A4D81}",
@@ -13533,7 +13533,7 @@
           "clsid": "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}",
           "weight": 513
         },
-        "GBU-24 Paveway III - 2000lb Laser Guided Bomb": {
+        "GBU-24A/B Paveway III - 2000lb Laser Guided Bomb": {
           "clsid": "{34759BBC-AF1E-4AEE-A581-498FF7A6EBCE}",
           "weight": 1087
         },
@@ -14296,6 +14296,382 @@
     "rope_length": 50,
     "rotary": true
   },
+  "OH58D": {
+    "bingo": 200,
+    "chaff": 0,
+    "cruise_alt": 500,
+    "cruise_gs": 90,
+    "cvn": false,
+    "empty_lbs": 4184,
+    "flare": 30,
+    "fuel": 100,
+    "fuel_lbs": 736,
+    "gs_units": "kmh",
+    "joker": 300,
+    "loadout": {
+      "1": {
+        "1xAGM-114K": {
+          "clsid": "OH58D_AGM_114_L1",
+          "weight": 93.05
+        },
+        "2xAGM-114K": {
+          "clsid": "OH58D_AGM_114_L",
+          "weight": 138.23
+        },
+        "2xFIM-92": {
+          "clsid": "OH58D_FIM_92_L",
+          "weight": 42.8
+        },
+        "M260 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{M260_APKWS_M151}",
+          "weight": 120.9
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{M260_M151}",
+          "weight": 88.7
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{M260_M156}",
+          "weight": 89.96
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
+          "clsid": "{M260_M229}",
+          "weight": 112.99
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{M260_M257}",
+          "weight": 94.3
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M259 SM": {
+          "clsid": "{M260_M259}",
+          "weight": 86.32
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{M260_M274}",
+          "weight": 88.7
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M156": {
+          "clsid": "{M260_A_M151_B_M156}",
+          "weight": 89.24
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M257": {
+          "clsid": "{M260_A_M151_B_M257}",
+          "weight": 91.1
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M259": {
+          "clsid": "{M260_A_M151_B_M259}",
+          "weight": 87.68
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M156": {
+          "clsid": "{M260_A_M229_B_M156}",
+          "weight": 103.12
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M257": {
+          "clsid": "{M260_A_M229_B_M257}",
+          "weight": 104.98
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M259": {
+          "clsid": "{M260_A_M229_B_M259}",
+          "weight": 101.56
+        },
+        "M3P100": {
+          "clsid": "OH58D_M3P_L100",
+          "weight": 85.868
+        },
+        "M3P200": {
+          "clsid": "OH58D_M3P_L200",
+          "weight": 99.186
+        },
+        "M3P300": {
+          "clsid": "OH58D_M3P_L300",
+          "weight": 112.504
+        },
+        "M3P400": {
+          "clsid": "OH58D_M3P_L400",
+          "weight": 125.822
+        },
+        "M3P500": {
+          "clsid": "OH58D_M3P_L500",
+          "weight": 139.14
+        }
+      },
+      "2": {
+        "1xBlue Smoke Grenade": {
+          "clsid": "OH58D_Blue_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xGreen Smoke Grenade": {
+          "clsid": "OH58D_Green_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xRed Smoke Grenade": {
+          "clsid": "OH58D_Red_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xViolet Smoke Grenade": {
+          "clsid": "OH58D_Violet_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xWhite Smoke Grenade": {
+          "clsid": "OH58D_White_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xYellow Smoke Grenade": {
+          "clsid": "OH58D_Yellow_Smoke_Grenade",
+          "weight": 0.5
+        }
+      },
+      "3": {
+        "1xBlue Smoke Grenade": {
+          "clsid": "OH58D_Blue_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xGreen Smoke Grenade": {
+          "clsid": "OH58D_Green_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xRed Smoke Grenade": {
+          "clsid": "OH58D_Red_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xViolet Smoke Grenade": {
+          "clsid": "OH58D_Violet_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xWhite Smoke Grenade": {
+          "clsid": "OH58D_White_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xYellow Smoke Grenade": {
+          "clsid": "OH58D_Yellow_Smoke_Grenade",
+          "weight": 0.5
+        }
+      },
+      "4": {
+        "1xBlue Smoke Grenade": {
+          "clsid": "OH58D_Blue_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xGreen Smoke Grenade": {
+          "clsid": "OH58D_Green_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xRed Smoke Grenade": {
+          "clsid": "OH58D_Red_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xViolet Smoke Grenade": {
+          "clsid": "OH58D_Violet_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xWhite Smoke Grenade": {
+          "clsid": "OH58D_White_Smoke_Grenade",
+          "weight": 0.5
+        },
+        "1xYellow Smoke Grenade": {
+          "clsid": "OH58D_Yellow_Smoke_Grenade",
+          "weight": 0.5
+        }
+      },
+      "5": {
+        "1xAGM-114K": {
+          "clsid": "OH58D_AGM_114_R1",
+          "weight": 93.05
+        },
+        "2xAGM-114K": {
+          "clsid": "OH58D_AGM_114_R",
+          "weight": 138.23
+        },
+        "2xFIM-92": {
+          "clsid": "OH58D_FIM_92_R",
+          "weight": 42.8
+        },
+        "M260 - 7 x Laser Guided Rkts, 70 mm Hydra 70 M151 HE APKWS": {
+          "clsid": "{M260_APKWS_M151}",
+          "weight": 120.9
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
+          "clsid": "{M260_M151}",
+          "weight": 88.7
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
+          "clsid": "{M260_M156}",
+          "weight": 89.96
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M229 HE": {
+          "clsid": "{M260_M229}",
+          "weight": 112.99
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
+          "clsid": "{M260_M257}",
+          "weight": 94.3
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M259 SM": {
+          "clsid": "{M260_M259}",
+          "weight": 86.32
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
+          "clsid": "{M260_M274}",
+          "weight": 88.7
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M156": {
+          "clsid": "{M260_A_M151_B_M156}",
+          "weight": 89.24
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M257": {
+          "clsid": "{M260_A_M151_B_M257}",
+          "weight": 91.1
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M151; B - M259": {
+          "clsid": "{M260_A_M151_B_M259}",
+          "weight": 87.68
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M156": {
+          "clsid": "{M260_A_M229_B_M156}",
+          "weight": 103.12
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M257": {
+          "clsid": "{M260_A_M229_B_M257}",
+          "weight": 104.98
+        },
+        "M260 - 7 x UnGd Rkts, 70 mm Hydra 70, Pod Zones: A - M229; B - M259": {
+          "clsid": "{M260_A_M229_B_M259}",
+          "weight": 101.56
+        }
+      }
+    },
+    "loadout_map": {
+      "1": "L",
+      "2": "DL",
+			"3": "DC",
+			"4": "DR",
+			"5": "R"
+    },
+    "mlw_field": 5200,
+    "mtow_field": 5200,
+    "pylons": [
+      [
+        "R",
+        ""
+      ],
+      [
+        "DR",
+        ""
+      ],
+      [
+        "DC",
+        ""
+      ],
+      [
+        "DL",
+        ""
+      ],
+      [
+        "L",
+        ""
+      ]
+    ],
+    "radios": {
+      "presets": {
+        "U": {
+          "1": "225.000",
+          "10": "300.000",
+          "11": "310.000",
+          "12": "320.000",
+          "13": "330.000",
+          "14": "340.000",
+          "15": "350.000",
+          "16": "360.000",
+          "17": "370.000",
+          "18": "380.000",
+          "19": "390.000",
+          "2": "225.000",
+          "20": "395.000",
+          "3": "230.000",
+          "4": "240.000",
+          "5": "250.000",
+          "6": "260.000",
+          "7": "270.000",
+          "8": "280.000",
+          "9": "290.000"
+        },
+        "V": {
+          "1": "131.000",
+          "10": "132.000",
+          "11": "134.000",
+          "12": "136.000",
+          "13": "138.000",
+          "14": "140.000",
+          "15": "142.000",
+          "16": "144.000",
+          "17": "146.000",
+          "18": "148.000",
+          "19": "150.000",
+          "2": "116.000",
+          "20": "151.000",
+          "3": "118.000",
+          "4": "120.200",
+          "5": "122.000",
+          "6": "124.000",
+          "7": "126.000",
+          "8": "128.000",
+          "9": "130.000"
+        },
+				"FM1": {
+          "1": "30.000",
+          "10": "50.000",
+          "11": "54.000",
+          "12": "56.000",
+          "13": "60.000",
+          "14": "62.000",
+          "15": "66.000",
+          "16": "68.000",
+          "17": "72.000",
+          "18": "74.000",
+          "19": "78.000",
+          "2": "40.400",
+          "20": "80.000",
+          "21": "81.000",
+          "3": "30.000",
+          "4": "32.200",
+          "5": "36.000",
+          "6": "38.000",
+          "7": "42.000",
+          "8": "44.000",
+          "9": "48.000"
+				},
+				"FM2": {
+          "1": "30.000",
+          "10": "50.000",
+          "11": "54.000",
+          "12": "56.000",
+          "13": "60.000",
+          "14": "62.000",
+          "15": "66.000",
+          "16": "68.000",
+          "17": "72.000",
+          "18": "74.000",
+          "19": "78.000",
+          "2": "40.400",
+          "20": "80.000",
+          "21": "81.000",
+          "3": "30.000",
+          "4": "32.200",
+          "5": "36.000",
+          "6": "38.000",
+          "7": "42.000",
+          "8": "44.000",
+          "9": "48.000"
+				}
+      },
+      "priority": [
+        "U",
+        "V",
+				"FM1",
+				"FM2"
+      ]
+    }
+  },
   "SA342L": {
     "bingo": 300,
     "comments": "",
@@ -14316,17 +14692,17 @@
           "clsid": "{HOT3_R1}",
           "weight": 54.5
         },
-        "1xMistral ATAM": {
-          "clsid": "{SA342_Mistral_R1}",
-          "weight": 99.2
-        },
         "2 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_R2}",
           "weight": 62.5
         },
-        "2xMistral ATAM": {
+        "ATAM - 1 x Mistral": {
+          "clsid": "{SA342_Mistral_R1}",
+          "weight": 88.7
+        },
+        "ATAM - 2 x Mistral": {
           "clsid": "{SA342_Mistral_R2}",
-          "weight": 117.9
+          "weight": 115.9
         },
         "FN HMP400 (100rnds)": {
           "clsid": "{FN_HMP400_100}",
@@ -14406,17 +14782,17 @@
           "clsid": "{HOT3_L1}",
           "weight": 54.5
         },
-        "1xMistral ATAM": {
-          "clsid": "{SA342_Mistral_L1}",
-          "weight": 99.2
-        },
         "2 x HOT-3 - ATGM, SACLOS, HEAT": {
           "clsid": "{HOT3_L2}",
           "weight": 62.5
         },
-        "2xMistral ATAM": {
+        "ATAM - 1 x Mistral": {
+          "clsid": "{SA342_Mistral_L1}",
+          "weight": 88.7
+        },
+        "ATAM - 2 x Mistral": {
           "clsid": "{SA342_Mistral_L2}",
-          "weight": 117.9
+          "weight": 115.9
         },
         "FN HMP400 (100rnds)": {
           "clsid": "{FN_HMP400_100}",
@@ -14743,35 +15119,35 @@
       "2": {
         "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
-          "weight": 237
+          "weight": 233.9
         },
         "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "M261_MK156",
-          "weight": 240.42
+          "weight": 237.32
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "XM158_M151",
-          "weight": 112
+          "weight": 90.5
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "XM158_M156",
-          "weight": 112
+          "weight": 91.76
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "XM158_M257",
-          "weight": 112
+          "weight": 96.1
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "XM158_M274",
-          "weight": 112
+          "weight": 90.5
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "XM158_MK1",
-          "weight": 112
+          "weight": 81.61
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "XM158_MK5",
-          "weight": 112
+          "weight": 82.1
         }
       },
       "3": {
@@ -14797,35 +15173,35 @@
       "5": {
         "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "M261_MK151",
-          "weight": 237
+          "weight": 233.9
         },
         "M261 - 19 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "M261_MK156",
-          "weight": 240.42
+          "weight": 237.32
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M151, HE": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M151 HE": {
           "clsid": "XM158_M151",
-          "weight": 112
+          "weight": 90.5
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M156, Wht Phos": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M156 SM": {
           "clsid": "XM158_M156",
-          "weight": 112
+          "weight": 91.76
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M257, Para Illum": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M257 IL": {
           "clsid": "XM158_M257",
-          "weight": 112
+          "weight": 96.1
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts M274, Practice Smk": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 M274 TP-SM": {
           "clsid": "XM158_M274",
-          "weight": 112
+          "weight": 90.5
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts Mk1, Practice": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 1 HE": {
           "clsid": "XM158_MK1",
-          "weight": 112
+          "weight": 81.61
         },
-        "XM158 pod - 7 x 2.75 Hydra, UnGd Rkts Mk5, HEAT": {
+        "XM158 - 7 x UnGd Rkts, 70 mm Hydra 70 Mk 5 HEAT": {
           "clsid": "XM158_MK5",
-          "weight": 112
+          "weight": 82.1
         }
       },
       "6": {
