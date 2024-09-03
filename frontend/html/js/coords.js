@@ -36,6 +36,16 @@ const PROJ4_THEATRES = {
     'central_meridian': 147,
     'easting': 238417.99999989968,
     'northing': -1491840.000000048,
+  },
+  'SinaiMap': {
+    'central_meridian': 33,
+    'easting': 169221.9999999585,
+    'northing': -3325312.9999999693,
+  },
+  'Kola': {
+    'central_meridian': 21,
+    'easting': -62702.00000000087,
+    'northing': -7543624.999999979
   }
 }
 

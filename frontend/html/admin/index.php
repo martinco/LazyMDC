@@ -181,6 +181,9 @@
     <script src="<?php echo $kneeboard_root ?>js/jquery.sortElements.js?<?php echo time() ?>"></script>
     <script src="<?php echo $kneeboard_root ?>js/jquery.md5.js?<?php echo time() ?>"></script>
 
+    <!-- proj4 (MGRS / Coords) -->
+    <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/proj4.js"></script>
+
     <!-- Init -->
     <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/luaparse.js?<?php echo time() ?>"></script>
     <script type="text/javascript" src="<?php echo $kneeboard_root ?>../js/pad.js"></script>

@@ -318,117 +318,12 @@ MissionProcessor = function() {
   };
 
   function dcstoll(theatre, obj) {
+    coords.set_theatre(theatre)
+    let retval = coords.xz_to_ll(obj.x, obj.y)
 
-    var theatres = {
-      'PersianGulf': {
-        'northing': 2894932.9363,
-        'easting': 424243.9786,
-        'zone': 40,
-      },
-      'Nevada': {
-        'northing': 4410028.064,
-        'easting': 693996.81,
-        'zone': 11
-      },
-      'Caucasus': {
-        'northing': 4998115,
-        'easting': 599517,
-        'zone': 36,
-      },
-      'Normandy': {
-        'northing': 5484813,
-        'easting': 695526,
-        'zone': 30,
-      },
-      'TheChannel': {
-        'northing': 5636888,
-        'easting': 400623,
-        'zone': 31,
-      },
-      'Syria': {
-        'northing': 3879865,
-        'easting': 217198,
-        'zone': 37,
-      },
-      'MarianaIslands': {
-        'northing': 1491809,
-        'easting': 261577,
-        'zone': 55,
-      }
-    }
-
-    var PG_origin_northing = theatres[theatre].northing;
-    var PG_origin_easting = theatres[theatre].easting;
-    var PG_UTM_zone = theatres[theatre].zone;
-
-    // internal Geographic UTMWGS(UTM utm)
-    var east = PG_origin_easting + obj.y;
-    var north = PG_origin_northing + obj.x;
-    var zone = PG_UTM_zone;
-
-    // https://gis.stackexchange.com/questions/75528/undersMath.tanding-terms-in-length-of-degree-formula/75535
-    //
-    // major radius (a):       6 378 137.000
-    // flattening   (f):       1/298.257223563
-    // minor raidus (b):       a x (1-f)
-    //                 :       6,356,752.3142451794975639665996337
-    //
-    // circumfrance (C):       C = 2 x π x √((a2 + b2) ÷ 2) 
-    
-    // mean value of a degree of latitude in meters
-    var lat_deg_in_m = 111132.952548947;
-
-
-    var num2 = 0.144318132579788;
-    var num3 = 0.000212048798064968;
-    var num4 = 4.26695481590016E-07;
-
-    // if (band.ToCharArray()[0] < 'N' && band != "")
-    //     north -= 10000000.0;
-
-    // Latitude Degress:  north / (UTM Scale Factor) / m per deg
-    var lat_deg = north / 0.9996 / lat_deg_in_m; // num5
-    var lat_rad = lat_deg * Math.PI / 180.0; // num6
-    var num7 = lat_deg + num2 * Math.sin(2.0 * lat_rad) + num3 * Math.sin(4.0 * lat_rad) + num4 * Math.sin(6.0 * lat_rad); // num 7
-
-    var num8 = num7 * Math.PI / 180.0;
-    var num9 = Math.tan(num8);
-    var num10 = num9 * num9;
-    var num11 = num10 * num10;
-    var num12 = Math.cos(num8);
-
-
-    var num13 = 0.00673949674227643 * (num12 * num12);
-
-    // Radius of curvature at poles
-    var x1 = 6399593.62575849 / Math.sqrt(1.0 + num13);
-
-    var num14 = Math.pow(x1, 2.0);
-    var num15 = Math.pow(x1, 3.0);
-    var num16 = Math.pow(x1, 4.0);
-    var num17 = Math.pow(x1, 5.0);
-    var num18 = Math.pow(x1, 6.0);
-
-    var num19 = ((zone - 30) * 6 - 3);
-    var x2 = (east - 500000.0) / 0.9996;
-    var num21 = Math.pow(x2, 3.0);
-    var num22 = Math.pow(x2, 4.0);
-    var num23 = Math.pow(x2, 5.0);
-    var num24 = Math.pow(x2, 6.0);
-    var num26 = num9 * (5.0 + 3.0 * num10 + 6.0 * num13 * (1.0 - num10)) / (24.0 * num16);
-    var num27 = -num9 * (61.0 + 90.0 * num10 + 45.0 * num11) / (720.0 * num18);
-    var num28 = 1.0 / (x1 * num12);
-    var num29 = -(1.0 + 2.0 * num10 + num13) / (6.0 * num15 * num12);
-    var num30 = (5.0 + 28.0 * num10 + 24.0 * num11) / (120.0 * num17 * num12);
-    var lon = num19 + 180.0 / Math.PI * (num28 * x2 + num29 * num21 + num30 * num23);
-
-
-    var num20 = Math.pow(x2, 2.0);
-    var num25 = -num9 * (1.0 + num13) / (2.0 * num14);
-    var lat = num7 + 180.0 / Math.PI * (num25 * num20 + num26 * num22 + num27 * num24);
-
-    obj.lat = Number(lat.toFixed(12));
-    obj.lon = Number(lon.toFixed(12));
+    // update object in place
+    obj.lat = Number(retval.lat.toFixed(12));
+    obj.lon = Number(retval.lon.toFixed(12));
     return obj
   }
 
