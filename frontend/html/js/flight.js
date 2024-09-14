@@ -186,13 +186,13 @@ function flightmembers_items(ac) {
       ['OID', 50, "text-center", "number"])
   };
 
-  if (!["UH-1H", "Ka-50", "Mi-8MT", "AH-64D"].includes(ac)) {
+  if (!["UH-1H", "Ka-50", "Mi-8MT", "AH-64D", "UH-60L"].includes(ac)) {
     cols.push(
       ['TCN', 50, "text-center", "text", '^([0-9]+\\s*(X|Y))?$', function(field) { tcn_formatter(field); } ],
     );
   }
 
-  if (!["UH-1H", "Mi-8MT"].includes(ac)) {
+  if (!["UH-1H", "Mi-8MT", "UH-60L"].includes(ac)) {
 
     // Whilst the M2k doesn't have a pod, we still include LSR as it can carry
     // GPU-12s and as such it is still required for reference to set the code

@@ -641,6 +641,7 @@ MissionProcessor = function() {
       'UH-1H': ['UHF'],
       'AH-64D': ['V', 'U', 'FM1', 'FM2'],
       'OH58D': ['UHF', 'VHF', 'FM1', 'FM2'],
+      'UH-60L': ['FM1', 'UHF', 'VHF', 'FM2', 'HF'],
     }
 
     var errors = [];
