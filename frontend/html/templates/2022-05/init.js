@@ -1198,10 +1198,13 @@ var Presets = function(data, unit) {
             label_cls = 'text-bold';
           }
 
-					let name = pst.code ?? ""
-					if (pst.name) {
-						if (name) name += ": "
-						name += pst.name
+					let name = pst.name ?? ""
+					if (pst.code) {
+						if (name) {
+							name += ` (${pst.code}) `
+						} else {
+							name += pst.code
+						}
 					}
 
           html += `<tr>`;
@@ -1218,10 +1221,13 @@ var Presets = function(data, unit) {
             label_cls = 'text-bold';
           }
 
-					name = pst.code ?? ""
-					if (pst.name) {
-						if (name) name += ": "
-						name += pst.name
+					name = pst.name ?? ""
+					if (pst.code) {
+						if (name) {
+							name += ` (${pst.code}) `
+						} else {
+							name += pst.code
+						}
 					}
 
           html += `
@@ -1266,10 +1272,13 @@ var Presets = function(data, unit) {
               label_cls = 'text-bold';
             }
 
-						let name = pst.code ?? ""
-						if (pst.name) {
-							if (name) name += ": "
-							name += pst.name
+						let name = pst.name ?? ""
+						if (pst.code) {
+							if (name) {
+								name += ` (${pst.code}) `
+							} else {
+								name += pst.code
+							}
 						}
 
             html += `
