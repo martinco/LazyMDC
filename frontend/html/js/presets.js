@@ -7,6 +7,41 @@ $(document).on({
   'frequency-updated': presets_update_inuse,
 });
 
+function form_title(elem) {
+	let retval = [];
+
+	let prefix = elem.attr('data-prefix');
+	if (prefix) { retval.push(prefix); }
+
+	let title = elem.attr('data-title');
+	if (title) {
+		let value = $('#' + title).val();
+		if (value) {
+			retval.push(value);
+		} else {
+			retval.push(title);
+		};
+	}
+
+	// If we have no retval yet, we just pick the row's first cell and suffix
+	// column title
+	if (!title) {
+
+		// Named title column or first column
+		let title_col = parseInt(elem.attr('data-title-col')) || 0;
+		let value = elem.closest('tr')[0].cells[title_col].firstChild.value;
+		if(value) { retval.push(value); }
+
+		// Column header
+		value = elem.closest('table').find('th').eq(elem.parent().index()).text();
+		if(value && value != 'FREQ') { retval.push(value); }
+	}
+
+	let suffix = elem.attr('data-suffix');
+	if (suffix) { retval.push(suffix); }
+
+	return retval.join(" ");
+}
 
 function presets_update_inuse() {
   // Find all the presets in use, and update the table with info icons on those
@@ -16,41 +51,6 @@ function presets_update_inuse() {
   // so we're very much bolt-on until we re-do the whole site, but at least we
   // have the functionality to add to requirements / UX
 
-  let form_title = (elem) => {
-    let retval = [];
-
-    let prefix = elem.attr('data-prefix');
-    if (prefix) { retval.push(prefix); }
-
-    let title = elem.attr('data-title');
-    if (title) {
-      let value = $('#' + title).val();
-      if (value) {
-        retval.push(value);
-      } else {
-        retval.push(title);
-      };
-    }
-
-    // If we have no retval yet, we just pick the row's first cell and suffix
-    // column title
-    if (!title) {
-
-      // Named title column or first column
-      let title_col = parseInt(elem.attr('data-title-col')) || 0;
-      let value = elem.closest('tr')[0].cells[title_col].firstChild.value;
-      if(value) { retval.push(value); }
-
-      // Column header
-      value = elem.closest('table').find('th').eq(elem.parent().index()).text();
-      if(value && value != 'FREQ') { retval.push(value); }
-    }
-
-    let suffix = elem.attr('data-suffix');
-    if (suffix) { retval.push(suffix); }
-
-    return retval.join(" ");
-  }
 
   // Compile a list of all our frequencies 
   let inuse = {};
@@ -346,6 +346,31 @@ function presets_load(data, callback) {
 
 function presets_export() {
 
+	// Load up our manual comms table
+  let freq_lookup = {};
+  $("input.freq-autocomplete:not(.freq-preset-table)").each(function(idx, elem) {
+
+    // If we have a data-title => references a cell ID of  name
+    // If we have a data-suffix => Append to name
+    // If we have neither, don't know what to do
+    let jelem = $(elem);
+
+    let ignoreif = $(elem).attr('data-exclude-if-hidden');
+    if (ignoreif && $('#' + ignoreif).is(':hidden')) {
+      return;
+    }
+
+    let value = jelem.val();
+    if (!value) { return; }
+    freq_lookup[value] = form_title(jelem);
+  });
+
+	// Then merge in the default agencies
+	for (const [k, v] of Object.entries(getDict(mission_data, 'data', 'agencies', $('#data-side').val()))) {
+		if (!freq_lookup[v.pri]) freq_lookup[v.pri] = `${k} PRI`
+		if (!freq_lookup[v.sec]) freq_lookup[v.sec] = `${k} SEC`
+	}
+
   // For each of our presets, add the color code for the MDC
   let retval = {
     'priority': presets.priority,
@@ -357,9 +382,9 @@ function presets_export() {
     for (const[pst, info] of Object.entries(preset_data)) {
       let code = lookup_freq_code(info.override || info.value);
       retval.radios[radio][pst] = info
-      if (code) {
-        retval.radios[radio][pst].code = code
-      }
+      if (code) retval.radios[radio][pst].code = code
+			let name = freq_lookup[info.override || info.value]
+			if (name) retval.radios[radio][pst].name = name
     }
   }
 

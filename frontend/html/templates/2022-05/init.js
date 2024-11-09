@@ -1116,7 +1116,7 @@ var Presets = function(data, unit) {
       <div style="height:10px"></div>
     `;
 
-    // 2 rows for each radio + 1 spacer, unless we're an AH-64D, in which case,
+    // 3 columns for each radio + 1 spacer, unless we're an AH-64D, in which case,
     // we have 4 radios, each with 10 presets, so can fit on one page with 2
     // tables
     
@@ -1125,9 +1125,9 @@ var Presets = function(data, unit) {
     if (ac == 'AH-64D') {
     } else if (priorities.length > 0) {
 
-      var col_group = '<col width=40px /><col width=85px/><col width=122px/><col width=18px/>'.repeat(priorities.length-1)
+      var col_group = '<col width=40px /><col width=85px/><col width=250px/><col width=18px/>'.repeat(priorities.length-1)
 
-      var headers = `<td class="bg-blank" style="border:0"></td>`;
+      var headers = '';
       for (const idx in priorities) {
         headers += `<th colspan=3>${priorities[idx]}</th>`;
         if (idx < priorities.length-1) {
@@ -1138,11 +1138,9 @@ var Presets = function(data, unit) {
       html += `
       <table class="kb-width std std-striped" style="table-layout: fixed">
         <colgroup>
-          <col />
           ${col_group}
-          <col width=40px /><col width=85px/><col width=122px/>
-          <col />
-        </colgroup>
+          <col width=40px /><col width=85px/><col width=250px/>
+				</colgroup>
         <tbody>
           <tr class="header">
             ${headers}
@@ -1179,19 +1177,15 @@ var Presets = function(data, unit) {
         <div style="height:20px"></div>
         <table class="kb-width std std-striped" style="table-layout: fixed">
           <colgroup>
-            <col/>
-            <col width=40px /><col width=85px/><col width=122px/>
-            <col/>
-            <col width=40px /><col width=85px/><col width=122px/>
-            <col/>
+            <col width=40px /><col width=85px/><col width=250px/>
+            <col width=18px />
+            <col width=40px /><col width=85px/><col width=250px/>
           </colgroup>
           <tbody>
             <tr class="header">
-              <td class="bg-blank" style="border:0"></td>
               <th colspan=3>${priorities[start]}</th>
               <td class="bg-blank" style="border:0"></td>
               <th colspan=3>${priorities[start+1]}</th>
-              <td class="bg-blank" style="border:0"></td>
             </tr>`;
 
         for (var x = 1; x <= 10; x++) {
@@ -1203,13 +1197,18 @@ var Presets = function(data, unit) {
             label = `*${x}`;
             label_cls = 'text-bold';
           }
-          
+
+					let name = pst.code ?? ""
+					if (pst.name) {
+						if (name) name += ": "
+						name += pst.name
+					}
+
           html += `<tr>`;
           html += `
-            <td class="bg-blank" style="border:0"></td>
             <td class="text-right rp5 ${label_cls}">${label}</td>
             <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
-            <td class="lp5">${pst.code ? pst.code : ""}</td>
+            <td class="lp5">${name}</td>
             <td class="bg-blank" style="border:0"></td>
           `;
 
@@ -1219,11 +1218,16 @@ var Presets = function(data, unit) {
             label_cls = 'text-bold';
           }
 
+					name = pst.code ?? ""
+					if (pst.name) {
+						if (name) name += ": "
+						name += pst.name
+					}
+
           html += `
             <td class="text-right rp5 ${label_cls}">${label}</td>
             <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
-            <td class="lp5">${pst.code ? pst.code : ""}</td>
-            <td class="bg-blank" style="border:0"></td>
+            <td class="lp5">${name}</td>
           `;
 
           html += `</tr>`;
@@ -1249,7 +1253,7 @@ var Presets = function(data, unit) {
 
       // loop 1-30
       for (var x = 1; x <= presets; x++) {
-        html += '<tr><td class="bg-blank" style="border:0"></td>';
+        html += '<tr>';
         for (const [radio_id, radio] of Object.entries(priorities)) {
           var pst = data.radios[radio][x];
           if (pst) {
@@ -1262,10 +1266,16 @@ var Presets = function(data, unit) {
               label_cls = 'text-bold';
             }
 
+						let name = pst.code ?? ""
+						if (pst.name) {
+							if (name) name += ": "
+							name += pst.name
+						}
+
             html += `
               <td class="text-right rp5 ${label_cls}">${label}</td>
               <td class="text-bold text-right rp5">${pst.override || pst.value}</td>
-              <td class="lp5">${pst.code ? pst.code : ""}</td>`;
+							<td class="lp5">${name}</td>`;
             if (radio_id < radio_count-1) {
               html += '<td class="bg-blank" style="border:0"></td>';
             }
@@ -1274,7 +1284,7 @@ var Presets = function(data, unit) {
             html += `<td class="bg-blank" style="border:0"></td>`;
           }
         }
-        html += '<td class="bg-blank" style="border:0"></td></tr>';
+        html += '</tr>';
       }
 
       content.push($(html));
