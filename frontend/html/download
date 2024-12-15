@@ -743,11 +743,7 @@ class DCS_DTC():
         else:
             lat_str += '%03d°' % degs
 
-        # 18 uses 2 DP, 16 uses 3
-        if self._ac == 'FA-18C':
-            lat_str += '%05.2f' % mins
-        else:
-            lat_str += '%06.3f' % mins
+        lat_str += '%06.3f' % mins
 
         return lat_str
 
