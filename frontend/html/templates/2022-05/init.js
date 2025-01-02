@@ -1199,12 +1199,8 @@ var Presets = function(data, unit) {
           }
 
 					let name = pst.name ?? ""
-					if (pst.code) {
-						if (name) {
-							name += ` (${pst.code}) `
-						} else {
-							name += pst.code
-						}
+					if (pst.code && !name) {
+						name = pst.code
 					}
 
           html += `<tr>`;
@@ -1222,12 +1218,8 @@ var Presets = function(data, unit) {
           }
 
 					name = pst.name ?? ""
-					if (pst.code) {
-						if (name) {
-							name += ` (${pst.code}) `
-						} else {
-							name += pst.code
-						}
+					if (pst.code && !name) {
+						name = pst.code
 					}
 
           html += `
@@ -1273,12 +1265,8 @@ var Presets = function(data, unit) {
             }
 
 						let name = pst.name ?? ""
-						if (pst.code) {
-							if (name) {
-								name += ` (${pst.code}) `
-							} else {
-								name += pst.code
-							}
+						if (pst.code && !name) {
+							name = pst.code
 						}
 
             html += `
