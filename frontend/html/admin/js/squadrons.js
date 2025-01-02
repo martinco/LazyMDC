@@ -2346,6 +2346,207 @@ $('#squadrons-add-custom-navpoint').on('click', function() {
   squadrons_edit_navpoint_add("custom", null, null, null, null, null, true);
 });
 
+function get_navpoints() {
+	// lat lon title
+	let points = {}
+
+  // Navpoints - oh so many sources of navpoints
+  $("#squadrons-edit-mission-edit-navpoints-table > tbody > tr").each(function(a, tr) {
+    if (tr.cells.length) {
+
+      // If we have no ID then we don't exist (deleted)
+      if (!tr.hasAttribute('data-id')) { return; }
+      if (tr.hasAttribute("data-delete")) { return; }
+
+      var np_data = $(tr).data() || {};
+      var type = np_data.type || "custom";
+
+      // Overrides
+      var data = get_modified_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', '-', 'alt', 'hide']);
+      var name = np_data.name || data.name;
+
+      // Refuse to save if we have no name, lat or lon
+      if (!name || !(data.lat || (np_data && np_data.data.lat)) || !(data.lon || (np_data || np_data.data.lon))) { return; }
+
+      // navpoints have a data, custom do not
+      if (type == "custom") {
+        var cdata = get_row_data(tr, ['-', '-', 'type', 'side', 'name', 'lat', '-', 'alt', 'hide']);
+        if (cdata.lat) {
+          points[cdata.name] = [parseFloat(cdata.lat[0]), parseFloat(cdata.lat[1])]
+        }
+      } else if (Object.keys(data).length && data.lat) {
+				points[name] = [data.lat[0], data.lat[1]]
+      } else if (np_data && np_data.data && type != "custom") {
+        points[np_data.name] = [np_data.data.lat, np_data.data.lon]
+      }
+    }
+  });
+
+	return points
+}
+
+var entityMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+  '/': '&#x2F;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
+function escapeHtml (string) {
+  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
+
+$('#squadrons-download-navpoint-csv').on('click', function() {
+
+	let points = get_navpoints()
+
+	let csv = ''
+	for (const [k, v] of Object.entries(points)) {
+		csv = csv + coords.format_ll(v[0], v[1], 3, 'cf').join(" ") + ',' + k + "\n"
+	}
+
+	navigator.clipboard.writeText(csv);
+
+	$("#side-bar").overhang({
+			custom: true,
+			primary: "#444444",
+			accent: "#222222",
+			message: "Copied to Clipboard",
+	});
+
+});
+
+$('#squadrons-download-navpoint-cf').on('click', function() {
+
+	let points = get_navpoints()
+	let theater = $('#squadrons').data('mission_data').data.theatre
+
+	// Hack for CF
+	if (theater == 'Kola') {
+		theater = 'TheChannel'
+	}
+
+	let environment = {
+		'Year': 2022,
+		'Month': 11,
+		'Day': 2,
+		'Starttime': '43200',
+		'MagVar': 0,
+		'QNH': 1013,
+		'Wind1600_Dir': 0,
+		'Wind1600_Speed': 0,
+		'Wind26000_Dir': 0,
+		'Wind26000_Speed': 0,
+		'Wind33_Dir': 0,
+		'Wind33_Speed': 0,
+		'Wind6600_Dir': 0,
+		'Wind6600_Speed': 0,
+		'CloudBase': 984,
+		'CloudCoverage': 0,
+		'CloudThickness': 0,
+		'Fog': 'False',
+		'FogThickness': 0,
+		'Precipitation': 0,
+		'Temperature': 20,
+		'Turbulence': 0,
+		'Visibility': 82,
+		'Dynamic': 'False',
+		'Preset': 'Nothing',
+	}
+
+	var cf = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>\n'
+	cf += '<Mission>\n'
+	cf += `  <Theater>${theater}</Theater>\n`
+	cf += '  <MissionName>Mission</MissionName>\n'
+	cf += '  <Environment>\n'
+	for (const [k, v] of Object.entries(environment)) {
+		cf += `    <${k}>${v}</${k}>\n`
+	}
+	cf += '  </Environment>\n'
+	cf += '  <Airspace>\n'
+	cf += '    <Name>Exported</Name>\n'
+	cf += `    <Tag>${crypto.randomUUID()}</Tag>\n`
+	cf += '    <Enabled>True</Enabled>\n'
+	cf += '    <Expanded>True</Expanded>\n'
+	cf += '    <RefPoints>\n'
+
+	for (const [k, v] of Object.entries(points)) {
+		cf += '      <RefPoint>\n'
+		cf += `        <Name>${escapeHtml(k)}</Name>\n`
+		cf += '        <Comment />\n'
+		cf += `        <Tag>${crypto.randomUUID()}</Tag>\n`
+		cf += '        <Enabled>True</Enabled>\n'
+		cf += '        <Locked>False</Locked>\n'
+		cf += '        <ImageKey>RefPoint</ImageKey>\n'
+		cf += '        <Type>Other</Type>\n'
+		cf += '        <Color>-2354116</Color>\n'
+		cf += `        <Lon>${v[1]}</Lon>\n`
+		cf += `        <Lat>${v[0]}</Lat>\n`
+		cf += '      </RefPoint>\n'
+	}
+
+	cf += '    </RefPoints>\n'
+	cf += '  </Airspace>\n'
+
+	var bulls_color = {
+		'BlueBullseye': '-16776961',
+		'RedBullseye': '-65536',
+		'NeutralBullseye': '-16744448',
+	}
+
+  // Bulls
+  $("#squadrons-edit-mission-edit-bullseye-table > tbody > tr").each(function(a, tr) {
+    if (tr.cells.length) {
+
+      // override
+      var data = get_base_row_data(tr, ["side", "name", "lat", "-"]);
+      var name = tr.cells[0].getAttribute('data-base');
+			var tag = `${name[0].toUpperCase() + name.slice(1).toLowerCase()}Bullseye`
+
+			cf += `  <${tag}>\n`
+			cf += '    <Name>Bullseye</Name>\n'
+			cf += `    <Color>${bulls_color[tag]}</Color>\n`
+			cf += '    <OuterRing>100</OuterRing>\n'
+			cf += '    <Rings>4</Rings>\n'
+			cf += '    <Spokes>8</Spokes>\n'
+			cf += `    <Lat>${data.lat}</Lat>\n`
+			cf += `    <Lon>${data.lon}</Lon>\n`
+			cf += '    <ShowName>True</ShowName>\n'
+			cf += '    <ShowRngLabels>True</ShowRngLabels>\n'
+			cf += '    <LineThickness>3</LineThickness>\n'
+			cf += '    <Opacity>182</Opacity>\n'
+			cf += '    <Locked>True</Locked>\n'
+			cf += `  </${tag}>\n`
+    }
+  });
+
+	cf += '</Mission>\n'
+
+	let zipWriter = new zip.createWriter(new zip.BlobWriter("application/zip"), function(writer) {
+		writer.add("mission.xml", new zip.TextReader(cf), () => {
+			writer.close((blob) => {
+				if(window.navigator.msSaveOrOpenBlob) {
+					window.navigator.msSaveBlob(blob, filename);
+				} else {
+					const elem = window.document.createElement('a');
+					elem.href = window.URL.createObjectURL(blob);
+					elem.download = "points.cf";
+					document.body.appendChild(elem);
+					elem.click();
+					document.body.removeChild(elem);
+				}
+			});
+		})
+	});
+
+});
+
 // AGENCIES
 $('#squadrons-edit-mission-edit-agencies-button').on('click', function() {
   squadrons_edit_mission_add_agency();
