@@ -46,7 +46,12 @@ const PROJ4_THEATRES = {
     'central_meridian': 21,
     'easting': -62702.00000000087,
     'northing': -7543624.999999979
-  }
+  },
+  'GermanyCW': {
+    'central_meridian': 21,
+    'easting': 35427.619999985734,
+    'northing': -6061633.128000011
+  },
 }
 
 
