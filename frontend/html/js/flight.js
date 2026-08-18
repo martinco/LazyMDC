@@ -95,7 +95,7 @@ function flight_update_default_coord_format() {
   var fmt = "ddm"
   var dp = 3
 
-  if (ac == "F-14B") {
+  if (["F-14B", "F-14BU"].includes(ac)) {
     dp = 1
   } else if (ac == 'AV8BNA') {
     fmt = "dms";
@@ -138,7 +138,7 @@ function flightmembers_items(ac) {
     ["PILOT", 0, "", "text", "^.+$"],
   ];
 
-  if (ac == "F-14B") {
+  if (["F-14B", "F-14BU"].includes(ac)) {
     cols.push(['RIO', 0, "", "text"])
   };
 
@@ -175,7 +175,7 @@ function flightmembers_items(ac) {
     )
   }
 
-  if (["F-14B", "FA-18C"].includes(ac)) {
+  if (["F-14B", "F-14BU", "FA-18C"].includes(ac)) {
     cols.push(
       ['BORT', 50, "text-center", "number"])
   };
@@ -201,7 +201,7 @@ function flightmembers_items(ac) {
     cols.push(
       ['LSR', 50, "text-center", "number"])
 
-    if (!["AH-64D", "Ka-50", "F-14B", "M-2000C"].includes(ac)) {
+    if (!["AH-64D", "Ka-50", "F-14B", "F-14BU", "M-2000C"].includes(ac)) {
       cols.push(
         ['LSS', 50, "text-center", "number"])
     }

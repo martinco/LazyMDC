@@ -146,11 +146,17 @@ function presets_build_lookups() {
       var k = Object.keys(v)[0];
       preset_lookups[freq] = `${abbrev[k] || k}-${v[k]}`;
     } else {
+      let order = []
       if (typeof(prio) !== "array") {
-        prio = Object.keys(v);
+      let matched = Object.keys(v);
+        for (const pick of prio) {
+          if (v[pick]) order.push(pick)
+        }
+      } else {
+        order = prio
       }
       var elems = [];
-      for (const pick of prio) {
+      for (const pick of order) {
         if (v[pick]) {
           elems.push(v[pick]);
         }

@@ -296,7 +296,7 @@ function Flight(data, unit) {
       ["PILOT", 0, "lp5"],
     ]
 
-    if (ac == "F-14B") {
+    if (["F-14B", "F-14BU"].includes(ac)) {
       cols.push(['RIO', 0, "lp5"])
     }
     if (ac == "F-15ESE") {
@@ -315,7 +315,7 @@ function Flight(data, unit) {
       cols.push(['HM DEVICE', 80, "text-center"]);
     }
 
-    if (["F-14B", "FA-18C"].includes(ac)) {
+    if (["F-14B", "F-14BU", "FA-18C"].includes(ac)) {
       cols.push(['BORT', 60, "text-center"])
     }
 
@@ -1054,7 +1054,7 @@ var Tacans = function(data, unit) {
   }
 
   this.content = (function() {
-    if (ac != 'F-14B') { return []; }
+    if (!['F-14B', 'F-14BU'].includes(ac)) { return []; }
 
     var content = [];
 
@@ -1431,7 +1431,7 @@ var Waypoints = function(data, unit) {
           }
         }
 
-        if (data.flight['flight-airframe'] === 'F-14B' && wp.nearest_tcn) {
+        if (['F-14B', 'F-14BU'].includes(data.flight['flight-airframe']) && wp.nearest_tcn) {
           html += `
             <td class="wp-param text-left lp5">${wp.nearest_tcn.channel}</td>
             <td class="text-center" style='white-space: pre'>${wp.nearest_tcn.brg.toFixed(0).padStart(3, '0')}/${wp.nearest_tcn.rng.toFixed(0).padStart(3, ' ')}</td>`;

@@ -629,6 +629,7 @@ MissionProcessor = function() {
       'F-16C': ['U', 'V'],
       'AV8BNA': ['PRI', 'SEC', 'RCS'],
       'F-14B': ['FWD', 'AFT'],
+      'F-14BU': ['FWD', 'AFT'],
       'F-15ESE': ['PRI', 'SEC'],
       'F-16C': ['U', 'V'],
       'FA-18C': ['PRI', 'SEC'],

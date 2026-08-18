@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     for airframe, loadout in updates.items():
         if airframe not in data:
-            print >> sys.stderr, "Not found:", airframe
+            print("Not found:", airframe, file=sys.stderr)
             continue
         data[airframe]['loadout'] = loadout
 
